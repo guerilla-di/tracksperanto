@@ -1,0 +1,5 @@
+require File.dirname(__FILE__) + '/../lib/tracksperanto'
+require 'test/unit'
+require 'rubygems'
+require 'flexmock'
+require 'flexmock/test_unit'

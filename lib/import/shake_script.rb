@@ -86,7 +86,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   TRACKER_PATTERN = /((\w+) = Tracker\(([^;]+))/m
   
-  def self.parse(sript_file_content)
+  def parse(sript_file_content)
     
     trackers = []
     

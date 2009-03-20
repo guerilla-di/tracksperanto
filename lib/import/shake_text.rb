@@ -2,7 +2,7 @@ require 'stringio'
 
 class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   
-  def self.parse(track_file_content)
+  def parse(track_file_content)
     trackers = []
     io = StringIO.new(track_file_content)
     until io.eof?

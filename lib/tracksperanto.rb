@@ -16,7 +16,7 @@ module Tracksperanto
       into.extend(self)
       super
     end
-
+    
     def cast_to_float(*attributes)
       attributes.each do | an_attr |
         define_method(an_attr) { instance_variable_get("@#{an_attr}").to_f }
@@ -28,6 +28,23 @@ module Tracksperanto
       attributes.each do | an_attr |
         define_method(an_attr) { instance_variable_get("@#{an_attr}").to_i }
         define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_i) }
+      end
+    end
+  end
+  
+  module Safety
+    def self.included(into)
+      into.extend(self)
+      super
+    end
+    
+    def safe_reader(*attributes)
+      attributes.each do | an_attr |
+        define_method(an_attr) do
+          val = instance_variable_get("@#{an_attr}")
+          raise "Expected #{an_attr} on #{self} not to be nil" if val.nil?
+          val
+        end
       end
     end
   end

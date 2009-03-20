@@ -6,7 +6,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   def test_parsing_many_tracker_noes_with_one_track_each
     fixture = File.read(File.dirname(__FILE__) + '/samples/shake_tracker_nodes.shk')
     
-    trackers = Tracksperanto::Import::ShakeScript.parse(fixture)
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 50, trackers.length
     
     t = trackers[0]
@@ -25,7 +25,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   def test_parsing_many_tracks_in_one_tracker_node
     fixture = File.read(File.dirname(__FILE__) + '/samples/two_tracks_in_one_tracker.shk')
     
-    trackers = Tracksperanto::Import::ShakeScript.parse(fixture)
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 2, trackers.length
     
     t = trackers[0]
@@ -44,7 +44,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   def test_parsing_many_tracks_in_one_stabilizer_node
     fixture = File.read(File.dirname(__FILE__) + '/samples/three_tracks_in_one_stabilizer.shk')
     
-    trackers = Tracksperanto::Import::ShakeScript.parse(fixture)
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 3, trackers.length
   end
 end

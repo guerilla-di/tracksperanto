@@ -10,7 +10,7 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
   end
   
   private
-  
+    
     # Syntheyes wants very special coordinates, Y down X right,
     # 0 is center and values are UV float -1 to 1, doubled
     def syntheyes_coords(abs_x, abs_y)

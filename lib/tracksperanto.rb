@@ -5,18 +5,25 @@ module Tracksperanto
   module Middleware; end
   
   class << self
+    # Returns the array of all exporter classes defined
     attr_accessor :exporters
+
+    # Returns the array of all importer classes defined
     attr_accessor :importers
+
+    # Returns the array of all available middlewares
     attr_accessor :middlewares
   end
   self.exporters, self.importers, self.middlewares = [], [], []
   
+  # Helps to define things that will forcibly become floats, integers or strings
   module Casts
     def self.included(into)
       into.extend(self)
       super
     end
     
+    # Same as attr_accessor but will always convert to Float internally
     def cast_to_float(*attributes)
       attributes.each do | an_attr |
         define_method(an_attr) { instance_variable_get("@#{an_attr}").to_f }
@@ -24,10 +31,19 @@ module Tracksperanto
       end
     end
     
+    # Same as attr_accessor but will always convert to Integer/Bignum internally
     def cast_to_int(*attributes)
       attributes.each do | an_attr |
         define_method(an_attr) { instance_variable_get("@#{an_attr}").to_i }
         define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_i) }
+      end
+    end
+    
+    # Same as attr_accessor but will always convert to String internally
+    def cast_to_string(*attributes)
+      attributes.each do | an_attr |
+        define_method(an_attr) { instance_variable_get("@#{an_attr}").to_s }
+        define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_s) }
       end
     end
   end
@@ -38,10 +54,12 @@ module Tracksperanto
       super
     end
     
+    # Inject a reader that checks for nil
     def safe_reader(*attributes)
       attributes.each do | an_attr |
+        alias_method "#{an_attr}_without_nil_protection", an_attr
         define_method(an_attr) do
-          val = instance_variable_get("@#{an_attr}")
+          val = send("#{an_attr}_without_nil_protection")
           raise "Expected #{an_attr} on #{self} not to be nil" if val.nil?
           val
         end
@@ -57,8 +75,17 @@ module Tracksperanto
   
   # Internal representation of a tracker
   class Tracker
+    include Casts
     include BlockInit
-    attr_accessor :name, :keyframes
+
+    # Contains the array of all Keyframe objects for this tracker
+    attr_accessor :name
+    
+    # Contains the array of all Keyframe objects for this tracker
+    attr_accessor :keyframes
+    
+    cast_to_string :name
+    
     def initialize
       @name, @keyframes = 'Tracker', []
       super if block_given?
@@ -67,8 +94,8 @@ module Tracksperanto
   
   # Internal representation of a keyframe
   class Keyframe
-    include Tracksperanto::Casts
-    include Tracksperanto::BlockInit
+    include Casts
+    include BlockInit
     
     # Absolute integer frame where this keyframe is placed, 0 based
     attr_accessor :frame

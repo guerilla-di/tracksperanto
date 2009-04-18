@@ -17,6 +17,11 @@ class KeyframeTest < Test::Unit::TestCase
     kf = Tracksperanto::Keyframe.new {|k|  k.frame = '0' }
     assert_equal 0, kf.frame
   end
+  
+  def test_residual_defaults_to_zero
+    kf = Tracksperanto::Keyframe.new
+    assert_in_delta 0.0, kf.residual, 0.01
+  end
 
   def test_abs_x_abs_y_translated_to_float
     kf = Tracksperanto::Keyframe.new {|k|  k.abs_x = '123.45678'; k.abs_y = '321.45678' }

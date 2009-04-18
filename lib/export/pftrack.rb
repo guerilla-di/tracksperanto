@@ -1,5 +1,10 @@
 class Tracksperanto::Export::Pftrack < Tracksperanto::Export::Base
     
+    # Should return the suffix and extension of this export file (like "_flame.stabilizer")
+    def self.desc_and_extension
+      "pftrack.2dt"
+    end
+    
     def start_tracker_segment(tracker_name)
       # If there was a previous tracker, write it out
       # - now we know how many keyframes it has
@@ -10,7 +15,7 @@ class Tracksperanto::Export::Pftrack < Tracksperanto::Export::Base
           @prev_tracker.length,
           @prev_tracker.join("\n")
         ]
-        @io.puts nlock.join("\n")
+        @io.puts block.join("\n")
       end
       
       # Setup for the next tracker

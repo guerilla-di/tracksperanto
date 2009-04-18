@@ -22,6 +22,10 @@ class Tracksperanto::Pipeline
     )
     
     # Setup middlewares - skip for now
+    scaler = Tracksperanto::Middleware::Scaler.new(mux)
+    slipper = Tracksperanto::Middleware::Slipper.new(scaler)
+    
+    yield(scaler, slipper) if block_given?
     
     # Run the export
     trackers = parser.parse(read_data)
@@ -31,17 +35,17 @@ class Tracksperanto::Pipeline
       @converted_points ||= 0
       @converted_points += 1
       
-      mux.start_tracker_segment(t.name)
+      slipper.start_tracker_segment(t.name)
       t.keyframes.each do | kf |
         
         @converted_keyframes ||= 0
         @converted_keyframes += 1
         
-        mux.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
+        slipper.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
       end
     end
-  
-    mux.end_export
+    
+    slipper.end_export
   end
 end
   

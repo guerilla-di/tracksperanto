@@ -18,20 +18,30 @@ require 'optparse'
 reader_klass = Tracksperanto::Import::ShakeScript
 width = 1920
 height = 1080
+scale_x = 1.0
+scale_y = 1.0
+slip = 0
+
+readers = Tracksperanto::Import.constants.map{|e| e.to_s }.reject{|e| e == 'Base'}
+informative_readers = readers.reject{|e| e == 'ShakeScript'}
 
 parser = OptionParser.new do | p |
  p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
- p.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator (defaults to ShakeScript)") do | f |
+ p.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator (defaults to ShakeScript, but can be \
+ #{informative_readers.join(', ')})") do | f |
    begin
      reader_klass = Tracksperanto::Import.const_get(f)
    rescue NameError => e
-     readers = Tracksperanto::Import.constants.map{|e| e.to_s }.reject{|e| e == 'Base'}.join("\n\t")
+     reader_list = readers.join("\n\t")
      STDERR.puts "Unknown reader #{f.inspect}, available readers:\n\t#{readers}"
      exit(-1)
     end
  end
  p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels") { |w| width = w }
  p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels") {|w| height = w }
+ p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") {|sx| scale_x = sx }
+ p.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)") {|sy| scale_y = sy }
+ p.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'") {|sy| slip = sy }
 end
 
 begin
@@ -50,5 +60,10 @@ if !input_file
 end
 
 pipe = Tracksperanto::Pipeline.new
-pipe.run(input_file, width, height, reader_klass)
+pipe.run(input_file, width, height, reader_klass) do | scaler, slipper |
+  slipper.slip = slip
+  scaler.x_factor = scale_x
+  scaler.y_factor = scale_y
+end
+
 puts "Converted #{pipe.converted_points} trackers"

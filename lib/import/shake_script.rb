@@ -107,7 +107,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         
         # Skip frame if only one keyframe is present
         if !matching_y
-          STDERR.puts "Cannot find matching Y for frame #{value_at.frame}"
+          STDERR.puts "Cannot find matching Y for frame #{value_at.frame} in tracker #{parser.name}, skipping keyframe"
           next
         end
         

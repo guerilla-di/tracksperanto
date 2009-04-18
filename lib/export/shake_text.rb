@@ -2,6 +2,11 @@ class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   PREAMBLE = "TrackName %s\n   Frame             X             Y   Correlation\n"
   POSTAMBLE = "\n"
   
+  # Should return the suffix and extension of this export file (like "_flame.stabilizer")
+  def self.desc_and_extension
+    "shake_trackers.txt"
+  end
+  
   def start_tracker_segment(tracker_name)
     if @any_tracks
       @io.puts POSTAMBLE

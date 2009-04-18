@@ -6,12 +6,18 @@ class Tracksperanto::Export::Base
     super
   end
   
+  # Should return the suffix and extension of this export file (like "_flame.stabilizer"). It's a class
+  # method because it gets requested before the exporter is instantiated
+  def self.desc_and_extension
+    "data.txt"
+  end
+  
   def initialize(write_to_io)
     @io = write_to_io
   end
   
   # Called on export start
-  def start_export(export_name, img_width, img_height)
+  def start_export( img_width, img_height)
   end
   
   # Called on export end

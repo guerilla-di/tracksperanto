@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+# == Synopsis
+# 
+# Translate a 2D track file from a single format to many others
+#
+# == Usage
+# 
+#   tracksperanto -f shakescript /Films/Blockbuster/Shots/001/script.shk -w 1920 -h 1080
+#   
+# == Author
+#   Julik <me@julik.nl>
+
+require File.dirname(__FILE__) + '/../lib/tracksperanto'
+require File.dirname(__FILE__) + '/../lib/pipeline'
+require 'optparse'
+
+# Sane defaults
+reader_klass = Tracksperanto::Import::ShakeScript
+width = 1920
+height = 1080
+
+parser = OptionParser.new do | p |
+ p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
+ p.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator (defaults to ShakeScript)") do | f |
+   begin
+     reader_klass = Tracksperanto::Import.const_get(f)
+   rescue NameError => e
+     readers = Tracksperanto::Import.constants.map{|e| e.to_s }.reject{|e| e == 'Base'}.join("\n\t")
+     STDERR.puts "Unknown reader #{f.inspect}, available readers:\n\t#{readers}"
+     exit(-1)
+    end
+ end
+ p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels") { |w| width = w }
+ p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels") {|w| height = w }
+end
+
+begin
+  parser.parse!
+rescue OptionParser::MissingArgument => e
+  STDERR.puts "Unknown argument: #{e.message}"
+  puts parser
+  exit(-1)
+end
+
+input_file = ARGV.pop
+if !input_file
+  STDERR.puts "No input file provided - should be the last argument"
+  puts parser
+  exit(-1)
+end
+
+pipe = Tracksperanto::Pipeline.new
+pipe.run(input_file, width, height, reader_klass)
+puts "Converted #{pipe.converted_points} trackers"

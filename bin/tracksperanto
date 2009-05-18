@@ -21,6 +21,7 @@ height = 1080
 scale_x = 1.0
 scale_y = 1.0
 slip = 0
+golden_tracks = false
 
 readers = Tracksperanto::Import.constants.map{|e| e.to_s }.reject{|e| e == 'Base'}
 informative_readers = readers.reject{|e| e == 'ShakeScript'}
@@ -42,6 +43,9 @@ parser = OptionParser.new do | p |
  p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") {|sx| scale_x = sx }
  p.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)") {|sy| scale_y = sy }
  p.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'") {|sy| slip = sy }
+ p.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)") {|g_flag| 
+   golden_tracks = g_flag
+ }
 end
 
 begin
@@ -60,10 +64,11 @@ if !input_file
 end
 
 pipe = Tracksperanto::Pipeline.new
-pipe.run(input_file, width, height, reader_klass) do | scaler, slipper |
+pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
+  golden.enabled = golden_tracks
 end
 
 puts "Converted #{pipe.converted_points} trackers"

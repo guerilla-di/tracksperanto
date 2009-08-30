@@ -39,10 +39,13 @@ class ShakeTextExportTest < Test::Unit::TestCase
   end
   
   def test_export
-    io = StringIO.new('')
+    out_to = "/tmp/shakeTr_txt.txt"
+    puts "Outputting #{out_to} Shake sample text file, please verify"
+    io = File.open(out_to, "w")
+    
     x = Tracksperanto::Export::ShakeText.new(io)
     
-    x.start_export("SomeExport", 720, 576)
+    x.start_export(720, 576)
     @trackers.each do | t |
       x.start_tracker_segment(t.name)
       t.keyframes.each do | kf |
@@ -50,13 +53,6 @@ class ShakeTextExportTest < Test::Unit::TestCase
       end
     end
     x.end_export
-    
-    cnt = (io.rewind; io.read)
-    
-    out_to = "/tmp/shakeTr_txt.txt"
-    puts "Outputting #{out_to} Shake sample text file, please verify"
-    File.open(out_to, "w"){|f| f << cnt }
-    
-    
+    io.close
   end
 end

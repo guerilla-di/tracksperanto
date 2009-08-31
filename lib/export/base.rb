@@ -1,5 +1,6 @@
 # Base exporter
 class Tracksperanto::Export::Base
+  attr_reader :io
   
   def self.inherited(by)
     Tracksperanto.exporters << by
@@ -10,10 +11,6 @@ class Tracksperanto::Export::Base
   # method because it gets requested before the exporter is instantiated
   def self.desc_and_extension
     "data.txt"
-  end
-  
-  def close!
-    @io.close if @io
   end
   
   def initialize(write_to_io)

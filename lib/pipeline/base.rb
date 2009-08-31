@@ -24,6 +24,7 @@ class Base
     
     # Run the export
     @converted_points, @converted_keyframes = run_export(read_data, parser, golden)
+    
   end
   
   # Runs the export and returns the number of points and keyframes processed

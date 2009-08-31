@@ -1,6 +1,6 @@
 class Tracksperanto::Middleware::Close < Tracksperanto::Middleware::Base
   def end_export
     super
-    @exporter.close! if @exporter.respond_to?(:close)
+    @exporter.io.close if @exporter.respond_to?(:io)
   end
 end

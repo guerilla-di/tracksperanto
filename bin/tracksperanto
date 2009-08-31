@@ -63,7 +63,7 @@ if !input_file
   exit(-1)
 end
 
-pipe = Tracksperanto::Pipeline.new
+pipe = Tracksperanto::Pipeline::Base.new
 pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden |
   slipper.slip = slip
   scaler.x_factor = scale_x

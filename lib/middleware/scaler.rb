@@ -5,6 +5,8 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   
   # Called on export start
   def start_export( img_width, img_height)
+    # Compute the average factor
+    @residual_factor = (x_factor + y_factor) / 2
     super( (img_width * x_factor), (img_height * y_factor))
   end
   
@@ -17,8 +19,6 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   end
   
   def export_point(frame, float_x, float_y, float_residual)
-    # Compute the average factor
-    residual_factor = (x_factor + y_factor) / 2
-    super(frame, (float_x * x_factor), (float_y * y_factor), (float_residual * residual_factor))
+    super(frame, (float_x * x_factor), (float_y * y_factor), (float_residual * @residual_factor))
   end
 end

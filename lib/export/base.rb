@@ -12,6 +12,10 @@ class Tracksperanto::Export::Base
     "data.txt"
   end
   
+  def close!
+    @io.close if @io
+  end
+  
   def initialize(write_to_io)
     @io = write_to_io
   end

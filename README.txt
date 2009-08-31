@@ -1,4 +1,8 @@
-= TRCKSPERANTO
+= Tracksperanto
+
+* http://guerilla-di.org/tracksperanto
+
+== Description
 
 Tracksperanto is a universal 2D-track translator between many apps.
 
@@ -6,13 +10,11 @@ Import support:
 * Shake script (one tracker node per tracker)
 * Shake tracker node export (textfile with many tracks per file), also exported by Boujou and others
 * PFTrack 2dt files
-* Flame .stabilizer setups
 * Syntheyes 2D tracking data exports (UV coordinates)
 
 Export support:
 
 * Shake text file (many trackers per file), also accepted by Boujou
-* Flame .stabilizer setup
 * PFTrack 2dt file (with residuals)
 * Syntheyes 2D tracking data import (UV coordinates)
 

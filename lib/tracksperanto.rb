@@ -4,6 +4,7 @@ module Tracksperanto
   module Import; end
   module Export; end
   module Middleware; end
+  module Pipeline; end
   
   class << self
     # Returns the array of all exporter classes defined
@@ -127,5 +128,10 @@ end
 
 # Load middleware
 Dir.glob(File.dirname(__FILE__) + '/middleware/*.rb').each do | i |
+  require i
+end
+
+# Load pipelines
+Dir.glob(File.dirname(__FILE__) + '/pipeline/*.rb').each do | i |
   require i
 end

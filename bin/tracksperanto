@@ -64,6 +64,8 @@ if !input_file
 end
 
 pipe = Tracksperanto::Pipeline::Base.new
+pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}% complete") }
+
 pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden |
   slipper.slip = slip
   scaler.x_factor = scale_x

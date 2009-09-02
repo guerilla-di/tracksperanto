@@ -3,6 +3,7 @@ module Tracksperanto::Pipeline
 class Base
   attr_accessor :converted_points
   attr_accessor :converted_keyframes
+  attr_accessor :progress_block
   
   def run(from_input_file_path, pix_w, pix_h, parser_class)
     # Read the input file
@@ -22,26 +23,40 @@ class Base
     # Yield middlewares to the block
     yield(scaler, slipper, golden) if block_given?
     
-    # Run the export
-    @converted_points, @converted_keyframes = run_export(read_data, parser, golden)
-    
+    @converted_points, @converted_keyframes = run_export(read_data, parser, golden) do | p, m |
+      @progress_block.call(p, m) if @progress_block
+    end
   end
   
   # Runs the export and returns the number of points and keyframes processed
   def run_export(tracker_data_blob, parser, processor)
-    points, keyframes = 0, 0
+    points, keyframes, percent_complete = 0, 0, 0.0
     
+    yield(percent_complete, "Starting the parse routine") if block_given?
     trackers = parser.parse(tracker_data_blob)
+    
+    yield(percent_complete = 20.0, "Starting export for #{trackers.length} trackers") if block_given?
+    
+    percent_per_tracker = 80.0 / trackers.length
+    
     processor.start_export(parser.width, parser.height)
+    
+    yield(percent_complete, "Starting export") if block_given?
+    
     trackers.each do | t |
+      kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
       processor.start_tracker_segment(t.name)
       t.keyframes.each do | kf |
         keyframes += 1
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
+        yield(percent_complete += kf_weight, "Writing keyframe") if block_given?
       end
     end
     processor.end_export
+    
+    yield(100.0, "Wrote #{points} points and #{keyframes} keyframes") if block_given?
+    
     [points, keyframes]
   end
   

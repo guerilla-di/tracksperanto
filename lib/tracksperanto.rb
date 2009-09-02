@@ -1,5 +1,5 @@
 module Tracksperanto
-  VERSION = '1.0.1'
+  VERSION = '1.0.2'
   
   module Import; end
   module Export; end

@@ -1,3 +1,4 @@
+.DS_Store
 History.txt
 Manifest.txt
 README.txt
@@ -20,9 +21,9 @@ lib/middleware/close.rb
 lib/middleware/golden.rb
 lib/middleware/scaler.rb
 lib/middleware/slipper.rb
-lib/pipeline.rb
 lib/pipeline/base.rb
 lib/tracksperanto.rb
+test/.DS_Store
 test/helper.rb
 test/samples/.DS_Store
 test/samples/].txt

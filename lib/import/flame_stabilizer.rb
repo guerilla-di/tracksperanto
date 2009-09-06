@@ -22,7 +22,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     def initialize(io, channel_name)
       @name = channel_name.strip
       
-      base_value_matcher = /Value ([\d\.]+)/
+      base_value_matcher = /Value ([\-\d\.]+)/
       keyframe_count_matcher = /Size (\d+)/
       indent = nil
       
@@ -47,7 +47,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     
     def extract_key_from(io)
       frame = nil
-      frame_matcher = /Frame (\d+)/
+      frame_matcher = /Frame ([\-\d\.]+)/
       value_matcher = /Value ([\-\d\.]+)/
       
       until io.eof?
@@ -162,65 +162,44 @@ Channel tracker1/ref/x
     end
     
     def grab_tracker(channels, track_x)
-      t_name = track_x.name.split('/').shift
-      t = T.new(:name => t_name)
-      matching_y_name = "#{t_name}/track/y"
-    
-      track_y = channels.find{|e| e.name == matching_y_name }
-      raise "Cannot find matching channel #{matching_y_name}" unless track_y
-    
-      # Find the base keyframe which we will use to compute the shift.
-      # Flame adds shift to the value at this keyframe. Since we cannot
-      # guarantee that both Y and X keyframes are present we will search
-      # the whole channels for a place where it has values both in X and Y
-      base_kf = track_x.map do |e| 
-        matching_y = track_y.find{|ye| ye.frame == e.frame } 
-        unless matching_y
-          nil
-        else
-          [e.frame, e.value, matching_y.value]
-        end
-      end.compact.shift
-    
-      raise "No base keyframe found in the track/x and track/y channels" unless base_kf
-    
-      # Now scan the shift channels
-      shift_x = channels.find{|e| e.name == "#{t_name}/shift/x" }
-      shift_y = channels.find{|e| e.name == "#{t_name}/shift/x" }
-    
-      raise "Cannot find shift channels for #{t_name}" unless shift_x && shift_y
-    
-      # Find the shift at the same place where our base Track keyframe is
-      kf_x, kf_y = [shift_x, shift_y].map do | chan |
-        chan.find {|f| f.frame == base_kf[0] }
-      end
-    
-      # Now, if there are no matching keyframes just use the first value present
-      base_x, base_y = unless kf_x && kf_y
-        [base_kf[1], base_kf[2]]
-      else
-        [kf_x.value, kf_y.value]
-      end
+      t = T.new(:name => track_x.name.split('/').shift)
       
-      tuples = shift_x.map do |e|
-        match_y = shift_y.find do | yf |
-          yf.frame == e.frame
-        end
-        
-        if !match_y
-          nil
-        else
-          [e.frame, e.value, match_y.value]
-        end
-      end.compact
-    
-      t.keyframes = tuples.map do | (at, x, y) |
+      track_y = channels.find{|e| e.name == "#{t.name}/track/y" }
+      shift_x = channels.find{|e| e.name == "#{t.name}/shift/x" }
+      shift_y = channels.find{|e| e.name == "#{t.name}/shift/x" }
+      
+      shift_tuples = zip_channels(shift_x, shift_y)
+      track_tuples = zip_channels(track_x, track_y)
+      
+      base_x, base_y = find_base_x_and_y(track_tuples, shift_tuples)
+      
+      t.keyframes = shift_tuples.map do | (at, x, y) |
         K.new(:frame => at, :abs_x => (base_x + x.to_f), :abs_y => (base_y + y.to_f))
       end
       
       return t
-      
-  end
-  
-  
+    end
+    
+    def find_base_x_and_y(track_tuples, shift_tuples)
+      base_track_tuple = track_tuples.find do | track_tuple |
+        shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple [0] }
+      end
+      base_track_tuple ?  base_track_tuple[1..2] : track_tuples[0][1..2]
+    end
+    
+    # Zip two channel objects to tuples of [frame, valuex, valuey] 
+    # skipping keyframes that do not match in the two
+    def zip_channels(a, b)
+      tuples = []
+    
+      a.each do | keyframe |
+        tuples[keyframe.frame] = [keyframe.frame, keyframe.value]
+      end
+    
+      b.each do | keyframe |
+        tuples[keyframe.frame] = (tuples[keyframe.frame] << keyframe.value) if tuples[keyframe.frame]
+      end
+    
+      tuples.compact
+    end
 end

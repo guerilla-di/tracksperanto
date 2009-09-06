@@ -6,6 +6,12 @@ class Tracksperanto::Export::Pftrack < Tracksperanto::Export::Base
     end
     
     def start_tracker_segment(tracker_name)
+      # Setup for the next tracker
+      @prev_tracker = []
+      @tracker_name = tracker_name
+    end
+    
+    def end_tracker_segment
       # If there was a previous tracker, write it out
       # - now we know how many keyframes it has
       if @prev_tracker && @prev_tracker.any?
@@ -17,10 +23,6 @@ class Tracksperanto::Export::Pftrack < Tracksperanto::Export::Base
         ]
         @io.puts block.join("\n")
       end
-      
-      # Setup for the next tracker
-      @prev_tracker = []
-      @tracker_name = tracker_name
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)

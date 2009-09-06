@@ -25,9 +25,12 @@ class Tracksperanto::Export::Base
   def end_export
   end
   
-  # Called on tracker start, one for each tracker. Start of the next tracker
-  # signifies that the previous tracker has passed by
+  # Called on tracker start, one for each tracker
   def start_tracker_segment(tracker_name)
+  end
+  
+  # Called on tracker end
+  def end_tracker_segment
   end
   
   # Called for each tracker keyframe

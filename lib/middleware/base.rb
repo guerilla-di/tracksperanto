@@ -21,6 +21,10 @@ class Tracksperanto::Middleware::Base
     @exporter.start_tracker_segment(tracker_name)
   end
   
+  def end_tracker_segment
+    @exporter.end_tracker_segment
+  end
+  
   # Called for each tracker keyframe
   def export_point(at_frame_i, abs_float_x, abs_float_y, float_residual)
     @exporter.export_point(at_frame_i, abs_float_x, abs_float_y, float_residual)

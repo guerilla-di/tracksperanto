@@ -56,6 +56,7 @@ class Base
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
         yield(percent_complete += kf_weight, "Writing keyframe") if block_given?
       end
+      processor.end_tracker_segment
     end
     processor.end_export
     

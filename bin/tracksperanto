@@ -5,7 +5,7 @@
 #
 # == Usage
 # 
-#   tracksperanto -f shakescript /Films/Blockbuster/Shots/001/script.shk -w 1920 -h 1080
+#   tracksperanto -f ShakeScript /Films/Blockbuster/Shots/001/script.shk -w 1920 -h 1080
 #   
 # == Author
 #   Julik <me@julik.nl>
@@ -17,6 +17,8 @@ require 'optparse'
 reader_klass = Tracksperanto::Import::ShakeScript
 width = 1920
 height = 1080
+reformat_w = nil
+reformat_h = nil
 scale_x = 1.0
 scale_y = 1.0
 slip = 0
@@ -45,6 +47,13 @@ parser = OptionParser.new do | p |
  p.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)") {|g_flag| 
    golden_tracks = g_flag
  }
+ p.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it") {|rw| 
+    reformat_w = rw
+ }
+ p.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it") {|rh|
+    reformat_h = rh
+ }
+
 end
 
 begin
@@ -63,13 +72,13 @@ if !input_file
 end
 
 pipe = Tracksperanto::Pipeline::Base.new
-pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}% complete") }
+pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
 
-pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden |
+pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden, reformat |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
   golden.enabled = golden_tracks
+  reformat.width = reformat_w if reformat_w
+  reformat.width = reformat_h if reformat_h
 end
-
-puts "Converted #{pipe.converted_points} trackers"

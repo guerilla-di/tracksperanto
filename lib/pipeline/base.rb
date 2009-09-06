@@ -19,11 +19,12 @@ class Base
     scaler = Tracksperanto::Middleware::Scaler.new(mux)
     slipper = Tracksperanto::Middleware::Slipper.new(scaler)
     golden = Tracksperanto::Middleware::Golden.new(slipper)
+    reformat = Tracksperanto::Middleware::Reformat.new(golden)
     
     # Yield middlewares to the block
-    yield(scaler, slipper, golden) if block_given?
+    yield(scaler, slipper, golden, reformat) if block_given?
     
-    @converted_points, @converted_keyframes = run_export(read_data, parser, golden) do | p, m |
+    @converted_points, @converted_keyframes = run_export(read_data, parser, reformat) do | p, m |
       @progress_block.call(p, m) if @progress_block
     end
   end

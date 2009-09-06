@@ -7,7 +7,9 @@ require './lib/tracksperanto'
 Hoe::RUBY_FLAGS.replace ENV['RUBY_FLAGS'] || "-I#{%w(lib test).join(File::PATH_SEPARATOR)}" + 
   (Hoe::RUBY_DEBUG ? " #{RUBY_DEBUG}" : '')
   
-Hoe.new('tracksperanto', Tracksperanto::VERSION) do |p|
+Hoe.spec('tracksperanto') do | p |
+  p.version = Tracksperanto::VERSION
   p.rubyforge_name = 'guerilla-di'
   p.developer('Julik Tarkhanov', 'me@julik.nl')
+  p.extra_rdoc_files = p.extra_rdoc_files.reject{|e| e =~ "samples\/"}
 end

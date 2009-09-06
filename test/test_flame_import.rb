@@ -94,6 +94,16 @@ class FlameImportTest < Test::Unit::TestCase
     assert_equal 1176, parser.height
     
     parser.height = 1080
-    puts trackers.length
+    
+    assert_equal 28, trackers.length
+    
+    first_t = trackers[0]
+    assert_equal 546, first_t.keyframes.length
+    
+    first_k = first_t.keyframes[1]
+    
+    assert_equal 2, first_k.frame
+    assert_in_delta 1022.82062, first_k.abs_x, DELTA
+    assert_in_delta 586.82, first_k.abs_y, DELTA
   end
 end

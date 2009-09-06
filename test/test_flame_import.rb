@@ -106,4 +106,16 @@ class FlameImportTest < Test::Unit::TestCase
     assert_in_delta 1022.82062, first_k.abs_x, DELTA
     assert_in_delta 586.82, first_k.abs_y, DELTA
   end
+
+  def test_parsing_another_track
+    fixture = File.read(File.dirname(__FILE__) + '/samples/megaTrack.action.3dtrack.stabilizer')
+    
+    parser = Tracksperanto::Import::FlameStabilizer.new
+    
+    trackers = parser.parse(fixture)
+    assert_equal 1920, parser.width
+    assert_equal 1080, parser.height
+    
+    assert_equal 20, trackers.length
+  end
 end

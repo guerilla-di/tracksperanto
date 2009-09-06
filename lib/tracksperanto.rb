@@ -114,6 +114,10 @@ module Tracksperanto
     
     cast_to_float :abs_x, :abs_y, :residual
     cast_to_int :frame
+    
+    def inspect
+      [frame, abs_x, abs_y].inspect
+    end
   end
 end
 

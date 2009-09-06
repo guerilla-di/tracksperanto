@@ -2,14 +2,17 @@ require 'stringio'
 
 class Tracksperanto::Import::Base
   include Tracksperanto::Safety
+  include Tracksperanto::Casts
   
   # The original width of the tracked image
   # Some importers need it
-  attr_accessor :width
+  cast_to_int :width
   
   # The original height of the original image.
   # Some importers need it
-  attr_accessor :height
+  cast_to_int :height
+  
+  # Safety on readers
   safe_reader :width, :height
   
   def self.inherited(by)

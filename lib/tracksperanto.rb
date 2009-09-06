@@ -70,7 +70,8 @@ module Tracksperanto
   end
   
   module BlockInit
-    def initialize
+    def initialize(evt_hash = {})
+      evt_hash.map { |(k, v)| send("#{k}=", v) }
       yield(self) if block_given?
     end
   end
@@ -88,9 +89,9 @@ module Tracksperanto
     
     cast_to_string :name
     
-    def initialize
+    def initialize(h = {})
       @name, @keyframes = 'Tracker', []
-      super if block_given?
+      super
     end
   end
   

@@ -38,7 +38,7 @@ test/samples/sourcefile_pftrack.2dt
 test/samples/three_tracks_in_one_stabilizer.shk
 test/samples/two_shake_trackers.txt
 test/samples/two_tracks_in_one_tracker.shk
-test/test_flame_block.rb
+test/test_flame_import.rb
 test/test_keyframe.rb
 test/test_pftrack_import.rb
 test/test_shake_export.rb

@@ -6,7 +6,6 @@ Rakefile
 bin/tracksperanto
 lib/.DS_Store
 lib/export/base.rb
-lib/export/flame_stabilizer.rb
 lib/export/mux.rb
 lib/export/pftrack.rb
 lib/export/shake_text.rb
@@ -20,6 +19,7 @@ lib/import/syntheyes.rb
 lib/middleware/base.rb
 lib/middleware/close.rb
 lib/middleware/golden.rb
+lib/middleware/reformat.rb
 lib/middleware/scaler.rb
 lib/middleware/slipper.rb
 lib/pipeline/base.rb
@@ -28,6 +28,7 @@ test/.DS_Store
 test/helper.rb
 test/samples/.DS_Store
 test/samples/flyover2DP_syntheyes.txt
+test/samples/fromCombustion_fromMidClip_wSnap.stabilizer
 test/samples/hugeFlameSetup.stabilizer
 test/samples/megaTrack.action.3dtrack.stabilizer
 test/samples/one_shake_tracker.txt

@@ -13,8 +13,10 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   K = ::Tracksperanto::Keyframe
   
   class ChannelBlock < Array
+    include ::Tracksperanto::Casts
+    cast_to_string :name
+    cast_to_float :base_value
     
-    attr_accessor :name
     def <=>(o)
       @name <=> o.name
     end
@@ -32,17 +34,15 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
         indent ||= line.scan(/^(\s+)/)[1]
         
         if line =~ keyframe_count_matcher
-          # Remove the keyframes which are already there
-          clear
           $1.to_i.times { push(extract_key_from(io)) }
         elsif line =~ base_value_matcher && empty?
-          push(Kf.new(:frame => 1, :value => $1))
+          self.base_value = $1
         elsif line.strip == "#{indent}End"
           break
         end
       end
       
-      raise "Parsed a channel #{@name} with no keyframes" if length.zero?
+      raise "Parsed a channel #{@name} with no keyframes" if (empty? && !base_value)
     end
     
     def extract_key_from(io)
@@ -152,9 +152,11 @@ Channel tracker1/ref/x
     def report_progress(msg)
     end
     
+    REF_CHANNEL = "ref"
+    
     def scavenge_trackers_from_channels(channels)
       trackers = []
-      channels.select{|e| e.name =~ /\/track\/x/}.each do | track_x |
+      channels.select{|e| e.name =~ /\/#{REF_CHANNEL}\/x/}.each do | track_x |
         trackers << grab_tracker(channels, track_x)
       end
       
@@ -164,27 +166,45 @@ Channel tracker1/ref/x
     def grab_tracker(channels, track_x)
       t = T.new(:name => track_x.name.split('/').shift)
       
-      track_y = channels.find{|e| e.name == "#{t.name}/track/y" }
+      track_y = channels.find{|e| e.name == "#{t.name}/#{REF_CHANNEL}/y" }
       shift_x = channels.find{|e| e.name == "#{t.name}/shift/x" }
-      shift_y = channels.find{|e| e.name == "#{t.name}/shift/x" }
+      shift_y = channels.find{|e| e.name == "#{t.name}/shift/y" }
       
       shift_tuples = zip_channels(shift_x, shift_y)
       track_tuples = zip_channels(track_x, track_y)
       
-      base_x, base_y = find_base_x_and_y(track_tuples, shift_tuples)
+      base_x, base_y = begin
+        find_base_x_and_y(track_tuples, shift_tuples)
+      rescue UseBase
+        [track_x.base_value, track_y.base_value]
+      end
       
       t.keyframes = shift_tuples.map do | (at, x, y) |
-        K.new(:frame => at, :abs_x => (base_x + x.to_f), :abs_y => (base_y + y.to_f))
+        # Flame keyframes are sort of minus-one based, so to start at frame 0
+        # we need to decrement one frame, always. Also, the shift value is inverted!
+        K.new(:frame => (at - 1), :abs_x => (base_x - x.to_f), :abs_y => (base_y - y.to_f))
       end
       
       return t
     end
     
+    def cornerize(from_dimension, value_from_center)
+      (from_dimension / 2.0) + (value_from_center * -1)
+    end
+    
+    UseBase = RuntimeError
+    
     def find_base_x_and_y(track_tuples, shift_tuples)
       base_track_tuple = track_tuples.find do | track_tuple |
         shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple [0] }
       end
-      base_track_tuple ?  base_track_tuple[1..2] : track_tuples[0][1..2]
+      if base_track_tuple
+        base_track_tuple[1..2]
+      elsif track_tuples[0]
+        track_tuples[0][1..2]
+      else
+        raise UseBase
+      end
     end
     
     # Zip two channel objects to tuples of [frame, valuex, valuey] 

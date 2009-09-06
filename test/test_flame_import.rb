@@ -60,9 +60,8 @@ class FlameImportTest < Test::Unit::TestCase
     name = "foo/bar"
     c = Tracksperanto::Import::FlameStabilizer::ChannelBlock.new(io, name)
     
-    assert_equal 1, c.length
-    assert_in_delta 10.0, c[0].value, DELTA
-    assert_equal 1, c[0].frame
+    assert_equal 0, c.length
+    assert_in_delta 10.0, c.base_value, DELTA
   end
   
   def test_channel_block_for_channel_with_5_keyframes
@@ -102,9 +101,9 @@ class FlameImportTest < Test::Unit::TestCase
     
     first_k = first_t.keyframes[1]
     
-    assert_equal 2, first_k.frame
-    assert_in_delta 1022.82062, first_k.abs_x, DELTA
-    assert_in_delta 586.82, first_k.abs_y, DELTA
+    assert_equal 1, first_k.frame
+    assert_in_delta 771.58, first_k.abs_x, DELTA
+    assert_in_delta 107.98192, first_k.abs_y, DELTA
   end
 
   def test_parsing_another_track
@@ -117,5 +116,30 @@ class FlameImportTest < Test::Unit::TestCase
     assert_equal 1080, parser.height
     
     assert_equal 20, trackers.length
+  end
+
+  def test_simple_from_combustion
+    fixture = File.read(File.dirname(__FILE__) + '/samples/fromCombustion_fromMidClip_wSnap.stabilizer')
+    
+    parser = Tracksperanto::Import::FlameStabilizer.new
+    
+    trackers = parser.parse(fixture)
+    assert_equal 1280, parser.width
+    assert_equal 540, parser.height
+    
+    assert_equal 1, trackers.length
+    
+    t = trackers.shift
+    assert_equal 232, t.keyframes.length
+    
+    first_kf = t.keyframes[0]
+    
+    assert_equal 0, first_kf.frame
+    assert_in_delta 387.7752, first_kf.abs_x, DELTA
+    assert_in_delta 514.4738, first_kf.abs_y, DELTA
+    
+    frame_149 = t.keyframes[148]
+    assert_in_delta 390.267, frame_149.abs_x, DELTA
+    assert_in_delta 280.248, frame_149.abs_y, DELTA
   end
 end

@@ -27,7 +27,6 @@ lib/tracksperanto.rb
 test/.DS_Store
 test/helper.rb
 test/samples/.DS_Store
-test/samples/].txt
 test/samples/flyover2DP_syntheyes.txt
 test/samples/hugeFlameSetup.stabilizer
 test/samples/megaTrack.action.3dtrack.stabilizer

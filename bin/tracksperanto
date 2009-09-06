@@ -11,7 +11,6 @@
 #   Julik <me@julik.nl>
 
 require File.dirname(__FILE__) + '/../lib/tracksperanto'
-require File.dirname(__FILE__) + '/../lib/pipeline'
 require 'optparse'
 
 # Sane defaults

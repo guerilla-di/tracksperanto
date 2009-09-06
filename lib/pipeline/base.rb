@@ -42,6 +42,7 @@ class Base
     
     percent_per_tracker = 80.0 / trackers.length
     
+    # Use the width and height provided by the parser itself
     processor.start_export(parser.width, parser.height)
     
     yield(percent_complete, "Starting export") if block_given?

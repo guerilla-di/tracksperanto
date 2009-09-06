@@ -21,6 +21,7 @@ class Tracksperanto::Middleware::Base
     @exporter.start_tracker_segment(tracker_name)
   end
   
+  # Called on tracker end
   def end_tracker_segment
     @exporter.end_tracker_segment
   end

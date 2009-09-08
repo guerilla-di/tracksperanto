@@ -37,6 +37,10 @@ class Base
     points, keyframes, percent_complete = 0, 0, 0.0
     
     yield(percent_complete, "Starting the parse routine") if block_given?
+    parser.progress_block = lambda do | message |
+      yield(percent_complete, message) if block_given?
+    end
+    
     trackers = parser.parse(tracker_data_blob)
     
     yield(percent_complete = 20.0, "Starting export for #{trackers.length} trackers") if block_given?

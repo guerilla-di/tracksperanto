@@ -122,21 +122,21 @@ module Tracksperanto
 end
 
 # Load importers
-Dir.glob(File.dirname(__FILE__) + '/import/*.rb').each do | i |
+Dir.glob(File.dirname(__FILE__) + '/import/*.rb').sort.each do | i |
   require i
 end
 
 # Load exporters
-Dir.glob(File.dirname(__FILE__) + '/export/*.rb').each do | i |
+Dir.glob(File.dirname(__FILE__) + '/export/*.rb').sort.each do | i |
   require i
 end
 
 # Load middleware
-Dir.glob(File.dirname(__FILE__) + '/middleware/*.rb').each do | i |
+Dir.glob(File.dirname(__FILE__) + '/middleware/*.rb').sort.each do | i |
   require i
 end
 
 # Load pipelines
-Dir.glob(File.dirname(__FILE__) + '/pipeline/*.rb').each do | i |
+Dir.glob(File.dirname(__FILE__) + '/pipeline/*.rb').sort.each do | i |
   require i
 end

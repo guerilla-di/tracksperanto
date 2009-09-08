@@ -149,10 +149,7 @@ Channel tracker1/ref/x
       ChannelBlock.new(io, channel_name)
     end
     
-    def report_progress(msg)
-    end
-    
-    REF_CHANNEL = "ref"
+    REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
     
     def scavenge_trackers_from_channels(channels)
       trackers = []
@@ -165,6 +162,8 @@ Channel tracker1/ref/x
     
     def grab_tracker(channels, track_x)
       t = T.new(:name => track_x.name.split('/').shift)
+      
+      report_progress("Extracting tracker #{t.name}")
       
       track_y = channels.find{|e| e.name == "#{t.name}/#{REF_CHANNEL}/y" }
       shift_x = channels.find{|e| e.name == "#{t.name}/shift/x" }
@@ -179,17 +178,17 @@ Channel tracker1/ref/x
         [track_x.base_value, track_y.base_value]
       end
       
+      total_kf = 1
       t.keyframes = shift_tuples.map do | (at, x, y) |
         # Flame keyframes are sort of minus-one based, so to start at frame 0
         # we need to decrement one frame, always. Also, the shift value is inverted!
-        K.new(:frame => (at - 1), :abs_x => (base_x - x.to_f), :abs_y => (base_y - y.to_f))
+        kf_x, kf_y = base_x - x.to_f, base_y - y.to_f
+        
+        report_progress("Extracting keyframe #{total_kf += 1} of #{t.name}")
+        K.new(:frame => (at - 1), :abs_x => kf_x, :abs_y => kf_y)
       end
       
       return t
-    end
-    
-    def cornerize(from_dimension, value_from_center)
-      (from_dimension / 2.0) + (value_from_center * -1)
     end
     
     UseBase = RuntimeError

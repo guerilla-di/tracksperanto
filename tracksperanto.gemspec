@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = %q{2009-09-07}
+  s.date = %q{2009-09-08}
   s.default_executable = %q{tracksperanto}
   s.description = %q{Tracksperanto is a universal 2D-track translator between many apps.  Import support: * Shake script (one tracker node per tracker) * Shake tracker node export (textfile with many tracks per file), also exported by Boujou and others * PFTrack 2dt files * Syntheyes 2D tracking data exports (UV coordinates)  Export support:  * Shake text file (many trackers per file), also accepted by Boujou * PFTrack 2dt file (with residuals) * Syntheyes 2D tracking data import (UV coordinates)  The main way to use Tracksperanto is to use the supplied "tracksperanto" binary, like so:  tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk  ShakeScript is the name of the translator that will be used to read the file (many apps export tracks as .txt files so there is no way for us to autodetect them all). -w and -h stand for Width and Height and define the size of your comp (different tracking apps use different coordinate systems and we need to know the size of the comp to properly convert these). You also have additional options like -xs, -ys and --slip - consult the usage info for the tracksperanto binary.  The converted files will be saved in the same directory as the source, if resulting converted files already exist ++they will be overwritten without warning++.}
   s.email = ["me@julik.nl"]

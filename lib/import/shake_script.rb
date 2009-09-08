@@ -57,7 +57,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
 
       # Name me!
       @name = scan_until(/(\w+) /).strip
-
+      
       # All the tracker arguments
       17.times { skip_until ',' } # input data
       
@@ -95,6 +95,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       parser = TrackerParser.new(tracker_text_block.to_s)
       
       tracker = Tracksperanto::Tracker.new{|t| t.name = parser.name }
+      
+      report_progress("Reading tracker #{tracker.name}")
       
       x_keyframes, y_keyframes, residual_keyframes = TrackerParser.new(tracker_text_block.to_s).curves
       x_keyframes.each_with_index do | value_at, kf_index |

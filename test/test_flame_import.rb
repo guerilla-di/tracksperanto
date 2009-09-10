@@ -84,7 +84,7 @@ class FlameImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_flame
-    fixture = File.read(File.dirname(__FILE__) + '/samples/hugeFlameSetup.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/hugeFlameSetup.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     
@@ -105,9 +105,15 @@ class FlameImportTest < Test::Unit::TestCase
     assert_in_delta 771.58, first_k.abs_x, DELTA
     assert_in_delta 107.98192, first_k.abs_y, DELTA
   end
-
+  
+  def test_introspects_properly
+    i = Tracksperanto::Import::FlameStabilizer
+    assert_equal "Flame .stabilizer file", i.human_name
+    assert i.autodetects_size?
+  end
+  
   def test_parsing_another_track
-    fixture = File.read(File.dirname(__FILE__) + '/samples/megaTrack.action.3dtrack.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/megaTrack.action.3dtrack.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     
@@ -119,7 +125,7 @@ class FlameImportTest < Test::Unit::TestCase
   end
 
   def test_simple_from_combustion
-    fixture = File.read(File.dirname(__FILE__) + '/samples/fromCombustion_fromMidClip_wSnap.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/fromCombustion_fromMidClip_wSnap.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     

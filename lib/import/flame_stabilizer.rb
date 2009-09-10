@@ -2,6 +2,15 @@ require 'stringio'
 
 class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   
+  # Flame setups contain clear size indications
+  def self.autodetects_size?
+    true
+  end
+  
+  def self.human_name
+    "Flame .stabilizer file"
+  end
+  
   class Kf
     include ::Tracksperanto::Casts
     include ::Tracksperanto::BlockInit
@@ -64,17 +73,14 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     end
   end
   
-  def parse(stabilizer_setup_content)
-    
-    io = StringIO.new(stabilizer_setup_content)
-    
+  def parse(io)
     self.width, self.height = extract_width_and_height_from_stream(io)
     channels = extract_channels_from_stream(io)
     
     raise "The setup contained no channels that we could process" if channels.empty?
     raise "A channel was nil" if channels.find{|e| e.nil? }
     
-    trackers = scavenge_trackers_from_channels(channels)
+    scavenge_trackers_from_channels(channels)
   end
   
   private

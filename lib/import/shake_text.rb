@@ -2,9 +2,12 @@ require 'stringio'
 
 class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   
-  def parse(track_file_content)
+  def self.human_name
+    "Shake .txt tracker file"
+  end
+  
+  def parse(io)
     trackers = []
-    io = StringIO.new(track_file_content)
     until io.eof?
       line = io.gets
       if line =~ /TrackName (.+)/

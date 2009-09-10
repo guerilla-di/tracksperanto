@@ -2,8 +2,15 @@ require File.dirname(__FILE__) + '/helper'
 
 class ShakeTextImportTest < Test::Unit::TestCase
   DELTA = 0.000001
+  
+  def test_introspects_properly
+    i = Tracksperanto::Import::ShakeText
+    assert_equal "Shake .txt tracker file", i.human_name
+    assert !i.autodetects_size?
+  end
+  
   def test_parsing
-    fixture = File.read(File.dirname(__FILE__) + '/samples/one_shake_tracker.txt')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/one_shake_tracker.txt')
     trackers = Tracksperanto::Import::ShakeText.new.parse(fixture)
     
     assert_kind_of Enumerable, trackers
@@ -23,7 +30,7 @@ class ShakeTextImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_two_trackers
-    fixture = File.read(File.dirname(__FILE__) + '/samples/two_shake_trackers.txt')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/two_shake_trackers.txt')
     trackers = Tracksperanto::Import::ShakeText.new.parse(fixture)
     
     assert_kind_of Enumerable, trackers

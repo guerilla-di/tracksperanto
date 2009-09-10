@@ -1,3 +1,5 @@
+# Slips the keyframe positions by a specific integer amount of frames, positive values slip forward (later in time). Useful if you just edited some stuff onto
+# the beginning if your sequence and need to extend your tracks.
 class Tracksperanto::Middleware::Slipper < Tracksperanto::Middleware::Base
   DEFAULT_SLIP = 0
   attr_accessor :slip

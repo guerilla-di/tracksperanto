@@ -1,5 +1,5 @@
 module Tracksperanto
-  VERSION = '1.1.1'
+  VERSION = '1.2.0'
   
   module Import; end
   module Export; end
@@ -50,6 +50,8 @@ module Tracksperanto
     end
   end
   
+  # Implements the +safe_reader+ class method which will define (or override) readers that
+  # raise if ivar is nil
   module Safety
     def self.included(into)
       into.extend(self)
@@ -69,9 +71,10 @@ module Tracksperanto
     end
   end
   
+  # Implements the conventional constructor with "hash of attributes" and block support
   module BlockInit
-    def initialize(evt_hash = {})
-      evt_hash.map { |(k, v)| send("#{k}=", v) }
+    def initialize(object_attribute_hash = {})
+      object_attribute_hash.map { |(k, v)| send("#{k}=", v) }
       yield(self) if block_given?
     end
   end

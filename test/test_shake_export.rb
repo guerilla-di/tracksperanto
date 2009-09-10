@@ -40,7 +40,7 @@ class ShakeTextExportTest < Test::Unit::TestCase
   
   def test_export
     out_to = "/tmp/shakeTr_txt.txt"
-    puts "Outputting #{out_to} Shake sample text file, please verify"
+    STDERR.puts "Outputting #{out_to} Shake sample text file, please verify"
     io = File.open(out_to, "w")
     
     x = Tracksperanto::Export::ShakeText.new(io)

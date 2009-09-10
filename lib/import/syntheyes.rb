@@ -1,7 +1,12 @@
 class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
-  def parse(file_content)
+  
+  def self.human_name
+    "Syntheyes tracker export (UV) file"
+  end
+  
+  def parse(io)
     trackers = []
-    file_content.split("\n").each do | line |
+    io.each_line do | line |
       name, frame, x, y, corr = line.split
       
       # Do we already have this tracker?

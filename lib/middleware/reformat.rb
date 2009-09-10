@@ -1,7 +1,10 @@
 require File.dirname(__FILE__) + '/scaler'
 
-# Reformats (scales) the track setup to a specific pixel resolution
+# This middleware reformats (scales) the track setup to a specific pixel resolution. Very useful for
+# applying proxy tracks to full-res images
 class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Scaler
+  
+  # To which format we have to scale
   attr_accessor :width, :height
   
   # Called on export start

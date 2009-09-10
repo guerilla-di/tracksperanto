@@ -1,3 +1,4 @@
+# Scales the comp being exported by a specific factor, together with the tracker keyframes
 class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   DEFAULT_FACTOR = 1
   

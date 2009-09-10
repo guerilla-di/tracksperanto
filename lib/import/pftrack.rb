@@ -1,7 +1,10 @@
 class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
-  def parse(file_content)
+  def self.human_name
+    "PFTrack .2dt file"
+  end
+  
+  def parse(io)
     trackers = []
-    io = StringIO.new(file_content)
     until io.eof?
       line = io.gets
       next unless line

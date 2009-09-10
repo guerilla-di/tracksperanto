@@ -3,8 +3,14 @@ require File.dirname(__FILE__) + '/helper'
 class NukeImportTest < Test::Unit::TestCase
   DELTA = 0.1 
   
+  def test_introspects_properly
+    i = Tracksperanto::Import::NukeScript
+    assert_equal "Nuke .nk script file", i.human_name
+    assert !i.autodetects_size?
+  end
+  
   def test_parsing_from_nuke
-    fixture = File.read(File.dirname(__FILE__) + '/samples/one_tracker_with_break.nk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/one_tracker_with_break.nk')
     
     parser = Tracksperanto::Import::NukeScript.new
     parser.width = 2048
@@ -21,7 +27,7 @@ class NukeImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_nuke_group
-    fixture = File.read(File.dirname(__FILE__) + '/samples/one_tracker_with_break_in_grp.nk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/one_tracker_with_break_in_grp.nk')
     
     parser = Tracksperanto::Import::NukeScript.new
     parser.width = 2048

@@ -1,10 +1,16 @@
 require File.dirname(__FILE__) + '/helper'
 
-class SyntheyesImportTest < Test::Unit::TestCase
+class PFTrackImportTest < Test::Unit::TestCase
   DELTA = 0.1 
   
+  def test_introspects_properly
+    i = Tracksperanto::Import::PFTrack
+    assert_equal "PFTrack .2dt file", i.human_name
+    assert !i.autodetects_size?
+  end
+  
   def test_parsing_from_importable
-    fixture = File.read(File.dirname(__FILE__) + '/samples/sourcefile_pftrack.2dt')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/sourcefile_pftrack.2dt')
 
     parser = Tracksperanto::Import::PFTrack.new
     parser.width = 2560
@@ -28,6 +34,6 @@ class SyntheyesImportTest < Test::Unit::TestCase
     assert_in_delta 729.330, last_kf.abs_x, DELTA
     
     assert_equal "Tracker41", trackers[-1].name
-    assert_equal 467, tracker[-1].name
+    assert_equal 467, trackers[-1].keyframes.length
   end
 end

@@ -1,10 +1,15 @@
 require File.dirname(__FILE__) + '/helper'
 
 class SyntheyesImportTest < Test::Unit::TestCase
-  DELTA = 0.9 # our SynthEyes sample is smoewhat inaccurate :-P
+  DELTA = 0.9 # our SynthEyes sample is somewhat inaccurate :-P
+  def test_introspects_properly
+    i = Tracksperanto::Import::Syntheyes
+    assert_equal "Syntheyes tracker export (UV) file", i.human_name
+    assert !i.autodetects_size?
+  end
   
   def test_parsing_from_importable
-    fixture = File.read(File.dirname(__FILE__) + '/samples/shake_tracker_nodes_to_syntheyes.txt')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_tracker_nodes_to_syntheyes.txt')
     
     parser = Tracksperanto::Import::Syntheyes.new
     parser.width = 2560

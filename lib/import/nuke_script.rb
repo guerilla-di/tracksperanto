@@ -2,6 +2,9 @@ require 'delegate'
 
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
+  def self.human_name
+    "Nuke .nk script file"
+  end
   
   T = ::Tracksperanto::Tracker
   K = ::Tracksperanto::Keyframe
@@ -20,9 +23,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     end
   end
   
-  def parse(nuke_script_content)
-    
-    io = StringIO.new(nuke_script_content)
+  def parse(io)
     scan_for_tracker3_nodes(IOC.new(io))
   end
   

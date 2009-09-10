@@ -219,6 +219,6 @@ Channel tracker1/ref/x
         tuples[keyframe.frame] = (tuples[keyframe.frame] << keyframe.value) if tuples[keyframe.frame]
       end
     
-      tuples.compact
+      tuples.compact.reject{|e| e.length < 3 }
     end
 end

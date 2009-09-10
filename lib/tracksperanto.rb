@@ -84,7 +84,7 @@ module Tracksperanto
     include Casts
     include BlockInit
 
-    # Contains the array of all Keyframe objects for this tracker
+    # Contains the name of the tracker
     attr_accessor :name
     
     # Contains the array of all Keyframe objects for this tracker

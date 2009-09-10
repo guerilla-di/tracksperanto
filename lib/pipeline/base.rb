@@ -43,6 +43,8 @@ class Base
     
     trackers = parser.parse(tracker_data_blob)
     
+    raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
+    
     yield(percent_complete = 20.0, "Starting export for #{trackers.length} trackers") if block_given?
     
     percent_per_tracker = 80.0 / trackers.length

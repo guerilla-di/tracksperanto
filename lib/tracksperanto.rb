@@ -1,3 +1,6 @@
+require 'stringio'
+require 'delegate'
+
 module Tracksperanto
   VERSION = '1.2.0'
   

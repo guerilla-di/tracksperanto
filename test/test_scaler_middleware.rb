@@ -29,4 +29,23 @@ class ScalerMiddlewareTest < Test::Unit::TestCase
     m.end_tracker_segment
     m.end_export
   end
+  
+  def test_scaler_properly_affects_residual
+    factor =  Math.sqrt( (1.5 ** 2) + (1.4 ** 2))
+    
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with((50 * 1.5).to_i, (60 * 1.4).to_i)
+    
+    receiver.should_receive(:start_tracker_segment).once.with("Tracker")
+    receiver.should_receive(:export_point).once.with(1, 90, 42.0, 0.2 * factor)
+    receiver.should_receive(:end_tracker_segment).once
+    receiver.should_receive(:end_export).once
+    
+    m = Tracksperanto::Middleware::Scaler.new(receiver, :x_factor => 1.5, :y_factor => 1.4)
+    m.start_export(50, 60)
+    m.start_tracker_segment("Tracker")
+    m.export_point(1, 60, 30, 0.2)
+    m.end_tracker_segment
+    m.end_export
+  end
 end

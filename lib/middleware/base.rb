@@ -3,9 +3,11 @@
 # scaling the whole export or even reversing the trackers to go backwards
 class Tracksperanto::Middleware::Base
   include Tracksperanto::Casts
+  include Tracksperanto::BlockInit
   
-  def initialize(exporter)
+  def initialize(exporter, *args_for_block_init)
     @exporter = exporter
+    super(*args_for_block_init)
   end
   
   # Called on export start

@@ -51,6 +51,6 @@ class ShakeTextExportTest < Test::Unit::TestCase
     x.end_export
     io.close
     
-    assert_equal io.string, File.read("./samples/ref_ShakeText.txt")
+    assert_equal io.string, File.read(File.dirname(__FILE__) + "/samples/ref_ShakeText.txt")
   end
 end

@@ -1,6 +1,8 @@
 # Export for PFTrack .2dt files
 class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     
+    KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f"
+    
     # Should return the suffix and extension of this export file (like "_flame.stabilizer")
     def self.desc_and_extension
       "pftrack.2dt"
@@ -31,7 +33,7 @@ class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
-      line = "%s %.3f %.3f %.3f" % [frame, abs_float_x, abs_float_y, float_residual]
+      line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual]
       @prev_tracker << line
     end
 end

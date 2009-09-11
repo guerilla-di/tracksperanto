@@ -38,7 +38,7 @@ class PFTrackExportTest < Test::Unit::TestCase
   end
   
   def test_export_output_written
-    io = StringIO.new # File.open("./samples/ref_PFTrack.2dt", "w+")
+    io = StringIO.new # File.open(File.dirname(__FILE__) + "/samples/ref_PFTrack.2dt", "w+")
     x = Tracksperanto::Export::PFTrack.new(io)
     
     x.start_export(720, 576)
@@ -52,6 +52,6 @@ class PFTrackExportTest < Test::Unit::TestCase
     x.end_export
     io.close
     
-    assert_equal io.string, File.read("./samples/ref_PFTrack.2dt")
+    assert_equal io.string, File.read(File.dirname(__FILE__) + "/samples/ref_PFTrack.2dt")
   end
 end

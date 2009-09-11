@@ -46,6 +46,7 @@ class ShakeTextExportTest < Test::Unit::TestCase
       t.keyframes.each do | kf |
         x.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
       end
+      x.end_tracker_segment
     end
     x.end_export
     io.close

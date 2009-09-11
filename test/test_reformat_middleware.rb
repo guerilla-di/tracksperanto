@@ -1,6 +1,10 @@
 require File.dirname(__FILE__) + '/helper'
 
 class ReformatMiddlewareTest < Test::Unit::TestCase
+  def test_inherits_and_thus_complies
+    assert Tracksperanto::Middleware::Reformat.ancestors.include?(Tracksperanto::Middleware::Scaler)
+  end
+  
   def test_default_params_set_to_nil
     receiver = flexmock
     m = Tracksperanto::Middleware::Reformat.new(receiver)

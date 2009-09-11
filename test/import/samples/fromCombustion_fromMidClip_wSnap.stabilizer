@@ -1,0 +1,2028 @@
+StabilizerFileVersion 5.0
+CreationDate Mon Sep  7 01:19:49 2009
+
+
+NbTrackers 1
+Selected 0
+FrameWidth 1280
+FrameHeight 540
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan no
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 0
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel tracker1/tolerance
+	End
+Channel tracker1/ref/x
+	Interpolation constant
+	Value 625.237
+	Size 3
+	Key 0
+		Frame 112
+		Value 355.131
+		End
+	Key 1
+		Frame 221
+		Value 648.394
+		End
+	Key 2
+		Frame 227
+		Value 625.237
+		End
+	End
+Channel tracker1/ref/y
+	Interpolation constant
+	Value 175.775
+	Size 3
+	Key 0
+		Frame 112
+		Value 444.515
+		End
+	Key 1
+		Frame 221
+		Value 131.998
+		End
+	Key 2
+		Frame 227
+		Value 175.775
+		End
+	End
+Channel tracker1/ref/width
+	Interpolation constant
+	Value 15.3024
+	Size 1
+	Key 0
+		Frame 112
+		Value 15.3024
+		End
+	End
+Channel tracker1/ref/height
+	Interpolation constant
+	Value 17.3418
+	Size 1
+	Key 0
+		Frame 112
+		Value 17.3418
+		End
+	End
+Channel tracker1/ref/dx
+	Interpolation constant
+	Value -270.107
+	Size 3
+	Key 0
+		Frame 112
+		Value 0
+		End
+	Key 1
+		Frame 221
+		Value -293.263
+		End
+	Key 2
+		Frame 227
+		Value -270.107
+		End
+	End
+Channel tracker1/ref/dy
+	Interpolation constant
+	Value 268.74
+	Size 3
+	Key 0
+		Frame 112
+		Value 0
+		End
+	Key 1
+		Frame 221
+		Value 312.517
+		End
+	Key 2
+		Frame 227
+		Value 268.74
+		End
+	End
+Channel tracker1/ref/type
+	End
+Channel tracker1/track/x
+	Interpolation linear
+	Value 353.907
+	Size 1
+	Key 0
+		Frame 112
+		Value 353.907
+		End
+	End
+Channel tracker1/track/y
+	Interpolation linear
+	Value 444.515
+	Size 1
+	Key 0
+		Frame 112
+		Value 444.515
+		End
+	End
+Channel tracker1/track/width
+	Interpolation constant
+	Value 25.6048
+	Size 1
+	Key 0
+		Frame 112
+		Value 25.6048
+		End
+	End
+Channel tracker1/track/height
+	Interpolation constant
+	Value 25.6048
+	Size 1
+	Key 0
+		Frame 112
+		Value 25.6048
+		End
+	End
+Channel tracker1/shift/x
+	Interpolation linear
+	Value -267.879
+	Size 232
+	Key 0
+		Frame 1
+		Value -32.6442
+		End
+	Key 1
+		Frame 2
+		Value -31.5752
+		End
+	Key 2
+		Frame 3
+		Value -30.3673
+		End
+	Key 3
+		Frame 4
+		Value -29.0384
+		End
+	Key 4
+		Frame 5
+		Value -28.04
+		End
+	Key 5
+		Frame 6
+		Value -27.5305
+		End
+	Key 6
+		Frame 7
+		Value -27.6764
+		End
+	Key 7
+		Frame 8
+		Value -27.656
+		End
+	Key 8
+		Frame 9
+		Value -26.9029
+		End
+	Key 9
+		Frame 10
+		Value -25.3334
+		End
+	Key 10
+		Frame 11
+		Value -23.6726
+		End
+	Key 11
+		Frame 12
+		Value -22.1613
+		End
+	Key 12
+		Frame 13
+		Value -20.5886
+		End
+	Key 13
+		Frame 14
+		Value -18.6246
+		End
+	Key 14
+		Frame 15
+		Value -16.7411
+		End
+	Key 15
+		Frame 16
+		Value -14.9957
+		End
+	Key 16
+		Frame 17
+		Value -13.1059
+		End
+	Key 17
+		Frame 18
+		Value -11.3927
+		End
+	Key 18
+		Frame 19
+		Value -9.88418
+		End
+	Key 19
+		Frame 20
+		Value -8.50325
+		End
+	Key 20
+		Frame 21
+		Value -7.30313
+		End
+	Key 21
+		Frame 22
+		Value -6.30492
+		End
+	Key 22
+		Frame 23
+		Value -5.49712
+		End
+	Key 23
+		Frame 24
+		Value -4.7573
+		End
+	Key 24
+		Frame 25
+		Value -3.98362
+		End
+	Key 25
+		Frame 26
+		Value -3.46006
+		End
+	Key 26
+		Frame 27
+		Value -3.08691
+		End
+	Key 27
+		Frame 28
+		Value -2.71028
+		End
+	Key 28
+		Frame 29
+		Value -2.30399
+		End
+	Key 29
+		Frame 30
+		Value -2.21115
+		End
+	Key 30
+		Frame 31
+		Value -2.06406
+		End
+	Key 31
+		Frame 32
+		Value -1.8057
+		End
+	Key 32
+		Frame 33
+		Value -1.49486
+		End
+	Key 33
+		Frame 34
+		Value -1.20615
+		End
+	Key 34
+		Frame 35
+		Value -1.08123
+		End
+	Key 35
+		Frame 36
+		Value -1.02157
+		End
+	Key 36
+		Frame 37
+		Value -0.890989
+		End
+	Key 37
+		Frame 38
+		Value -0.856495
+		End
+	Key 38
+		Frame 39
+		Value -0.795591
+		End
+	Key 39
+		Frame 40
+		Value -0.590971
+		End
+	Key 40
+		Frame 41
+		Value -0.295024
+		End
+	Key 41
+		Frame 42
+		Value -0.110327
+		End
+	Key 42
+		Frame 43
+		Value 0.05068
+		End
+	Key 43
+		Frame 44
+		Value 0.363401
+		End
+	Key 44
+		Frame 45
+		Value 0.636685
+		End
+	Key 45
+		Frame 46
+		Value 0.92517
+		End
+	Key 46
+		Frame 47
+		Value 1.18642
+		End
+	Key 47
+		Frame 48
+		Value 1.40461
+		End
+	Key 48
+		Frame 49
+		Value 1.6874
+		End
+	Key 49
+		Frame 50
+		Value 1.90587
+		End
+	Key 50
+		Frame 51
+		Value 1.99965
+		End
+	Key 51
+		Frame 52
+		Value 2.04052
+		End
+	Key 52
+		Frame 53
+		Value 2.06962
+		End
+	Key 53
+		Frame 54
+		Value 2.12249
+		End
+	Key 54
+		Frame 55
+		Value 2.04204
+		End
+	Key 55
+		Frame 56
+		Value 1.95756
+		End
+	Key 56
+		Frame 57
+		Value 2.01208
+		End
+	Key 57
+		Frame 58
+		Value 1.9251
+		End
+	Key 58
+		Frame 59
+		Value 1.82078
+		End
+	Key 59
+		Frame 60
+		Value 1.76104
+		End
+	Key 60
+		Frame 61
+		Value 1.78661
+		End
+	Key 61
+		Frame 62
+		Value 1.69192
+		End
+	Key 62
+		Frame 63
+		Value 1.68632
+		End
+	Key 63
+		Frame 64
+		Value 1.74917
+		End
+	Key 64
+		Frame 65
+		Value 1.76297
+		End
+	Key 65
+		Frame 66
+		Value 1.6971
+		End
+	Key 66
+		Frame 67
+		Value 1.69172
+		End
+	Key 67
+		Frame 68
+		Value 1.69454
+		End
+	Key 68
+		Frame 69
+		Value 1.66409
+		End
+	Key 69
+		Frame 70
+		Value 1.65857
+		End
+	Key 70
+		Frame 71
+		Value 1.67846
+		End
+	Key 71
+		Frame 72
+		Value 1.67466
+		End
+	Key 72
+		Frame 73
+		Value 1.58491
+		End
+	Key 73
+		Frame 74
+		Value 1.60845
+		End
+	Key 74
+		Frame 75
+		Value 1.53215
+		End
+	Key 75
+		Frame 76
+		Value 1.3609
+		End
+	Key 76
+		Frame 77
+		Value 1.13711
+		End
+	Key 77
+		Frame 78
+		Value 0.956131
+		End
+	Key 78
+		Frame 79
+		Value 1.00906
+		End
+	Key 79
+		Frame 80
+		Value 0.810103
+		End
+	Key 80
+		Frame 81
+		Value 0.601573
+		End
+	Key 81
+		Frame 82
+		Value 0.658263
+		End
+	Key 82
+		Frame 83
+		Value 0.656216
+		End
+	Key 83
+		Frame 84
+		Value 0.536988
+		End
+	Key 84
+		Frame 85
+		Value 0.707005
+		End
+	Key 85
+		Frame 86
+		Value 0.8205
+		End
+	Key 86
+		Frame 87
+		Value 0.687269
+		End
+	Key 87
+		Frame 88
+		Value 0.588406
+		End
+	Key 88
+		Frame 89
+		Value 0.630735
+		End
+	Key 89
+		Frame 90
+		Value 0.62991
+		End
+	Key 90
+		Frame 91
+		Value 0.597503
+		End
+	Key 91
+		Frame 92
+		Value 0.631384
+		End
+	Key 92
+		Frame 93
+		Value 0.583814
+		End
+	Key 93
+		Frame 94
+		Value 0.541795
+		End
+	Key 94
+		Frame 95
+		Value 0.551582
+		End
+	Key 95
+		Frame 96
+		Value 0.465467
+		End
+	Key 96
+		Frame 97
+		Value 0.218018
+		End
+	Key 97
+		Frame 98
+		Value -0.0383567
+		End
+	Key 98
+		Frame 99
+		Value -0.212739
+		End
+	Key 99
+		Frame 100
+		Value -0.238368
+		End
+	Key 100
+		Frame 101
+		Value -0.226821
+		End
+	Key 101
+		Frame 102
+		Value -0.290002
+		End
+	Key 102
+		Frame 103
+		Value -0.234028
+		End
+	Key 103
+		Frame 104
+		Value -0.32801
+		End
+	Key 104
+		Frame 105
+		Value -0.349104
+		End
+	Key 105
+		Frame 106
+		Value -0.316746
+		End
+	Key 106
+		Frame 107
+		Value -0.256534
+		End
+	Key 107
+		Frame 108
+		Value -0.139028
+		End
+	Key 108
+		Frame 109
+		Value 0.0286208
+		End
+	Key 109
+		Frame 110
+		Value 0.0359876
+		End
+	Key 110
+		Frame 111
+		Value -0.0577473
+		End
+	Key 111
+		Frame 112
+		Value 0
+		End
+	Key 112
+		Frame 113
+		Value 0.135172
+		End
+	Key 113
+		Frame 114
+		Value 0.144464
+		End
+	Key 114
+		Frame 115
+		Value 0.308966
+		End
+	Key 115
+		Frame 116
+		Value 0.638643
+		End
+	Key 116
+		Frame 117
+		Value 0.458691
+		End
+	Key 117
+		Frame 118
+		Value 0.151324
+		End
+	Key 118
+		Frame 119
+		Value 0.123977
+		End
+	Key 119
+		Frame 120
+		Value 0.228969
+		End
+	Key 120
+		Frame 121
+		Value -0.0134058
+		End
+	Key 121
+		Frame 122
+		Value -0.281827
+		End
+	Key 122
+		Frame 123
+		Value -0.263457
+		End
+	Key 123
+		Frame 124
+		Value -0.146569
+		End
+	Key 124
+		Frame 125
+		Value -0.105439
+		End
+	Key 125
+		Frame 126
+		Value -0.139322
+		End
+	Key 126
+		Frame 127
+		Value -0.214489
+		End
+	Key 127
+		Frame 128
+		Value -0.611252
+		End
+	Key 128
+		Frame 129
+		Value -0.902011
+		End
+	Key 129
+		Frame 130
+		Value -0.821915
+		End
+	Key 130
+		Frame 131
+		Value -0.405332
+		End
+	Key 131
+		Frame 132
+		Value -0.199644
+		End
+	Key 132
+		Frame 133
+		Value -0.235475
+		End
+	Key 133
+		Frame 134
+		Value -0.533052
+		End
+	Key 134
+		Frame 135
+		Value -0.981971
+		End
+	Key 135
+		Frame 136
+		Value -1.21801
+		End
+	Key 136
+		Frame 137
+		Value -1.25673
+		End
+	Key 137
+		Frame 138
+		Value -1.92078
+		End
+	Key 138
+		Frame 139
+		Value -3.36837
+		End
+	Key 139
+		Frame 140
+		Value -5.80445
+		End
+	Key 140
+		Frame 141
+		Value -7.99067
+		End
+	Key 141
+		Frame 142
+		Value -9.62745
+		End
+	Key 142
+		Frame 143
+		Value -12.3025
+		End
+	Key 143
+		Frame 144
+		Value -14.6725
+		End
+	Key 144
+		Frame 145
+		Value -17.0058
+		End
+	Key 145
+		Frame 146
+		Value -20.9099
+		End
+	Key 146
+		Frame 147
+		Value -25.2871
+		End
+	Key 147
+		Frame 148
+		Value -30.163
+		End
+	Key 148
+		Frame 149
+		Value -35.1363
+		End
+	Key 149
+		Frame 150
+		Value -39.7407
+		End
+	Key 150
+		Frame 151
+		Value -44.8996
+		End
+	Key 151
+		Frame 152
+		Value -48.8614
+		End
+	Key 152
+		Frame 153
+		Value -51.5682
+		End
+	Key 153
+		Frame 154
+		Value -51.7673
+		End
+	Key 154
+		Frame 155
+		Value -52.2658
+		End
+	Key 155
+		Frame 156
+		Value -53.1955
+		End
+	Key 156
+		Frame 157
+		Value -51.9665
+		End
+	Key 157
+		Frame 158
+		Value -49.6651
+		End
+	Key 158
+		Frame 159
+		Value -47.8561
+		End
+	Key 159
+		Frame 160
+		Value -46.3067
+		End
+	Key 160
+		Frame 161
+		Value -43.7246
+		End
+	Key 161
+		Frame 162
+		Value -40.8219
+		End
+	Key 162
+		Frame 163
+		Value -38.6743
+		End
+	Key 163
+		Frame 164
+		Value -38.4931
+		End
+	Key 164
+		Frame 165
+		Value -42.7126
+		End
+	Key 165
+		Frame 166
+		Value -51.3884
+		End
+	Key 166
+		Frame 167
+		Value -61.6003
+		End
+	Key 167
+		Frame 168
+		Value -71.2101
+		End
+	Key 168
+		Frame 169
+		Value -81.7738
+		End
+	Key 169
+		Frame 170
+		Value -94.4345
+		End
+	Key 170
+		Frame 171
+		Value -105.595
+		End
+	Key 171
+		Frame 172
+		Value -116.086
+		End
+	Key 172
+		Frame 173
+		Value -126.908
+		End
+	Key 173
+		Frame 174
+		Value -137.744
+		End
+	Key 174
+		Frame 175
+		Value -148.149
+		End
+	Key 175
+		Frame 176
+		Value -159.155
+		End
+	Key 176
+		Frame 177
+		Value -171.855
+		End
+	Key 177
+		Frame 178
+		Value -184.524
+		End
+	Key 178
+		Frame 179
+		Value -195.355
+		End
+	Key 179
+		Frame 180
+		Value -205.388
+		End
+	Key 180
+		Frame 181
+		Value -216.154
+		End
+	Key 181
+		Frame 182
+		Value -224.747
+		End
+	Key 182
+		Frame 183
+		Value -232.459
+		End
+	Key 183
+		Frame 184
+		Value -240.356
+		End
+	Key 184
+		Frame 185
+		Value -249.56
+		End
+	Key 185
+		Frame 186
+		Value -259.278
+		End
+	Key 186
+		Frame 187
+		Value -268.402
+		End
+	Key 187
+		Frame 188
+		Value -277.509
+		End
+	Key 188
+		Frame 189
+		Value -285.819
+		End
+	Key 189
+		Frame 190
+		Value -293.845
+		End
+	Key 190
+		Frame 191
+		Value -299.905
+		End
+	Key 191
+		Frame 192
+		Value -303.047
+		End
+	Key 192
+		Frame 193
+		Value -306.635
+		End
+	Key 193
+		Frame 194
+		Value -311.912
+		End
+	Key 194
+		Frame 195
+		Value -318.308
+		End
+	Key 195
+		Frame 196
+		Value -325.878
+		End
+	Key 196
+		Frame 197
+		Value -335.494
+		End
+	Key 197
+		Frame 198
+		Value -344.221
+		End
+	Key 198
+		Frame 199
+		Value -351.154
+		End
+	Key 199
+		Frame 200
+		Value -356.298
+		End
+	Key 200
+		Frame 201
+		Value -360.166
+		End
+	Key 201
+		Frame 202
+		Value -360.423
+		End
+	Key 202
+		Frame 203
+		Value -355.595
+		End
+	Key 203
+		Frame 204
+		Value -350.418
+		End
+	Key 204
+		Frame 205
+		Value -348.627
+		End
+	Key 205
+		Frame 206
+		Value -348.639
+		End
+	Key 206
+		Frame 207
+		Value -350.394
+		End
+	Key 207
+		Frame 208
+		Value -354.164
+		End
+	Key 208
+		Frame 209
+		Value -357.05
+		End
+	Key 209
+		Frame 210
+		Value -357.072
+		End
+	Key 210
+		Frame 211
+		Value -353.343
+		End
+	Key 211
+		Frame 212
+		Value -348.164
+		End
+	Key 212
+		Frame 213
+		Value -341.212
+		End
+	Key 213
+		Frame 214
+		Value -331.276
+		End
+	Key 214
+		Frame 215
+		Value -320.933
+		End
+	Key 215
+		Frame 216
+		Value -312.714
+		End
+	Key 216
+		Frame 217
+		Value -307.463
+		End
+	Key 217
+		Frame 218
+		Value -305.344
+		End
+	Key 218
+		Frame 219
+		Value -302.749
+		End
+	Key 219
+		Frame 220
+		Value -298.422
+		End
+	Key 220
+		Frame 221
+		Value -293.263
+		End
+	Key 221
+		Frame 222
+		Value -285.123
+		End
+	Key 222
+		Frame 223
+		Value -277.412
+		End
+	Key 223
+		Frame 224
+		Value -272.975
+		End
+	Key 224
+		Frame 225
+		Value -270.507
+		End
+	Key 225
+		Frame 226
+		Value -269.075
+		End
+	Key 226
+		Frame 227
+		Value -270.107
+		End
+	Key 227
+		Frame 228
+		Value -271.222
+		End
+	Key 228
+		Frame 229
+		Value -270.798
+		End
+	Key 229
+		Frame 230
+		Value -269.405
+		End
+	Key 230
+		Frame 231
+		Value -268.164
+		End
+	Key 231
+		Frame 232
+		Value -267.879
+		End
+	End
+Channel tracker1/shift/y
+	Interpolation linear
+	Value 270.346
+	Size 232
+	Key 0
+		Frame 1
+		Value -69.9588
+		End
+	Key 1
+		Frame 2
+		Value -65.9829
+		End
+	Key 2
+		Frame 3
+		Value -60.9438
+		End
+	Key 3
+		Frame 4
+		Value -54.7865
+		End
+	Key 4
+		Frame 5
+		Value -47.6059
+		End
+	Key 5
+		Frame 6
+		Value -39.9318
+		End
+	Key 6
+		Frame 7
+		Value -32.745
+		End
+	Key 7
+		Frame 8
+		Value -26.817
+		End
+	Key 8
+		Frame 9
+		Value -22.0652
+		End
+	Key 9
+		Frame 10
+		Value -18.1235
+		End
+	Key 10
+		Frame 11
+		Value -14.6904
+		End
+	Key 11
+		Frame 12
+		Value -11.8061
+		End
+	Key 12
+		Frame 13
+		Value -9.43048
+		End
+	Key 13
+		Frame 14
+		Value -7.28826
+		End
+	Key 14
+		Frame 15
+		Value -5.28816
+		End
+	Key 15
+		Frame 16
+		Value -3.70167
+		End
+	Key 16
+		Frame 17
+		Value -2.47963
+		End
+	Key 17
+		Frame 18
+		Value -1.5632
+		End
+	Key 18
+		Frame 19
+		Value -0.843933
+		End
+	Key 19
+		Frame 20
+		Value -0.323502
+		End
+	Key 20
+		Frame 21
+		Value -0.0982021
+		End
+	Key 21
+		Frame 22
+		Value 0.116541
+		End
+	Key 22
+		Frame 23
+		Value 0.395207
+		End
+	Key 23
+		Frame 24
+		Value 0.574225
+		End
+	Key 24
+		Frame 25
+		Value 0.748549
+		End
+	Key 25
+		Frame 26
+		Value 0.821278
+		End
+	Key 26
+		Frame 27
+		Value 0.773526
+		End
+	Key 27
+		Frame 28
+		Value 0.594395
+		End
+	Key 28
+		Frame 29
+		Value 0.453929
+		End
+	Key 29
+		Frame 30
+		Value 0.559731
+		End
+	Key 30
+		Frame 31
+		Value 0.635142
+		End
+	Key 31
+		Frame 32
+		Value 0.690342
+		End
+	Key 32
+		Frame 33
+		Value 0.739914
+		End
+	Key 33
+		Frame 34
+		Value 0.703525
+		End
+	Key 34
+		Frame 35
+		Value 0.578092
+		End
+	Key 35
+		Frame 36
+		Value 0.43117
+		End
+	Key 36
+		Frame 37
+		Value 0.378855
+		End
+	Key 37
+		Frame 38
+		Value 0.369359
+		End
+	Key 38
+		Frame 39
+		Value 0.302804
+		End
+	Key 39
+		Frame 40
+		Value 0.259038
+		End
+	Key 40
+		Frame 41
+		Value 0.331707
+		End
+	Key 41
+		Frame 42
+		Value 0.342136
+		End
+	Key 42
+		Frame 43
+		Value 0.288911
+		End
+	Key 43
+		Frame 44
+		Value 0.305217
+		End
+	Key 44
+		Frame 45
+		Value 0.281917
+		End
+	Key 45
+		Frame 46
+		Value 0.230466
+		End
+	Key 46
+		Frame 47
+		Value 0.157158
+		End
+	Key 47
+		Frame 48
+		Value 0.0651167
+		End
+	Key 48
+		Frame 49
+		Value -0.0795324
+		End
+	Key 49
+		Frame 50
+		Value -0.264125
+		End
+	Key 50
+		Frame 51
+		Value -0.449517
+		End
+	Key 51
+		Frame 52
+		Value -0.495195
+		End
+	Key 52
+		Frame 53
+		Value -0.49724
+		End
+	Key 53
+		Frame 54
+		Value -0.492477
+		End
+	Key 54
+		Frame 55
+		Value -0.393441
+		End
+	Key 55
+		Frame 56
+		Value -0.317781
+		End
+	Key 56
+		Frame 57
+		Value -0.333838
+		End
+	Key 57
+		Frame 58
+		Value -0.293895
+		End
+	Key 58
+		Frame 59
+		Value -0.297083
+		End
+	Key 59
+		Frame 60
+		Value -0.278068
+		End
+	Key 60
+		Frame 61
+		Value -0.147333
+		End
+	Key 61
+		Frame 62
+		Value -0.00950029
+		End
+	Key 62
+		Frame 63
+		Value 0.0695884
+		End
+	Key 63
+		Frame 64
+		Value 0.087114
+		End
+	Key 64
+		Frame 65
+		Value 0.057142
+		End
+	Key 65
+		Frame 66
+		Value -0.0033728
+		End
+	Key 66
+		Frame 67
+		Value -0.0723523
+		End
+	Key 67
+		Frame 68
+		Value -0.113242
+		End
+	Key 68
+		Frame 69
+		Value -0.155703
+		End
+	Key 69
+		Frame 70
+		Value -0.212086
+		End
+	Key 70
+		Frame 71
+		Value -0.181789
+		End
+	Key 71
+		Frame 72
+		Value -0.134278
+		End
+	Key 72
+		Frame 73
+		Value -0.14862
+		End
+	Key 73
+		Frame 74
+		Value -0.134846
+		End
+	Key 74
+		Frame 75
+		Value -0.240963
+		End
+	Key 75
+		Frame 76
+		Value -0.302604
+		End
+	Key 76
+		Frame 77
+		Value -0.290048
+		End
+	Key 77
+		Frame 78
+		Value -0.229482
+		End
+	Key 78
+		Frame 79
+		Value -0.184187
+		End
+	Key 79
+		Frame 80
+		Value -0.138582
+		End
+	Key 80
+		Frame 81
+		Value -0.164238
+		End
+	Key 81
+		Frame 82
+		Value -0.188501
+		End
+	Key 82
+		Frame 83
+		Value -0.187274
+		End
+	Key 83
+		Frame 84
+		Value -0.22424
+		End
+	Key 84
+		Frame 85
+		Value -0.237306
+		End
+	Key 85
+		Frame 86
+		Value -0.22329
+		End
+	Key 86
+		Frame 87
+		Value -0.211519
+		End
+	Key 87
+		Frame 88
+		Value -0.272797
+		End
+	Key 88
+		Frame 89
+		Value -0.352047
+		End
+	Key 89
+		Frame 90
+		Value -0.508477
+		End
+	Key 90
+		Frame 91
+		Value -0.692833
+		End
+	Key 91
+		Frame 92
+		Value -0.768783
+		End
+	Key 92
+		Frame 93
+		Value -0.848778
+		End
+	Key 93
+		Frame 94
+		Value -0.939166
+		End
+	Key 94
+		Frame 95
+		Value -1.11659
+		End
+	Key 95
+		Frame 96
+		Value -1.31571
+		End
+	Key 96
+		Frame 97
+		Value -1.41553
+		End
+	Key 97
+		Frame 98
+		Value -1.3662
+		End
+	Key 98
+		Frame 99
+		Value -1.21497
+		End
+	Key 99
+		Frame 100
+		Value -1.13409
+		End
+	Key 100
+		Frame 101
+		Value -1.14733
+		End
+	Key 101
+		Frame 102
+		Value -1.14571
+		End
+	Key 102
+		Frame 103
+		Value -1.1932
+		End
+	Key 103
+		Frame 104
+		Value -1.19007
+		End
+	Key 104
+		Frame 105
+		Value -1.20247
+		End
+	Key 105
+		Frame 106
+		Value -1.19279
+		End
+	Key 106
+		Frame 107
+		Value -1.1094
+		End
+	Key 107
+		Frame 108
+		Value -1.05711
+		End
+	Key 108
+		Frame 109
+		Value -0.918409
+		End
+	Key 109
+		Frame 110
+		Value -0.573124
+		End
+	Key 110
+		Frame 111
+		Value -0.175091
+		End
+	Key 111
+		Frame 112
+		Value 0
+		End
+	Key 112
+		Frame 113
+		Value 0.302997
+		End
+	Key 113
+		Frame 114
+		Value 0.939504
+		End
+	Key 114
+		Frame 115
+		Value 1.95744
+		End
+	Key 115
+		Frame 116
+		Value 3.55089
+		End
+	Key 116
+		Frame 117
+		Value 6.01604
+		End
+	Key 117
+		Frame 118
+		Value 9.33283
+		End
+	Key 118
+		Frame 119
+		Value 13.2448
+		End
+	Key 119
+		Frame 120
+		Value 17.5411
+		End
+	Key 120
+		Frame 121
+		Value 22.3526
+		End
+	Key 121
+		Frame 122
+		Value 27.7908
+		End
+	Key 122
+		Frame 123
+		Value 32.824
+		End
+	Key 123
+		Frame 124
+		Value 36.3341
+		End
+	Key 124
+		Frame 125
+		Value 38.2119
+		End
+	Key 125
+		Frame 126
+		Value 38.9856
+		End
+	Key 126
+		Frame 127
+		Value 39.243
+		End
+	Key 127
+		Frame 128
+		Value 39.4051
+		End
+	Key 128
+		Frame 129
+		Value 39.6751
+		End
+	Key 129
+		Frame 130
+		Value 39.9933
+		End
+	Key 130
+		Frame 131
+		Value 40.2678
+		End
+	Key 131
+		Frame 132
+		Value 40.5553
+		End
+	Key 132
+		Frame 133
+		Value 40.9074
+		End
+	Key 133
+		Frame 134
+		Value 41.8278
+		End
+	Key 134
+		Frame 135
+		Value 43.8094
+		End
+	Key 135
+		Frame 136
+		Value 46.9591
+		End
+	Key 136
+		Frame 137
+		Value 51.1062
+		End
+	Key 137
+		Frame 138
+		Value 56.1728
+		End
+	Key 138
+		Frame 139
+		Value 61.3479
+		End
+	Key 139
+		Frame 140
+		Value 66.3293
+		End
+	Key 140
+		Frame 141
+		Value 72.1267
+		End
+	Key 141
+		Frame 142
+		Value 79.5033
+		End
+	Key 142
+		Frame 143
+		Value 87.5002
+		End
+	Key 143
+		Frame 144
+		Value 96.9535
+		End
+	Key 144
+		Frame 145
+		Value 107.844
+		End
+	Key 145
+		Frame 146
+		Value 119.757
+		End
+	Key 146
+		Frame 147
+		Value 132.698
+		End
+	Key 147
+		Frame 148
+		Value 147.1
+		End
+	Key 148
+		Frame 149
+		Value 164.267
+		End
+	Key 149
+		Frame 150
+		Value 181.067
+		End
+	Key 150
+		Frame 151
+		Value 196.349
+		End
+	Key 151
+		Frame 152
+		Value 210.586
+		End
+	Key 152
+		Frame 153
+		Value 226.539
+		End
+	Key 153
+		Frame 154
+		Value 243.006
+		End
+	Key 154
+		Frame 155
+		Value 257.267
+		End
+	Key 155
+		Frame 156
+		Value 268.386
+		End
+	Key 156
+		Frame 157
+		Value 278.067
+		End
+	Key 157
+		Frame 158
+		Value 287.61
+		End
+	Key 158
+		Frame 159
+		Value 297.19
+		End
+	Key 159
+		Frame 160
+		Value 308.511
+		End
+	Key 160
+		Frame 161
+		Value 321.662
+		End
+	Key 161
+		Frame 162
+		Value 335.892
+		End
+	Key 162
+		Frame 163
+		Value 348.567
+		End
+	Key 163
+		Frame 164
+		Value 362.099
+		End
+	Key 164
+		Frame 165
+		Value 380.128
+		End
+	Key 165
+		Frame 166
+		Value 399.115
+		End
+	Key 166
+		Frame 167
+		Value 413.804
+		End
+	Key 167
+		Frame 168
+		Value 421.538
+		End
+	Key 168
+		Frame 169
+		Value 422.468
+		End
+	Key 169
+		Frame 170
+		Value 418.49
+		End
+	Key 170
+		Frame 171
+		Value 413.208
+		End
+	Key 171
+		Frame 172
+		Value 407.786
+		End
+	Key 172
+		Frame 173
+		Value 402.231
+		End
+	Key 173
+		Frame 174
+		Value 396.556
+		End
+	Key 174
+		Frame 175
+		Value 389.445
+		End
+	Key 175
+		Frame 176
+		Value 382.075
+		End
+	Key 176
+		Frame 177
+		Value 375.641
+		End
+	Key 177
+		Frame 178
+		Value 370.078
+		End
+	Key 178
+		Frame 179
+		Value 364.549
+		End
+	Key 179
+		Frame 180
+		Value 359.631
+		End
+	Key 180
+		Frame 181
+		Value 355.484
+		End
+	Key 181
+		Frame 182
+		Value 353.034
+		End
+	Key 182
+		Frame 183
+		Value 353.75
+		End
+	Key 183
+		Frame 184
+		Value 355.297
+		End
+	Key 184
+		Frame 185
+		Value 353.074
+		End
+	Key 185
+		Frame 186
+		Value 348.584
+		End
+	Key 186
+		Frame 187
+		Value 343.812
+		End
+	Key 187
+		Frame 188
+		Value 338.987
+		End
+	Key 188
+		Frame 189
+		Value 333.497
+		End
+	Key 189
+		Frame 190
+		Value 325.484
+		End
+	Key 190
+		Frame 191
+		Value 317.506
+		End
+	Key 191
+		Frame 192
+		Value 313.532
+		End
+	Key 192
+		Frame 193
+		Value 312.757
+		End
+	Key 193
+		Frame 194
+		Value 312.745
+		End
+	Key 194
+		Frame 195
+		Value 310.186
+		End
+	Key 195
+		Frame 196
+		Value 307.129
+		End
+	Key 196
+		Frame 197
+		Value 305.737
+		End
+	Key 197
+		Frame 198
+		Value 306.415
+		End
+	Key 198
+		Frame 199
+		Value 308.426
+		End
+	Key 199
+		Frame 200
+		Value 307.924
+		End
+	Key 200
+		Frame 201
+		Value 302.229
+		End
+	Key 201
+		Frame 202
+		Value 295.485
+		End
+	Key 202
+		Frame 203
+		Value 293.244
+		End
+	Key 203
+		Frame 204
+		Value 294.395
+		End
+	Key 204
+		Frame 205
+		Value 295.654
+		End
+	Key 205
+		Frame 206
+		Value 296.091
+		End
+	Key 206
+		Frame 207
+		Value 295.95
+		End
+	Key 207
+		Frame 208
+		Value 297.36
+		End
+	Key 208
+		Frame 209
+		Value 301.229
+		End
+	Key 209
+		Frame 210
+		Value 306.628
+		End
+	Key 210
+		Frame 211
+		Value 312.288
+		End
+	Key 211
+		Frame 212
+		Value 319.019
+		End
+	Key 212
+		Frame 213
+		Value 326.262
+		End
+	Key 213
+		Frame 214
+		Value 331.577
+		End
+	Key 214
+		Frame 215
+		Value 333.35
+		End
+	Key 215
+		Frame 216
+		Value 332.648
+		End
+	Key 216
+		Frame 217
+		Value 330.575
+		End
+	Key 217
+		Frame 218
+		Value 327.499
+		End
+	Key 218
+		Frame 219
+		Value 323.221
+		End
+	Key 219
+		Frame 220
+		Value 317.895
+		End
+	Key 220
+		Frame 221
+		Value 312.517
+		End
+	Key 221
+		Frame 222
+		Value 307.091
+		End
+	Key 222
+		Frame 223
+		Value 301.186
+		End
+	Key 223
+		Frame 224
+		Value 293.084
+		End
+	Key 224
+		Frame 225
+		Value 281.882
+		End
+	Key 225
+		Frame 226
+		Value 272.753
+		End
+	Key 226
+		Frame 227
+		Value 268.74
+		End
+	Key 227
+		Frame 228
+		Value 269.039
+		End
+	Key 228
+		Frame 229
+		Value 270.441
+		End
+	Key 229
+		Frame 230
+		Value 270.64
+		End
+	Key 230
+		Frame 231
+		Value 270.343
+		End
+	Key 231
+		Frame 232
+		Value 270.346
+		End
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 100
+		Green 0
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	End

@@ -85,19 +85,4 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       tuples
     end
     
-    # Zip two channel objects to tuples of [frame, valuex, valuey] 
-    # skipping keyframes that do not match in the two
-    def zip_curve_tuples(a, b)
-      tuples = []
-      
-      a.each do | keyframe |
-        tuples[keyframe[0]] = [keyframe[0], keyframe[1]]
-      end
-      
-      b.each do | keyframe |
-        tuples[keyframe[0]] = (tuples[keyframe[0]] << keyframe[1]) if tuples[keyframe[0]]
-      end
-      
-      tuples.compact.reject{|e| e.length < 3 }
-    end
 end

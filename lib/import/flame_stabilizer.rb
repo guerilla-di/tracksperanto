@@ -11,13 +11,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     "Flame .stabilizer file"
   end
   
-  class Kf
-    include ::Tracksperanto::Casts
-    include ::Tracksperanto::BlockInit
-    cast_to_int :frame
-    cast_to_float :value
-  end
-  
   T = ::Tracksperanto::Tracker
   K = ::Tracksperanto::Keyframe
   
@@ -65,7 +58,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
           frame = $1.to_i
         elsif line =~ value_matcher
           value = $1.to_f
-          return Kf.new(:frame => frame, :value => value)
+          return [frame,value]
         end
       end
       
@@ -175,8 +168,8 @@ Channel tracker1/ref/x
       shift_x = channels.find{|e| e.name == "#{t.name}/shift/x" }
       shift_y = channels.find{|e| e.name == "#{t.name}/shift/y" }
       
-      shift_tuples = zip_channels(shift_x, shift_y)
-      track_tuples = zip_channels(track_x, track_y)
+      shift_tuples = zip_curve_tuples(shift_x, shift_y)
+      track_tuples = zip_curve_tuples(track_x, track_y)
       
       base_x, base_y = begin
         find_base_x_and_y(track_tuples, shift_tuples)
@@ -210,21 +203,5 @@ Channel tracker1/ref/x
       else
         raise UseBase
       end
-    end
-    
-    # Zip two channel objects to tuples of [frame, valuex, valuey] 
-    # skipping keyframes that do not match in the two
-    def zip_channels(a, b)
-      tuples = []
-    
-      a.each do | keyframe |
-        tuples[keyframe.frame] = [keyframe.frame, keyframe.value]
-      end
-    
-      b.each do | keyframe |
-        tuples[keyframe.frame] = (tuples[keyframe.frame] << keyframe.value) if tuples[keyframe.frame]
-      end
-    
-      tuples.compact.reject{|e| e.length < 3 }
     end
 end

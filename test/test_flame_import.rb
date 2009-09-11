@@ -73,14 +73,14 @@ class FlameImportTest < Test::Unit::TestCase
     assert_equal 5, c.length
     
     first_key = c[0]
-    assert_in_delta 0.0, first_key.value, DELTA
-    assert_equal 0, first_key.frame
+    assert_in_delta 0.0, first_key[1], DELTA
+    assert_equal 0, first_key[0]
     
     key_four = c[4]
     assert_not_nil key_four, "The last keyframe should not be nil"
     
-    assert_in_delta -246.951, key_four.value, DELTA
-    assert_equal 115, key_four.frame
+    assert_in_delta -246.951, key_four[1], DELTA
+    assert_equal 115, key_four[0]
   end
   
   def test_parsing_from_flame

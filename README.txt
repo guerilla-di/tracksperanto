@@ -42,7 +42,7 @@ Exporters, Importers and Middlewares. Any processing chain (called a Pipeline) u
 
 == Internal coordinate system
 
-Frame numbers start from zero (frame 0 is first frame of the track).
+Frame numbers start from zero (frame 0 is first frame of the clip).
 
 Tracksperanto uses Shake coordinates as base. Image is Y-positive, X-positive, absolute pixel values up and right (zero is in the
 lower left corner). Some apps use a different coordinate system so translation will take place on import or on export, respectively.

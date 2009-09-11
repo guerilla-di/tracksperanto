@@ -37,13 +37,9 @@ class ShakeTextExportTest < Test::Unit::TestCase
     @trackers = [t1, t2]
   end
   
-  def test_export
-    out_to = "/tmp/shakeTr_txt.txt"
-    STDERR.puts "Outputting #{out_to} Shake sample text file, please verify"
-    io = File.open(out_to, "w")
-    
+  def test_export_output_written
+    io = StringIO.new
     x = Tracksperanto::Export::ShakeText.new(io)
-    
     x.start_export(720, 576)
     @trackers.each do | t |
       x.start_tracker_segment(t.name)
@@ -53,5 +49,7 @@ class ShakeTextExportTest < Test::Unit::TestCase
     end
     x.end_export
     io.close
+    
+    assert_equal io.string, File.read("./samples/ref_ShakeText.txt")
   end
 end

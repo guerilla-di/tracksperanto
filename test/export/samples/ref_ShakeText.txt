@@ -1,0 +1,10 @@
+TrackName Tracker_One
+   Frame             X             Y   Correlation
+   13.00   123.000   456.000   1.000
+   15.00   125.000   465.000   0.600
+
+TrackName Tracker_Two
+   Frame             X             Y   Correlation
+   1.00   406.000   268.000   1.000
+   2.00   402.457   245.897   0.600
+

@@ -1,5 +1,5 @@
 # Export for PFTrack .2dt files
-class Tracksperanto::Export::Pftrack < Tracksperanto::Export::Base
+class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     
     # Should return the suffix and extension of this export file (like "_flame.stabilizer")
     def self.desc_and_extension

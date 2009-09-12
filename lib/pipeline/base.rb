@@ -93,7 +93,7 @@ class Tracksperanto::Pipeline::Base
   end
   
   # Setup output files and return a single output
-  # that replays to all created outputs
+  # that replays to all of them
   def setup_outputs_for(input_file_path)
     file_name = File.basename(input_file_path).gsub(/\.([^\.]+)$/, '')
     Tracksperanto::Export::Mux.new(

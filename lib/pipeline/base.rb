@@ -101,7 +101,6 @@ class Tracksperanto::Pipeline::Base
         export_name = "%s_%s" % [file_name, exporter_class.desc_and_extension]
         export_path = File.dirname(input_file_path) + '/' + export_name
         exporter = exporter_class.new(open_owned_export_file(export_path))
-        Tracksperanto::Middleware::Close.new(exporter)
       end
     )
   end

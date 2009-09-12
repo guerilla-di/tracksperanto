@@ -65,7 +65,7 @@ class Tracksperanto::Pipeline::Base
     
     yield(percent_complete = 50.0, "Parsing complete, starting export for #{trackers.length} trackers") if block_given?
     
-    percent_per_tracker = 50.0 / trackers.length
+    percent_per_tracker = (100.0 - percent_complete) / trackers.length
     
     # Use the width and height provided by the parser itself
     processor.start_export(parser.width, parser.height)

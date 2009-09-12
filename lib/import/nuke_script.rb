@@ -68,6 +68,9 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     def parse_curve(curve_text)
       # Replace the closing curly brace with a curly brace with space so that it gets caught by split
       atoms, tuples = curve_text.gsub(/\}/, ' }').split, []
+      # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,
+      # after which values follow. When the curve is interrupted in some way a new x(keyframe_number) will signifu that we
+      # skip to that specified keyframe and the curve continues from there
       section_start = /^x(\d+)$/
       keyframe = /^([-\d\.]+)$/
       

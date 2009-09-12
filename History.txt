@@ -1,5 +1,10 @@
 === 1.2.0 / 2009-04-19
 
+* Officially add and test the Reformat middleware
+* Remove the Close middleware and close IOs automatically at pipeline end
+* Much improved documentation
+* Use IO as base for all the parsers (if a parser needs a string it will have to read by himself)
+* Much improved test coverage
 * Support Nuke import
 
 === 1.0.0 / 2009-04-19

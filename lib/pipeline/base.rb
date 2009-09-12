@@ -22,8 +22,8 @@ class Tracksperanto::Pipeline::Base
   attr_accessor :converted_keyframes
   
   # A block acepting percent and message vars can be assigned here.
-  # When it's assigned, the pipeline will pass the status reports of all the importers and exporters
-  # to the block
+  # When it's assigned, the pipeline will pass the status reports
+  # of all the importers and exporters to the block
   attr_accessor :progress_block
   
   # Runs the whole pipeline. Must receive the class used for parsing as the last argument
@@ -61,7 +61,7 @@ class Tracksperanto::Pipeline::Base
     
     trackers = parser.parse(tracker_data_io)
     
-    raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
+    validate_trackers!(trackers)
     
     yield(percent_complete = 50.0, "Parsing complete, starting export for #{trackers.length} trackers") if block_given?
     
@@ -92,6 +92,8 @@ class Tracksperanto::Pipeline::Base
     @ios.reject!{|e| e.close } if @ios
   end
   
+  # Setup output files and return a single output
+  # that replays to all creted outputs
   def setup_outputs_for(input_file_path)
     file_name = File.basename(input_file_path).gsub(/\.([^\.]+)$/, '')
     Tracksperanto::Export::Mux.new(
@@ -104,17 +106,27 @@ class Tracksperanto::Pipeline::Base
     )
   end
   
+  # Setup and return the output multiplexor wrapped in all necessary middlewares
   def setup_middleware_chain_with(output)
     scaler = Tracksperanto::Middleware::Scaler.new(output)
     slipper = Tracksperanto::Middleware::Slipper.new(scaler)
     golden = Tracksperanto::Middleware::Golden.new(slipper)
     Tracksperanto::Middleware::Reformat.new(golden)
   end
+  
   # Open the file for writing and register it to be closed automatically
   def open_owned_export_file(path_to_file)
     @ios ||= []
     handle = File.open(path_to_file, "w")
     @ios << handle
     handle
+  end
+  
+  # Check that the trackers made by the parser are A-OK
+  def validate_trackers!(trackers)
+    raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
+    trackers.each do | t |
+      raise "Tracker #{t.name} had no keyframes" if t.keyframes.empty?
+    end
   end
 end

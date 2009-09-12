@@ -12,6 +12,7 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
       # Do we already have this tracker?
       t = trackers.find {|e| e.name == name}
       if !t
+        report_progress("Allocating tracker #{name}")
         t = Tracksperanto::Tracker.new{|t| t.name = name }
         trackers << t
       end
@@ -23,6 +24,7 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
         e.abs_y = height - convert_from_uv(height, y) # Convert TL to BL
         e.residual = corr
       end
+      report_progress("Adding keyframe #{frame} to #{name}")
     end
     
     trackers

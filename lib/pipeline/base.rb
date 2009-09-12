@@ -51,7 +51,6 @@ class Tracksperanto::Pipeline::Base
   # Runs the export and returns the number of points and keyframes processed.
   # If a block is passed, the block will receive the percent complete and the last
   # status message that you can pass back to the UI
-  # # :yields: percent_complete, status_message
   def run_export(tracker_data_io, parser, processor)
     points, keyframes, percent_complete = 0, 0, 0.0
     

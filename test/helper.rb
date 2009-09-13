@@ -70,4 +70,4 @@ module ParabolicTracks
     end
     exporter.end_export
   end
-end
+end unless defined?(ParabolicTracks)

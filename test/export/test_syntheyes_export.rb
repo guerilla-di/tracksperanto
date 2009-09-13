@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../helper'
 
-class SyntheyesExportTest < Test::Unit::TestCase
+class SynthEyesExportTest < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_Syntheyes.txt"
   
@@ -11,5 +11,11 @@ class SyntheyesExportTest < Test::Unit::TestCase
     io.close
     
     assert_equal io.string, File.read(P)
+  end
+  
+  
+  def test_exporter_meta
+    assert_equal "syntheyes_2dt.txt", Tracksperanto::Export::SynthEyes.desc_and_extension
+    assert_equal "Syntheyes 2D tracker .txt file", Tracksperanto::Export::SynthEyes.human_name
   end
 end

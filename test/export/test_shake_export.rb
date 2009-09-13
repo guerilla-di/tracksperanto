@@ -12,4 +12,9 @@ class ShakeTextExportTest < Test::Unit::TestCase
     
     assert_equal io.string, File.read(P)
   end
+  
+  def test_exporter_meta
+    assert_equal "shake_trackers.txt", Tracksperanto::Export::ShakeText.desc_and_extension
+    assert_equal "Shake trackers in a .txt file", Tracksperanto::Export::ShakeText.human_name
+  end
 end

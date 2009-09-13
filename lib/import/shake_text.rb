@@ -1,4 +1,3 @@
-require 'stringio'
 
 class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   

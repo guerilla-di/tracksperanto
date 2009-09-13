@@ -76,7 +76,7 @@ class Tracksperanto::Pipeline::Base
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
       processor.start_tracker_segment(t.name)
-      t.keyframes.each do | kf |
+      t.each do | kf |
         keyframes += 1
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
         yield(percent_complete += kf_weight, "Writing keyframe") if block_given?

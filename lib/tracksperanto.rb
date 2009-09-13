@@ -86,7 +86,9 @@ module Tracksperanto
   class Tracker
     include Casts
     include BlockInit
-
+    include Enumerable
+    include Comparable
+    
     # Contains the name of the tracker
     attr_accessor :name
     
@@ -98,6 +100,57 @@ module Tracksperanto
     def initialize(h = {})
       @name, @keyframes = 'Tracker', []
       super
+    end
+    
+    # Returns the number of keyframes the tracker has
+    def length
+      @keyframes.length
+    end
+    
+    # Iterates over keyframes
+    def each
+      @keyframes.each{|k| yield k }
+    end
+    
+    def [](idx)
+      @keyframes[idx]
+    end
+    
+    # Trackers sort by the position of the first keyframe
+    def <=>(other_tracker)
+      self[0].frame <=> other_tracker[0].frame
+    end
+    
+    def inspect
+      "<T #{name.inspect} with #{length} keyframes>"
+    end
+  end
+  
+  # DSL-ish method for building trackers.
+  #
+  #  build_tracker("FooBar") do | t |
+  #    t.key(:frame => 10, :abs_x => 234, :abs_y => 0)
+  #  end # => <T "FooBar" with 1 keyframes>
+  def self.build_tracker(name)
+    t = Tracker.new(:name => name)
+    yield(TrackerProxy.new(t))
+    return t
+  end
+  
+  module TrackerDSL
+    def build_tracker(name, &block)
+      Tracksperanto.build_tracker(namem &block)
+    end
+  end
+  
+  # Used for the Tracker DSL
+  class TrackerProxy < DelegateClass(Tracker)
+    def initialize(t)
+      __setobj__(t)
+    end
+    
+    def key(options = {})
+      __getobj__.keyframes << Keyframe.new(options)
     end
   end
   

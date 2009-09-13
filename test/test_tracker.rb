@@ -28,5 +28,19 @@ class TrackerTest < Test::Unit::TestCase
     t = Tracksperanto::Tracker.new(:keyframes => [:a, :b])
     assert_equal [:a, :b], t.map{|e| e}
     assert_equal 2, t.length
+    assert_equal :a, t[0]
+  end
+  
+  def test_tracker_dsl
+    t = Tracksperanto.tracker("SomeFoo") do | t |
+      t.key(:frame => 0, :abs_x => 123, :abs_y => 456)
+    end
+    
+    assert_kind_of Tracksperanto::Tracker, t
+    assert_equal "SomeFoo", t.name
+    assert_equal 1, t.length
+    assert_equal 123.0, t[0].abs_x
+    assert_equal 456.0, t[0].abs_y
+    assert_equal 0, t[0].frame
   end
 end

@@ -27,7 +27,7 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
     
     # Syntheyes wants very special coordinates, Y down X right,
     # 0 is center and values are UV float -1 to 1, doubled
-    def syntheyes_coords(abs_x, abs_y)
+    def syntheyes_coords(abs_x, abs_y, w, h)
       x = (abs_x / w.to_f) - 0.5
       y = (abs_y / h.to_f) - 0.5
       # .2 to -.3, y is reversed and coords are double

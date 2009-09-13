@@ -139,7 +139,7 @@ module Tracksperanto
   
   module TrackerDSL
     def build_tracker(name, &block)
-      Tracksperanto.build_tracker(namem &block)
+      Tracksperanto.build_tracker(name, &block)
     end
   end
   

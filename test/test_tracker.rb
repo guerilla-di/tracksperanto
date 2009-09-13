@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/helper'
 
 class TrackerTest < Test::Unit::TestCase
+  include Tracksperanto::TrackerDSL
   def test_supports_block_init
     t = Tracksperanto::Tracker.new do |t| 
       t.name = 'Foo'
@@ -32,7 +33,7 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_tracker_dsl
-    t = Tracksperanto.tracker("SomeFoo") do | t |
+    t = build_tracker("SomeFoo") do | t |
       t.key(:frame => 0, :abs_x => 123, :abs_y => 456)
     end
     

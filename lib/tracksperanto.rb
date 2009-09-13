@@ -112,6 +112,7 @@ module Tracksperanto
       @keyframes.each{|k| yield k }
     end
     
+    # Get a keyframe by index
     def [](idx)
       @keyframes[idx]
     end
@@ -119,6 +120,11 @@ module Tracksperanto
     # Trackers sort by the position of the first keyframe
     def <=>(other_tracker)
       self[0].frame <=> other_tracker[0].frame
+    end
+    
+    # Create and save a keyframe in this tracker
+    def keyframe!(options)
+      @keyframes << Keyframe.new(options)
     end
     
     def inspect

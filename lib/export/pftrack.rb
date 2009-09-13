@@ -33,7 +33,7 @@ class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
-      line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual]
+      line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual / 8]
       @prev_tracker << line
     end
 end

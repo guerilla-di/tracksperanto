@@ -5,7 +5,7 @@
 * Much improved documentation
 * Use IO as base for all the parsers (if a parser needs a string it will have to read by himself)
 * Much improved test coverage
-* Support Nuke import
+* Support Nuke import and export
 
 === 1.0.0 / 2009-04-19
 

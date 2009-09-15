@@ -40,6 +40,7 @@ Constant {
       @ypos = 0
     end
     
+    # We accumulate a tracker and on end dump it out in one piece
     def start_tracker_segment(tracker_name)
       # Setup for the next tracker
       @tracker = T.new
@@ -57,6 +58,7 @@ Constant {
       @tracker << [frame + 1, abs_float_x, abs_float_y]
     end
     
+    private 
     # Generates a couple of Nuke curves (x and y) from the passed tuples of [frame, x, y]
     def curves_from_tuples(tuples)
       x_values, y_values, last_frame_exported = [], [], nil

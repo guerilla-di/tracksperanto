@@ -42,7 +42,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         s3, s4, s5, s6, *trackers)
       
       report_progress("Parsing Tracker node")
-      collect_trackers_from(trackers)
+      collect_trackers_from(get_variable_name, trackers)
       true
     end
     
@@ -74,26 +74,21 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     #   ...
     # };
     def stabilize(imageIn, applyTransform, inverseTransform, trackType,
-      track1X,
-      track1Y,
-      stabilizeX,
-      stabilizeY,
-      track2X,
-      track2Y,
+      track1X, track1Y,
+      stabilizeX, stabilizeY,
+      track2X, track2Y,
       matchScale,
       matchRotation,
-      track3X,
-      track3Y,
-      track4X,
-      track4Y,
+      track3X, track3Y,
+      track4X, track4Y,
       *useless_args)
       
       report_progress("Parsing Stabilize node")
-      
-      collect_stabilizer_tracker("1", track1X, track1Y)
-      collect_stabilizer_tracker("2", track2X, track2Y)
-      collect_stabilizer_tracker("3", track3X, track3Y)
-      collect_stabilizer_tracker("4", track4X, track4Y)
+      node_name = get_variable_name
+      collect_stabilizer_tracker("#{node_name}_1", track1X, track1Y)
+      collect_stabilizer_tracker("#{node_name}_2", track2X, track2Y)
+      collect_stabilizer_tracker("#{node_name}_3", track3X, track3Y)
+      collect_stabilizer_tracker("#{node_name}_4", track4X, track4Y)
     end
     
     private
@@ -102,18 +97,19 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       self.class.progress_block.call(with_message)
     end
     
-    def collect_trackers_from(array)
+    def collect_trackers_from(name, array)
       parameters_per_node = 16
       nb_trackers = array.length / parameters_per_node
       nb_trackers.times do | idx |
         from_index, to_index = (idx * parameters_per_node), (idx+1) * parameters_per_node
         tracker_args = array[from_index...to_index]
+        tracker_args[0] = "#{name}_#{tracker_args[0]}"
         collect_tracker(*tracker_args)
       end
     end
     
     def collect_stabilizer_tracker(name, x_curve, y_curve)
-      return if x_curve == :unknown || y_curve == :unknown
+      return if (x_curve == :unknown || y_curve == :unknown)
       
       keyframes = zip_curve_tuples(x_curve, y_curve).map do | (frame, x, y) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
@@ -124,6 +120,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
+      report_progress("Scavenging tracker #{name}")
       keyframes = zip_curve_tuples(x_curve, y_curve, corr_curve).map do | (frame, x, y, corr) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr))
       end

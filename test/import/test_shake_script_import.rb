@@ -10,7 +10,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 50, trackers.length
     
     t = trackers[0]
-    assert_equal "track1", t.name
+    assert_equal "Tracker1_track1", t.name
     
     first_kf = t.keyframes[0]
     assert_equal 0, first_kf.frame
@@ -29,7 +29,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 2, trackers.length
     
     t = trackers[0]
-    assert_equal "track1", t.name
+    assert_equal "Tracker1_track1", t.name
     
     first_kf = t.keyframes[0]
     assert_equal 0, first_kf.frame
@@ -41,7 +41,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_in_delta 0.00129, second_kf.residual, DELTA
     
     t2 = trackers[1]
-    assert_equal "track2", t2.name
+    assert_equal "Tracker1_track2", t2.name
     
   end
 
@@ -49,6 +49,8 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     fixture = File.open(File.dirname(__FILE__) + '/samples/three_tracks_in_one_stabilizer.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
+    ft = trackers[0]
+    assert_equal "Stabilize1_1", ft.name
     assert_equal 3, trackers.length
   end
 end

@@ -7,19 +7,29 @@ module Tracksperanto::ShakeGrammar
       if atom_name == :funcall
         func, funcargs = atom_array[1], atom_array[2..-1]
         meth_for_shake_func = func.downcase
-        if self.class.public_instance_methods(false).include?(meth_for_shake_func)
+        if can_handle_meth?(meth_for_shake_func)
           super([:retval, exec_funcall(meth_for_shake_func, funcargs)])
         else
           # This is a funcall we cannot perform, replace the return result of the funcall
           # with a token to signify that some unknown function's result would have been here
           super(:unknown_func)
         end
+      elsif atom_name == :comment
+        # Skip comments
       else
         super
       end
     end
     
     private
+    
+    def get_variable_name
+      @stack[-2][1]
+    end
+    
+    def can_handle_meth?(m)
+      self.class.public_instance_methods(false).include?(m)
+    end
     
     def exec_funcall(methname, args)
       ruby_args = unwrap_atoms_in_args(args)

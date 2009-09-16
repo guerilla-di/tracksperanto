@@ -3,15 +3,11 @@ module Tracksperanto::ShakeGrammar
   # but concise C-like lexer to cope
   class Lexer
     
-    END_SUBEXPR = :___ESX
-    
     attr_reader :stack
     
     def initialize(with_io)
       @io, @stack, @buf  = with_io, [], ''
-      catch(END_SUBEXPR) do
-        parse until @io.eof?
-      end
+      parse until (@io.eof? || @stop)
       in_comment? ? consume_comment("\n") : consume_atom!
     end
     
@@ -28,14 +24,10 @@ module Tracksperanto::ShakeGrammar
     def consume_comment(c)
       if c == "\n" # Comment
         push [:comment, @buf.gsub(/(\s+?)\/\/{1}/, '')]
-        clear_buffer
+        @buf = ''
       else
         @buf << c
       end
-    end
-    
-    def clear_buffer
-      @buf = ''
     end
     
     def parse
@@ -44,22 +36,22 @@ module Tracksperanto::ShakeGrammar
       
       if !@buf.empty? && (c == "(") # Funcall
         push([:funcall, @buf.strip] + self.class.new(@io).stack)
-        clear_buffer
+        @buf = ''
       elsif c == "[" # Array, booring
         push([:arr] + self.class.new(@io).stack)
       elsif (c == "]" || c == ")")
         # Funcall end, and when it happens assume we are called as
         # a subexpression.
         consume_atom!
-        throw END_SUBEXPR
+        @stop = true
       elsif (c == ",")
         consume_atom!
-      elsif (c == ";")
-        # Skip this one, since the subexpression already is expanded anyway
-      elsif (c == "\n")
-        # Skip too
+      elsif (c == ";" || c == "\n")
+        # Skip these - the subexpression already is expanded anyway
       elsif (c == "=")
-        handle_assignment
+        push [:var, @buf.strip]
+        push [:eq]
+        @buf = ''
       else
         @buf << c
       end
@@ -72,38 +64,28 @@ module Tracksperanto::ShakeGrammar
     AT_CONSUMED = /^@(\d+)/
     VAR_ASSIGN = /^([\w_]+)(\s+?)\=(\s+?)(.+)/
     
-    def handle_assignment
-      push [:var, @buf.strip]
-      push [:eq]
-      clear_buffer
-    end
-    
     # Grab the minimum atomic value
     def consume_atom!
-      at = @buf
-      @buf = ''
-      return if at.strip.empty?
+      at, @buf = @buf.strip, ''
+      return if at.empty?
       
-      the_atom = if at.strip =~ INT_ATOM
-        [:atom_i, at.to_i]
-      elsif at.strip =~ STR_ATOM
-        [:atom_c, unquote_s(at)]
-      elsif at.strip =~ FLOAT_ATOM
-        [:atom_f, at.to_f]
-      elsif at.strip =~ AT_ATOM
-        v, f = at.strip.split("@")
-        [[:atom_f, v.to_f], [:atom_at_i, f.to_i]]
-      elsif at.strip =~ AT_CONSUMED
-        [:atom_at_i, $1.to_i]
-      elsif at.strip =~ VAR_ASSIGN
-        [:equals, $1]
-      elsif at.strip.empty?
-        # whitespace :-)
-      else
-        [:atom, at]
+      the_atom = case at
+        when INT_ATOM
+          [:atom_i, at.to_i]
+        when STR_ATOM
+          [:atom_c, unquote_s(at)]
+        when FLOAT_ATOM
+          [:atom_f, at.to_f]
+        when AT_ATOM
+          v, f = at.strip.split("@")
+          [[:atom_f, v.to_f], [:atom_at_i, f.to_i]]
+        when AT_CONSUMED
+          [:atom_at_i, $1.to_i]
+        else
+          [:atom, at]
       end
       
-      push(the_atom) unless the_atom.nil?
+      push(the_atom)
     end
     
     def unquote_s(string)

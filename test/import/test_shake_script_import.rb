@@ -10,7 +10,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 50, trackers.length
     
     t = trackers[0]
-    assert_equal "Tracker1", t.name
+    assert_equal "track1", t.name
     
     first_kf = t.keyframes[0]
     assert_equal 0, first_kf.frame
@@ -29,16 +29,20 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 2, trackers.length
     
     t = trackers[0]
-    assert_equal "Tracker1", t.name
+    assert_equal "track1", t.name
     
     first_kf = t.keyframes[0]
     assert_equal 0, first_kf.frame
-    assert_in_delta 886.212, first_kf.abs_y, DELTA
-    assert_in_delta 715.839, first_kf.abs_x, DELTA
+    assert_in_delta 716.08, first_kf.abs_x, DELTA
+    assert_in_delta 885.123, first_kf.abs_y, DELTA
     assert_in_delta 0.0, first_kf.residual, DELTA
     
     second_kf = t.keyframes[1]
     assert_in_delta 0.00129, second_kf.residual, DELTA
+    
+    t2 = trackers[1]
+    assert_equal "track2", t2.name
+    
   end
 
   def test_parsing_many_tracks_in_one_stabilizer_node

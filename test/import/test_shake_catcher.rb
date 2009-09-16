@@ -13,6 +13,15 @@ class ShakeCatcherTest < Test::Unit::TestCase
     assert_equal [[:retval, "1 2 3"]], tree
   end
   
+  def test_uknown_funcalls
+    k = Class.new(C)
+    tree = parse("OuterFunc(InnerFunc(15)", k)
+    assert_equal [:unknown_func], tree
+    
+    tree = parse("OuterFunc(15);", k)
+    assert_equal [:unknown_func], tree
+  end
+  
   def test_nested_funcalls
     k = Class.new(C) do
       def outerfunc(a)
@@ -30,13 +39,15 @@ class ShakeCatcherTest < Test::Unit::TestCase
   
   def test_linear_funcall
     k = Class.new(C) do
-      def linear(*args)
-        args
+      def linear(first_arg, *keyframes)
+        keyframes.map do | kf |
+          [kf[0][1], kf[1][1]]
+        end
       end
     end
     
     tree = parse('Linear(0,591.702@1,591.452@2,591.202@3,590.733@4,590.202@5,589.421@6,589.249@7)', k)
-    puts tree.inspect
+    assert_equal [[:retval, [[591.702, 1], [591.452, 2], [591.202, 3], [590.733, 4], [590.202, 5], [589.421, 6], [589.249, 7]]]],  tree
   end
   
   def test_nested_funcalls_with_array_return

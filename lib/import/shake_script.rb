@@ -45,7 +45,9 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       if !@buf.empty? && (c == "(") # Funcall
         @stack << ([:funcall, @buf.strip] + self.class.new(@io).stack)
         @buf = ''
-      elsif (c == ")")
+      elsif c == "[" # Array, booring
+        @stack << ([:arr] + self.class.new(@io).stack)
+      elsif (c == "]" || c == ")")
         # Funcall end, and when it happens assume we are called as
         # a subexpression.
         consume_atom!
@@ -68,8 +70,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     STR_ATOM = /^\"/
     AT_ATOM = /^([\-\d\.]+)@([\-\d\.]+)$/
     VAR_ASSIGN = /^([\w_]+)(\s+?)\=(\s+?)(.+)/
-    ARRAY_TOM = /\]$/
-    
+
     def handle_assignment
       @stack << [:var, @buf.strip]
       @stack << [:eq]
@@ -80,7 +81,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     def consume_atom!
       at = @buf
       @buf = ''
-
+      return if at.strip.empty?
+      
       the_atom = if at.strip =~ INT_ATOM
         [:atom_i, at.to_i]
       elsif at.strip =~ STR_ATOM
@@ -91,7 +93,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         # whitespace :-)
       elsif at.strip =~ AT_ATOM
         v, f = at.strip.split("@")
-        [:atom_at, v.to_f, f.to_i]
+        [:atom_f_at, v.to_f, f.to_i]
       elsif at.strip =~ VAR_ASSIGN
         [:equals, $1]
       else
@@ -99,7 +101,6 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       end
       
       @stack << the_atom unless the_atom.nil?
-      @buf = ''
     end
     
     def unquote_s(string)

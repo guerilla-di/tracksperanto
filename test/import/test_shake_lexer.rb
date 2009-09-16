@@ -27,14 +27,20 @@ class ShakeLexerTest < Test::Unit::TestCase
   def test_parse_funcall_with_valueats
     s = parse 'Linear(0,716.08@1,715.846@2,715.518@3,715.034@4,714.377@5)'
     assert_equal(
-      [[:funcall, "Linear", [:atom_i, 0], [:atom_at, 716.08, 1], [:atom_at, 715.846, 2], 
-        [:atom_at, 715.518, 3], [:atom_at, 715.034, 4], [:atom_at, 714.377, 5]]], s
+      [[:funcall, "Linear", [:atom_i, 0], [:atom_f_at, 716.08, 1], [:atom_f_at, 715.846, 2], 
+        [:atom_f_at, 715.518, 3], [:atom_f_at, 715.034, 4], [:atom_f_at, 714.377, 5]]], s
     )
   end
   
   def test_parse_hermite_valuats_with_arrays
     # Hermite curves use array args
     s = parse 'Hermite(0,[-64,98.33,98.33]@1,[50,97.29,97.29]@4)'
+    ref = [[:funcall, "Hermite", 
+    	[:atom_i, 0],
+    	[:arr, [:atom_f, -64.0], [:atom_f, 98.33], [:atom_f, 98.33]], [:atom_at_i, 1], 
+    	[:arr, [:atom_i, 50], [:atom_f, 97.29], [:atom_f, 97.29]], [:atom_at_i, 4]
+    ]]
+    assert_equal ref, s
   end
   
   def test_parse_varassign

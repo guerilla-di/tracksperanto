@@ -1,6 +1,9 @@
 */.DS_Store
+test/.DS_Store
 **/.DS_Store
 */**/.DS_Store
 pkg
 doc
+coverage
+coverage.*
 *.autosave

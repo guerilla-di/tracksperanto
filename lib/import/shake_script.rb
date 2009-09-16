@@ -6,15 +6,14 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   # but concise C-like parser to cope
   class Lexer
     
-    EndSubexpr = RuntimeError
+    END_SUBEXPR = :___ESX
     
     attr_reader :stack
     
     def initialize(with_io)
       @io, @stack, @buf  = with_io, [], ''
-      begin
+      catch(END_SUBEXPR) do
         parse until @io.eof?
-      rescue EndSubexpr
       end
       in_comment? ? consume_comment!("\n") : consume_atom!
     end
@@ -44,6 +43,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       
       if !@buf.empty? && (c == "(") # Funcall
         @stack << ([:funcall, @buf.strip] + self.class.new(@io).stack)
+        # If this lexer implements this funcall - execute it
+        try_funcall
         @buf = ''
       elsif c == "[" # Array, booring
         @stack << ([:arr] + self.class.new(@io).stack)
@@ -51,7 +52,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         # Funcall end, and when it happens assume we are called as
         # a subexpression.
         consume_atom!
-        raise EndSubexpr
+        throw END_SUBEXPR
       elsif (c == ",")
         consume_atom!
       elsif (c == ";")
@@ -71,7 +72,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     AT_ATOM = /^([\-\d\.]+)@([\-\d\.]+)$/
     AT_CONSUMED = /^@(\d+)/
     VAR_ASSIGN = /^([\w_]+)(\s+?)\=(\s+?)(.+)/
-
+    
     def handle_assignment
       @stack << [:var, @buf.strip]
       @stack << [:eq]
@@ -90,15 +91,15 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         [:atom_c, unquote_s(at)]
       elsif at.strip =~ FLOAT_ATOM
         [:atom_f, at.to_f]
-      elsif at.strip.empty?
-        # whitespace :-)
       elsif at.strip =~ AT_ATOM
         v, f = at.strip.split("@")
-        [:atom_f_at, v.to_f, f.to_i]
+        [[:atom_f, v.to_f], [:atom_at_i, f.to_i]]
       elsif at.strip =~ AT_CONSUMED
         [:atom_at_i, $1.to_i]
       elsif at.strip =~ VAR_ASSIGN
         [:equals, $1]
+      elsif at.strip.empty?
+        # whitespace :-)
       else
         [:atom, at]
       end
@@ -109,8 +110,17 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     def unquote_s(string)
       string.strip.gsub(/^\"/, '').gsub(/\"$/, '').gsub(/\\\"/, '"')
     end
+    
+    def try_funcall
+      _, meth, args = @stack[-1]
+      send(meth.downcase, args) if self.class.instance_methods.include?(meth.downcase)
+    end
   end
   
+  class Catcher < Lexer
+    def stabilize(from_node, void1, void2, stab_kind, *var_args)
+    end
+  end
   
   def parse(script_io)
   end

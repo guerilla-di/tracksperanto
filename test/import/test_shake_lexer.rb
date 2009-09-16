@@ -2,8 +2,7 @@ require File.dirname(__FILE__) + '/../helper'
 
 class ShakeLexerTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/shake_tracker_nodes.shk"
-  L = Tracksperanto::Import::ShakeScript::Lexer
-  C = Tracksperanto::Import::ShakeScript::Catcher
+  L = Tracksperanto::ShakeGrammar::Lexer
   
   def test_parse_single_cmt
     cmt = " // Mary had a little lamb"

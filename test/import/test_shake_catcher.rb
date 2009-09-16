@@ -1,7 +1,8 @@
 require File.dirname(__FILE__) + '/../helper'
 
 class ShakeCatcherTest < Test::Unit::TestCase
-  C = Tracksperanto::Import::ShakeScript::Catcher
+  C = Tracksperanto::ShakeGrammar::Catcher
+  
   def test_hould_catch_simple_funcall
     k = Class.new(C) do
       def foofunc(a, b, c)
@@ -25,6 +26,17 @@ class ShakeCatcherTest < Test::Unit::TestCase
     
     tree = parse("OuterFunc(InnerFunc(15)", k)
     assert_equal [[:retval, 300]], tree
+  end
+  
+  def test_linear_funcall
+    k = Class.new(C) do
+      def linear(*args)
+        args
+      end
+    end
+    
+    tree = parse('Linear(0,591.702@1,591.452@2,591.202@3,590.733@4,590.202@5,589.421@6,589.249@7)', k)
+    puts tree.inspect
   end
   
   def test_nested_funcalls_with_array_return

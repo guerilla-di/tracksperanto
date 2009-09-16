@@ -9,12 +9,16 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     
     class << self
       attr_accessor :accumulator
+      attr_accessor :progress_block
     end
+    
     self.accumulator = []
+    self.progress_block = lambda {}
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
     def linear(first_arg, *keyframes)
+      report_progress("Translating Linear animation")
       keyframes.map do | kf |
         [kf[1][1], kf[0][1]]
       end
@@ -36,11 +40,67 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     def tracker(input, trackRange, subPixelRes, matchSpace,
         referenceTolerance, referenceBehavior, failureTolerance, failureBehavior, limitProcessing, referencFrame, s1, s2,
         s3, s4, s5, s6, *trackers)
+      
+      report_progress("Parsing Tracker node")
       collect_trackers_from(trackers)
       true
     end
     
+    # stabilize {
+    #   image In,
+    #   int applyTransform,
+    #   int inverseTransform
+    #   const char * trackType,
+    #   float track1X,
+    #   float track1Y,
+    #   int stabilizeX,
+    #   int stabilizeY,
+    #   float track2X,
+    #   float track2Y,
+    #   int matchScale,
+    #   int matchRotation,
+    #   float track3X,
+    #   float track3Y,
+    #   float track4X,
+    #   float track4Y,
+    #   const char * xFilter,
+    #   const char * yFilter,
+    #   const char * transformationOrder,
+    #   float motionBlur, 
+    #   float shutterTiming,
+    #   float shutterOffset,
+    #   float referenceFrame,
+    #   float aspectRatio,
+    #   ...
+    # };
+    def stabilize(imageIn, applyTransform, inverseTransform, trackType,
+      track1X,
+      track1Y,
+      stabilizeX,
+      stabilizeY,
+      track2X,
+      track2Y,
+      matchScale,
+      matchRotation,
+      track3X,
+      track3Y,
+      track4X,
+      track4Y,
+      *useless_args)
+      
+      report_progress("Parsing Stabilize node")
+      
+      collect_stabilizer_tracker("1", track1X, track1Y)
+      collect_stabilizer_tracker("2", track2X, track2Y)
+      collect_stabilizer_tracker("3", track3X, track3Y)
+      collect_stabilizer_tracker("4", track4X, track4Y)
+    end
+    
     private
+    
+    def report_progress(with_message)
+      self.class.progress_block.call(with_message)
+    end
     
     def collect_trackers_from(array)
       parameters_per_node = 16
@@ -50,6 +110,17 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         tracker_args = array[from_index...to_index]
         collect_tracker(*tracker_args)
       end
+    end
+    
+    def collect_stabilizer_tracker(name, x_curve, y_curve)
+      return if x_curve == :unknown || y_curve == :unknown
+      
+      keyframes = zip_curve_tuples(x_curve, y_curve).map do | (frame, x, y) |
+        Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
+      end
+      
+      t = Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes )
+      self.class.accumulator.push(t)
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
@@ -66,6 +137,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     trackers = []
     
     Traxtractor.accumulator = trackers
+    Traxtractor.progress_block = lambda { |msg| report_progress(msg) }
     Traxtractor.new(script_io)
     
     trackers

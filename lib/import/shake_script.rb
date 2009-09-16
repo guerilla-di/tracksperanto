@@ -13,7 +13,6 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     self.accumulator = []
-    self.progress_block = lambda {}
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
@@ -94,7 +93,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     private
     
     def report_progress(with_message)
-      self.class.progress_block.call(with_message)
+      self.class.progress_block.call(with_message) if self.class.progress_block
     end
     
     def collect_trackers_from(name, array)
@@ -134,7 +133,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     trackers = []
     
     Traxtractor.accumulator = trackers
-    Traxtractor.progress_block = lambda { |msg| report_progress(msg) }
+    Traxtractor.progress_block = lambda{|msg| report_progress(msg) }
     Traxtractor.new(script_io)
     
     trackers

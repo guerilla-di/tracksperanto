@@ -69,6 +69,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     FLOAT_ATOM = /^([\-\d\.]+)$/
     STR_ATOM = /^\"/
     AT_ATOM = /^([\-\d\.]+)@([\-\d\.]+)$/
+    AT_CONSUMED = /^@(\d+)/
     VAR_ASSIGN = /^([\w_]+)(\s+?)\=(\s+?)(.+)/
 
     def handle_assignment
@@ -94,6 +95,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       elsif at.strip =~ AT_ATOM
         v, f = at.strip.split("@")
         [:atom_f_at, v.to_f, f.to_i]
+      elsif at.strip =~ AT_CONSUMED
+        [:atom_at_i, $1.to_i]
       elsif at.strip =~ VAR_ASSIGN
         [:equals, $1]
       else

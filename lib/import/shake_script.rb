@@ -85,10 +85,77 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       
       report_progress("Parsing Stabilize node")
       node_name = get_variable_name
-      collect_stabilizer_tracker("#{node_name}_1", track1X, track1Y)
-      collect_stabilizer_tracker("#{node_name}_2", track2X, track2Y)
-      collect_stabilizer_tracker("#{node_name}_3", track3X, track3Y)
-      collect_stabilizer_tracker("#{node_name}_4", track4X, track4Y)
+      collect_stabilizer_tracker("#{node_name}_track1", track1X, track1Y)
+      collect_stabilizer_tracker("#{node_name}_track2", track2X, track2Y)
+      collect_stabilizer_tracker("#{node_name}_track3", track3X, track3Y)
+      collect_stabilizer_tracker("#{node_name}_track4", track4X, track4Y)
+    end
+    
+    #  image = MatchMove( 
+    #    Background,
+    #    Foreground,
+    #    applyTransform,
+    #    "trackType",
+    #    track1X,
+    #    track1Y,
+    #    matchX,
+    #    matchY,
+    #    track2X,
+    #    track2Y,
+    #    scale,
+    #    rotation,
+    #    track3X,
+    #    track3Y,
+    #    track4X,
+    #    track4Y,
+    #    x1, 
+    #    y1,
+    #    x2,
+    #    y2,
+    #    x3,
+    #    y3,
+    #    x4,
+    #    y4,
+    #    "xFilter",
+    #    "yFilter",
+    #    motionBlur, 
+    #    shutterTiming,
+    #    shutterOffset,
+    #    referenceFrame,
+    #    "compositeType",
+    #    clipMode,
+    #   "trackRange",
+    #    "subPixelRes",
+    #    "matchSpace",
+    #    float referenceTolerance,
+    #    "referenceBehavior",
+    #    float failureTolerance,
+    #    "failureBehavior",
+    #    int limitProcessing,
+    #    ...
+    #  );
+    def matchmove(bgImage, fgImage, applyTransform,
+      trackType,
+      track1X,
+      track1Y,
+      matchX,
+      matchY,
+      track2X,
+      track2Y,
+      scale,
+      rotation,
+      track3X,
+      track3Y,
+      track4X,
+      track4Y, *others)
+      
+      report_progress("Parsing MatchMove node")
+      node_name = get_variable_name
+      collect_stabilizer_tracker("#{node_name}_track1", track1X, track1Y)
+      collect_stabilizer_tracker("#{node_name}_track2", track2X, track2Y)
+      collect_stabilizer_tracker("#{node_name}_track3", track3X, track3Y)
+      collect_stabilizer_tracker("#{node_name}_track4", track4X, track4Y)
+      
     end
     
     private

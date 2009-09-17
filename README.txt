@@ -19,6 +19,7 @@ Export support:
 * Shake text file (many trackers per file), also accepted by Boujou. May crash Shake with more than 4-5 tracks.
 * PFTrack 2dt file (with residuals)
 * Syntheyes 2D tracking data import (UV coordinates)
+* Nuke script
 
 The main way to use Tracksperanto is to use the supplied "tracksperanto" binary, like so:
   

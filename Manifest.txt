@@ -7,6 +7,7 @@ bin/tracksperanto
 lib/.DS_Store
 lib/export/base.rb
 lib/export/mux.rb
+lib/export/nuke_script.rb
 lib/export/pftrack.rb
 lib/export/shake_text.rb
 lib/export/syntheyes.rb
@@ -14,6 +15,8 @@ lib/import/base.rb
 lib/import/flame_stabilizer.rb
 lib/import/nuke_script.rb
 lib/import/pftrack.rb
+lib/import/shake_grammar/catcher.rb
+lib/import/shake_grammar/lexer.rb
 lib/import/shake_script.rb
 lib/import/shake_text.rb
 lib/import/syntheyes.rb
@@ -24,15 +27,23 @@ lib/middleware/scaler.rb
 lib/middleware/slipper.rb
 lib/pipeline/base.rb
 lib/tracksperanto.rb
-test/.DS_Store
+test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
+test/export/samples/ref_NukeScript.nk
+test/export/samples/ref_NukeScript.nk.autosave
 test/export/samples/ref_PFTrack.2dt
 test/export/samples/ref_ShakeText.txt
+test/export/samples/ref_Syntheyes.txt
+test/export/test_mux.rb
+test/export/test_nuke_export.rb
 test/export/test_pftrack_export.rb
 test/export/test_shake_export.rb
+test/export/test_syntheyes_export.rb
 test/helper.rb
 test/import/samples/.DS_Store
 test/import/samples/flyover2DP_syntheyes.txt
+test/import/samples/four_tracks_in_one_matchmove.shk
+test/import/samples/four_tracks_in_one_stabilizer.shk
 test/import/samples/fromCombustion_fromMidClip_wSnap.stabilizer
 test/import/samples/hugeFlameSetup.stabilizer
 test/import/samples/megaTrack.action.3dtrack.stabilizer
@@ -49,6 +60,8 @@ test/import/samples/two_tracks_in_one_tracker.shk
 test/import/test_flame_import.rb
 test/import/test_nuke_import.rb
 test/import/test_pftrack_import.rb
+test/import/test_shake_catcher.rb
+test/import/test_shake_lexer.rb
 test/import/test_shake_script_import.rb
 test/import/test_shake_text_import.rb
 test/import/test_syntheyes_import.rb
@@ -57,4 +70,5 @@ test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb
 test/middleware/test_slip_middleware.rb
 test/test_keyframe.rb
+test/test_tracker.rb
 tracksperanto.gemspec

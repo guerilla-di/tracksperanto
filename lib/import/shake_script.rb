@@ -2,10 +2,8 @@ require File.dirname(__FILE__) + "/shake_grammar/lexer"
 require File.dirname(__FILE__) + "/shake_grammar/catcher"
 
 class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
-  include Tracksperanto::ShakeGrammar
   
-  # TODO: MatchMove node
-  class Traxtractor < Catcher
+  class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
     
     class << self

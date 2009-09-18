@@ -6,6 +6,8 @@
 
 Tracksperanto is a universal 2D-track translator between many apps.
 
+== Usage
+
 Import support:
 * Flame .stabilizer file (not the .stabilizer.p blob format)
 * Nuke script (Tracker3 nodes, also known as Tracker)

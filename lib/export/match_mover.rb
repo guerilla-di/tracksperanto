@@ -1,7 +1,6 @@
 # Export for Autodesk MatchMover/Image Modeler
 class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   
-  # Should return the suffix and extension of this export file (like "_flame.stabilizer")
   def self.desc_and_extension
     "matchmover.rz2"
   end

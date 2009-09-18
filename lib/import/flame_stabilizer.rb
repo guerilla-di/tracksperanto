@@ -95,7 +95,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       
     end
 =begin
-  Here's how a Flame channel looks like
+Here's how a Flame channel looks like
 The Size will not be present if there are no keyframes
   
 Channel tracker1/ref/x
@@ -130,7 +130,6 @@ Channel tracker1/ref/x
 	Colour 50 50 50 
 	End
 =end
-    
     def extract_channels_from_stream(io)
       channels = []
       channel_matcher = /Channel (.+)\n/

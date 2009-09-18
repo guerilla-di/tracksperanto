@@ -23,8 +23,12 @@ class Tracksperanto::Pipeline::Base
   
   # A block acepting percent and message vars can be assigned here.
   # When it's assigned, the pipeline will pass the status reports
-  # of all the importers and exporters to the block
+  # of all the importers and exporters to the block, together with
+  # percent complete
   attr_accessor :progress_block
+  
+  # Assign an array of exporters to use them instead of the standard ones 
+  attr_accessor :exporters
   
   # Runs the whole pipeline. Must receive the class used for parsing as the last argument
   def run(from_input_file_path, pix_w, pix_h, parser_class)
@@ -52,6 +56,8 @@ class Tracksperanto::Pipeline::Base
   # If a block is passed, the block will receive the percent complete and the last
   # status message that you can pass back to the UI
   def run_export(tracker_data_io, parser, processor)
+    @ios << tracker_data_io
+    
     points, keyframes, percent_complete = 0, 0, 0.0
     
     yield(percent_complete, "Starting the parser") if block_given?
@@ -89,17 +95,18 @@ class Tracksperanto::Pipeline::Base
     
     [points, keyframes]
   ensure
-    @ios.reject!{|e| e.close } if @ios
+    @ios.reject!{|e| e.close unless (!e.respond_to?(:closed?) || e.closed?) } if @ios
   end
   
   # Setup output files and return a single output
   # that replays to all of them
   def setup_outputs_for(input_file_path)
     file_name = File.basename(input_file_path).gsub(/\.([^\.]+)$/, '')
+    export_klasses = exporters || Tracksperanto.exporters    
     Tracksperanto::Export::Mux.new(
-      Tracksperanto.exporters.map do | exporter_class |
-        export_name = "%s_%s" % [file_name, exporter_class.desc_and_extension]
-        export_path = File.dirname(input_file_path) + '/' + export_name
+      export_klasses.map do | exporter_class |
+        export_name = [file_name, exporter_class.desc_and_extension].join("_")
+        export_path = File.join(File.dirname(input_file_path), export_name)
         exporter = exporter_class.new(open_owned_export_file(export_path))
       end
     )
@@ -125,7 +132,7 @@ class Tracksperanto::Pipeline::Base
   def validate_trackers!(trackers)
     raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
     trackers.each do | t |
-      raise "Tracker #{t.name} had no keyframes" if t.keyframes.empty?
+      raise "Tracker #{t.name} had no keyframes" if t.empty?
     end
   end
 end

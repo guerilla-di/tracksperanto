@@ -9,7 +9,7 @@ Tracksperanto is a universal 2D-track translator between many apps.
 Import support:
 * Flame .stabilizer file (not the .stabilizer.p blob format)
 * Nuke script (Tracker3 nodes, also known as Tracker)
-* Shake script (one track per Tracker node, no support for Matchmove or Stabilize)
+* Shake script (Tracker, Matchmove and Stabilize nodes)
 * Shake tracker node export (textfile with many tracks per file), also exported by Boujou and others.
 * PFTrack 2dt files
 * Syntheyes 2D tracking data exports (UV coordinates)

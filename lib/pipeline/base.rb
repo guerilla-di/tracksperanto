@@ -42,12 +42,12 @@ class Tracksperanto::Pipeline::Base
     mux = setup_outputs_for(from_input_file_path)
     
     # Setup middlewares
-    wrapper = setup_middleware_chain_with(mux)
+    middlewares = setup_middleware_chain_with(mux)
     
     # Yield middlewares to the block
-    yield(scaler, slipper, golden, reformat) if block_given?
+    yield(*middlewares) if block_given?
     
-    @converted_points, @converted_keyframes = run_export(read_data, parser, reformat) do | p, m |
+    @converted_points, @converted_keyframes = run_export(read_data, parser, middlewares[-1]) do | p, m |
       @progress_block.call(p, m) if @progress_block
     end
   end
@@ -117,7 +117,8 @@ class Tracksperanto::Pipeline::Base
     scaler = Tracksperanto::Middleware::Scaler.new(output)
     slipper = Tracksperanto::Middleware::Slipper.new(scaler)
     golden = Tracksperanto::Middleware::Golden.new(slipper)
-    Tracksperanto::Middleware::Reformat.new(golden)
+    reformat = Tracksperanto::Middleware::Reformat.new(golden)
+    [scaler, slipper, golden, reformat]
   end
   
   # Open the file for writing and register it to be closed automatically
@@ -131,8 +132,6 @@ class Tracksperanto::Pipeline::Base
   # Check that the trackers made by the parser are A-OK
   def validate_trackers!(trackers)
     raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
-    trackers.each do | t |
-      raise "Tracker #{t.name} had no keyframes" if t.empty?
-    end
+    trackers.reject!{|t| t.empty? }
   end
 end

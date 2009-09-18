@@ -33,7 +33,7 @@ module Tracksperanto::ShakeGrammar
     
     def exec_funcall(methname, args)
       ruby_args = unwrap_atoms_in_args(args)
-      send(*ruby_args.unshift(methname))
+      send(methname, *ruby_args)
     end
     
     def unwrap_atoms_in_args(args)

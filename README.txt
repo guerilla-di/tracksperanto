@@ -8,6 +8,19 @@ Tracksperanto is a universal 2D-track translator between many apps.
 
 == Usage
 
+The main way to use Tracksperanto is to use the supplied "tracksperanto" binary, like so:
+  
+  tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
+
+ShakeScript is the name of the translator that will be used to read the file (many apps export tracks as .txt files so
+there is no way for us to autodetect them all). -w and -h stand for Width and Height and define the size of your comp (different
+tracking apps use different coordinate systems and we need to know the size of the comp to properly convert these). You also have
+additional options like -xs, -ys and --slip - consult the usage info for the tracksperanto binary.
+
+The converted files will be saved in the same directory as the source, if resulting converted files already exist <b>they will be overwritten without warning</b>.
+
+== Format support
+
 Import support:
 * Flame .stabilizer file (not the .stabilizer.p blob format)
 * Nuke script (Tracker3 nodes, also known as Tracker)
@@ -23,25 +36,14 @@ Export support:
 * Syntheyes 2D tracking data import (UV coordinates)
 * Nuke script
 
-The main way to use Tracksperanto is to use the supplied "tracksperanto" binary, like so:
-  
-  tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
-
-ShakeScript is the name of the translator that will be used to read the file (many apps export tracks as .txt files so
-there is no way for us to autodetect them all). -w and -h stand for Width and Height and define the size of your comp (different
-tracking apps use different coordinate systems and we need to know the size of the comp to properly convert these). You also have
-additional options like -xs, -ys and --slip - consult the usage info for the tracksperanto binary.
-
-The converted files will be saved in the same directory as the source, if resulting converted files already exist ++they will be overwritten without warning++.
-
 == Modularity
 
 Tracksperanto supports many export and import formats. It also can help when you need to import and export the same format,
 but you need some operation applied to the result (like scaling a proxy track up). Internally, Tracksperanto talks
 Exporters, Importers and Middlewares. Any processing chain (called a Pipeline) usually works like this:
 
-1) The tracker file is read and trackers and their keyframes are extracted, converting them to the internal representation.
-2) The trackers and their keyframes are dumped to all export formats Tracksperanto supports, optionally passing through middleware
+* Tracker file is read and trackers and their keyframes are extracted, converting them to the internal representation.
+* Trackers and their keyframes are dumped to all export formats Tracksperanto supports, optionally passing through middleware
 
 == Internal coordinate system
 

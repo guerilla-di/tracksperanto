@@ -15,6 +15,12 @@ class ShakeLexerTest < Test::Unit::TestCase
     s = parse(cmt)
     assert_equal [[:comment, " Mary had a little lamb"], [:comment, " Old McDonald had a farm"]], s
   end
+
+  def test_parse_cmt_and_unknown
+    cmt = " // Mary had a little lamb\nFooBar"
+    s = parse(cmt)
+    assert_equal [[:comment, " Mary had a little lamb"], [:atom, "FooBar"]], s
+  end
   
   def test_parse_funcall
     s = parse ' DoFoo(1, 2, 3, "Welcome!\"\"");   '
@@ -72,11 +78,14 @@ class ShakeLexerTest < Test::Unit::TestCase
   
   def test_parse_varassign
     s = parse 'Foo = Blur(Foo, 1, 2, 3);'
-    assert_equal [[:var, "Foo"], [:eq], [:funcall, "Blur", [:atom, "Foo"], [:atom_i, 1], [:atom_i, 2], [:atom_i, 3]]], s
+    assert_equal [[:var, "Foo"], [:eq], [:funcall, "Blur", [:atom, "Foo"], [:atom_i, 1], 
+      [:atom_i, 2], [:atom_i, 3]]], s
   end
   
   def test_parse_whole_file_does_not_raise
-    assert_nothing_raised { parse(File.open(P), L) }
+    assert_nothing_raised do
+       parse(File.open(P), L)
+    end
   end
     
   def parse(s, klass = L)

@@ -17,10 +17,6 @@ module Tracksperanto::ShakeGrammar
       (@buf.strip =~ /^\/\//) ? true : false
     end
     
-    def buf_has_data?
-      @buf.strip.empty?
-    end
-    
     def consume_comment(c)
       if c == "\n" # Comment
         push [:comment, @buf.gsub(/(\s+?)\/\/{1}/, '')]

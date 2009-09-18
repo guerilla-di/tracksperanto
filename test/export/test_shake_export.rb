@@ -10,7 +10,7 @@ class ShakeTextExportTest < Test::Unit::TestCase
     export_parabolics_with(x)
     io.close
     
-    assert_equal io.string, File.read(P)
+    assert_equal File.read(P), io.string
   end
   
   def test_exporter_meta

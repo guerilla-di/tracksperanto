@@ -13,17 +13,11 @@ class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   end
   
   def start_tracker_segment(tracker_name)
-    if @any_tracks
-      @io.puts POSTAMBLE
-    else
-      @any_tracks = true
-    end
-    
     @io.puts PREAMBLE % tracker_name
   end
   
-  def end_export
-    @io << "\n"
+  def end_tracker_segment
+    @io.puts POSTAMBLE
   end
    
   def export_point(frame, abs_float_x, abs_float_y, float_residual)

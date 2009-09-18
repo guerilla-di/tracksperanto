@@ -59,6 +59,12 @@ module ParabolicTracks
     end
   end
   
+  def create_reference_output(exporter_klass, ref_path)
+    File.open(ref_path, "w") do | io |
+      export_parabolics_with(exporter_klass.new(io))
+    end
+  end
+  
   def ensure_same_output(exporter_klass, reference_path)
     io = StringIO.new
     x = exporter_klass.new(io)

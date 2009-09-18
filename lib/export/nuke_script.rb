@@ -18,7 +18,7 @@ Constant {
  name CompSize_1920x1080
  postage_stamp false
  xpos 0
- ypos 0
+ ypos -60
 }]  
     SCHEMATIC_OFFSET = 30
     class T < Array

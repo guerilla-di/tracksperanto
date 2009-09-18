@@ -10,12 +10,10 @@ class PFTrackExportTest < Test::Unit::TestCase
   def test_desc_and_ext
     assert_equal "pftrack.2dt", Tracksperanto::Export::PFTrack.desc_and_extension
   end
+  
   P = File.dirname(__FILE__) + "/samples/ref_PFTrack.2dt"
+  
   def test_export_output_written
-    io = StringIO.new #File.open(P, "w+")
-    export_parabolics_with(Tracksperanto::Export::PFTrack.new(io))
-    io.close
-    
-    assert_equal io.string, File.read(P)
+    ensure_same_output Tracksperanto::Export::PFTrack, P
   end
 end

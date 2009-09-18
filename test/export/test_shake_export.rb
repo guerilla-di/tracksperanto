@@ -5,12 +5,7 @@ class ShakeTextExportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/ref_ShakeText.txt"
   
   def test_export_output_written
-    io = StringIO.new
-    x = Tracksperanto::Export::ShakeText.new(io)
-    export_parabolics_with(x)
-    io.close
-    
-    assert_equal File.read(P), io.string
+    ensure_same_output Tracksperanto::Export::ShakeText, P
   end
   
   def test_exporter_meta

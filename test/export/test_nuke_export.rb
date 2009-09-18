@@ -5,12 +5,7 @@ class NukeExportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/ref_NukeScript.nk"
   
   def test_export_output_written
-    io = StringIO.new
-    x = Tracksperanto::Export::NukeScript.new(io)
-    export_parabolics_with(x)
-    io.close
-    
-    assert_equal io.string, File.read(P)
+    ensure_same_output Tracksperanto::Export::NukeScript, P
   end
   
   def test_exporter_meta

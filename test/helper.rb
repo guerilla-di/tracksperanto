@@ -59,6 +59,15 @@ module ParabolicTracks
     end
   end
   
+  def ensure_same_output(exporter_klass, reference_path)
+    io = StringIO.new
+    x = exporter_klass.new(io)
+    export_parabolics_with(x)
+    io.close
+    
+    assert_equal File.read(reference_path), io.string
+  end
+  
   def export_parabolics_with(exporter)
     exporter.start_export(1920, 1080)
     [FIRST_TRACK, SECOND_TRACK].each do | t |

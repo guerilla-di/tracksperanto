@@ -1,5 +1,6 @@
 === 1.2.0 / 2009-09-20
 
+* Add experimental MatchMoverPro export support
 * Rewrite the Shake parser, support MatchMove and Stabilize nodes and many tracks per node. Tracker nodes can have
 arbitrary numbers of tracks
 * Officially add and test the Reformat middleware

@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/helper'
 
 class TrackerTest < Test::Unit::TestCase
-  include Tracksperanto::TrackerDSL
+  
   def test_supports_block_init
     t = Tracksperanto::Tracker.new do |t| 
       t.name = 'Foo'
@@ -20,6 +20,19 @@ class TrackerTest < Test::Unit::TestCase
     assert_equal "Foo", Tracksperanto::Tracker.new(:name => "Foo").name
   end
   
+  def test_supports_hash_init_with_keyframes
+    assert_equal [1,2], Tracksperanto::Tracker.new(:keyframes => [1,2]).keyframes
+  end
+  
+  def test_supports_array_methods
+    t = Tracksperanto::Tracker.new(:keyframes => [1,2])
+    assert_equal [1,2], t.to_a
+    assert_equal 2, t.length
+    t.push(3)
+    assert_equal 3, t.length
+    assert_equal [1,2,3], t.to_a
+  end
+    
   def test_inspect
     t = Tracksperanto::Tracker.new(:name => "FooTracker")
     assert_equal '<T "FooTracker" with 0 keyframes>', t.inspect
@@ -32,16 +45,4 @@ class TrackerTest < Test::Unit::TestCase
     assert_equal :a, t[0]
   end
   
-  def test_tracker_dsl
-    t = build_tracker("SomeFoo") do | t |
-      t.key(:frame => 0, :abs_x => 123, :abs_y => 456)
-    end
-    
-    assert_kind_of Tracksperanto::Tracker, t
-    assert_equal "SomeFoo", t.name
-    assert_equal 1, t.length
-    assert_equal 123.0, t[0].abs_x
-    assert_equal 456.0, t[0].abs_y
-    assert_equal 0, t[0].frame
-  end
 end

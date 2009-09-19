@@ -17,8 +17,8 @@ class NukeImportTest < Test::Unit::TestCase
     parser.height = 1176
     
     trackers = parser.parse(fixture)
-    assert_equal 2, trackers.length
     
+    assert_equal 2, trackers.length
     sec_tracker = trackers[1]
     assert_equal 22, sec_tracker.keyframes.length
     assert_equal 762, sec_tracker.keyframes[-1].frame

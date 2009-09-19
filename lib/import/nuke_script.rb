@@ -6,9 +6,6 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     "Nuke .nk script file"
   end
   
-  T = ::Tracksperanto::Tracker
-  K = ::Tracksperanto::Keyframe
-  
   # Nuke files are extensively indented and indentation is significant.
   # We use this to always strip the lines we process since we capture before
   # indentation becomes crucial
@@ -21,6 +18,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       s = __getobj__.gets
       s ? s.strip : nil
     end
+    
   end
   
   def parse(io)
@@ -36,9 +34,9 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     def scan_for_tracker3_nodes(io)
       tracks = []
       while line = io.gets_and_strip
-        tracks << scan_tracker_node(io) if line =~ TRACKER_3_PATTERN
+        tracks += scan_tracker_node(io) if line =~ TRACKER_3_PATTERN
       end
-      tracks.flatten
+      tracks
     end
     
     def scan_tracker_node(io)
@@ -46,9 +44,12 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       while line = io.gets_and_strip
         if line =~ TRACK_PATTERN
           tuples = scan_track(line)
-          tracks_in_tracker.push(
-            T.new(:keyframes => tuples.map { | (f, x, y) | K.new(:frame => f -1, :abs_x => x, :abs_y => y) })
+          tk = Tracksperanto::Tracker.new(
+            :keyframes => tuples.map do | (f, x, y) | 
+              Tracksperanto::Keyframe.new(:frame => f -1, :abs_x => x, :abs_y => y) 
+            end
           )
+          tracks_in_tracker.push(tk)
         elsif line =~ NODENAME
           tracks_in_tracker.each_with_index do | t, i |
             t.name = "#{$1}_track#{i+1}"

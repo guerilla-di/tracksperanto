@@ -104,38 +104,27 @@ module Tracksperanto
   end
   
   # Internal representation of a tracker
-  class Tracker
+  class Tracker < DelegateClass(Array)
     include Casts
-    include BlockInit
-    include Enumerable
     include Comparable
     
     # Contains the name of the tracker
     attr_accessor :name
-    
-    # Contains the array of all Keyframe objects for this tracker
-    attr_accessor :keyframes
-    
     cast_to_string :name
     
-    def initialize(h = {})
-      @name, @keyframes = 'Tracker', []
-      super
+    def initialize(object_attribute_hash = {})
+      @name = "Tracker"
+      __setobj__(Array.new)
+      object_attribute_hash.map { |(k, v)| send("#{k}=", v) }
+      yield(self) if block_given?
     end
     
-    # Returns the number of keyframes the tracker has
-    def length
-      @keyframes.length
+    def keyframes=(new_kf_array)
+      __setobj__(new_kf_array.dup)
     end
     
-    # Iterates over keyframes
-    def each
-      @keyframes.each{|k| yield k }
-    end
-    
-    # Get a keyframe by index
-    def [](idx)
-      @keyframes[idx]
+    def keyframes
+      __getobj__
     end
     
     # Trackers sort by the position of the first keyframe
@@ -145,39 +134,11 @@ module Tracksperanto
     
     # Create and save a keyframe in this tracker
     def keyframe!(options)
-      @keyframes << Keyframe.new(options)
+      push(Keyframe.new(options))
     end
     
     def inspect
       "<T #{name.inspect} with #{length} keyframes>"
-    end
-  end
-  
-  # DSL-ish method for building trackers.
-  #
-  #  build_tracker("FooBar") do | t |
-  #    t.key(:frame => 10, :abs_x => 234, :abs_y => 0)
-  #  end # => <T "FooBar" with 1 keyframes>
-  def self.build_tracker(name)
-    t = Tracker.new(:name => name)
-    yield(TrackerProxy.new(t))
-    return t
-  end
-  
-  module TrackerDSL
-    def build_tracker(name, &block)
-      Tracksperanto.build_tracker(name, &block)
-    end
-  end
-  
-  # Used for the Tracker DSL
-  class TrackerProxy < DelegateClass(Tracker)
-    def initialize(t)
-      __setobj__(t)
-    end
-    
-    def key(options = {})
-      __getobj__.keyframes << Keyframe.new(options)
     end
   end
   

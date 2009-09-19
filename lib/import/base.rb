@@ -2,7 +2,6 @@
 # The base class for all the import modules. By default, when you inherit from this class the inherited class will be included
 # in the list of supported Tracksperanto importers. The API that an importer should present is very basic, and consists only of a few methods.
 class Tracksperanto::Import::Base
-  include Tracksperanto::TrackerDSL
   include Tracksperanto::Safety
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit

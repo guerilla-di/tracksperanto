@@ -16,10 +16,10 @@ class Tracksperanto::Pipeline::Base
   
   # How many points have been converted. In general, the pipeline does not preserve the parsed tracker objects
   # after they have been exported
-  attr_accessor :converted_points
+  attr_reader :converted_points
   
   # How many keyframes have been converted
-  attr_accessor :converted_keyframes
+  attr_reader :converted_keyframes
   
   # A block acepting percent and message vars can be assigned here.
   # When it's assigned, the pipeline will pass the status reports
@@ -30,13 +30,24 @@ class Tracksperanto::Pipeline::Base
   # Assign an array of exporters to use them instead of the standard ones 
   attr_accessor :exporters
   
-  # Runs the whole pipeline. Must receive the class used for parsing as the last argument
-  def run(from_input_file_path, pix_w, pix_h, parser_class)
+  DEFAULT_OPTIONS = {:pix_w => 720, :pix_h => 576, :parser => Tracksperanto::Import::ShakeScript }
+  
+  # Runs the whole pipeline. Accepts the following options
+  # * pix_w - The comp width, for the case that the format does not support auto size
+  # * pix_h - The comp height, for the case that the format does not support auto size
+  # * parser - The parser class, for the case that the format does not support auto size
+  
+  def run(from_input_file_path, passed_options = {})
+    pix_w, pix_h, parser_class = detect_importer_or_use_options(from_input_file_path, DEFAULT_OPTIONS.merge(passed_options))
+    
+    # Reset stats
+    @converted_keyframes, @converted_points = 0, 0
+    
     # Grab the input
     read_data = File.open(from_input_file_path)
     
     # Assign the parser
-    parser = parser_class.new(:width => pix_w, :height => pix_h)
+    importer = parser_class.new(:width => pix_w, :height => pix_h)
     
     # Setup a multiplexer
     mux = setup_outputs_for(from_input_file_path)
@@ -47,9 +58,24 @@ class Tracksperanto::Pipeline::Base
     # Yield middlewares to the block
     yield(*middlewares) if block_given?
     
-    @converted_points, @converted_keyframes = run_export(read_data, parser, middlewares[-1]) do | p, m |
+    @converted_points, @converted_keyframes = run_export(read_data, importer, middlewares[-1]) do | p, m |
       @progress_block.call(p, m) if @progress_block
     end
+  end
+  
+  def detect_importer_or_use_options(path, opts)
+    d = Tracksperanto::FormatDetector.new(path)
+    if d.match? && d.auto_size?
+      return [1, 1, d.importer_klass]
+    elsif d.match?
+      raise "Width and height must be provided for a #{d.importer_klass}" unless (opts[:pix_w] && opts[:pix_h])
+      opts[:parser] = d.importer_klass
+    else
+      raise "Cannot autodetect the file format - please specify the importer explicitly" unless opts[:parser]
+      raise "Width and height must be provided for this importer" unless (opts[:pix_w] && opts[:pix_h])
+    end
+    
+    [opts[:pix_w], opts[:pix_h], opts[:parser]]    
   end
   
   # Runs the export and returns the number of points and keyframes processed.
@@ -73,11 +99,10 @@ class Tracksperanto::Pipeline::Base
     
     percent_per_tracker = (100.0 - percent_complete) / trackers.length
     
-    # Use the width and height provided by the parser itself
-    processor.start_export(parser.width, parser.height)
-    
     yield(percent_complete, "Starting export") if block_given?
     
+    # Use the width and height provided by the parser itself
+    processor.start_export(parser.width, parser.height)
     trackers.each do | t |
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
@@ -112,13 +137,16 @@ class Tracksperanto::Pipeline::Base
     )
   end
   
-  # Setup and return the output multiplexor wrapped in all necessary middlewares
+  # Setup and return the output multiplexor wrapped in all necessary middlewares.
+  # Middlewares must be returned in an array to be passed to the configuration block
+  # afterwards
   def setup_middleware_chain_with(output)
     scaler = Tracksperanto::Middleware::Scaler.new(output)
     slipper = Tracksperanto::Middleware::Slipper.new(scaler)
     golden = Tracksperanto::Middleware::Golden.new(slipper)
     reformat = Tracksperanto::Middleware::Reformat.new(golden)
-    [scaler, slipper, golden, reformat]
+    shift = Tracksperanto::Middleware::Shift.new(reformat)
+    [scaler, slipper, golden, reformat, shift]
   end
   
   # Open the file for writing and register it to be closed automatically

@@ -6,6 +6,10 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     "Nuke .nk script file"
   end
   
+  def self.distinct_file_ext
+    ".nk"
+  end
+  
   # Nuke files are extensively indented and indentation is significant.
   # We use this to always strip the lines we process since we capture before
   # indentation becomes crucial

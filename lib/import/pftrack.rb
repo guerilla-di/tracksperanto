@@ -3,6 +3,10 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
     "PFTrack .2dt file"
   end
   
+  def self.distinct_file_ext
+    ".2dt"
+  end
+  
   def parse(io)
     trackers = []
     until io.eof?

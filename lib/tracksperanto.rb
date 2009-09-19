@@ -20,12 +20,17 @@ module Tracksperanto
 
     # Returns the array of all available middlewares
     attr_accessor :middlewares
+    
+    # Returns the names of all the importers
+    def importer_names
+      importers.map{|e| e.to_s.split('::').pop }
+    end
   end
   self.exporters, self.importers, self.middlewares = [], [], []
   
 end
 
-%w( casts block_init safety zip_tuples keyframe tracker).each do | submodule |
+%w( casts block_init safety zip_tuples keyframe tracker format_detector).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end
 

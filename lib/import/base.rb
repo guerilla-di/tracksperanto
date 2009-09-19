@@ -35,6 +35,12 @@ class Tracksperanto::Import::Base
     super
   end
   
+  # Return an extension WITH DOT if this format has a typical extension that
+  # you can detect 
+  def self.distinct_file_ext
+    nil
+  end
+  
   # Should return a human-readable (read: properly capitalized and with spaces) name of the
   # import format
   def self.human_name

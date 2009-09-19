@@ -14,22 +14,24 @@ require File.dirname(__FILE__) + '/../lib/tracksperanto'
 require 'optparse'
 
 # Sane defaults
-reader_klass = Tracksperanto::Import::ShakeScript
-width = 1920
-height = 1080
+reader_klass = nil
+width = nil
+height = nil
 reformat_w = nil
 reformat_h = nil
 scale_x = 1.0
 scale_y = 1.0
 slip = 0
 golden_tracks = false
+x_shift = 0
+y_shift = 0
 
-readers = Tracksperanto::Import.constants.map{|e| e.to_s }.reject{|e| e == 'Base'}
+readers = Tracksperanto.importer_names
 
 parser = OptionParser.new do | p |
  p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
  p.on(" -f", "--from TRANSLATOR", String, 
-   "Use the specific import translator (defaults to ShakeScript, but can be #{readers.join(', ')})") do | f |
+   "Use the specific import translator (will try to autodetect, but can be #{readers.join(', ')})") do | f |
    begin
      reader_klass = Tracksperanto::Import.const_get(f)
    rescue NameError => e
@@ -38,8 +40,8 @@ parser = OptionParser.new do | p |
      exit(-1)
     end
  end
- p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels") { |w| width = w }
- p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels") {|w| height = w }
+ p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| width = w }
+ p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| height = w }
  p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") {|sx| scale_x = sx }
  p.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)") {|sy| scale_y = sy }
  p.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'") {|sy| slip = sy }
@@ -52,6 +54,8 @@ parser = OptionParser.new do | p |
  p.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it") {|rh|
     reformat_h = rh
  }
+ p.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right") {|sx| x_shift = sx }
+ p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
  p.on("--version", "Show the version and exit") {|v| 
     puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     exit(0)
@@ -75,11 +79,13 @@ end
 
 pipe = Tracksperanto::Pipeline::Base.new
 pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
-pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden, reformat |
+pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => parser) do | scaler, slipper, golden, reformat, shift |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
   golden.enabled = golden_tracks
   reformat.width = reformat_w if reformat_w
   reformat.width = reformat_h if reformat_h
+  shift.x_shift = x_shift
+  shift.y_shift = y_shift
 end

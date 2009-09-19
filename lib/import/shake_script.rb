@@ -3,6 +3,14 @@ require File.dirname(__FILE__) + "/shake_grammar/catcher"
 
 class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
+  def self.human_name
+    "Shake .shk script file"
+  end
+  
+  def self.distinct_file_ext
+    ".shk"
+  end
+  
   class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
     

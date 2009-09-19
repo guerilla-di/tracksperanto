@@ -6,6 +6,10 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     true
   end
   
+  def self.distinct_file_ext
+    ".stabilizer"
+  end
+  
   def self.human_name
     "Flame .stabilizer file"
   end

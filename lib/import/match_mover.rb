@@ -8,6 +8,10 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     "MatchMover .rz2 file"
   end
   
+  def self.distinct_file_ext
+    ".rz2"
+  end
+  
   def parse(io)
     trackers = []
     detect_format(io)

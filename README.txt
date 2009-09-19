@@ -58,17 +58,24 @@ converted files already exist <b>they will be overwritten without warning</b>.
 
 == Format support
 
-Import support: * Flame .stabilizer file (not the .stabilizer.p blob format) * Nuke script
-(Tracker3 nodes, also known as Tracker) * Shake script (Tracker, Matchmove and Stabilize
-nodes) * Shake tracker node export (textfile with many tracks per file), also exported by
-Boujou and others. * PFTrack 2dt files * Syntheyes 2D tracking data exports (UV
-coordinates) * MatchMover Pro .rz2
+Import support:
+
+* Flame .stabilizer file (not the .stabilizer.p blob format)
+* Nuke script (Tracker3 nodes, also known as Tracker)
+* Shake script (Tracker, Matchmove and Stabilize nodes)
+* Shake tracker node export (textfile with many tracks per file)
+* PFTrack 2dt files
+* Syntheyes 2D tracking data exports
+* MatchMover Pro .rz2
 
 Export support:
 
-* Shake text file (many trackers per file), also accepted by Boujou. May crash Shake with
-more than 4-5 tracks. * PFTrack 2dt file (with residuals) * Syntheyes 2D tracking data
-import (UV coordinates) * Nuke script * MatchMover Pro .rz2
+* Shake text file (many trackers per file), also accepted by Boujou.
+  May crash Shake with more than 4-5 tracks.
+* PFTrack 2dt file (with residuals)
+* Syntheyes 2D tracking data import (UV coordinates)
+* Nuke script
+* MatchMover Pro .rz2
 
 == Modularity
 
@@ -77,26 +84,17 @@ import and export the same format, but you need some operation applied to the re
 scaling a proxy track up). Internally, Tracksperanto talks Exporters, Importers and
 Middlewares. Any processing chain (called a Pipeline) usually works like this:
 
-* Tracker file is read and trackers and their keyframes are extracted, converting them to
-the internal representation. * Trackers and their keyframes are dumped to all export
-formats Tracksperanto supports, optionally passing through middleware
-
-== Internal coordinate system
-
-Frame numbers start from zero (frame 0 is first frame of the clip).
-
-Tracksperanto uses Shake coordinates as base. Image is Y-positive, X-positive, absolute
-pixel values up and right (zero is in the lower left corner). Some apps use a different
-coordinate system so translation will take place on import or on export, respectively.
-
-We also use residual and not correlation (residual is how far the tracker strolls away,
-correlation is how sure the tracker is about what it's doing). Residual is the inverse of
-correlation (with total correlation of one the residual excursion becomes zero).
+* Tracker file is read and trackers and their
+  keyframes are extracted, converting them to
+  the internal representation.
+* Trackers and their keyframes are dumped to all export
+  formats Tracksperanto supports, optionally passing through middleware
 
 == Importing your own formats
 
 You can easily write a Tracksperanto import module - refer to Tracksperanto::Import::Base
-docs
+docs. Your importer should return an array of Tracksperanto::Tracker objects which
+are themselves arrays of Tracksperanto::Keyframe objects.
 
 == Exporting your own formats
 

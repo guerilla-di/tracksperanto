@@ -6,6 +6,7 @@ class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Scaler
   
   # To which format we have to scale
   attr_accessor :width, :height
+  cast_to_int :width, :height
   
   private :x_factor=, :y_factor=
   

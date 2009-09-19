@@ -3,6 +3,7 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   DEFAULT_FACTOR = 1
   
   attr_accessor :x_factor, :y_factor
+  cast_to_float :x_factor, :y_factor
   
   # Called on export start
   def start_export( img_width, img_height)

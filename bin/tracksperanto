@@ -85,7 +85,7 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => parser) do | 
   scaler.y_factor = scale_y
   golden.enabled = golden_tracks
   reformat.width = reformat_w if reformat_w
-  reformat.width = reformat_h if reformat_h
+  reformat.height = reformat_h if reformat_h
   shift.x_shift = x_shift
   shift.y_shift = y_shift
 end

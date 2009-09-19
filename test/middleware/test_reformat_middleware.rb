@@ -5,11 +5,11 @@ class ReformatMiddlewareTest < Test::Unit::TestCase
     assert Tracksperanto::Middleware::Reformat.ancestors.include?(Tracksperanto::Middleware::Scaler)
   end
   
-  def test_default_params_set_to_nil
+  def test_default_params_zeroed
     receiver = flexmock
     m = Tracksperanto::Middleware::Reformat.new(receiver)
-    assert_equal nil, m.width
-    assert_equal nil, m.height
+    assert_equal 0, m.width
+    assert_equal 0, m.height
   end
   
   def test_reformat_supports_hash_init

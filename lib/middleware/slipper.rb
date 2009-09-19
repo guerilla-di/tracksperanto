@@ -3,6 +3,7 @@
 class Tracksperanto::Middleware::Slipper < Tracksperanto::Middleware::Base
   DEFAULT_SLIP = 0
   attr_accessor :slip
+  cast_to_int :slip
   
   def slip
     @slip.to_i || DEFAULT_SLIP

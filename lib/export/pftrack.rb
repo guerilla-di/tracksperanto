@@ -3,7 +3,6 @@ class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     
     KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f"
     
-    # Should return the suffix and extension of this export file (like "_flame.stabilizer")
     def self.desc_and_extension
       "pftrack.2dt"
     end
@@ -19,17 +18,11 @@ class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
     end
     
     def end_tracker_segment
-      # If there was a previous tracker, write it out
-      # - now we know how many keyframes it has
-      if @prev_tracker && @prev_tracker.any?
-        block = [
-          "\n",
-          @tracker_name.inspect, # "autoquotes"
-          @prev_tracker.length,
-          @prev_tracker.join("\n")
-        ]
-        @io.puts block.join("\n")
-      end
+      block = [ "\n",
+        @tracker_name.inspect, # "autoquotes"
+        @prev_tracker.length,
+        @prev_tracker.join("\n") ]
+      @io.puts block.join("\n")
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)

@@ -6,6 +6,7 @@ class Tracksperanto::Import::Base
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit
   include Tracksperanto::ZipTuples
+  include Tracksperanto::ConstName
   
   # Tracksperanto will assign a proc that reports the status of the import to the caller.
   # This block is automatically used by report_progress IF the proc is assigned. Should

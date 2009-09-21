@@ -3,6 +3,7 @@
 # exporter will be notified when a tracker will be exported and when a tracker has been passed
 # (the last keyframe has been sent)
 class Tracksperanto::Export::Base
+  include Tracksperanto::ConstName
   
   attr_reader :io
   

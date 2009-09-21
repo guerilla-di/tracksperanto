@@ -30,7 +30,7 @@ module Tracksperanto
   
 end
 
-%w( casts block_init safety zip_tuples keyframe tracker format_detector).each do | submodule |
+%w( const_name casts block_init safety zip_tuples keyframe tracker format_detector).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end
 

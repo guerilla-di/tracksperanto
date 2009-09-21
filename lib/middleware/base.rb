@@ -4,6 +4,7 @@
 class Tracksperanto::Middleware::Base
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit
+  include Tracksperanto::ConstName
   
   # Used to automatically register your middleware in Tracksperanto.middlewares
   # Normally you wouldn't need to override this

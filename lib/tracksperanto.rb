@@ -4,7 +4,7 @@ require 'delegate'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '1.2.3'
+  VERSION = '1.2.4'
   
   module Import; end
   module Export; end

@@ -44,7 +44,7 @@ class Tracksperanto::Pipeline::Base
     @converted_keyframes, @converted_points = 0, 0
     
     # Grab the input
-    read_data = File.open(from_input_file_path)
+    read_data = File.open(from_input_file_path, "rb")
     
     # Assign the parser
     importer = parser_class.new(:width => pix_w, :height => pix_h)
@@ -152,7 +152,7 @@ class Tracksperanto::Pipeline::Base
   # Open the file for writing and register it to be closed automatically
   def open_owned_export_file(path_to_file)
     @ios ||= []
-    handle = File.open(path_to_file, "w")
+    handle = File.open(path_to_file, "wb")
     @ios << handle
     handle
   end

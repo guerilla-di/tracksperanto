@@ -1,3 +1,7 @@
+=== 1.2.4 / 2009-09-21
+
+* Write to files in binary mode
+
 === 1.2.3 / 2009-09-21
 
 * Support both PFTrack 4 and 5 

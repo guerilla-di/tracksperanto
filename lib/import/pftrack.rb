@@ -7,13 +7,15 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
     ".2dt"
   end
   
+  CHARACTERS = /[AZaz]/
+  
   def parse(io)
     trackers = []
     until io.eof?
       line = io.gets
-      next unless line
+      next if (!line || line =~ /^#/)
       
-      if line =~ /[AZaz]/ # Tracker with a name
+      if line =~ CHARACTERS # Tracker with a name
         t = Tracksperanto::Tracker.new{|t| t.name = line.strip.gsub(/"/, '') }
         report_progress("Reading tracker #{t.name}")
         parse_tracker(t, io)
@@ -26,7 +28,13 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   
   private
     def parse_tracker(t, io)
-      num_of_keyframes = io.gets.chomp.to_i
+      first_tracker_line = io.gets.chomp
+      
+      if first_tracker_line =~ CHARACTERS # PFTrack version 5 format
+        first_tracker_line = io.gets.chomp
+      end
+      
+      num_of_keyframes = first_tracker_line.to_i
       t.keyframes = (1..num_of_keyframes).map do
         report_progress("Reading keyframe")
         Tracksperanto::Keyframe.new do |k| 

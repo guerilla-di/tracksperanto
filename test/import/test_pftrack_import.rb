@@ -36,4 +36,13 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal "Tracker41", trackers[-1].name
     assert_equal 467, trackers[-1].keyframes.length
   end
+  
+  def test_garage_shot
+    fixture = File.open(File.dirname(__FILE__) + '/samples/garage.2dt')
+    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
+    trackers = parser.parse(fixture)
+    assert_equal 250, trackers.length
+    assert_equal "Tracker121", trackers[0].name
+    assert_equal 189, trackers[0].length
+  end
 end

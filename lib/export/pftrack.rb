@@ -1,14 +1,14 @@
 # Export for PFTrack .2dt files
-class Tracksperanto::Export::PFTrack < Tracksperanto::Export::Base
+class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     
     KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f"
     
     def self.desc_and_extension
-      "pftrack.2dt"
+      "pftrack_v4.2dt"
     end
     
     def self.human_name
-      "PFTrack .2dt file"
+      "PFTrack v4 .2dt file"
     end
     
     def start_tracker_segment(tracker_name)

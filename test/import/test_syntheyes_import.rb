@@ -25,6 +25,6 @@ class SyntheyesImportTest < Test::Unit::TestCase
     assert_equal 0, first_kf.frame
     assert_in_delta 715.839, first_kf.abs_x, DELTA
     assert_in_delta 886.212, first_kf.abs_y, DELTA
-    assert_in_delta 30.0, first_kf.residual, DELTA
+    assert_in_delta 0.0, first_kf.residual, DELTA
   end
 end

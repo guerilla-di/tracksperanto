@@ -5,6 +5,14 @@ class Tracksperanto::Middleware::Base
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit
   
+  # Used to automatically register your middleware in Tracksperanto.middlewares
+  # Normally you wouldn't need to override this
+  def self.inherited(by)
+    Tracksperanto.middlewares << by
+    super
+  end
+  
+  # Constructor accepts the exporter that will be wrapped
   def initialize(exporter, *args_for_block_init)
     @exporter = exporter
     super(*args_for_block_init)

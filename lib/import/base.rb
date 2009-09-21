@@ -29,7 +29,8 @@ class Tracksperanto::Import::Base
   cast_to_int :width, :height
   safe_reader :width, :height
   
-  # Used to register your importer in the list of supported formats
+  # Used to register your importer in the list of supported formats.
+  # Normally you would not need to override this
   def self.inherited(by)
     Tracksperanto.importers << by
     super

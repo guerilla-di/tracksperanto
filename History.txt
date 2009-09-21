@@ -1,3 +1,7 @@
+=== 1.2.2 / 2009-09-21
+
+* Support both PFTrack 4 and 5 
+
 === 1.2.1 / 2009-09-21
 
 * Fixed the binary that was not able to properly pass the importer class to the pipeline

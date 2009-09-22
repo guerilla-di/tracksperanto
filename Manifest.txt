@@ -33,6 +33,7 @@ lib/pipeline/base.rb
 lib/tracksperanto.rb
 lib/tracksperanto/block_init.rb
 lib/tracksperanto/casts.rb
+lib/tracksperanto/const_name.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
 lib/tracksperanto/safety.rb
@@ -91,6 +92,7 @@ test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
 test/pipeline/test_pipeline_base.rb
+test/test_const_name.rb
 test/test_format_detector.rb
 test/test_keyframe.rb
 test/test_tracker.rb

@@ -4,7 +4,7 @@ require 'delegate'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '1.2.5'
+  VERSION = '1.2.6'
   
   module Import; end
   module Export; end
@@ -23,9 +23,21 @@ module Tracksperanto
     
     # Returns the names of all the importers
     def importer_names
-      importers.map{|e| e.to_s.split('::').pop }
+      importers.map{|e| e.const_name }
     end
+    
+    # Returns the names of all the exporters
+    def exporter_names
+      exporters.map{|e| e.const_name }
+    end
+    
+    # Returns the names of all the middlewares
+    def middleware_names
+      middlewares.map{|e| e.const_name }
+    end
+    
   end
+  
   self.exporters, self.importers, self.middlewares = [], [], []
   
 end

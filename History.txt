@@ -1,3 +1,7 @@
+=== 1.2.6 / 2009-09-21
+
+* Add const_name to the classes being introspected most often
+
 === 1.2.5 / 2009-09-21
 
 * Reset residual on Syntheyes imports to 0

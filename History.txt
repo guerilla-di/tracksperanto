@@ -1,3 +1,7 @@
+=== 1.2.7 / 2009-09-22
+
+* Improved progress reporting
+
 === 1.2.6 / 2009-09-21
 
 * Add const_name to the classes being introspected most often

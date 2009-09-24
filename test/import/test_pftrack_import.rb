@@ -9,7 +9,7 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert !i.autodetects_size?
   end
   
-  def test_parsing_from_importable
+  def test_parsing_from_importable_pftrack_4
     fixture = File.open(File.dirname(__FILE__) + '/samples/sourcefile_pftrack.2dt')
 
     parser = Tracksperanto::Import::PFTrack.new
@@ -37,7 +37,7 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal 467, trackers[-1].keyframes.length
   end
   
-  def test_garage_shot
+  def test_garage_shot_from_pftrack_5
     fixture = File.open(File.dirname(__FILE__) + '/samples/garage.2dt')
     parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
     trackers = parser.parse(fixture)

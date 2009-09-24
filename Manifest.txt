@@ -6,6 +6,7 @@ Rakefile
 bin/tracksperanto
 lib/.DS_Store
 lib/export/base.rb
+lib/export/equalizer.rb
 lib/export/match_mover.rb
 lib/export/mux.rb
 lib/export/nuke_script.rb
@@ -14,6 +15,7 @@ lib/export/pftrack_5.rb
 lib/export/shake_text.rb
 lib/export/syntheyes.rb
 lib/import/base.rb
+lib/import/equalizer.rb
 lib/import/flame_stabilizer.rb
 lib/import/match_mover.rb
 lib/import/nuke_script.rb
@@ -48,7 +50,9 @@ test/export/samples/ref_PFTrack.2dt
 test/export/samples/ref_PFTrack5.2dt
 test/export/samples/ref_ShakeText.txt
 test/export/samples/ref_Syntheyes.txt
+test/export/samples/ref_equalizer.txt
 test/export/samples/ref_matchmover.rz2
+test/export/test_equalizer_export.rb
 test/export/test_match_mover_export.rb
 test/export/test_mux.rb
 test/export/test_nuke_export.rb
@@ -59,6 +63,7 @@ test/export/test_syntheyes_export.rb
 test/helper.rb
 test/import/.DS_Store
 test/import/samples/.DS_Store
+test/import/samples/3de_export_cube.txt
 test/import/samples/flyover2DP_syntheyes.txt
 test/import/samples/four_tracks_in_one_matchmove.shk
 test/import/samples/four_tracks_in_one_stabilizer.shk
@@ -77,6 +82,7 @@ test/import/samples/sourcefile_pftrack.2dt
 test/import/samples/three_tracks_in_one_stabilizer.shk
 test/import/samples/two_shake_trackers.txt
 test/import/samples/two_tracks_in_one_tracker.shk
+test/import/test_3de_import.rb
 test/import/test_flame_import.rb
 test/import/test_match_mover_import.rb
 test/import/test_nuke_import.rb

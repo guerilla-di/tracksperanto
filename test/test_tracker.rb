@@ -38,6 +38,11 @@ class TrackerTest < Test::Unit::TestCase
     assert_equal '<T "FooTracker" with 0 keyframes>', t.inspect
   end
   
+  def test_ensure_tracker_forbids_spaces_in_names
+    t = Tracksperanto::Tracker.new(:name => "Mary had a \n \t little lamb")
+    assert_equal "Mary_had_a_little_lamb", t.name
+  end
+  
   def test_enumerates_keyframe_values_and_returns_length
     t = Tracksperanto::Tracker.new(:keyframes => [:a, :b])
     assert_equal [:a, :b], t.map{|e| e}

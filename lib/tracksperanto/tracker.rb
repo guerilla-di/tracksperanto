@@ -27,6 +27,12 @@ class Tracksperanto::Tracker < DelegateClass(Array)
     self[0].frame <=> other_tracker[0].frame
   end
   
+  # Automatically truncate spaces in the tracker
+  # name and replace them with underscores
+  def name=(n)
+    @name = n.to_s.gsub(/(\s+)/, '_')
+  end
+   
   # Create and save a keyframe in this tracker
   def keyframe!(options)
     push(Tracksperanto::Keyframe.new(options))

@@ -25,7 +25,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
     assert_equal 5, trackers.length
     
     first_t = trackers[0]
-    assert_equal "Track 01", first_t.name
+    assert_equal "Track_01", first_t.name
     assert_equal 131, first_t.length
     first_kf = first_t[0]
     

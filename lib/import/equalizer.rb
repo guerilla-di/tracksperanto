@@ -1,20 +1,6 @@
 # Imports 3D Equalizer's text files
 class Tracksperanto::Import::Equalizer < Tracksperanto::Import::Base
   
-  class IOI < DelegateClass(IO)
-    def initialize(io)
-      __setobj__(io)
-    end
-    
-    def gets_non_empty
-      line = __getobj__.gets
-      return nil if line.nil?
-      s = line.strip
-      return gets_non_empty if s.empty?
-      s
-    end
-  end
-  
   def self.human_name
     "3DE point export file"
   end
@@ -22,7 +8,7 @@ class Tracksperanto::Import::Equalizer < Tracksperanto::Import::Base
   
   def parse(passed_io)
     ts = []
-    io = IOI.new(passed_io)
+    io = Tracksperanto::ExtIO.new(passed_io)
     
     num_t = detect_num_of_points(io)
     num_t.times { ts << extract_tracker(io) }

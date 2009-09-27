@@ -10,23 +10,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     ".nk"
   end
   
-  # Nuke files are extensively indented and indentation is significant.
-  # We use this to always strip the lines we process since we capture before
-  # indentation becomes crucial
-  class IOC < DelegateClass(IO)
-    def initialize(h)
-      __setobj__(h)
-    end
-    
-    def gets_and_strip
-      s = __getobj__.gets
-      s ? s.strip : nil
-    end
-    
-  end
-  
   def parse(io)
-    scan_for_tracker3_nodes(IOC.new(io))
+    scan_for_tracker3_nodes(Tracksperanto::ExtIO.new(io))
   end
   
   private

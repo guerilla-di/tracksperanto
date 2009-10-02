@@ -72,7 +72,9 @@ class Tracksperanto::Pipeline::Base
       opts[:parser] = d.importer_klass
     else
       raise "Cannot autodetect the file format - please specify the importer explicitly" unless opts[:parser]
-      raise "Width and height must be provided for this importer" unless (opts[:pix_w] && opts[:pix_h])
+      unless opts[:parser].autodetects_size?
+        raise "Width and height must be provided for this importer" unless (opts[:pix_w] && opts[:pix_h])
+      end
     end
     
     [opts[:pix_w], opts[:pix_h], opts[:parser]]    

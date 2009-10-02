@@ -78,7 +78,7 @@ if !input_file
 end
 
 pipe = Tracksperanto::Pipeline::Base.new
-pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
+pipe.progress_block = lambda{|percent, msg| STDOUT.write(".") }
 pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift |
   slipper.slip = slip
   scaler.x_factor = scale_x
@@ -89,3 +89,4 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   shift.x_shift = x_shift
   shift.y_shift = y_shift
 end
+STDOUT.write("\n")

@@ -8,6 +8,7 @@ lib/.DS_Store
 lib/export/base.rb
 lib/export/equalizer.rb
 lib/export/match_mover.rb
+lib/export/maya_live.rb
 lib/export/mux.rb
 lib/export/nuke_script.rb
 lib/export/pftrack.rb
@@ -18,6 +19,7 @@ lib/import/base.rb
 lib/import/equalizer.rb
 lib/import/flame_stabilizer.rb
 lib/import/match_mover.rb
+lib/import/maya_live.rb
 lib/import/nuke_script.rb
 lib/import/pftrack.rb
 lib/import/shake_grammar/catcher.rb
@@ -45,6 +47,7 @@ lib/tracksperanto/zip_tuples.rb
 test/.DS_Store
 test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
+test/export/samples/ref_Mayalive.txt
 test/export/samples/ref_NukeScript.nk
 test/export/samples/ref_NukeScript.nk.autosave
 test/export/samples/ref_PFTrack.2dt
@@ -55,6 +58,7 @@ test/export/samples/ref_equalizer.txt
 test/export/samples/ref_matchmover.rz2
 test/export/test_equalizer_export.rb
 test/export/test_match_mover_export.rb
+test/export/test_maya_live_export.rb
 test/export/test_mux.rb
 test/export/test_nuke_export.rb
 test/export/test_pftrack5_export.rb
@@ -72,6 +76,7 @@ test/import/samples/fromCombustion_fromMidClip_wSnap.stabilizer
 test/import/samples/garage.2dt
 test/import/samples/hugeFlameSetup.stabilizer
 test/import/samples/kipPointsMatchmover.rz2
+test/import/samples/mayalive_kipShot.txt
 test/import/samples/megaTrack.action.3dtrack.stabilizer
 test/import/samples/one_shake_tracker.txt
 test/import/samples/one_shake_tracker_from_first.txt
@@ -86,6 +91,7 @@ test/import/samples/two_tracks_in_one_tracker.shk
 test/import/test_3de_import.rb
 test/import/test_flame_import.rb
 test/import/test_match_mover_import.rb
+test/import/test_maya_live_import.rb
 test/import/test_nuke_import.rb
 test/import/test_pftrack_import.rb
 test/import/test_shake_catcher.rb
@@ -98,7 +104,6 @@ test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
-test/pipeline/test_pipeline_base.rb
 test/test_const_name.rb
 test/test_extio.rb
 test/test_format_detector.rb

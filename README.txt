@@ -68,6 +68,7 @@ Import support:
 * Syntheyes 2D tracking data exports
 * 3DE point exports (as output by the default script)
 * MatchMover Pro .rz2
+* MayaLive track export (square pixel aspect only)
 
 Export support:
 
@@ -78,6 +79,7 @@ Export support:
 * Nuke script
 * 3DE point exports (as accepted by the default import)
 * MatchMover Pro .rz2
+* MayaLive track export (square pixel aspect only)
 
 == Modularity
 

@@ -14,5 +14,4 @@ class MayaLiveExportTest < Test::Unit::TestCase
       exporter.aspect = 1.78
     end
   end
-  
 end

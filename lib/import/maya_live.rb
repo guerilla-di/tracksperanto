@@ -1,4 +1,10 @@
 class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
+  
+  # Maya Live exports and imports tracks in "aspect units", so a point at 0,0
+  # will be at -1.78,-1 in MayaLive coordinates with aspect of 1.78. Therefore
+  # we offer an override for the aspect being imported (if the pixels are not square)
+  attr_accessor :aspect
+  
   def self.human_name
     "Maya Live track export file"
   end
@@ -40,7 +46,7 @@ class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
     
     def extract_width_height_and_aspect(from_str)
       self.width, self.height = from_str.scan(/\d+/)
-      @aspect = width.to_f / height.to_f
+      @aspect ||= width.to_f / height.to_f
       @x_unit = width / (@aspect * 2)
       @y_unit = height / (1 * 2)
     end

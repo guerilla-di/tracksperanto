@@ -1,5 +1,10 @@
 class Tracksperanto::Export::MayaLive < Tracksperanto::Export::Base
   
+  # Maya Live exports and imports tracks in "aspect units", so a point at 0,0
+  # will be at -1.78,-1 in MayaLive coordinates with aspect of 1.78. Therefore
+  # we offer an override for the aspect being exported
+  attr_accessor :aspect
+  
   def self.desc_and_extension
     "mayalive.txt"
   end
@@ -9,7 +14,7 @@ class Tracksperanto::Export::MayaLive < Tracksperanto::Export::Base
   end
   
   def start_export( img_width, img_height)
-    @aspect = img_width.to_f / img_height
+    @aspect ||= img_width.to_f / img_height
     
     @w, @h = img_width, img_height
     

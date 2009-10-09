@@ -4,15 +4,15 @@ class EqualizerImportTest < Test::Unit::TestCase
   DELTA = 0.001
   
   def test_introspects_properly
-    i = Tracksperanto::Import::Equalizer
-    assert_equal "3DE point export file", i.human_name
+    i = Tracksperanto::Import::Equalizer4
+    assert_equal "3DE v4 point export file", i.human_name
     assert !i.autodetects_size?
   end
   
   def test_parsing_from_importable
     fixture = File.open(File.dirname(__FILE__) + '/samples/3de_export_cube.txt')
     
-    parser = Tracksperanto::Import::Equalizer.new
+    parser = Tracksperanto::Import::Equalizer4.new
     parser.width = 1024
     parser.height = 512
     

@@ -1,12 +1,11 @@
-.DS_Store
 History.txt
 Manifest.txt
 README.txt
 Rakefile
 bin/tracksperanto
-lib/.DS_Store
 lib/export/base.rb
-lib/export/equalizer.rb
+lib/export/equalizer3.rb
+lib/export/equalizer4.rb
 lib/export/match_mover.rb
 lib/export/maya_live.rb
 lib/export/mux.rb
@@ -16,7 +15,8 @@ lib/export/pftrack_5.rb
 lib/export/shake_text.rb
 lib/export/syntheyes.rb
 lib/import/base.rb
-lib/import/equalizer.rb
+lib/import/equalizer3.rb
+lib/import/equalizer4.rb
 lib/import/flame_stabilizer.rb
 lib/import/match_mover.rb
 lib/import/maya_live.rb
@@ -44,10 +44,9 @@ lib/tracksperanto/keyframe.rb
 lib/tracksperanto/safety.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/zip_tuples.rb
-test/.DS_Store
-test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
 test/export/samples/ref_Mayalive.txt
+test/export/samples/ref_Mayalive_CustomAspect.txt
 test/export/samples/ref_NukeScript.nk
 test/export/samples/ref_NukeScript.nk.autosave
 test/export/samples/ref_PFTrack.2dt
@@ -55,7 +54,9 @@ test/export/samples/ref_PFTrack5.2dt
 test/export/samples/ref_ShakeText.txt
 test/export/samples/ref_Syntheyes.txt
 test/export/samples/ref_equalizer.txt
+test/export/samples/ref_equalizer3.txt
 test/export/samples/ref_matchmover.rz2
+test/export/test_equalizer3_export.rb
 test/export/test_equalizer_export.rb
 test/export/test_match_mover_export.rb
 test/export/test_maya_live_export.rb
@@ -66,9 +67,8 @@ test/export/test_pftrack_export.rb
 test/export/test_shake_export.rb
 test/export/test_syntheyes_export.rb
 test/helper.rb
-test/import/.DS_Store
-test/import/samples/.DS_Store
 test/import/samples/3de_export_cube.txt
+test/import/samples/3de_export_v3.txt
 test/import/samples/flyover2DP_syntheyes.txt
 test/import/samples/four_tracks_in_one_matchmove.shk
 test/import/samples/four_tracks_in_one_stabilizer.shk
@@ -89,6 +89,7 @@ test/import/samples/three_tracks_in_one_stabilizer.shk
 test/import/samples/two_shake_trackers.txt
 test/import/samples/two_tracks_in_one_tracker.shk
 test/import/test_3de_import.rb
+test/import/test_3de_import3.rb
 test/import/test_flame_import.rb
 test/import/test_match_mover_import.rb
 test/import/test_maya_live_import.rb

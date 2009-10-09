@@ -66,7 +66,7 @@ Import support:
 * Shake tracker node export (textfile with many tracks per file)
 * PFTrack 2dt files
 * Syntheyes 2D tracking data exports
-* 3DE point exports (as output by the default script)
+* 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
 * MayaLive track export (square pixel aspect only)
 

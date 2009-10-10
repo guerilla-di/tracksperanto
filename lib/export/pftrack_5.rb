@@ -12,7 +12,7 @@ class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFTrack4
     def end_tracker_segment
       block = [ "\n",
         @tracker_name.inspect, # "autoquotes"
-        "Primary".inspect,
+        "Primary".inspect, # For primary/secondary cam in stereo pair
         @prev_tracker.length,
         @prev_tracker.join("\n") ]
       @io.puts block.join("\n")

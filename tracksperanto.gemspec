@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tracksperanto}
-  s.version = "1.4.0"
+  s.version = "1.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = %q{2009-10-09}
+  s.date = %q{2009-10-10}
   s.default_executable = %q{tracksperanto}
   s.description = %q{Tracksperanto is a universal 2D-track translator between many apps.}
   s.email = ["me@julik.nl"]

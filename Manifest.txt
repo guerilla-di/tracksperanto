@@ -1,8 +1,10 @@
+.DS_Store
 History.txt
 Manifest.txt
 README.txt
 Rakefile
 bin/tracksperanto
+lib/.DS_Store
 lib/export/base.rb
 lib/export/equalizer3.rb
 lib/export/equalizer4.rb
@@ -42,8 +44,11 @@ lib/tracksperanto/ext_io.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
 lib/tracksperanto/safety.rb
+lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/zip_tuples.rb
+test/.DS_Store
+test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
 test/export/samples/ref_Mayalive.txt
 test/export/samples/ref_Mayalive_CustomAspect.txt
@@ -67,6 +72,8 @@ test/export/test_pftrack_export.rb
 test/export/test_shake_export.rb
 test/export/test_syntheyes_export.rb
 test/helper.rb
+test/import/.DS_Store
+test/import/samples/.DS_Store
 test/import/samples/3de_export_cube.txt
 test/import/samples/3de_export_v3.txt
 test/import/samples/flyover2DP_syntheyes.txt
@@ -109,5 +116,6 @@ test/test_const_name.rb
 test/test_extio.rb
 test/test_format_detector.rb
 test/test_keyframe.rb
+test/test_simple_export.rb
 test/test_tracker.rb
 tracksperanto.gemspec

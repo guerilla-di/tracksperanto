@@ -26,6 +26,8 @@ class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
     def extract_tracker(io)
       t = Tracksperanto::Tracker.new(:name => io.gets.strip)
       
+      report_progress("Capturing tracker #{t.name}")
+      
       io.gets # Tracker color, internal 3DE repr and 0 is Red
       
       num_of_keyframes = io.gets.to_i
@@ -35,6 +37,7 @@ class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
           throw :__emp unless line
           
           frame, x, y = line.scan(KF_PATTERN).flatten
+          report_progress("Capturing keyframe #{frame}")
           t.keyframe!(:frame => (frame.to_i - 1), :abs_x => x, :abs_y => y)
         end
       end

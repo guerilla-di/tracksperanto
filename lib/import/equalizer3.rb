@@ -29,6 +29,7 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
         if line =~ /^(\w+)/ # Tracker name
           discard_last_empty_tracker!(ts)
           ts.push(Tracksperanto::Tracker.new(:name => line.strip))
+          report_progress("Capturing tracker #{line.strip}")
         elsif line =~ /^\t/
           ts[-1].push(make_keyframe(line))
         end
@@ -39,11 +40,15 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
     end
     
     def discard_last_empty_tracker!(in_array)
-      in_array.delete_at(-1) if (in_array.any? && in_array[-1].empty?)
+      if (in_array.any? && in_array[-1].empty?)
+        in_array.delete_at(-1)
+        report_progress("Removing the last tracker since it had no keyframes")
+      end
     end
     
     def make_keyframe(from_line)
       frame, x, y = from_line.split
+      report_progress("Capturing keyframe #{frame}")
       Tracksperanto::Keyframe.new(:frame => (frame.to_i - 1), :abs_x => x, :abs_y => y)
     end
 end

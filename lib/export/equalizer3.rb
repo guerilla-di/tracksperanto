@@ -1,5 +1,3 @@
-require 'tempfile'
-
 # Export for 3DE v3 point files
 class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   
@@ -35,8 +33,13 @@ class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
     @io.puts(preamble)
     @internal_io.rewind
     @io.puts(@internal_io.read)
-    @internal_io = nil # Discard for GC
-    @io.puts("")
+    discard_io
+    @io.puts("") # Newline at end
   end
   
+  private
+    def discard_io
+      @internal_io.close
+      @internal_io = nil
+    end
 end

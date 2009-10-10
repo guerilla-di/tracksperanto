@@ -1,6 +1,6 @@
 require 'stringio'
 require 'delegate'
-
+require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))

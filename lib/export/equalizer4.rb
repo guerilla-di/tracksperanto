@@ -1,7 +1,6 @@
 # Export for 3DE v4 point files
 class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
   
-  # Should return the suffix and extension of this export file (like "_flame.stabilizer")
   def self.desc_and_extension
     "3de_v4.txt"
   end

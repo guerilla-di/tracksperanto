@@ -38,7 +38,7 @@ class Tracksperanto::Import::Base
   end
   
   # Return an extension WITH DOT if this format has a typical extension that
-  # you can detect 
+  # you can detect (like ".nk" for Nuke) 
   def self.distinct_file_ext
     nil
   end
@@ -54,15 +54,17 @@ class Tracksperanto::Import::Base
     false
   end
   
-  # Call this method to tell what you are doing. This gets propagated to the caller automatically, or
-  # gets ignored if the caller did not request any progress reports
+  # Call this method from the inside of your importer to tell what you are doing. 
+  # This gets propagated to the caller automatically, or gets ignored if the caller did not request any progress reports
   def report_progress(message)
     @progress_block.call(message) if @progress_block
   end
   
   # The main method of the parser. Will receive an IO handle to the file being imported, and should
   # return an array of Tracksperanto::Tracker objects containing keyframes. If you have a problem
-  # doing an import, raise from here.
+  # doing an import, raise from here. Note that in general it's a good idea to stream-parse a document
+  # instead of bulk-reading it into memory (since Tracksperanto tries to be mem-efficient when dealing
+  # with large files)
   def parse(track_file_io)
     []
   end

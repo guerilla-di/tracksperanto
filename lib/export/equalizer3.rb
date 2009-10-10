@@ -3,7 +3,6 @@ class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   
   HEADER = '// 3DE Multiple Tracking Curves Export 2048 x 778 * 275 frames'
   
-  # Should return the suffix and extension of this export file (like "_flame.stabilizer")
   def self.desc_and_extension
     "3de_v3.txt"
   end

@@ -26,7 +26,6 @@ Constant {
       include ::Tracksperanto::BlockInit
     end
     
-    # Should return the suffix and extension of this export file (like "_flame.stabilizer")
     def self.desc_and_extension
       "nuke.nk"
     end

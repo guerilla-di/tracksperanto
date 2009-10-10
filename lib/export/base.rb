@@ -13,18 +13,20 @@ class Tracksperanto::Export::Base
     super
   end
   
-  # Should return the suffix and extension of this export file (like "flame.stabilizer"). It's a class
-  # method because it gets requested before the exporter is instantiated
+  # Should return the suffix and extension of this export file (like "flame.stabilizer"), without
+  # the leading underscore. It's a class method because it gets requested before the exporter is instantiated
   def self.desc_and_extension
     "data.txt"
   end
   
-  # Should return the human-readable (read: with spaces) name of the export module
+  # Should return the human-readable (read: properly capitalized and with spaces) name of the export module
   def self.human_name
     "Abstract export format"
   end
   
   # The constructor for an exporter should accept a handle to the IO object that you can write to.
+  # This gets assigned to @io ivar by default, but you can do whatever ypu wish
+  # By convention, the caller will close the IO when you are done so don't do it here
   def initialize(write_to_io)
     @io = write_to_io
   end
@@ -33,7 +35,7 @@ class Tracksperanto::Export::Base
   def start_export( img_width, img_height)
   end
   
-  # Called on export end. No need to close the passed IO, it will be done for you afterwards
+  # Called on export end. By convention, the caller will close the IO when you are done so don't do it here
   def end_export
   end
   

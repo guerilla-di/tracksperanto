@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../helper'
 
 class ReformatMiddlewareTest < Test::Unit::TestCase
   def test_inherits_and_thus_complies
-    assert Tracksperanto::Middleware::Reformat.ancestors.include?(Tracksperanto::Middleware::Scaler)
+    assert Tracksperanto::Middleware::Reformat.ancestors.include?(Tracksperanto::Middleware::Base)
   end
   
   def test_default_params_zeroed
@@ -29,7 +29,5 @@ class ReformatMiddlewareTest < Test::Unit::TestCase
     m = Tracksperanto::Middleware::Reformat.new(receiver, :width => 1920, :height => 1080)
     
     m.start_export(720, 576)
-    assert_in_delta upscale_h, m.send(:x_factor), 0.00001, "The middleware should have configured the x factor on export start"
-    assert_in_delta upscale_v, m.send(:y_factor), 0.00001, "The middleware should have configured the y factor on export start"
   end
 end

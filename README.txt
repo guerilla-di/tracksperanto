@@ -92,7 +92,7 @@ Middlewares. Any processing chain (called a Pipeline) usually works like this:
   keyframes are extracted, converting them to
   the internal representation.
 * Trackers and their keyframes are dumped to all export
-  formats Tracksperanto supports, optionally passing through middleware
+  formats Tracksperanto supports, optionally passing through Middleware
 
 == Importing your own formats
 

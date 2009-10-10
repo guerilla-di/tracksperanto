@@ -4,6 +4,7 @@
 # (the last keyframe has been sent)
 class Tracksperanto::Export::Base
   include Tracksperanto::ConstName
+  include Tracksperanto::SimpleExport
   
   attr_reader :io
   

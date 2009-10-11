@@ -1,3 +1,8 @@
+=== 1.5.2 / 2009-10-09
+
+* Fix Windows-specific issue (Tempfile-related) in the Equalizer4 exporter
+* Add Export::Base#just_export and Middleware::Base#just_export
+
 === 1.5.0 / 2009-10-09
 
 * Implement support for older 3DE exports (in and out)

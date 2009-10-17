@@ -38,6 +38,12 @@ class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
     @internal_io.rewind
     @io.puts(@num_of_trackers)
     @io.puts(@internal_io.read)
+    discard_io
   end
   
+  private
+    def discard_io
+      @internal_io.close
+      @internal_io = nil
+    end
 end

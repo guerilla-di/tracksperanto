@@ -1,4 +1,5 @@
-# Multiplexor. Does not inherit Base so that it does not get used as a translator
+# Multiplexor. Accepts a number of exporters and replays 
+# the calls to all of them in succession.
 class Tracksperanto::Export::Mux
   attr_accessor :outputs
   

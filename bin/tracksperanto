@@ -30,8 +30,11 @@ readers = Tracksperanto.importer_names
 
 parser = OptionParser.new do | p |
  p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
+ p.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto") {|c| 
+    require c
+ }
  p.on(" -f", "--from TRANSLATOR", String, 
-   "Use the specific import translator (will try to autodetect, but can be #{readers.join(', ')})") do | f |
+   "Use the specific import translator (will try to autodetect, but can be #{Tracksperanto.importer_names.join(', ')})") do | f |
    begin
      reader_klass = Tracksperanto::Import.const_get(f)
    rescue NameError => e

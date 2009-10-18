@@ -86,6 +86,7 @@ test/import/samples/kipPointsMatchmover.rz2
 test/import/samples/mayalive_kipShot.txt
 test/import/samples/megaTrack.action.3dtrack.stabilizer
 test/import/samples/one_shake_tracker.txt
+test/import/samples/018.nk
 test/import/samples/one_shake_tracker_from_first.txt
 test/import/samples/one_tracker_with_break.nk
 test/import/samples/one_tracker_with_break_in_grp.nk

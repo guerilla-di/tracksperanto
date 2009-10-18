@@ -1,3 +1,7 @@
+=== 1.5.3 / 2009-10-17
+
+* Fix a bug in the Nuke importer for tracks that have no animation
+
 === 1.5.2 / 2009-10-09
 
 * Fix Windows-specific issue (Tempfile-related) in the Equalizer4 exporter

@@ -32,13 +32,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       tracks_in_tracker = []
       while line = io.gets_and_strip
         if line =~ TRACK_PATTERN
-          tuples = scan_track(line)
-          tk = Tracksperanto::Tracker.new(
-            :keyframes => tuples.map do | (f, x, y) | 
-              Tracksperanto::Keyframe.new(:frame => f -1, :abs_x => x, :abs_y => y) 
-            end
-          )
-          tracks_in_tracker.push(tk)
+          t = extract_tracker(line)
+          tracks_in_tracker.push(t) if t
         elsif line =~ NODENAME
           tracks_in_tracker.each_with_index do | t, i |
             t.name = "#{$1}_track#{i+1}"
@@ -51,13 +46,14 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     
     def scan_track(line_with_curve)
       x_curve, y_curve = line_with_curve.split(/\}/).map{ | one_curve| parse_curve(one_curve) }
+      return nil unless (x_curve && y_curve)
       zip_curve_tuples(x_curve, y_curve)
     end
     
     # Scan a curve to a number of triplets
     def parse_curve(curve_text)
       # Replace the closing curly brace with a curly brace with space so that it gets caught by split
-      atoms, tuples = curve_text.gsub(/\}/, ' }').split, []
+      atoms, tuples = curve_text.gsub(/\}/m, ' }').split, []
       # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,
       # after which values follow. When the curve is interrupted in some way a new x(keyframe_number) will signifu that we
       # skip to that specified keyframe and the curve continues from there
@@ -78,4 +74,14 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       tuples
     end
     
+    def extract_tracker(line)
+      tuples = scan_track(line)
+      return nil unless (tuples && tuples.any?)
+      
+      Tracksperanto::Tracker.new(
+        :keyframes => tuples.map do | (f, x, y) | 
+          Tracksperanto::Keyframe.new(:frame => f -1, :abs_x => x, :abs_y => y) 
+        end
+      )
+    end
 end

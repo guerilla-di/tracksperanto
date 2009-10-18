@@ -26,6 +26,15 @@ class NukeImportTest < Test::Unit::TestCase
     assert_in_delta 510.107, sec_tracker.keyframes[-1].abs_y, DELTA
   end
   
+  def test_parsing_many_tracks_per_node
+    fixture = File.open(File.dirname(__FILE__) + '/samples/018.nk')
+    parser = Tracksperanto::Import::NukeScript.new
+    parser.width = 1920
+    parser.height = 1080
+    trackers = parser.parse(fixture)
+    assert_equal 21, trackers.length
+  end
+  
   def test_parsing_from_nuke_group
     fixture = File.open(File.dirname(__FILE__) + '/samples/one_tracker_with_break_in_grp.nk')
     

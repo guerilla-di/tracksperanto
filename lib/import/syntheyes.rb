@@ -1,7 +1,7 @@
 class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
   
   def self.human_name
-    "Syntheyes tracker export (UV) file"
+    "Syntheyes 2D tracker paths file"
   end
   
   def parse(io)

@@ -6,7 +6,7 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
   end
   
   def self.human_name
-    "Syntheyes 2D tracker .txt file"
+    "Syntheyes 2D tracker paths file"
   end
   
   def start_export( img_width, img_height)

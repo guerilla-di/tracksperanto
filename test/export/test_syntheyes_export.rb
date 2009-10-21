@@ -10,6 +10,6 @@ class SynthEyesExportTest < Test::Unit::TestCase
   
   def test_exporter_meta
     assert_equal "syntheyes_2dt.txt", Tracksperanto::Export::SynthEyes.desc_and_extension
-    assert_equal "Syntheyes 2D tracker .txt file", Tracksperanto::Export::SynthEyes.human_name
+    assert_equal "Syntheyes 2D tracker paths file", Tracksperanto::Export::SynthEyes.human_name
   end
 end

@@ -4,7 +4,7 @@ class SyntheyesImportTest < Test::Unit::TestCase
   DELTA = 0.9 # our SynthEyes sample is somewhat inaccurate :-P
   def test_introspects_properly
     i = Tracksperanto::Import::Syntheyes
-    assert_equal "Syntheyes tracker export (UV) file", i.human_name
+    assert_equal "Syntheyes 2D tracker paths file", i.human_name
     assert !i.autodetects_size?
   end
   

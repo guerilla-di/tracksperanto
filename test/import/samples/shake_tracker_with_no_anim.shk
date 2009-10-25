@@ -1,0 +1,6 @@
+Tracker36 = Tracker(Expand1, "1-1580", "1/64", "luminance", 0.75, 
+    "use start frame", 0.5, "stop", 1, 1, "v2.0", 0.3, 0.59, 
+    0.11, 0, 10, "track1", width/2, height/2, 1, width/2-height/30, 
+    width/2+height/30, height/2-height/30, height/2+height/30, 
+    width/2-height/15, width/2+height/15, height/2-height/15, 
+    height/2+height/15, width/2, height/2, 1, 1);

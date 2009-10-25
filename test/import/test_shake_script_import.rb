@@ -21,7 +21,15 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     second_kf = t.keyframes[1]
     assert_in_delta 0.00129, second_kf.residual, DELTA
   end
-
+  
+  def test_parse_tracker_node_with_no_animation
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_tracker_with_no_anim.shk')
+    assert_nothing_raised do
+      trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
+      assert_equal 0, trackers.length
+    end
+  end
+  
   def test_parsing_two_tracks_in_one_tracker_node
     fixture = File.open(File.dirname(__FILE__) + '/samples/two_tracks_in_one_tracker.shk')
     

@@ -193,7 +193,13 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
+      unless x_curve.is_a?(Array) && y_curve.is_a?(Array)
+        report_progress("Tracker #{name} had no anim or unsupported interpolation and can't be recovered")
+        return
+      end
+      
       report_progress("Scavenging tracker #{name}")
+      
       keyframes = zip_curve_tuples(x_curve, y_curve, corr_curve).map do | (frame, x, y, corr) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr))
       end

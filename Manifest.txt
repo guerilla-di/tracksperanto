@@ -4,6 +4,7 @@ Manifest.txt
 README.txt
 Rakefile
 bin/tracksperanto
+foo.rb
 lib/.DS_Store
 lib/export/base.rb
 lib/export/equalizer3.rb
@@ -47,6 +48,7 @@ lib/tracksperanto/safety.rb
 lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/zip_tuples.rb
+serveur.julik.nl
 test/.DS_Store
 test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
@@ -74,6 +76,7 @@ test/export/test_syntheyes_export.rb
 test/helper.rb
 test/import/.DS_Store
 test/import/samples/.DS_Store
+test/import/samples/018.nk
 test/import/samples/3de_export_cube.txt
 test/import/samples/3de_export_v3.txt
 test/import/samples/flyover2DP_syntheyes.txt
@@ -86,12 +89,12 @@ test/import/samples/kipPointsMatchmover.rz2
 test/import/samples/mayalive_kipShot.txt
 test/import/samples/megaTrack.action.3dtrack.stabilizer
 test/import/samples/one_shake_tracker.txt
-test/import/samples/018.nk
 test/import/samples/one_shake_tracker_from_first.txt
 test/import/samples/one_tracker_with_break.nk
 test/import/samples/one_tracker_with_break_in_grp.nk
 test/import/samples/shake_tracker_nodes.shk
 test/import/samples/shake_tracker_nodes_to_syntheyes.txt
+test/import/samples/shake_tracker_with_no_anim.shk
 test/import/samples/sourcefile_pftrack.2dt
 test/import/samples/three_tracks_in_one_stabilizer.shk
 test/import/samples/two_shake_trackers.txt

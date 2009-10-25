@@ -4,7 +4,6 @@ Manifest.txt
 README.txt
 Rakefile
 bin/tracksperanto
-foo.rb
 lib/.DS_Store
 lib/export/base.rb
 lib/export/equalizer3.rb

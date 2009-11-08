@@ -47,7 +47,6 @@ lib/tracksperanto/safety.rb
 lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/zip_tuples.rb
-serveur.julik.nl
 test/.DS_Store
 test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt

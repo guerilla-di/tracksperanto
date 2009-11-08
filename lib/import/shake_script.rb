@@ -29,6 +29,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         [kf[1][1], kf[0][1]]
       end
     end
+    alias_method :nspline, :linear
     
     # image Tracker( 
     #   image In,

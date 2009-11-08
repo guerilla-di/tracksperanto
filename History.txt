@@ -1,3 +1,7 @@
+=== 1.5.5 / 2009-10-25
+
+* Interpret Shake NSplines as Linear instead of discarding them
+
 === 1.5.4 / 2009-10-25
 
 * Fix a bug in the Shake importer for tracks that have no animation

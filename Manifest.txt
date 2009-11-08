@@ -98,6 +98,7 @@ test/import/samples/sourcefile_pftrack.2dt
 test/import/samples/three_tracks_in_one_stabilizer.shk
 test/import/samples/two_shake_trackers.txt
 test/import/samples/two_tracks_in_one_tracker.shk
+test/import/samples/shake_trackers_with_Nspline.shk
 test/import/test_3de_import.rb
 test/import/test_3de_import3.rb
 test/import/test_flame_import.rb

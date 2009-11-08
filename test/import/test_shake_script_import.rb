@@ -80,4 +80,12 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     ft = trackers[0]
     assert_equal "MatchMove1_track1", ft.name
   end
+  
+  def test_parsing_from_nspline_curves
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_trackers_with_Nspline.shk')
+    
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
+    assert_equal 3, trackers.length
+    assert_equal 160, trackers[0].length
+  end
 end

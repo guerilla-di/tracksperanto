@@ -122,4 +122,3 @@ test/test_format_detector.rb
 test/test_keyframe.rb
 test/test_simple_export.rb
 test/test_tracker.rb
-tracksperanto.gemspec

@@ -1,3 +1,7 @@
+=== 1.5.7 / 2009-11-08
+
+* Add a Prefix middleware that prefixes tracker names
+
 === 1.5.6 / 2009-11-08
 
 * Rerelase of 1.5.5 without the huge binary blob in the middle

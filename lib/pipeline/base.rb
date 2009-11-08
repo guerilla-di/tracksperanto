@@ -148,7 +148,8 @@ class Tracksperanto::Pipeline::Base
     golden = Tracksperanto::Middleware::Golden.new(slipper)
     reformat = Tracksperanto::Middleware::Reformat.new(golden)
     shift = Tracksperanto::Middleware::Shift.new(reformat)
-    [scaler, slipper, golden, reformat, shift]
+    prefix = Tracksperanto::Middleware::Prefix.new(shift)
+    [scaler, slipper, golden, reformat, shift, prefix]
   end
   
   # Open the file for writing and register it to be closed automatically

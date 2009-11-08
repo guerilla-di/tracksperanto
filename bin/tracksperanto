@@ -25,6 +25,7 @@ slip = 0
 golden_tracks = false
 x_shift = 0
 y_shift = 0
+set_prefix = ''
 
 readers = Tracksperanto.importer_names
 
@@ -43,6 +44,7 @@ parser = OptionParser.new do | p |
      exit(-1)
     end
  end
+ p.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bluk") { |w| set_prefix = w }
  p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| width = w }
  p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| height = w }
  p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") {|sx| scale_x = sx }
@@ -82,7 +84,7 @@ end
 
 pipe = Tracksperanto::Pipeline::Base.new
 pipe.progress_block = lambda{|percent, msg| STDOUT.write(".") }
-pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift |
+pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
@@ -91,5 +93,6 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   reformat.height = reformat_h if reformat_h
   shift.x_shift = x_shift
   shift.y_shift = y_shift
+  prefix.prefix = set_prefix
 end
 STDOUT.write("\n")

@@ -16,6 +16,20 @@ class TrackerTest < Test::Unit::TestCase
     assert_respond_to t, :keyframes
   end
   
+  def test_properly_ignores_flattening
+    t = []
+    t << Tracksperanto::Tracker.new(:name => "Abc")
+    t[-1].keyframe! :abs_x => 12, :abs_y => 23, :frame => 1
+    t[-1].keyframe! :abs_x => 13, :abs_y => 24, :frame => 2
+    
+    t << Tracksperanto::Tracker.new(:name => "Cde")
+    t[-1].keyframe! :abs_x => 12, :abs_y => 23, :frame => 1
+    t[-1].keyframe! :abs_x => 13, :abs_y => 24, :frame => 2
+    
+    assert_kind_of Tracksperanto::Tracker, t.flatten[0]
+    assert_equal 2, t.flatten.length
+  end
+  
   def test_supports_hash_init
     assert_equal "Foo", Tracksperanto::Tracker.new(:name => "Foo").name
   end

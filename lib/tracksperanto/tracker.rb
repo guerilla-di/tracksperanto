@@ -41,4 +41,9 @@ class Tracksperanto::Tracker < DelegateClass(Array)
   def inspect
     "<T #{name.inspect} with #{length} keyframes>"
   end
+  
+  # Hack - prevents the Tracker to be flattened into keyframes
+  # when an Array of Trackers gets Array#flatten'ed
+  def to_ary; end  
+  private :to_ary
 end

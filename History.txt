@@ -1,3 +1,5 @@
+* Prevent Tracker from being Array#flatten'ed
+
 === 1.5.7 / 2009-11-08
 
 * Add a Prefix middleware that prefixes tracker names

@@ -1,10 +1,9 @@
-# Internal representation of a keyframe, that carries info on the frame location in the clip, x y and residual
-# Frame numbers start from zero (frame 0 is first frame of the clip).
-# Tracksperanto uses Shake coordinates as base. Image is Y-positive, X-positive, absolute
-# pixel values up and right (zero is in the lower left corner). Some apps use a different
-# coordinate system so translation will take place on import or on export, respectively.
-# We also use residual and not correlation (residual is how far the tracker strolls away,
-# correlation is how sure the tracker is about what it's doing). Residual is the inverse of
+# Internal representation of a keyframe, that carries info on the frame location in the clip, x y and residual.
+#
+# Franme numbers are zero-based (frame 0 is first frame of the clip).
+# X-coordinate (abs_x) is absolute pixels from lower left corner of the comp to the right
+# Y-coordinate (abs_y) is absolute pixels from lower left corner of the comp up
+# Residual is how far in pixels the tracker strolls away, and is the inverse of
 # correlation (with total correlation of one the residual excursion becomes zero).
 class Tracksperanto::Keyframe
   include Tracksperanto::Casts

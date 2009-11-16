@@ -31,13 +31,13 @@ class MatchMoverImportTest < Test::Unit::TestCase
     
     assert_equal 0, first_kf.frame
     assert_in_delta 649.523, first_kf.abs_x, DELTA 
-    assert_in_delta 423.929, first_kf.abs_y, DELTA
+    assert_in_delta 656.071, first_kf.abs_y, DELTA
     assert_in_delta 0.2, first_kf.residual, DELTA
     
     last_kf = first_t[-1]
     assert_equal 130, last_kf.frame
     assert_in_delta 603.148, last_kf.abs_x, DELTA 
-    assert_in_delta 728.46, last_kf.abs_y, DELTA
+    assert_in_delta 351.54, last_kf.abs_y, DELTA
     assert_in_delta 0.027457, last_kf.residual, DELTA
   end
   

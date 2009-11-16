@@ -16,9 +16,9 @@ class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   KEYFRAME_TEMPLATE = "\t%d\t   %.3f     %.3f     p+( %.6f )\t"
   
   def start_export( img_width, img_height)
+    @height = img_height
     @io.puts(PREAMBLE.gsub(/2560/, img_width.to_s).gsub(/1080/, img_height.to_s))
   end
-  
   
   def start_tracker_segment(tracker_name)
     @tracker_name = tracker_name
@@ -32,7 +32,7 @@ class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     template = @at_first_point ? FIRST_KEYFRAME_TEMPLATE : KEYFRAME_TEMPLATE
-    values = [frame + 1, abs_float_x, abs_float_y, (1 - float_residual)]
+    values = [frame + 1, abs_float_x, @height - abs_float_y, (1 - float_residual)]
     @io.puts(template % values)
     @at_first_point = false
   end

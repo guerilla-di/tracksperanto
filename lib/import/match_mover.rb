@@ -52,7 +52,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     Tracksperanto::Keyframe.new(
       :frame => (frame.to_i() - 1),
       :abs_x => x,
-      :abs_y => y,
+      :abs_y => @height - y.to_f, # Top-left in MM
       :residual => extract_residual(residual)
     )
   end

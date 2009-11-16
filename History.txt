@@ -1,3 +1,6 @@
+=== 1.6.0 / 2009-11-15
+
+* MatchMover has top-left coordinates - fixed for both import and export
 * Prevent Tracker from being Array#flatten'ed
 
 === 1.5.7 / 2009-11-08

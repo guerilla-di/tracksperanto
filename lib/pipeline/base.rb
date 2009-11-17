@@ -162,7 +162,7 @@ class Tracksperanto::Pipeline::Base
   
   # Check that the trackers made by the parser are A-OK
   def validate_trackers!(trackers)
-    raise "Could not recover any trackers from this file. Wrong import format maybe?" if trackers.empty?
-    trackers.reject!{|t| t.empty? }
+    trackers.reject!{|t| t.length < 2 }
+    raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?" if trackers.empty?
   end
 end

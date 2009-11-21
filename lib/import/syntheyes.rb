@@ -1,4 +1,5 @@
 class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
+  include Tracksperanto::UVCoordinates
   
   def self.human_name
     "Syntheyes 2D tracker paths file"
@@ -28,13 +29,5 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
     
     trackers
   end
-  
-  private
-    # Syntheyes exports UV coordinates that go from -1 to 1, up and right and 0
-    # is the center
-    def convert_from_uv(absolute_side, uv_value)
-      # First, start from zero (-.1 becomes .4)
-      value_off_corner = (uv_value.to_f / 2) + 0.5
-      absolute_side * value_off_corner
-    end
+
 end

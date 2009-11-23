@@ -14,31 +14,26 @@ class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   def start_export( img_width, img_height)
     @w, @h = img_width, img_height
     # 3DE needs to know the number of keyframes in advance
-    @internal_io, @highest_keyframe = Tempfile.new("Tracksperanto_3de"), 0
+    @buffer = Tempfile.new("ts3dex")
+    @highest_keyframe = 0
   end
   
   def start_tracker_segment(tracker_name)
-    @internal_io.puts(tracker_name)
+    @buffer.puts(tracker_name)
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     off_by_one = frame + 1
-    @internal_io.puts("\t%d\t%.3f\t%.3f" % [off_by_one, abs_float_x, abs_float_y])
+    @buffer.puts("\t%d\t%.3f\t%.3f" % [off_by_one, abs_float_x, abs_float_y])
     @highest_keyframe = off_by_one if (@highest_keyframe < off_by_one)
   end
   
   def end_export
+    @buffer.rewind
     preamble = HEADER.gsub(/2048/, @w.to_s).gsub(/778/, @h.to_s).gsub(/275/, @highest_keyframe.to_s)
     @io.puts(preamble)
-    @internal_io.rewind
-    @io.puts(@internal_io.read)
-    discard_io
+    @io.puts(@buffer.read) until @buffer.eof?
+    @buffer.close!
     @io.puts("") # Newline at end
   end
-  
-  private
-    def discard_io
-      @internal_io.close
-      @internal_io = nil
-    end
 end

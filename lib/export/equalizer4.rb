@@ -43,7 +43,6 @@ class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
   
   private
     def discard_io
-      @internal_io.close
-      @internal_io = nil
+      @internal_io.close!
     end
 end

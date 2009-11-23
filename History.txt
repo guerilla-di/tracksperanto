@@ -1,3 +1,8 @@
+=== 1.6.1 / 2009-11-15
+
+* Fixes the Reformat middleware to not suppress the end_export call. Crucial for exporters that
+  use end_export to finalize output
+  
 === 1.6.0 / 2009-11-15
 
 * MatchMover has top-left coordinates - fixed for both import and export

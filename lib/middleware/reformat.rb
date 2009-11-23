@@ -22,5 +22,6 @@ class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Base
   
   def end_export
     @exporter = @stash
+    @exporter.end_export
   end
 end

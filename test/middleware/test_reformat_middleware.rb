@@ -25,9 +25,11 @@ class ReformatMiddlewareTest < Test::Unit::TestCase
     
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920,1080)
+    receiver.should_receive(:end_export).once
     
     m = Tracksperanto::Middleware::Reformat.new(receiver, :width => 1920, :height => 1080)
     
     m.start_export(720, 576)
+    m.end_export
   end
 end

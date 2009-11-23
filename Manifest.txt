@@ -47,6 +47,7 @@ lib/tracksperanto/keyframe.rb
 lib/tracksperanto/safety.rb
 lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
+lib/tracksperanto/uv_coordinates.rb
 lib/tracksperanto/zip_tuples.rb
 test/.DS_Store
 test/export/.DS_Store

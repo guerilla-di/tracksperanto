@@ -203,8 +203,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       
       report_progress("Scavenging tracker #{name}")
       
-      curve_set = [x_curve, y_curve]
-      curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x_curve.length)
+      curve_set = combine_curves(x_curve, y_curve, corr_curve)
       
       keyframes = zip_curve_tuples(*curve_set).map do | (frame, x, y, corr) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr.to_f))
@@ -212,6 +211,12 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       
       t = Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes )
       self.class.accumulator.push(t)
+    end
+    
+    def combine_curves(x, y, corr_curve)
+      curve_set = [x, y]
+      curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x.length)
+      curve_set
     end
   end
   
@@ -224,4 +229,5 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     
     trackers
   end
+  
 end

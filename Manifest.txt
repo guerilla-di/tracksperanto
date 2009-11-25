@@ -92,6 +92,7 @@ test/import/samples/one_shake_tracker.txt
 test/import/samples/one_shake_tracker_from_first.txt
 test/import/samples/one_tracker_with_break.nk
 test/import/samples/one_tracker_with_break_in_grp.nk
+test/import/samples/shake_script_from_boujou.shk
 test/import/samples/shake_tracker_nodes.shk
 test/import/samples/shake_tracker_nodes_to_syntheyes.txt
 test/import/samples/shake_tracker_with_no_anim.shk

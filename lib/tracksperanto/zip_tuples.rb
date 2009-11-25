@@ -8,6 +8,7 @@ module Tracksperanto::ZipTuples
   #
   def zip_curve_tuples(*curves)
     tuples = []
+    
     curves.each do | curve |
       curve.each do | keyframe |
         frame, value = keyframe

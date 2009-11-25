@@ -88,4 +88,11 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 3, trackers.length
     assert_equal 160, trackers[0].length
   end
+  
+  def test_boujou_exported_script
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script_from_boujou.shk")
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
+    assert_equal 1, trackers.length
+    assert_equal 387, trackers[0].length
+  end
 end

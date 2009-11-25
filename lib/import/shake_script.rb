@@ -30,6 +30,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       end
     end
     alias_method :nspline, :linear
+    alias_method :jspline, :linear
+    
     
     # image Tracker( 
     #   image In,
@@ -201,8 +203,11 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       
       report_progress("Scavenging tracker #{name}")
       
-      keyframes = zip_curve_tuples(x_curve, y_curve, corr_curve).map do | (frame, x, y, corr) |
-        Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr))
+      curve_set = [x_curve, y_curve]
+      curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x_curve.length)
+      
+      keyframes = zip_curve_tuples(*curve_set).map do | (frame, x, y, corr) |
+        Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr.to_f))
       end
       
       t = Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes )

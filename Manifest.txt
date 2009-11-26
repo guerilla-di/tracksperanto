@@ -17,6 +17,7 @@ lib/export/pftrack_5.rb
 lib/export/shake_text.rb
 lib/export/syntheyes.rb
 lib/import/base.rb
+lib/import/boujou.rb
 lib/import/equalizer3.rb
 lib/import/equalizer4.rb
 lib/import/flame_stabilizer.rb
@@ -79,6 +80,7 @@ test/import/samples/.DS_Store
 test/import/samples/018.nk
 test/import/samples/3de_export_cube.txt
 test/import/samples/3de_export_v3.txt
+test/import/samples/boujou_txt_export.txt
 test/import/samples/flyover2DP_syntheyes.txt
 test/import/samples/four_tracks_in_one_matchmove.shk
 test/import/samples/four_tracks_in_one_stabilizer.shk
@@ -103,6 +105,7 @@ test/import/samples/two_shake_trackers.txt
 test/import/samples/two_tracks_in_one_tracker.shk
 test/import/test_3de_import.rb
 test/import/test_3de_import3.rb
+test/import/test_boujou_import.rb
 test/import/test_flame_import.rb
 test/import/test_match_mover_import.rb
 test/import/test_maya_live_import.rb

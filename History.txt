@@ -1,4 +1,8 @@
-=== 1.6.2 / 2009-11-25
+=== 1.6.4 / 2009-11-25
+
+* Adds Boujou 2d feature import support (to export for Boujou use the Shake text format)
+
+=== 1.6.3 / 2009-11-25
 
 * Fixes the Shake importer so that it doesn't apply correlation curves if they are not present or constantized to 1
 

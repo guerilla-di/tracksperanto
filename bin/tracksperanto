@@ -26,8 +26,10 @@ golden_tracks = false
 x_shift = 0
 y_shift = 0
 set_prefix = ''
+sole_format = nil
 
 readers = Tracksperanto.importer_names
+writers = Tracksperanto.exporter_names
 
 parser = OptionParser.new do | p |
  p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
@@ -59,6 +61,9 @@ parser = OptionParser.new do | p |
  p.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it") {|rh|
     reformat_h = rh
  }
+ p.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") {|f|
+     sole_format = f
+ }
  p.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right") {|sx| x_shift = sx }
  p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
  p.on("--version", "Show the version and exit") {|v| 
@@ -84,6 +89,15 @@ end
 
 pipe = Tracksperanto::Pipeline::Base.new
 pipe.progress_block = lambda{|percent, msg| STDOUT.write(".") }
+if sole_format
+  begin
+    pipe.exporters = [Tracksperanto::Export.const_get(sole_format)]
+  rescue NameError
+    STDERR.puts "Unknown exporter #{sole_format}. Available exporters: #{writers.join(", ")}"
+    exit(-1)
+  end
+end
+
 pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix |
   slipper.slip = slip
   scaler.x_factor = scale_x

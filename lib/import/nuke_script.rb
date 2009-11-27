@@ -37,6 +37,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
         elsif line =~ NODENAME
           tracks_in_tracker.each_with_index do | t, i |
             t.name = "#{$1}_track#{i+1}"
+            report_progress("Scavenging Tracker3 node #{t.name}")
           end
           return tracks_in_tracker
         end
@@ -50,21 +51,23 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       zip_curve_tuples(x_curve, y_curve)
     end
     
-    # Scan a curve to a number of triplets
+    SECTION_START = /^x(\d+)$/
+    KEYFRAME = /^([-\d\.]+)$/
+    
+    # Scan a curve to a number of tuples of [frame, value]
     def parse_curve(curve_text)
       # Replace the closing curly brace with a curly brace with space so that it gets caught by split
       atoms, tuples = curve_text.gsub(/\}/m, ' }').split, []
       # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,
       # after which values follow. When the curve is interrupted in some way a new x(keyframe_number) will signifu that we
       # skip to that specified keyframe and the curve continues from there
-      section_start = /^x(\d+)$/
-      keyframe = /^([-\d\.]+)$/
       
       last_processed_keyframe = 1
       while atom = atoms.shift
-        if atom =~ section_start
+        if atom =~ SECTION_START
           last_processed_keyframe = $1.to_i
-        elsif  atom =~ keyframe
+        elsif  atom =~ KEYFRAME
+          report_progress("Reading curve at frame #{last_processed_keyframe}")
           tuples << [last_processed_keyframe, $1.to_f]
           last_processed_keyframe += 1
         elsif atom == '}'

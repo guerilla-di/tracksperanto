@@ -27,7 +27,7 @@ x_shift = 0
 y_shift = 0
 set_prefix = ''
 sole_format = nil
-
+reader_name = "ShakeScript"
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
 
@@ -38,15 +38,9 @@ parser = OptionParser.new do | p |
  }
  p.on(" -f", "--from TRANSLATOR", String, 
    "Use the specific import translator (will try to autodetect, but can be #{Tracksperanto.importer_names.join(', ')})") do | f |
-   begin
-     reader_klass = Tracksperanto::Import.const_get(f)
-   rescue NameError => e
-     reader_list = readers.join("\n\t")
-     STDERR.puts "Unknown reader #{f.inspect}, available readers:\n\t#{readers.join(', ')}"
-     exit(-1)
-    end
+    reader_name = f
  end
- p.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bluk") { |w| set_prefix = w }
+ p.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk") { |w| set_prefix = w }
  p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| width = w }
  p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| height = w }
  p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") {|sx| scale_x = sx }
@@ -77,6 +71,13 @@ begin
 rescue OptionParser::MissingArgument => e
   STDERR.puts "Unknown argument: #{e.message}"
   puts parser
+  exit(-1)
+end
+
+begin
+  reader_klass = Tracksperanto::Import.const_get(reader_name)
+rescue NameError => e
+  STDERR.puts "Unknown reader #{reader_name}, available readers: #{readers.join(', ')}"
   exit(-1)
 end
 

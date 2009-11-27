@@ -6,16 +6,16 @@ module Tracksperanto::ZipTuples
   #
   #    zip_curve_tuples( [[0, 12], [1, 23]], [[1, 12]]) #=> [[1, 23, 12]]
   #
+  # We make use of the fact that setting an offset index in an array fills it with nils up to
+  # the index inserted
   def zip_curve_tuples(*curves)
-    tuples = []
-    
-    curves.each do | curve |
-      curve.each do | keyframe |
-        frame, value = keyframe
-        tuples[frame] ? tuples[frame].push(value) : (tuples[frame] = [frame, value])
+    tuples = curves.inject([]) do | tuples, curve_of_at_and_value |
+      curve_of_at_and_value.each do | frame, value |
+       tuples[frame] = tuples[frame] ? (tuples[frame] << value) : [frame, value]
       end
+      tuples
     end
-
-    tuples.compact.reject{|e| e.length < (curves.length + 1) }
+    
+    tuples.reject{|e| e.nil? || (e.length < (curves.length + 1)) }
   end
 end

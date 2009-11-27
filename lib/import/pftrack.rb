@@ -36,7 +36,7 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       
       num_of_keyframes = first_tracker_line.to_i
       t.keyframes = (1..num_of_keyframes).map do | keyframe_idx |
-        report_progress("Reading keyframe #{keyframe_idx} of #{num_of_keyframes}")
+        report_progress("Reading keyframe #{keyframe_idx} of #{num_of_keyframes} in #{t.name}")
         Tracksperanto::Keyframe.new do |k| 
           k.frame, k.abs_x, k.abs_y, k.residual = io.gets.chomp.split
         end

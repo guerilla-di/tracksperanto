@@ -70,7 +70,9 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   end
   
   def parse(io)
+    report_progress("Extracting setup size")
     self.width, self.height = extract_width_and_height_from_stream(io)
+    report_progress("Extracting all animation channels")
     channels = extract_channels_from_stream(io)
     
     raise "The setup contained no channels that we could process" if channels.empty?
@@ -140,6 +142,7 @@ Channel tracker1/ref/x
       until io.eof?
         line = io.gets
         if line =~ channel_matcher
+          report_progress("Extracting channel #{$1}")
           channels << extract_channel_from(io, $1)
         end
       end
@@ -155,6 +158,7 @@ Channel tracker1/ref/x
     def scavenge_trackers_from_channels(channels)
       trackers = []
       channels.select{|e| e.name =~ /\/#{REF_CHANNEL}\/x/}.each do | track_x |
+        report_progress("Detected reference channel #{track_x}")
         trackers << grab_tracker(channels, track_x)
       end
       
@@ -174,6 +178,7 @@ Channel tracker1/ref/x
       track_tuples = zip_curve_tuples(track_x, track_y)
       
       base_x, base_y = begin
+        report_progress("Detecting base value")
         find_base_x_and_y(track_tuples, shift_tuples)
       rescue UseBase
         [track_x.base_value, track_y.base_value]

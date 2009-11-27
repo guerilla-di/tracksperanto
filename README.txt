@@ -74,8 +74,7 @@ Import only:
 
 == Modularity
 
-Tracksperanto is very modular and can process data passing through it, like
-importing and exporting the same format, but you need some operation applied to the result (like
+Tracksperanto is very modular and can process data passing through it (like
 scaling a proxy track up). Internally, Tracksperanto talks Exporters, Importers and
 Middlewares. Any processing chain (called a Pipeline) usually works like this:
 

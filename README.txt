@@ -19,72 +19,63 @@ at once. When doing tracks of long shots at high resolutions (like 2K and HD), e
 on 32bit platforms, the app usually cannot even cache the whole shot and tracking is very
 very slow.
 
-Compositing apps, in contrast, are very efficient in this. Both Shake and Nuke offer very
-fast trackers because they can load only the search area for the tracker into memory and
-not a pixel more. When you use manual feature selection you can create many tracks very
-quickyl even without having fast IO. Flame is also very fast since it has virtually zero IO
-overhead thanks to it's fast storage. Compositing apps also allow for precise, local
-preprocessing of tracking features like boosting contrast, doing expensive (especially
-temporal) denoise, blurs and so on, while matchmoving apps offer only a single, global
-preprocessing step (like a LUT or a gamma curve adjustment) which is not adequate for all
-of the features being tracked.
+Compositing apps, in contrast, are very efficient. Both Shake and Nuke offer very
+fast trackers because they have tiling image engines and can load only the search area
+for the tracker into memory and not a pixel more. When you use manual feature selection 
+you can create many tracks quickly even without having fast IO. Flame is also very fast
+since it has virtually zero IO overhead thanks to it's fast storage. Compositing apps
+also allow for precise, local preprocessing of tracking features like boosting contrast,
+doing expensive (especially temporal) denoise, blurs and so on, while matchmoving apps
+offer only a single, global preprocessing step (like a LUT or a gamma curve adjustment)
+which is not adequate for all of the features being tracked.
 
-It's thusly very natural to track in a modern compositing app that has selective image
+So it's very natural to track in a modern compositing app that has selective image
 loading, and then export one single group of tracks into all of the matchmoving
-applications and figuring out which one gives a better camera solve. Also, you can always
-escape into the 2D world if no 3D app proves to be adequate. If you need to move from one
-app to another, you won't have to retrack.
+applications at once. Also, you can always escape into the 2D world if no 3D app proves
+to be adequate. If you need to move from one app to another, you won't have to retrack.
 
 Another issue with tracks is adjusting to formats. Very few apps allow you to convert your
 tracks in one stop from format to format - like doing an unproportional scale on the
-tracks, or moving them a few pixels left and right. This comes at a high cost of the
+tracks, or moving them a few pixels left and right. This comes at a high cost if the
 footage you are tracking came cropped or in a wrong aspect - the only way to solve the shot
 will be to retrack it from scratch. Tracksperanto allows you to work around this
 by applying simple transformations to the tracks.
 
 == Usage
 
-The main way to use Tracksperanto is to use the supplied "tracksperanto" binary, like so:
+The main way to use Tracksperanto is with the the supplied "tracksperanto" binary, like so:
 
  tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
 
 -w and -h stand for Width and Height and define the size of your comp (different tracking
 apps use different coordinate systems and we need to know the size of the comp to properly
-convert these). You also have additional options like -xs, -ys and --slip - consult the
-usage info for the tracksperanto binary.
+convert these). Some formats contain clear hints on the size of the comp, but most don't -
+for formats that do contain them you don't need to supply anything.
+You also have additional options like -xs, -ys and --slip - consult the usage info for the tracksperanto binary.
 
 The converted files will be saved in the same directory as the source, if resulting
 converted files already exist <b>they will be overwritten without warning</b>.
 
 == Format support
 
-Import support:
-
-* Flame .stabilizer file (not the .stabilizer.p blob format)
-* Nuke script (Tracker3 nodes, also known as Tracker)
-* Shake script (Tracker, Matchmove and Stabilize nodes)
+Import and export support:
+* Nuke v5 script (Tracker3 nodes, also known as Tracker in the UI - this is the node that you track with)
 * Shake tracker node export (textfile with many tracks per file)
-* PFTrack 2dt files
+* PFTrack 2dt files (version 4 and 5)
 * Syntheyes 2D tracking data exports
 * 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
 * MayaLive track export (square pixel aspect only)
 
-Export support:
-
-* Shake text file (many trackers per file), also accepted by Boujou.
-  May crash Shake with more than 4-5 tracks.
-* PFTrack 2dt file (with residuals)
-* Syntheyes 2D tracking data import (UV coordinates)
-* Nuke script
-* 3DE point exports (as accepted by the default import)
-* MatchMover Pro .rz2
-* MayaLive track export (square pixel aspect only)
+Import only:
+* Boujou feature track export
+* Flame .stabilizer file (not the .stabilizer.p blob format)
+* Shake script (Tracker, Matchmove and Stabilize nodes)
 
 == Modularity
 
-Tracksperanto supports many export and import formats. It also can help when you need to
-import and export the same format, but you need some operation applied to the result (like
+Tracksperanto is very modular and can process data passing through it, like
+importing and exporting the same format, but you need some operation applied to the result (like
 scaling a proxy track up). Internally, Tracksperanto talks Exporters, Importers and
 Middlewares. Any processing chain (called a Pipeline) usually works like this:
 

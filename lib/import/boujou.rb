@@ -8,8 +8,7 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
     wrapped_io = Tracksperanto::ExtIO.new(io)
     detect_columns(wrapped_io)
     trackers = {}
-    extract_trackers(wrapped_io) do | k |
-      name, frame, x, y = k["track_id"], k["view"], k["x"], k["y"]
+    filtering_trackers_from(wrapped_io) do | name, frame, x, y |
       trackers[name] ||= Tracksperanto::Tracker.new(:name => name)
       report_progress("Extracting frame #{frame} of #{name}")
       trackers[name].keyframe!(:frame => (frame.to_i - 1), :abs_y => (@height.to_f - y.to_f), :abs_x => x)
@@ -39,11 +38,12 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
   #
   # # track_id    view      x    y
   # Target_track_1  5  252.046  171.677
-  def extract_trackers(io)
+  def filtering_trackers_from(io)
     until io.eof?
       line = io.gets_and_strip
       next if comment?(line)
-      yield(make_column_hash(line))
+      column = make_column_hash(line)
+      yield(column["track_id"], column["view"], column["x"], column["y"])
     end
   end
   

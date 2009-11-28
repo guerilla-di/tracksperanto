@@ -1,3 +1,8 @@
+=== 1.6.5 / 2009-11-27
+
+* Adds the --only option for the tracksperanto binary to only export a specific format
+* Automatically unlink tempfiles in the Equalizer4 exporter
+
 === 1.6.4 / 2009-11-25
 
 * Adds Boujou 2d feature import support (to export for Boujou use the Shake text format)

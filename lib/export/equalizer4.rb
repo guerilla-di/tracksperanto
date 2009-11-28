@@ -31,7 +31,7 @@ class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
     @internal_io.puts("0") # Color of the point, 0 is red
     @internal_io.puts(@num_of_kfs)
     @internal_io.puts(@tracker_buffer.read)
-    @tracker_buffer.close
+    @tracker_buffer.close!
   end
   
   def end_export

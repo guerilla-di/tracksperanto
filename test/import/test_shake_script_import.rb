@@ -4,7 +4,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   DELTA = 0.001
   
   def test_parsing_fifty_tracker_nodes_with_one_track_each
-    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_tracker_nodes.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/shake_tracker_nodes.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 50, trackers.length
@@ -23,7 +23,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_parse_tracker_node_with_no_animation
-    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_tracker_with_no_anim.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/shake_tracker_with_no_anim.shk')
     assert_nothing_raised do
       trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
       assert_equal 0, trackers.length
@@ -31,7 +31,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_two_tracks_in_one_tracker_node
-    fixture = File.open(File.dirname(__FILE__) + '/samples/two_tracks_in_one_tracker.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/two_tracks_in_one_tracker.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 2, trackers.length
@@ -54,7 +54,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
 
   def test_parsing_three_tracks_in_one_stabilizer_node
-    fixture = File.open(File.dirname(__FILE__) + '/samples/three_tracks_in_one_stabilizer.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/three_tracks_in_one_stabilizer.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     ft = trackers[0]
@@ -63,7 +63,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_four_tracks_in_one_stabilizer_node
-    fixture = File.open(File.dirname(__FILE__) + '/samples/four_tracks_in_one_stabilizer.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/four_tracks_in_one_stabilizer.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     ft = trackers[0]
@@ -72,7 +72,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_four_tracks_in_one_matchmove_node
-    fixture = File.open(File.dirname(__FILE__) + '/samples/four_tracks_in_one_matchmove.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/four_tracks_in_one_matchmove.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 4, trackers.length
@@ -82,7 +82,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_nspline_curves
-    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_trackers_with_Nspline.shk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_script/shake_trackers_with_Nspline.shk')
     
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 3, trackers.length
@@ -90,7 +90,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_boujou_exported_script
-    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script_from_boujou.shk")
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/shake_script_from_boujou.shk")
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 1, trackers.length
     assert_equal 387, trackers[0].length

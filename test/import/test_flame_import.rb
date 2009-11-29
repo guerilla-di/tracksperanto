@@ -84,7 +84,7 @@ class FlameImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_flame
-    fixture = File.open(File.dirname(__FILE__) + '/samples/hugeFlameSetup.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/hugeFlameSetup.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     
@@ -113,7 +113,7 @@ class FlameImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_another_track
-    fixture = File.open(File.dirname(__FILE__) + '/samples/megaTrack.action.3dtrack.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/megaTrack.action.3dtrack.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     
@@ -125,7 +125,7 @@ class FlameImportTest < Test::Unit::TestCase
   end
 
   def test_simple_from_combustion
-    fixture = File.open(File.dirname(__FILE__) + '/samples/fromCombustion_fromMidClip_wSnap.stabilizer')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer')
     
     parser = Tracksperanto::Import::FlameStabilizer.new
     

@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../helper'
 class MatchMoverImportTest < Test::Unit::TestCase
   DELTA = 0.01
   
-  P = File.dirname(__FILE__) + '/samples/kipPointsMatchmover.rz2'
+  P = File.dirname(__FILE__) + '/samples/match_mover/kipPointsMatchmover.rz2'
   
   def test_introspects_properly
     i = Tracksperanto::Import::MatchMover

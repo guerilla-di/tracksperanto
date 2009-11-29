@@ -9,7 +9,7 @@ class SyntheyesImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_importable
-    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_tracker_nodes_to_syntheyes.txt')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/syntheyes_2d_paths/shake_tracker_nodes_to_syntheyes.txt')
     
     parser = Tracksperanto::Import::Syntheyes.new
     parser.width = 2560

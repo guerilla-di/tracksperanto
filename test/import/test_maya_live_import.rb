@@ -10,7 +10,7 @@ class MayaLiveImportTest < Test::Unit::TestCase
   end
   
   def test_parse_file
-    f = File.open(File.dirname(__FILE__) + "/samples/mayalive_kipShot.txt")
+    f = File.open(File.dirname(__FILE__) + "/samples/mayalive/mayalive_kipShot.txt")
     
     p = Tracksperanto::Import::MayaLive.new
     trackers = p.parse(f)
@@ -32,7 +32,7 @@ class MayaLiveImportTest < Test::Unit::TestCase
   end
   
   def test_parse_file_with_custom_aspect
-    f = File.open(File.dirname(__FILE__) + "/samples/mayalive_kipShot.txt")
+    f = File.open(File.dirname(__FILE__) + "/samples/mayalive/mayalive_kipShot.txt")
     
     p = Tracksperanto::Import::MayaLive.new
     p.aspect = 1.78

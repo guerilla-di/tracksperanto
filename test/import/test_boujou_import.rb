@@ -10,7 +10,7 @@ class BoujouImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_fixture
-     fixture = File.open(File.dirname(__FILE__) + '/samples/boujou_txt_export.txt')
+     fixture = File.open(File.dirname(__FILE__) + '/samples/boujou_features_text/boujou_txt_export.txt')
      
      parser = Tracksperanto::Import::Boujou.new
      parser.width = 2560

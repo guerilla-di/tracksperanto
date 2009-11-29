@@ -10,7 +10,7 @@ class NukeImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_nuke
-    fixture = File.open(File.dirname(__FILE__) + '/samples/one_tracker_with_break.nk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break.nk')
     
     parser = Tracksperanto::Import::NukeScript.new
     parser.width = 2048
@@ -27,7 +27,7 @@ class NukeImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_many_tracks_per_node
-    fixture = File.open(File.dirname(__FILE__) + '/samples/018.nk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/018.nk')
     parser = Tracksperanto::Import::NukeScript.new
     parser.width = 1920
     parser.height = 1080
@@ -36,7 +36,7 @@ class NukeImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_nuke_group
-    fixture = File.open(File.dirname(__FILE__) + '/samples/one_tracker_with_break_in_grp.nk')
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break_in_grp.nk')
     
     parser = Tracksperanto::Import::NukeScript.new
     parser.width = 2048

@@ -95,4 +95,19 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 1, trackers.length
     assert_equal 387, trackers[0].length
   end
+  
+  def test_hermite_interpolation
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/stabilize_nodes_with_hermite.shk")
+    trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
+    assert_equal 3, trackers.length
+    
+    last_t = trackers[-1]
+    assert_equal "Stabilize3_track1", last_t.name
+    assert_equal 74, last_t.length
+    
+    last_kf = last_t[-1]
+    assert_equal 76, last_kf.frame
+    assert_in_delta 982.97, last_kf.abs_x, DELTA
+    assert_in_delta 1202.39, last_kf.abs_y, DELTA
+  end
 end

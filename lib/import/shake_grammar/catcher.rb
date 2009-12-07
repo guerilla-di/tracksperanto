@@ -45,7 +45,9 @@ module Tracksperanto::ShakeGrammar
     def unwrap_atom(atom)
       kind = atom.shift
       case kind
-        when :retval, :atom_i, :atom_c, :atom_f
+        when :arr
+          atom.map{|e| unwrap_atom(e)}
+        when :retval, :atom_i, :atom_c, :atom_f, :atom_at_i, :atom_at_f
           atom.shift
         else
           :unknown

@@ -91,6 +91,7 @@ test/import/samples/shake_script/shake_script_from_boujou.shk
 test/import/samples/shake_script/shake_tracker_nodes.shk
 test/import/samples/shake_script/shake_tracker_with_no_anim.shk
 test/import/samples/shake_script/shake_trackers_with_Nspline.shk
+test/import/samples/shake_script/stabilize_nodes_with_hermite.shk
 test/import/samples/shake_script/three_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/two_tracks_in_one_tracker.shk
 test/import/samples/shake_text/one_shake_tracker.txt

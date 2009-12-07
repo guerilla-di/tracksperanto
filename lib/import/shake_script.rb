@@ -32,6 +32,16 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     alias_method :nspline, :linear
     alias_method :jspline, :linear
     
+    # Hermite interpolation looks like this
+    # Hermite(0,[1379.04,-0.02,-0.02]@1,[1379.04,-0.03,-0.03]@2)
+    # The first value in the array is the keyframe value, the other two are
+    # tangent positions (which we discard)
+    def hermite(initial_value, *keyframes)
+      report_progress("Translating Hermite curve, removing tangents")
+      values, at_frames = keyframes.partition{|e| e.is_a?(Array)}
+      values = values.map{|v| v[0] }
+      at_frames.zip(values)
+    end
     
     # image Tracker( 
     #   image In,

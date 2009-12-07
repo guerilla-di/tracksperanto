@@ -1,3 +1,7 @@
+=== 1.6.6 / 2009-12-07
+
+* Handle Hermite cuves in Shake scripts
+
 === 1.6.5 / 2009-11-27
 
 * Adds the --only option for the tracksperanto binary to only export a specific format

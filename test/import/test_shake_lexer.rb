@@ -15,7 +15,18 @@ class ShakeLexerTest < Test::Unit::TestCase
     s = parse(cmt)
     assert_equal [[:comment, " Mary had a little lamb"], [:comment, " Old McDonald had a farm"]], s
   end
-
+  
+  def test_parse_hermite_curve
+    curve = 'Hermite(0,[1379.04,-0.02,-0.02]@1,[1379.04,-0.03,-0.03]@2)'
+    s = parse(curve)
+    assert_equal [
+        [:funcall, "Hermite", [:atom_i, 0], 
+        [:arr, [:atom_f, 1379.04], [:atom_f, -0.02], [:atom_f, -0.02]], [:atom_at_i, 1], 
+        [:arr, [:atom_f, 1379.04], [:atom_f, -0.03], [:atom_f, -0.03]], [:atom_at_i, 2]
+        ]
+    ], s
+  end
+  
   def test_parse_cmt_and_unknown
     cmt = " // Mary had a little lamb\nFooBar"
     s = parse(cmt)

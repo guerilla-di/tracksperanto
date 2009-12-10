@@ -25,7 +25,7 @@ class Tracksperanto::Export::Base
   end
   
   # The constructor for an exporter should accept a handle to the IO object that you can write to.
-  # This gets assigned to @io ivar by default, but you can do whatever ypu wish
+  # This gets assigned to @io ivar by default, but you can do whatever you wish
   # By convention, the caller will close the IO when you are done so don't do it here
   def initialize(write_to_io)
     @io = write_to_io

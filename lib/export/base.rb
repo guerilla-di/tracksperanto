@@ -35,7 +35,9 @@ class Tracksperanto::Export::Base
   def start_export( img_width, img_height)
   end
   
-  # Called on export end. By convention, the caller will close the IO when you are done so don't do it here
+  # Called on export end. By convention, the caller will close the IO when you are done so don't do it here.
+  # However if you've allocated anything during export (like some Tempfiles) here will be the place to get rid
+  # of them
   def end_export
   end
   
@@ -43,11 +45,12 @@ class Tracksperanto::Export::Base
   def start_tracker_segment(tracker_name)
   end
   
-  # Called on tracker end
+  # Called on tracker end, once for each tracker
   def end_tracker_segment
   end
   
-  # Called for each tracker keyframe, with the Tracksperanto internal coordinates and frame numbers
+  # Called for each tracker keyframe, with the Tracksperanto internal coordinates and frame numbers.
+  # The calls come after start_tracker_segment and before end_tracker_segment
   def export_point(at_frame_i, abs_float_x, abs_float_y, float_residual)
   end
 end

@@ -38,7 +38,8 @@ class Tracksperanto::Pipeline::Base
   # * parser - The parser class, for the case that the format does not support auto size
   
   def run(from_input_file_path, passed_options = {})
-    pix_w, pix_h, parser_class = detect_importer_or_use_options(from_input_file_path, DEFAULT_OPTIONS.merge(passed_options))
+    o = DEFAULT_OPTIONS.merge(passed_options)
+    pix_w, pix_h, parser_class = detect_importer_or_use_options(from_input_file_path, o)
     
     # Reset stats
     @converted_keyframes, @converted_points = 0, 0

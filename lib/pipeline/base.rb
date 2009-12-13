@@ -4,14 +4,13 @@
 #   pipe = Tracksperanto::Pipeline::Base.new
 #   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
 #   
-#   pipe.run(input_file, width, height, reader_klass) do | scaler, slipper, golden, reformat |
-#     golden.enabled = false
-#     reformat.width = 1024
-#     reformat.width = 576
+#   pipe.run("/tmp/shakescript.shk", :pix_w => 720, :pix_h => 576) do | *all_middlewares |
+#     # configure middlewares here
 #   end
 #
-# The pipeline will also automatically allocate output files with the right extensions at the same place where the original file resides,
-# and setup outputs for all supported export formats. The pipeline will also report progress (with percent) using the passed progress block
+# The pipeline will also automatically allocate output files with the right extensions
+# at the same place where the original file resides,
+# and setup outputs for all supported export formats.
 class Tracksperanto::Pipeline::Base
   
   # How many points have been converted. In general, the pipeline does not preserve the parsed tracker objects
@@ -35,9 +34,8 @@ class Tracksperanto::Pipeline::Base
   # Runs the whole pipeline. Accepts the following options
   # * pix_w - The comp width, for the case that the format does not support auto size
   # * pix_h - The comp height, for the case that the format does not support auto size
-  # * parser - The parser class, for the case that the format does not support auto size
-  
-  def run(from_input_file_path, passed_options = {})
+  # * parser - The parser class, for the case that it can't be autodetected from the file name
+  def run(from_input_file_path, passed_options = {}) #:yields: *all_middlewares
     o = DEFAULT_OPTIONS.merge(passed_options)
     pix_w, pix_h, parser_class = detect_importer_or_use_options(from_input_file_path, o)
     

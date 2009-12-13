@@ -1,6 +1,7 @@
 History.txt
 Manifest.txt
 README.txt
+MIT_LICENSE.txt
 Rakefile
 bin/tracksperanto
 lib/export/base.rb

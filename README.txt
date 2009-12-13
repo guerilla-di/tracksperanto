@@ -41,6 +41,10 @@ footage you are tracking came cropped or in a wrong aspect - the only way to sol
 will be to retrack it from scratch. Tracksperanto allows you to work around this
 by applying simple transformations to the tracks.
 
+== Licensing
+
+Tracksperanto is made avalable under the MIT license that is included in the package.
+
 == Usage
 
 The main way to use Tracksperanto is with the the supplied "tracksperanto" binary, like so:

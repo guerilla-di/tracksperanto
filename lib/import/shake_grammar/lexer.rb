@@ -2,12 +2,18 @@ module Tracksperanto::ShakeGrammar
   # Since Shake uses a C-like language for it's scripts we rig up a very sloppy
   # but concise C-like lexer to cope
   class Lexer
+    # The second argument to the constructor that is passed
+    # downstream when child lexers are initialized
+    attr_reader :injection
     
+    # Parsed stack
     attr_reader :stack
     
-    def initialize(with_io)
-      @io, @stack, @buf  = with_io, [], ''
-      parse until (@io.eof? || @stop)
+    STOP_TOKEN = :__stop #:nodoc:
+    
+    def initialize(with_io, injection = nil)
+      @io, @stack, @buf, @injection  = with_io, [], '', injection
+      catch(STOP_TOKEN) { parse until @io.eof? }
       in_comment? ? consume_comment("\n") : consume_atom!
     end
     
@@ -31,7 +37,7 @@ module Tracksperanto::ShakeGrammar
       return consume_comment(c) if in_comment? 
       
       if !@buf.empty? && (c == "(") # Funcall
-        push([:funcall, @buf.strip] + self.class.new(@io).stack)
+        push([:funcall, @buf.strip] + self.class.new(@io, @injection).stack)
         @buf = ''
       elsif c == "[" # Array, booring
         push([:arr] + self.class.new(@io).stack)
@@ -39,7 +45,7 @@ module Tracksperanto::ShakeGrammar
         # Funcall end, and when it happens assume we are called as
         # a subexpression.
         consume_atom!
-        @stop = true
+        throw STOP_TOKEN
       elsif (c == ",")
         consume_atom!
       elsif (c == ";" || c == "\n")

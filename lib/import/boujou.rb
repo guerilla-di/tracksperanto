@@ -38,7 +38,7 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
   #
   # # track_id    view      x    y
   # Target_track_1  5  252.046  171.677
-  def filtering_trackers_from(io)
+  def filtering_trackers_from(io) #:yields: track_id, frame, x, y
     until io.eof?
       line = io.gets_and_strip
       next if comment?(line)

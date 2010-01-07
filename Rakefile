@@ -19,7 +19,7 @@ rescue LoadError
   task :default => [ :test ]
   
   require 'rake/testtask'
-  desc "Run all tests (requires BlueCloth, RedCloth and Rails for integration tests)"
+  desc "Run all tests"
   Rake::TestTask.new("test") do |t|
     t.libs << "test"
     t.pattern = 'test/**/test_*.rb'

@@ -11,15 +11,10 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     ".shk"
   end
   
+  # Extractor. The injection should be an array of two elements: the array collecting
+  # trackers and the progress proc
   class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
-    
-    class << self
-      attr_accessor :accumulator
-      attr_accessor :progress_block
-    end
-    
-    self.accumulator = []
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
@@ -180,7 +175,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     private
     
     def report_progress(with_message)
-      self.class.progress_block.call(with_message) if self.class.progress_block
+      @injection[1].call(with_message) if @injection[1]
     end
     
     def collect_trackers_from(name, array)
@@ -201,8 +196,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
       end
       
-      t = Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes )
-      self.class.accumulator.push(t)
+      push_tracker(:name => name, :keyframes => keyframes)
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
@@ -218,9 +212,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       keyframes = zip_curve_tuples(*curve_set).map do | (frame, x, y, corr) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr.to_f))
       end
-      
-      t = Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes )
-      self.class.accumulator.push(t)
+      push_tracker(:name => name, :keyframes => keyframes)
     end
     
     def combine_curves(x, y, corr_curve)
@@ -228,15 +220,16 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x.length)
       curve_set
     end
+    
+    def push_tracker(tracker_options)
+      @injection[0].push(Tracksperanto::Tracker.new(tracker_options))
+    end
   end
   
   def parse(script_io)
     trackers = []
-    
-    Traxtractor.accumulator = trackers
-    Traxtractor.progress_block = lambda{|msg| report_progress(msg) }
-    Traxtractor.new(script_io)
-    
+    progress_proc = lambda{|msg| report_progress(msg) }
+    Traxtractor.new(script_io, [trackers, progress_proc])
     trackers
   end
   

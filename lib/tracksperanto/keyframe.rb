@@ -9,6 +9,11 @@ class Tracksperanto::Keyframe
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit
   
+  # Will be raised when trying to create a keyframe without one of the
+  # mandatory parameters (abs_x, abs_y or frame)
+  class IncompleteError < RuntimeError
+  end
+  
   # Absolute integer frame where this keyframe is placed, 0 based
   attr_accessor :frame
   

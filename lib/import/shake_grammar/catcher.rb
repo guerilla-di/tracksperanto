@@ -28,7 +28,8 @@ module Tracksperanto::ShakeGrammar
     end
     
     def can_handle_meth?(m)
-      self.class.public_instance_methods(false).include?(m)
+      @meths ||= self.class.public_instance_methods(false)
+      @meths.include?(m)
     end
     
     def exec_funcall(methname, args)

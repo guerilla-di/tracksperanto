@@ -1,3 +1,7 @@
+=== 1.6.8 / 2010-01-13
+
+* Fix frame gap handling for repeating gaps in the Nuke importer
+
 === 1.6.7 / 2010-01-13
 
 * Fix frame gap sizes in the Nuke exporter (thanks Michael Lester)

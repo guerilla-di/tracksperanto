@@ -1,0 +1,79 @@
+#! /Applications/Nuke5.2v3/Nuke5.2v3.app/Contents/MacOS/Nuke5.2v3 -nx
+version 5.2300
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="22" w="1680" h="1024" screen="0">
+        <splitter orientation="1">
+            <split size="1062"></split>
+            <splitter orientation="1">
+                <split size="40"></split>
+                <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                    <page id="Toolbar.1"></page>
+                </dock>
+                <split size="1018"></split>
+                <splitter orientation="2">
+                    <split size="499"></split>
+                    <dock id="" activePageId="Viewer.1">
+                        <page id="Viewer.1"></page>
+                    </dock>
+                    <split size="499"></split>
+                    <dock id="" activePageId="DAG.1">
+                        <page id="DAG.1"></page>
+                        <page id="Curve Editor.1"></page>
+                    </dock>
+                </splitter>
+            </splitter>
+            <split size="614"></split>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"></page>
+                <page id="Script Editor.1"></page>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /Code/apps/tracksperanto/test/import/samples/nuke/tracker_with_repeating_gaps.nk
+ frame 12
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+}
+Viewer {
+ inputs 0
+ frame 12
+ name Viewer1
+ xpos -40
+ ypos -10
+}
+Constant {
+ inputs 0
+ channels rgb
+ name Constant1
+ xpos -265
+ ypos -191
+}
+Tracker3 {
+ track1 {{curve x1 196 326 440 x6 554 658 752} {curve x1 574 556 534 x6 512 492 476}}
+ offset1 {0 0}
+ pattern1 {-32 -32 32 32}
+ search1 {-22 -22 22 22}
+ track2 {1126 676}
+ offset2 {0 0}
+ pattern2 {-32 -32 32 32}
+ search2 {-22 -22 22 22}
+ track3 {1126 880}
+ offset3 {0 0}
+ pattern3 {-32 -32 32 32}
+ search3 {-22 -22 22 22}
+ track4 {922 880}
+ offset4 {0 0}
+ pattern4 {-32 -32 32 32}
+ search4 {-22 -22 22 22}
+ translate {{curve x1 0 130 244 x6 358 462 556} {curve x1 0 -18 -40 x6 -62 -82 -98}}
+ center {{curve x1 196 196 196 x6 196 196 196} {curve x1 574 574 574 x6 574 574 574}}
+ name Tracker1
+ xpos -265
+ ypos -119
+}

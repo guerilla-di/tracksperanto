@@ -60,16 +60,22 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       atoms, tuples = curve_text.gsub(/\}/m, ' }').split, []
       # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,
       # after which values follow. When the curve is interrupted in some way a new x(keyframe_number) will signifu that we
-      # skip to that specified keyframe and the curve continues from there
+      # skip to that specified keyframe and the curve continues from there, in gap size defined by the last fragment.
+      # That is, x1 1 x3 2 3 4 will place 2, 3 and 4 at 2-frame increments
       
       last_processed_keyframe = 1
+      intraframe_gap_size = 1
       while atom = atoms.shift
         if atom =~ SECTION_START
           last_processed_keyframe = $1.to_i
+          if tuples.any?
+            last_captured_frame = tuples[-1][0]
+            intraframe_gap_size = last_processed_keyframe - last_captured_frame
+          end
         elsif  atom =~ KEYFRAME
           report_progress("Reading curve at frame #{last_processed_keyframe}")
           tuples << [last_processed_keyframe, $1.to_f]
-          last_processed_keyframe += 1
+          last_processed_keyframe += intraframe_gap_size
         elsif atom == '}'
           return tuples
         end

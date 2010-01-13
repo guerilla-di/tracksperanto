@@ -175,7 +175,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     private
     
     def report_progress(with_message)
-      @injection[1].call(with_message) if @injection[1]
+      sentinel[1].call(with_message) if sentinel[1]
     end
     
     def collect_trackers_from(name, array)
@@ -222,7 +222,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def push_tracker(tracker_options)
-      @injection[0].push(Tracksperanto::Tracker.new(tracker_options))
+      sentinel[0].push(Tracksperanto::Tracker.new(tracker_options))
     end
   end
   

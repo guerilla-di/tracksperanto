@@ -35,6 +35,22 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 21, trackers.length
   end
   
+  def test_parsing_node_with_gaps
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/tracker_with_differing_gaps.nk')
+    parser = Tracksperanto::Import::NukeScript.new
+    parser.width = 2048
+    parser.height = 3112
+    trackers = parser.parse(fixture)
+    assert_equal 1, trackers.length
+    t = trackers[0]
+    assert_equal 45, t.length
+    assert_equal 21, t[0].frame
+    assert_equal 45, t[24].frame
+    assert_equal 60, t[25].frame
+    assert_equal 61, t[26].frame
+    assert_equal 109, t[-1].frame
+  end
+  
   def test_parsing_from_nuke_group
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break_in_grp.nk')
     

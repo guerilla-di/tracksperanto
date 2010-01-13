@@ -14,9 +14,9 @@ class NukeExportTest < Test::Unit::TestCase
   end
   
   def test_tuples_to_curves
-    tuples = [[6, 234, 145], [8, 144, 223], [9, 231, 189]]
+    tuples = [[6, 234, 145], [8, 144, 223], [9, 231, 189], [10, 232, 190]]
     x = Tracksperanto::Export::NukeScript.new(StringIO.new)
     curves = x.send(:curves_from_tuples, tuples)
-    assert_equal "{curve i x6 234.0000 x8 144.0000 231.0000} {curve i x6 145.0000 x8 223.0000 189.0000}", curves
+    assert_equal "{curve i x6 234.0000 x8 144.0000 x9 231.0000 232.0000} {curve i x6 145.0000 x8 223.0000 x9 189.0000 190.0000}", curves
   end
 end

@@ -2,17 +2,21 @@ module Tracksperanto::ShakeGrammar
   # Since Shake uses a C-like language for it's scripts we rig up a very sloppy
   # but concise C-like lexer to cope
   class Lexer
-    # The second argument to the constructor that is passed
-    # downstream when child lexers are initialized
-    attr_reader :injection
     
     # Parsed stack
     attr_reader :stack
     
+    # Access to the sentinel object
+    attr_reader :sentinel
+    
     STOP_TOKEN = :__stop #:nodoc:
     
-    def initialize(with_io, injection = nil)
-      @io, @stack, @buf, @injection  = with_io, [], '', injection
+    # The first argument is the IO handle to the data of the Shake script.
+    # The second argument is a "sentinel" that is going to be passed
+    # to the downstream lexers instantiated for nested data structures.
+    # You can use the sentinel to collect data from child nodes for example.
+    def initialize(with_io, sentinel = nil)
+      @io, @stack, @buf, @sentinel  = with_io, [], '', sentinel
       catch(STOP_TOKEN) { parse until @io.eof? }
       in_comment? ? consume_comment("\n") : consume_atom!
     end
@@ -37,7 +41,7 @@ module Tracksperanto::ShakeGrammar
       return consume_comment(c) if in_comment? 
       
       if !@buf.empty? && (c == "(") # Funcall
-        push([:funcall, @buf.strip] + self.class.new(@io, @injection).stack)
+        push([:funcall, @buf.strip] + self.class.new(@io, @sentinel).stack)
         @buf = ''
       elsif c == "[" # Array, booring
         push([:arr] + self.class.new(@io).stack)

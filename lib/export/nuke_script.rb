@@ -57,16 +57,26 @@ Constant {
       @tracker << [frame + 1, abs_float_x, abs_float_y]
     end
     
-    private 
+    private
+    
     # Generates a couple of Nuke curves (x and y) from the passed tuples of [frame, x, y]
     def curves_from_tuples(tuples)
-      x_values, y_values, last_frame_exported = [], [], nil
+      x_values, y_values, last_frame_exported, repeat_jump = [], [], nil, false
       tuples.each do | t |
         f = t.shift
-        unless last_frame_exported == (f - 1) # new section
+        
+        if last_frame_exported != (f - 1) # new section
           x_values << "x#{f}"
           y_values << "x#{f}"
+          repeat_jump = true
+        elsif repeat_jump
+          # If we are AFTER a gap inject another "jump" signal
+          # so that Nuke does not animate with gaps but with frames
+          x_values << "x#{f}"
+          y_values << "x#{f}"
+          repeat_jump = false
         end
+        
         t.map!{|e| KEYFRAME_PRECISION_TEMPLATE % e }
         x_values << t.shift
         y_values << t.shift

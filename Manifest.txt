@@ -1,7 +1,7 @@
 History.txt
+MIT_LICENSE.txt
 Manifest.txt
 README.txt
-MIT_LICENSE.txt
 Rakefile
 bin/tracksperanto
 lib/export/base.rb
@@ -49,6 +49,7 @@ lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/uv_coordinates.rb
 lib/tracksperanto/zip_tuples.rb
+test/export/.DS_Store
 test/export/README_EXPORT_TESTS.txt
 test/export/samples/ref_Mayalive.txt
 test/export/samples/ref_Mayalive_CustomAspect.txt
@@ -84,6 +85,7 @@ test/import/samples/mayalive/mayalive_kipShot.txt
 test/import/samples/nuke/018.nk
 test/import/samples/nuke/one_tracker_with_break.nk
 test/import/samples/nuke/one_tracker_with_break_in_grp.nk
+test/import/samples/nuke/tracker_with_differing_gaps.nk
 test/import/samples/pftrack4/sourcefile_pftrack.2dt
 test/import/samples/pftrack5/garage.2dt
 test/import/samples/shake_script/four_tracks_in_one_matchmove.shk

@@ -27,4 +27,14 @@ class SyntheyesImportTest < Test::Unit::TestCase
     assert_in_delta 886.212, first_kf.abs_y, DELTA
     assert_in_delta 0.0, first_kf.residual, DELTA
   end
+  
+  def test_parsing_cola_plate
+    fixture = File.open(File.dirname(__FILE__) + '/samples/syntheyes_2d_paths/cola_plate.txt')
+    parser = Tracksperanto::Import::Syntheyes.new
+    parser.width = 1920
+    parser.height = 1080
+    
+    trackers = parser.parse(fixture)
+    assert_equal 6, trackers.length
+  end
 end

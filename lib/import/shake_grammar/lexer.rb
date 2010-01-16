@@ -15,8 +15,8 @@ module Tracksperanto::ShakeGrammar
     # The second argument is a "sentinel" that is going to be passed
     # to the downstream lexers instantiated for nested data structures.
     # You can use the sentinel to collect data from child nodes for example.
-    def initialize(with_io, sentinel = nil)
-      @io, @stack, @buf, @sentinel  = with_io, [], '', sentinel
+    def initialize(with_io, sentinel = nil, limit_to_one_stmt = false)
+      @io, @stack, @buf, @sentinel, @limit_to_one_stmt  = with_io, [], '', sentinel, @limit_to_one_stmt
       catch(STOP_TOKEN) { parse until @io.eof? }
       in_comment? ? consume_comment("\n") : consume_atom!
     end
@@ -44,19 +44,21 @@ module Tracksperanto::ShakeGrammar
         push([:funcall, @buf.strip] + self.class.new(@io, @sentinel).stack)
         @buf = ''
       elsif c == "[" # Array, booring
-        push([:arr] + self.class.new(@io).stack)
-      elsif (c == "]" || c == ")")
+        push([:arr, self.class.new(@io).stack])
+      elsif (c == "]" || c == ")" || c == ";" && @limit_to_one_stmt)
         # Funcall end, and when it happens assume we are called as
         # a subexpression.
         consume_atom!
         throw STOP_TOKEN
       elsif (c == ",")
         consume_atom!
+      elsif (c == "@")
+        consume_atom!
+        @buf << c
       elsif (c == ";" || c == "\n")
         # Skip these - the subexpression already is expanded anyway
       elsif (c == "=")
-        push [:var, @buf.strip]
-        push [:eq]
+        push [:assign, @buf.strip, self.class.new(@io, @sentinel, to_semicolon = true).stack.shift]
         @buf = ''
       else
         @buf << c
@@ -66,8 +68,7 @@ module Tracksperanto::ShakeGrammar
     INT_ATOM = /^(\d+)$/
     FLOAT_ATOM = /^([\-\d\.]+)$/
     STR_ATOM = /^\"/
-    AT_ATOM = /^([\-\d\.]+)@([\-\d\.]+)$/
-    AT_CONSUMED = /^@(\d+)/
+    AT_FRAME = /^@(\d+)/
     VAR_ASSIGN = /^([\w_]+)(\s+?)\=(\s+?)(.+)/
     
     # Grab the minimum atomic value
@@ -77,16 +78,17 @@ module Tracksperanto::ShakeGrammar
       
       the_atom = case at
         when INT_ATOM
-          [:atom_i, at.to_i]
+          at.to_i
         when STR_ATOM
-          [:atom_c, unquote_s(at)]
+          unquote_s(at)
         when FLOAT_ATOM
-          [:atom_f, at.to_f]
-        when AT_ATOM
-          v, f = at.strip.split("@")
-          [[:atom_f, v.to_f], [:atom_at_i, f.to_i]]
-        when AT_CONSUMED
-          [:atom_at_i, $1.to_i]
+          at.to_f
+        when AT_FRAME
+          if $1.include?(".")
+            [:value_at, $1.to_f, @stack.pop]
+          else
+            [:value_at, $1.to_i, @stack.pop]
+          end
         else
           [:atom, at]
       end

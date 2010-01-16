@@ -10,13 +10,14 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 50, trackers.length
     
     t = trackers[0]
-    assert_equal "Tracker1_track1", t.name
+    assert_equal "Tracker8_track1", t.name
     
     first_kf = t.keyframes[0]
-    assert_equal 0, first_kf.frame
-    assert_in_delta 886.212, first_kf.abs_y, DELTA
-    assert_in_delta 715.839, first_kf.abs_x, DELTA
-    assert_in_delta 0.0, first_kf.residual, DELTA
+    assert_equal 107, first_kf.frame
+    
+    assert_in_delta 1065.41, first_kf.abs_y, DELTA
+    assert_in_delta 1281.14, first_kf.abs_x, DELTA
+    assert_in_delta 1.0, first_kf.residual, DELTA
     
     second_kf = t.keyframes[1]
     assert_in_delta 0.00129, second_kf.residual, DELTA
@@ -100,14 +101,13 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/stabilize_nodes_with_hermite.shk")
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 3, trackers.length
-    
     last_t = trackers[-1]
-    assert_equal "Stabilize3_track1", last_t.name
-    assert_equal 74, last_t.length
+    assert_equal "Stabilize1_track1", last_t.name
+    assert_equal 73, last_t.length
     
     last_kf = last_t[-1]
     assert_equal 76, last_kf.frame
-    assert_in_delta 982.97, last_kf.abs_x, DELTA
-    assert_in_delta 1202.39, last_kf.abs_y, DELTA
+    assert_in_delta 1256.72, last_kf.abs_x, DELTA
+    assert_in_delta 1569.04, last_kf.abs_y, DELTA
   end
 end

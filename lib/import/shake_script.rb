@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + "/shake_grammar/lexer"
 require File.dirname(__FILE__) + "/shake_grammar/catcher"
-
 class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   def self.human_name
@@ -16,13 +15,23 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
     
+    # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
+    # in this case we DO want to take this shortcut so we will intersperse the data into the sentinel
+     def push(atom)
+       return super unless (atom.is_a?(Array) && atom[0] == :assign)
+       return super unless (atom[2][0] == :retval)
+       node_name = atom[1]
+       atom[2][1].map do | tracker |
+        tracker.name = [node_name, tracker.name].join("_")
+        sentinel[0].push(tracker)
+       end
+     end
+    
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
     def linear(first_arg, *keyframes)
       report_progress("Translating Linear animation")
-      keyframes.map do | kf |
-        [kf[1][1], kf[0][1]]
-      end
+      keyframes.map { |kf| [kf.at, kf.value] }
     end
     alias_method :nspline, :linear
     alias_method :jspline, :linear
@@ -33,9 +42,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # tangent positions (which we discard)
     def hermite(initial_value, *keyframes)
       report_progress("Translating Hermite curve, removing tangents")
-      values, at_frames = keyframes.partition{|e| e.is_a?(Array)}
-      values = values.map{|v| v[0] }
-      at_frames.zip(values)
+      keyframes.map{ |kf| [kf.at, kf.value[0]] }
     end
     
     # image Tracker( 
@@ -56,8 +63,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         s3, s4, s5, s6, *trackers)
       
       report_progress("Parsing Tracker node")
-      collect_trackers_from(get_variable_name, trackers)
-      true
+      collect_trackers_from(trackers)
     end
     
     # stabilize {
@@ -98,11 +104,12 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       *useless_args)
       
       report_progress("Parsing Stabilize node")
-      node_name = get_variable_name
-      collect_stabilizer_tracker("#{node_name}_track1", track1X, track1Y)
-      collect_stabilizer_tracker("#{node_name}_track2", track2X, track2Y)
-      collect_stabilizer_tracker("#{node_name}_track3", track3X, track3Y)
-      collect_stabilizer_tracker("#{node_name}_track4", track4X, track4Y)
+      [
+        collect_stabilizer_tracker("track1", track1X, track1Y),
+        collect_stabilizer_tracker("track2", track2X, track2Y),
+        collect_stabilizer_tracker("track3", track3X, track3Y),
+        collect_stabilizer_tracker("track4", track4X, track4Y),
+      ].compact
     end
     
     #  image = MatchMove( 
@@ -164,12 +171,12 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       track4Y, *others)
       
       report_progress("Parsing MatchMove node")
-      node_name = get_variable_name
-      collect_stabilizer_tracker("#{node_name}_track1", track1X, track1Y)
-      collect_stabilizer_tracker("#{node_name}_track2", track2X, track2Y)
-      collect_stabilizer_tracker("#{node_name}_track3", track3X, track3Y)
-      collect_stabilizer_tracker("#{node_name}_track4", track4X, track4Y)
-      
+      [
+        collect_stabilizer_tracker("track1", track1X, track1Y),
+        collect_stabilizer_tracker("track2", track2X, track2Y),
+        collect_stabilizer_tracker("track3", track3X, track3Y),
+        collect_stabilizer_tracker("track4", track4X, track4Y),
+      ].compact
     end
     
     private
@@ -178,15 +185,16 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       sentinel[1].call(with_message) if sentinel[1]
     end
     
-    def collect_trackers_from(name, array)
+    def collect_trackers_from(array)
       parameters_per_node = 16
       nb_trackers = array.length / parameters_per_node
-      nb_trackers.times do | idx |
+      
+      (0...nb_trackers).map do | idx |
         from_index, to_index = (idx * parameters_per_node), (idx+1) * parameters_per_node
         tracker_args = array[from_index...to_index]
-        tracker_args[0] = "#{name}_#{tracker_args[0]}"
+        tracker_args[0] = "#{tracker_args[0]}"
         collect_tracker(*tracker_args)
-      end
+      end.compact
     end
     
     def collect_stabilizer_tracker(name, x_curve, y_curve)
@@ -196,7 +204,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
       end
       
-      push_tracker(:name => name, :keyframes => keyframes)
+      Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes)
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
@@ -212,17 +220,14 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       keyframes = zip_curve_tuples(*curve_set).map do | (frame, x, y, corr) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y, :residual => (1 - corr.to_f))
       end
-      push_tracker(:name => name, :keyframes => keyframes)
+      
+      Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes)
     end
     
     def combine_curves(x, y, corr_curve)
       curve_set = [x, y]
       curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x.length)
       curve_set
-    end
-    
-    def push_tracker(tracker_options)
-      sentinel[0].push(Tracksperanto::Tracker.new(tracker_options))
     end
   end
   

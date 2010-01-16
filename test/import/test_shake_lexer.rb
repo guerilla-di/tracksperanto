@@ -20,10 +20,12 @@ class ShakeLexerTest < Test::Unit::TestCase
     curve = 'Hermite(0,[1379.04,-0.02,-0.02]@1,[1379.04,-0.03,-0.03]@2)'
     s = parse(curve)
     assert_equal [
-        [:funcall, "Hermite", [:atom_i, 0], 
-        [:arr, [:atom_f, 1379.04], [:atom_f, -0.02], [:atom_f, -0.02]], [:atom_at_i, 1], 
-        [:arr, [:atom_f, 1379.04], [:atom_f, -0.03], [:atom_f, -0.03]], [:atom_at_i, 2]
-        ]
+      [:funcall,
+        "Hermite",
+        0,
+        [:value_at, 1, [:arr, [1379.04, -0.02, -0.02]]],
+        [:value_at, 2, [:arr, [1379.04, -0.03, -0.03]]]
+      ]
     ], s
   end
   
@@ -35,46 +37,49 @@ class ShakeLexerTest < Test::Unit::TestCase
   
   def test_parse_funcall
     s = parse ' DoFoo(1, 2, 3, "Welcome!\"\"");   '
-    assert_equal [[:funcall, "DoFoo", [:atom_i, 1], [:atom_i, 2], [:atom_i, 3], [:atom_c, 'Welcome!""']]], s
+    assert_equal [[:funcall, "DoFoo", 1, 2, 3, "Welcome!\"\""]], s
   end
   
   def test_parse_nested_funcall
     s = parse ' DoFoo(1, Foo(4));'
-    assert_equal [[:funcall, "DoFoo", [:atom_i, 1], [:funcall, "Foo", [:atom_i, 4]]]], s
+    assert_equal [[:funcall, "DoFoo", 1, [:funcall, "Foo", 4]]], s
   end
   
   def test_parse_single_nested_funcall
     s = parse("OuterFunc(InnerFunc(15)")
-    assert_equal [[:funcall, "OuterFunc", [:funcall, "InnerFunc", [:atom_i, 15]]]], s
+    assert_equal [[:funcall, "OuterFunc", [:funcall, "InnerFunc", 15]]], s
   end
   
   def test_parse_single_funcall
     s = parse('SomeFunc(1,2,3)')
-    assert_equal [[:funcall, "SomeFunc", [:atom_i, 1], [:atom_i, 2], [:atom_i, 3]]], s
+    assert_equal [[:funcall, "SomeFunc", 1, 2, 3]], s
   end
   
   def test_parse_funcall_with_valueats
     s = parse 'Linear(0,716.08@1,715.846@2,715.518@3,715.034@4,714.377@5)'
     assert_equal(
-      [
-        [:funcall, "Linear", [:atom_i, 0], 
-          [[:atom_f, 716.08],  [:atom_at_i, 1]], 
-          [[:atom_f, 715.846], [:atom_at_i, 2]], 
-          [[:atom_f, 715.518], [:atom_at_i, 3]], 
-          [[:atom_f, 715.034], [:atom_at_i, 4]], 
-          [[:atom_f, 714.377], [:atom_at_i, 5]]
-        ]
-      ],
+      [[
+        :funcall,
+        "Linear",
+        0,
+        [:value_at, 1, 716.08],
+        [:value_at, 2, 715.846],
+        [:value_at, 3, 715.518],
+        [:value_at, 4, 715.034],
+        [:value_at, 5, 714.377]
+      ]],
     s)
   end
   
   def test_parse_hermite_valuats_containing_arrays
     # Hermite curves use array args
     s = parse 'Hermite(0,[-64,98.33,98.33]@1,[50,97.29,97.29]@4)'
-    ref = [[:funcall, "Hermite", 
-      [:atom_i, 0],
-      [:arr, [:atom_f, -64.0], [:atom_f, 98.33], [:atom_f, 98.33]], [:atom_at_i, 1], 
-      [:arr, [:atom_i, 50], [:atom_f, 97.29], [:atom_f, 97.29]], [:atom_at_i, 4]
+    ref = [[
+      :funcall,
+      "Hermite",
+      0,
+      [:value_at, 1, [:arr, [-64.0, 98.33, 98.33]]],
+      [:value_at, 4, [:arr, [50, 97.29, 97.29]]]
     ]]
     assert_equal ref, s
   end
@@ -88,9 +93,8 @@ class ShakeLexerTest < Test::Unit::TestCase
   end
   
   def test_parse_varassign
-    s = parse 'Foo = Blur(Foo, 1, 2, 3);'
-    assert_equal [[:var, "Foo"], [:eq], [:funcall, "Blur", [:atom, "Foo"], [:atom_i, 1], 
-      [:atom_i, 2], [:atom_i, 3]]], s
+    s = parse 'Foo = Blur(Foo, 1, 2, 3); 1'
+    assert_equal [[:assign, "Foo", [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]]], s
   end
   
   def test_parse_whole_file_does_not_raise

@@ -3,6 +3,10 @@ require File.dirname(__FILE__) + '/../helper'
 class ShakeCatcherTest < Test::Unit::TestCase
   C = Tracksperanto::ShakeGrammar::Catcher
   
+  def at(at, v)
+    C::At.new(at, v)
+  end
+  
   def test_hould_catch_simple_funcall
     k = Class.new(C) do
       def foofunc(a, b, c)
@@ -16,10 +20,10 @@ class ShakeCatcherTest < Test::Unit::TestCase
   def test_uknown_funcalls
     k = Class.new(C)
     tree = parse("OuterFunc(InnerFunc(15)", k)
-    assert_equal [:unknown_func], tree
+    assert_equal [[:unknown_func]], tree
     
     tree = parse("OuterFunc(15);", k)
-    assert_equal [:unknown_func], tree
+    assert_equal [[:unknown_func]], tree
   end
   
   def test_nested_funcalls
@@ -45,25 +49,18 @@ class ShakeCatcherTest < Test::Unit::TestCase
     end
     
     tree = parse('Hermite(0,[1379.04,-0.02,-0.02]@1,[1379.04,-0.03,-0.03]@2)', k)
-    assert_equal [[:retval, [[1379.04, -0.02, -0.02], 1, [1379.04, -0.03, -0.03], 2]]],  tree
+    assert_equal [[:retval, [at(1, [1379.04, -0.02, -0.02]), at(2, [1379.04, -0.03, -0.03])]]],  tree
   end
   
   def test_linear_funcall
     k = Class.new(C) do
       def linear(first_arg, *keyframes)
-        keyframes
+        123
       end
     end
     
     tree = parse('Linear(0,591.702@1,591.452@2,591.202@3,590.733@4,590.202@5,589.421@6,589.249@7)', k)
-    assert_equal [[:retval,
-      [[[:atom_f, 591.702], [:atom_at_i, 1]],
-       [[:atom_f, 591.452], [:atom_at_i, 2]],
-       [[:atom_f, 591.202], [:atom_at_i, 3]],
-       [[:atom_f, 590.733], [:atom_at_i, 4]],
-       [[:atom_f, 590.202], [:atom_at_i, 5]],
-       [[:atom_f, 589.421], [:atom_at_i, 6]],
-       [[:atom_f, 589.249], [:atom_at_i, 7]]]]],  tree
+    assert_equal [[:retval, 123]],  tree
   end
   
   def test_nested_funcalls_with_array_return

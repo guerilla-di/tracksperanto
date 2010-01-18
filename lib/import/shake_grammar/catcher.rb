@@ -34,11 +34,6 @@ module Tracksperanto::ShakeGrammar
     
     private
     
-    def get_variable_name
-      puts @stack.inspect
-      @stack[-1][1]
-    end
-    
     def can_handle_meth?(m)
       @meths ||= self.class.public_instance_methods(false)
       @meths.include?(m)

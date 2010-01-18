@@ -46,8 +46,7 @@ module Tracksperanto::ShakeGrammar
       elsif c == "[" # Array, booring
         push([:arr, self.class.new(@io).stack])
       elsif (c == "]" || c == ")" || c == ";" && @limit_to_one_stmt)
-        # Funcall end, and when it happens assume we are called as
-        # a subexpression.
+        # Bailing out of a subexpression
         consume_atom!
         throw STOP_TOKEN
       elsif (c == ",")

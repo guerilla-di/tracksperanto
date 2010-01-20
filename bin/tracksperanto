@@ -88,8 +88,25 @@ if !input_file
   exit(-1)
 end
 
+class Spinner
+  RING = ['|', '/', '-', '\\', '|', '/', '-', '\\']
+  
+  def initialize
+    @counter = 0
+  end
+  
+  def spin(percent)
+    current = RING[(@counter += 1) % RING.length]
+    output = " %s %d%%" % [current, percent]
+    STDOUT.write(output + "\r" * output.length)
+    STDOUT.flush
+  end
+end
+
+spinner = Spinner.new
 pipe = Tracksperanto::Pipeline::Base.new
-pipe.progress_block = lambda{|percent, msg| STDOUT.write(".") }
+pipe.progress_block = lambda{|percent, msg| spinner.spin(percent) }
+
 if sole_format
   begin
     pipe.exporters = [Tracksperanto::Export.const_get(sole_format)]
@@ -110,4 +127,4 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   shift.y_shift = y_shift
   prefix.prefix = set_prefix
 end
-STDOUT.write("\n")
+STDOUT.puts("\rConverted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

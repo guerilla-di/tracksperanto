@@ -1,3 +1,7 @@
+=== 1.6.9 / 2010-01-20
+
+* Make the commandline progress reports shorter
+
 === 1.6.8 / 2010-01-13
 
 * Fix frame gap handling for repeating gaps in the Nuke importer

@@ -93,19 +93,19 @@ class Spinner
   
   def initialize
     @counter = 0
+    @last_message_length = 0
   end
   
-  def spin(percent)
+  def spin(percent, msg)
     current = RING[(@counter += 1) % RING.length]
-    output = " %s %d%%" % [current, percent]
+    output = " [%s %d%%]" % [current, percent]
     STDOUT.write(output + "\r" * output.length)
     STDOUT.flush
   end
 end
 
-spinner = Spinner.new
 pipe = Tracksperanto::Pipeline::Base.new
-pipe.progress_block = lambda{|percent, msg| spinner.spin(percent) }
+pipe.progress_block = Spinner.new.method(:spin).to_proc
 
 if sole_format
   begin

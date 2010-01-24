@@ -1,7 +1,7 @@
 # Export for 3DE v3 point files
 class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   
-  HEADER = '// 3DE Multiple Tracking Curves Export 2048 x 778 * 275 frames'
+  HEADER = '// 3DE Multiple Tracking Curves Export %d x %d * %d frames'
   
   def self.desc_and_extension
     "3de_v3.txt"
@@ -30,8 +30,7 @@ class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   
   def end_export
     @buffer.rewind
-    preamble = HEADER.gsub(/2048/, @w.to_s).gsub(/778/, @h.to_s).gsub(/275/, @highest_keyframe.to_s)
-    @io.puts(preamble)
+    @io.puts(HEADER % [@w, @h, @highest_keyframe])
     @io.puts(@buffer.read) until @buffer.eof?
     @buffer.close!
     @io.puts("") # Newline at end

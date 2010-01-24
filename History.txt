@@ -1,3 +1,7 @@
+=== 1.7.0 / 2010-01-24
+
+* Fix edge cases of specific comp sizes outputting incorrect exports for Equalizer 3 and MatchMover
+
 === 1.6.9 / 2010-01-20
 
 * Make the commandline progress reports shorter

@@ -4,7 +4,7 @@ require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '1.6.9'
+  VERSION = '1.7.0'
   
   module Import; end
   module Export; end
@@ -14,10 +14,10 @@ module Tracksperanto
   class << self
     # Returns the array of all exporter classes defined
     attr_accessor :exporters
-
+    
     # Returns the array of all importer classes defined
     attr_accessor :importers
-
+    
     # Returns the array of all available middlewares
     attr_accessor :middlewares
     
@@ -35,14 +35,13 @@ module Tracksperanto
     def middleware_names
       middlewares.map{|e| e.const_name }
     end
-    
   end
   
   self.exporters, self.importers, self.middlewares = [], [], []
   
 end
 
-%w( 
+%w(
   const_name
   casts
   block_init

@@ -26,16 +26,16 @@ class Tracksperanto::Export::Base
   
   # The constructor for an exporter should accept a handle to the IO object that you can write to.
   # This gets assigned to @io ivar by default, but you can do whatever you wish
-  # By convention, the caller will close the IO when you are done so don't do it here
+  # By convention, the caller owns the IO handle and will close it when you are done, so don't close t yourself
   def initialize(write_to_io)
     @io = write_to_io
   end
   
-  # Called on export start. Will receive the width and height of the comp being exported
+  # Called on export start. Will receive the width and height of the comp being exported as Fixnums
   def start_export( img_width, img_height)
   end
   
-  # Called on export end. By convention, the caller will close the IO when you are done so don't do it here.
+  # Called on export end. By convention, the caller will close the main IO when you are done so don't do it here.
   # However if you've allocated anything during export (like some Tempfiles) here will be the place to get rid
   # of them
   def end_export

@@ -9,7 +9,7 @@ class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
     "Matchmover 2D export .rz2 file"
   end
   
-  PREAMBLE = %[imageSequence	"Sequence 01"\n{\n\t2560\t1080\tf( "D:/temp/sequence.%04d.dpx" )\tb( 1 211 1 )\t\n}\n]
+  PREAMBLE = %[imageSequence	"Sequence 01"\n{\n\t%d\t%d\tf( "D:/temp/sequence.%%04d.dpx" )\tb( 1 211 1 )\t\n}\n]
   TRACKER_PREAMBLE = "pointTrack  %s  rgb( 255 0 0 )	\n{\n"
   TRACKER_POSTAMBLE = "}\n"
   FIRST_KEYFRAME_TEMPLATE = "\t%d\t   %.3f     %.3f    ki( 0.8 )\t    s( 66 66 64 64 )  p( 24 24 25 25 )"
@@ -17,7 +17,7 @@ class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   
   def start_export( img_width, img_height)
     @height = img_height
-    @io.puts(PREAMBLE.gsub(/2560/, img_width.to_s).gsub(/1080/, img_height.to_s))
+    @io.puts(PREAMBLE % [img_width, img_height])
   end
   
   def start_tracker_segment(tracker_name)

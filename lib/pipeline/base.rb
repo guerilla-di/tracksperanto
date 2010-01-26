@@ -111,7 +111,7 @@ class Tracksperanto::Pipeline::Base
       t.each_with_index do | kf, idx |
         keyframes += 1
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-        yield(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.length}") if block_given?
+        yield(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}") if block_given?
       end
       processor.end_tracker_segment
     end

@@ -63,6 +63,7 @@ parser = OptionParser.new do | p |
  p.on("--version", "Show the version and exit") {|v| 
     puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
+    puts "For questions and info please write to info at guerilla-di.org"
     exit(0)
  }
 end

@@ -36,13 +36,17 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       keyframes = []
       
       while line = io.gets
-        indent ||= line.scan(/^(\s+)/)[1]
+        
+        unless indent 
+          indent = line.scan(/^(\s+)/)[1]
+          end_mark = "#{indent}End"
+        end
         
         if line =~ keyframe_count_matcher
           $1.to_i.times { push(extract_key_from(io)) }
         elsif line =~ base_value_matcher && empty?
           self.base_value = $1
-        elsif line.strip == "#{indent}End"
+        elsif line.strip == end_mark
           break
         end
       end
@@ -60,13 +64,17 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
         if line =~ frame_matcher
           frame = $1.to_i
         elsif line =~ value_matcher
-          value = $1.to_f
-          return [frame,value]
+          return [frame, $1.to_f]
         end
       end
       
       raise "Did not detect any keyframes!"
     end
+    
+    # Hack - prevents the channel to be flattened into keyframes
+    # when it gets Array#flatten'ed
+    def to_ary; end  
+    private :to_ary
   end
   
   def parse(io)

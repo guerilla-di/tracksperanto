@@ -62,6 +62,7 @@ parser = OptionParser.new do | p |
  p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
  p.on("--version", "Show the version and exit") {|v| 
     puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
+    puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     exit(0)
  }
 end

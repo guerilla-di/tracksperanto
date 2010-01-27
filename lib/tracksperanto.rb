@@ -39,6 +39,24 @@ module Tracksperanto
   
   self.exporters, self.importers, self.middlewares = [], [], []
   
+  # Case-insensitive search for an export module by name
+  def self.get_exporter(name)
+    norm = exporters.inject({}) do | table, x |
+      normalized_name = x.to_s.split("::")[-1].downcase
+      table.merge(normalized_name => x) 
+    end
+    
+    norm[name] || raise( NameError, "Unknown exporter #{name}")
+  end
+  
+  # Case-insensitive search for an export module by name
+  def self.get_importer(name)
+    norm = importers.inject({}) do | table, x |
+      normalized_name = x.to_s.split("::")[-1].downcase
+      table.merge(normalized_name => x) 
+    end
+    norm[name] || raise(NameError, "Unknown importer #{name}")
+  end
 end
 
 %w(
@@ -53,6 +71,7 @@ end
   ext_io
   simple_export
   uv_coordinates
+  get_module
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

@@ -63,7 +63,7 @@ parser = OptionParser.new do | p |
  p.on("--version", "Show the version and exit") {|v| 
     puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
-    puts "For questions and info please write to info at guerilla-di.org"
+    puts "For questions and support contact info at guerilla-di.org"
     exit(0)
  }
 end
@@ -77,7 +77,7 @@ rescue OptionParser::MissingArgument => e
 end
 
 begin
-  reader_klass = Tracksperanto::Import.const_get(reader_name)
+  reader_klass = Tracksperanto.get_importer(reader_name)
 rescue NameError => e
   STDERR.puts "Unknown reader #{reader_name}, available readers: #{readers.join(', ')}"
   exit(-1)
@@ -111,7 +111,7 @@ pipe.progress_block = Spinner.new.method(:spin).to_proc
 
 if sole_format
   begin
-    pipe.exporters = [Tracksperanto::Export.const_get(sole_format)]
+    pipe.exporters = [Tracksperanto::Export.get_exporter(sole_format)]
   rescue NameError
     STDERR.puts "Unknown exporter #{sole_format}. Available exporters: #{writers.join(", ")}"
     exit(-1)

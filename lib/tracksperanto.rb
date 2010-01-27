@@ -71,7 +71,6 @@ end
   ext_io
   simple_export
   uv_coordinates
-  get_module
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

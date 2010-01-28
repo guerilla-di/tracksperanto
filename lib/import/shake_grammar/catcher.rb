@@ -35,8 +35,8 @@ module Tracksperanto::ShakeGrammar
     private
     
     def can_handle_meth?(m)
-      @meths ||= self.class.public_instance_methods(false)
-      @meths.include?(m)
+      @meths ||= self.class.public_instance_methods(false).map{|m| m.to_s }
+      @meths.include?(m.to_s)
     end
     
     def exec_funcall(methname, args)

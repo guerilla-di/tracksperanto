@@ -4,7 +4,7 @@ require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '1.7.0'
+  VERSION = '1.7.1'
   
   module Import; end
   module Export; end
@@ -41,21 +41,22 @@ module Tracksperanto
   
   # Case-insensitive search for an export module by name
   def self.get_exporter(name)
-    norm = exporters.inject({}) do | table, x |
+    exporters.each do | x |
       normalized_name = x.to_s.split("::")[-1].downcase
-      table.merge(normalized_name => x) 
+      return x if normalized_name == name.downcase
     end
     
-    norm[name] || raise( NameError, "Unknown exporter #{name}")
+    raise NameError, "Unknown exporter #{name}"
   end
   
   # Case-insensitive search for an export module by name
   def self.get_importer(name)
-    norm = importers.inject({}) do | table, x |
+    importers.each do | x |
       normalized_name = x.to_s.split("::")[-1].downcase
-      table.merge(normalized_name => x) 
+      return x if normalized_name == name.downcase
     end
-    norm[name] || raise(NameError, "Unknown importer #{name}")
+    
+    raise NameError, "Unknown importer #{name}"
   end
 end
 

@@ -41,9 +41,17 @@ class TracksperantoTest < Test::Unit::TestCase
     i1 = Tracksperanto.get_importer("syntheyes")
     assert_equal i1, Tracksperanto::Import::Syntheyes
   end
+  
+  def test_get_importer_multicase
+    i1 = Tracksperanto.get_importer("ShakeScript")
+    assert_equal i1, Tracksperanto::Import::ShakeScript
+  end
 
   def test_get_exporter
     i1 = Tracksperanto.get_exporter("syntheyes")
+    assert_equal i1, Tracksperanto::Export::SynthEyes
+    
+    i1 = Tracksperanto.get_exporter("SynThEyes")
     assert_equal i1, Tracksperanto::Export::SynthEyes
   end
   

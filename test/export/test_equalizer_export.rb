@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../helper'
 
-class EqualizerExportTestTest < Test::Unit::TestCase
+class Equalizer4ExportTest < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_equalizer.txt"
   

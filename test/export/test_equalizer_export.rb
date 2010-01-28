@@ -5,6 +5,8 @@ class Equalizer4ExportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/ref_equalizer.txt"
   
   def test_export_output_written
+    # This test might be failing due to different float rounding between platforms
+    # (currently fails on win ruby and jruby)
     ensure_same_output Tracksperanto::Export::Equalizer4, P
   end
   

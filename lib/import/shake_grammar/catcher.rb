@@ -35,7 +35,8 @@ module Tracksperanto::ShakeGrammar
     private
     
     def can_handle_meth?(m)
-      @meths ||= self.class.public_instance_methods(false).map{|m| m.to_s }
+      # Ruby 1.9 - match on stringified methname
+      @meths ||= self.class.public_instance_methods(false).map{|mn| mn.to_s }
       @meths.include?(m.to_s)
     end
     

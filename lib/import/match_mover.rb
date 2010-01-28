@@ -36,7 +36,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   end
   
   def extract_track(start_line, io)
-    tracker_name = start_line.scan(/\"([^\"]+)\"/).to_s
+    tracker_name = start_line.scan(/\"([^\"]+)\"/).flatten[0]
     t = Tracksperanto::Tracker.new(:name => tracker_name)
     while(line = io.gets) do
       return t if line =~ /\}/

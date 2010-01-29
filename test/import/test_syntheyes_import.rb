@@ -37,4 +37,15 @@ class SyntheyesImportTest < Test::Unit::TestCase
     trackers = parser.parse(fixture)
     assert_equal 6, trackers.length
   end
+  
+  def test_parsing_with_one_tracker
+    fixture = File.open(File.dirname(__FILE__) + '/samples/syntheyes_2d_paths/one_tracker.txt')
+    parser = Tracksperanto::Import::Syntheyes.new
+    parser.width = 1920
+    parser.height = 1080
+    trackers = parser.parse(fixture)
+    assert_equal 1, trackers.length
+    assert_equal 49, trackers[0].length
+  end
+  
 end

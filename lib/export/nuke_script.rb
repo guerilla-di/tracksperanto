@@ -14,8 +14,8 @@ version 5.1200
 Constant {
  inputs 0
  channels rgb
- format "1920 1080 0 0 1920 1080 1"
- name CompSize_1920x1080
+ format "%d %d 0 0 %d %d 1"
+ name CompSize_%dx%d
  postage_stamp false
  xpos 0
  ypos -60
@@ -35,15 +35,14 @@ Constant {
     end
     
     def start_export(w, h)
-      @io.puts(PREAMBLE.gsub(/1920/, w.to_s).gsub(/1080/, h.to_s))
+      @io.puts(PREAMBLE % ([w, h] * 3))
       @ypos = 0
     end
     
     # We accumulate a tracker and on end dump it out in one piece
     def start_tracker_segment(tracker_name)
       # Setup for the next tracker
-      @tracker = T.new
-      @tracker.name = tracker_name
+      @tracker = T.new(:name => tracker_name)
     end
     
     def end_tracker_segment

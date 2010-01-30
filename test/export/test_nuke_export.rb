@@ -19,4 +19,25 @@ class NukeExportTest < Test::Unit::TestCase
     curves = x.send(:curves_from_tuples, tuples)
     assert_equal "{curve i x6 234.0000 x8 144.0000 x9 231.0000 232.0000} {curve i x6 145.0000 x8 223.0000 x9 189.0000 190.0000}", curves
   end
+  
+  def test_compsize_not_overridden
+    o = StringIO.new
+    x = Tracksperanto::Export::NukeScript.new(o)
+    x.start_export(1080, 720)
+    assert_equal DATA.read, o.string 
+  end
+  
 end
+
+__END__
+
+version 5.1200
+Constant {
+ inputs 0
+ channels rgb
+ format "1080 720 0 0 1080 720 1"
+ name CompSize_1080x720
+ postage_stamp false
+ xpos 0
+ ypos -60
+}

@@ -31,6 +31,7 @@ lib/import/shake_text.rb
 lib/import/syntheyes.rb
 lib/middleware/base.rb
 lib/middleware/golden.rb
+lib/middleware/lerp.rb
 lib/middleware/prefix.rb
 lib/middleware/reformat.rb
 lib/middleware/scaler.rb
@@ -116,6 +117,7 @@ test/import/test_shake_script_import.rb
 test/import/test_shake_text_import.rb
 test/import/test_syntheyes_import.rb
 test/middleware/test_golden_middleware.rb
+test/middleware/test_lerp_middleware.rb
 test/middleware/test_prefix.rb
 test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb

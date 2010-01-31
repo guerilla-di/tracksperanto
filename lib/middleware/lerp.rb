@@ -2,10 +2,6 @@
 class Tracksperanto::Middleware::Lerp < Tracksperanto::Middleware::Base
   attr_accessor :enabled
   
-  def initialize(*whatever)
-    super
-  end
-  
   def end_tracker_segment
     @last_f, @last_x, @last_y, @last_res = nil, nil, nil, nil
     super

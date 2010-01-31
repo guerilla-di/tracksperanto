@@ -1,5 +1,10 @@
 
 version 5.1200
+Root {
+ inputs 0
+ frame 1
+ last_frame 21
+}
 Constant {
  inputs 0
  channels rgb

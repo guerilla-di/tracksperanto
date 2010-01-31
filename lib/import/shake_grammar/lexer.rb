@@ -42,12 +42,12 @@ module Tracksperanto::ShakeGrammar
       
       c = @io.read(1)
       
-      if @buf.length > 64000 # Wrong format and the buffer is filled up, bail
-        raise WrongInput, "Buffer overflow at 64K, this is definitely not a Shake script"
+      if @buf.length > 32000 # Wrong format and the buffer is filled up, bail
+        raise WrongInput, "Buffer overflow at 32K, this is definitely not a Shake script"
       end
       
-      if @stack_depth > 128 # Wrong format - parentheses overload
-        raise WrongInput, "Stack overflow 128 levels deep, this is probably a LISP program uploaded by accident"
+      if @stack_depth > 127 # Wrong format - parentheses overload
+        raise WrongInput, "Stack overflow at level 128, this is probably a LISP program uploaded by accident"
       end
       
       return consume_comment(c) if in_comment? 

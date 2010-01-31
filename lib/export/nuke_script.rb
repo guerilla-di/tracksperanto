@@ -11,6 +11,11 @@ Tracker3 {
     KEYFRAME_PRECISION_TEMPLATE = "%.4f"
     PREAMBLE = %[
 version 5.1200
+Root {
+ inputs 0
+ frame 1
+ last_frame %d
+}
 Constant {
  inputs 0
  channels rgb
@@ -35,8 +40,12 @@ Constant {
     end
     
     def start_export(w, h)
-      @io.puts(PREAMBLE % ([w, h] * 3))
-      @ypos = 0
+      @max_frame, @ypos, @w, @h = 0, 0, w, h
+      # At the start of the file we need to provide the length of the script.
+      # We allocate an IO for the file being output that will contain all the trackers,
+      # and then write that one into the script preceded by the preamble that sets length
+      # based on the last frame position in time
+      @trackers_io = Tempfile.new("nukex")
     end
     
     # We accumulate a tracker and on end dump it out in one piece
@@ -46,7 +55,7 @@ Constant {
     end
     
     def end_tracker_segment
-      @io.puts( 
+      @trackers_io.puts( 
         NODE_TEMPLATE % [curves_from_tuples(@tracker), @tracker.name, (@ypos += SCHEMATIC_OFFSET)]
       )
     end
@@ -54,6 +63,15 @@ Constant {
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
       # Nuke uses 1-based frames
       @tracker << [frame + 1, abs_float_x, abs_float_y]
+      @max_frame = frame if frame > @max_frame
+    end
+    
+    def end_export
+      @trackers_io.rewind
+      preamble_values = [@max_frame + 1, @w, @h, @w, @h, @w, @h]
+      @io.puts(PREAMBLE % preamble_values)
+      @io.write(@trackers_io.read) until @trackers_io.eof?
+      @trackers_io.close!
     end
     
     private

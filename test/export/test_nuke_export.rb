@@ -4,6 +4,11 @@ class NukeExportTest < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_NukeScript.nk"
   PREAMBLE = 'version 5.1200
+Root {
+ inputs 0
+ frame 1
+ last_frame 1
+}
 Constant {
  inputs 0
  channels rgb
@@ -33,6 +38,7 @@ Constant {
     o = StringIO.new
     x = Tracksperanto::Export::NukeScript.new(o)
     x.start_export(1080, 720)
+    x.end_export
     assert_equal PREAMBLE, o.string.strip 
   end
   

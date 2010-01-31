@@ -27,6 +27,7 @@ x_shift = 0
 y_shift = 0
 set_prefix = ''
 sole_format = nil
+lerp = false
 reader_name = "ShakeScript"
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
@@ -60,6 +61,7 @@ parser = OptionParser.new do | p |
  }
  p.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right") {|sx| x_shift = sx }
  p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
+ p.on("--lerp", "Linearly interpolate missing keyframes") {|v| lerp = true }
  p.on("--version", "Show the version and exit") {|v| 
     puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
@@ -118,7 +120,7 @@ if sole_format
   end
 end
 
-pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix |
+pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix, lerpm |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
@@ -128,5 +130,6 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   shift.x_shift = x_shift
   shift.y_shift = y_shift
   prefix.prefix = set_prefix
+  lerpm.enabled = lerp
 end
 STDOUT.puts("\rConverted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

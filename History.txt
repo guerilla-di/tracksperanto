@@ -1,3 +1,6 @@
+=== 1.7.2 / 2010-01-31
+
+* Add a Lerp middleware that linearly interpolates missing keyframes (USE CAREFULLY!)
 * Prevent the Shake lexer from walking into the woods on files that are certainly wrong
 * Export proper project length with Nuke scripts
 * Ensure preamble for Nuke exports does not get overriden in width/height

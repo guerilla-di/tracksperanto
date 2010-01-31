@@ -100,6 +100,7 @@ test/import/samples/shake_text/one_shake_tracker_from_first.txt
 test/import/samples/shake_text/two_shake_trackers.txt
 test/import/samples/syntheyes_2d_paths/cola_plate.txt
 test/import/samples/syntheyes_2d_paths/flyover2DP_syntheyes.txt
+test/import/samples/syntheyes_2d_paths/one_tracker.txt
 test/import/samples/syntheyes_2d_paths/shake_tracker_nodes_to_syntheyes.txt
 test/import/test_3de_import.rb
 test/import/test_3de_import3.rb
@@ -126,3 +127,4 @@ test/test_format_detector.rb
 test/test_keyframe.rb
 test/test_simple_export.rb
 test/test_tracker.rb
+test/test_tracksperanto.rb

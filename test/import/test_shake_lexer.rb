@@ -3,6 +3,20 @@ require File.dirname(__FILE__) + '/../helper'
 class ShakeLexerTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/shake_script/shake_tracker_nodes.shk"
   L = Tracksperanto::ShakeGrammar::Lexer
+  WRONG = File.dirname(__FILE__) + "/samples/flame_stabilizer/hugeFlameSetup.stabilizer"
+  
+  def test_raises_wrong_input_when_buffer_gets_too_large
+    assert_raise(Tracksperanto::ShakeGrammar::WrongInput) do
+       parse(File.open(WRONG), L)
+    end
+  end
+  
+  def test_raises_wrong_input_on_stack_size
+    huge_stack = "(" * 345
+    assert_raise(Tracksperanto::ShakeGrammar::WrongInput) do
+       parse(StringIO.new(huge_stack), L)
+    end
+  end
   
   def test_parse_single_cmt
     cmt = " // Mary had a little lamb"
@@ -94,7 +108,7 @@ class ShakeLexerTest < Test::Unit::TestCase
   
   def test_parse_varassign
     s = parse 'Foo = Blur(Foo, 1, 2, 3); 1'
-    assert_equal [[:assign, "Foo", [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]]], s
+    assert_equal [[:assign, "Foo", [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s
   end
   
   def test_parse_whole_file_does_not_raise

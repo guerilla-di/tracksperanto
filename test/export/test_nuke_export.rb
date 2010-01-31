@@ -3,7 +3,16 @@ require File.dirname(__FILE__) + '/../helper'
 class NukeExportTest < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_NukeScript.nk"
-  
+  PREAMBLE = 'version 5.1200
+Constant {
+ inputs 0
+ channels rgb
+ format "1080 720 0 0 1080 720 1"
+ name CompSize_1080x720
+ postage_stamp false
+ xpos 0
+ ypos -60
+}'
   def test_export_output_written
     ensure_same_output Tracksperanto::Export::NukeScript, P
   end
@@ -24,20 +33,7 @@ class NukeExportTest < Test::Unit::TestCase
     o = StringIO.new
     x = Tracksperanto::Export::NukeScript.new(o)
     x.start_export(1080, 720)
-    assert_equal DATA.read, o.string 
+    assert_equal PREAMBLE, o.string.strip 
   end
   
 end
-
-__END__
-
-version 5.1200
-Constant {
- inputs 0
- channels rgb
- format "1080 720 0 0 1080 720 1"
- name CompSize_1080x720
- postage_stamp false
- xpos 0
- ypos -60
-}

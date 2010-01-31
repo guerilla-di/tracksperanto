@@ -1,4 +1,6 @@
 module Tracksperanto::ShakeGrammar
+  class WrongInput < RuntimeError; end
+  
   # Since Shake uses a C-like language for it's scripts we rig up a very sloppy
   # but concise C-like lexer to cope
   class Lexer
@@ -15,8 +17,8 @@ module Tracksperanto::ShakeGrammar
     # The second argument is a "sentinel" that is going to be passed
     # to the downstream lexers instantiated for nested data structures.
     # You can use the sentinel to collect data from child nodes for example.
-    def initialize(with_io, sentinel = nil, limit_to_one_stmt = false)
-      @io, @stack, @buf, @sentinel, @limit_to_one_stmt  = with_io, [], '', sentinel, @limit_to_one_stmt
+    def initialize(with_io, sentinel = nil, limit_to_one_stmt = false, stack_depth = 0)
+      @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       catch(STOP_TOKEN) { parse until @io.eof? }
       in_comment? ? consume_comment("\n") : consume_atom!
     end
@@ -37,11 +39,21 @@ module Tracksperanto::ShakeGrammar
     end
     
     def parse
+      
       c = @io.read(1)
+      
+      if @buf.length > 64000 # Wrong format and the buffer is filled up, bail
+        raise WrongInput, "Buffer overflow at 64K, this is definitely not a Shake script"
+      end
+      
+      if @stack_depth > 128 # Wrong format - parentheses overload
+        raise WrongInput, "Stack overflow 128 levels deep, this is probably a LISP program uploaded by accident"
+      end
+      
       return consume_comment(c) if in_comment? 
       
       if !@buf.empty? && (c == "(") # Funcall
-        push([:funcall, @buf.strip] + self.class.new(@io, @sentinel).stack)
+        push([:funcall, @buf.strip] + self.class.new(@io, @sentinel, false, @stack_depth + 1).stack)
         @buf = ''
       elsif c == "[" # Array, booring
         push([:arr, self.class.new(@io).stack])
@@ -57,7 +69,7 @@ module Tracksperanto::ShakeGrammar
       elsif (c == ";" || c == "\n")
         # Skip these - the subexpression already is expanded anyway
       elsif (c == "=")
-        push [:assign, @buf.strip, self.class.new(@io, @sentinel, to_semicolon = true).stack.shift]
+        push [:assign, @buf.strip, self.class.new(@io, @sentinel, to_semicolon = true, @stack_depth + 1).stack.shift]
         @buf = ''
       else
         @buf << c

@@ -9,7 +9,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 50, trackers.length
     
-    t = trackers[0]
+    t = trackers[-1]
     assert_equal "Tracker8_track1", t.name
     
     first_kf = t.keyframes[0]
@@ -101,7 +101,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/stabilize_nodes_with_hermite.shk")
     trackers = Tracksperanto::Import::ShakeScript.new.parse(fixture)
     assert_equal 3, trackers.length
-    last_t = trackers[-1]
+    last_t = trackers[0]
     assert_equal "Stabilize1_track1", last_t.name
     assert_equal 73, last_t.length
     

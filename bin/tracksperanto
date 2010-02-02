@@ -113,7 +113,7 @@ pipe.progress_block = Spinner.new.method(:spin).to_proc
 
 if sole_format
   begin
-    pipe.exporters = [Tracksperanto::Export.get_exporter(sole_format)]
+    pipe.exporters = [Tracksperanto.get_exporter(sole_format)]
   rescue NameError
     STDERR.puts "Unknown exporter #{sole_format}. Available exporters: #{writers.join(", ")}"
     exit(-1)

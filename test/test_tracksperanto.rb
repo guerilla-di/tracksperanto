@@ -53,6 +53,9 @@ class TracksperantoTest < Test::Unit::TestCase
     
     i1 = Tracksperanto.get_exporter("SynThEyes")
     assert_equal i1, Tracksperanto::Export::SynthEyes
+    
+    i1 = Tracksperanto.get_exporter("SynthEyes")
+    assert_equal i1, Tracksperanto::Export::SynthEyes
   end
   
   def test_get_unknown_exporter_should_raise

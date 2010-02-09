@@ -1,3 +1,10 @@
+=== 1.7.4 / 2010-02-02
+
+* Introduce an intentional gap in the reference exports to test trackers with gaps
+* Export Syntheyes paths as normal frames, not as keyframes. This produces better solves by not overconstraining the solver
+	(Without this TransitionFrms, a crucial parameter in SY, seizes to work)
+* Add a LengthCutoff middleware that allows you to remove trackers that have less than X keyframes in them from the export
+
 === 1.7.3 / 2010-02-02
 
 * Fixed the --only option in the commandline binary

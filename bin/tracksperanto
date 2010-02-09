@@ -25,6 +25,7 @@ slip = 0
 golden_tracks = false
 x_shift = 0
 y_shift = 0
+length_gate = 0
 set_prefix = ''
 sole_format = nil
 lerp = false
@@ -51,13 +52,16 @@ parser = OptionParser.new do | p |
    golden_tracks = g_flag
  }
  p.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it") {|rw| 
-    reformat_w = rw
+   reformat_w = rw
  }
  p.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it") {|rh|
-    reformat_h = rh
+   reformat_h = rh
  }
  p.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") {|f|
-     sole_format = f
+   sole_format = f
+ }
+ p.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, "Only export trackers having more than X keyframes") {|f| 
+   length_gate = f
  }
  p.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right") {|sx| x_shift = sx }
  p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
@@ -120,7 +124,7 @@ if sole_format
   end
 end
 
-pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix, lerpm |
+pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass) do | scaler, slipper, golden, reformat, shift, prefix, lerpm, len |
   slipper.slip = slip
   scaler.x_factor = scale_x
   scaler.y_factor = scale_y
@@ -131,5 +135,6 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   shift.y_shift = y_shift
   prefix.prefix = set_prefix
   lerpm.enabled = lerp
+  len.min_length = length_gate
 end
 STDOUT.puts("\rConverted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

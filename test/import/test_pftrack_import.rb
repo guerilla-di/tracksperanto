@@ -10,8 +10,9 @@ class PFTrackImportTest < Test::Unit::TestCase
   end
   
   def test_parsing_from_importable_pftrack_4
+    
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack4/sourcefile_pftrack.2dt')
-
+    
     parser = Tracksperanto::Import::PFTrack.new
     parser.width = 2560
     parser.height = 1080
@@ -45,4 +46,5 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal "Tracker121", trackers[0].name
     assert_equal 189, trackers[0].length
   end
+  
 end

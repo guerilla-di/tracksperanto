@@ -14,6 +14,6 @@ class PFTrack5ExportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/ref_PFTrack5.2dt"
   
   def test_export_output_written
-    create_reference_output Tracksperanto::Export::PFTrack5, P
+    ensure_same_output Tracksperanto::Export::PFTrack5, P
   end
 end

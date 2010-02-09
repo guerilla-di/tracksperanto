@@ -45,17 +45,22 @@ module ParabolicTracks
   
   residual_unit = 1.0 / x_uv_chain.length
   
+  SKIPS = [10,11]
   FIRST_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_1_from_top_left") do | t |
     tuples_for_tracker_1.each do | (f, x, y )|
       ax, ay = uv_to_abs(x, y, 1920, 1080)
-      t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
+      unless SKIPS.include?(f)
+        t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
+      end
     end
   end
   
   SECOND_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_2_from_bottom_right") do | t |
     tuples_for_tracker_2.each do | (f, x, y )|
       ax, ay = uv_to_abs(x, y, 1920, 1080)
-      t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
+      unless SKIPS.include?(f)
+        t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
+      end
     end
   end
   

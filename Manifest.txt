@@ -46,6 +46,7 @@ lib/tracksperanto/const_name.rb
 lib/tracksperanto/ext_io.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
+lib/tracksperanto/progressive_io.rb
 lib/tracksperanto/safety.rb
 lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
@@ -129,6 +130,7 @@ test/test_const_name.rb
 test/test_extio.rb
 test/test_format_detector.rb
 test/test_keyframe.rb
+test/test_progressive_io.rb
 test/test_simple_export.rb
 test/test_tracker.rb
 test/test_tracksperanto.rb

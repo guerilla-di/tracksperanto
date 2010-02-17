@@ -1,3 +1,7 @@
+=== 1.7.5 / 2010-02-17
+
+* Use a special IO so that we can display progress when parsing/reading a file (based on the IO offset)
+
 === 1.7.4 / 2010-02-02
 
 * Introduce an intentional gap in the reference exports to test trackers with gaps

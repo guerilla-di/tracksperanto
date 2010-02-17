@@ -13,6 +13,8 @@
 # and setup outputs for all supported export formats.
 class Tracksperanto::Pipeline::Base
   
+  include Tracksperanto::BlockInit
+  
   # How many points have been converted. In general, the pipeline does not preserve the parsed tracker objects
   # after they have been exported
   attr_reader :converted_points
@@ -83,16 +85,27 @@ class Tracksperanto::Pipeline::Base
   # If a block is passed, the block will receive the percent complete and the last
   # status message that you can pass back to the UI
   def run_export(tracker_data_io, parser, processor)
-    @ios << tracker_data_io
-    
     points, keyframes, percent_complete = 0, 0, 0.0
     
     yield(percent_complete, "Starting the parser") if block_given?
+    
+    # Report progress from the parser
     parser.progress_block = lambda do | message |
       yield(percent_complete, message) if block_given?
     end
     
-    trackers = parser.parse(tracker_data_io)
+    # Wrap the input in a progressive IO
+    io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io)
+    @ios << io_with_progress
+    
+    # Setup a lambda that will spy on the reader and update the percentage.
+    # We will only broadcast messages that come from the parser though (complementing it
+    # with a percentage)
+    io_with_progress.progress_block = lambda do | offset, of_total |
+      percent_complete = (50.0 / of_total) * offset
+    end
+    
+    trackers = parser.parse(io_with_progress)
     
     validate_trackers!(trackers)
     

@@ -25,7 +25,7 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
   end
   
   def start_tracker_segment(tracker_name)
-    @last_f, @tracker_name = nil, tracker_name
+    @last_registered_frame, @tracker_name = nil, tracker_name
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
@@ -38,14 +38,14 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
     # It's very important that we provide an outcome code for Syntheyes. Regular keyframes get
     # STATUS_STD, and after a gap we have to signal STATUS_REENABLE, otherwise this might bust solves
     def get_outcome_code(frame)
-      outcome = if @last_f.nil?
+      outcome = if @last_registered_frame.nil?
         STATUS_KF
-      elsif @last_f && (@last_f != frame -1)
+      elsif @last_registered_frame != (frame - 1)
         STATUS_REENABLE
       else
         STATUS_STD
       end
-      @last_f = frame
+      @last_registered_frame = frame
       outcome
     end
 end

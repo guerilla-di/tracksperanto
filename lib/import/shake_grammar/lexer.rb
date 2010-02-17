@@ -12,6 +12,8 @@ module Tracksperanto::ShakeGrammar
     attr_reader :sentinel
     
     STOP_TOKEN = :__stop #:nodoc:
+    MAX_BUFFER_SIZE = 32000
+    MAX_STACK_DEPTH = 127
     
     # The first argument is the IO handle to the data of the Shake script.
     # The second argument is a "sentinel" that is going to be passed
@@ -42,11 +44,11 @@ module Tracksperanto::ShakeGrammar
       
       c = @io.read(1)
       
-      if @buf.length > 32000 # Wrong format and the buffer is filled up, bail
+      if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
         raise WrongInput, "Buffer overflow at 32K, this is definitely not a Shake script"
       end
       
-      if @stack_depth > 127 # Wrong format - parentheses overload
+      if @stack_depth > MAX_STACK_DEPTH # Wrong format - parentheses overload
         raise WrongInput, "Stack overflow at level 128, this is probably a LISP program uploaded by accident"
       end
       

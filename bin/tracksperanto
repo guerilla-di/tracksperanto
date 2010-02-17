@@ -92,7 +92,6 @@ end
 input_file = ARGV.pop
 if !input_file
   STDERR.puts "No input file provided - should be the last argument"
-  puts parser
   exit(-1)
 end
 
@@ -100,20 +99,26 @@ class Spinner
   RING = ['|', '/', '-', '\\', '|', '/', '-', '\\']
   
   def initialize
-    @counter = 0
-    @last_message_length = 0
+    @counter, @last_len = 0, 0
   end
   
   def spin(percent, msg)
     current = RING[(@counter += 1) % RING.length]
     output = " [%s %d%%]" % [current, percent]
-    STDOUT.write(output + "\r" * output.length)
+    STDOUT.write(output + ("\r" * output.length))
     STDOUT.flush
+    @last_len = output.length
+  end
+  
+  def finish(with_message = '')
+    STDOUT.write("\r" * @last_len.to_i)
+    STDOUT.flush
+    STDOUT.puts(with_message)
   end
 end
 
-pipe = Tracksperanto::Pipeline::Base.new
-pipe.progress_block = Spinner.new.method(:spin).to_proc
+spinner = Spinner.new
+pipe = Tracksperanto::Pipeline::Base.new(:progress_block => spinner.method(:spin).to_proc)
 
 if sole_format
   begin
@@ -137,4 +142,5 @@ pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
   lerpm.enabled = lerp
   len.min_length = length_gate
 end
-STDOUT.puts("\rConverted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")
+
+spinner.finish("Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

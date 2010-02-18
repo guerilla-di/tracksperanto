@@ -1,4 +1,4 @@
-=== 1.8.0 / 2010-02-18
+=== 1.8.1 / 2010-02-18
 
 * Add Flame stabilizer export support
 

@@ -9,7 +9,6 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     "Flame/Smoke 2D Stabilizer setup"
   end
   
-  # Builder-like writer for Flame chanels
   def start_export( img_width, img_height)
     @counter = 0
     @width, @height = img_width, img_height

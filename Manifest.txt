@@ -7,6 +7,7 @@ bin/tracksperanto
 lib/export/base.rb
 lib/export/equalizer3.rb
 lib/export/equalizer4.rb
+lib/export/flame_stabilizer.rb
 lib/export/match_mover.rb
 lib/export/maya_live.rb
 lib/export/mux.rb
@@ -44,6 +45,7 @@ lib/tracksperanto/block_init.rb
 lib/tracksperanto/casts.rb
 lib/tracksperanto/const_name.rb
 lib/tracksperanto/ext_io.rb
+lib/tracksperanto/flame_builder.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
 lib/tracksperanto/progressive_io.rb
@@ -62,9 +64,11 @@ test/export/samples/ref_ShakeText.txt
 test/export/samples/ref_Syntheyes.txt
 test/export/samples/ref_equalizer.txt
 test/export/samples/ref_equalizer3.txt
+test/export/samples/ref_flame.stabilizer
 test/export/samples/ref_matchmover.rz2
 test/export/test_equalizer3_export.rb
 test/export/test_equalizer_export.rb
+test/export/test_flame_stabilizer_export.rb
 test/export/test_match_mover_export.rb
 test/export/test_maya_live_export.rb
 test/export/test_mux.rb
@@ -128,6 +132,7 @@ test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
 test/test_const_name.rb
 test/test_extio.rb
+test/test_flame_builder.rb
 test/test_format_detector.rb
 test/test_keyframe.rb
 test/test_progressive_io.rb

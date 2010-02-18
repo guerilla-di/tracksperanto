@@ -7,30 +7,40 @@ class FlameBuilderTest < Test::Unit::TestCase
   end
   
   def test_write_loose
-    @b.write_loose("Foo")
+    @b.write_loose!("Foo")
     assert_equal "Foo\n", @s
   end
 
   def test_write_tuple
-    @b.write_tuple("Foo", 3)
+    @b.write_tuple!("Foo", 3)
     assert_equal "Foo 3\n", @s
   end
 
   def test_write_tuple_with_true
-    @b.write_tuple("Foo", true)
+    @b.write_tuple!("Foo", true)
     assert_equal "Foo yes\n", @s
   end
 
   def test_write_tuple_with_false
-    @b.write_tuple("Foo", false)
+    @b.write_tuple!("Foo", false)
     assert_equal "Foo no\n", @s
   end
   
   def test_write_block
-    @b.write_block("Foo", 1) do | b |
-      b.write_tuple("Baz", 2)
+    @b.write_block!("Foo", 1) do | b |
+      b.write_tuple!("Baz", 2)
     end
     assert_equal "Foo 1\n\tBaz 2\n\tEnd\n", @s
+  end
+  
+  def test_write_block_with_no_arg
+    @b.foo {|c| c.bar }
+    assert_equal "Foo\n\tBar\n\tEnd\n", @s
+  end
+  
+  def test_write_block_with_args
+    @b.foo(:bar) {|c| c.bar }
+    assert_equal "Foo bar\n\tBar\n\tEnd\n", @s
   end
   
   def test_automissing_with_values

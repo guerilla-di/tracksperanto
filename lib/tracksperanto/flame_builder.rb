@@ -6,18 +6,18 @@ class Tracksperanto::FlameBuilder
     @io, @indent = io, indent
   end
   
-  def write_block(name, value = nil, &blk)
-    value.nil? ? write_loose(name) : write_tuple(name, value)
+  def write_block!(name, value = nil, &blk)
+    value.nil? ? write_loose!(name) : write_tuple!(name, value)
     yield(self.class.new(@io, @indent + 1))
     @io.puts(INDENT * (@indent + 1) + "End")
   end
   
-  def write_tuple(key, value)
-    @io.puts("%s%s %s" % [INDENT * @indent, camelize(key), flameize(value)])
+  def write_tuple!(key, value)
+    @io.puts("%s%s %s" % [INDENT * @indent, __camelize(key), __flameize(value)])
   end
   
-  def write_loose(value)
-    @io.puts("%s%s" % [INDENT * @indent, camelize(value)])
+  def write_loose!(value)
+    @io.puts("%s%s" % [INDENT * @indent, __camelize(value)])
   end
   
   def linebreak!(how_many = 1)
@@ -25,7 +25,7 @@ class Tracksperanto::FlameBuilder
   end
   
   def color_hash!(name, red, green, blue)
-    write_loose(name)
+    write_loose!(name)
     n = self.class.new(@io, @indent + 1)
     n.red(red)
     n.green(green)
@@ -35,18 +35,27 @@ class Tracksperanto::FlameBuilder
   private
   
   def method_missing(meth, arg = nil)
+    self.class.send(:alias_method, meth, :__generic)
     if block_given?
-      write_block(meth, arg) { |c| yield(c) }
+      __generic(meth, arg) {|*a| yield(*a) if block_given? }
     else
-      arg.nil? ? write_loose(meth) : write_tuple(meth, arg)
+      __generic(meth, arg)
     end
   end
   
-  def camelize(s)
+  def __generic(meth, arg = nil)
+    if block_given?
+      write_block!(meth, arg) { |c| yield(c) }
+    else
+      arg.nil? ? write_loose!(meth) : write_tuple!(meth, arg)
+    end
+  end
+  
+  def __camelize(s)
     s.to_s.gsub(/(^|_)(.)/) { $2.upcase }
   end
   
-  def flameize(v)
+  def __flameize(v)
     case v
       when Float
         "%.3f" % v

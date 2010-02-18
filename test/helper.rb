@@ -72,14 +72,14 @@ module ParabolicTracks
     end
   end
   
-  def ensure_same_output(exporter_klass, reference_path)
+  def ensure_same_output(exporter_klass, reference_path, message = "Should write identical output")
     io = StringIO.new
     x = exporter_klass.new(io)
     yield(x) if block_given?
     export_parabolics_with(x)
     io.close
     
-    assert_equal File.read(reference_path), io.string
+    assert_equal File.read(reference_path), io.string, message
   end
   
   def export_parabolics_with(exporter)

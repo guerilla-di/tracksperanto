@@ -70,10 +70,10 @@ Import and export support:
 * 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
 * MayaLive track export (square pixel aspect only)
+* Flame .stabilizer file
 
 Import only:
 * Boujou feature track export
-* Flame .stabilizer file (not the .stabilizer.p blob format)
 * Shake script (Tracker, Matchmove and Stabilize nodes)
 
 == Modularity

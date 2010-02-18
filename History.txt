@@ -1,3 +1,7 @@
+=== 1.8.0 / 2010-02-18
+
+* Add Flame stabilizer export support
+
 === 1.7.5 / 2010-02-17
 
 * Use a special IO so that we can display progress when parsing/reading a file (based on the IO offset)

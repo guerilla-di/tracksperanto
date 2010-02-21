@@ -2,16 +2,14 @@
 # (useful for building progress bars that report on a file read operation)
 class Tracksperanto::ProgressiveIO < DelegateClass(IO)
   
-  # Should contain a block that accepts the current offset in bytes and the total size
-  attr_accessor :progress_block
-  
   # Get or set the total size of the contained IO. If the passed IO is a File object 
   # the size will be preset automatically
   attr_accessor :total_size
   
-  def initialize(with_file)
+  def initialize(with_file, &progress_block)
     __setobj__(with_file)
     @total_size = with_file.stat.size if with_file.respond_to?(:stat)
+    @progress_block = progress_block.to_proc if progress_block
   end
   
   def each(sep_string = $/, &blk)

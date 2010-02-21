@@ -59,9 +59,11 @@ class Tracksperanto::Pipeline::Base
     # Yield middlewares to the block
     yield(*middlewares) if block_given?
     
-    @converted_points, @converted_keyframes = run_export(read_data, importer, middlewares[-1]) do | p, m |
-      @progress_block.call(p, m) if @progress_block
-    end
+    @converted_points, @converted_keyframes = run_export(read_data, importer, middlewares[-1])
+  end
+  
+  def report_progress(percent_complete, message)
+    @progress_block.call(percent_complete, message) if @progress_block
   end
   
   def detect_importer_or_use_options(path, opts)
@@ -87,31 +89,26 @@ class Tracksperanto::Pipeline::Base
   def run_export(tracker_data_io, parser, processor)
     points, keyframes, percent_complete = 0, 0, 0.0
     
-    yield(percent_complete, "Starting the parser") if block_given?
+    report_progress(percent_complete, "Starting the parser")
     
     # Report progress from the parser
-    parser.progress_block = lambda do | message |
-      yield(percent_complete, message) if block_given?
-    end
+    parser.progress_block = lambda { | m | report_progress(percent_complete, m) }
     
-    # Wrap the input in a progressive IO
-    io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io)
-    @ios << io_with_progress
-    
-    # Setup a lambda that will spy on the reader and update the percentage.
-    # We will only broadcast messages that come from the parser though (complementing it
-    # with a percentage)
-    io_with_progress.progress_block = lambda do | offset, of_total |
+    # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
+    # update the percentage. We will only broadcast messages that come from the parser 
+    # though (complementing it with a percentage)
+    io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io) do | offset, of_total |
       percent_complete = (50.0 / of_total) * offset
     end
+    @ios << io_with_progress
     
     trackers = parser.parse(io_with_progress)
     
-    yield(percent_complete = 50.0, "Validating #{trackers.length} imported trackers") if block_given?
+    report_progress(percent_complete = 50.0, "Validating #{trackers.length} imported trackers")
     
     validate_trackers!(trackers)
     
-    yield(percent_complete, "Starting export") if block_given?
+    report_progress(percent_complete, "Starting export")
     
     percent_per_tracker = (100.0 - percent_complete) / trackers.length
     
@@ -124,13 +121,13 @@ class Tracksperanto::Pipeline::Base
       t.each_with_index do | kf, idx |
         keyframes += 1
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-        yield(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}") if block_given?
+        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{trackers.length - idx + 1} trackers to go")
       end
       processor.end_tracker_segment
     end
     processor.end_export
     
-    yield(100.0, "Wrote #{points} points and #{keyframes} keyframes") if block_given?
+    report_progress(100.0, "Wrote #{points} points and #{keyframes} keyframes")
     
     [points, keyframes]
   ensure
@@ -176,7 +173,7 @@ class Tracksperanto::Pipeline::Base
   
   # Check that the trackers made by the parser are A-OK
   def validate_trackers!(trackers)
-    trackers.reject!{|t| t.length < 2 }
+    trackers.reject!{|t| t.empty? }
     raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?" if trackers.empty?
   end
 end

@@ -5,11 +5,12 @@ class Tracksperanto::ProgressiveIO < DelegateClass(IO)
   # Get or set the total size of the contained IO. If the passed IO is a File object 
   # the size will be preset automatically
   attr_accessor :total_size
+  attr_accessor :progress_block
   
-  def initialize(with_file, &progress_block)
+  def initialize(with_file, &blk)
     __setobj__(with_file)
     @total_size = with_file.stat.size if with_file.respond_to?(:stat)
-    @progress_block = progress_block.to_proc if progress_block
+    @progress_block = blk.to_proc if blk
   end
   
   def each(sep_string = $/, &blk)

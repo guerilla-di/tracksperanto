@@ -21,6 +21,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   private
   
   def detect_format(io)
+    report_progress("Detecting width and height")
     lines = (0..2).map{ io.gets }
     last_line = lines[-1]
     w, h, _ = last_line.scan(/(\d+)/).flatten
@@ -37,10 +38,12 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   
   def extract_track(start_line, io)
     tracker_name = start_line.scan(/\"([^\"]+)\"/).flatten[0]
+    report_progress("Extracting tracker #{tracker_name}")
     t = Tracksperanto::Tracker.new(:name => tracker_name)
     while(line = io.gets) do
       return t if line =~ /\}/
       t.keyframes.push(extract_key(line.strip)) if line =~ /^(\s+?)(\d)/
+      report_progress("Extracting keyframe")
     end
     raise "Track didn't close"
   end

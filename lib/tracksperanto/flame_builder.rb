@@ -33,27 +33,6 @@ class Tracksperanto::FlameBuilder
     n.blue(blue)
   end
   
-  @@boilerplate = {}
-  
-  # method_missing is expensive. Since alot of things we pass to the Builder are the same,
-  # we can wrap a call to it into boilerplate! with a certain name attached. On the first call, the usual
-  # method_missing sequence will fire and a document segment will be built. This segment (already indented)
-  # will be cached for further reuse - when the same boilerplate segment is called for, the builder will
-  # print the string verbatim and will not call the block at all
-  def boilerplate!(segment_name, &blk)
-    unless @@boilerplate[segment_name]
-      begin
-        @stash = @io
-        @io = StringIO.new
-        yield
-        @@boilerplate[segment_name] = @io.string
-      ensure
-        @io = @stash
-      end
-    end
-    @io.write(@@boilerplate[segment_name])
-  end
-  
   private
   
   def method_missing(meth, arg = nil)

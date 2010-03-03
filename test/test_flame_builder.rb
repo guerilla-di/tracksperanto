@@ -7,12 +7,6 @@ class FlameBuilderTest < Test::Unit::TestCase
     @b = Tracksperanto::FlameBuilder.new(StringIO.new(@s))
   end
   
-  def test_boilerplate_cache
-    1000.times do
-      @b.boilerplate!("segment") { 200.times { @b.foo } }
-    end
-  end
-  
   def test_write_loose
     @b.write_loose!("Foo")
     assert_equal "Foo\n", @s

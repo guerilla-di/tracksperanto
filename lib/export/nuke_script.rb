@@ -45,7 +45,7 @@ Constant {
       # We allocate an IO for the file being output that will contain all the trackers,
       # and then write that one into the script preceded by the preamble that sets length
       # based on the last frame position in time
-      @trackers_io = Tempfile.new("nukex")
+      @trackers_io = Tracksperanto::BufferIO.new
     end
     
     # We accumulate a tracker and on end dump it out in one piece

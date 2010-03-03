@@ -69,7 +69,7 @@ Import and export support:
 * Syntheyes 2D tracking data exports
 * 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
-* MayaLive track export (square pixel aspect only)
+* MayaLive track export (square pixel aspect only, you will need to write some extra code to convert that)
 * Flame .stabilizer file
 
 Import only:
@@ -97,6 +97,11 @@ are themselves arrays of Tracksperanto::Keyframe objects.
 == Exporting your own formats
 
 You can easily write an exporter. Refer to the Tracksperanto::Export::Base docs.
+
+== Ading your own processing steps
+
+You probably want to write a Middleware (consult the Tracksperanto::Middleware::Base docs). A Middleware is just like
+an exporter, except that it wraps another exporter instead (so you can intercept export calls and massage the data as it is moving through).
 
 == Limitations
 

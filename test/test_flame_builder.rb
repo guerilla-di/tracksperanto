@@ -1,9 +1,16 @@
 require File.dirname(__FILE__) + '/helper'
+require "benchmark"
 
 class FlameBuilderTest < Test::Unit::TestCase
   def setup
     @s = ""
     @b = Tracksperanto::FlameBuilder.new(StringIO.new(@s))
+  end
+  
+  def test_boilerplate_cache
+    1000.times do
+      @b.boilerplate!("segment") { 200.times { @b.foo } }
+    end
   end
   
   def test_write_loose

@@ -1,6 +1,7 @@
 # Used for IO objects that need to report the current offset at each operation that changes the said offset
 # (useful for building progress bars that report on a file read operation)
 class Tracksperanto::ProgressiveIO < DelegateClass(IO)
+  include Tracksperanto::Returning
   
   # Get or set the total size of the contained IO. If the passed IO is a File object 
   # the size will be preset automatically
@@ -68,9 +69,6 @@ class Tracksperanto::ProgressiveIO < DelegateClass(IO)
   end
   
   private
-    def returning(r)
-      yield; r
-    end
     
     def notify_read
       @progress_block.call(pos, @total_size) if @progress_block

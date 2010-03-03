@@ -42,6 +42,7 @@ lib/middleware/slipper.rb
 lib/pipeline/base.rb
 lib/tracksperanto.rb
 lib/tracksperanto/block_init.rb
+lib/tracksperanto/buffer_io.rb
 lib/tracksperanto/casts.rb
 lib/tracksperanto/const_name.rb
 lib/tracksperanto/ext_io.rb
@@ -49,6 +50,7 @@ lib/tracksperanto/flame_builder.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
 lib/tracksperanto/progressive_io.rb
+lib/tracksperanto/returning.rb
 lib/tracksperanto/safety.rb
 lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
@@ -130,6 +132,7 @@ test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
+test/test_buffer_io.rb
 test/test_const_name.rb
 test/test_extio.rb
 test/test_flame_builder.rb

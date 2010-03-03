@@ -14,7 +14,7 @@ class Tracksperanto::Export::Equalizer3 < Tracksperanto::Export::Base
   def start_export( img_width, img_height)
     @w, @h = img_width, img_height
     # 3DE needs to know the number of keyframes in advance
-    @buffer = Tempfile.new("ts3dex")
+    @buffer = Tracksperanto::BufferIO.new
     @highest_keyframe = 0
   end
   

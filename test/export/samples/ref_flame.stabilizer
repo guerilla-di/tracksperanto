@@ -101,14 +101,6 @@ Channel tracker1/ref/dx
 		Interpolation constant
 		End
 	End
-Channel tracker1/offset/x
-	Extrapolation constant
-	Value 0
-	End
-Channel tracker1/offset/y
-	Extrapolation constant
-	Value 0
-	End
 Channel tracker1/ref/dy
 	Extrapolation constant
 	Value 0
@@ -494,14 +486,6 @@ Channel tracker2/ref/dx
 		DeleteLock yes
 		Interpolation constant
 		End
-	End
-Channel tracker2/offset/x
-	Extrapolation constant
-	Value 0
-	End
-Channel tracker2/offset/y
-	Extrapolation constant
-	Value 0
 	End
 Channel tracker2/ref/dy
 	Extrapolation constant

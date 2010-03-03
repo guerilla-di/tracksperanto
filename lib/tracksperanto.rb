@@ -59,6 +59,7 @@ module Tracksperanto
 end
 
 %w(
+  returning
   const_name
   casts
   block_init
@@ -69,6 +70,7 @@ end
   format_detector
   ext_io
   progressive_io
+  buffer_io
   simple_export
   uv_coordinates
   flame_builder

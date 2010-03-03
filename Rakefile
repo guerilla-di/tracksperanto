@@ -8,6 +8,7 @@ begin
     (Hoe::RUBY_DEBUG ? " #{RUBY_DEBUG}" : '')
   
   Hoe.spec('tracksperanto') do | p |
+    p.clean_globs = %w( **/.DS_Store )
     p.version = Tracksperanto::VERSION
     p.extra_dev_deps = {"flexmock" => ">=0"}
     p.rubyforge_name = 'guerilla-di'

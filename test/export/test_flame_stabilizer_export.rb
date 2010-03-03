@@ -7,7 +7,7 @@ class FlameStabilizerExportTestTest < Test::Unit::TestCase
   def test_export_output_written
     t = Time.local(2010, "Feb", 18, 17, 22, 12)
     flexmock(Time).should_receive(:now).once.and_return(t)
-    ensure_same_output Tracksperanto::Export::FlameStabilizer, P
+    ensure_same_output Tracksperanto::Export::FlameStabilizer, P 
   end
   
   def test_exporter_meta

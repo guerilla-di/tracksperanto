@@ -13,20 +13,24 @@ class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     
     def start_tracker_segment(tracker_name)
       # Setup for the next tracker
-      @prev_tracker = []
+      @frame_count = 0
       @tracker_name = tracker_name
+      @tracker_io = Tracksperanto::BufferIO.new
     end
     
     def end_tracker_segment
-      block = [ "\n",
-        @tracker_name.inspect, # "autoquotes"
-        @prev_tracker.length,
-        @prev_tracker.join("\n") ]
-      @io.puts block.join("\n")
+      @io.write("\n\n")
+      @io.puts(@tracker_name.inspect) # autoquotes
+      @io.puts(@frame_count)
+      
+      @tracker_io.rewind
+      @io.write(@tracker_io.read) until @tracker_io.eof?
+      @tracker_io.close!
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
+      @frame_count += 1
       line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual / 8]
-      @prev_tracker << line
+      @tracker_io.puts(line)
     end
 end

@@ -12,13 +12,13 @@ class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
   def start_export( img_width, img_height)
     # 3DE needs to know the number of points in advance,
     # so we will just buffer to a StringIO
-    @internal_io, @num_of_trackers = Tempfile.new("teq4x"), 0
+    @internal_io, @num_of_trackers = Tracksperanto::BufferIO.new, 0
   end
   
   def start_tracker_segment(tracker_name)
     @internal_io.puts(tracker_name)
     @num_of_trackers += 1
-    @tracker_buffer, @num_of_kfs = Tempfile.new("teq4x_p"), 0
+    @tracker_buffer, @num_of_kfs = Tracksperanto::BufferIO.new, 0
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)

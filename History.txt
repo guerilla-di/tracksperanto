@@ -1,3 +1,5 @@
+* Buffer temporary outputs to String buffers until they reach a certain size. Helps with tempfile pollution and IO speed
+
 === 1.8.1 / 2010-02-18
 
 * Add Flame stabilizer export support

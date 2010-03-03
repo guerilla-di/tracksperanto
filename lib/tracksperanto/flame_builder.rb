@@ -33,6 +33,12 @@ class Tracksperanto::FlameBuilder
     n.blue(blue)
   end
   
+  def <<(some_verbatim_string)
+    some_verbatim_string.split("\n").each do | line |
+      @io.puts(["\t" * @indent, line].join)
+    end
+  end
+  
   private
   
   def method_missing(meth, arg = nil)

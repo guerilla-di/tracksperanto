@@ -79,27 +79,34 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
   
   private
   
+  def generate_fragment
+    c = StringIO.new
+    yield(Tracksperanto::FlameBuilder.new(c))
+    c.string
+  end
+  
   # The shift channel is what determines how the tracking point moves.
   def write_shift_channel(name_without_prefix, values)
-    @writer.channel(prefix(name_without_prefix)) do | c |
+    @writer.channel(replace_tracker_name("tracker1/#{name_without_prefix}")) do | c |
       c.extrapolation :constant
       c.value values[0][1]
       c.key_version 1
       c.size values.length
       values.each_with_index do | (f, v), i |
-        c.key(i) do | k |
-          k.frame f
-          k.value v
-          k.interpolation :linear
-          k.left_slope 2.4
-          k.right_slope 2.4
+        # Cache the fragment used for the keyframe
+        @shift_key ||= generate_fragment do | b |
+          b.key(:keyIDX) do | k |
+            k.frame :theF
+            k.value :theV
+            k.interpolation :linear
+            k.left_slope 2.4
+            k.right_slope 2.4
+          end
         end
+        v = i.zero? ? "0" : "%.3f" % v
+        c << @shift_key.gsub(/theF/m, f.to_s).gsub(/theV/m, v).gsub(/keyIDX/m, i.to_s)
       end
     end
-  end
-  
-  def prefix(tracker_channel)
-    ["tracker#{@counter}", tracker_channel].join("/")
   end
   
   def write_header_with_number_of_trackers(number_of_trackers)
@@ -135,100 +142,123 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     write_offset_channels
   end
   
+  
+  # track determines where the tracking box is, and should be in the center
+  # of the image for Flame to compute all other shifts properly
   def write_track_channels
-    ctr_x, ctr_y = @width / 2, @height / 2
-    
-    # track determines where the tracking box is, and should be in the center
-    # of the image for Flame to compute all other shifts properly
-    %w( track/x track/y).map(&method(:prefix)).zip([ctr_x, ctr_y]).each do | cname, default |
-      @writer.channel(cname) do | c |
-        c.extrapolation("constant")
-        c.value(default.to_i)
-        c.colour(COLOR)
+    @track_channels ||= generate_fragment do | b |
+      ctr_x, ctr_y = @width / 2, @height / 2
+      %w( tracker1/track/x tracker1/track/y).zip([ctr_x, ctr_y]).each do | cname, default |
+        b.channel(cname) do | c |
+          c.extrapolation("constant")
+          c.value(default.to_i)
+          c.colour(COLOR)
+        end
       end
     end
+    @writer << replace_tracker_name(@track_channels)
   end
 
   # The size of the tracking area
   def write_track_width_and_height
-    %w( track/width track/height ).map(&method(:prefix)).each do | channel_name |
-      @writer.channel(channel_name) do | c |
-        c.extrapolation :linear
-        c.value 15
-        c.colour COLOR
+    @track_w_h ||= generate_fragment do | b |
+      %w( tracker1/track/width tracker1/track/height ).each do | channel_name |
+        b.channel(channel_name) do | c |
+          c.extrapolation :linear
+          c.value 15
+          c.colour COLOR
+        end
       end
     end
+    @writer << replace_tracker_name(@track_w_h)
   end
   
   # The size of the reference area
   def write_ref_width_and_height
-    %w( ref/width ref/height).map(&method(:prefix)).each do | channel_name |
-      @writer.channel(channel_name) do | c |
-        c.extrapolation :linear
-        c.value 10
-        c.colour COLOR
+    @ref_w_h ||= generate_fragment do | b |
+      %w( tracker1/ref/width tracker1/ref/height).each do | channel_name |
+        b.channel(channel_name) do | c |
+          c.extrapolation :linear
+          c.value 10
+          c.colour COLOR
+        end
       end
     end
+    @writer << replace_tracker_name(@ref_w_h)
   end
-
+  
   # The Ref channel contains the reference for the shift channel in absolute
   # coordinates, and is set as float. Since we do not "snap" the tracker in
   # the process it's enough for us to make one keyframe in the ref channels
   # at the same frame as the first shift keyframe
   def write_ref_channels(ref_x, ref_y)
-    %w( ref/x ref/y).map(&method(:prefix)).zip([ref_x, ref_y]).each do | cname, default |
-      @writer.channel(cname) do | c |
-        c.extrapolation("constant")
-        c.value(default)
-        c.colour(COLOR)
-        c.key_version 1
-        c.size 1
-        c.key(0) do | k |
-          k.frame 1
-          k.value default
-          k.interpolation :constant
-          k.left_slope 2.4
-          k.right_slope 2.4
+    @ref_chan ||= generate_fragment do | b |
+      %w( tracker1/ref/x tracker1/ref/y).zip(["vx", "vy"]).each do | cname, default |
+        b.channel(cname) do | c |
+          c.extrapolation("constant")
+          c.value(default)
+          c.colour(COLOR)
+          c.key_version 1
+          c.size 1
+          c.key(0) do | k |
+            k.frame 1
+            k.value default
+            k.interpolation :constant
+            k.left_slope 2.4
+            k.right_slope 2.4
+          end
         end
       end
     end
+    ref_x, ref_y = [ref_x, ref_y].map{|e| "%.3f" % e }
+    @writer << replace_tracker_name(@ref_chan).gsub(/vx/m, ref_x).gsub(/vy/, ref_y)
   end
   
+  # This is used for deltax and deltay (offset tracking).
+  # We set it to zero and lock
   def write_deltax_and_deltay_channels
-    # This is used for deltax and deltay (offset tracking).
-    # We set it to zero and lock
-    %w( ref/dx ref/dy).map(&method(:prefix)).each do | chan, v |
-      @writer.channel(chan) do | c |
-        c.extrapolation("constant")
-        c.value 0
-        c.colour(COLOR)
-        c.size 2
-        c.key_version 1
-        c.key(0) do | k |
-          k.frame 0
-          k.value 0
-          k.value_lock true
-          k.delete_lock true
-          k.interpolation :constant
-        end
-        c.key(1) do | k |
-          k.frame 1
-          k.value 0
-          k.value_lock true
-          k.delete_lock true
-          k.interpolation :constant
-        end
-      end # Chan block
+    @dx_dy ||= generate_fragment do | b |
+      %w( tracker1/ref/dx tracker1/ref/dy).each do | chan, v |
+        b.channel(chan) do | c |
+          c.extrapolation("constant")
+          c.value 0
+          c.colour(COLOR)
+          c.size 2
+          c.key_version 1
+          c.key(0) do | k |
+            k.frame 0
+            k.value 0
+            k.value_lock true
+            k.delete_lock true
+            k.interpolation :constant
+          end
+          c.key(1) do | k |
+            k.frame 1
+            k.value 0
+            k.value_lock true
+            k.delete_lock true
+            k.interpolation :constant
+          end
+        end # Chan block
+      end
     end
+    
+    @writer << replace_tracker_name(@dx_dy)
   end
   
   def write_offset_channels
-    %w(offset/x offset/y).map(&method(:prefix)).each do | c |
-      @writer.channel(c) do | chan |
-        chan.extrapolation :constant
-        chan.value 0
+    @offset ||= generate_fragment do | b |
+      %w(tracker1/offset/x tracker1/offset/y).each do | c |
+        @writer.channel(c) do | chan |
+          chan.extrapolation :constant
+          chan.value 0
+        end
       end
     end
+    @writer << replace_tracker_name(@offset)
   end
   
+  def replace_tracker_name(in_str)
+    in_str.gsub(/tracker1/m, "tracker#{@counter}")
+  end
 end

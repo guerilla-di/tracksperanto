@@ -44,7 +44,7 @@ class Tracksperanto::FlameBuilder
     else
       if arg.nil?
         method_body = "def #{meth};"+                          #  def foo
-          "write_loose!(#{meth.inspect}, v){|c| yield(c)};"+   #  write_loose!("foo")
+          "write_loose!(#{meth.inspect});"+   #  write_loose!("foo")
         "end"                                                 #  end
         self.class.send(:class_eval, method_body)
         write_loose!(meth)
@@ -59,7 +59,8 @@ class Tracksperanto::FlameBuilder
   end
   
   def __camelize(s)
-    s.to_s.gsub(/(^|_)(.)/) { $2.upcase }
+    @@camelizations ||= {}
+    @@camelizations[s] ||= s.to_s.gsub(/(^|_)(.)/) { $2.upcase }
   end
   
   def __flameize(v)

@@ -114,14 +114,14 @@ class Tracksperanto::Pipeline::Base
     
     # Use the width and height provided by the parser itself
     processor.start_export(parser.width, parser.height)
-    trackers.each do | t |
+    trackers.each_with_index do | t, tracker_idx |
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
       processor.start_tracker_segment(t.name)
       t.each_with_index do | kf, idx |
         keyframes += 1
         processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{trackers.length - idx + 1} trackers to go")
+        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{trackers.length - tracker_idx} trackers to go")
       end
       processor.end_tracker_segment
     end

@@ -35,7 +35,7 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     # Send the ChannelEnd command and list the trackers
     @writer.channel_end
     @counter.times do |i|
-      @writer.tracker(i) do |t|
+      @writer.write_unterminated_block!("tracker", i) do |t|
         t.active true
         t.color_hash!("colour", 0, 100, 0)
         t.fixed_ref true

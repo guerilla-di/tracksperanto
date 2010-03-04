@@ -508,6 +508,14 @@ Channel tracker2/ref/dy
 		Interpolation constant
 		End
 	End
+Channel tracker2/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/offset/y
+	Extrapolation constant
+	Value 0
+	End
 Channel tracker2/shift/x
 	Extrapolation constant
 	Value 0
@@ -797,7 +805,6 @@ Tracker 0
 	FixedX no
 	FixedY no
 	Tolerance 100
-	End
 Tracker 1
 	Active yes
 	Colour
@@ -808,4 +815,3 @@ Tracker 1
 	FixedX no
 	FixedY no
 	Tolerance 100
-	End

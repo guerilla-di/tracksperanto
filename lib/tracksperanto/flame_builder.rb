@@ -12,6 +12,11 @@ class Tracksperanto::FlameBuilder
     @io.puts(INDENT * (@indent + 1) + "End")
   end
   
+  def write_unterminated_block!(name, value = nil, &blk)
+    value.nil? ? write_loose!(name) : write_tuple!(name, value)
+    yield(self.class.new(@io, @indent + 1))
+  end
+  
   def write_tuple!(key, value)
     @io.puts("%s%s %s" % [INDENT * @indent, __camelize(key), __flameize(value)])
   end
@@ -25,11 +30,11 @@ class Tracksperanto::FlameBuilder
   end
   
   def color_hash!(name, red, green, blue)
-    write_loose!(name)
-    n = self.class.new(@io, @indent + 1)
-    n.red(red)
-    n.green(green)
-    n.blue(blue)
+    write_unterminated_block!(name) do | b |
+      b.red(red)
+      b.green(green)
+      b.blue(blue)
+    end
   end
   
   def <<(some_verbatim_string)
@@ -42,23 +47,11 @@ class Tracksperanto::FlameBuilder
   
   def method_missing(meth, arg = nil)
     if block_given?
-      method_body = "def #{meth}(v);"+                          #  def foo(v)
-        "write_block!(#{meth.inspect}, v){|c| yield(c)};"+      #    write_block!("foo", v) {|c| yield(c) }
-      "end"                                                     #  end
-      self.class.send(:class_eval, method_body)
       write_block!(meth, arg) {|c| yield(c) }
     else
       if arg.nil?
-        method_body = "def #{meth};"+                          #  def foo
-          "write_loose!(#{meth.inspect});"+                    #    write_loose!("foo")
-        "end"                                                  #  end
-        self.class.send(:class_eval, method_body)
         write_loose!(meth)
       else
-        method_body = "def #{meth}(v);"+                       #  def foo(bar)
-          "write_tuple!(#{meth.inspect}, v);"+                 #    write_tuple!("foo", bar)
-        "end"                                                  #  end
-        self.class.send(:class_eval, method_body)
         write_tuple!(meth, arg)
       end
     end

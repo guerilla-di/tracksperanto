@@ -44,20 +44,20 @@ class Tracksperanto::FlameBuilder
     if block_given?
       method_body = "def #{meth}(v);"+                          #  def foo(v)
         "write_block!(#{meth.inspect}, v){|c| yield(c)};"+      #    write_block!("foo", v) {|c| yield(c) }
-      "end"                                                   #  end
+      "end"                                                     #  end
       self.class.send(:class_eval, method_body)
       write_block!(meth, arg) {|c| yield(c) }
     else
       if arg.nil?
         method_body = "def #{meth};"+                          #  def foo
-          "write_loose!(#{meth.inspect});"+   #  write_loose!("foo")
-        "end"                                                 #  end
+          "write_loose!(#{meth.inspect});"+                    #    write_loose!("foo")
+        "end"                                                  #  end
         self.class.send(:class_eval, method_body)
         write_loose!(meth)
       else
-        method_body = "def #{meth}(v);"+                      #  def foo(bar)
-          "write_tuple!(#{meth.inspect}, v);"+                 #  write_tuple!("foo", bar)
-        "end"                                                 #  end
+        method_body = "def #{meth}(v);"+                       #  def foo(bar)
+          "write_tuple!(#{meth.inspect}, v);"+                 #    write_tuple!("foo", bar)
+        "end"                                                  #  end
         self.class.send(:class_eval, method_body)
         write_tuple!(meth, arg)
       end

@@ -1,3 +1,6 @@
+=== 1.8.2 / 2010-03-04
+
+* Fix the bug in the Flame exporter that was convincing Flame that there is only one tracker in the setup
 * Buffer temporary outputs to String buffers until they reach a certain size. Helps with tempfile pollution and IO speed
 
 === 1.8.1 / 2010-02-18

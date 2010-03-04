@@ -2,7 +2,6 @@
 class Tracksperanto::FlameBuilder
   INDENT = "\t"
   
-  
   def initialize(io, indent = 0)
     @io, @indent = io, indent
   end
@@ -36,19 +35,26 @@ class Tracksperanto::FlameBuilder
   private
   
   def method_missing(meth, arg = nil)
-    self.class.send(:alias_method, meth, :__generic)
     if block_given?
-      __generic(meth, arg) {|*a| yield(*a) if block_given? }
+      method_body = "def #{meth}(v);"+                          #  def foo(v)
+        "write_block!(#{meth.inspect}, v){|c| yield(c)};"+      #    write_block!("foo", v) {|c| yield(c) }
+      "end"                                                   #  end
+      self.class.send(:class_eval, method_body)
+      write_block!(meth, arg) {|c| yield(c) }
     else
-      __generic(meth, arg)
-    end
-  end
-  
-  def __generic(meth, arg = nil)
-    if block_given?
-      write_block!(meth, arg) { |c| yield(c) }
-    else
-      arg.nil? ? write_loose!(meth) : write_tuple!(meth, arg)
+      if arg.nil?
+        method_body = "def #{meth};"+                          #  def foo
+          "write_loose!(#{meth.inspect}, v){|c| yield(c)};"+   #  write_loose!("foo")
+        "end"                                                 #  end
+        self.class.send(:class_eval, method_body)
+        write_loose!(meth)
+      else
+        method_body = "def #{meth}(v);"+                      #  def foo(bar)
+          "write_tuple!(#{meth.inspect}, v);"+                 #  write_tuple!("foo", bar)
+        "end"                                                 #  end
+        self.class.send(:class_eval, method_body)
+        write_tuple!(meth, arg)
+      end
     end
   end
   

@@ -12,4 +12,6 @@ that the export works
 The current test set consists of the two parabolic curves that cross. The second
 parabolic curve goes left, the first one - right, and they start at opposite
 corners of the reference 1920x1080 export. At the first point the track has the residual of 0,
-at the end of the curve - the biggest residual (PFTrack marks it red exactly at the last keyframe)
+at the end of the curve - the biggest residual (PFTrack marks it red exactly at the last keyframe).
+
+In the middle of the curves a couple of keyframes is skipped to verify that proper gaps are written into the export.

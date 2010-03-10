@@ -2,6 +2,7 @@
 class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   PREAMBLE = "TrackName %s\n   Frame             X             Y   Correlation\n"
   POSTAMBLE = "\n"
+  TEMPLATE = "   %.2f   %.3f   %.3f   %.3f"
   
   def self.desc_and_extension
     "shake_trackers.txt"
@@ -21,7 +22,7 @@ class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
    
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     # Shake starts from frame 1, not 0
-    line = "   %.2f   %.3f   %.3f   %.3f" % [frame + 1, abs_float_x, abs_float_y, 1 - float_residual]
+    line = TEMPLATE % [frame + 1, abs_float_x, abs_float_y, 1 - float_residual]
     @io.puts line
   end
 end

@@ -7,8 +7,7 @@ class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   
   def parse(io)
     trackers = []
-    until io.eof?
-      line = io.gets
+    io.each do | line |
       if line =~ /TrackName (.+)/
         trackers << Tracksperanto::Tracker.new{|t| t.name = $1 }
         # Toss the next following string - header

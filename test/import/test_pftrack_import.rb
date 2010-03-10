@@ -9,6 +9,16 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert !i.autodetects_size?
   end
   
+  def test_parsing_from_pftrack5_second_file
+    fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/apft.2dt')
+    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
+    
+    trackers = parser.parse(fixture)
+    assert_equal 4, trackers.length
+    second_tracker = trackers[1]
+    assert_equal "1015", second_tracker.name
+  end
+  
   def test_parsing_from_importable_pftrack_4
     
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack4/sourcefile_pftrack.2dt')

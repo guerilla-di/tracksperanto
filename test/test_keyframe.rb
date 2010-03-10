@@ -15,7 +15,7 @@ class KeyframeTest < Test::Unit::TestCase
   
   def test_inspect
     kf = Tracksperanto::Keyframe.new(:frame => 0, :abs_x => 10, :abs_y => 12.0)
-    assert_equal "[0, 10.0, 12.0]", kf.inspect
+    assert_equal "#< 10.0x12.0 @0 ~0.00) >", kf.inspect
   end
   
   def test_frame_translated_to_int

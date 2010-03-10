@@ -25,6 +25,6 @@ class Tracksperanto::Keyframe
   cast_to_int :frame
   
   def inspect
-    [frame, abs_x, abs_y].inspect
+    '#< %.1fx%.1f @%d ~%.2f) >' %  [abs_x, abs_y, frame, residual]
   end
 end

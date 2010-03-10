@@ -94,6 +94,7 @@ test/import/samples/nuke/one_tracker_with_break_in_grp.nk
 test/import/samples/nuke/tracker_with_differing_gaps.nk
 test/import/samples/nuke/tracker_with_repeating_gaps.nk
 test/import/samples/pftrack4/sourcefile_pftrack.2dt
+test/import/samples/pftrack5/apft.2dt
 test/import/samples/pftrack5/garage.2dt
 test/import/samples/shake_script/four_tracks_in_one_matchmove.shk
 test/import/samples/shake_script/four_tracks_in_one_stabilizer.shk

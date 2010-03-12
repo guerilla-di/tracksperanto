@@ -54,19 +54,10 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     flame_frame = frame + 1
     if @write_first_frame
-      @base_x, @base_y = abs_float_x, abs_float_y
-      write_first_frame(abs_float_x, abs_float_y)
-      # For Flame to recognize the reference frame of the Shift channel
-      # we need it to contain zero as an int, not as a float. The shift proceeds
-      # from there.
-      @x_shift_values = [[flame_frame, 0]]
-      @y_shift_values = [[flame_frame, 0]]
+      export_first_point(flame_frame, abs_float_x, abs_float_y)
       @write_first_frame = false
     else
-      # Just continue buffering the upcoming shift keyframes and flush them in the end
-      shift_x, shift_y = @base_x - abs_float_x, @base_y - abs_float_y
-      @x_shift_values.push([flame_frame, shift_x])
-      @y_shift_values.push([flame_frame, shift_y])
+      export_remaining_point(flame_frame, abs_float_x, abs_float_y)
     end
   end
   
@@ -78,6 +69,23 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
   end
   
   private
+  
+  def export_remaining_point(flame_frame, abs_float_x, abs_float_y)
+    # Just continue buffering the upcoming shift keyframes and flush them in the end
+    shift_x, shift_y = @base_x - abs_float_x, @base_y - abs_float_y
+    @x_shift_values.push([flame_frame, shift_x])
+    @y_shift_values.push([flame_frame, shift_y])
+  end
+  
+  def export_first_point(flame_frame, abs_float_x, abs_float_y)
+    @base_x, @base_y = abs_float_x, abs_float_y
+    write_first_frame(abs_float_x, abs_float_y)
+    # For Flame to recognize the reference frame of the Shift channel
+    # we need it to contain zero as an int, not as a float. The shift proceeds
+    # from there.
+    @x_shift_values = [[flame_frame, 0]]
+    @y_shift_values = [[flame_frame, 0]]
+  end
   
   # The shift channel is what determines how the tracking point moves.
   def write_shift_channel(name_without_prefix, values)

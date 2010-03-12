@@ -5,7 +5,7 @@ require "tempfile"
 class Tracksperanto::BufferIO < DelegateClass(IO)
   include Tracksperanto::Returning
   
-  IN_MEMORY_SIZE_LIMIT = 100_000
+  MAX_IN_MEM_BYTES = 100_000
   
   def initialize
     __setobj__(StringIO.new)
@@ -37,12 +37,11 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
   def replace_with_tempfile_if_needed
     return if @tempfile_in
     io = __getobj__
-    if io.pos > IN_MEMORY_SIZE_LIMIT
-      @tempfile_in = true
+    if io.pos > MAX_IN_MEM_BYTES
       tf = Tempfile.new("tracksperanto-xbuf")
-      io.rewind
-      tf.write(io.read) until io.eof?
+      tf.write(io.string)
       __setobj__(tf)
+      @tempfile_in = true
     end
   end
 end

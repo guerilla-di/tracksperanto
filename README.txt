@@ -102,7 +102,7 @@ with backprojected 3D features).
 
 You can easily write a Tracksperanto import module - refer to Tracksperanto::Import::Base
 docs. Your importer will be configured with width and height of the comp that it is importing, and will get an IO 
-object with the file that you are processing. The parse method should then an array of Tracksperanto::Tracker objects which
+object with the file that you are processing. The parse method should then return an array of Tracksperanto::Tracker objects which
 are themselves arrays of Tracksperanto::Keyframe objects.
 
 === Exporting your own formats

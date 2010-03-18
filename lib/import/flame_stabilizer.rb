@@ -14,9 +14,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     "Flame .stabilizer file"
   end
   
-  T = ::Tracksperanto::Tracker
-  K = ::Tracksperanto::Keyframe
-  
   class ChannelBlock < Array
     include ::Tracksperanto::Casts
     cast_to_string :name
@@ -175,7 +172,7 @@ Channel tracker1/ref/x
     end
     
     def grab_tracker(channels, track_x)
-      t = T.new(:name => track_x.name.split('/').shift)
+      t = Tracksperanto::Tracker.new(:name => track_x.name.split('/').shift)
       
       report_progress("Extracting tracker #{t.name}")
       
@@ -200,7 +197,7 @@ Channel tracker1/ref/x
         kf_x, kf_y = base_x - x.to_f, base_y - y.to_f
         
         report_progress("Extracting keyframe #{total_kf += 1} of #{t.name}")
-        K.new(:frame => (at - 1), :abs_x => kf_x, :abs_y => kf_y)
+        Tracksperanto::Keyframe.new(:frame => (at - 1), :abs_x => kf_x, :abs_y => kf_y)
       end
       
       return t

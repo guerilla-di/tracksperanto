@@ -38,7 +38,16 @@ module Tracksperanto
   end
   
   self.exporters, self.importers, self.middlewares = [], [], []
-  
+
+  # Case-insensitive search for a middleware class by name
+  def self.get_middleware(name)
+    middlewares.each do | x |
+      return x if x.const_name.downcase == name.downcase
+    end
+    
+    raise NameError, "Unknown middleware #{name}"
+  end
+    
   # Case-insensitive search for an export module by name
   def self.get_exporter(name)
     exporters.each do | x |

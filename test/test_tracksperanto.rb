@@ -42,6 +42,11 @@ class TracksperantoTest < Test::Unit::TestCase
     assert_equal i1, Tracksperanto::Import::Syntheyes
   end
   
+  def test_get_middleware
+    i1 = Tracksperanto.get_middleware("lERP")
+    assert_equal i1, Tracksperanto::Middleware::Lerp
+  end
+  
   def test_get_importer_multicase
     i1 = Tracksperanto.get_importer("ShakeScript")
     assert_equal i1, Tracksperanto::Import::ShakeScript

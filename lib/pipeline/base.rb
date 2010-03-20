@@ -4,7 +4,7 @@
 #   pipe = Tracksperanto::Pipeline::Base.new
 #   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
 #   
-#   pipe.run("/tmp/shakescript.shk", :pix_w => 720, :pix_h => 576) do | *all_middlewares |
+#   pipe.run("/tmp/shakescript.shk", :width => 720, :height => 576) do | *all_middlewares |
 #     # configure middlewares here
 #   end
 #
@@ -12,6 +12,7 @@
 # at the same place where the original file resides,
 # and setup outputs for all supported export formats.
 class Tracksperanto::Pipeline::Base
+  EXTENSION = /\.([^\.]+)$/ #:nodoc:
   
   include Tracksperanto::BlockInit
   
@@ -31,25 +32,24 @@ class Tracksperanto::Pipeline::Base
   # Assign an array of exporters to use them instead of the standard ones 
   attr_accessor :exporters
   
-  DEFAULT_OPTIONS = {:pix_w => 720, :pix_h => 576, :parser => Tracksperanto::Import::ShakeScript }
+  DEFAULT_OPTIONS = {:width => 720, :height => 576, :parser => Tracksperanto::Import::ShakeScript }
   
   # Runs the whole pipeline. Accepts the following options
-  # * pix_w - The comp width, for the case that the format does not support auto size
-  # * pix_h - The comp height, for the case that the format does not support auto size
+  # * width - The comp width, for the case that the format does not support auto size
+  # * height - The comp height, for the case that the format does not support auto size
   # * parser - The parser class, for the case that it can't be autodetected from the file name
   def run(from_input_file_path, passed_options = {}) #:yields: *all_middlewares
     o = DEFAULT_OPTIONS.merge(passed_options)
-    pix_w, pix_h, parser_class = detect_importer_or_use_options(from_input_file_path, o)
     
     # Reset stats
     @converted_keyframes, @converted_points = 0, 0
     
-    # Grab the input
-    read_data = File.open(from_input_file_path, "rb")
-    
     # Assign the parser
-    importer = parser_class.new(:width => pix_w, :height => pix_h)
+    importer = initialize_importer_with_path_and_options(from_input_file_path, o)
     
+    # Open the file
+    read_data = File.open(from_input_file_path, "rb")
+        
     # Setup a multiplexer
     mux = setup_outputs_for(from_input_file_path)
     
@@ -66,21 +66,23 @@ class Tracksperanto::Pipeline::Base
     @progress_block.call(percent_complete, message) if @progress_block
   end
   
-  def detect_importer_or_use_options(path, opts)
-    d = Tracksperanto::FormatDetector.new(path)
+  def initialize_importer_with_path_and_options(from_input_file_path, options)
+    d = Tracksperanto::FormatDetector.new(from_input_file_path)
     if d.match? && d.auto_size?
-      return [1, 1, d.importer_klass]
+      d.importer_klass.new
     elsif d.match?
-      raise "Width and height must be provided for a #{d.importer_klass}" unless (opts[:pix_w] && opts[:pix_h])
-      opts[:parser] = d.importer_klass
+      require_dimensions_in!(opts)
+      d.importer_klass.new(:width => opts[:width], :height => opts[:height])
     else
       raise "Cannot autodetect the file format - please specify the importer explicitly" unless opts[:parser]
-      unless opts[:parser].autodetects_size?
-        raise "Width and height must be provided for this importer" unless (opts[:pix_w] && opts[:pix_h])
-      end
+      klass = Tracksperanto.get_exporter(opts[:parser])
+      require_dimensions_in!(opts) unless klass.autodetects_size?
+      klass.new(:width => opts[:width], :height => opts[:height])
     end
-    
-    [opts[:pix_w], opts[:pix_h], opts[:parser]]    
+  end
+  
+  def require_dimensions_in!(opts)
+    raise "Width and height must be provided for this importer" unless (opts[:width] && opts[:height])
   end
   
   # Runs the export and returns the number of points and keyframes processed.
@@ -137,7 +139,7 @@ class Tracksperanto::Pipeline::Base
   # Setup output files and return a single output
   # that replays to all of them
   def setup_outputs_for(input_file_path)
-    file_name = File.basename(input_file_path).gsub(/\.([^\.]+)$/, '')
+    file_name = File.basename(input_file_path).gsub(EXTENSION, '')
     export_klasses = exporters || Tracksperanto.exporters    
     Tracksperanto::Export::Mux.new(
       export_klasses.map do | exporter_class |

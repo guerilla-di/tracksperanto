@@ -67,9 +67,9 @@ parser = OptionParser.new do | p |
  p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") {|sx| y_shift = sx }
  p.on("--lerp", "Linearly interpolate missing keyframes") {|v| lerp = true }
  p.on("--version", "Show the version and exit") {|v| 
-    puts "#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
+    puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
-    puts "For questions and support contact info at guerilla-di.org"
+    puts "For questions and support contact info#{64.chr}guerilla-di.org"
     exit(0)
  }
 end

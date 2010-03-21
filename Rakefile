@@ -8,7 +8,7 @@ begin
     (Hoe::RUBY_DEBUG ? " #{RUBY_DEBUG}" : '')
   
   Hoe.spec('tracksperanto') do | p |
-    p.clean_globs = %w( **/.DS_Store )
+    p.clean_globs = %w( **/.DS_Store  coverage.info )
     p.version = Tracksperanto::VERSION
     p.extra_deps = {"progressbar" => ">=0"}
     p.extra_dev_deps = {"flexmock" => ">=0"}

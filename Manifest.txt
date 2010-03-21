@@ -4,7 +4,6 @@ Manifest.txt
 README.txt
 Rakefile
 bin/tracksperanto
-coverage.info
 lib/export/base.rb
 lib/export/equalizer3.rb
 lib/export/equalizer4.rb

@@ -12,6 +12,8 @@
 
 require File.dirname(__FILE__) + '/../lib/tracksperanto'
 require 'optparse'
+require 'rubygems'
+require 'progressbar'
 
 # Sane defaults
 reader_klass = nil
@@ -90,7 +92,6 @@ rescue OptionParser::MissingArgument => e
   puts parser
   exit(-1)
 end
-puts middlewares.inspect
 
 begin
   reader_klass = Tracksperanto.get_importer(reader_name)
@@ -101,34 +102,12 @@ end
 
 input_file = ARGV.pop
 if !input_file
-  STDERR.puts "No input file provided - should be the last argument"
+  STDERR.puts "No input file provided - should be the last argument. Also use the --help option."
   exit(-1)
 end
 
-class Spinner
-  RING = ['|', '/', '-', '\\', '|', '/', '-', '\\']
-  
-  def initialize
-    @counter, @last_len = 0, 0
-  end
-  
-  def spin(percent, msg)
-    current = RING[(@counter += 1) % RING.length]
-    output = " [%s %d%%]" % [current, percent]
-    STDOUT.write(output + ("\r" * output.length))
-    STDOUT.flush
-    @last_len = output.length
-  end
-  
-  def finish(with_message = '')
-    STDOUT.write("\r" * @last_len.to_i)
-    STDOUT.flush
-    STDOUT.puts(with_message)
-  end
-end
-
-spinner = Spinner.new
-pipe = Tracksperanto::Pipeline::Base.new(:progress_block => spinner.method(:spin).to_proc, :middleware_tuples => middlewares)
+pbar = ProgressBar.new("Converting #{input_file}", 100)
+pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p) }, :middleware_tuples => middlewares)
 
 if sole_format
   begin
@@ -139,5 +118,6 @@ if sole_format
   end
 end
 
-pipe.run(input_file, :pix_w => width, :pix_h => height, :parser => reader_klass)
-spinner.finish("Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")
+pipe.run(input_file, :width => width, :height => height, :parser => reader_klass)
+pbar.finish
+puts ("Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

@@ -157,21 +157,6 @@ class Tracksperanto::Pipeline::Base
     )
   end
   
-  # Setup and return the output multiplexor wrapped in all necessary middlewares.
-  # Middlewares must be returned in an array to be passed to the configuration block
-  # afterwards
-  def setup_middleware_chain_with(output)
-    scaler = Tracksperanto::Middleware::Scaler.new(output)
-    slipper = Tracksperanto::Middleware::Slipper.new(scaler)
-    golden = Tracksperanto::Middleware::Golden.new(slipper)
-    reformat = Tracksperanto::Middleware::Reformat.new(golden)
-    shift = Tracksperanto::Middleware::Shift.new(reformat)
-    prefix = Tracksperanto::Middleware::Prefix.new(shift)
-    lerp = Tracksperanto::Middleware::Lerp.new(prefix)
-    lengate = Tracksperanto::Middleware::LengthCutoff.new(lerp)
-    [scaler, slipper, golden, reformat, shift, prefix, lerp, lengate]
-  end
-  
   # Open the file for writing and register it to be closed automatically
   def open_owned_export_file(path_to_file)
     @ios ||= []

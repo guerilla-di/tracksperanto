@@ -10,6 +10,7 @@ begin
   Hoe.spec('tracksperanto') do | p |
     p.clean_globs = %w( **/.DS_Store )
     p.version = Tracksperanto::VERSION
+    p.extra_deps = {"progressbar" => ">=0"}
     p.extra_dev_deps = {"flexmock" => ">=0"}
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')

@@ -34,6 +34,17 @@ class Tracksperanto::Pipeline::Base
   
   DEFAULT_OPTIONS = {:width => 720, :height => 576, :parser => Tracksperanto::Import::ShakeScript }
   
+  # Contains arrays of the form ["MiddewareName", {:param => value}]
+  attr_accessor :middleware_tuples
+  
+  def wrap_output_with_middlewares(output)
+    return output unless (middleware_tuples && middleware_tuples.any?)
+    
+    middleware_tuples.reverse.inject(output) do | wrapped, (middleware_name, options) |
+      Tracksperanto.get_middleware(middleware_name).new(wrapped, options || {})
+    end
+  end
+  
   # Runs the whole pipeline. Accepts the following options
   # * width - The comp width, for the case that the format does not support auto size
   # * height - The comp height, for the case that the format does not support auto size
@@ -54,12 +65,8 @@ class Tracksperanto::Pipeline::Base
     mux = setup_outputs_for(from_input_file_path)
     
     # Setup middlewares
-    middlewares = setup_middleware_chain_with(mux)
-    
-    # Yield middlewares to the block
-    yield(*middlewares) if block_given?
-    
-    @converted_points, @converted_keyframes = run_export(read_data, importer, middlewares[-1])
+    endpoint = wrap_output_with_middlewares(mux)
+    @converted_points, @converted_keyframes = run_export(read_data, importer, endpoint)
   end
   
   def report_progress(percent_complete, message)
@@ -88,14 +95,14 @@ class Tracksperanto::Pipeline::Base
   # Runs the export and returns the number of points and keyframes processed.
   # If a block is passed, the block will receive the percent complete and the last
   # status message that you can pass back to the UI
-  def run_export(tracker_data_io, parser, processor)
+  def run_export(tracker_data_io, parser, exporter)
     points, keyframes, percent_complete = 0, 0, 0.0
-    
+
     report_progress(percent_complete, "Starting the parser")
-    
+
     # Report progress from the parser
     parser.progress_block = lambda { | m | report_progress(percent_complete, m) }
-    
+
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
@@ -103,34 +110,34 @@ class Tracksperanto::Pipeline::Base
       percent_complete = (50.0 / of_total) * offset
     end
     @ios << io_with_progress
-    
+
     trackers = parser.parse(io_with_progress)
-    
+
     report_progress(percent_complete = 50.0, "Validating #{trackers.length} imported trackers")
-    
+
     validate_trackers!(trackers)
-    
+
     report_progress(percent_complete, "Starting export")
-    
+
     percent_per_tracker = (100.0 - percent_complete) / trackers.length
-    
+
     # Use the width and height provided by the parser itself
-    processor.start_export(parser.width, parser.height)
+    exporter.start_export(parser.width, parser.height)
     trackers.each_with_index do | t, tracker_idx |
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
-      processor.start_tracker_segment(t.name)
+      exporter.start_tracker_segment(t.name)
       t.each_with_index do | kf, idx |
         keyframes += 1
-        processor.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
+        exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
         report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{trackers.length - tracker_idx} trackers to go")
       end
-      processor.end_tracker_segment
+      exporter.end_tracker_segment
     end
-    processor.end_export
-    
+    exporter.end_export
+
     report_progress(100.0, "Wrote #{points} points and #{keyframes} keyframes")
-    
+
     [points, keyframes]
   ensure
     @ios.reject!{|e| e.close unless (!e.respond_to?(:closed?) || e.closed?) } if @ios

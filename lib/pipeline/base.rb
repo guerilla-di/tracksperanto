@@ -13,6 +13,7 @@
 # and setup outputs for all supported export formats.
 class Tracksperanto::Pipeline::Base
   EXTENSION = /\.([^\.]+)$/ #:nodoc:
+  PERMITTED_OPTIONS = [:importer, :width, :height]
   
   include Tracksperanto::BlockInit
   
@@ -32,8 +33,6 @@ class Tracksperanto::Pipeline::Base
   # Assign an array of exporters to use them instead of the standard ones 
   attr_accessor :exporters
   
-  DEFAULT_OPTIONS = {:width => 720, :height => 576, :parser => Tracksperanto::Import::ShakeScript }
-  
   # Contains arrays of the form ["MiddewareName", {:param => value}]
   attr_accessor :middleware_tuples
   
@@ -50,13 +49,12 @@ class Tracksperanto::Pipeline::Base
   # * height - The comp height, for the case that the format does not support auto size
   # * parser - The parser class, for the case that it can't be autodetected from the file name
   def run(from_input_file_path, passed_options = {}) #:yields: *all_middlewares
-    o = DEFAULT_OPTIONS.merge(passed_options)
     
     # Reset stats
     @converted_keyframes, @converted_points = 0, 0
     
     # Assign the parser
-    importer = initialize_importer_with_path_and_options(from_input_file_path, o)
+    importer = initialize_importer_with_path_and_options(from_input_file_path, passed_options)
     
     # Open the file
     read_data = File.open(from_input_file_path, "rb")
@@ -74,17 +72,20 @@ class Tracksperanto::Pipeline::Base
   end
   
   def initialize_importer_with_path_and_options(from_input_file_path, options)
+    
     d = Tracksperanto::FormatDetector.new(from_input_file_path)
-    if d.match? && d.auto_size?
+    
+    if options[:importer]
+      imp = Tracksperanto.get_importer(options[:importer])
+      require_dimensions_in!(options) unless imp.autodetects_size?
+      imp.new(:width => options[:width], :height => options[:height])
+    elsif d.match? && d.auto_size?
       d.importer_klass.new
     elsif d.match?
-      require_dimensions_in!(opts)
-      d.importer_klass.new(:width => opts[:width], :height => opts[:height])
+      require_dimensions_in!(options)
+      d.importer_klass.new(:width => options[:width], :height => options[:height])
     else
-      raise "Cannot autodetect the file format - please specify the importer explicitly" unless opts[:parser]
-      klass = Tracksperanto.get_exporter(opts[:parser])
-      require_dimensions_in!(opts) unless klass.autodetects_size?
-      klass.new(:width => opts[:width], :height => opts[:height])
+      raise "Unknown input format"
     end
   end
   
@@ -95,13 +96,13 @@ class Tracksperanto::Pipeline::Base
   # Runs the export and returns the number of points and keyframes processed.
   # If a block is passed, the block will receive the percent complete and the last
   # status message that you can pass back to the UI
-  def run_export(tracker_data_io, parser, exporter)
+  def run_export(tracker_data_io, importer, exporter)
     points, keyframes, percent_complete = 0, 0, 0.0
 
     report_progress(percent_complete, "Starting the parser")
 
     # Report progress from the parser
-    parser.progress_block = lambda { | m | report_progress(percent_complete, m) }
+    importer.progress_block = lambda { | m | report_progress(percent_complete, m) }
 
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
@@ -110,9 +111,8 @@ class Tracksperanto::Pipeline::Base
       percent_complete = (50.0 / of_total) * offset
     end
     @ios << io_with_progress
-
-    trackers = parser.parse(io_with_progress)
-
+    
+    trackers = importer.parse(io_with_progress)
     report_progress(percent_complete = 50.0, "Validating #{trackers.length} imported trackers")
 
     validate_trackers!(trackers)
@@ -122,7 +122,7 @@ class Tracksperanto::Pipeline::Base
     percent_per_tracker = (100.0 - percent_complete) / trackers.length
 
     # Use the width and height provided by the parser itself
-    exporter.start_export(parser.width, parser.height)
+    exporter.start_export(importer.width, importer.height)
     trackers.each_with_index do | t, tracker_idx |
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
@@ -160,9 +160,7 @@ class Tracksperanto::Pipeline::Base
   # Open the file for writing and register it to be closed automatically
   def open_owned_export_file(path_to_file)
     @ios ||= []
-    handle = File.open(path_to_file, "wb")
-    @ios << handle
-    handle
+    @ios.push(File.open(path_to_file, "wb"))[-1]
   end
   
   # Check that the trackers made by the parser are A-OK

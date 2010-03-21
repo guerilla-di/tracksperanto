@@ -1,3 +1,7 @@
+=== 1.9.1 / 2010-03-21
+
+* Fix a Pipeline bug introduced with the last version
+
 === 1.9.0 / 2010-03-21
 
 * Use proper progress bars

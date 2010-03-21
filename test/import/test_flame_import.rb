@@ -148,4 +148,12 @@ class FlameImportTest < Test::Unit::TestCase
     assert_in_delta 390.267, frame_149.abs_x, DELTA
     assert_in_delta 280.248, frame_149.abs_y, DELTA
   end
+  
+  def test_from_tracksperanto
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/fromTracksperanto.stabilizer')
+    parser = Tracksperanto::Import::FlameStabilizer.new
+    trackers = parser.parse(fixture)
+    assert_equal 3, trackers.length
+    assert_equal 3, trackers[0].length
+  end
 end

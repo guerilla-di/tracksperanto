@@ -30,8 +30,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       keyframe_count_matcher = /Size (\d+)/
       indent = nil
       
-      keyframes = []
-      
       while line = io.gets
         
         unless indent 
@@ -47,7 +45,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
           break
         end
       end
-      
       raise "Parsed a channel #{@name} with no keyframes" if (empty? && !base_value)
     end
     

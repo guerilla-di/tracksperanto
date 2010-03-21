@@ -106,7 +106,7 @@ if !input_file
   exit(-1)
 end
 
-pbar = ProgressBar.new("Converting #{input_file}", 100)
+pbar = ProgressBar.new("Converting", 100)
 pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p) }, :middleware_tuples => middlewares)
 
 if sole_format

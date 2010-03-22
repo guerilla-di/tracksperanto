@@ -1,0 +1,541 @@
+StabilizerFileVersion 5.0
+CreationDate Sun Mar 21 16:46:25 2010
+
+
+NbTrackers 3
+Selected 0
+FrameWidth 720
+FrameHeight 576
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan no
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 100
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel tracker1/track/x
+	Extrapolation constant
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker1/track/y
+	Extrapolation constant
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker1/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/x
+	Extrapolation constant
+	Value 100.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 100.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker1/ref/y
+	Extrapolation constant
+	Value 200.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 200.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker1/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker1/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker1/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker1/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker1/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value -100.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value -110.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker1/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value 80.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value 55.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/track/x
+	Extrapolation constant
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker2/track/y
+	Extrapolation constant
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker2/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/x
+	Extrapolation constant
+	Value 100.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 100.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/ref/y
+	Extrapolation constant
+	Value 200.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 200.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker2/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker2/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value -100.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value -110.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value 80.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value 55.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/track/x
+	Extrapolation constant
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker3/track/y
+	Extrapolation constant
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker3/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/x
+	Extrapolation constant
+	Value 100.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 100.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/y
+	Extrapolation constant
+	Value 200.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 200.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value -100.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value -110.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 3
+	Key 0
+		Frame 4
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 5
+		Value 80.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 6
+		Value 55.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 2
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100

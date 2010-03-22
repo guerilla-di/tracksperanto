@@ -114,13 +114,13 @@ class Tracksperanto::Pipeline::Base
     
     trackers = importer.parse(io_with_progress)
     report_progress(percent_complete = 50.0, "Validating #{trackers.length} imported trackers")
-
+    
     validate_trackers!(trackers)
-
+    
     report_progress(percent_complete, "Starting export")
-
+    
     percent_per_tracker = (100.0 - percent_complete) / trackers.length
-
+    
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
     trackers.each_with_index do | t, tracker_idx |

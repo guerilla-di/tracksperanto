@@ -6,8 +6,8 @@ class TestProgressiveIO < Test::Unit::TestCase
     
     # Make a mock File object from a string
     io = StringIO.new(s)
-     mock_stat = flexmock(:size => s.length)
-     flexmock(io).should_receive(:stat).and_return(mock_stat)
+    mock_stat = flexmock(:size => s.length)
+    flexmock(io).should_receive(:stat).and_return(mock_stat)
     
     Tracksperanto::ProgressiveIO.new(io)
   end

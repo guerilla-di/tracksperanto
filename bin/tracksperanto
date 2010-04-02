@@ -16,87 +16,54 @@ require 'rubygems'
 require 'progressbar'
 
 # Sane defaults
-reader_klass = nil
+reader_klass_name = nil
 width = nil
 height = nil
 
-middlewares = []
-sole_format = nil
+options = {}
+$middlewares = []
+writer_klass_name = nil
 reader_name = "ShakeScript"
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
 
-parser = OptionParser.new do | p |
- p.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
- p.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto") {|c| 
-    require c
- }
- p.on(" -f", "--from TRANSLATOR", String, 
-   "Use the specific import translator (will try to autodetect, but can be #{Tracksperanto.importer_names.join(', ')})") do | f |
-    reader_name = f
- end
- p.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| width = w }
- p.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| height = w }
- 
- p.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)") do |sx| 
-   middlewares << ["Scaler", {:x_factor => sx}]
- end
- p.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)") do |sy| 
-   middlewares << ["Scaler", {:y_factor => sx}]
- end
- p.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'") do |sy| 
-   middlewares << ["Slipper", {:slip => sx}]
- end
- p.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)") do |g_flag| 
-   middlewares << ["Golden", {:enabled => true}]
- end
- p.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it") do |rw| 
-   middlewares << ["Reformat", {:width => rw}]
- end
- p.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it") do |rh|
-   middlewares << ["Reformat", {:height => rh}]
- end
- p.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, "Only export trackers having more than X keyframes") do | min_kf | 
-   middlewares << ["LengthCutoff", {:min_length => min_kf}]
- end
- p.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right") do |sx|
-   middlewares << ["Shift", {:x_shift => sx}]
- end
- p.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down") do |sx| 
-   middlewares << ["Shift", {:y_shift => sx}]
- end
- p.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk") do |w| 
-   middlewares << ["Prefix", {:prefix => w}]
- end
- 
- p.on("--lerp", "Linearly interpolate missing keyframes") do
-   middlewares << ["Lerp", {:enabled => true}]
- end
- 
- p.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") do |f|
-   sole_format = f
- end
+op = OptionParser.new
 
- p.on("--version", "Show the version and exit") {|v| 
+def mw(name, option)
+  Proc.new { |value| $middlewares.push([name, {option => value}]) }
+end
+
+op.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
+op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto") {|c|  require(c) }
+op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
+op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
+op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
+op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_klass_name = f }
+
+op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
+op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
+op.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'", &mw("Slipper", :slip))
+op.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)", &mw("Golden", :enabled))
+op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &mw("Reformat", :width))
+op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &mw("Reformat", :height))
+op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, "Only export trackers having more than X keyframes", &mw("LengthCutoff", :min_length))
+op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &mw("Shift", :x_shift))
+op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &mw("Shift", :y_shift)) 
+op.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk", &mw("Prefix", :prefix))
+op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp", :enabled))
+
+op.on("--version", "Show the version and exit") do |v| 
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     puts "For questions and support contact info#{64.chr}guerilla-di.org"
     exit(0)
- }
 end
 
 begin
-  parser.parse!
+  op.parse!
 rescue OptionParser::MissingArgument => e
   STDERR.puts "Unknown argument: #{e.message}"
   puts parser
-  exit(-1)
-end
-
-begin
-  reader_klass = Tracksperanto.get_importer(reader_name)
-rescue NameError => e
-  STDERR.puts "Unknown reader #{reader_name}, available readers: #{readers.join(', ')}"
   exit(-1)
 end
 
@@ -107,17 +74,17 @@ if !input_file
 end
 
 pbar = ProgressBar.new("Converting", 100)
-pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p) }, :middleware_tuples => middlewares)
+pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p.to_i) }, :middleware_tuples => $middlewares)
 
-if sole_format
+if writer_klass_name
   begin
-    pipe.exporters = [Tracksperanto.get_exporter(sole_format)]
+    pipe.exporters = [Tracksperanto.get_exporter(writer_klass_name)]
   rescue NameError
-    STDERR.puts "Unknown exporter #{sole_format}. Available exporters: #{writers.join(", ")}"
+    STDERR.puts "Unknown exporter #{writer_klass_name}. Available exporters: #{writers.join(", ")}"
     exit(-1)
   end
 end
 
-pipe.run(input_file, :width => width, :height => height, :parser => reader_klass)
+pipe.run(input_file, options)
 pbar.finish
 puts ("Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys")

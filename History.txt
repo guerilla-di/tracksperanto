@@ -1,4 +1,4 @@
-=== 1.9.2 / 2010-03-21
+=== 1.9.2 / 2010-04-02
 
 * Fix a crasher when the progress bar was being set higher than 100 percent
 

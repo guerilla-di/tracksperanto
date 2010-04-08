@@ -15,11 +15,6 @@ require 'optparse'
 require 'rubygems'
 require 'progressbar'
 
-# Sane defaults
-reader_klass_name = nil
-width = nil
-height = nil
-
 options = {}
 $middlewares = []
 writer_klass_name = nil

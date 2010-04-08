@@ -51,6 +51,7 @@ op.on("--version", "Show the version and exit") do |v|
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     puts "For questions and support contact info#{64.chr}guerilla-di.org"
+    puts "If you found Tracksperanto useful, please consider a small donation http://guerilla-di.org/source-and-license/"
     exit(0)
 end
 

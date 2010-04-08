@@ -68,7 +68,8 @@ class Tracksperanto::Pipeline::Base
   end
   
   def report_progress(percent_complete, message)
-    @progress_block.call(percent_complete, message) if @progress_block
+    int_pct = percent_complete.to_f.floor # Prevent float overflow above 100 percent
+    @progress_block.call(int_pct, message) if @progress_block
   end
   
   def initialize_importer_with_path_and_options(from_input_file_path, options)

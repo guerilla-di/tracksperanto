@@ -1,12 +1,21 @@
 require File.dirname(__FILE__) + '/../helper'
 
 class NukeImportTest < Test::Unit::TestCase
-  DELTA = 0.1 
+  DELTA = 0.01 
   
   def test_introspects_properly
     i = Tracksperanto::Import::NukeScript
     assert_equal "Nuke .nk script file", i.human_name
     assert !i.autodetects_size?
+  end
+  
+  def test_parsing_big_file_from_nuke
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/45trackers.nk')
+    parser = Tracksperanto::Import::NukeScript.new
+    parser.width = 2048
+    parser.height = 1176
+    trackers = parser.parse(fixture)
+    assert_equal 45, trackers.length
   end
   
   def test_parsing_from_nuke

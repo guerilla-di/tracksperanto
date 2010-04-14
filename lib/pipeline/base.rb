@@ -99,12 +99,12 @@ class Tracksperanto::Pipeline::Base
   # status message that you can pass back to the UI
   def run_export(tracker_data_io, importer, exporter)
     points, keyframes, percent_complete = 0, 0, 0.0
-
+    
     report_progress(percent_complete, "Starting the parser")
-
+    
     # Report progress from the parser
     importer.progress_block = lambda { | m | report_progress(percent_complete, m) }
-
+    
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
@@ -136,9 +136,9 @@ class Tracksperanto::Pipeline::Base
       exporter.end_tracker_segment
     end
     exporter.end_export
-
+    
     report_progress(100.0, "Wrote #{points} points and #{keyframes} keyframes")
-
+    
     [points, keyframes]
   ensure
     @ios.reject!{|e| e.close unless (!e.respond_to?(:closed?) || e.closed?) } if @ios

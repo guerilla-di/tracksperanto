@@ -1,7 +1,18 @@
 # Base exporter. Inherit from this class to automatically register another export format. 
 # The exporters in Tracksperanto are event-driven and follow the same conventions - your
 # exporter will be notified when a tracker will be exported and when a tracker has been passed
-# (the last keyframe has been sent)
+# (the last keyframe has been sent). Here's how you can operate any exporter module
+# separately:
+#
+#     File.open("destination.txt", "wb") do | f |
+#       exporter = SomeExporter.new(f)
+#       exporter.start_export(720, 576)
+#       exporter.start_tracker_segment("FirstPoint")
+#       exporter.export_point(2, 123.43, 456.2, 0.2)
+#       exporter.end_tracker_segment
+#       exporter.end_export
+#     end
+#
 class Tracksperanto::Export::Base
   include Tracksperanto::ConstName
   include Tracksperanto::SimpleExport

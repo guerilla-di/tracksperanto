@@ -3,6 +3,7 @@ require 'test/unit'
 require 'rubygems'
 require 'flexmock'
 require 'flexmock/test_unit'
+require 'cmd_line_test'
 
 # This module creates ideal parabolic tracks for testing exporters. The two trackers
 # will start at opposite corners of the image and traverse two parabolic curves, touching
@@ -72,14 +73,21 @@ module ParabolicTracks
     end
   end
   
-  def ensure_same_output(exporter_klass, reference_path, message = "Should write identical output")
+  def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
     io = StringIO.new
     x = exporter_klass.new(io)
     yield(x) if block_given?
     export_parabolics_with(x)
-    io.close
+    io.rewind
     
-    assert_equal File.read(reference_path), io.string, message
+    File.open(reference_path, "r") do | f |
+      at_line = 0
+      until f.eof? || io.eof?
+        at_line += 1
+        reference_line, output_line = f.readline, io.readline
+        assert_equal reference_line, output_line, "Line #{at_line} - #{message}"
+      end
+    end
   end
   
   def export_parabolics_with(exporter)

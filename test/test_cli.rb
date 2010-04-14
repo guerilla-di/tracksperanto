@@ -5,38 +5,55 @@ class CliTest < Test::Unit::TestCase
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   
   def setup
-    @old_dir = Dir.pwd
     Dir.mkdir(TEMP_DIR)
-    Dir.chdir(TEMP_DIR)
+    FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
   end
   
   def teardown
-    Dir.chdir(@old_dir)
     FileUtils.rm_rf(TEMP_DIR)
   end
   
-  def cli(cmd)
-    # Spin up a fork and do system() from there. This means that we can suppress the output
-    # coming from the cli process, but capture the exit code.
-    cpid = fork do
-      STDOUT.reopen("tout")
-      STDERR.reopen("tout")
-      state = system(cmd)
-      File.unlink("tout")
-      exit(0) if state
-      exit(-1)
+  # Run the tracksperanto binary with passed options, and return [exit_code, stdout_content, stderr_content]
+  def cli(commandline_arguments)
+    old_stdout, old_stderr, old_argv = $stdout, $stderr, ARGV.dup
+    os, es = StringIO.new, StringIO.new
+    begin
+      $stdout, $stderr, verbosity = os, es, $VERBOSE
+      ARGV.replace(commandline_arguments.split)
+      $VERBOSE = false
+      load(BIN_P)
+      return [0, os.string, es.string]
+    rescue Exception => boom # The binary uses exit(), we use that to preserve the output code
+      return [boom.status, os.string, es.string] if boom.is_a?(SystemExit)
+      raise boom
+    ensure
+      $VERBOSE = verbosity
+      ARGV.replace(old_argv)
+      $stdout, $stderr = old_stdout, old_stderr
     end
-    Process.waitpid(cpid)
   end
   
+  def test_cli_with_no_args_produces_usage
+    status, o, e = cli('')
+    assert_equal -1, status
+    assert_match /Also use the --help option/, e
+  end
+  
+  def test_cli_with_nonexisting_file
+    status, o, e = cli(TEMP_DIR + "/nonexisting.file")
+    assert_equal -1, status
+    assert_equal "Input file #{TEMP_DIR + "/nonexisting.file"} does not exist\n", e
+  end
+    
   def test_basic_cli
-    FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
-    cli("#{BIN_P} #{TEMP_DIR}/flm.stabilizer")
+    status, o, e = cli(TEMP_DIR + "/flm.stabilizer")
+    assert_equal 0, status, "Should exit with a normal status"
     fs = %w(. .. 
       flm.stabilizer flm_3de_v3.txt flm_3de_v4.txt flm_flame.stabilizer 
       flm_matchmover.rz2 flm_mayalive.txt flm_nuke.nk flm_pftrack_v4.2dt
       flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt
     )
+    
     assert_equal fs, Dir.entries(TEMP_DIR)
   end
   
@@ -49,7 +66,7 @@ class CliTest < Test::Unit::TestCase
   
   def test_cli_reformat
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
-    cli("#{BIN_P} --reformat-x 1204 --reformat-y 340 --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")
+    cli("--reformat-x 1204 --reformat-y 340 --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")
     
     p = Tracksperanto::Import::FlameStabilizer.new
     f = p.parse(File.open(TEMP_DIR + "/flm_flame.stabilizer"))

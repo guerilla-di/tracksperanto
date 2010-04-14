@@ -10,7 +10,7 @@
 # == Author
 #   Julik <me@julik.nl>
 
-require File.dirname(__FILE__) + '/../lib/tracksperanto'
+require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
 require 'optparse'
 require 'rubygems'
 require 'progressbar'
@@ -58,18 +58,23 @@ end
 begin
   op.parse!
 rescue OptionParser::MissingArgument => e
-  STDERR.puts "Unknown argument: #{e.message}"
+  $stderr.puts "Unknown argument: #{e.message}"
   puts parser
   exit(-1)
 end
 
 input_file = ARGV.pop
-if !input_file
-  STDERR.puts "No input file provided - should be the last argument. Also use the --help option."
+unless input_file
+  $stderr.puts "No input file provided - should be the last argument. Also use the --help option."
   exit(-1)
 end
 
-pbar = ProgressBar.new("Converting", 100)
+unless File.exist?(input_file)
+  $stderr.puts "Input file #{input_file} does not exist"
+  exit(-1)
+end
+
+pbar = ProgressBar.new("Converting", 100, $stderr)
 pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p) }, :middleware_tuples => $middlewares)
 pipe.exporters = [Tracksperanto.get_exporter(writer_klass_name)] if writer_klass_name
 pipe.run(input_file, options)

@@ -1,3 +1,7 @@
+=== 1.9.3 / 2010-04-14
+
+* Add tests for the commandline binary itself
+
 === 1.9.2 / 2010-04-02
 
 * Fix a crasher when the progress bar was being set higher than 100 percent

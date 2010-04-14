@@ -16,9 +16,9 @@ require 'rubygems'
 require 'progressbar'
 
 options = {}
+$notice = "Please consider a small donation to keep Tracksperanto going. http://guerilla-di.org/source-and-license/"
 $middlewares = []
 writer_klass_name = nil
-reader_name = "ShakeScript"
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
 
@@ -51,7 +51,7 @@ op.on("--version", "Show the version and exit") do |v|
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     puts "For questions and support contact info#{64.chr}guerilla-di.org"
-    puts "If you found Tracksperanto useful, please consider a small donation http://guerilla-di.org/source-and-license/"
+    puts $notice
     exit(0)
 end
 
@@ -80,5 +80,4 @@ pipe.exporters = [Tracksperanto.get_exporter(writer_klass_name)] if writer_klass
 pipe.run(input_file, options)
 pbar.finish
 
-puts "Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys"
-puts "If you found Tracksperanto useful, please consider a small donation http://guerilla-di.org/source-and-license/"
+puts "Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys. #{$notice}"

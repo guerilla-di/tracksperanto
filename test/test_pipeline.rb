@@ -41,6 +41,26 @@ class PipelineTest < Test::Unit::TestCase
     assert_equal 9, pipeline.converted_keyframes, "Should report conversion of 9 keyframes"
   end
   
+  def test_middleware_initialization_from_tuples
+    create_stabilizer_file
+    
+    pipeline = Tracksperanto::Pipeline::Base.new
+    pipeline.middleware_tuples = [
+      ["Bla", {:width => 721, :height => 577, :foo=> 234}]
+    ]
+    
+    m = flexmock()
+    m.should_receive(:width=).with(721).once
+    m.should_receive(:height=).with(577).once
+    m.should_receive(:foo=).with(234).once
+    mock_class = flexmock()
+    
+    flexmock(Tracksperanto).should_receive(:get_middleware).with("Bla").and_return(mock_class)
+    mock_class.should_receive(:new).and_return(m)
+    
+    assert_raise(NoMethodError) { pipeline.run(@stabilizer) }
+  end
+  
   def test_run_with_autodetected_importer_that_requires_size
     FileUtils.cp("./import/samples/shake_script/four_tracks_in_one_stabilizer.shk", "./input.shk")
     pipeline = Tracksperanto::Pipeline::Base.new

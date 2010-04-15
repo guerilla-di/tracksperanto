@@ -14,6 +14,23 @@ require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksp
 require 'optparse'
 require 'rubygems'
 require 'progressbar'
+require "net/http"
+require "open-uri"
+require "timeout"
+
+def version_check
+  Timeout::timeout(2) do
+    begin
+      version_info = open("http://rubygems.org/api/v1/gems/tracksperanto.xml").string.scan(/<version>(.+)<\/version>/).to_s
+      int_available, int_present = [version_info, Tracksperanto::VERSION].map{|v| v.scan(/(\d+)/).to_s.to_i }
+      if int_available > int_present
+        puts "Your version of Tracksperanto is probably out of date (the current version is #{version_info}, but you have #{Tracksperanto::VERSION})."
+        puts "Please consider updating (run 'gem update tracksperanto')"
+      end
+    rescue OpenURI::HTTPError => e
+    end
+  end
+end
 
 options = {}
 $notice = "Please consider a small donation to keep Tracksperanto going. http://guerilla-di.org/source-and-license/"
@@ -52,6 +69,7 @@ op.on("--version", "Show the version and exit") do |v|
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     puts "For questions and support contact info#{64.chr}guerilla-di.org"
     puts $notice
+    version_check()
     exit(0)
 end
 
@@ -81,3 +99,4 @@ pipe.run(input_file, options)
 pbar.finish
 
 puts "Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys. #{$notice}"
+version_check()

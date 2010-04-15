@@ -5,6 +5,7 @@ README.txt
 Rakefile
 bin/tracksperanto
 lib/export/base.rb
+lib/export/boujou.rb
 lib/export/equalizer3.rb
 lib/export/equalizer4.rb
 lib/export/flame_stabilizer.rb
@@ -64,10 +65,12 @@ test/export/samples/ref_PFTrack.2dt
 test/export/samples/ref_PFTrack5.2dt
 test/export/samples/ref_ShakeText.txt
 test/export/samples/ref_Syntheyes.txt
+test/export/samples/ref_boujou.txt
 test/export/samples/ref_equalizer.txt
 test/export/samples/ref_equalizer3.txt
 test/export/samples/ref_flame.stabilizer
 test/export/samples/ref_matchmover.rz2
+test/export/test_boujou_export.rb
 test/export/test_equalizer3_export.rb
 test/export/test_equalizer_export.rb
 test/export/test_flame_stabilizer_export.rb
@@ -90,6 +93,7 @@ test/import/samples/flame_stabilizer/megaTrack.action.3dtrack.stabilizer
 test/import/samples/match_mover/kipPointsMatchmover.rz2
 test/import/samples/mayalive/mayalive_kipShot.txt
 test/import/samples/nuke/018.nk
+test/import/samples/nuke/45trackers.nk
 test/import/samples/nuke/one_tracker_with_break.nk
 test/import/samples/nuke/one_tracker_with_break_in_grp.nk
 test/import/samples/nuke/tracker_with_differing_gaps.nk
@@ -135,6 +139,7 @@ test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
 test/test_buffer_io.rb
+test/test_cli.rb
 test/test_const_name.rb
 test/test_extio.rb
 test/test_flame_builder.rb

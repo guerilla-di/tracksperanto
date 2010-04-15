@@ -1,5 +1,7 @@
-=== 1.9.3 / 2010-04-14
+=== 1.9.3 / 2010-04-15
 
+* Add direct export to boujou feature tracks
+* Automatically check for new versions and alert the user that he needs an update
 * Add tests for the commandline binary itself
 
 === 1.9.2 / 2010-04-02

@@ -23,9 +23,8 @@ class CliTest < Test::Unit::TestCase
       $VERBOSE = false
       load(BIN_P)
       return [0, os.string, es.string]
-    rescue Exception => boom # The binary uses exit(), we use that to preserve the output code
-      return [boom.status, os.string, es.string] if boom.is_a?(SystemExit)
-      raise boom
+    rescue SystemExit => boom # The binary uses exit(), we use that to preserve the output code
+      return [boom.status, os.string, es.string]
     ensure
       $VERBOSE = verbosity
       ARGV.replace(old_argv)

@@ -10,10 +10,12 @@ class Tracksperanto::Export::Boujou < Tracksperanto::Export::Base
   end
   
   DATETIME_FORMAT = '%a %b %d %H:%M:%S %Y'
-  PREAMBLE = "#boujou 2d tracks export: text\n# boujou version: 4.1.0 28444\n" + 
-    "#Creation date : %s\n# track_id    view      x    y"
-  
-  TEMPLATE = "%s  %d  %.3f  %.3f"
+  PREAMBLE = %[# boujou 2d tracks export: text
+# boujou version: 4.1.0 28444 
+# Creation date : %s
+# 
+# track_id      view      x      y]
+  POINT_T = "%s  %d  %.3f  %.3f"
   
   def start_export( img_width, img_height)
     @height = img_height
@@ -26,6 +28,6 @@ class Tracksperanto::Export::Boujou < Tracksperanto::Export::Base
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     height_inv = @height - abs_float_y
-    @io.write(TEMPLATE % [@tracker_name, frame + 1, abs_float_x, height_inv])
+    @io.puts(POINT_T % [@tracker_name, frame + 1, abs_float_x, height_inv])
   end
 end

@@ -1,3 +1,7 @@
+=== 1.9.4 / 2010-04-16
+
+* Fix the boujou exporter to not crash boujou 5
+
 === 1.9.3 / 2010-04-15
 
 * Add direct export to boujou feature tracks

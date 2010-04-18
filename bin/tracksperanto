@@ -45,8 +45,15 @@ def mw(name, option)
   Proc.new { |value| $middlewares.push([name, {option => value}]) }
 end
 
+class CodeLoaded < RuntimeError; end
+
 op.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
-op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto") {|c|  require(c) }
+op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto") do |c|  
+  unless $code
+    require(c)
+    raise CodeLoaded
+  end
+end
 op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
 op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
@@ -75,10 +82,9 @@ end
 
 begin
   op.parse!
-rescue OptionParser::MissingArgument => e
-  $stderr.puts "Unknown argument: #{e.message}"
-  puts parser
-  exit(-1)
+rescue CodeLoaded
+  $code = true
+  retry
 end
 
 input_file = ARGV.pop

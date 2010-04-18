@@ -71,10 +71,10 @@ Import and export support:
 * MatchMover Pro .rz2
 * MayaLive track export (square pixel aspect only, you will need to write some extra code to convert that)
 * Flame .stabilizer file
+* Boujou feature track export
 
 Import only:
-* Boujou feature track export
-* Shake script (Tracker, Matchmove and Stabilize nodes)
+* Shake script (Tracker, Matchmove and Stabilize nodes embedded in ANY shake script)
 
 == Modularity
 

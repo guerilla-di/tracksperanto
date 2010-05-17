@@ -34,7 +34,6 @@ lib/import/syntheyes.rb
 lib/middleware/base.rb
 lib/middleware/golden.rb
 lib/middleware/length_cutoff.rb
-lib/middleware/lens_distort.rb
 lib/middleware/lerp.rb
 lib/middleware/prefix.rb
 lib/middleware/reformat.rb
@@ -134,7 +133,6 @@ test/import/test_shake_text_import.rb
 test/import/test_syntheyes_import.rb
 test/middleware/test_golden_middleware.rb
 test/middleware/test_length_cutoff_middleware.rb
-test/middleware/test_lens_distort_middleware.rb
 test/middleware/test_lerp_middleware.rb
 test/middleware/test_prefix.rb
 test/middleware/test_reformat_middleware.rb

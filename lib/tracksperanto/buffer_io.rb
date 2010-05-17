@@ -5,7 +5,7 @@ require "tempfile"
 class Tracksperanto::BufferIO < DelegateClass(IO)
   include Tracksperanto::Returning
   
-  MAX_IN_MEM_BYTES = 100_000
+  MAX_IN_MEM_BYTES = 5_000_000
   
   def initialize
     __setobj__(StringIO.new)
@@ -40,6 +40,8 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
     if io.pos > MAX_IN_MEM_BYTES
       tf = Tempfile.new("tracksperanto-xbuf")
       tf.write(io.string)
+      io.string = ""
+      GC.start
       __setobj__(tf)
       @tempfile_in = true
     end

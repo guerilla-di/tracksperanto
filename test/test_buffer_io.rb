@@ -11,11 +11,11 @@ class TestBufferIO < Test::Unit::TestCase
   
   def test_write_larger_than_max_swaps_tempfile
     io = Tracksperanto::BufferIO.new
-    110_000.times { io.write("a") }
+    io.write("a" * 6_000_001)
     f = io.__getobj__
     assert_kind_of Tempfile, f
     f.rewind
-    assert_equal 110_000, f.read.length
+    assert_equal 6_000_001, f.read.length
     flexmock(f).should_receive(:close!).once
     io.close!
   end

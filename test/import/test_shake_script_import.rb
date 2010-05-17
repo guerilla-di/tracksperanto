@@ -110,4 +110,10 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_in_delta 1256.72, last_kf.abs_x, DELTA
     assert_in_delta 1569.04, last_kf.abs_y, DELTA
   end
+  
+  def test_file_from_matchmover
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/from_matchmover.shk")
+    trackers = Tracksperanto::Import::ShakeScript.new(:width => 1920, :height => 1080).parse(fixture)
+    assert_equal 8, trackers.length
+  end
 end

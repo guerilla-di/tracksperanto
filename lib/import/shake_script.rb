@@ -16,10 +16,13 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     include Tracksperanto::ZipTuples
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
-    # in this case we DO want to take this shortcut so we will intersperse the data into the sentinel
+    # in this case we DO want to take this shortcut so we know how the tracker node is called
      def push(atom)
        return super unless (atom.is_a?(Array) && atom[0] == :assign)
        return super unless (atom[2][0] == :retval)
+       return super unless (atom[2][1].is_a?(Array))
+       return super unless (atom[2][1][0].is_a?(Tracksperanto::Tracker))
+       
        node_name = atom[1]
        atom[2][1].map do | tracker |
         tracker.name = [node_name, tracker.name].join("_")
@@ -207,7 +210,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes)
     end
     
-    def collect_tracker(name, x_curve, y_curve, corr_curve, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
+    def collect_tracker(name, x_curve, y_curve, corr_curve, *discard)
       unless x_curve.is_a?(Array) && y_curve.is_a?(Array)
         report_progress("Tracker #{name} had no anim or unsupported interpolation and can't be recovered")
         return

@@ -108,7 +108,12 @@ class ShakeLexerTest < Test::Unit::TestCase
   
   def test_parse_varassign
     s = parse 'Foo = Blur(Foo, 1, 2, 3); 1'
-    assert_equal [[:assign, "Foo", [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s
+    assert_equal [[:assign, [:vardef, "Foo"], [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s
+  end
+  
+  def test_parse_varassign_with_typedef
+    s = parse 'curve float focal = Linear(0,2257.552@1,2257.552@2)'
+    assert_equal [[:assign, [:vardef, "curve", "float", "focal"], [:funcall, "Linear", 0, [:value_at, 1, 2257.552], [:value_at, 2, 2257.552]]]], s
   end
   
   def test_parse_whole_file_does_not_raise

@@ -17,18 +17,18 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
     # in this case we DO want to take this shortcut so we know how the tracker node is called
-     def push(atom)
-       return super unless (atom.is_a?(Array) && atom[0] == :assign)
-       return super unless (atom[2][0] == :retval)
-       return super unless (atom[2][1].is_a?(Array))
-       return super unless (atom[2][1][0].is_a?(Tracksperanto::Tracker))
-       
-       node_name = atom[1]
-       atom[2][1].map do | tracker |
-        tracker.name = [node_name, tracker.name].join("_")
-        sentinel[0].push(tracker)
-       end
-     end
+    def push(atom)
+      return super unless (atom.is_a?(Array)) && 
+           (atom[0] == :assign) &&
+           (atom[2][0] == :retval) &&
+           (atom[2][1][0] == :trk)
+      node_name = atom[1][-1]
+      trackers = atom[2][1][1..-1]
+      trackers.map do | tracker |
+       tracker.name = [node_name, tracker.name].join("_")
+       sentinel[0].push(tracker)
+      end
+    end
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
@@ -66,7 +66,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         s3, s4, s5, s6, *trackers)
       
       report_progress("Parsing Tracker node")
-      collect_trackers_from(trackers)
+      collect_trackers_from(trackers).unshift(:trk)
     end
     
     # stabilize {
@@ -112,7 +112,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         collect_stabilizer_tracker("track2", track2X, track2Y),
         collect_stabilizer_tracker("track3", track3X, track3Y),
         collect_stabilizer_tracker("track4", track4X, track4Y),
-      ].compact
+      ].compact.unshift(:trk)
     end
     
     #  image = MatchMove( 
@@ -179,7 +179,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
         collect_stabilizer_tracker("track2", track2X, track2Y),
         collect_stabilizer_tracker("track3", track3X, track3Y),
         collect_stabilizer_tracker("track4", track4X, track4Y),
-      ].compact
+      ].compact.unshift(:trk)
     end
     
     private

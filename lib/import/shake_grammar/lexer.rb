@@ -71,7 +71,7 @@ module Tracksperanto::ShakeGrammar
       elsif (c == ";" || c == "\n")
         # Skip these - the subexpression already is expanded anyway
       elsif (c == "=")
-        push [:assign, @buf.strip, self.class.new(@io, @sentinel, to_semicolon = true, @stack_depth + 1).stack.shift]
+        push [:assign, vardef(@buf.strip), self.class.new(@io, @sentinel, to_semicolon = true, @stack_depth + 1).stack.shift]
         @buf = ''
       else
         @buf << c
@@ -114,6 +114,10 @@ module Tracksperanto::ShakeGrammar
     
     def push(atom_array)
       @stack << atom_array
+    end
+    
+    def vardef(var_specifier)
+      [:vardef] + var_specifier.split
     end
   end
 end

@@ -1,3 +1,8 @@
+=== 1.9.5 / 2010-05-17
+
+* More stringently check for trackers in the Shake script importer (helps from recognizing arbitrary variables as trackers)
+* Increase the size of the in-mem string export buffer
+
 === 1.9.4 / 2010-04-16
 
 * Fix the boujou exporter to not crash boujou 5

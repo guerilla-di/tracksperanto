@@ -139,21 +139,23 @@ Channel tracker1/ref/x
 	Colour 50 50 50 
 	End
 =end
+
     def extract_channels_from_stream(io)
       channels = []
       channel_matcher = /Channel (.+)\n/
       until io.eof?
         line = io.gets
-        if line =~ channel_matcher
+        if line =~ channel_matcher && channel_is_useful?(line)
           report_progress("Extracting channel #{$1}")
-          channels << extract_channel_from(io, $1)
+          channels << ChannelBlock.new(io, $1)
         end
       end
       channels
     end
     
-    def extract_channel_from(io, channel_name)
-      ChannelBlock.new(io, channel_name)
+    USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
+    def channel_is_useful?(channel_name)
+      USEFUL_CHANNELS.any?{|e| channel_name =~ e }
     end
     
     REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't

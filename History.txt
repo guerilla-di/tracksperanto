@@ -1,3 +1,5 @@
+* Only parse channels that are actually relevant in the Flame importer
+
 === 1.9.5 / 2010-05-17
 
 * More stringently check for trackers in the Shake script importer (helps from recognizing arbitrary variables as trackers)

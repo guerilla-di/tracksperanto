@@ -41,8 +41,11 @@ writers = Tracksperanto.exporter_names
 
 op = OptionParser.new
 
-def mw(name, option)
-  Proc.new { |value| $middlewares.push([name, {option => value}]) }
+def mw(name, option, default_value = nil)
+  Proc.new do |value| 
+    v = value.nil? ? default_value : value
+    $middlewares.push([name, {option => v}])
+  end
 end
 
 class CodeLoaded < RuntimeError; end
@@ -62,14 +65,14 @@ op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, f
 op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
 op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
 op.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'", &mw("Slipper", :slip))
-op.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)", &mw("Golden", :enabled))
+op.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)", &mw("Golden", :enabled, true))
 op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &mw("Reformat", :width))
 op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &mw("Reformat", :height))
 op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, "Only export trackers having more than X keyframes", &mw("LengthCutoff", :min_length))
 op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &mw("Shift", :x_shift))
 op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &mw("Shift", :y_shift)) 
 op.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk", &mw("Prefix", :prefix))
-op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp", :enabled))
+op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp", :enabled, true))
 
 op.on("--version", "Show the version and exit") do |v| 
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"

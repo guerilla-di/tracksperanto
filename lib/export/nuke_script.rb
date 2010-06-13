@@ -1,5 +1,7 @@
 # Export each tracker as a single Tracker3 node
 class Tracksperanto::Export::NukeScript < Tracksperanto::Export::Base
+    #:nodoc:
+    
     NODE_TEMPLATE = %[
 Tracker3 {
      track1 {%s}
@@ -25,11 +27,15 @@ Constant {
  xpos 0
  ypos -60
 }]  
-    SCHEMATIC_OFFSET = 30
     class T < Array
       attr_accessor :name
       include ::Tracksperanto::BlockInit
     end
+    
+    #:doc:
+    
+    # Offset by which the new nodes will be shifted down in the node graph
+    SCHEMATIC_OFFSET = 30
     
     def self.desc_and_extension
       "nuke.nk"

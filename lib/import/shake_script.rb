@@ -32,7 +32,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
     # We put the frame number at the beginning since it works witih oru tuple zipper
-    def linear(first_arg, *keyframes)
+    def linear(extrapolation_type, *keyframes)
       report_progress("Translating Linear animation")
       keyframes.map { |kf| [kf.at, kf.value] }
     end
@@ -43,7 +43,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # Hermite(0,[1379.04,-0.02,-0.02]@1,[1379.04,-0.03,-0.03]@2)
     # The first value in the array is the keyframe value, the other two are
     # tangent positions (which we discard)
-    def hermite(initial_value, *keyframes)
+    def hermite(extrapolation_type, *keyframes)
       report_progress("Translating Hermite curve, removing tangents")
       keyframes.map{ |kf| [kf.at, kf.value[0]] }
     end

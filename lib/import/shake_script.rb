@@ -62,11 +62,16 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     #   ...
     #  );  
     def tracker(input, trackRange, subPixelRes, matchSpace,
-        referenceTolerance, referenceBehavior, failureTolerance, failureBehavior, limitProcessing, referencFrame, s1, s2,
-        s3, s4, s5, s6, *trackers)
+        referenceTolerance, referenceBehavior, failureTolerance, failureBehavior, limitProcessing, referencFrame, 
+        s1, s2, s3, s4, s5, s6, *trackers)
+      flat_tracks = if (s1 == "v2.0") # The Shake version stupid Winfucks users didn't get
+        trackers
+      else
+        [s1, s2, s3, s4, s4, s6] + trackers
+      end
       
       report_progress("Parsing Tracker node")
-      collect_trackers_from(trackers).unshift(:trk)
+      collect_trackers_from(flat_tracks).unshift(:trk)
     end
     
     # stabilize {

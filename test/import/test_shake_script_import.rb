@@ -116,4 +116,12 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     trackers = Tracksperanto::Import::ShakeScript.new(:width => 1920, :height => 1080).parse(fixture)
     assert_equal 8, trackers.length
   end
+  
+  def test_tracker_node_from_stoneage_shake_version
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/oldTrackerNode.shk")
+    p = Tracksperanto::Import::ShakeScript.new(:width => 5000, :height => 5000)
+    trackers = p.parse(fixture)
+    assert_equal 1, trackers.length
+    assert_equal 850, trackers[0].length
+  end
 end

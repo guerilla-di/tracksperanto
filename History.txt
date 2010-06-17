@@ -1,3 +1,6 @@
+=== 1.9.6 / 2010-06-17
+
+* Support Tracker nodes in Shake scripts that come from an old (ages old!) Shake version
 * Only parse channels that are actually relevant in the Flame importer
 
 === 1.9.5 / 2010-05-17

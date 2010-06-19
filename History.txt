@@ -1,3 +1,5 @@
+* Adds a flip middleware to mirror a tracked comp
+
 === 1.9.6 / 2010-06-17
 
 * Support Tracker nodes in Shake scripts that come from an old (ages old!) Shake version

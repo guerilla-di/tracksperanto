@@ -31,7 +31,7 @@
 === 1.9.0 / 2010-03-21
 
 * Use proper progress bars
-* Allow proper chaining of middlewares in the commandline app - you can now apply many middlewares of the same nature in chainn, and they will be ordered correctly
+* Allow proper chaining of middlewares in the commandline app - you can now apply many middlewares of the same nature in chain, and they will be ordered correctly
 * Small rewrites to Pipeline::Base (changes API slightly - please consult the docs)
 
 === 1.8.4 / 2010-03-10

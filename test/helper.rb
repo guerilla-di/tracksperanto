@@ -64,6 +64,10 @@ module ParabolicTracks
     end
   end
   
+  SINGLE_FRAME_TRACK = Tracksperanto::Tracker.new(:name => "SingleFrame") do | t |
+    t.keyframe! :frame => 0, :abs_x => (1920/2) + 10, :abs_y => (1080/2)+10, :residual => 0
+  end
+  
   def create_reference_output(exporter_klass, ref_path)
     File.open(ref_path, "w") do | io |
       x = exporter_klass.new(io)
@@ -73,6 +77,13 @@ module ParabolicTracks
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
+    if ENV['OVERWRITE']
+      File.open(reference_path, "w") do | out |
+        x = exporter_klass.new(out)
+        export_parabolics_with(x)
+      end
+    end
+    
     io = StringIO.new
     x = exporter_klass.new(io)
     yield(x) if block_given?
@@ -91,7 +102,7 @@ module ParabolicTracks
   
   def export_parabolics_with(exporter)
     exporter.start_export(1920, 1080)
-    [FIRST_TRACK, SECOND_TRACK].each do | t |
+    [FIRST_TRACK, SECOND_TRACK, SINGLE_FRAME_TRACK].each do | t |
       exporter.start_tracker_segment(t.name)
       t.keyframes.each do | kf |
         exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)

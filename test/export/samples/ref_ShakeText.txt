@@ -42,3 +42,7 @@ TrackName Parabolic_2_from_bottom_right
    20.00   96.000   205.200   0.095
    21.00   0.000   0.000   0.048
 
+TrackName SingleFrame
+   Frame             X             Y   Correlation
+   1.00   970.000   550.000   1.000
+

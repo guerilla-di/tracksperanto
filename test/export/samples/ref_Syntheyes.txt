@@ -1,4 +1,4 @@
-Parabolic_1_from_top_left 0 -1.000000 -1.000000 30
+Parabolic_1_from_top_left 0 -1.000000 -1.000000 15
 Parabolic_1_from_top_left 1 -0.900000 -0.620000 7
 Parabolic_1_from_top_left 2 -0.800000 -0.280000 7
 Parabolic_1_from_top_left 3 -0.700000 0.020000 7
@@ -17,7 +17,7 @@ Parabolic_1_from_top_left 17 0.700000 0.020000 7
 Parabolic_1_from_top_left 18 0.800000 -0.280000 7
 Parabolic_1_from_top_left 19 0.900000 -0.620000 7
 Parabolic_1_from_top_left 20 1.000000 -1.000000 7
-Parabolic_2_from_bottom_right 0 1.000000 1.000000 30
+Parabolic_2_from_bottom_right 0 1.000000 1.000000 15
 Parabolic_2_from_bottom_right 1 0.900000 0.620000 7
 Parabolic_2_from_bottom_right 2 0.800000 0.280000 7
 Parabolic_2_from_bottom_right 3 0.700000 -0.020000 7
@@ -36,3 +36,4 @@ Parabolic_2_from_bottom_right 17 -0.700000 -0.020000 7
 Parabolic_2_from_bottom_right 18 -0.800000 0.280000 7
 Parabolic_2_from_bottom_right 19 -0.900000 0.620000 7
 Parabolic_2_from_bottom_right 20 -1.000000 1.000000 7
+SingleFrame 0 0.010417 -0.018519 15

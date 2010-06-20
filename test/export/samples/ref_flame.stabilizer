@@ -2,7 +2,7 @@ StabilizerFileVersion 5.0
 CreationDate Thu Feb 18 17:22:12 2010
 
 
-NbTrackers 2
+NbTrackers 3
 Selected 0
 FrameWidth 1920
 FrameHeight 1080
@@ -794,6 +794,140 @@ Channel tracker2/shift/y
 		RightSlope 2.400
 		End
 	End
+Channel tracker3/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel tracker3/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel tracker3/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/x
+	Extrapolation constant
+	Value 970.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 970.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/y
+	Extrapolation constant
+	Value 550.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 550.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
 ChannelEnd
 Tracker 0
 	Active yes
@@ -806,6 +940,16 @@ Tracker 0
 	FixedY no
 	Tolerance 100
 Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 2
 	Active yes
 	Colour
 		Red 0

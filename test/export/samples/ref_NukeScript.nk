@@ -28,3 +28,10 @@ Tracker3 {
      xpos 0
      ypos 60
 }
+
+Tracker3 {
+     track1 {{curve i x1 970.0000} {curve i x1 550.0000}}
+     name SingleFrame
+     xpos 0
+     ypos 90
+}

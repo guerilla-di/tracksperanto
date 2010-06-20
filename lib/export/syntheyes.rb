@@ -43,9 +43,7 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
     # OUTCOME_OUTASIGHT = 32 
     # We actually provide pregenerated status codes instead of that to get the desired outcome codes.
     def get_outcome_code(frame)
-      outcome = if @last_registered_frame.nil?
-        STATUS_KF
-      elsif @last_registered_frame != (frame - 1)
+      outcome = if @last_registered_frame.nil? || (@last_registered_frame != (frame - 1))
         STATUS_REENABLE
       else
         STATUS_STD

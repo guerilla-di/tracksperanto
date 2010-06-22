@@ -1,3 +1,5 @@
+* The app will now tell you when you try to feed it an empty file
+* Change Synetheyes exports to start with a standard frame and not a keyframe to make 1-frame trackers work
 * Adds a flip middleware to mirror a tracked comp
 
 === 1.9.6 / 2010-06-17

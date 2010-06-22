@@ -43,6 +43,13 @@ class PipelineTest < Test::Unit::TestCase
     assert_equal 9, pipeline.converted_keyframes, "Should report conversion of 9 keyframes"
   end
   
+  def test_run_crashes_with_empty_file
+    empty_file_path = "./input_empty.stabilizer"
+    f = File.open(empty_file_path, "w"){|f| f.write('') }
+    pipeline = Tracksperanto::Pipeline::Base.new
+    assert_raise(RuntimeError) { pipeline.run(empty_file_path) }
+  end
+  
   def test_middleware_initialization_from_tuples
     create_stabilizer_file
     

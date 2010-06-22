@@ -56,6 +56,9 @@ class Tracksperanto::Pipeline::Base
     # Assign the parser
     importer = initialize_importer_with_path_and_options(from_input_file_path, passed_options)
     
+    # Check for empty files
+    raise "This is an empty source file" if File.stat(from_input_file_path).size.zero?
+    
     # Open the file
     read_data = File.open(from_input_file_path, "rb")
         

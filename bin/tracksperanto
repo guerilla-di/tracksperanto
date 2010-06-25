@@ -20,15 +20,13 @@ require "timeout"
 
 def version_check
   begin
-    Timeout.timeout(0.5) do
-      version_info = open("http://rubygems.org/api/v1/gems/tracksperanto.xml").string.scan(/<version>(.+)<\/version>/).to_s
-      int_available, int_present = [version_info, Tracksperanto::VERSION].map{|v| v.scan(/(\d+)/).to_s.to_i }
-      if int_available > int_present
-        puts "Your version of Tracksperanto is probably out of date (the current version is #{version_info}, but you have #{Tracksperanto::VERSION})."
-        puts "Please consider updating (run 'gem update tracksperanto')"
-      end
+    version_info = open("http://rubygems.org/api/v1/gems/tracksperanto.xml").string.scan(/<version>(.+)<\/version>/).to_s
+    int_available, int_present = [version_info, Tracksperanto::VERSION].map{|v| v.scan(/(\d+)/).to_s.to_i }
+    if int_available > int_present
+      puts "Your version of Tracksperanto is probably out of date (the current version is #{version_info}, but you have #{Tracksperanto::VERSION})."
+      puts "Please consider updating (run 'gem update tracksperanto')"
     end
-  rescue Exception => e
+  rescue Exception
   end
 end
 

@@ -3,6 +3,7 @@ require 'test/unit'
 require 'rubygems'
 require 'flexmock'
 require 'flexmock/test_unit'
+require 'fileutils'
 
 # This module creates ideal parabolic tracks for testing exporters. The two trackers
 # will start at opposite corners of the image and traverse two parabolic curves, touching

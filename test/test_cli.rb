@@ -5,7 +5,7 @@ class CliTest < Test::Unit::TestCase
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   
   def setup
-    Dir.mkdir(TEMP_DIR)
+    Dir.mkdir(TEMP_DIR) unless File.exist?(TEMP_DIR)
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
   end
   

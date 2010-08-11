@@ -1,4 +1,4 @@
-=== 1.9.7 / 2010-08-11
+=== 1.9.8 / 2010-08-11
 
 * Very minor changes and improvements
 * The app will now tell you when you try to feed it an empty file

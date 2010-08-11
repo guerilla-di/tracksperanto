@@ -32,6 +32,7 @@ lib/import/shake_script.rb
 lib/import/shake_text.rb
 lib/import/syntheyes.rb
 lib/middleware/base.rb
+lib/middleware/flip.rb
 lib/middleware/golden.rb
 lib/middleware/length_cutoff.rb
 lib/middleware/lerp.rb
@@ -104,6 +105,7 @@ test/import/samples/pftrack5/garage.2dt
 test/import/samples/shake_script/four_tracks_in_one_matchmove.shk
 test/import/samples/shake_script/four_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/from_matchmover.shk
+test/import/samples/shake_script/oldTrackerNode.shk
 test/import/samples/shake_script/shake_script_from_boujou.shk
 test/import/samples/shake_script/shake_tracker_nodes.shk
 test/import/samples/shake_script/shake_tracker_with_no_anim.shk
@@ -111,7 +113,6 @@ test/import/samples/shake_script/shake_trackers_with_Nspline.shk
 test/import/samples/shake_script/stabilize_nodes_with_hermite.shk
 test/import/samples/shake_script/three_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/two_tracks_in_one_tracker.shk
-test/import/samples/shake_script/oldTrackerNode.shk
 test/import/samples/shake_text/one_shake_tracker.txt
 test/import/samples/shake_text/one_shake_tracker_from_first.txt
 test/import/samples/shake_text/two_shake_trackers.txt
@@ -132,6 +133,7 @@ test/import/test_shake_lexer.rb
 test/import/test_shake_script_import.rb
 test/import/test_shake_text_import.rb
 test/import/test_syntheyes_import.rb
+test/middleware/test_flip_middleware.rb
 test/middleware/test_golden_middleware.rb
 test/middleware/test_length_cutoff_middleware.rb
 test/middleware/test_lerp_middleware.rb

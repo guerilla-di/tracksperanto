@@ -71,7 +71,8 @@ op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &m
 op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &mw("Shift", :y_shift)) 
 op.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk", &mw("Prefix", :prefix))
 op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp", :enabled, true))
-op.on("--flip", "Flip the comp horizontally", &mw("Flip", :enabled, true))
+op.on("--flip", "Flip the comp horizontally", &mw("Flip", :flip, true))
+op.on("--flop", "Flop the comp vertically", &mw("Flip", :flop, true))
 
 op.on("--version", "Show the version and exit") do |v| 
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"

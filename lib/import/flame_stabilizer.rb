@@ -154,6 +154,12 @@ Channel tracker1/ref/x
     end
     
     USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
+    
+    # This method tells the importer whether a channel that has been found in the source
+    # setup is needed. If that method returns ++false++ the channel will be discarded and not
+    # kept in memory. Should you need to write a module that scavenges other Flame animation channels
+    # inherit from this class and rewrite this method to either return +true+ always (then all the channels
+    # will be recovered) or to return +true+ only for channels that you actually need.
     def channel_is_useful?(channel_name)
       USEFUL_CHANNELS.any?{|e| channel_name =~ e }
     end

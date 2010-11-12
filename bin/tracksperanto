@@ -5,7 +5,7 @@
 #
 # == Usage
 # 
-#   tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
+#   tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk --only flamestabilizer
 #   
 # == Author
 #   Julik <me@julik.nl>

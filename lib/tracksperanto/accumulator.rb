@@ -1,16 +1,22 @@
+# An accumulator buffer for Ruby objects. Use it to sequentially store a shitload
+# of objects on disk and then retreive them one by one. Make sure to call #close! when done with it to
+# discard the stored blob
 class Tracksperanto::Accumulator < DelegateClass(IO)
   
+  # Stores the number of objects stored so far
   attr_reader :numt
+  
   def initialize
     __setobj__(Tracksperanto::BufferIO.new)
     @numt = 0
   end
   
-  def call(with_arrived_tracker)
+  # Store an object
+  def call(object_to_store)
     
     @numt += 1
     
-    d = Marshal.dump(with_arrived_tracker)
+    d = Marshal.dump(object_to_store)
     bytelen = d.size
     write(bytelen)
     write("\t")
@@ -18,16 +24,18 @@ class Tracksperanto::Accumulator < DelegateClass(IO)
     write("\n")
   end
   
+  # Retreive each stored object in succession
   def each_object_with_index
     rewind
-    @numt.times { |i| yield(recover_tracker, i - 1) }
+    @numt.times { |i| yield(recover_object, i - 1) }
   end
   
   private
   
-  def recover_tracker
-    # Read everything upto the tab
+  def recover_object
+    # Up to the tab is the amount of bytes to read
     demarshal_bytes = gets("\t").strip.to_i
+    # Then read the bytes and unmarshal it
     Marshal.load(read(demarshal_bytes))
   end
 end

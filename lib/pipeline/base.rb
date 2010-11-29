@@ -116,25 +116,31 @@ class Tracksperanto::Pipeline::Base
     end
     @ios << io_with_progress
     
-    trackers = importer.parse(io_with_progress)
-    report_progress(percent_complete = 50.0, "Validating #{trackers.length} imported trackers")
+    accumulator = Tracksperanto::Accumulator.new
+    importer.receiver = accumulator
+    @ios << accumulator
     
-    validate_trackers!(trackers)
+    importer.stream_parse(io_with_progress)
+    
+    report_progress(percent_complete = 50.0, "Validating #{accumulator.length} imported trackers")
+    raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?" if accumulator.numt.zero?
     
     report_progress(percent_complete, "Starting export")
     
-    percent_per_tracker = (100.0 - percent_complete) / trackers.length
+    percent_per_tracker = (100.0 - percent_complete) / accumulator.numt
     
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
-    trackers.each_with_index do | t, tracker_idx |
+    accumulator.each_object_with_index do | t, tracker_idx |
+      raise "Not a Tracker" unless t.is_a?(Tracksperanto::Tracker)
+      
       kf_weight = percent_per_tracker / t.keyframes.length
       points += 1
       exporter.start_tracker_segment(t.name)
       t.each_with_index do | kf, idx |
         keyframes += 1
         exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{trackers.length - tracker_idx} trackers to go")
+        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{accumulator.numt - tracker_idx} trackers to go")
       end
       exporter.end_tracker_segment
     end
@@ -165,11 +171,5 @@ class Tracksperanto::Pipeline::Base
   def open_owned_export_file(path_to_file)
     @ios ||= []
     @ios.push(File.open(path_to_file, "wb"))[-1]
-  end
-  
-  # Check that the trackers made by the parser are A-OK
-  def validate_trackers!(trackers)
-    trackers.reject!{|t| t.empty? }
-    raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?" if trackers.empty?
   end
 end

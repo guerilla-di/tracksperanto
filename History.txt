@@ -1,3 +1,8 @@
+=== 1.9.9 / 2010-08-11
+
+* Buffer the parsed trackers on disk or in a stream (all backwards-compatible). Substantially reduces conversion times and memory
+  usage on huge files.
+
 === 1.9.8 / 2010-08-11
 
 * Very minor changes and improvements

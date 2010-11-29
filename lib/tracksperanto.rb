@@ -4,7 +4,7 @@ require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '1.9.8'
+  VERSION = '1.9.9'
   
   module Import; end
   module Export; end
@@ -83,6 +83,7 @@ end
   simple_export
   uv_coordinates
   flame_builder
+  accumulator
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

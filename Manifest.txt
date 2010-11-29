@@ -58,6 +58,7 @@ lib/tracksperanto/simple_export.rb
 lib/tracksperanto/tracker.rb
 lib/tracksperanto/uv_coordinates.rb
 lib/tracksperanto/zip_tuples.rb
+lib/tracksperanto/accumulator.rb
 test/export/README_EXPORT_TESTS.txt
 test/export/samples/ref_Mayalive.txt
 test/export/samples/ref_Mayalive_CustomAspect.txt

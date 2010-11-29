@@ -13,7 +13,6 @@ class Equalizer3ImportTest < Test::Unit::TestCase
     fixture = File.open(File.dirname(__FILE__) + '/samples/3de_v3/3de_export_v3.txt')
     
     parser = Tracksperanto::Import::Equalizer3.new
-    
     trackers = parser.parse(fixture)
     
     assert_equal 2048, parser.width

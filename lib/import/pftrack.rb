@@ -9,8 +9,7 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   
   CHARACTERS_OR_QUOTES = /[AZaz"]/
   
-  def parse(io)
-    trackers = []
+  def stream_parse(io)
     until io.eof?
       line = io.gets
       next if (!line || line =~ /^#/)
@@ -19,11 +18,9 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
         t = Tracksperanto::Tracker.new{|t| t.name = line.strip.gsub(/"/, '') }
         report_progress("Reading tracker #{t.name}")
         parse_tracker(t, io)
-        trackers << t
+        send_tracker(t)
       end
     end
-    
-    trackers
   end
   
   private
@@ -35,10 +32,10 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       end
       
       num_of_keyframes = first_tracker_line.to_i
-      t.keyframes = (1..num_of_keyframes).map do | keyframe_idx |
+      (1..num_of_keyframes).map do | keyframe_idx |
         report_progress("Reading keyframe #{keyframe_idx} of #{num_of_keyframes} in #{t.name}")
         f, x, y, residual = io.gets.chomp.split
-        Tracksperanto::Keyframe.new(:frame => f, :abs_x => x, :abs_y => y, :residual => residual.to_f * 8)
+        t.keyframe!(:frame => f, :abs_x => x, :abs_y => y, :residual => residual.to_f * 8)
       end
     end
 end

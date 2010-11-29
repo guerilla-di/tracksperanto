@@ -6,14 +6,10 @@ class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
   end
   
   
-  def parse(passed_io)
-    ts = []
+  def stream_parse(passed_io)
     io = Tracksperanto::ExtIO.new(passed_io)
-    
     num_t = detect_num_of_points(io)
-    num_t.times { ts << extract_tracker(io) }
-    
-    ts
+    num_t.times { send_tracker(extract_tracker(io)) }
   end
   
   private

@@ -9,9 +9,8 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
     true
   end
   
-  def parse(passed_io)
+  def stream_parse(passed_io)
     io = Tracksperanto::ExtIO.new(passed_io)
-    
     detect_format!(io)
     extract_trackers(io)
   end
@@ -24,31 +23,22 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
     end
     
     def extract_trackers(io)
-      ts = []
       while line = io.gets do
         if line =~ /^(\w+)/ # Tracker name
-          discard_last_empty_tracker!(ts)
-          ts.push(Tracksperanto::Tracker.new(:name => line.strip))
+          send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+          @last_tracker = Tracksperanto::Tracker.new(:name => line.strip)
           report_progress("Capturing tracker #{line.strip}")
         elsif line =~ /^\t/
-          ts[-1].push(make_keyframe(line))
+          @last_tracker.keyframe!(make_keyframe(line))
         end
       end
       
-      discard_last_empty_tracker!(ts)
-      ts
-    end
-    
-    def discard_last_empty_tracker!(in_array)
-      if (in_array.any? && in_array[-1].empty?)
-        in_array.delete_at(-1)
-        report_progress("Removing the last tracker since it had no keyframes")
-      end
+      send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
     end
     
     def make_keyframe(from_line)
       frame, x, y = from_line.split
       report_progress("Capturing keyframe #{frame}")
-      Tracksperanto::Keyframe.new(:frame => (frame.to_i - 1), :abs_x => x, :abs_y => y)
+      {:frame => (frame.to_i - 1), :abs_x => x, :abs_y => y}
     end
 end

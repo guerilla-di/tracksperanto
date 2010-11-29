@@ -25,8 +25,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       node_name = atom[1][-1]
       trackers = atom[2][1][1..-1]
       trackers.map do | tracker |
-       tracker.name = [node_name, tracker.name].join("_")
-       sentinel[0].push(tracker)
+        tracker.name = [node_name, tracker.name].join("_")
+        sentinel[0].call(tracker)
       end
     end
     
@@ -239,11 +239,19 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
   end
   
-  def parse(script_io)
-    trackers = []
+  class PushCall
+    def initialize(proc)
+      @proc = proc
+    end
+    
+    def push(t)
+      @proc.call(t)
+    end
+  end
+  
+  def stream_parse(script_io)
     progress_proc = lambda{|msg| report_progress(msg) }
-    Traxtractor.new(script_io, [trackers, progress_proc])
-    trackers
+    Traxtractor.new(script_io, [method(:send_tracker), progress_proc])
   end
   
 end

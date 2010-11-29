@@ -8,6 +8,9 @@ class Tracksperanto::Import::Base
   include Tracksperanto::ZipTuples
   include Tracksperanto::ConstName
   
+  # Every time the importer accumulates a tracker this block will be called
+  attr_accessor :receiver
+  
   # Tracksperanto will assign a proc that reports the status of the import to the caller.
   # This block is automatically used by report_progress IF the proc is assigned. Should
   # the proc be nil, the report_progress method will just pass (so you don't need to check for nil
@@ -60,12 +63,30 @@ class Tracksperanto::Import::Base
     @progress_block.call(message) if @progress_block
   end
   
+  # OBSOLETE: do not implement this method in your importer. This is used to accumulate trackers in an array
+  # and then send it to the caller. Used in tests.
+  def parse(track_file_io)
+    @receiver = []
+    class << @receiver
+      def call(with)
+        push(with)
+      end
+    end
+    
+    stream_parse(track_file_io)
+    @receiver
+  end
+  
   # The main method of the parser. Will receive an IO handle to the file being imported, and should
-  # return an array of Tracksperanto::Tracker objects containing keyframes. If you have a problem
-  # doing an import, raise from here. Note that in general it's a good idea to stream-parse a document
+  # send each consecutive tracker via the send_tracker method.
+  # Note that in general it's a good idea to stream-parse a document
   # instead of bulk-reading it into memory (since Tracksperanto tries to be mem-efficient when dealing
   # with large files)
-  def parse(track_file_io)
-    []
+  def stream_parse(track_file_io)
+  end
+  
+  # When a tracker has been detected completely (all keyframes) call this method with the tracker object as argument
+  def send_tracker(tracker_obj)
+    @receiver.call(tracker_obj) if @receiver
   end
 end

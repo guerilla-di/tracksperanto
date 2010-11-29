@@ -12,10 +12,10 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     ".rz2"
   end
   
-  def parse(io)
+  def stream_parse(io)
     trackers = []
     detect_format(io)
-    extract_trackers(io)
+    extract_trackers(io) { |t| send_tracker(t) }
   end
   
   private
@@ -29,11 +29,9 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   end
   
   def extract_trackers(io)
-    tracks = []
     while(line = io.gets) do
-      tracks << extract_track(line, io) if line =~ /^pointTrack/
+      yield(extract_track(line, io)) if line =~ /^pointTrack/
     end
-    tracks
   end
   
   def extract_track(start_line, io)

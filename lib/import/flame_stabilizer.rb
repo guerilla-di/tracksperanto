@@ -71,7 +71,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     private :to_ary
   end
   
-  def parse(io)
+  def stream_parse(io)
     report_progress("Extracting setup size")
     self.width, self.height = extract_width_and_height_from_stream(io)
     report_progress("Extracting all animation channels")
@@ -81,7 +81,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     raise "A channel was nil" if channels.find{|e| e.nil? }
     
     report_progress("Assembling tracker curves from channels")
-    scavenge_trackers_from_channels(channels)
+    scavenge_trackers_from_channels(channels) {|t| send_tracker(t) }
   end
   
   private
@@ -167,13 +167,10 @@ Channel tracker1/ref/x
     REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
     
     def scavenge_trackers_from_channels(channels)
-      trackers = []
       channels.select{|e| e.name =~ /\/#{REF_CHANNEL}\/x/}.each do | track_x |
         report_progress("Detected reference channel #{track_x}")
-        trackers << grab_tracker(channels, track_x)
+        yield grab_tracker(channels, track_x)
       end
-      
-      trackers
     end
     
     def grab_tracker(channels, track_x)

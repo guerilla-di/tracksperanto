@@ -15,8 +15,8 @@ class EqualizerImportTest < Test::Unit::TestCase
     parser = Tracksperanto::Import::Equalizer4.new
     parser.width = 1024
     parser.height = 512
-    
     trackers = parser.parse(fixture)
+    
     assert_equal 8, trackers.length
     
     first_t = trackers[0]

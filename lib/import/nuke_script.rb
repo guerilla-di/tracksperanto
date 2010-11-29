@@ -10,8 +10,14 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     ".nk"
   end
   
-  def parse(io)
-    scan_for_tracker3_nodes(Tracksperanto::ExtIO.new(io))
+  def stream_parse(in_io)
+    io = Tracksperanto::ExtIO.new(in_io)
+    while line = io.gets_and_strip
+      if line =~ TRACKER_3_PATTERN
+        scan_tracker_node(io).each { |t| send_tracker(t) }
+      end
+    end
+    
   end
   
   private
@@ -20,13 +26,6 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     TRACK_PATTERN = /^track(\d) \{/
     NODENAME = /^name ([^\n]+)/
     
-    def scan_for_tracker3_nodes(io)
-      tracks = []
-      while line = io.gets_and_strip
-        tracks += scan_tracker_node(io) if line =~ TRACKER_3_PATTERN
-      end
-      tracks
-    end
     
     def scan_tracker_node(io)
       tracks_in_tracker = []

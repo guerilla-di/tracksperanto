@@ -8,7 +8,8 @@ class Tracksperanto::Import::Base
   include Tracksperanto::ZipTuples
   include Tracksperanto::ConstName
   
-  # Every time the importer accumulates a tracker this block will be called
+  # Every time the importer accumulates a tracker this object's #push method will be called.
+  # Can be an array or a more full-featured buffer
   attr_accessor :receiver
   
   # Tracksperanto will assign a proc that reports the status of the import to the caller.
@@ -67,12 +68,6 @@ class Tracksperanto::Import::Base
   # and then send it to the caller. Used in tests.
   def parse(track_file_io)
     @receiver = []
-    class << @receiver
-      def call(with)
-        push(with)
-      end
-    end
-    
     stream_parse(track_file_io)
     @receiver
   end
@@ -87,6 +82,10 @@ class Tracksperanto::Import::Base
   
   # When a tracker has been detected completely (all keyframes) call this method with the tracker object as argument
   def send_tracker(tracker_obj)
-    @receiver.call(tracker_obj) if @receiver
+    if @receiver
+      @receiver.push(tracker_obj)
+    else
+      raise "Tracker received but no @receiver has been set for #{self.inspect}"
+    end
   end
 end

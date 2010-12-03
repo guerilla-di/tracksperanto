@@ -157,14 +157,13 @@ class Tracksperanto::Pipeline::Base
   # that replays to all of them
   def setup_outputs_for(input_file_path)
     file_name = File.basename(input_file_path).gsub(EXTENSION, '')
-    export_klasses = exporters || Tracksperanto.exporters    
-    Tracksperanto::Export::Mux.new(
-      export_klasses.map do | exporter_class |
-        export_name = [file_name, exporter_class.desc_and_extension].join("_")
-        export_path = File.join(File.dirname(input_file_path), export_name)
-        exporter = exporter_class.new(open_owned_export_file(export_path))
-      end
-    )
+    outputs = (exporters || Tracksperanto.exporters).map do | exporter_class |
+      export_name = [file_name, exporter_class.desc_and_extension].join("_")
+      export_path = File.join(File.dirname(input_file_path), export_name)
+      exporter_class.new(open_owned_export_file(export_path))
+    end
+    
+    Tracksperanto::Export::Mux.new(outputs)
   end
   
   # Open the file for writing and register it to be closed automatically

@@ -26,7 +26,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     TRACK_PATTERN = /^track(\d) \{/
     NODENAME = /^name ([^\n]+)/
     
-    
+    # Scans a tracker node and return all tracks within that node (no more than 4)
     def scan_tracker_node(io)
       tracks_in_tracker = []
       while line = io.gets_and_strip

@@ -1,7 +1,7 @@
-# Flips the comp being exported horizontally or vertically
+# Flips the comp being exported horizontally
 class Tracksperanto::Middleware::Flip < Tracksperanto::Middleware::Base
   
-  attr_accessor :flip, :flop
+  attr_accessor :enabled
   
   def start_export(w, h)
     @w, @h = w, h
@@ -9,8 +9,7 @@ class Tracksperanto::Middleware::Flip < Tracksperanto::Middleware::Base
   end
   
   def export_point(frame, float_x, float_y, float_residual)
-    x = @flip ? (@w - float_x) : float_x
-    y = @flop ? (@h - float_y) : float_y
-    super(frame, x, y, float_residual)
+    x = @enabled ? (@w - float_x) : float_x
+    super(frame, x, float_y, float_residual)
   end
 end

@@ -31,6 +31,7 @@ class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
       @frame_count += 1
       line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual / 8]
-      @tracker_io.puts(line)
+      @tracker_io.write(line)
+      @tracker_io.write("\r\n")
     end
 end

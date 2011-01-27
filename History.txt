@@ -1,3 +1,6 @@
+=== 2.0.0 / 2011-01-27
+* Bugfix for PFTrack exports to contain cross-platform linebreaks (rn instead of n)
+
 === 1.9.9 / 2010-08-11
 
 * Buffer the parsed trackers on disk or in a stream (all backwards-compatible). Substantially reduces conversion times and memory

@@ -10,10 +10,13 @@ class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFTrack4
     end
     
     def end_tracker_segment
-      @io.write("\n\n")
-      @io.puts(@tracker_name.inspect) # autoquotes
-      @io.puts("Primary".inspect) # For primary/secondary cam in stereo pair
-      @io.puts(@frame_count)
+      @io.write("\r\n\r\n")
+      @io.write(@tracker_name.inspect) # autoquotes
+      @io.write("\r\n")
+      @io.write("Primary".inspect) # For primary/secondary cam in stereo pair
+      @io.write("\r\n")
+      @io.write(@frame_count)
+      @io.write("\r\n")
       
       @tracker_io.rewind
       @io.write(@tracker_io.read) until @tracker_io.eof?

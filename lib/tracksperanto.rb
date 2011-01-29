@@ -84,6 +84,7 @@ end
   uv_coordinates
   flame_builder
   accumulator
+  rn
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

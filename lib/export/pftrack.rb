@@ -3,6 +3,9 @@ class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     
     KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f"
     
+    # PFtrack wants cross-platform linebreaks
+    LINEBREAK = "\r\n"
+    
     def self.desc_and_extension
       "pftrack_v4.2dt"
     end
@@ -19,9 +22,11 @@ class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     end
     
     def end_tracker_segment
-      @io.write("\n\n")
-      @io.puts(@tracker_name.inspect) # autoquotes
-      @io.puts(@frame_count)
+      2.times { @io.write(LINEBREAK) }
+      @io.write(@tracker_name.inspect) # autoquotes
+      @io.write(LINEBREAK)
+      @io.write(@frame_count)
+      @io.write(LINEBREAK)
       
       @tracker_io.rewind
       @io.write(@tracker_io.read) until @tracker_io.eof?
@@ -32,6 +37,6 @@ class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
       @frame_count += 1
       line = KEYFRAME_TEMPLATE % [frame, abs_float_x, abs_float_y, float_residual / 8]
       @tracker_io.write(line)
-      @tracker_io.write("\r\n")
+      @tracker_io.write(LINEBREAK)
     end
 end

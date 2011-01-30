@@ -27,11 +27,6 @@ Constant {
  xpos 0
  ypos -60
 }]  
-    class T < Array
-      attr_accessor :name
-      include ::Tracksperanto::BlockInit
-    end
-    
     #:doc:
     
     # Offset by which the new nodes will be shifted down in the node graph
@@ -57,18 +52,19 @@ Constant {
     # We accumulate a tracker and on end dump it out in one piece
     def start_tracker_segment(tracker_name)
       # Setup for the next tracker
-      @tracker = T.new(:name => tracker_name)
+      @tracker = Tracksperanto::Tracker.new(:name => tracker_name)
     end
     
     def end_tracker_segment
-      @trackers_io.puts( 
-        NODE_TEMPLATE % [curves_from_tuples(@tracker), @tracker.name, (@ypos += SCHEMATIC_OFFSET)]
+      coord_tuples = @tracker.map{|kf| [kf.frame, kf.abs_x, kf.abs_y]}
+      @trackers_io.puts(
+        NODE_TEMPLATE % [curves_from_tuples(coord_tuples), @tracker.name, (@ypos += SCHEMATIC_OFFSET)]
       )
     end
     
     def export_point(frame, abs_float_x, abs_float_y, float_residual)
       # Nuke uses 1-based frames
-      @tracker << [frame + 1, abs_float_x, abs_float_y]
+      @tracker.keyframe!(:frame => frame + 1, :abs_x => abs_float_x, :abs_y => abs_float_y)
       @max_frame = frame if frame > @max_frame
     end
     

@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../helper'
 
 class NukeExportTest < Test::Unit::TestCase
   include ParabolicTracks
-  P = File.dirname(__FILE__) + "/samples/ref_NukeScript.nk"
+  TEST_FILE = File.dirname(__FILE__) + "/samples/ref_NukeScript.nk"
   PREAMBLE = 'version 5.1200
 Root {
  inputs 0
@@ -19,7 +19,7 @@ Constant {
  ypos -60
 }'
   def test_export_output_written
-    ensure_same_output Tracksperanto::Export::NukeScript, P
+    ensure_same_output Tracksperanto::Export::NukeScript, TEST_FILE
   end
   
   def test_exporter_meta

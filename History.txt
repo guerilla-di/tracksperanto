@@ -1,3 +1,5 @@
+* Scaler middleware now supports negative scaling factors
+
 === 2.0.0 / 2011-01-27
 * Bugfix for PFTrack exports to contain cross-platform linebreaks (rn instead of n)
 

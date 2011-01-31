@@ -1,6 +1,6 @@
 # Flips the comp being exported horizontally
 class Tracksperanto::Middleware::Flip < Tracksperanto::Middleware::Base
-  
+
   attr_accessor :enabled
   
   def start_export(w, h)

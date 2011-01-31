@@ -21,7 +21,9 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   end
   
   def export_point(frame, float_x, float_y, float_residual)
-    super(frame, 
+    return super if @y_factor == DEFAULT_FACTOR && @x_factor == DEFAULT_FACTOR
+    
+    super(frame,
       x_factor < 0 ? (@w + (float_x * x_factor)) : (float_x * x_factor),
       y_factor < 0 ? (@h + (float_y * y_factor)) : (float_y * y_factor),
       (float_residual * @residual_factor)

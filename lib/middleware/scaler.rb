@@ -8,7 +8,8 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   # Called on export start
   def start_export( img_width, img_height)
     set_residual_factor
-    super( (img_width * x_factor).to_i, (img_height * y_factor).to_i)
+    @w, @h = (img_width * x_factor).to_i.abs, (img_height * y_factor).to_i.abs
+    super(@w, @h)
   end
   
   def y_factor
@@ -21,8 +22,8 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   
   def export_point(frame, float_x, float_y, float_residual)
     super(frame, 
-      (float_x * x_factor), 
-      (float_y * y_factor), 
+      x_factor < 0 ? (@w + (float_x * x_factor)) : (float_x * x_factor),
+      y_factor < 0 ? (@h + (float_y * y_factor)) : (float_y * y_factor),
       (float_residual * @residual_factor)
     )
   end

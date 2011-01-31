@@ -10,7 +10,7 @@ class Tracksperanto::Middleware::Base
   # Used to automatically register your middleware in Tracksperanto.middlewares
   # Normally you wouldn't need to override this
   def self.inherited(by)
-    Tracksperanto.middlewares << by
+    Tracksperanto.middlewares.push(by)
     super
   end
   

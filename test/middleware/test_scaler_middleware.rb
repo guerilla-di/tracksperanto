@@ -29,7 +29,17 @@ class ScalerMiddlewareTest < Test::Unit::TestCase
     m.end_tracker_segment
     m.end_export
   end
-  
+
+  def test_flip_using_scaler
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with(120, 80)
+    receiver.should_receive(:export_point).once.with(1, 100, 20, 0)
+
+    m = Tracksperanto::Middleware::Scaler.new(receiver, :x_factor => -1, :y_factor => -1)
+    m.start_export(120, 80)
+    m.export_point(1, 20, 60, 0)
+  end
+
   def test_scaler_properly_affects_residual
     factor =  Math.sqrt( (1.5 ** 2) + (1.4 ** 2))
     

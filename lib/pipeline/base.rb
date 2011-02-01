@@ -118,16 +118,18 @@ class Tracksperanto::Pipeline::Base
     
     accumulator = Tracksperanto::Accumulator.new
     importer.receiver = accumulator
-    @ios << accumulator
+    @ios << accumulator # Ensure the accumulator gets closed and tempfile unlinked
     
     importer.stream_parse(io_with_progress)
     
     report_progress(percent_complete = 50.0, "Validating #{accumulator.length} imported trackers")
-    raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?" if accumulator.numt.zero?
+    if accumulator.num_objects.zero?
+      raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?"
+    end
     
     report_progress(percent_complete, "Starting export")
     
-    percent_per_tracker = (100.0 - percent_complete) / accumulator.numt
+    percent_per_tracker = (100.0 - percent_complete) / accumulator.num_objects
     
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
@@ -140,7 +142,10 @@ class Tracksperanto::Pipeline::Base
       t.each_with_index do | kf, idx |
         keyframes += 1
         exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-        report_progress(percent_complete += kf_weight, "Writing keyframe #{idx+1} of #{t.name.inspect}, #{accumulator.numt - tracker_idx} trackers to go")
+        report_progress(
+            percent_complete += kf_weight,
+            "Writing keyframe #{idx+1} of #{t.name.inspect}, #{accumulator.num_objects - tracker_idx} trackers to go"
+        )
       end
       exporter.end_tracker_segment
     end
@@ -150,7 +155,8 @@ class Tracksperanto::Pipeline::Base
     
     [points, keyframes]
   ensure
-    @ios.reject!{|e| e.close unless (!e.respond_to?(:closed?) || e.closed?) } if @ios
+    @ios.map!{|e| e.close! rescue e.close }
+    @ios = []
   end
   
   # Setup output files and return a single output

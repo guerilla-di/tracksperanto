@@ -15,9 +15,9 @@ class Tracksperanto::Middleware::Base
   end
   
   # Constructor accepts the exporter that will be wrapped
-  def initialize(exporter, *args_for_block_init)
-    @exporter = exporter
-    super(*args_for_block_init)
+  def initialize(*exporter_and_args_for_block_init)
+    @exporter = exporter_and_args_for_block_init.shift
+    super
   end
   
   # Called on export start

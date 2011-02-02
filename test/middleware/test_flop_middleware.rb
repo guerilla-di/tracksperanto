@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../helper'
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class FlopMiddlewareTest < Test::Unit::TestCase
   def test_shift_supports_hash_init

@@ -2,6 +2,15 @@ require 'stringio'
 require 'delegate'
 require 'tempfile'
 
+# Fuck you Japan
+unless Kernel.respond_to?(:require_relative)
+  module Kernel
+    def require_relative(path)
+      require File.join(File.dirname(caller[0]), path.to_str)
+    end
+  end
+end
+
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
   VERSION = '2.0.2'

@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../helper'
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class GoldenMiddlewareTest < Test::Unit::TestCase
   def test_default_golden_set_to_false

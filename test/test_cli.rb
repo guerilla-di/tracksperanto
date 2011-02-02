@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/helper'
+require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
 class CliTest < Test::Unit::TestCase
   TEMP_DIR = File.expand_path(File.dirname(__FILE__) + "/tmp")

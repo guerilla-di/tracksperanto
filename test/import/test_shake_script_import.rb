@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../helper'
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ShakeScriptImportTest < Test::Unit::TestCase
   DELTA = 0.001

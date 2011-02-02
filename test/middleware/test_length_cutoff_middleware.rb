@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../helper'
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class LengthCutoffMiddlewareTest < Test::Unit::TestCase
   def test_default_length_set_to_zero_and_ignored

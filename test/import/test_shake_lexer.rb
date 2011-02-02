@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../helper'
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ShakeLexerTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/shake_script/shake_tracker_nodes.shk"

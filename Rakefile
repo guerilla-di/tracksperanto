@@ -14,7 +14,7 @@ begin
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')
     p.extra_rdoc_files = p.extra_rdoc_files.reject{|e| e =~ "samples\/"}
-    p.clean_globs = %w( **/.DS_Store  coverage.info )
+    p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea)
   end
 rescue LoadError
   $stderr.puts "Meta-operations on this package require Hoe"

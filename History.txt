@@ -1,3 +1,5 @@
+=== 2.0.2 / 2011-02-02
+* Compatible with Ruby 1.9.2
 * Scaler middleware now supports negative scaling factors
 
 === 2.0.0 / 2011-01-27

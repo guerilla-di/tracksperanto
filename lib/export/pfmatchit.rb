@@ -20,6 +20,7 @@ class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
     @tracker_io = Tracksperanto::BufferIO.new
   end
   
+  # TODO: currently exports to one camera
   def end_tracker_segment
     2.times { @io.write(LINEBREAK) }
     @io.write(@tracker_name.inspect) # autoquotes

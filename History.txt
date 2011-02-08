@@ -1,3 +1,7 @@
+=== 2.1.0 / 2011-02-08
+* Adds PFMatchit import support. Also all PFTrack imported cameras will have a camera name injected into the tracker
+* Adds a PFMatchit exporter (PFMatchit only wants cameras with numbers in the name)
+
 === 2.0.2 / 2011-02-02
 * Compatible with Ruby 1.9.2
 * Scaler middleware now supports negative scaling factors

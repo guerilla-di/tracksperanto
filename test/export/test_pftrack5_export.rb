@@ -4,7 +4,7 @@ class PFTrack5ExportTest < Test::Unit::TestCase
   include ParabolicTracks
   
   def test_human_name
-    assert_equal "PFTrack v5 .2dt file", Tracksperanto::Export::PFTrack5.human_name
+    assert_equal "PFTrack v5 .2dt file (single camera)", Tracksperanto::Export::PFTrack5.human_name
   end
   
   def test_desc_and_ext

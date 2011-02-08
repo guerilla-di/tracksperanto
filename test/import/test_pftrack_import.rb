@@ -5,7 +5,7 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::PFTrack
-    assert_equal "PFTrack .2dt file", i.human_name
+    assert_equal "PFTrack/PFMatchit .2dt file", i.human_name
     assert !i.autodetects_size?
   end
   
@@ -16,7 +16,7 @@ class PFTrackImportTest < Test::Unit::TestCase
     trackers = parser.parse(fixture)
     assert_equal 4, trackers.length
     second_tracker = trackers[1]
-    assert_equal "1015", second_tracker.name
+    assert_equal "1015_Primary", second_tracker.name
   end
   
   def test_parsing_from_importable_pftrack_4
@@ -53,8 +53,19 @@ class PFTrackImportTest < Test::Unit::TestCase
     parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
     trackers = parser.parse(fixture)
     assert_equal 250, trackers.length
-    assert_equal "Tracker121", trackers[0].name
+    assert_equal "Tracker121_Primary", trackers[0].name
     assert_equal 189, trackers[0].length
+  end
+  
+  def test_pfmatchit_file
+    fixture = File.open(File.dirname(__FILE__) + '/samples/pfmatchit/pfmatchit_example.2dt')
+    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
+    trackers = parser.parse(fixture)
+    assert_equal 2, trackers.length
+    assert_equal "Feature1_1", trackers[0].name
+    assert_equal 37, trackers[0].length
+    assert_equal "Feature1_2", trackers[1].name
+    assert_equal 37, trackers[1].length
   end
   
 end

@@ -4,7 +4,7 @@ class GoldenMiddlewareTest < Test::Unit::TestCase
   def test_default_golden_set_to_false
     receiver = flexmock
     m = Tracksperanto::Middleware::Golden.new(receiver)
-    assert_equal false, m.enabled
+    assert_nil m.enabled
   end
   
   def test_golden_supports_hash_init

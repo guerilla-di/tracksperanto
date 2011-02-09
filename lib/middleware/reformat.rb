@@ -19,9 +19,4 @@ class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Base
     @exporter = Tracksperanto::Middleware::Scaler.new(@exporter, :x_factor => x_factor, :y_factor => y_factor)
     super
   end
-  
-  def end_export
-    @exporter = @stash
-    @exporter.end_export
-  end
 end

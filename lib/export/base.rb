@@ -2,14 +2,22 @@
 # The exporters in Tracksperanto are event-driven and follow the same conventions - your
 # exporter will be notified when a tracker will be exported and when a tracker has been passed
 # (the last keyframe has been sent). Here's how you can operate any exporter module
-# separately:
+# separately (this also demonstrates the calling convention and sequence):
 #
 #     File.open("destination.txt", "wb") do | f |
 #       exporter = SomeExporter.new(f)
 #       exporter.start_export(720, 576)
+#
+#       # Export the first tracker
 #       exporter.start_tracker_segment("FirstPoint")
 #       exporter.export_point(2, 123.43, 456.2, 0.2)
+#       exporter.export_point(3, 23423.43, 768.1, 0.1)
 #       exporter.end_tracker_segment
+#
+#       # Export the second tracker
+#       exporter.start_tracker_segment("AnotherPoint")
+#       ....
+#       exported.end_tracker_segment
 #       exporter.end_export
 #     end
 #

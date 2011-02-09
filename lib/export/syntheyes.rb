@@ -62,8 +62,8 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
     # (for example in Maya) this leads to dangling groups because primitives with spaces
     # in names cannot even be created! The reach of this problem is dependent on the
     # sanity of the one who wrote the export sizzle script for Syntheyes. The morale of the
-    # story is - we will use dashes instead of underscores to replace snake_casing and avoid having
-    # spaces in feature names as such (since Syntheyes will import dashes verbatim)!
+    # story is - we will use CamelCase instead of underscores and avoid having
+    # spaces in feature names as such
     def camelize(lower_case_and_underscored_word)
       lower_case_and_underscored_word.to_s.gsub(/\/(.?)/) { "::#{$1.upcase}" }.gsub(/(?:^|_)(.)/) { $1.upcase }
     end

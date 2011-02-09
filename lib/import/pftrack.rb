@@ -16,7 +16,7 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       next if (!line || line =~ /^#/)
       
       if line =~ CHARACTERS_OR_QUOTES # Tracker with a name
-        t = Tracksperanto::Tracker.new{|t| t.name = unquote(line.strip) }
+        t = Tracksperanto::Tracker.new(:name => unquote(line.strip))
         report_progress("Reading tracker #{t.name}")
         parse_tracker(t, io)
         send_tracker(t)

@@ -118,7 +118,6 @@ class Tracksperanto::Pipeline::Base
     
     accumulator = Tracksperanto::Accumulator.new
     importer.receiver = accumulator
-    @ios << accumulator # Ensure the accumulator gets closed and tempfile unlinked
     
     importer.stream_parse(io_with_progress)
     

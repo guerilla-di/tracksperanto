@@ -239,16 +239,6 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
   end
   
-  class PushCall
-    def initialize(proc)
-      @proc = proc
-    end
-    
-    def push(t)
-      @proc.call(t)
-    end
-  end
-  
   def stream_parse(script_io)
     progress_proc = lambda{|msg| report_progress(msg) }
     Traxtractor.new(script_io, [method(:send_tracker), progress_proc])

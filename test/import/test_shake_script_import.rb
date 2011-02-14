@@ -124,4 +124,13 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 1, trackers.length
     assert_equal 850, trackers[0].length
   end
+
+  def test_script_with_stabilizer_node_without_animation
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/track.shk")
+    p = Tracksperanto::Import::ShakeScript.new(:width => 1920, :height => 1080)
+    trackers = p.parse(fixture)
+    assert_equal 2, trackers.length
+    assert_equal 261, trackers[0].length
+  end
+
 end

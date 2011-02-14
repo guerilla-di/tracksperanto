@@ -10,24 +10,32 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     ".shk"
   end
   
-  # Extractor. The injection should be an array of two elements: the array collecting
-  # trackers and the progress proc
+  def stream_parse(script_io)
+    progress_proc = lambda{|msg| report_progress(msg) }
+    Traxtractor.new(script_io, [method(:send_tracker), progress_proc])
+  end
+  
+  private
+  
+  # Extractor. Here we define copies of Shake's standard node creation functions.
   class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
     # in this case we DO want to take this shortcut so we know how the tracker node is called
     def push(atom)
-      return super unless (atom.is_a?(Array)) && 
-           (atom[0] == :assign) &&
-           (atom[2][0] == :retval) &&
-           (atom[2][1][0] == :trk)
+      return super unless atom_is_tracker_assignment?(atom)
+      
       node_name = atom[1][-1]
       trackers = atom[2][1][1..-1]
       trackers.map do | tracker |
         tracker.name = [node_name, tracker.name].join("_")
         sentinel[0].call(tracker)
       end
+    end
+    
+    def atom_is_tracker_assignment?(a)
+      (a.is_a?(Array)) && (a[0] == :assign) && (a[2][0] == :retval) && (a[2][1][0] == :trk)
     end
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.
@@ -206,7 +214,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def collect_stabilizer_tracker(name, x_curve, y_curve)
-      return if (x_curve == :unknown || y_curve == :unknown)
+      return unless valid_curves?(x_curve, y_curve)
       
       keyframes = zip_curve_tuples(x_curve, y_curve).map do | (frame, x, y) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
@@ -216,10 +224,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def collect_tracker(name, x_curve, y_curve, corr_curve, *discard)
-      unless x_curve.is_a?(Array) && y_curve.is_a?(Array)
-        report_progress("Tracker #{name} had no anim or unsupported interpolation and can't be recovered")
-        return
-      end
+      return unless valid_curves?(x_curve, y_curve)
       
       report_progress("Scavenging tracker #{name}")
       
@@ -237,11 +242,14 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       curve_set << corr_curve if (corr_curve.respond_to?(:length) && corr_curve.length >= x.length)
       curve_set
     end
+    
+    private
+    
+    def valid_curves?(x_curve, y_curve)
+      return false if (x_curve == :unknown || y_curve == :unknown)
+      return false unless x_curve.is_a?(Array) && y_curve.is_a?(Array)
+      true
+    end
+    
   end
-  
-  def stream_parse(script_io)
-    progress_proc = lambda{|msg| report_progress(msg) }
-    Traxtractor.new(script_io, [method(:send_tracker), progress_proc])
-  end
-  
 end

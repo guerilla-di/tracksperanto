@@ -95,35 +95,3 @@ Information about the search area, reference area and offset is not passed along
 of scope for the app and different trackers handle these differently, if at all). For some
 modules no residual will be passed along (3D tracking apps generally do not export residual
 with backprojected 3D features).
-
-== Extending Tracksperanto
-
-=== Importing your own formats
-
-You can easily write a Tracksperanto import module - refer to Tracksperanto::Import::Base
-docs. Your importer will be configured with width and height of the comp that it is importing, and will get an IO 
-object with the file that you are processing. The parse method should then return an array of Tracksperanto::Tracker objects which
-are themselves arrays of Tracksperanto::Keyframe objects.
-
-=== Exporting your own formats
-
-You can easily write an exporter. Refer to the Tracksperanto::Export::Base docs. Note that your exporter should be able to chew alot of data
-(hundreds of trackers with thousands of keyframes with exported files growing up to 5-10 megs in size are not uncommon!). This means that
-the exporter should work with streams (smaller parts of the file being exported will be held in memory at a time).
-
-=== Ading your own processing steps
-
-You probably want to write a Middleware (consult the Tracksperanto::Middleware::Base docs) if you need some processing applied to the tracks
-or their data. A Middleware is just like an export module, except that instead it sits between the exporter and the exporting routine. Middlewares wrap export
-modules or each other, so you can stack different middleware modules together (like "scale first, then move").
-
-=== Writing your own processing routines
-
-You probably want to write a descendant of Tracksperanto::Pipeline::Base. This is a class that manages a conversion from start to finish, including detecting the
-input format, allocating output files and building a chain of Middlewares to process the export. If you want to make a GUI for Tracksperanto you will likely need
-to write your own Pipeline class or reimplement parts of it.
-
-=== Reporting status from long-running operations
-
-Almost every module in Tracksperanto has a method called report_progress. This method is used to notify an external callback of what you are doing, and helps keep
-the software user-friendly. A well-behaved Tracksperanto module should manage it's progress reports properly.

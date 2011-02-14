@@ -14,12 +14,9 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
   def write(s)
     returning(super) { replace_with_tempfile_if_needed }
   end
+  alias_method :<<, :write
   
   def puts(s)
-    returning(super) { replace_with_tempfile_if_needed }
-  end
-  
-  def <<(s)
     returning(super) { replace_with_tempfile_if_needed }
   end
   

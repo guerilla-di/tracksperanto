@@ -1,6 +1,7 @@
 # An accumulator buffer for Ruby objects. Use it to sequentially store a shitload
 # of objects on disk and then retreive them one by one. Make sure to call #close! when done with it to
-# discard the stored blob. This object is intended to be used as a Tracksperanto::Import::Base#receiver
+# discard the stored blob (will also happen after iterating through objects, even when an exception is raised).
+# This object is intended to be used as a Tracksperanto::Import::Base#receiver
 class Tracksperanto::Accumulator
   
   # Stores the number of objects stored so far
@@ -29,7 +30,11 @@ class Tracksperanto::Accumulator
       @store.close!
     end
   end
-
+  
+  # Might be useful - calls close! and destroyhs the store
+  def close!
+    @store.close!
+  end
   
   private
   

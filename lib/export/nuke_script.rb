@@ -1,6 +1,7 @@
 # Export each tracker as a single Tracker3 node
 class Tracksperanto::Export::NukeScript < Tracksperanto::Export::Base
-    #:nodoc:
+    
+    #:nodoc
     
     NODE_TEMPLATE = %[
 Tracker3 {
@@ -27,7 +28,7 @@ Constant {
  xpos 0
  ypos -60
 }]  
-    #:doc:
+    #:doc
     
     # Offset by which the new nodes will be shifted down in the node graph
     SCHEMATIC_OFFSET = 30

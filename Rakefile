@@ -8,12 +8,14 @@ begin
     (Hoe::RUBY_DEBUG ? " #{RUBY_DEBUG}" : '')
   
   Hoe.spec('tracksperanto') do | p |
+    p.readme_file   = 'README.rdoc'
+    p.extra_rdoc_files  = FileList['*.rdoc']
     p.version = Tracksperanto::VERSION
+    
     p.extra_deps = {"progressbar" => ">=0"}
     p.extra_dev_deps = {"flexmock" => ">=0"}
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')
-    p.extra_rdoc_files = p.extra_rdoc_files.reject{|e| e =~ "samples\/"}
     p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea)
   end
 rescue LoadError

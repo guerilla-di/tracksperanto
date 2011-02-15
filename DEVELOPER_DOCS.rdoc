@@ -30,6 +30,12 @@ to write your own Pipeline class or reimplement parts of it.
 Almost every module in Tracksperanto has a method called report_progress. This method is used to notify an external callback of what you are doing, and helps keep
 the software user-friendly. A well-behaved Tracksperanto module should manage it's progress reports properly.
 
+=== Reusing components
+
+Tracksperanto contains some nice bits, such as a full grammar lexer for Shake scripts (Tracksperanto::ShakeGrammar::Lexer), a couple of handy buffering
+classes (Tracksperanto::BufferIO and Tracksperanto::Accumulator) and a parser for any Flame setups containing channels (Tracksperanto::Import::FlameStabilizer).
+Play responsibly.
+
 === Sample script
 
   require "rubygems"

@@ -2,7 +2,7 @@ DEVELOPER_DOCS.rdoc
 History.txt
 MIT_LICENSE.txt
 Manifest.txt
-README.txt
+README.rdoc
 Rakefile
 bin/tracksperanto
 lib/export/base.rb

@@ -78,11 +78,6 @@ module ParabolicTracks
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
-    if ENV['OVERWRITE']
-      File.open(reference_path, "w") do | out |
-        export_parabolics_with(exporter_klass.new(out))
-      end
-    end
     
     io = StringIO.new
     x = exporter_klass.new(io)

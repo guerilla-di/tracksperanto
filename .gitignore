@@ -6,3 +6,4 @@ coverage
 coverage.*
 *.autosave
 *.rbc
+.idea

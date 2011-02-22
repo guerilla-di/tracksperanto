@@ -77,6 +77,8 @@ Import only:
 Tracksperanto is very modular and can process data passing through it (like
 scaling a proxy track up). Consult the --help option to see what is available.
 
+== Development
+
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
 DEVELOPER_DOCS.rdoc
 

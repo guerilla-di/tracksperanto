@@ -41,10 +41,6 @@ footage you are tracking came cropped or in a wrong aspect - the only way to sol
 will be to retrack it from scratch. Tracksperanto allows you to work around this
 by applying simple transformations to the tracks.
 
-== Licensing
-
-Tracksperanto is made avalable under the MIT license that is included in the package.
-
 == Usage
 
 The main way to use Tracksperanto is with the the supplied "tracksperanto" binary, like so:
@@ -90,3 +86,8 @@ Information about the search area, reference area and offset is not passed along
 of scope for the app and different trackers handle these differently, if at all). For some
 modules no residual will be passed along (3D tracking apps generally do not export residual
 with backprojected 3D features).
+
+
+== Licensing
+
+Tracksperanto is made avalable under the MIT license that is included in the package.

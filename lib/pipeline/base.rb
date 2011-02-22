@@ -132,7 +132,7 @@ class Tracksperanto::Pipeline::Base
     
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
-    accumulator.each_object_with_index do | t, tracker_idx |
+    accumulator.each_with_index do | t, tracker_idx |
       raise "Not a Tracker" unless t.is_a?(Tracksperanto::Tracker)
       
       kf_weight = percent_per_tracker / t.keyframes.length

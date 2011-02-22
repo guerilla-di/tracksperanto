@@ -3,6 +3,7 @@
 # discard the stored blob (will also happen after iterating through objects, even when an exception is raised).
 # This object is intended to be used as a Tracksperanto::Import::Base#receiver
 class Tracksperanto::Accumulator
+  include Enumerable
   
   # Stores the number of objects stored so far
   attr_reader :num_objects
@@ -22,17 +23,13 @@ class Tracksperanto::Accumulator
   end
   
   # Retreive each stored object in succession and unlink the buffer
-  def each_object_with_index
-    begin
-      @store.rewind
-      @num_objects.times { |i| yield(recover_object, i - 1) }
-    ensure
-      @store.close!
-    end
+  def each
+    @store.rewind
+    @num_objects.times { yield(recover_object) }
   end
   
   # Might be useful - calls close! and destroyhs the store
-  def close!
+  def clear!
     @store.close!
   end
   

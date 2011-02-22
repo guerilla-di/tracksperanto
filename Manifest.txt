@@ -152,6 +152,7 @@ test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
+test/test_accumulator.rb
 test/test_buffer_io.rb
 test/test_cli.rb
 test/test_const_name.rb

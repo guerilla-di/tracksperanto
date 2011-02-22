@@ -43,8 +43,10 @@ Play responsibly.
 
   include Tracksperanto
 
-  # Create the importer object
-  some_importer = Importer.new(:width => 1024, :height => 576)
+  # Create the importer object, for example for a Shake script.
+  # get_importer will give you the good class even you get the capitalization
+  # wrong!
+  some_importer = Tracksperanto.get_importer("shakescript").new(:width => 1024, :height => 576)
 
   # Some object responding to #push has to be the receiver
   # In this case we will use an array but this might get out of hand

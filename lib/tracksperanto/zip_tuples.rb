@@ -1,6 +1,7 @@
 # Implements the zip_curve_tuples method
 module Tracksperanto::ZipTuples
-  # Zip arrays of "value at" tuples into an array of "values at" tuples. 
+  # Zip arrays of "value at" tuples into an array of "values at" tuples
+  # (note the plural). 
   # The first value of each tuple will be the frame number
   # and keyframes which are not present in all arrays will be discarded. For example:
   #

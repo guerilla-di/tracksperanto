@@ -1,4 +1,6 @@
-# Y down X right, 0 is center and values are UV float -1 to 1, doubled
+# Syntheyes and some other apps use a relative UV coordinate sustem. For Syntheyes, zero is at the
+# optical center of the image, and goes positive right and up. Since Tracksperanto works in absolute
+# pixels we need to convert to and fro.
 module Tracksperanto::UVCoordinates
   
   # UV coords used by Syntheyes and it's lens distortion algos.

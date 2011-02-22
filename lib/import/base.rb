@@ -1,6 +1,8 @@
-# The base class for all the import modules. By default, when you inherit from this class the inherited class will be included
-# in the list of supported Tracksperanto importers. The API that an importer should present is very basic, and consists only of a few methods.
-# The main method is parse(io) which should return an array of Tracker objects.
+# The base class for all the import modules. By default, when you inherit from
+# this class the inherited class will be included in the list of supported
+# Tracksperanto importers. The API that an importer should present is very
+# basic, and consists only of a few methods. The main method is
+# stream_parse(io)
 class Tracksperanto::Import::Base
   include Tracksperanto::Safety
   include Tracksperanto::Casts
@@ -18,17 +20,14 @@ class Tracksperanto::Import::Base
   # yourself)
   attr_accessor :progress_block
   
-  # The original width of the tracked image.
+  # The original width and height of the tracked image.
   # If you need to know the width for your specific format and cannot autodetect it,
   # Trakcksperanto will assign the passed width and height to the importer object before running
   # the import. If not, you can replace the assigned values with your own. At the end of the import
   # procedure, Tracksperanto will read the values from you again and will use the read values
   # for determining the original comp size. +width+ and +height+ MUST return integer values after
   # the import completes
-  attr_accessor :width
-  
-  # The original height of the comp, same conventions as for width apply
-  attr_accessor :height
+  attr_accessor :width, :height
   
   # These reader methods will raise when the values are nil
   cast_to_int :width, :height

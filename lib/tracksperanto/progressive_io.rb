@@ -1,5 +1,6 @@
 # Used for IO objects that need to report the current offset at each operation that changes the said offset
-# (useful for building progress bars that report on a file read operation)
+# (useful for building progress bars that report on a file read operation). Pass the actual IO and a block to
+# report progress to the constructor.
 class Tracksperanto::ProgressiveIO < DelegateClass(IO)
   include Tracksperanto::Returning
   
@@ -14,6 +15,7 @@ class Tracksperanto::ProgressiveIO < DelegateClass(IO)
     @progress_block = blk.to_proc if blk
   end
   
+  # Report offset at each line
   def each(sep_string = $/, &blk)
     # Report offset at each call of the iterator
     result = super(sep_string) do | line |

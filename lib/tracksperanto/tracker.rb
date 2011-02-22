@@ -1,4 +1,5 @@
-# Internal representation of a tracker point with keyframes. A Tracker is an array of Keyframe objects and should act and work like one
+# Internal representation of a tracker point with keyframes. A Tracker is an array of Keyframe objects
+# with a few methods added for convenience
 class Tracksperanto::Tracker < DelegateClass(Array)
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit

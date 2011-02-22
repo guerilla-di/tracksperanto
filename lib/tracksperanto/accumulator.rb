@@ -40,7 +40,8 @@ class Tracksperanto::Accumulator
     object_to_store
   end
   
-  # Retreive each stored object in succession and unlink the buffer
+  # Retreive each stored object in succession. All other Enumerable
+  # methods are also available (but be careful with Enumerable#map)
   def each
     @store.rewind
     @size.times { yield(recover_object) }

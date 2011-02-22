@@ -1,7 +1,6 @@
 # An accumulator buffer for Ruby objects. Use it to sequentially store a shitload
 # of objects on disk and then retreive them one by one. Make sure to call clear when done
-# with it to discard the stored blob (will also happen after iterating through objects,
-# even when an exception is raised).
+# with it to discard the stored blob.
 #
 # This object is intended to be used as a Tracksperanto::Import::Base#receiver, but can be used
 # in general like a disk-based object buffer.

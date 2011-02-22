@@ -185,12 +185,8 @@ Channel tracker1/ref/x
       shift_tuples = zip_curve_tuples(shift_x, shift_y)
       track_tuples = zip_curve_tuples(track_x, track_y)
       
-      base_x, base_y = begin
-        report_progress("Detecting base value")
-        find_base_x_and_y(track_tuples, shift_tuples)
-      rescue UseBase
-        [track_x.base_value, track_y.base_value]
-      end
+      report_progress("Detecting base value")
+      base_x, base_y =  find_base_x_and_y(track_tuples, shift_tuples)
       
       total_kf = 1
       t.keyframes = shift_tuples.map do | (at, x, y) |
@@ -205,18 +201,10 @@ Channel tracker1/ref/x
       return t
     end
     
-    UseBase = RuntimeError
-    
     def find_base_x_and_y(track_tuples, shift_tuples)
       base_track_tuple = track_tuples.find do | track_tuple |
         shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple [0] }
-      end
-      if base_track_tuple
-        base_track_tuple[1..2]
-      elsif track_tuples[0]
-        track_tuples[0][1..2]
-      else
-        raise UseBase
-      end
+      end || track_tuples[0]
+      base_track_tuple[1..2]
     end
 end

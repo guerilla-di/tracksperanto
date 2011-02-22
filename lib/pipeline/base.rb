@@ -116,23 +116,25 @@ class Tracksperanto::Pipeline::Base
     end
     @ios << io_with_progress
     
-    accumulator = Tracksperanto::Accumulator.new
-    importer.receiver = accumulator
+    @accumulator = Tracksperanto::Accumulator.new
+    importer.receiver = @accumulator
     
     importer.stream_parse(io_with_progress)
     
-    report_progress(percent_complete = 50.0, "Validating #{accumulator.length} imported trackers")
-    if accumulator.num_objects.zero?
+    report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
+    if @accumulator.size.zero?
       raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?"
     end
     
     report_progress(percent_complete, "Starting export")
     
-    percent_per_tracker = (100.0 - percent_complete) / accumulator.num_objects
+    percent_per_tracker = (100.0 - percent_complete) / @accumulator.size
     
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
-    accumulator.each_with_index do | t, tracker_idx |
+    
+    # Now send each tracker through the middleware chain
+    @accumulator.each_with_index do | t, tracker_idx |
       raise "Not a Tracker" unless t.is_a?(Tracksperanto::Tracker)
       
       kf_weight = percent_per_tracker / t.keyframes.length
@@ -143,7 +145,7 @@ class Tracksperanto::Pipeline::Base
         exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
         report_progress(
             percent_complete += kf_weight,
-            "Writing keyframe #{idx+1} of #{t.name.inspect}, #{accumulator.num_objects - tracker_idx} trackers to go"
+            "Writing keyframe #{idx+1} of #{t.name.inspect}, #{@accumulator.size - tracker_idx} trackers to go"
         )
       end
       exporter.end_tracker_segment
@@ -154,8 +156,10 @@ class Tracksperanto::Pipeline::Base
     
     [points, keyframes]
   ensure
+    @accumulator.clear
     @ios.map!{|e| e.close! rescue e.close }
     @ios = []
+    @accumulator = nil
   end
   
   # Setup output files and return a single output

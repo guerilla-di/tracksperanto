@@ -5,19 +5,18 @@
 class Tracksperanto::Accumulator
   include Enumerable
   
-  # Stores the number of objects stored so far
-  attr_reader :num_objects
-  alias_method :length, :num_objects
+  # Returns the number of objects stored so far
+  attr_reader :size
   
   def initialize
     @store = Tracksperanto::BufferIO.new
-    @num_objects = 0
+    @size = 0
     super
   end
   
   # Store an object
   def push(object_to_store)
-    @num_objects += 1
+    @size += 1
     d = Marshal.dump(object_to_store)
     [d.size, "\t", d, "\n"].map(&@store.method(:write))
   end
@@ -25,12 +24,13 @@ class Tracksperanto::Accumulator
   # Retreive each stored object in succession and unlink the buffer
   def each
     @store.rewind
-    @num_objects.times { yield(recover_object) }
+    @size.times { yield(recover_object) }
   end
   
-  # Might be useful - calls close! and destroyhs the store
-  def clear!
+  # Calls close! on the datastore and deletes the objects in it
+  def clear
     @store.close!
+    @size = 0
   end
   
   private
@@ -38,7 +38,6 @@ class Tracksperanto::Accumulator
   def recover_object
     # Up to the tab is the amount of bytes to read
     demarshal_bytes = @store.gets("\t").strip.to_i
-    # Then read the bytes and unmarshal it
     Marshal.load(@store.read(demarshal_bytes))
   end
 end

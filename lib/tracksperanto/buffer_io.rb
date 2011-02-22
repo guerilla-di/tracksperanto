@@ -1,7 +1,8 @@
 require "tempfile"
 
-# BufferIO is used for writing big segments of text. When the segment is bigger than a certain number of bytes,
-# the underlying memory buffer will be swapped with a tempfile
+# BufferIO is used for writing big segments of text. It works like a StringIO, but when the size
+# of the underlying string buffer exceeds MAX_IN_MEM_BYTES the string will be flushed to disk
+# and it automagically becomes a Tempfile
 class Tracksperanto::BufferIO < DelegateClass(IO)
   include Tracksperanto::Returning
   

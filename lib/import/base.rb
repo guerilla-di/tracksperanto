@@ -4,15 +4,15 @@
 # basic, and consists only of a few methods. The main method is
 # stream_parse(io)
 class Tracksperanto::Import::Base
+  include Enumerable
   include Tracksperanto::Safety
   include Tracksperanto::Casts
   include Tracksperanto::BlockInit
   include Tracksperanto::ZipTuples
   include Tracksperanto::ConstName
   
-  # Every time the importer accumulates a tracker this object's #push method will be called.
-  # Can be an array or a more full-featured buffer
-  attr_accessor :receiver
+  # Handle to the IO with data being parsed
+  attr_accessor :io
   
   # Tracksperanto will assign a proc that reports the status of the import to the caller.
   # This block is automatically used by report_progress IF the proc is assigned. Should
@@ -63,20 +63,14 @@ class Tracksperanto::Import::Base
     @progress_block.call(message) if @progress_block
   end
   
-  # OBSOLETE: do not implement this method in your importer. This is used to accumulate trackers in an array
-  # and then send it to the caller. Used in tests.
-  def parse(track_file_io)
-    @receiver = []
-    stream_parse(track_file_io)
-    @receiver
+  def initialize(io, options = {})
+    @io = io
+    super(options)
   end
   
   # The main method of the parser. Will receive an IO handle to the file being imported, and should
-  # send each consecutive tracker via the send_tracker method.
-  # Note that in general it's a good idea to stream-parse a document
-  # instead of bulk-reading it into memory (since Tracksperanto tries to be mem-efficient when dealing
-  # with large files)
-  def stream_parse(track_file_io)
+  # yield each tracker that is parsed from it
+  def each
   end
   
   # When a tracker has been detected completely (all keyframes) call this method with the tracker object as argument

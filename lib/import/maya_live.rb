@@ -15,13 +15,13 @@ class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
   
   COMMENT = /^# /
   
-  def stream_parse(original_io)
-    io = Tracksperanto::ExtIO.new(original_io)
+  def each
+    io = Tracksperanto::ExtIO.new(@io)
     extract_width_height_and_aspect(io.gets_non_empty)
     
     while line = io.gets_and_strip
       if line =~ COMMENT
-        send_tracker(@last_tracker) if @last_tracker
+        yield(@last_tracker) if @last_tracker
         @last_tracker = Tracksperanto::Tracker.new(:name => line.gsub(/#{COMMENT} Name(\s+)/, ''))
         next
       end
@@ -32,7 +32,7 @@ class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
       @last_tracker.keyframe! :frame => frame, :abs_x => abs_x, :abs_y => abs_y,  :residual => set_residual(residual)
     end
     
-    send_tracker(@last_tracker) if @last_tracker
+    yield(@last_tracker) if @last_tracker
   end
   
   private

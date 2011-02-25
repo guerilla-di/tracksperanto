@@ -14,11 +14,9 @@ class MatchMoverImportTest < Test::Unit::TestCase
   def test_parsing_from_matchmover
     fixture = File.open(P)
     
-    parser = Tracksperanto::Import::MatchMover.new
-    parser.width = 2048
-    parser.height = 1176
+    parser = Tracksperanto::Import::MatchMover.new(fixture, :width => 2048, :height => 1176)
+    trackers = parser.to_a
     
-    trackers = parser.parse(fixture)
     assert_equal 2560, parser.width
     assert_equal 1080, parser.height
     

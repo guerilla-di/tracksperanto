@@ -5,10 +5,10 @@ class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
     "Shake .txt tracker file"
   end
   
-  def stream_parse(io)
-    io.each do | line |
+  def each
+    @io.each do | line |
       if line =~ /TrackName (.+)/
-        send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+        yield(@last_tracker) if @last_tracker && @last_tracker.any?
         @last_tracker = Tracksperanto::Tracker.new(:name => $1)
         # Toss the next following string - header
         io.gets
@@ -25,7 +25,7 @@ class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
       end
     end
     
-    send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+    yield(@last_tracker) if @last_tracker && @last_tracker.any?
   end
   
 end

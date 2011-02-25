@@ -10,14 +10,13 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     ".nk"
   end
   
-  def stream_parse(in_io)
-    io = Tracksperanto::ExtIO.new(in_io)
+  def each
+    io = Tracksperanto::ExtIO.new(@io)
     while line = io.gets_and_strip
       if line =~ TRACKER_3_PATTERN
-        scan_tracker_node(io).each { |t| send_tracker(t) }
+        scan_tracker_node(io).each { |t| yield(t) }
       end
     end
-    
   end
   
   private

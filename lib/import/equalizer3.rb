@@ -9,10 +9,10 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
     true
   end
   
-  def stream_parse(passed_io)
-    io = Tracksperanto::ExtIO.new(passed_io)
+  def each
+    io = Tracksperanto::ExtIO.new(@io)
     detect_format!(io)
-    extract_trackers(io)
+    extract_trackers(io) {|t| yield(t) }
   end
   
   private
@@ -25,7 +25,7 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
     def extract_trackers(io)
       while line = io.gets do
         if line =~ /^(\w+)/ # Tracker name
-          send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+          yield(@last_tracker) if @last_tracker && @last_tracker.any?
           @last_tracker = Tracksperanto::Tracker.new(:name => line.strip)
           report_progress("Capturing tracker #{line.strip}")
         elsif line =~ /^\t/
@@ -33,7 +33,7 @@ class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
         end
       end
       
-      send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+      yield(@last_tracker) if @last_tracker && @last_tracker.any?
     end
     
     def make_keyframe(from_line)

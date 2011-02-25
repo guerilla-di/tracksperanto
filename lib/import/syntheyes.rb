@@ -5,13 +5,13 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
     "Syntheyes 2D tracker paths file"
   end
   
-  def stream_parse(io)
-    io.each_line do | line |
+  def each
+    @io.each_line do | line |
       name, frame, x, y, frame_status = line.split
       
       # Do we already have this tracker?
       unless @last_tracker && @last_tracker.name == name
-        send_tracker(@last_tracker) if @last_tracker
+        yield(@last_tracker) if @last_tracker
         report_progress("Allocating tracker #{name}")
         @last_tracker = Tracksperanto::Tracker.new{|t| t.name = name }
       end
@@ -26,7 +26,7 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
       @last_tracker.push(k)
       report_progress("Adding keyframe #{frame} to #{name}")
     end
-    send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+    yield(@last_tracker) if @last_tracker && @last_tracker.any?
     
   end
 end

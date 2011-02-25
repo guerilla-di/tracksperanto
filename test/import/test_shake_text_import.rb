@@ -11,7 +11,7 @@ class ShakeTextImportTest < Test::Unit::TestCase
   
   def test_parsing
     fixture = File.open(File.dirname(__FILE__) + '/samples/shake_text/one_shake_tracker.txt')
-    trackers = Tracksperanto::Import::ShakeText.new.parse(fixture)
+    trackers = Tracksperanto::Import::ShakeText.new(fixture).to_a
     
     assert_kind_of Enumerable, trackers
     assert_equal 1, trackers.length
@@ -31,7 +31,7 @@ class ShakeTextImportTest < Test::Unit::TestCase
   
   def test_parsing_two_trackers
     fixture = File.open(File.dirname(__FILE__) + '/samples/shake_text/two_shake_trackers.txt')
-    trackers = Tracksperanto::Import::ShakeText.new.parse(fixture)
+    trackers = Tracksperanto::Import::ShakeText.new(fixture).to_a
     
     assert_kind_of Enumerable, trackers
     assert_equal 2, trackers.length

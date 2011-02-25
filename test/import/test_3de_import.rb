@@ -12,11 +12,8 @@ class EqualizerImportTest < Test::Unit::TestCase
   def test_parsing_from_importable
     fixture = File.open(File.dirname(__FILE__) + '/samples/3de_v4/3de_export_cube.txt')
     
-    parser = Tracksperanto::Import::Equalizer4.new
-    parser.width = 1024
-    parser.height = 512
-    trackers = parser.parse(fixture)
-    
+    parser = Tracksperanto::Import::Equalizer4.new(fixture, :width => 1024, :height => 512)
+    trackers = parser.to_a
     assert_equal 8, trackers.length
     
     first_t = trackers[0]

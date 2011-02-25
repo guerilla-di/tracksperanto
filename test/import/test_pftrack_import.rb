@@ -11,9 +11,9 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_parsing_from_pftrack5_with_digit_names
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/apft.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
+    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
     
-    trackers = parser.parse(fixture)
+    trackers = parser.to_a
     assert_equal 4, trackers.length
     second_tracker = trackers[1]
     assert_equal "1015_Primary", second_tracker.name
@@ -23,11 +23,11 @@ class PFTrackImportTest < Test::Unit::TestCase
     
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack4/sourcefile_pftrack.2dt')
     
-    parser = Tracksperanto::Import::PFTrack.new
+    parser = Tracksperanto::Import::PFTrack.new(fixture)
     parser.width = 2560
     parser.height = 1080
     
-    trackers = parser.parse(fixture)
+    trackers = parser.to_a
     assert_equal 43, trackers.length
     
     first_kf = trackers[0].keyframes[0]
@@ -50,8 +50,9 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_garage_shot_from_pftrack_5
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/garage.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
-    trackers = parser.parse(fixture)
+    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
+    
+    trackers = parser.to_a
     assert_equal 250, trackers.length
     assert_equal "Tracker121_Primary", trackers[0].name
     assert_equal 189, trackers[0].length
@@ -59,8 +60,9 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_pfmatchit_file
     fixture = File.open(File.dirname(__FILE__) + '/samples/pfmatchit/pfmatchit_example.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(:width => 1920, :height => 1080)
-    trackers = parser.parse(fixture)
+    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
+    
+    trackers = parser.to_a
     assert_equal 2, trackers.length
     assert_equal "Feature1_1", trackers[0].name
     assert_equal 37, trackers[0].length

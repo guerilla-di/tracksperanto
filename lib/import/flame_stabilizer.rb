@@ -71,17 +71,17 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     private :to_ary
   end
   
-  def stream_parse(io)
+  def each
     report_progress("Extracting setup size")
-    self.width, self.height = extract_width_and_height_from_stream(io)
+    self.width, self.height = extract_width_and_height_from_stream(@io)
     report_progress("Extracting all animation channels")
-    channels = extract_channels_from_stream(io)
+    channels = extract_channels_from_stream(@io)
     
     raise "The setup contained no channels that we could process" if channels.empty?
     raise "A channel was nil" if channels.find{|e| e.nil? }
     
     report_progress("Assembling tracker curves from channels")
-    scavenge_trackers_from_channels(channels) {|t| send_tracker(t) }
+    scavenge_trackers_from_channels(channels) {|t| yield(t) }
   end
   
   private

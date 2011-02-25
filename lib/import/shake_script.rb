@@ -10,9 +10,9 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     ".shk"
   end
   
-  def stream_parse(script_io)
+  def each
     progress_proc = lambda{|msg| report_progress(msg) }
-    Traxtractor.new(script_io, [method(:send_tracker), progress_proc])
+    Traxtractor.new(@io, [Proc.new, progress_proc])
   end
   
   private

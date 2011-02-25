@@ -4,13 +4,13 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
     "Boujou feature tracks export"
   end
   
-  def stream_parse(io)
-    wrapped_io = Tracksperanto::ExtIO.new(io)
+  def each
+    wrapped_io = Tracksperanto::ExtIO.new(@io)
     detect_columns(wrapped_io)
     trackers = {}
     filtering_trackers_from(wrapped_io) do | name, frame, x, y |
       if @last_tracker && (name != @last_tracker.name)
-        send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+        yield(@last_tracker) if @last_tracker && @last_tracker.any?
         @last_tracker = nil
       end
       
@@ -22,7 +22,7 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
       @last_tracker.keyframe!(:frame => (frame.to_i - 1), :abs_y => (@height.to_f - y.to_f), :abs_x => x)
     end
     
-    send_tracker(@last_tracker) if @last_tracker && @last_tracker.any?
+    yield(@last_tracker) if @last_tracker && @last_tracker.any?
   end
   
   private

@@ -5,11 +5,10 @@ class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
     "3DE v4 point export file"
   end
   
-  
-  def stream_parse(passed_io)
-    io = Tracksperanto::ExtIO.new(passed_io)
+  def each
+    io = Tracksperanto::ExtIO.new(@io)
     num_t = detect_num_of_points(io)
-    num_t.times { send_tracker(extract_tracker(io)) }
+    num_t.times { yield(extract_tracker(io)) }
   end
   
   private

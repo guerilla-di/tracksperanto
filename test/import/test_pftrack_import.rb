@@ -11,7 +11,7 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_parsing_from_pftrack5_with_digit_names
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/apft.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
+    parser = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 1920, :height => 1080)
     
     trackers = parser.to_a
     assert_equal 4, trackers.length
@@ -23,7 +23,7 @@ class PFTrackImportTest < Test::Unit::TestCase
     
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack4/sourcefile_pftrack.2dt')
     
-    parser = Tracksperanto::Import::PFTrack.new(fixture)
+    parser = Tracksperanto::Import::PFTrack.new(:io => fixture)
     parser.width = 2560
     parser.height = 1080
     
@@ -50,7 +50,7 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_garage_shot_from_pftrack_5
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/garage.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
+    parser = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 1920, :height => 1080)
     
     trackers = parser.to_a
     assert_equal 250, trackers.length
@@ -60,7 +60,7 @@ class PFTrackImportTest < Test::Unit::TestCase
   
   def test_pfmatchit_file
     fixture = File.open(File.dirname(__FILE__) + '/samples/pfmatchit/pfmatchit_example.2dt')
-    parser = Tracksperanto::Import::PFTrack.new(fixture, :width => 1920, :height => 1080)
+    parser = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 1920, :height => 1080)
     
     trackers = parser.to_a
     assert_equal 2, trackers.length

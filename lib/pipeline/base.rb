@@ -75,12 +75,6 @@ class Tracksperanto::Pipeline::Base
     @progress_block.call(int_pct, message) if @progress_block
   end
   
-  def open_f(path)
-    @ios ||= []
-    @ios << File.open(path, "rb")
-    @ios[-1]
-  end
-  
   def initialize_importer_with_path_and_options(from_input_file_path, options)
     
     d = Tracksperanto::FormatDetector.new(from_input_file_path)
@@ -88,12 +82,12 @@ class Tracksperanto::Pipeline::Base
     if options[:importer]
       imp = Tracksperanto.get_importer(options[:importer])
       require_dimensions_in!(options) unless imp.autodetects_size?
-      imp.new(open_f(from_input_file_path), :width => options[:width], :height => options[:height])
+      imp.new(:width => options[:width], :height => options[:height])
     elsif d.match? && d.auto_size?
-      d.importer_klass.new(open_f(from_input_file_path))
+      d.importer_klass.new
     elsif d.match?
       require_dimensions_in!(options)
-      d.importer_klass.new(open_f(from_input_file_path), :width => options[:width], :height => options[:height])
+      d.importer_klass.new(:width => options[:width], :height => options[:height])
     else
       raise "Unknown input format"
     end
@@ -117,12 +111,14 @@ class Tracksperanto::Pipeline::Base
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
-    importer.io = Tracksperanto::ProgressiveIO.new(importer.io) do | offset, of_total |
+    io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io) do | offset, of_total |
       percent_complete = (50.0 / of_total) * offset
     end
+    @ios << io_with_progress
     
     @accumulator = Tracksperanto::Accumulator.new
-    importer.each{|parsed_tracker| @accumulator.push(parsed_tracker) }
+    importer.io = io_with_progress
+    importer.each {|t| @accumulator.push(t) }
     
     report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
     if @accumulator.size.zero?

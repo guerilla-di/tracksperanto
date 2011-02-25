@@ -63,13 +63,9 @@ class Tracksperanto::Import::Base
     @progress_block.call(message) if @progress_block
   end
   
-  def initialize(io, options = {})
-    @io = io
-    super(options)
-  end
-  
-  # The main method of the parser. Will receive an IO handle to the file being imported, and should
-  # yield each tracker that is parsed from it
+  # The main method of the parser. Should
+  # yield each tracker that has been fully parsed. After calling this method the caller can ask for
+  # width and height as well.
   def each
   end
   

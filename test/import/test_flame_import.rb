@@ -86,7 +86,7 @@ class FlameImportTest < Test::Unit::TestCase
   def test_parsing_from_flame
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/hugeFlameSetup.stabilizer')
     
-    parser = Tracksperanto::Import::FlameStabilizer.new(fixture)
+    parser = Tracksperanto::Import::FlameStabilizer.new(:io => fixture)
     trackers = parser.to_a
     
     assert_equal 2048, parser.width
@@ -115,7 +115,7 @@ class FlameImportTest < Test::Unit::TestCase
   def test_parsing_another_track
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/megaTrack.action.3dtrack.stabilizer')
     
-    parser = Tracksperanto::Import::FlameStabilizer.new(fixture)
+    parser = Tracksperanto::Import::FlameStabilizer.new(:io => fixture)
     trackers = parser.to_a
     
     assert_equal 1920, parser.width
@@ -127,7 +127,7 @@ class FlameImportTest < Test::Unit::TestCase
   def test_simple_from_combustion
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer')
     
-    parser = Tracksperanto::Import::FlameStabilizer.new(fixture)
+    parser = Tracksperanto::Import::FlameStabilizer.new(:io => fixture)
     trackers = parser.to_a
     
     assert_equal 1280, parser.width
@@ -151,7 +151,7 @@ class FlameImportTest < Test::Unit::TestCase
   
   def test_from_tracksperanto
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/fromTracksperanto.stabilizer')
-    parser = Tracksperanto::Import::FlameStabilizer.new(fixture)
+    parser = Tracksperanto::Import::FlameStabilizer.new(:io => fixture)
     trackers = parser.to_a
     
     assert_equal 3, trackers.length

@@ -67,7 +67,7 @@ class CliTest < Test::Unit::TestCase
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
     cli("--reformat-x 1204 --reformat-y 340 --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")
     
-    p = Tracksperanto::Import::FlameStabilizer.new(File.open(TEMP_DIR + "/flm_flame.stabilizer"))
+    p = Tracksperanto::Import::FlameStabilizer.new(:io => File.open(TEMP_DIR + "/flm_flame.stabilizer"))
     items = p.to_a
     assert_equal 1204, p.width, "The width of the converted setup should be that"
     assert_equal 340, p.height, "The height of the converted setup should be that"

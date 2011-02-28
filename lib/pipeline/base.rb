@@ -120,6 +120,12 @@ class Tracksperanto::Pipeline::Base
     importer.io = io_with_progress
     importer.each {|t| @accumulator.push(t) }
     
+    # OBSOLETE - for this version we are going to permit it
+    if importer.respond_to?(:stream_parse)
+      importer.receiver = @accumulator
+      importer.stream_parse(io_with_progress)
+    end
+    
     report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
     if @accumulator.size.zero?
       raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?"

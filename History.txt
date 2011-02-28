@@ -1,3 +1,7 @@
+* Changed the Import::Base interface yo use enumeration instead of @receiver.
+  Upside: This allows us to convert importers to an array of trackers and other niceties.
+  Downside: API for base is broken.
+  
 === 2.1.1 / 2011-02-14
 
 * Fix handling of Shake scripts containing stabilizer nodes with no animation

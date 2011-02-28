@@ -40,6 +40,9 @@ class Tracksperanto::Import::Base
     super
   end
   
+  # OBSOLETE, do not use
+  attr_accessor :receiver
+  
   # Return an extension WITH DOT if this format has a typical extension that
   # you can detect (like ".nk" for Nuke) 
   def self.distinct_file_ext
@@ -69,12 +72,9 @@ class Tracksperanto::Import::Base
   def each
   end
   
-  # When a tracker has been detected completely (all keyframes) call this method with the tracker object as argument
+  # OBSOLETE: do not use
   def send_tracker(tracker_obj)
-    if @receiver
-      @receiver.push(tracker_obj)
-    else
-      raise "Tracker received but no @receiver has been set for #{self.inspect}"
-    end
+    STDERR.puts "Import::Base#send_tracker has been deprecated, please rewrite your importer to use yield(t) inside each instead"
+    @receiver.push(tracker_obj)
   end
 end

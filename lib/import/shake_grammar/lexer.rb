@@ -112,6 +112,9 @@ module Tracksperanto::ShakeGrammar
       string.strip.gsub(/^\"/, '').gsub(/\"$/, '').gsub(/\\\"/, '"')
     end
     
+    # In the default impl. this just puts things on the stack. However,
+    # if you want to unwrap structures as they come along (whych you do for big files)
+    # you have to override this
     def push(atom_array)
       @stack << atom_array
     end

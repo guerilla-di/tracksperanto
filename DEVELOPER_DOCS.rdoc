@@ -55,7 +55,7 @@ Play responsibly.
   trackers = some_importer.to_a
   
   # Create the exporter and pass the output file to it
-  some_exporter = Exporter.new(File.open("exported_file.other", "wb"))
+  some_exporter = Tracksperanto::Export::FlameStabilizer.new(File.open("exported_file.other", "wb"))
 
   # Now add some middlewares, for example a Scale
   scaler = Middleware::Scaler.new(some_exporter, :x_factor => 2)

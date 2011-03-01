@@ -47,19 +47,13 @@ Play responsibly.
   # get_importer will give you the good class even you get the capitalization
   # wrong!
   some_importer = Tracksperanto.get_importer("shakescript").new(:width => 1024, :height => 576)
-
-  # Some object responding to #push has to be the receiver
-  # In this case we will use an array but this might get out of hand
-  # if you have alot of trackers - Tracksperanto uses a disk-based
-  # buffer for this instead (see Accumulator)
-  some_importer.receiver = [] 
-
-  # Run the import with the importer
-  some_importer.stream_parse((File.open("source_file.fmt")))
-
-  # Now the receiver contains trackers! Weeee!
-  trackers = importer.receiver
-
+  some_importer.io = File.open("source_file.fmt")
+  
+  # The importer responds to each() so if your file is not too big you can just load all the trackers
+  # as an array. If you expect to have alot of trackers investigate a way to buffer them on disk
+  # instead (see Accumulator)
+  trackers = some_importer.to_a
+  
   # Create the exporter and pass the output file to it
   some_exporter = Exporter.new(File.open("exported_file.other", "wb"))
 

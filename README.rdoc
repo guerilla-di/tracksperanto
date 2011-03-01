@@ -65,7 +65,7 @@ Import and export support:
 * Syntheyes 2D tracking data exports
 * 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
-* MayaLive track export (square pixel aspect only, you will need to write some extra code to convert that)
+* MayaLive track export (square pixel aspect only, you will need to write some extra code if your tracks are based on nonsquare pixels)
 * Flame .stabilizer file
 * Boujou feature track export
 

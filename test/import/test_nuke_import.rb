@@ -93,12 +93,12 @@ class NukeImportTest < Test::Unit::TestCase
     assert_in_delta 510.107, sec_tracker.keyframes[-1].abs_y, DELTA
   end
   
-  # TODO: no tests for privates
   def test_parsing_nuke_curve
     curve = '{curve x742 888 890.2463989 891.6602783 \
-893.5056763 895.6155396 s95 897.2791748 899.1762695 x754 912.0731812 x755 913.7190552 916.0959473 918.1025391 920.0751953 922.1898804}'
-    p = Tracksperanto::Import::NukeScript.new(:io => StringIO.new)
-    result = p.send(:parse_curve, curve)
+893.5056763 895.6155396 s95 897.2791748 899.1762695 \
+x754 912.0731812 x755 913.7190552 916.0959473 918.1025391 920.0751953 922.1898804}'
+    p = Tracksperanto::NukeGrammarUtils.new
+    result = p.parse_curve(curve)
     assert_kind_of Array, result
     assert_equal 13, result.length
     assert_equal 742, result[0][0]

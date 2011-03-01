@@ -1,5 +1,6 @@
-require File.dirname(__FILE__) + "/shake_grammar/lexer"
-require File.dirname(__FILE__) + "/shake_grammar/catcher"
+require File.expand_path(File.dirname(__FILE__)) + "/shake_grammar/lexer"
+require File.expand_path(File.dirname(__FILE__)) + "/shake_grammar/catcher"
+
 class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   def self.human_name

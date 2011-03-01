@@ -55,15 +55,15 @@ Play responsibly.
   trackers = some_importer.to_a
   
   # Create the exporter and pass the output file to it
-  some_exporter = Tracksperanto::Export::FlameStabilizer.new(File.open("exported_file.other", "wb"))
-
+  some_exporter = Tracksperanto.get_exporter("flamestabilizer").new(File.open("exported_file.other", "wb"))
+  
   # Now add some middlewares, for example a Scale
   scaler = Middleware::Scaler.new(some_exporter, :x_factor => 2)
   # ... and a slip
   slipper = Middleware::Slipper.new(scaler, :offset => 2)
   # Middlewares wrap exporters and other middlewares, so you can chain them
   # ad nauseam
-
+  
   # Now when we send export commands to the Slipper it will play them through
   # to the Scaler and the Scaler in turn will send commands to the exporter.
   slipper.start_export(1024, 576)

@@ -2,7 +2,7 @@
 # this class the inherited class will be included in the list of supported
 # Tracksperanto importers. The API that an importer should present is very
 # basic, and consists only of a few methods. The main method is
-# stream_parse(io)
+# `each`.
 class Tracksperanto::Import::Base
   include Enumerable
   include Tracksperanto::Safety

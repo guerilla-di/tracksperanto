@@ -9,7 +9,7 @@ begin
   
   Hoe.spec('tracksperanto') do | p |
     p.readme_file   = 'README.rdoc'
-    p.extra_rdoc_files  = FileList['*.rdoc']
+    p.extra_rdoc_files  = FileList['*.rdoc'] + FileList['*.txt']
     p.version = Tracksperanto::VERSION
     
     p.extra_deps = {"progressbar" => ">=0"}

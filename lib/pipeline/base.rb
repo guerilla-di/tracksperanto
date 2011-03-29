@@ -36,6 +36,12 @@ class Tracksperanto::Pipeline::Base
   # Contains arrays of the form ["MiddewareName", {:param => value}]
   attr_accessor :middleware_tuples
   
+  
+  def initialize(*any)
+    super
+    @ios = []
+  end
+  
   def wrap_output_with_middlewares(output)
     return output unless (middleware_tuples && middleware_tuples.any?)
     
@@ -114,16 +120,18 @@ class Tracksperanto::Pipeline::Base
     io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io) do | offset, of_total |
       percent_complete = (50.0 / of_total) * offset
     end
-    @ios << io_with_progress
+    @ios.push(io_with_progress)
     
     @accumulator = Tracksperanto::Accumulator.new
-    importer.io = io_with_progress
-    importer.each {|t| @accumulator.push(t) }
     
-    # OBSOLETE - for this version we are going to permit it
+    # OBSOLETE - for this version we are going to permit it.
     if importer.respond_to?(:stream_parse)
+      STDERR.puts "Import::Base#stream_parse(io) is obsolete, please rewrite your importer to use each instead"
       importer.receiver = @accumulator
       importer.stream_parse(io_with_progress)
+    else
+      importer.io = io_with_progress
+      importer.each {|t| @accumulator.push(t) }
     end
     
     report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
@@ -162,8 +170,7 @@ class Tracksperanto::Pipeline::Base
   ensure
     @accumulator.clear
     @ios.map!{|e| e.close! rescue e.close }
-    @ios = []
-    @accumulator = nil
+    @ios.clear
   end
   
   # Setup output files and return a single output
@@ -181,7 +188,6 @@ class Tracksperanto::Pipeline::Base
   
   # Open the file for writing and register it to be closed automatically
   def open_owned_export_file(path_to_file)
-    @ios ||= []
     @ios.push(File.open(path_to_file, "wb"))[-1]
   end
 end

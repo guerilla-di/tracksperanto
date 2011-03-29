@@ -1,16 +1,16 @@
 # Export for PFMatchit
 class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   
-  # PFtrack wants cross-platform linebreaks
+  # PFMatchit, in contrast to PFTrack, wants cross-platform linebreaks
   LINEBREAK = "\r\n"
-  KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f\r\n"
+  KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f\n"
   
   def self.desc_and_extension
-    "pfmatchit.2dt"
+    "pfmatchit.txt"
   end
   
   def self.human_name
-    "PFMatchit .2dt file (single camera)"
+    "PFMatchit user track export file (single camera)"
   end
   
   def start_tracker_segment(tracker_name)
@@ -22,13 +22,13 @@ class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   
   # TODO: currently exports to one camera
   def end_tracker_segment
-    2.times { @io.write(LINEBREAK) }
+    2.times { @io.write("\n") }
     @io.write(@tracker_name.inspect) # autoquotes
-    @io.write LINEBREAK
+    @io.write "\n"
     @io.write camera_name # For primary/secondary cam in stereo pair
-    @io.write LINEBREAK
+    @io.write "\n"
     @io.write @frame_count
-    @io.write LINEBREAK
+    @io.write "\n"
     
     @tracker_io.rewind
     @io.write(@tracker_io.read) until @tracker_io.eof?

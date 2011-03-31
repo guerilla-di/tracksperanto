@@ -1,3 +1,9 @@
+=== 2.2.1 / 2011-04-01
+
+* April fool!
+* PFMAtchit requires LF in it's files instead of CRLF, but our FPTrack exporter used CRLF. Now fixed.
+* Changed PFMatchit exporter to export .txt files instead of .2dt
+
 === 2.2.0 / 2011-03-01
 
 * Improve documentation substantially

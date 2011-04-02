@@ -13,13 +13,13 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   def each
     progress_proc = lambda{|msg| report_progress(msg) }
-    Traxtractor.new(@io, [Proc.new, progress_proc])
+    TrackExtractor.new(@io, [Proc.new, progress_proc])
   end
   
   private
   
   # Extractor. Here we define copies of Shake's standard node creation functions.
-  class Traxtractor < Tracksperanto::ShakeGrammar::Catcher
+  class TrackExtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,

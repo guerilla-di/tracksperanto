@@ -13,7 +13,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   def each
     progress_proc = lambda{|msg| report_progress(msg) }
-    TrackExtractor.new(@io, [Proc.new, progress_proc])
+    TrackExtractor.new(@io, [Proc.new, progress_proc, 0])
   end
   
   private
@@ -21,6 +21,12 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   # Extractor. Here we define copies of Shake's standard node creation functions.
   class TrackExtractor < Tracksperanto::ShakeGrammar::Catcher
     include Tracksperanto::ZipTuples
+    
+    # SetTimeRange("-5-15") // sets time range of comp
+    # We use it to avoid producing keyframes which start at negative frames
+    def settimerange(str)
+      @sentinel[2] = str.to_i if str.to_i < 0
+    end
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
     # in this case we DO want to take this shortcut so we know how the tracker node is called
@@ -43,7 +49,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # We put the frame number at the beginning since it works witih oru tuple zipper
     def linear(extrapolation_type, *keyframes)
       report_progress("Translating Linear animation")
-      keyframes.map { |kf| [kf.at, kf.value] }
+      remap_keyframes_against_negative_at!(keyframes)
+      keyframes.map { |kf| [kf.at , kf.value] }
     end
     alias_method :nspline, :linear
     alias_method :jspline, :linear
@@ -54,8 +61,15 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # tangent positions (which we discard)
     def hermite(extrapolation_type, *keyframes)
       report_progress("Translating Hermite curve, removing tangents")
+      remap_keyframes_against_negative_at!(keyframes)
       keyframes.map{ |kf| [kf.at, kf.value[0]] }
     end
+    
+    def remap_keyframes_against_negative_at!(kfs)
+      frame_start_of_script = @sentinel[2]
+      kfs.each{|k| k.at = (k.at - frame_start_of_script) }
+    end
+    private :remap_keyframes_against_negative_at!
     
     # image Tracker( 
     #   image In,

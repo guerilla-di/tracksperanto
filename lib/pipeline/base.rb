@@ -1,17 +1,35 @@
-# The base pipeline is the whole process of track conversion from start to finish. The pipeline object organizes the import formats, scans them,
-# applies the default middlewares and yields them for processing. Here's how a calling sequence for a pipeline looks like:
-#
-#   pipe = Tracksperanto::Pipeline::Base.new
-#   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
-#   
-#   pipe.run("/tmp/shakescript.shk", :width => 720, :height => 576) do | *all_middlewares |
-#     # configure middlewares here
-#   end
-#
-# The pipeline will also automatically allocate output files with the right extensions
-# at the same place where the original file resides,
-# and setup outputs for all supported export formats.
-class Tracksperanto::Pipeline::Base
+module Tracksperanto::Pipeline
+
+  class EmptySourceFileError < RuntimeError
+    def message;  "This is an empty source file"; end
+  end
+  
+  class UnknownFormatError < RuntimeError
+    def message; "Unknown input format"; end
+  end
+  
+  class DimensionsRequiredError < RuntimeError
+    def message; "Width and height must be provided for this importer"; end
+  end
+  
+  class NoTrackersRecoveredError < RuntimeError
+    def message; "Could not recover any non-empty trackers from this file. Wrong import format maybe?"; end
+  end
+  
+  
+  # The base pipeline is the whole process of track conversion from start to finish. The pipeline object organizes the import formats, scans them,
+  # applies the middlewares. Here's how a calling sequence for a pipeline looks like:
+  #
+  #   pipe = Tracksperanto::Pipeline::Base.new
+  #   pipe.middleware_tuples = ["Golden", {:enabled => true}]
+  #   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
+  #   pipe.run("/tmp/shakescript.shk", :width => 720, :height => 576)
+  #
+  # The pipeline will also automatically allocate output files with the right extensions
+  # at the same place where the original file resides,
+  # and setup outputs for all supported export formats.
+  class Base
+  
   EXTENSION = /\.([^\.]+)$/ #:nodoc:
   PERMITTED_OPTIONS = [:importer, :width, :height]
   
@@ -63,7 +81,7 @@ class Tracksperanto::Pipeline::Base
     importer = initialize_importer_with_path_and_options(from_input_file_path, passed_options)
     
     # Check for empty files
-    raise "This is an empty source file" if File.stat(from_input_file_path).size.zero?
+    raise EmptySourceFileError if File.stat(from_input_file_path).size.zero?
     
     # Open the file
     read_data = File.open(from_input_file_path, "rb")
@@ -95,12 +113,12 @@ class Tracksperanto::Pipeline::Base
       require_dimensions_in!(options)
       d.importer_klass.new(:width => options[:width], :height => options[:height])
     else
-      raise "Unknown input format"
+      raise UnknownFormatError
     end
   end
   
   def require_dimensions_in!(opts)
-    raise "Width and height must be provided for this importer" unless (opts[:width] && opts[:height])
+    raise DimensionsRequiredError unless (opts[:width] && opts[:height])
   end
   
   # Runs the export and returns the number of points and keyframes processed.
@@ -135,9 +153,7 @@ class Tracksperanto::Pipeline::Base
     end
     
     report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
-    if @accumulator.size.zero?
-      raise "Could not recover any non-empty trackers from this file. Wrong import format maybe?"
-    end
+    raise NoTrackersRecoveredError if @accumulator.size.zero?
     
     report_progress(percent_complete, "Starting export")
     
@@ -190,4 +206,5 @@ class Tracksperanto::Pipeline::Base
   def open_owned_export_file(path_to_file)
     @ios.push(File.open(path_to_file, "wb"))[-1]
   end
+end
 end

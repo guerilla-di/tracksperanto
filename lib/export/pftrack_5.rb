@@ -14,4 +14,9 @@ class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFMatchit
     def camera_name
       "Primary".inspect
     end
+    
+    # PFT5 wants CRLF
+    def linebreak
+      "\r\n"
+    end
 end

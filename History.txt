@@ -1,3 +1,8 @@
+=== 2.2.2 / 2011-04-03
+
+* The last change to PFMatchit exporter had adverse effects on pftrack files, now fixed.
+* Pipeline now has it's own exceptions, all inheriting from RuntimeError
+
 === 2.2.1 / 2011-04-01
 
 * April fool!

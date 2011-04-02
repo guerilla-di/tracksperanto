@@ -47,7 +47,7 @@ class PipelineTest < Test::Unit::TestCase
     empty_file_path = "./input_empty.stabilizer"
     f = File.open(empty_file_path, "w"){|f| f.write('') }
     pipeline = Tracksperanto::Pipeline::Base.new
-    assert_raise(RuntimeError) { pipeline.run(empty_file_path) }
+    assert_raise(Tracksperanto::Pipeline::EmptySourceFileError) { pipeline.run(empty_file_path) }
   end
   
   def test_middleware_initialization_from_tuples
@@ -72,7 +72,7 @@ class PipelineTest < Test::Unit::TestCase
   def test_run_with_autodetected_importer_that_requires_size
     FileUtils.cp("./import/samples/shake_script/four_tracks_in_one_stabilizer.shk", "./input.shk")
     pipeline = Tracksperanto::Pipeline::Base.new
-    assert_raise(RuntimeError) { pipeline.run("./input.shk") }
+    assert_raise(Tracksperanto::Pipeline::DimensionsRequiredError) { pipeline.run("./input.shk") }
   end
   
   def test_run_with_autodetected_importer_that_requires_size_when_size_supplied
@@ -97,15 +97,15 @@ class PipelineTest < Test::Unit::TestCase
   def test_run_with_unknown_format_raises
     FileUtils.touch("./input.txt")
     pipeline = Tracksperanto::Pipeline::Base.new
-    assert_raise(RuntimeError) { pipeline.run("./input.txt") }
-    assert_raise(RuntimeError) { pipeline.run("./input.txt", :width => 100, :height => 100) }
-    assert_raise(RuntimeError) { pipeline.run("./input.txt", :importer => "Syntheyes") }
+    assert_raise(Tracksperanto::Pipeline::UnknownFormatError) { pipeline.run("./input.txt") }
+    assert_raise(Tracksperanto::Pipeline::UnknownFormatError) { pipeline.run("./input.txt", :width => 100, :height => 100) }
+    assert_raise(Tracksperanto::Pipeline::DimensionsRequiredError) { pipeline.run("./input.txt", :importer => "Syntheyes") }
   end
   
   def test_run_with_overridden_importer_and_size
     FileUtils.cp("./import/samples/3de_v4/3de_export_cube.txt", "./input.txt")
     pipeline = Tracksperanto::Pipeline::Base.new
-    assert_raise(RuntimeError) { pipeline.run("./input.txt", :importer => "Equalizer4") }
+    assert_raise(Tracksperanto::Pipeline::DimensionsRequiredError) { pipeline.run("./input.txt", :importer => "Equalizer4") }
     assert_nothing_raised { pipeline.run("./input.txt", :importer => "Equalizer4", :width => 720, :height => 576) }
   end
   

@@ -43,7 +43,11 @@ class TestProgressiveIO < Test::Unit::TestCase
     io.progress_block = lambda do | offset, total |
       assert_equal [1, 3], [offset, total]
     end
-    assert_equal 49, io.getc
+    if RUBY_VERSION < "1.9"
+      assert_equal 49, io.getc
+    else
+      assert_equal "1", io.getc
+    end
   end
   
   def test_gets
@@ -67,7 +71,12 @@ class TestProgressiveIO < Test::Unit::TestCase
     io.progress_block = lambda do | offset, total |
       assert_equal [1, 3], [offset, total]
     end
-    assert_equal 49, io.readchar
+    
+    if RUBY_VERSION < "1.9"
+      assert_equal 49, io.getc
+    else
+      assert_equal "1", io.getc
+    end
   end
   
   def test_readline

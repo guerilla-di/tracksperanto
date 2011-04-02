@@ -81,7 +81,7 @@ module Tracksperanto::ShakeGrammar
     INT_ATOM = /^(\d+)$/
     FLOAT_ATOM = /^([\-\d\.]+)$/
     STR_ATOM = /^\"/
-    AT_FRAME = /^@(\d+)/
+    AT_FRAME = /^@(-?\d+)/
     
     # Grab the minimum atomic value
     def consume_atom!

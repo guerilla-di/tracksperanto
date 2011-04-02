@@ -84,6 +84,19 @@ class ShakeLexerTest < Test::Unit::TestCase
       ]],
     s)
   end
+
+  def test_parse_funcall_with_valueats_at_negframes
+    s = parse 'Linear(0,716.08@-1,715.846@2)'
+    assert_equal(
+      [[
+        :funcall,
+        "Linear",
+        0,
+        [:value_at, -1, 716.08],
+        [:value_at, 2, 715.846],
+      ]],
+    s)
+  end
   
   def test_parse_hermite_valuats_containing_arrays
     # Hermite curves use array args

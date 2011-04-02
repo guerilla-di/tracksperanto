@@ -16,7 +16,7 @@ begin
     p.extra_dev_deps = {"flexmock" => ">=0"}
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')
-    p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea)
+    p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea .yardoc)
   end
 rescue LoadError
   $stderr.puts "Meta-operations on this package require Hoe"

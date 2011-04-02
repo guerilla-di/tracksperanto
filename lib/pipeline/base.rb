@@ -16,7 +16,6 @@ module Tracksperanto::Pipeline
     def message; "Could not recover any non-empty trackers from this file. Wrong import format maybe?"; end
   end
   
-  
   # The base pipeline is the whole process of track conversion from start to finish. The pipeline object organizes the import formats, scans them,
   # applies the middlewares. Here's how a calling sequence for a pipeline looks like:
   #
@@ -149,7 +148,7 @@ module Tracksperanto::Pipeline
       importer.stream_parse(io_with_progress)
     else
       importer.io = io_with_progress
-      importer.each {|t| @accumulator.push(t) }
+      importer.each {|t| @accumulator.push(t) unless t.empty? }
     end
     
     report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")

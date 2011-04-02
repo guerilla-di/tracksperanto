@@ -21,6 +21,7 @@
 #       exporter.end_export
 #     end
 #
+# By contract export_point will be called at least once for each tracker being exported (no empty trackers will be sent)
 class Tracksperanto::Export::Base
   include Tracksperanto::ConstName
   include Tracksperanto::SimpleExport

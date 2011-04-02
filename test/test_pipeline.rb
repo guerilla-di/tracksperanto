@@ -102,6 +102,20 @@ class PipelineTest < Test::Unit::TestCase
     assert_raise(Tracksperanto::Pipeline::DimensionsRequiredError) { pipeline.run("./input.txt", :importer => "Syntheyes") }
   end
   
+  def test_importing_file_with_trackers_of_zero_length_does_not_accumulate_any_trackers
+    pft_with_empty_trackers = "./import/samples/pftrack5/empty_trackers.2dt"
+    i = Tracksperanto::Import::PFTrack.new(:io => File.open(pft_with_empty_trackers))
+    tks = i.to_a
+    assert_equal 3, tks.length
+    assert_equal 0, tks[0].length, "The tracker should have 0 keyframes for this test to make sense"
+    
+    FileUtils.cp(pft_with_empty_trackers, "./input_empty.2dt")
+    
+    pipeline = Tracksperanto::Pipeline::Base.new
+    num_t, num_k = pipeline.run("./input_empty.2dt", :width => 1920, :height => 1080)
+    assert_equal 1, num_t, "Only one tracker should have been sent through the export"
+  end
+  
   def test_run_with_overridden_importer_and_size
     FileUtils.cp("./import/samples/3de_v4/3de_export_cube.txt", "./input.txt")
     pipeline = Tracksperanto::Pipeline::Base.new

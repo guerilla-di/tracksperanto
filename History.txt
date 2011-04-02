@@ -1,3 +1,9 @@
+=== 2.2.3 / 2011-04-03
+
+* Prevent zero-length trackers (trackers having no position information) from being accumulated during import.
+	This had adverse effects on export modules that could not export trackers containing no information. As a sidenote we
+	will write down in the doco that an export module should not expect empty trackers with no keyframes to be sent
+
 === 2.2.2 / 2011-04-03
 
 * The last change to PFMatchit exporter had adverse effects on pftrack files, now fixed.

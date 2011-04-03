@@ -111,6 +111,7 @@ test/import/samples/pftrack4/sourcefile_pftrack.2dt
 test/import/samples/pftrack5/apft.2dt
 test/import/samples/pftrack5/empty_trackers.2dt
 test/import/samples/pftrack5/garage.2dt
+test/import/samples/shake_script/designated_global_range_starting_at_negative_frame.shk
 test/import/samples/shake_script/four_tracks_in_one_matchmove.shk
 test/import/samples/shake_script/four_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/from_matchmover.shk

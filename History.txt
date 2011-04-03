@@ -1,10 +1,14 @@
-* Properly deal with negative frames happening in Shake scripts sometimes
+=== 2.2.4 / 2011-04-04
+
+* Properly deal with negative frames happening in Shake scripts sometimes. We will now recognize a script starting at negative
+frames and "bump" it's frames in curves so that everything neatly starts at frame 0. Granted this does not give us the same frame range
+but most apps wil go bonkers anyway if we send them negative frame numbers.
 
 === 2.2.3 / 2011-04-03
 
 * Prevent zero-length trackers (trackers having no position information) from being accumulated during import.
-	This had adverse effects on export modules that could not export trackers containing no information. As a sidenote we
-	will write down in the doco that an export module should not expect empty trackers with no keyframes to be sent
+This had adverse effects on export modules that could not export trackers containing no information. As a sidenote we
+will write down in the doco that an export module should not expect empty trackers with no keyframes to be sent
 
 === 2.2.2 / 2011-04-03
 
@@ -21,8 +25,8 @@
 
 * Improve documentation substantially
 * Changed the Import::Base interface yo use enumeration instead of @receiver.
-  Upside: This allows us to convert importers to an array of trackers and other niceties.
-  Downside: stream_parse will be deprecated. It is however still available for backwards compatibility
+Upside: This allows us to convert importers to an array of trackers and other niceties.
+Downside: stream_parse will be deprecated. It is however still available for backwards compatibility
   
 === 2.1.1 / 2011-02-14
 

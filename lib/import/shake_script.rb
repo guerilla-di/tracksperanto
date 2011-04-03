@@ -20,6 +20,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   
   private
   
+  #:nodoc:
+  
   class Sentinel
     attr_accessor :start_frame, :tracker_proc, :progress_proc
     def start_frame

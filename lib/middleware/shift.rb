@@ -4,7 +4,7 @@ class Tracksperanto::Middleware::Shift < Tracksperanto::Middleware::Base
   cast_to_float :x_shift, :y_shift
   
   def export_point(frame, float_x, float_y, float_residual)
-    super(frame, float_x + (@x_shift || 0), float_y + (@y_shift || 0), float_residual)
+    super(frame, float_x + @x_shift.to_f, float_y + @y_shift.to_f, float_residual)
   end
   
 end

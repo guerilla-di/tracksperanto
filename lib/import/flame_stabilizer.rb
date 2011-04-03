@@ -14,10 +14,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     "Flame .stabilizer file"
   end
   
-  class Key
-    attr_accessor :at, :value, :extrap, :interp, :left_tangent, :right_tangent
-  end
-  
   class ChannelBlock < Array
     include ::Tracksperanto::Casts
     cast_to_string :name

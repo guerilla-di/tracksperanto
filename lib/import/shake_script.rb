@@ -12,11 +12,20 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   end
   
   def each
-    progress_proc = lambda{|msg| report_progress(msg) }
-    TrackExtractor.new(@io, [Proc.new, progress_proc, 0])
+    s = Sentinel.new
+    s.progress_proc = method(:report_progress)
+    s.tracker_proc = Proc.new
+    TrackExtractor.new(@io, s)
   end
   
   private
+  
+  class Sentinel
+    attr_accessor :start_frame, :tracker_proc, :progress_proc
+    def start_frame
+      @start_frame.to_i
+    end
+  end
   
   # Extractor. Here we define copies of Shake's standard node creation functions.
   class TrackExtractor < Tracksperanto::ShakeGrammar::Catcher
@@ -25,7 +34,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # SetTimeRange("-5-15") // sets time range of comp
     # We use it to avoid producing keyframes which start at negative frames
     def settimerange(str)
-      @sentinel[2] = str.to_i if str.to_i < 0
+      sentinel.start_frame = str.to_i if str.to_i < 0
     end
     
     # Normally, we wouldn't need to look for the variable name from inside of the funcall. However,
@@ -37,7 +46,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       trackers = atom[2][1][1..-1]
       trackers.map do | tracker |
         tracker.name = [node_name, tracker.name].join("_")
-        sentinel[0].call(tracker)
+        # THIS IS THE MOST IMPORTANT THINGO
+        sentinel.tracker_proc.call(tracker)
       end
     end
     
@@ -66,7 +76,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     end
     
     def remap_keyframes_against_negative_at!(kfs)
-      frame_start_of_script = @sentinel[2]
+      frame_start_of_script = sentinel.start_frame
       kfs.each{|k| k.at = (k.at - frame_start_of_script) }
     end
     private :remap_keyframes_against_negative_at!
@@ -213,7 +223,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     private
     
     def report_progress(with_message)
-      sentinel[1].call(with_message) if sentinel[1]
+      sentinel.progress_proc.call(with_message)
     end
     
     def collect_trackers_from(array)

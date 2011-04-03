@@ -1,3 +1,5 @@
+* Properly deal with negative frames happening in Shake scripts sometimes
+
 === 2.2.3 / 2011-04-03
 
 * Prevent zero-length trackers (trackers having no position information) from being accumulated during import.

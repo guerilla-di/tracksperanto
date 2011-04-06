@@ -1,6 +1,5 @@
 require 'stringio'
 require 'delegate'
-require 'forwardable'
 require 'tempfile'
 
 module Tracksperanto

@@ -14,7 +14,6 @@
 #  end
 #
 #  a.clear # ensure that the file is deleted
-require "base64"
 class Tracksperanto::Accumulator
   include Enumerable
   
@@ -26,6 +25,10 @@ class Tracksperanto::Accumulator
     @size = 0
     
     super
+  end
+  
+  def empty?
+    @size.zero?
   end
   
   # Store an object
@@ -61,7 +64,7 @@ class Tracksperanto::Accumulator
   private
   
   def marshal_object(object_to_store)
-    d = Base64.encode64(Marshal.dump(object_to_store))
+    d = Marshal.dump(object_to_store)
     blob = [d.size, "\t", d, "\n"].join
   end
   
@@ -69,6 +72,6 @@ class Tracksperanto::Accumulator
     # Up to the tab is the amount of bytes to read
     demarshal_bytes = from_io.gets("\t").to_i
     blob = from_io.read(demarshal_bytes)
-    Marshal.load(Base64.decode64(blob))
+    Marshal.load(blob)
   end
 end

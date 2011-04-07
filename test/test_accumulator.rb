@@ -23,6 +23,13 @@ class TestAccumulator < Test::Unit::TestCase
     a.each {|e| assert_equal "A \tstring", e }
   end
   
+  def test_accumulator_empty
+    a = Tracksperanto::Accumulator.new
+    assert a.empty?
+    a.push(1)
+    assert !a.empty?
+  end
+  
   def test_accumulator_supports_nested_iteration
     a = Tracksperanto::Accumulator.new
     ("A".."Z").each{|e| a << e}

@@ -17,6 +17,33 @@ class TestAccumulator < Test::Unit::TestCase
     assert_equal 50_000, a.size
   end
   
+  def test_accumulator_saves_shitload_of_objs
+    a = Tracksperanto::Accumulator.new
+    4.times { a.push("A \tstring") }
+    a.each {|e| assert_equal "A \tstring", e }
+  end
+  
+  def test_accumulator_supports_nested_iteration
+    a = Tracksperanto::Accumulator.new
+    ("A".."Z").each{|e| a << e}
+    
+    accumulated = []
+    seen_g = false
+    a.each do | first_level |
+      if first_level == "G"
+        seen_g = true
+        # Force a nested iteration and break it midway
+        a.each do | second_level |
+          accumulated.push(second_level)
+          break if second_level == "E"
+        end
+      elsif seen_g
+        assert_equal "H", first_level
+        return
+      end
+    end
+  end
+  
   def test_clear_calls_close_on_buffer
     io = Tracksperanto::BufferIO.new
     flexmock(io).should_receive(:close!)

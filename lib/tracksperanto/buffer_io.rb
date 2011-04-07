@@ -30,18 +30,26 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
     __setobj__(nil)
   end
   
+  # Used by IO.reopen. When we do that we need to go to a tempfile regardless
+  def to_io
+    replace_with_tempfile unless @tempfile_in
+    super
+  end
+  
   private
   
+  def replace_with_tempfile
+    sio = __getobj__
+    tf = Tempfile.new("tracksperanto-xbuf")
+    tf.write(sio.string)
+    sio.string = ""
+    GC.start
+    __setobj__(tf)
+    
+    @tempfile_in = true
+  end
+  
   def replace_with_tempfile_if_needed
-    return if @tempfile_in
-    io = __getobj__
-    if io.pos > MAX_IN_MEM_BYTES
-      tf = Tempfile.new("tracksperanto-xbuf")
-      tf.write(io.string)
-      io.string = ""
-      GC.start
-      __setobj__(tf)
-      @tempfile_in = true
-    end
+    replace_with_tempfile if !@tempfile_in && pos > MAX_IN_MEM_BYTES
   end
 end

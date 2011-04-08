@@ -105,42 +105,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       end
       
     end
-=begin
-Here's how a Flame channel looks like
-The Size will not be present if there are no keyframes
-  
-Channel tracker1/ref/x
-	Extrapolation constant
-	Value 770.41
-	Size 4
-	KeyVersion 1
-	Key 0
-		Frame 1
-		Value 770.41
-		Interpolation constant
-		End
-	Key 1
-		Frame 44
-		Value 858.177
-		Interpolation constant
-		RightSlope 2.31503
-		LeftSlope 2.31503
-		End
-	Key 2
-		Frame 74
-		Value 939.407
-		Interpolation constant
-		RightSlope 2.24201
-		LeftSlope 2.24201
-		End
-	Key 3
-		Frame 115
-		Value 1017.36
-		Interpolation constant
-		End
-	Colour 50 50 50 
-	End
-=end
 
     def extract_channels_from_stream(io)
       channels = Tracksperanto::Accumulator.new
@@ -212,3 +176,40 @@ Channel tracker1/ref/x
       base_track_tuple[1..2]
     end
 end
+
+__END__
+
+Here's how a Flame channel looks like
+The Size will not be present if there are no keyframes
+  
+Channel tracker1/ref/x
+	Extrapolation constant
+	Value 770.41
+	Size 4
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 770.41
+		Interpolation constant
+		End
+	Key 1
+		Frame 44
+		Value 858.177
+		Interpolation constant
+		RightSlope 2.31503
+		LeftSlope 2.31503
+		End
+	Key 2
+		Frame 74
+		Value 939.407
+		Interpolation constant
+		RightSlope 2.24201
+		LeftSlope 2.24201
+		End
+	Key 3
+		Frame 115
+		Value 1017.36
+		Interpolation constant
+		End
+	Colour 50 50 50 
+	End

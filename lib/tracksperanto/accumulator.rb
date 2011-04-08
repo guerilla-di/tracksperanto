@@ -47,12 +47,12 @@ class Tracksperanto::Accumulator
   def each
     # We reopen our tempfile as read-only, and iterate through that (we will have one IO handle
     # per loop nest)
-    iterable = Tempfile.new("AccumE")
-    iterable.reopen(@store)
-    iterable.seek(0)
+    tf = @store.to_io
+    tf.flush
+    iterable = File.open(tf.path, "r")
     @size.times { yield(recover_object_from(iterable)) }
   ensure
-    iterable.close!
+    iterable.close
   end
   
   # Calls close! on the datastore and deletes the objects in it
@@ -68,10 +68,11 @@ class Tracksperanto::Accumulator
     blob = [d.size, "\t", d, "\n"].join
   end
   
-  def recover_object_from(from_io)
+  def recover_object_from(io)
     # Up to the tab is the amount of bytes to read
-    demarshal_bytes = from_io.gets("\t").to_i
-    blob = from_io.read(demarshal_bytes)
+    demarshal_bytes = io.gets("\t").to_i
+    blob = io.read(demarshal_bytes)
+    
     Marshal.load(blob)
   end
 end

@@ -82,6 +82,8 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     
     report_progress("Assembling tracker curves from channels")
     scavenge_trackers_from_channels(channels) {|t| yield(t) }
+  ensure
+    channels.clear
   end
   
   private
@@ -141,7 +143,7 @@ Channel tracker1/ref/x
 =end
 
     def extract_channels_from_stream(io)
-      channels = []
+      channels = Tracksperanto::Accumulator.new
       channel_matcher = /Channel (.+)\n/
       until io.eof?
         line = io.gets
@@ -167,9 +169,11 @@ Channel tracker1/ref/x
     REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
     
     def scavenge_trackers_from_channels(channels)
-      channels.select{|e| e.name =~ /\/#{REF_CHANNEL}\/x/}.each do | track_x |
-        report_progress("Detected reference channel #{track_x}")
-        yield grab_tracker(channels, track_x)
+      channels.each do |c|
+        next unless c.name =~ /\/#{REF_CHANNEL}\/x/
+        
+        report_progress("Detected reference channel #{c.name}")
+        yield grab_tracker(channels, c)
       end
     end
     

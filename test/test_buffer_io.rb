@@ -19,4 +19,15 @@ class TestBufferIO < Test::Unit::TestCase
     flexmock(f).should_receive(:close!).once
     io.close!
   end
+  
+  def test_to_file_forces_immediate_promotion_to_file
+    io = Tracksperanto::BufferIO.new
+    io.write("a" * 3000)
+    assert_equal 3000, io.pos
+    assert !io.file_backed?
+    
+    f = io.to_file
+    assert_equal 3000, f.pos
+    assert f.file_backed?
+  end
 end

@@ -45,11 +45,9 @@ class Tracksperanto::Accumulator
   # Retreive each stored object in succession. All other Enumerable
   # methods are also available (but be careful with Enumerable#map and to_a)
   def each
-    # We reopen our tempfile as read-only, and iterate through that (we will have one IO handle
-    # per loop nest)
-    tf = @store.to_io
-    tf.flush
-    iterable = File.open(tf.path, "r")
+    # We first ensure that we have a disk-backed file, then reopen it as read-only
+    # and iterate through that (we will have one IO handle per loop nest)
+    iterable = File.open(@store.to_file.path, "r")
     @size.times { yield(recover_object_from(iterable)) }
   ensure
     iterable.close

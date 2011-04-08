@@ -30,10 +30,17 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
     __setobj__(nil)
   end
   
-  # Used by IO.reopen. When we do that we need to go to a tempfile regardless
-  def to_io
+  # Sometimes you just need to upgrade to a File forcibly (for example if you want)
+  # to have an object with many iterators sitting on it. We also flush here.
+  def to_file
     replace_with_tempfile unless @tempfile_in
-    super
+    flush
+    self
+  end
+  
+  # Tells whether this one is on disk
+  def file_backed?
+    @tempfile_in
   end
   
   private
@@ -42,6 +49,7 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
     sio = __getobj__
     tf = Tempfile.new("tracksperanto-xbuf")
     tf.write(sio.string)
+    tf.flush # Needed of we will reopen this file soon from another thread/loop
     sio.string = ""
     GC.start
     __setobj__(tf)

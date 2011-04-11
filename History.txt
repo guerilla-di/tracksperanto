@@ -1,4 +1,4 @@
-* Modified the Accumulator to support nested iterations
+* Modified the Accumulator to support nested iterations and random access
 
 === 2.2.4 / 2011-04-04
 

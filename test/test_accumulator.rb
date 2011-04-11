@@ -51,6 +51,15 @@ class TestAccumulator < Test::Unit::TestCase
     end
   end
   
+  def test_random_access
+    a = Tracksperanto::Accumulator.new
+    letters = ("A".."Z").map{|e| "#{e}\r\nWow!"}.to_a
+    letters.map(&a.method(:push))
+    
+    assert_equal "B\r\nWow!", a[1]
+    assert_equal "E\r\nWow!", a[4]
+  end
+  
   def test_clear_calls_close_on_buffer
     io = Tracksperanto::BufferIO.new
     flexmock(io).should_receive(:close!)

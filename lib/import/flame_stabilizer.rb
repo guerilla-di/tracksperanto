@@ -75,13 +75,13 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     report_progress("Extracting setup size")
     self.width, self.height = extract_width_and_height_from_stream(@io)
     report_progress("Extracting all animation channels")
-    channels = extract_channels_from_stream(@io)
+    channels, names = extract_channels_from_stream(@io)
     
     raise "The setup contained no channels that we could process" if channels.empty?
     raise "A channel was nil" if channels.find{|e| e.nil? }
     
     report_progress("Assembling tracker curves from channels")
-    scavenge_trackers_from_channels(channels) {|t| yield(t) }
+    scavenge_trackers_from_channels(channels, names) {|t| yield(t) }
   ensure
     channels.clear
   end
@@ -108,15 +108,17 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
 
     def extract_channels_from_stream(io)
       channels = Tracksperanto::Accumulator.new
+      names = []
       channel_matcher = /Channel (.+)\n/
       until io.eof?
         line = io.gets
         if line =~ channel_matcher && channel_is_useful?(line)
           report_progress("Extracting channel #{$1}")
           channels << ChannelBlock.new(io, $1)
+          names << $1
         end
       end
-      channels
+      [channels, names]
     end
     
     USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
@@ -132,23 +134,32 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     
     REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
     
-    def scavenge_trackers_from_channels(channels)
+    def scavenge_trackers_from_channels(channels, names)
+      
+      
       channels.each do |c|
         next unless c.name =~ /\/#{REF_CHANNEL}\/x/
         
         report_progress("Detected reference channel #{c.name}")
-        yield grab_tracker(channels, c)
+        
+        yield grab_tracker(channels, c, names)
       end
     end
     
-    def grab_tracker(channels, track_x)
+    def grab_tracker(channels, track_x, names)
       t = Tracksperanto::Tracker.new(:name => track_x.name.split('/').shift)
       
       report_progress("Extracting tracker #{t.name}")
       
-      track_y = channels.find{|e| e.name == "#{t.name}/#{REF_CHANNEL}/y" }
-      shift_x = channels.find{|e| e.name == "#{t.name}/shift/x" }
-      shift_y = channels.find{|e| e.name == "#{t.name}/shift/y" }
+      # This takes a LONG time when we have alot of channels, we need a precache of
+      # some sort to do this
+      ref_idx = names.index("#{t.name}/#{REF_CHANNEL}/y")
+      shift_x_idx = names.index("#{t.name}/shift/x")
+      shift_y_idx = names.index("#{t.name}/shift/y")
+      
+      track_y = channels[ref_idx]
+      shift_x = channels[shift_x_idx]
+      shift_y = channels[shift_y_idx]
       
       shift_tuples = zip_curve_tuples(shift_x, shift_y)
       track_tuples = zip_curve_tuples(track_x, track_y)

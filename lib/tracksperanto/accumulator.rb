@@ -17,6 +17,8 @@
 class Tracksperanto::Accumulator
   include Enumerable
   
+  DELIM = "\n"
+  
   # Returns the number of objects stored so far
   attr_reader :size
   
@@ -45,12 +47,9 @@ class Tracksperanto::Accumulator
   # Retreive each stored object in succession. All other Enumerable
   # methods are also available (but be careful with Enumerable#map and to_a)
   def each
-    # We first ensure that we have a disk-backed file, then reopen it as read-only
-    # and iterate through that (we will have one IO handle per loop nest)
-    iterable = File.open(@store.to_file.path, "r")
-    @size.times { yield(recover_object_from(iterable)) }
-  ensure
-    iterable.close
+    with_separate_read_io do | iterable |
+      @size.times { yield(recover_object_from(iterable)) }
+    end
   end
   
   # Calls close! on the datastore and deletes the objects in it
@@ -59,11 +58,39 @@ class Tracksperanto::Accumulator
     @size = 0
   end
   
+  # Retreive a concrete object at index
+  def [](idx)
+    idx.respond_to?(:each) ? idx.map{|i| recover_at(i) } : recover_at(idx)
+  end
+  
   private
+  
+  def recover_at(idx)
+    with_separate_read_io do | iterable |
+      iterable.seek(0)
+      
+      # Do not unmarshal anything but wind the IO in fixed offsets
+      idx.times do
+        skip_bytes = iterable.gets("\t").to_i
+        iterable.seek(iterable.pos + skip_bytes)
+      end
+      
+      recover_object_from(iterable)
+    end
+  end
+  
+  # We first ensure that we have a disk-backed file, then reopen it as read-only
+  # and iterate through that (we will have one IO handle per loop nest)
+  def with_separate_read_io
+    iterable = File.open(@store.to_file.path, "r")
+    yield(iterable)
+  ensure
+    iterable.close
+  end
   
   def marshal_object(object_to_store)
     d = Marshal.dump(object_to_store)
-    blob = [d.size, "\t", d, "\n"].join
+    blob = [d.size, "\t", d, DELIM].join
   end
   
   def recover_object_from(io)

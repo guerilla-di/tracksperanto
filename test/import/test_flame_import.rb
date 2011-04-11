@@ -151,8 +151,7 @@ class FlameImportTest < Test::Unit::TestCase
   
   def test_from_tracksperanto
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/fromTracksperanto.stabilizer')
-    parser = Tracksperanto::Import::FlameStabilizer.new(:io => fixture)
-    trackers = parser.to_a
+    trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
     
     assert_equal 3, trackers.length
     assert_equal 3, trackers[0].length

@@ -44,6 +44,12 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
         t.tolerance 100
       end
     end
+    
+    # Write the finalizing "End" (otherwise the last tracker is not imported by Flame)
+    # https://github.com/guerilla-di/tracksperanto/issues/1
+    # Last tracker in some Flame exports receives an empty shift channel
+    # and there is no animation on that tracker
+    @writer.write_loose!("end")
   end
   
   def start_tracker_segment(tracker_name)

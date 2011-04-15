@@ -26,6 +26,7 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
       @last_tracker.push(k)
       report_progress("Adding keyframe #{frame} to #{name}")
     end
+    
     yield(@last_tracker) if @last_tracker && @last_tracker.any?
     
   end

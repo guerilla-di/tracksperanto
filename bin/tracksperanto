@@ -17,6 +17,7 @@ require 'progressbar'
 require "net/http"
 require "open-uri"
 require "timeout"
+require File.dirname(__FILE__) + '/../lib/tracksperanto/pbar'
 
 def version_check(version_present)
   begin
@@ -104,12 +105,11 @@ unless File.exist?(input_file)
   exit(-1)
 end
 
-pbar = ProgressBar.new("Converting", 100, $stderr)
-pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set(p) }, :middleware_tuples => $middlewares)
+pbar = Tracksperanto::PBar.new("Converting", 100, $stderr)
+pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set_with_message(p, m) }, :middleware_tuples => $middlewares)
 pipe.exporters = [Tracksperanto.get_exporter(writer_klass_name)] if writer_klass_name
 pipe.run(input_file, options)
 pbar.finish
 
-puts "Converted #{pipe.converted_points} trackers with #{pipe.converted_keyframes} keys."
 puts disclaimer
 version_check(Tracksperanto::VERSION)

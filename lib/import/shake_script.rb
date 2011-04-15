@@ -243,7 +243,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     def collect_stabilizer_tracker(name, x_curve, y_curve)
       return unless valid_curves?(x_curve, y_curve)
       
-      report_progress("Scavenging tracker #{name}")
+      report_progress("Assembling Stabilizer node tracker #{name}")
       
       keyframes = zip_curve_tuples(x_curve, y_curve).map do | (frame, x, y) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)

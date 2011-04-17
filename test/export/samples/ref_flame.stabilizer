@@ -122,14 +122,6 @@ Channel tracker1/ref/dy
 		Interpolation constant
 		End
 	End
-Channel tracker1/offset/x
-	Extrapolation constant
-	Value 0
-	End
-Channel tracker1/offset/y
-	Extrapolation constant
-	Value 0
-	End
 Channel tracker1/shift/x
 	Extrapolation constant
 	Value 0
@@ -408,6 +400,14 @@ Channel tracker1/shift/y
 		RightSlope 2.400
 		End
 	End
+Channel tracker1/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker1/offset/y
+	Extrapolation constant
+	Value 0
+	End
 Channel tracker2/track/x
 	Extrapolation constant
 	Value 960
@@ -507,14 +507,6 @@ Channel tracker2/ref/dy
 		DeleteLock yes
 		Interpolation constant
 		End
-	End
-Channel tracker2/offset/x
-	Extrapolation constant
-	Value 0
-	End
-Channel tracker2/offset/y
-	Extrapolation constant
-	Value 0
 	End
 Channel tracker2/shift/x
 	Extrapolation constant
@@ -794,6 +786,14 @@ Channel tracker2/shift/y
 		RightSlope 2.400
 		End
 	End
+Channel tracker2/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/offset/y
+	Extrapolation constant
+	Value 0
+	End
 Channel tracker3/track/x
 	Extrapolation constant
 	Value 960
@@ -894,14 +894,6 @@ Channel tracker3/ref/dy
 		Interpolation constant
 		End
 	End
-Channel tracker3/offset/x
-	Extrapolation constant
-	Value 0
-	End
-Channel tracker3/offset/y
-	Extrapolation constant
-	Value 0
-	End
 Channel tracker3/shift/x
 	Extrapolation constant
 	Value 0
@@ -927,6 +919,14 @@ Channel tracker3/shift/y
 		LeftSlope 2.400
 		RightSlope 2.400
 		End
+	End
+Channel tracker3/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/offset/y
+	Extrapolation constant
+	Value 0
 	End
 ChannelEnd
 Tracker 0

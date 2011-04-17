@@ -45,10 +45,7 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
       end
     end
     
-    # Write the finalizing "End" (otherwise the last tracker is not imported by Flame)
-    # https://github.com/guerilla-di/tracksperanto/issues/1
-    # Last tracker in some Flame exports receives an empty shift channel
-    # and there is no animation on that tracker
+    # Write the finalizing "End"
     @writer.write_loose!("end")
   end
   
@@ -72,6 +69,11 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     # how many keyframes they should contain
     write_shift_channel("shift/x", @x_shift_values)
     write_shift_channel("shift/y", @y_shift_values)
+    
+    # And finish with the offset channels. The order of channels is important!
+    # (otherwise the last tracker's shift animation is not imported by Flame)
+    # https://github.com/guerilla-di/tracksperanto/issues/1
+    write_offset_channels
   end
   
   private
@@ -146,7 +148,6 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     write_ref_width_and_height
     write_ref_channels(x, y)
     write_deltax_and_deltay_channels
-    write_offset_channels
   end
   
   def write_track_channels

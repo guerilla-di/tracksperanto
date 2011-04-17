@@ -38,7 +38,7 @@ end
 
 options = {}
 $middlewares = []
-writer_klass_name = nil
+writer_class_name = nil
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
 
@@ -63,7 +63,7 @@ end
 op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
 op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
-op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_klass_name = f }
+op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_class_name = f }
 
 op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
 op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
@@ -107,7 +107,7 @@ end
 
 pbar = Tracksperanto::PBar.new("Converting", 100, $stderr)
 pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set_with_message(p, m) }, :middleware_tuples => $middlewares)
-pipe.exporters = [Tracksperanto.get_exporter(writer_klass_name)] if writer_klass_name
+pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
 pipe.run(input_file, options)
 pbar.finish
 

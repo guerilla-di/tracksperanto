@@ -5,15 +5,17 @@ module Tracksperanto::SimpleExport
   # Before calling this, initialize the exporter with the proper
   # IO handle
   def just_export(trackers_array, comp_width, comp_height)
-    start_export(comp_width, comp_height)
+    lint = Tracksperanto::Middleware::Lint.new(self)
+    
+    lint.start_export(comp_width, comp_height)
     trackers_array.each do | t |
-      start_tracker_segment(t.name)
+      lint.start_tracker_segment(t.name)
       t.each do | kf |
-        export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
+        lint.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
       end
-      end_tracker_segment
+      lint.end_tracker_segment
     end
-    end_export
+    lint.end_export
   end
 end
 

@@ -59,12 +59,15 @@ class PipelineTest < Test::Unit::TestCase
     ]
     
     mock_mux = flexmock("MUX")
+    mock_lint = flexmock("LINT")
     flexmock(Tracksperanto::Export::Mux).should_receive(:new).and_return(mock_mux)
+    flexmock(Tracksperanto::Middleware::Lint).should_receive(:new).with(mock_mux).and_return(mock_lint)
+
     m = flexmock("middleware object")
     mock_middleware_class = flexmock("middleware class")
     
     flexmock(Tracksperanto).should_receive(:get_middleware).with("Bla").once.and_return(mock_middleware_class)
-    mock_middleware_class.should_receive(:new).with(mock_mux, {:foo => 234}).once
+    mock_middleware_class.should_receive(:new).with(mock_lint, {:foo => 234}).once
     
     assert_raise(NoMethodError) { pipeline.run(@stabilizer) }
   end
@@ -95,7 +98,8 @@ class PipelineTest < Test::Unit::TestCase
   end
   
   def test_run_with_unknown_format_raises
-    FileUtils.touch("./input.txt")
+    File.open("./input.txt", "w"){|f| f.write("foo") }
+    
     pipeline = Tracksperanto::Pipeline::Base.new
     assert_raise(Tracksperanto::Pipeline::UnknownFormatError) { pipeline.run("./input.txt") }
     assert_raise(Tracksperanto::Pipeline::UnknownFormatError) { pipeline.run("./input.txt", :width => 100, :height => 100) }

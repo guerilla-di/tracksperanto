@@ -73,14 +73,14 @@ module Tracksperanto::Pipeline
   # * parser - The parser class, for the case that it can't be autodetected from the file name
   def run(from_input_file_path, passed_options = {}) #:yields: *all_middlewares
     
+    # Check for empty files
+    raise EmptySourceFileError if File.stat(from_input_file_path).size.zero?
+    
     # Reset stats
     @converted_keyframes, @converted_points = 0, 0
     
     # Assign the parser
     importer = initialize_importer_with_path_and_options(from_input_file_path, passed_options)
-    
-    # Check for empty files
-    raise EmptySourceFileError if File.stat(from_input_file_path).size.zero?
     
     # Open the file
     read_data = File.open(from_input_file_path, "rb")
@@ -88,8 +88,11 @@ module Tracksperanto::Pipeline
     # Setup a multiplexer
     mux = setup_outputs_for(from_input_file_path)
     
+    # Wrap it into a module that will prevent us from exporting invalid trackers
+    lint = Tracksperanto::Middleware::Lint.new(mux)
+    
     # Setup middlewares
-    endpoint = wrap_output_with_middlewares(mux)
+    endpoint = wrap_output_with_middlewares(lint)
     @converted_points, @converted_keyframes = run_export(read_data, importer, endpoint)
   end
   

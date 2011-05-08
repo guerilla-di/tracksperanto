@@ -1,0 +1,6 @@
+image Primatte_v2_(image ofx_Source = 0, image ofx_BG = 0, image ofx_Mask = 0, const char * Poly00dral = "0.0 0.0 0.0", int N3D_Viewer = 0)
+{
+    fx1 = OfxPluginFactory(Primatte_v2_);return fx1;
+}
+
+Foo(2);

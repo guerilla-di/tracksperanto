@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ShakeLexerTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/shake_script/shake_tracker_nodes.shk"
+  OFX_CURLY_BRACES = File.dirname(__FILE__) + "/samples/shake_script/ofx_vardefs.shk"
   L = Tracksperanto::ShakeGrammar::Lexer
   WRONG = File.dirname(__FILE__) + "/samples/flame_stabilizer/hugeFlameSetup.stabilizer"
   
@@ -84,7 +85,38 @@ class ShakeLexerTest < Test::Unit::TestCase
       ]],
     s)
   end
-
+  
+  def test_knob_expr
+    s = parse "Foobar(2, 4, {{ 4 * 16 }}, 4, 1)"
+    assert_equal(
+      [[
+        :funcall,
+        "Foobar",
+        2,
+        4,
+        :expr,
+        4,
+        1,
+      ]],
+    s)
+  end
+  
+  def test_lexer_with_ofx_curly_braces
+    s = parse(File.read(OFX_CURLY_BRACES))
+    assert_equal(
+      [[
+        :funcall,
+        "image Primatte_v2_",
+        [:assign, [:vardef, "image", "ofx_Source"], 0],
+        [:assign, [:vardef, "image", "ofx_BG"], 0],
+        [:assign, [:vardef, "image", "ofx_Mask"], 0],
+        [:assign, [:vardef, "const char *", "Poly00dral"], "0.0 0.0 0.0"],
+        [:assign, [:vardef, "int", "N3D_Viewer"], 0],
+        :expr
+      ], [:funcall, "Foo", 2]],
+    s)
+  end
+  
   def test_parse_funcall_with_valueats_at_negframes
     s = parse 'Linear(0,716.08@-1,715.846@2)'
     assert_equal(
@@ -121,12 +153,17 @@ class ShakeLexerTest < Test::Unit::TestCase
   
   def test_parse_varassign
     s = parse 'Foo = Blur(Foo, 1, 2, 3); 1'
-    assert_equal [[:assign, [:vardef, "Foo"], [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s
+    assert_equal [[:assign, [:vardef, :image, "Foo"], [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s
   end
   
   def test_parse_varassign_with_typedef
     s = parse 'curve float focal = Linear(0,2257.552@1,2257.552@2)'
-    assert_equal [[:assign, [:vardef, "curve", "float", "focal"], [:funcall, "Linear", 0, [:value_at, 1, 2257.552], [:value_at, 2, 2257.552]]]], s
+    assert_equal [[:assign, [:vardef, "curve float", "focal"], [:funcall, "Linear", 0, [:value_at, 1, 2257.552], [:value_at, 2, 2257.552]]]], s
+  end
+
+  def test_parse_varassign_with_typedef_charstar
+    s = parse 'char * information = "Ausgezeichnet!";'
+    assert_equal [[:assign, [:vardef, "char *", "information"], "Ausgezeichnet!" ]], s
   end
   
   def test_parse_whole_file_does_not_raise

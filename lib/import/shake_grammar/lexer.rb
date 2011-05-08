@@ -34,7 +34,7 @@ module Tracksperanto::ShakeGrammar
     def consume_comment(c)
       if c == "\n" # Comment
         push [:comment, @buf.gsub(/(\s+?)\/\/{1}/, '')]
-        @buf = ''
+        erase_buffer
       else
         @buf << c
       end
@@ -55,12 +55,21 @@ module Tracksperanto::ShakeGrammar
       return consume_comment(c) if in_comment? 
       
       if !@buf.empty? && (c == "(") # Funcall
-        push([:funcall, @buf.strip] + self.class.new(@io, @sentinel, false, @stack_depth + 1).stack)
-        @buf = ''
+        push([:funcall, @buf.strip] + self.class.new(@io, @sentinel, limit_to_one_stmt = false, @stack_depth + 1).stack)
+        erase_buffer
+      elsif c == '{' # OFX curly braces or a subexpression in a node's knob
+        # Discard subexpr
+        substack = self.class.new(@io, @sentinel, limit_to_one_stmt = true, @stack_depth + 1).stack
+        push(:expr)
       elsif c == "[" # Array, booring
         push([:arr, self.class.new(@io).stack])
+      elsif c == "}"# && @limit_to_one_stmt
+        throw STOP_TOKEN
       elsif (c == "]" || c == ")" || c == ";" && @limit_to_one_stmt)
         # Bailing out of a subexpression
+        consume_atom!
+        throw STOP_TOKEN
+      elsif (c == "," && @limit_to_one_stmt)
         consume_atom!
         throw STOP_TOKEN
       elsif (c == ",")
@@ -71,8 +80,10 @@ module Tracksperanto::ShakeGrammar
       elsif (c == ";" || c == "\n")
         # Skip these - the subexpression already is expanded anyway
       elsif (c == "=")
-        push [:assign, vardef(@buf.strip), self.class.new(@io, @sentinel, to_semicolon = true, @stack_depth + 1).stack.shift]
-        @buf = ''
+        vardef_atom = vardef(@buf.strip)
+        push [:assign, vardef_atom, self.class.new(@io, @sentinel, limit_to_one_stmt = true, @stack_depth + 1).stack.shift]
+        
+        erase_buffer
       else
         @buf << c
       end
@@ -85,7 +96,8 @@ module Tracksperanto::ShakeGrammar
     
     # Grab the minimum atomic value
     def consume_atom!
-      at, @buf = @buf.strip, ''
+      at = @buf.strip
+      erase_buffer
       return if at.empty?
       
       the_atom = case at
@@ -120,7 +132,18 @@ module Tracksperanto::ShakeGrammar
     end
     
     def vardef(var_specifier)
-      [:vardef] + var_specifier.split
+      # Since we can have two-word pointers as typedefs (char *) we only use the last
+      # part of the thing as varname. Nodes return the :image type implicitly.
+      varname_re = /\w+$/
+      varname = var_specifier.scan(varname_re).to_s
+      typedef = var_specifier.gsub(varname_re, '').strip
+      typedef = :image if typedef.empty?
+      
+      [:vardef, typedef, varname]
+    end
+    
+    def erase_buffer
+      @buf = ''
     end
   end
 end

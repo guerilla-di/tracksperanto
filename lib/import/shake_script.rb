@@ -53,8 +53,28 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       end
     end
     
+    # Find whether the passed atom includes a [:trk] on any level
+    def deep_include?(array_or_element, atom_name)
+      return true if array_or_element == atom_name
+      if array_or_element.is_a?(Array)
+        array_or_element.each do | elem |
+           if elem == atom_name
+             return true
+           elsif elem.is_a?(Array)
+             return true if deep_include?(elem, atom_name)
+           end
+        end
+      end
+      
+      false
+    end
+    
+    # An atom that is a tracker node will look like this
+    # [:assign, [:vardef, "Stabilize2"], [:retval, [:trk, <T "track1" with 116 keyframes>, <T "track2" with 116 keyframes>, <T "track3" with 116 keyframes>, <T "track4" with 89 keyframes>]]]
+    # a Stabilize though will look like this
+    # [:assign, [:vardef, "Stabilize1"], [:retval, [:trk, <T "track1" with 116 keyframes>, <T "track2" with 116 keyframes>, <T "track3" with 116 keyframes>]]]
     def atom_is_tracker_assignment?(a)
-      (a.is_a?(Array)) && (a[0] == :assign) && (a[2][0] == :retval) && (a[2][1][0] == :trk)
+      deep_include?(a, :trk)
     end
     
     # For Linear() curve calls. If someone selected JSpline or Hermite it's his problem.

@@ -40,6 +40,7 @@ lib/middleware/flop.rb
 lib/middleware/golden.rb
 lib/middleware/length_cutoff.rb
 lib/middleware/lerp.rb
+lib/middleware/lint.rb
 lib/middleware/prefix.rb
 lib/middleware/reformat.rb
 lib/middleware/scaler.rb
@@ -112,10 +113,12 @@ test/import/samples/pftrack4/sourcefile_pftrack.2dt
 test/import/samples/pftrack5/apft.2dt
 test/import/samples/pftrack5/empty_trackers.2dt
 test/import/samples/pftrack5/garage.2dt
+test/import/samples/shake_script/REDACTED_shake_file.shk
 test/import/samples/shake_script/designated_global_range_starting_at_negative_frame.shk
 test/import/samples/shake_script/four_tracks_in_one_matchmove.shk
 test/import/samples/shake_script/four_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/from_matchmover.shk
+test/import/samples/shake_script/ofx_vardefs.shk
 test/import/samples/shake_script/oldTrackerNode.shk
 test/import/samples/shake_script/shake_script_from_boujou.shk
 test/import/samples/shake_script/shake_tracker_nodes.shk
@@ -151,6 +154,7 @@ test/middleware/test_flop_middleware.rb
 test/middleware/test_golden_middleware.rb
 test/middleware/test_length_cutoff_middleware.rb
 test/middleware/test_lerp_middleware.rb
+test/middleware/test_lint_middleware.rb
 test/middleware/test_prefix.rb
 test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb

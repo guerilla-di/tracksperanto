@@ -15,6 +15,16 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
       "The tracker #{@name} contained no keyframes. Probably there were some filtering ops done and no keyframes have been exported"
     end
   end
+
+  class TrackerRestartedError < RuntimeError
+    def initialize(name)
+      @name  = name
+    end
+    
+    def message
+      "The tracker #{@name} has been sent before the last tracker finished"
+    end
+  end
   
   def start_export(w, h)
     @trackers = 0
@@ -24,6 +34,9 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
   end
   
   def start_tracker_segment(name)
+    raise TrackerRestartedError.new(name) if @in_tracker
+    
+    @in_tracker = true
     @last_tracker_name = name
     @keyframes = 0
     super
@@ -36,7 +49,8 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
   
   def end_tracker_segment
     raise EmptyTrackerSentError.new(@last_tracker_name) if @keyframes.zero?
-    @trackers +=1 
+    @trackers +=1
+    @in_tracker = false
     super
   end
   

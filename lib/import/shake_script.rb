@@ -43,6 +43,7 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # in this case we DO want to take this shortcut so we know how the tracker node is called
     def push(atom)
       return super unless atom_is_tracker_assignment?(atom)
+      return if atom[0] == :comment
       
       node_name = atom[1][-1]
       trackers = atom[2][1][1..-1]
@@ -55,15 +56,11 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     
     # Find whether the passed atom includes a [:trk] on any level
     def deep_include?(array_or_element, atom_name)
-      return true if array_or_element == atom_name
-      if array_or_element.is_a?(Array)
-        array_or_element.each do | elem |
-           if elem == atom_name
-             return true
-           elsif elem.is_a?(Array)
-             return true if deep_include?(elem, atom_name)
-           end
-        end
+      return false unless array_or_element.is_a?(Array)
+      return true if array_or_element[0] == atom_name
+      
+      array_or_element.each do | elem |
+         return true if deep_include?(elem, atom_name)
       end
       
       false

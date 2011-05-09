@@ -101,6 +101,26 @@ class ShakeLexerTest < Test::Unit::TestCase
     s)
   end
   
+  def test_lexer_with_inline_comments_munged_into_arguments
+    st = 'Tracker(
+        0,				// preprocess enable
+        10				// bluramount
+    ,
+    "Tracker8")'
+    
+    s = parse(st)
+    assert_equal(
+      [[
+        :funcall,
+        "Tracker",
+        0,
+        [:comment, " preprocess enable"],
+        10,
+        [:comment, "bluramount"],
+        "Tracker8"
+      ]],s)
+  end
+  
   def test_lexer_with_ofx_curly_braces
     s = parse(File.read(OFX_CURLY_BRACES))
     assert_equal(

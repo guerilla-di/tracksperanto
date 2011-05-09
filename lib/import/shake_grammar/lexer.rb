@@ -52,7 +52,7 @@ module Tracksperanto::ShakeGrammar
         raise WrongInput, "Stack overflow at level #{MAX_STACK_DEPTH}, this is probably a LISP program uploaded by accident"
       end
       
-      return consume_comment(c) if in_comment? 
+      return consume_comment(c) if in_comment?
       
       if !@buf.empty? && (c == "(") # Funcall
         push([:funcall, @buf.strip] + self.class.new(@io, @sentinel, limit_to_one_stmt = false, @stack_depth + 1).stack)

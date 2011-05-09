@@ -46,7 +46,11 @@ Play responsibly.
   # Create the importer object, for example for a Shake script.
   # get_importer will give you the good class even you get the capitalization
   # wrong!
-  some_importer = Tracksperanto.get_importer("shakescript").new(:width => 1024, :height => 576)
+  some_importer = Tracksperanto.get_importer("shakescript").new
+  
+  # This importer needs to know width and height
+  some_importer.width = 1024
+  some_importer.height = 576
   some_importer.io = File.open("source_file.fmt")
   
   # The importer responds to each() so if your file is not too big you can just load all the trackers
@@ -55,7 +59,8 @@ Play responsibly.
   trackers = some_importer.to_a
   
   # Create the exporter and pass the output file to it
-  some_exporter = Tracksperanto.get_exporter("flamestabilizer").new(File.open("exported_file.other", "wb"))
+  destination_file = File.open("exported_file.other", "wb")
+  some_exporter = Tracksperanto.get_exporter("flamestabilizer").new(destination_file)
   
   # Now add some middlewares, for example a Scale
   scaler = Middleware::Scaler.new(some_exporter, :x_factor => 2)

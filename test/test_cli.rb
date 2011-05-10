@@ -1,4 +1,5 @@
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
+require "set"
 
 class CliTest < Test::Unit::TestCase
   TEMP_DIR = File.expand_path(File.dirname(__FILE__) + "/tmp")
@@ -53,14 +54,14 @@ class CliTest < Test::Unit::TestCase
       flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt
     )
     
-    assert_equal fs, Dir.entries(TEMP_DIR)
+    assert_same_set fs, Dir.entries(TEMP_DIR)
   end
   
   def test_cli_with_only_option
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
     cli("#{BIN_P} --only syntheyes #{TEMP_DIR}/flm.stabilizer")
     fs = %w(. ..  flm.stabilizer flm_syntheyes_2dt.txt )
-    assert_equal fs, Dir.entries(TEMP_DIR)
+    assert_same_set fs, Dir.entries(TEMP_DIR)
   end
   
   def test_cli_reformat
@@ -71,5 +72,11 @@ class CliTest < Test::Unit::TestCase
     items = p.to_a
     assert_equal 1204, p.width, "The width of the converted setup should be that"
     assert_equal 340, p.height, "The height of the converted setup should be that"
+  end
+  
+  # We use this instead of assert_equals for arrays since different filesystems
+  # return files in different order
+  def assert_same_set(expected_enum, enum, message = "Should be the same set")
+    assert_equal Set.new(expected_enum), Set.new(enum), message
   end
 end

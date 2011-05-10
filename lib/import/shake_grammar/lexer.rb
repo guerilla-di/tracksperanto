@@ -22,22 +22,18 @@ module Tracksperanto::ShakeGrammar
     def initialize(with_io, sentinel = nil, limit_to_one_stmt = false, stack_depth = 0)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       catch(STOP_TOKEN) { parse until @io.eof? }
-      in_comment? ? consume_comment("\n") : consume_atom!
+      @in_comment ? consume_comment! : consume_atom!
     end
     
     private
     
-    def in_comment?
-      (@buf.strip =~ /^\/\//) ? true : false
+    def push_comment
+      push [:comment, @buf.gsub(/(\s+?)\/\/{1}/, '')]
     end
     
-    def consume_comment(c)
-      if c == "\n" # Comment
-        push [:comment, @buf.gsub(/(\s+?)\/\/{1}/, '')]
-        erase_buffer
-      else
-        @buf << c
-      end
+    def consume_comment!
+      push_comment
+      erase_buffer
     end
     
     def parse
@@ -52,9 +48,18 @@ module Tracksperanto::ShakeGrammar
         raise WrongInput, "Stack overflow at level #{MAX_STACK_DEPTH}, this is probably a LISP program uploaded by accident"
       end
       
-      return consume_comment(c) if in_comment?
-      
-      if !@buf.empty? && (c == "(") # Funcall
+      if c == '/' && (@buf[-1].chr rescue nil) == '/' # Comment start
+        # If some other data from this line has been accumulated we first consume that
+        @buf = @buf[0..-2] # everything except the opening slash of the comment
+        consume_atom!
+        erase_buffer
+        @in_comment = true
+      elsif @in_comment && c == "\n" # Comment end
+        consume_comment!
+        @in_comment = false
+      elsif @in_comment
+        @buf << c
+      elsif !@buf.empty? && (c == "(") # Funcall
         push([:funcall, @buf.strip] + self.class.new(@io, @sentinel, limit_to_one_stmt = false, @stack_depth + 1).stack)
         erase_buffer
       elsif c == '{' # OFX curly braces or a subexpression in a node's knob

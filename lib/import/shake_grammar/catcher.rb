@@ -18,9 +18,9 @@ module Tracksperanto::ShakeGrammar
     end
     
     def push(atom)
-      # Send primitive types to parent
-      return super if !atom.is_a?(Array)
-      return super if atom[0] != :funcall
+      
+      # Send everything but funcalls to parent
+      return super unless atom.is_a?(Array) && atom[0] == :funcall
       
       meth_for_shake_func, args = atom[1].downcase, atom[2..-1]
       if can_handle_meth?(meth_for_shake_func)
@@ -33,6 +33,10 @@ module Tracksperanto::ShakeGrammar
     end
     
     private
+    
+    # Suppress comment output
+    def push_comment
+    end
     
     def can_handle_meth?(m)
       # Ruby 1.9 - match on stringified methname

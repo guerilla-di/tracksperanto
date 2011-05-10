@@ -43,7 +43,6 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     # in this case we DO want to take this shortcut so we know how the tracker node is called
     def push(atom)
       return super unless atom_is_tracker_assignment?(atom)
-      return if atom[0] == :comment
       
       node_name = atom[1][-1]
       trackers = atom[2][1][1..-1]

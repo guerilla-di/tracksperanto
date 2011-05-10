@@ -1,3 +1,7 @@
+=== 2.3.2 / 2011-10-05
+
+* Fixed handling of inline comments which are tacked onto the line in in Shake scripts
+
 === 2.3.1 / 2011-08-05
 
 * Fixed support for curly braces in Shake scripts

@@ -140,7 +140,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
   end
   
   def test_tracker_node_from_syntheyes
-    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/cstl_324_033_001_trk_v001.shk")
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/comments_inline_with_args.shk")
     trackers = Tracksperanto::Import::ShakeScript.new(:io => fixture, :width => 1920, :height => 1080).to_a
     assert_equal 1, trackers.length
     assert_equal "Camera01Trackers_Tracker8", trackers[0].name

@@ -116,7 +116,7 @@ class ShakeLexerTest < Test::Unit::TestCase
         0,
         [:comment, " preprocess enable"],
         10,
-        [:comment, "bluramount"],
+        [:comment, " bluramount"],
         "Tracker8"
       ]],s)
   end

@@ -73,7 +73,22 @@ class PFTrackImportTest < Test::Unit::TestCase
   def test_stereoscopy
     fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/stereo.2dt')
     parser = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 1920, :height => 1080)
-    trackers = parser.to_a
-    assert_equal 2, trackers.length
+    acc = Tracksperanto::Accumulator.new
+    parser.each{|t| acc << t }
+    
+    assert_equal 1690, acc.size, "Should have recovered 1690 trackers"
+    assert_equal "Auto_00001_Primary", acc[0].name
+    assert_equal "Auto_00001_Secondary", acc[1].name
+    
+    assert_equal "Auto_00016_Primary", acc[18].name
+    assert_equal 34, acc[18].length
+    assert_in_delta 1331.017, acc[18][0].abs_x, DELTA
+    
+    assert_equal "Auto_00016_Secondary", acc[19].name
+    assert_equal 34, acc[19].length
+    assert_in_delta 1335.609, acc[19][0].abs_x, DELTA
+    
+    assert_equal "Auto_00021_Primary", acc[20].name
+    assert_equal 0, acc[20].length
   end
 end

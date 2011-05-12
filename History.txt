@@ -1,3 +1,7 @@
+=== 2.3.2 / 2011-12-05
+
+* Fixed parsing of stereoscopic PFTrack exports
+
 === 2.3.2 / 2011-10-05
 
 * Fixed handling of inline comments which are tacked onto the line in in Shake scripts

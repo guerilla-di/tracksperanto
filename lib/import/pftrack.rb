@@ -1,3 +1,4 @@
+# TODO: this should be rewritten as a proper state-machine parser
 class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   def self.human_name
     "PFTrack/PFMatchit .2dt file"
@@ -16,16 +17,15 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       next if (!line || line =~ /^#/)
       
       if line =~ CHARACTERS_OR_QUOTES # Tracker with a name
-        t = Tracksperanto::Tracker.new(:name => unquote(line.strip))
-        report_progress("Reading tracker #{t.name}")
-        parse_tracker(t, @io)
-        yield(t)
+        name = unquote(line.strip)
+        report_progress("Reading tracker #{name}")
+        parse_trackers(name, @io, &Proc.new)
       end
     end
   end
   
   private
-    def parse_tracker(t, io)
+    def parse_trackers(name, io)
       first_tracker_line = io.gets.chomp
       
       # We will be reading one line too many possibly, so we need to know
@@ -35,16 +35,35 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       
       # Camera name in version 5 format, might be integer might be string
       if first_tracker_line =~ CHARACTERS_OR_QUOTES || second_tracker_line =~ INTS
+        t = Tracksperanto::Tracker.new(:name => name)
+        
         # Add cam name to the tracker
         t.name += ("_%s" % unquote(first_tracker_line))
         num_of_keyframes = second_tracker_line.to_i
+        extract_tracker(num_of_keyframes, t, io)
+        yield(t)
+        
+        # Now try to extract the second one
+        cur_pos = io.pos
+        next_line = io.gets
+        io.seek(cur_pos)
+        return if !next_line || next_line.strip.empty?
+        
+        parse_trackers(name, io, &Proc.new)
       else
         num_of_keyframes = first_tracker_line.to_i
         # Backtrack to where we were on this IO so that the first line read will be the tracker
         report_progress("Backtracking to the beginning of data block")
         io.seek(first_data_offset)
+        
+        t = Tracksperanto::Tracker.new(:name => name)
+        extract_tracker(num_of_keyframes, t, io)
+        yield(t)
       end
       
+    end
+    
+    def extract_tracker(num_of_keyframes, t, io)
       (1..num_of_keyframes).map do | keyframe_idx |
         report_progress("Reading keyframe #{keyframe_idx} of #{num_of_keyframes} in #{t.name}")
         f, x, y, residual = io.gets.chomp.split

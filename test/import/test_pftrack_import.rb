@@ -70,4 +70,10 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal 37, trackers[1].length
   end
   
+  def test_stereoscopy
+    fixture = File.open(File.dirname(__FILE__) + '/samples/pftrack5/stereo.2dt')
+    parser = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 1920, :height => 1080)
+    trackers = parser.to_a
+    assert_equal 2, trackers.length
+  end
 end

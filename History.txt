@@ -1,4 +1,4 @@
-=== 2.3.2 / 2011-12-05
+=== 2.3.3 / 2011-12-05
 
 * Fixed parsing of stereoscopic PFTrack exports
 

@@ -156,4 +156,13 @@ class FlameImportTest < Test::Unit::TestCase
     assert_equal 3, trackers.length
     assert_equal 3, trackers[0].length
   end
+  
+  # flame 2012 changed the keyframe format
+  def test_from_flame2012
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/Flame_Stabilizer_2012.stabilizer')
+    trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
+    
+    assert_equal 5, trackers.length
+    assert_equal 61, trackers[0].length
+  end
 end

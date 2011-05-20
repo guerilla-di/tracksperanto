@@ -9,6 +9,14 @@ class Tracksperanto::Export::PFTrack2011 < Tracksperanto::Export::PFMatchit
       "PFTrack 2011 .txt file (single camera)"
     end
     
+    def export_point(frame, abs_float_x, abs_float_y, float_residual)
+      @frame_count += 1
+      # PFTrack 2011 wants one-based frames
+      line = KEYFRAME_TEMPLATE % [frame + 1, abs_float_x, abs_float_y, float_residual / 8]
+      @tracker_io.write(line)
+      @tracker_io.write(linebreak)
+    end
+    
     private
     
     def camera_name

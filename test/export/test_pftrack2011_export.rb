@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
-class PFTrack5ExportTest < Test::Unit::TestCase
+class PFTrack2011ExportTest < Test::Unit::TestCase
   include ParabolicTracks
   
   def test_human_name

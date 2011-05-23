@@ -87,8 +87,9 @@ class PipelineTest < Test::Unit::TestCase
   def test_run_with_overridden_importer_and_no_size
     FileUtils.cp("./import/samples/shake_script/four_tracks_in_one_stabilizer.shk", "./input.shk")
     pipeline = Tracksperanto::Pipeline::Base.new
+    num_exporters = Tracksperanto.exporters.length
     assert_nothing_raised { pipeline.run("./input.shk", :importer => "Syntheyes", :width => 720, :height => 576) }
-    assert_equal 14, Dir.glob("./input*").length, "Fourteen files should be present for the input and outputs"
+    assert_equal num_exporters, Dir.glob("./input_*").length, "#{num_exporters} files should be present for the input and outputs"
   end
   
   def test_run_with_overridden_importer_and_size_for_file_that_would_be_recognized_differently

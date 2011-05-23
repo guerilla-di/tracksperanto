@@ -15,6 +15,11 @@ class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFMatchit
       "Primary".inspect
     end
     
+    # PFT5 frames are zero-based
+    def frame_number(tracksperanto_frame)
+      tracksperanto_frame
+    end
+    
     # PFT5 wants CRLF
     def linebreak
       "\r\n"

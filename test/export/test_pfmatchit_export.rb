@@ -4,8 +4,8 @@ class PFMatchitExportTest < Test::Unit::TestCase
   include ParabolicTracks
   
   def test_desc_and_ext
-    assert_equal "PFMatchit user track export file (single camera)", Tracksperanto::Export::PFMatchit.human_name
-    assert_equal "pfmatchit.txt", Tracksperanto::Export::PFMatchit.desc_and_extension
+    assert_equal "PFTrack2011/PFMatchit .txt file (single camera)", Tracksperanto::Export::PFMatchit.human_name
+    assert_equal "pftrack_2011_pfmatchit.txt", Tracksperanto::Export::PFMatchit.desc_and_extension
   end
   
   P = File.dirname(__FILE__) + "/samples/ref_PFMatchit.2dt"

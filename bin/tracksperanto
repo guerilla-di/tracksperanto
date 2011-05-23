@@ -51,6 +51,20 @@ def mw(name, option, default_value = nil)
   end
 end
 
+def list_exporters
+  puts "The following export modules are available:"
+  Tracksperanto.exporters.each do | exporter |
+    puts "\t#{exporter.const_name.downcase} - #{exporter.human_name}"
+  end
+end
+
+def list_importers
+  puts "The following import modules are available:"
+  Tracksperanto.importers.each do | importer |
+    puts "\t#{importer.const_name.downcase} - #{importer.human_name}"
+  end
+end
+
 class CodeLoaded < RuntimeError; end
 
 op.banner = "Usage: tracksperanto -f ShakeScript -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk"
@@ -60,6 +74,7 @@ op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto
     raise CodeLoaded
   end
 end
+
 op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
 op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
@@ -78,7 +93,12 @@ op.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in
 op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp", :enabled, true))
 op.on("--flip", "Flip the comp horizontally", &mw("Flip", :enabled, true))
 op.on("--flop", "Flop the comp vertically", &mw("Flop", :enabled, true))
-
+op.on("--list-exporters", "Show available export modules") do
+  list_exporters; exit(0)
+end
+op.on("--list-importers", "Show available import modules") do
+  list_importers; exit(0)
+end
 op.on("--version", "Show the version and exit") do |v| 
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"

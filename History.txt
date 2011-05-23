@@ -1,3 +1,5 @@
+* PFTrack 2011 and PFMAtchit actually use the same format, so we don't need to have 2 modules for them
+
 === 2.4.0 / 2011-19-05
 
 * Added an official PFTrack 2011 exporter that is verified

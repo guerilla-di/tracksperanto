@@ -12,7 +12,7 @@ begin
     p.extra_rdoc_files  = FileList['*.rdoc'] + FileList['*.txt']
     p.version = Tracksperanto::VERSION
     
-    p.extra_deps = {"progressbar" => ">=0"}
+    p.extra_deps = {"progressbar" => ">=0", "update_hints" => ">=0" }
     p.extra_dev_deps = {"flexmock" => ">=0"}
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')

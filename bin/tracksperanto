@@ -14,22 +14,9 @@ require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksp
 require 'optparse'
 require 'rubygems'
 require 'progressbar'
-require "net/http"
-require "open-uri"
-require "timeout"
-require File.dirname(__FILE__) + '/../lib/tracksperanto/pbar'
+require "update_hints"
 
-def version_check(version_present)
-  begin
-    version_info = open("http://rubygems.org/api/v1/gems/tracksperanto.xml").string.scan(/<version>(.+)<\/version>/).to_s
-    int_available, int_present = [version_info, version_present].map{|v| v.scan(/(\d+)/).to_s.to_i }
-    if int_available > int_present
-      puts "Your version of Tracksperanto is probably out of date (the current version is #{version_info}, but you have #{Tracksperanto::VERSION})."
-      puts "Please consider updating (run 'gem update tracksperanto')"
-    end
-  rescue Exception
-  end
-end
+require File.dirname(__FILE__) + '/../lib/tracksperanto/pbar'
 
 def disclaimer
   "Please consider a small donation to keep Tracksperanto going. http://guerilla-di.org/source-and-license/\n"+
@@ -103,7 +90,7 @@ op.on("--version", "Show the version and exit") do |v|
     puts "Tracksperanto v.#{Tracksperanto::VERSION} running on Ruby #{RUBY_VERSION} on #{RUBY_PLATFORM}"
     puts "Copyright 2008-#{Time.now.year} by Guerilla-DI (Julik Tarkhanov and contributors)"
     puts disclaimer
-    version_check()
+    UpdateHints.version_check("tracksperanto", Tracksperanto::VERSION, STDOUT)
     exit(0)
 end
 
@@ -132,4 +119,4 @@ pipe.run(input_file, options)
 pbar.finish
 
 puts disclaimer
-version_check(Tracksperanto::VERSION)
+UpdateHints.version_check("tracksperanto", Tracksperanto::VERSION, STDOUT)

@@ -1,3 +1,6 @@
+=== 2.5.0 / 2011-19-05
+
+* Use update_hints gem for version checks
 * PFTrack 2011 and PFMAtchit actually use the same format, so we don't need to have 2 modules for them
 
 === 2.4.0 / 2011-19-05

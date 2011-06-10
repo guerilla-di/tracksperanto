@@ -58,7 +58,6 @@ lib/tracksperanto/ext_io.rb
 lib/tracksperanto/flame_builder.rb
 lib/tracksperanto/format_detector.rb
 lib/tracksperanto/keyframe.rb
-lib/tracksperanto/pbar.rb
 lib/tracksperanto/progressive_io.rb
 lib/tracksperanto/returning.rb
 lib/tracksperanto/safety.rb

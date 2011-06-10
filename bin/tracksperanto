@@ -16,8 +16,6 @@ require 'rubygems'
 require 'progressbar'
 require "update_hints"
 
-require File.dirname(__FILE__) + '/../lib/tracksperanto/pbar'
-
 def disclaimer
   "Please consider a small donation to keep Tracksperanto going. http://guerilla-di.org/source-and-license/\n"+
   "For information and support please contact info#{64.chr}guerilla-di.org"
@@ -112,8 +110,9 @@ unless File.exist?(input_file)
   exit(-1)
 end
 
-pbar = Tracksperanto::PBar.new("Converting", 100, $stderr)
-pipe = Tracksperanto::Pipeline::Base.new(:progress_block => lambda{|p,m| pbar.set_with_message(p, m) }, :middleware_tuples => $middlewares)
+pbar = ProgressBar.new("Converting", 100, $stderr)
+progress = lambda{|percent,message| pbar.set(percent) }
+pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
 pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
 pipe.run(input_file, options)
 pbar.finish

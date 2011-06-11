@@ -1,0 +1,6 @@
+--hide-void-return
+-m markdown
+--title "Trackspreanto - a universal 2-D tracking translator. In Ruby."
+lib/**/*.rb
+--no-private
+--readme README.md

@@ -171,6 +171,11 @@ class ShakeLexerTest < Test::Unit::TestCase
     assert_equal :funcall, tree[2][0]
   end
   
+  def test_parse_simple_varassign
+     s = parse 'Foo = 1;'
+     assert_equal [[:assign, [:vardef, :image, "Foo"], 1]], s, "Note that the variable name should be escaped properly"
+  end
+   
   def test_parse_varassign
     s = parse 'Foo = Blur(Foo, 1, 2, 3); 1'
     assert_equal [[:assign, [:vardef, :image, "Foo"], [:funcall, "Blur", [:atom, "Foo"], 1, 2, 3]], 1], s

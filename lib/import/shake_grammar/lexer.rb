@@ -140,7 +140,7 @@ module Tracksperanto::ShakeGrammar
       # Since we can have two-word pointers as typedefs (char *) we only use the last
       # part of the thing as varname. Nodes return the :image type implicitly.
       varname_re = /\w+$/
-      varname = var_specifier.scan(varname_re).to_s
+      varname = var_specifier.scan(varname_re).flatten.join
       typedef = var_specifier.gsub(varname_re, '').strip
       typedef = :image if typedef.empty?
       

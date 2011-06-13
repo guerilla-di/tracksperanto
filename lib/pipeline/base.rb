@@ -13,7 +13,11 @@ module Tracksperanto::Pipeline
   end
   
   class NoTrackersRecoveredError < RuntimeError
-    def message; "Could not recover any non-empty trackers from this file. Wrong import format maybe?"; end
+    def message; 
+      "Could not recover any non-empty trackers from this file.\n" + 
+      "Wrong import format maybe?\n" + 
+      "Note that PFTrack will only export trackers from the solved segment of the shot.";
+    end
   end
   
   # The base pipeline is the whole process of track conversion from start to finish. The pipeline object organizes the import formats, scans them,

@@ -3,9 +3,6 @@ require './lib/tracksperanto'
 
 begin
   require 'hoe'
-  # Disable spurious warnings when running tests, ActiveMagic cannot stand -w
-  Hoe::RUBY_FLAGS.replace ENV['RUBY_FLAGS'] || "-I#{%w(lib test).join(File::PATH_SEPARATOR)}" + 
-    (Hoe::RUBY_DEBUG ? " #{RUBY_DEBUG}" : '')
   
   Hoe.spec('tracksperanto') do | p |
     p.readme_file   = 'README.rdoc'
@@ -19,8 +16,8 @@ begin
     p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea .yardoc)
   end
 rescue LoadError
+  
   $stderr.puts "Meta-operations on this package require Hoe"
-  task :default => [ :test ]
   
   require 'rake/testtask'
   desc "Run all tests"
@@ -29,4 +26,8 @@ rescue LoadError
     t.pattern = 'test/**/test_*.rb'
     t.verbose = true
   end
+
+  task :default => [ :test ]
 end
+
+

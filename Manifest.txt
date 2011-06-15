@@ -1,3 +1,4 @@
+.yardopts
 DEVELOPER_DOCS.rdoc
 History.txt
 MIT_LICENSE.txt
@@ -16,7 +17,6 @@ lib/export/mux.rb
 lib/export/nuke_script.rb
 lib/export/pfmatchit.rb
 lib/export/pftrack.rb
-lib/export/pftrack_2011.rb
 lib/export/pftrack_5.rb
 lib/export/shake_text.rb
 lib/export/syntheyes.rb
@@ -71,7 +71,6 @@ test/export/samples/ref_Mayalive_CustomAspect.txt
 test/export/samples/ref_NukeScript.nk
 test/export/samples/ref_PFMatchit.2dt
 test/export/samples/ref_PFTrack.2dt
-test/export/samples/ref_PFTrack2011.txt
 test/export/samples/ref_PFTrack5.2dt
 test/export/samples/ref_ShakeText.txt
 test/export/samples/ref_Syntheyes.txt
@@ -89,7 +88,6 @@ test/export/test_maya_live_export.rb
 test/export/test_mux.rb
 test/export/test_nuke_export.rb
 test/export/test_pfmatchit_export.rb
-test/export/test_pftrack2011_export.rb
 test/export/test_pftrack5_export.rb
 test/export/test_pftrack_export.rb
 test/export/test_shake_export.rb

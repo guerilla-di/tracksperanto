@@ -1,5 +1,6 @@
 === 2.5.0 / 2011-14-06
 
+* No status display in the progress bar. It was an annoyance.
 * There are still crashes with flexmocks in tests, relevant flexmock issues filed upstream
 * Fix Ruby 1.9 compatibility (but the situation will get better since it's now the primary version)
 * Use update_hints gem for version checks

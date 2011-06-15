@@ -1,8 +1,8 @@
-require 'rubygems'
 require './lib/tracksperanto'
-
 begin
   require 'hoe'
+  
+  Hoe::RUBY_FLAGS.gsub!(/^\-w/, '') # No thanks undefined ivar warnings
   
   Hoe.spec('tracksperanto') do | p |
     p.readme_file   = 'README.rdoc'

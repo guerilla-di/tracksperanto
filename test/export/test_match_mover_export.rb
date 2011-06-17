@@ -10,7 +10,7 @@ class MatchmoverExportTest < Test::Unit::TestCase
   
   def test_exporter_meta
     assert_equal "matchmover.rz2", Tracksperanto::Export::MatchMover.desc_and_extension
-    assert_equal "Matchmover 2D export .rz2 file", Tracksperanto::Export::MatchMover.human_name
+    assert_equal "MatchMover REALVIZ Ascii Point Tracks .rz2 file", Tracksperanto::Export::MatchMover.human_name
   end
   
   def test_width_and_height_not_stepping_on_each_other_in_preamble

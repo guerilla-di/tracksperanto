@@ -5,7 +5,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   end
   
   def self.human_name
-    "MatchMover .rz2 file"
+    "MatchMover REALVIZ Ascii Point Tracks .rz2 file"
   end
   
   def self.distinct_file_ext

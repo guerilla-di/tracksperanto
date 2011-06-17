@@ -7,7 +7,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::MatchMover
-    assert_equal "MatchMover .rz2 file", i.human_name
+    assert_equal "MatchMover REALVIZ Ascii Point Tracks .rz2 file", i.human_name
     assert i.autodetects_size?
   end
   

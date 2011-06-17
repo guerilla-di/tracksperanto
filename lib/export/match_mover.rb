@@ -6,7 +6,7 @@ class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   end
   
   def self.human_name
-    "Matchmover 2D export .rz2 file"
+    "MatchMover REALVIZ Ascii Point Tracks .rz2 file"
   end
   
   PREAMBLE = %[imageSequence	"Sequence 01"\n{\n\t%d\t%d\tf( "D:/temp/sequence.%%04d.dpx" )\tb( 1 211 1 )\t\n}\n]

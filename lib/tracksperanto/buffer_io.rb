@@ -48,6 +48,8 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
   def replace_with_tempfile
     sio = __getobj__
     tf = Tempfile.new("tracksperanto-xbuf")
+    tf.set_encoding(Encoding::BINARY) if @rewindable_io.respond_to?(:set_encoding)
+    tf.binmode
     tf.write(sio.string)
     tf.flush # Needed of we will reopen this file soon from another thread/loop
     sio.string = ""

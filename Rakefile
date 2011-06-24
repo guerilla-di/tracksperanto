@@ -10,7 +10,7 @@ begin
     p.version = Tracksperanto::VERSION
     
     p.extra_deps = {"progressbar" => ">=0", "update_hints" => ">=0" }
-    p.extra_dev_deps = {"flexmock" => ">=0"}
+    p.extra_dev_deps = {"flexmock" => ">=0", "cli_test" => "~>1.0.0"}
     p.rubyforge_name = 'guerilla-di'
     p.developer('Julik Tarkhanov', 'me@julik.nl')
     p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea .yardoc)

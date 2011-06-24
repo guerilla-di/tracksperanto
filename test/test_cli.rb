@@ -1,5 +1,6 @@
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 require "set"
+require "cli_test"
 
 class CliTest < Test::Unit::TestCase
   TEMP_DIR = File.expand_path(File.dirname(__FILE__) + "/tmp")
@@ -16,21 +17,7 @@ class CliTest < Test::Unit::TestCase
   
   # Run the tracksperanto binary with passed options, and return [exit_code, stdout_content, stderr_content]
   def cli(commandline_arguments)
-    old_stdout, old_stderr, old_argv = $stdout, $stderr, ARGV.dup
-    os, es = StringIO.new, StringIO.new
-    begin
-      $stdout, $stderr, verbosity = os, es, $VERBOSE
-      ARGV.replace(commandline_arguments.split)
-      $VERBOSE = false
-      load(BIN_P)
-      return [0, os.string, es.string]
-    rescue SystemExit => boom # The binary uses exit(), we use that to preserve the output code
-      return [boom.status, os.string, es.string]
-    ensure
-      $VERBOSE = verbosity
-      ARGV.replace(old_argv)
-      $stdout, $stderr = old_stdout, old_stderr
-    end
+    CLITest.new(BIN_P).run(commandline_arguments)
   end
   
   def test_cli_with_no_args_produces_usage

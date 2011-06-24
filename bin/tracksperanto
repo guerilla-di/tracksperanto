@@ -102,12 +102,12 @@ end
 input_file = ARGV.pop
 unless input_file
   $stderr.puts "No input file provided - should be the last argument. Also use the --help option."
-  exit(-1)
+  exit(1)
 end
 
 unless File.exist?(input_file)
   $stderr.puts "Input file #{input_file} does not exist"
-  exit(-1)
+  exit(1)
 end
 
 pbar = ProgressBar.new("Converting", 100, $stderr)

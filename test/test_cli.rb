@@ -22,13 +22,13 @@ class CliTest < Test::Unit::TestCase
   
   def test_cli_with_no_args_produces_usage
     status, o, e = cli('')
-    assert_equal -1, status
+    assert_equal 1, status
     assert_match /Also use the --help option/, e
   end
   
   def test_cli_with_nonexisting_file
     status, o, e = cli(TEMP_DIR + "/nonexisting.file")
-    assert_equal -1, status
+    assert_equal 1, status
     assert_equal "Input file #{TEMP_DIR + "/nonexisting.file"} does not exist\n", e
   end
     

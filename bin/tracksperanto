@@ -60,6 +60,7 @@ op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto
   end
 end
 
+
 op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
 op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
@@ -67,7 +68,9 @@ op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, f
 
 op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
 op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
+op.on(" -t", "--trim", "Trim the start frames (do not allow negative frame values)",  &mw("StartTrim", :enabled, true)) # Before slip!
 op.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'", &mw("Slipper", :slip))
+
 op.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)", &mw("Golden", :enabled, true))
 op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &mw("Reformat", :width))
 op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &mw("Reformat", :height))

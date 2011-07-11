@@ -13,7 +13,7 @@ begin
     p.extra_dev_deps = {"flexmock" => "~> 0.8", "cli_test" => "~>1.0"}
     
     p.developer('Julik Tarkhanov', 'me@julik.nl')
-    p.clean_globs = %w( **/.DS_Store  coverage.info **/*.rbc .idea .yardoc)
+    p.clean_globs = File.read(File.dirname(__FILE__) + "/.gitignore").split(/\s/).to_a
   end
 rescue LoadError
   

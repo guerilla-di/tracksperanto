@@ -1,5 +1,6 @@
 .yardopts
 DEVELOPER_DOCS.rdoc
+Gemfile
 History.txt
 MIT_LICENSE.txt
 Manifest.txt
@@ -47,6 +48,7 @@ lib/middleware/reformat.rb
 lib/middleware/scaler.rb
 lib/middleware/shift.rb
 lib/middleware/slipper.rb
+lib/middleware/start_trim.rb
 lib/pipeline/base.rb
 lib/tracksperanto.rb
 lib/tracksperanto/accumulator.rb
@@ -163,6 +165,7 @@ test/middleware/test_reformat_middleware.rb
 test/middleware/test_scaler_middleware.rb
 test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
+test/middleware/test_start_trim_middleware.rb
 test/test_accumulator.rb
 test/test_buffer_io.rb
 test/test_cli.rb

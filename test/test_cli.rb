@@ -61,6 +61,13 @@ class CliTest < Test::Unit::TestCase
     assert_equal 340, p.height, "The height of the converted setup should be that"
   end
   
+  def test_cli_trim
+    FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
+    results = cli("--slip -8000 --trim --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")
+    assert_not_equal 0, results[0] # status
+    assert_match /There were no trackers exported /, results[-1] # STDERR
+  end
+  
   # We use this instead of assert_equals for arrays since different filesystems
   # return files in different order
   def assert_same_set(expected_enum, enum, message = "Should be the same set")

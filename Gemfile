@@ -10,6 +10,6 @@ gem "update_hints", "~>1.0"
 
 gem "flexmock", "~>0.8", :group => [:development, :test]
 gem "cli_test", "~>1.0", :group => [:development, :test]
-gem "hoe", "~>2.10", :group => [:development, :test]
+gem "hoe", "~>2.9.4", :group => [:development, :test]
 
 # vim: syntax=ruby

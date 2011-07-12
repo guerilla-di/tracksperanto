@@ -1,3 +1,5 @@
+* Use the flame_channel_parser gem now that it's stable.
+
 === 2.6.0 / 2011-14-06
 
 * Adds the --trim option to remove keyframes that come in negative frames (before frame 0).

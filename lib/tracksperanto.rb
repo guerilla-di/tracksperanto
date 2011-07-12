@@ -1,6 +1,7 @@
 require 'stringio'
 require 'delegate'
 require 'tempfile'
+require 'flame_channel_parser'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))

@@ -9,7 +9,7 @@ begin
     p.extra_rdoc_files  = FileList['*.rdoc'] + FileList['*.txt']
     p.version = Tracksperanto::VERSION
     
-    p.extra_deps = {"progressbar" => "~> 0.9", "update_hints" => "~> 1.0" }
+    p.extra_deps = {"flame_channel_parser" => "~> 2.1", "progressbar" => "~> 0.9", "update_hints" => "~> 1.0" }
     p.extra_dev_deps = {"flexmock" => "~> 0.8", "cli_test" => "~>1.0"}
     
     p.developer('Julik Tarkhanov', 'me@julik.nl')

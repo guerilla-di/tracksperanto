@@ -1,4 +1,3 @@
-
 class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   
   # Flame setups contain clear size indications
@@ -12,63 +11,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   
   def self.human_name
     "Flame .stabilizer file"
-  end
-  
-  class ChannelBlock < Array
-    include ::Tracksperanto::Casts
-    cast_to_string :name
-    cast_to_float :base_value
-    
-    def <=>(o)
-      @name <=> o.name
-    end
-    
-    def initialize(io, channel_name)
-      @name = channel_name.strip
-      
-      base_value_matcher = /Value ([\-\d\.]+)/
-      keyframe_count_matcher = /Size (\d+)/
-      indent = nil
-      
-      while line = io.gets
-        
-        unless indent 
-          indent = line.scan(/^(\s+)/)[1]
-          end_mark = "#{indent}End"
-        end
-        
-        if line =~ keyframe_count_matcher
-          $1.to_i.times { push(extract_key_from(io)) }
-        elsif line =~ base_value_matcher && empty?
-          self.base_value = $1
-        elsif line.strip == end_mark
-          break
-        end
-      end
-      raise "Parsed a channel #{@name} with no keyframes" if (empty? && !base_value)
-    end
-    
-    def extract_key_from(io)
-      frame = nil
-      frame_matcher = /Frame ([\-\d\.]+)/
-      value_matcher = /Value ([\-\d\.]+)/
-      
-      until io.eof?
-        line = io.gets
-        if line =~ frame_matcher
-          frame = $1.to_i
-        elsif line =~ value_matcher
-          return [frame, $1.to_f]
-        end
-      end
-      
-      raise "Did not detect any keyframes!"
-    end
-    
-    # Hack - prevents the channel to be flattened into keyframes
-    # when it gets Array#flatten'ed
-    def to_ary; end  
-    private :to_ary
   end
   
   def each
@@ -106,18 +48,8 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     end
 
     def extract_channels_from_stream(io)
-      channels = Tracksperanto::Accumulator.new
-      names = []
-      channel_matcher = /Channel (.+)\n/
-      until io.eof?
-        line = io.gets
-        if line =~ channel_matcher && channel_is_useful?(line)
-          report_progress("Extracting channel #{$1}")
-          channels << ChannelBlock.new(io, $1)
-          names << $1
-        end
-      end
-      [channels, names]
+      channels = FlameChannelParser.parse(io)
+      [channels, channels.map{|c| c.path }]
     end
     
     USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
@@ -145,6 +77,10 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       end
     end
     
+    def channel_to_frames_and_values(chan)
+      chan.map{|key| [key.frame, key.value]}
+    end
+    
     def grab_tracker(channels, track_x, names)
       t = Tracksperanto::Tracker.new(:name => track_x.name.split('/').shift)
       
@@ -160,8 +96,8 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       shift_x = channels[shift_x_idx]
       shift_y = channels[shift_y_idx]
       
-      shift_tuples = zip_curve_tuples(shift_x, shift_y)
-      track_tuples = zip_curve_tuples(track_x, track_y)
+      shift_tuples = zip_curve_tuples(channel_to_frames_and_values(shift_x), channel_to_frames_and_values(shift_y))
+      track_tuples = zip_curve_tuples(channel_to_frames_and_values(track_x), channel_to_frames_and_values(track_y))
       
       report_progress("Detecting base value")
       base_x, base_y =  find_base_x_and_y(track_tuples, shift_tuples)

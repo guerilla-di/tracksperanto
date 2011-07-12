@@ -1,5 +1,6 @@
 require './lib/tracksperanto'
 begin
+  gem "hoe", "2.7.0" if RUBY_VERSION < "1.9" # Travis-CI doesn't want to love Hoe 2.8+
   require 'hoe'
   
   Hoe::RUBY_FLAGS.gsub!(/^\-w/, '') # No thanks undefined ivar warnings

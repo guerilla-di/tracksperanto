@@ -36,17 +36,17 @@ def mw(name, option, default_value = nil)
   end
 end
 
-def list_exporters
-  puts "The following export modules are available:"
+def list_exporters(dest = $stderr)
+  dest.puts "The following export modules are available:"
   Tracksperanto.exporters.each do | exporter |
-    puts "\t#{exporter.const_name.downcase} - #{exporter.human_name}"
+    dest.puts "\t#{exporter.const_name.downcase.inspect} - #{exporter.human_name}"
   end
 end
 
-def list_importers
-  puts "The following import modules are available:"
+def list_importers(dest = $stderr)
+  dest.puts "The following import modules are available:"
   Tracksperanto.importers.each do | importer |
-    puts "\t#{importer.const_name.downcase} - #{importer.human_name}"
+    dest.puts "\t#{importer.const_name.downcase.inspect} - #{importer.human_name}"
   end
 end
 
@@ -113,12 +113,27 @@ unless File.exist?(input_file)
   exit(1)
 end
 
-pbar = ProgressBar.new("Converting", 100, $stderr)
+pbar = ProgressBar.new("Converting", 100, $stdout)
 progress = lambda{|percent,message| pbar.set(percent) }
-pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
-pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
-pipe.run(input_file, options)
-pbar.finish
+begin
+  pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
+  pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
+  pipe.run(input_file, options)
+rescue Tracksperanto::UnknownExporter => damn
+  $stderr.puts damn.message
+  list_exporters($stderr)
+  exit(2)
+rescue Tracksperanto::UnknownImporter => damn
+  $stderr.puts damn.message
+  list_importers($stderr)
+  exit(2)
+rescue Tracksperanto::UnknownMiddleware => damn
+  $stderr.puts damn.message
+  $stderr.puts "This is a bug, please report it"
+  exit(2)
+ensure
+  pbar.finish
+end
 
 puts disclaimer
 UpdateHints.version_check("tracksperanto", Tracksperanto::VERSION, STDOUT)

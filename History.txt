@@ -1,3 +1,4 @@
+* Give better error reports when an unknown constant gets requested (like a wrong importer)
 * Use the flame_channel_parser gem now that it's stable.
 
 === 2.6.0 / 2011-14-06

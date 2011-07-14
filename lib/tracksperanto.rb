@@ -12,9 +12,9 @@ module Tracksperanto
   module Middleware; end
   module Pipeline; end
   
-  class UnknownExporter < NameError; end
-  class UnknownImporter < NameError; end
-  class UnknownMiddleware < NameError; end
+  class UnknownExporterError < NameError; end
+  class UnknownImporterError < NameError; end
+  class UnknownMiddlewareError < NameError; end
   
   class << self
     # Returns the array of all exporter classes defined
@@ -50,7 +50,7 @@ module Tracksperanto
       return x if x.const_name.downcase == name.downcase
     end
     
-    raise UnknownMiddleware, "Unknown middleware #{name.inspect}"
+    raise UnknownMiddlewareError, "Unknown middleware #{name.inspect}"
   end
     
   # Case-insensitive search for an export module by name
@@ -59,7 +59,7 @@ module Tracksperanto
       return x if x.const_name.downcase == name.downcase
     end
     
-    raise UnknownExporter, "Unknown exporter #{name.inspect}"
+    raise UnknownExporterError, "Unknown exporter #{name.inspect}"
   end
   
   # Case-insensitive search for an export module by name
@@ -68,7 +68,7 @@ module Tracksperanto
       return x if x.const_name.downcase == name.downcase
     end
     
-    raise UnknownImporter, "Unknown importer #{name.inspect}"
+    raise UnknownImporterError, "Unknown importer #{name.inspect}"
   end
 end
 

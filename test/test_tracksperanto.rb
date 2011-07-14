@@ -64,15 +64,15 @@ class TracksperantoTest < Test::Unit::TestCase
   end
   
   def test_get_unknown_exporter_should_raise
-    assert_raise(Tracksperanto::UnknownExporter) { Tracksperanto.get_exporter("foo") }
+    assert_raise(Tracksperanto::UnknownExporterError) { Tracksperanto.get_exporter("foo") }
   end
   
   def test_get_unknown_importer_should_raise
-    assert_raise(Tracksperanto::UnknownImporter) { Tracksperanto.get_importer("foo") }
+    assert_raise(Tracksperanto::UnknownImporterError) { Tracksperanto.get_importer("foo") }
   end
   
   def test_get_unknown_middleware_should_raise
-    assert_raise(Tracksperanto::UnknownMiddleware) { Tracksperanto.get_middleware("foo") }
+    assert_raise(Tracksperanto::UnknownMiddlewareError) { Tracksperanto.get_middleware("foo") }
   end
   
 end

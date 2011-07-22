@@ -5,7 +5,7 @@ require 'flame_channel_parser'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '2.6.0'
+  VERSION = '2.6.1'
   
   module Import; end
   module Export; end

@@ -1,3 +1,6 @@
+=== 2.6.1 / 2011-22-07
+
+* Fix errors that occurred when empty disabled trackers were present in Flame setups 
 * Give better error reports when an unknown constant gets requested (like a wrong importer)
 * Use the flame_channel_parser gem now that it's stable.
 

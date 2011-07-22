@@ -99,6 +99,7 @@ test/import/samples/3de_v3/3de_export_v3.txt
 test/import/samples/3de_v4/3de_export_cube.txt
 test/import/samples/boujou_features_text/boujou_txt_export.txt
 test/import/samples/flame_stabilizer/Flame_Stabilizer_2012.stabilizer
+test/import/samples/flame_stabilizer/flame_2012_another.stabilizer
 test/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer
 test/import/samples/flame_stabilizer/fromTracksperanto.stabilizer
 test/import/samples/flame_stabilizer/hugeFlameSetup.stabilizer

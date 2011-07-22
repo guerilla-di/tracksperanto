@@ -66,14 +66,13 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
     
     def scavenge_trackers_from_channels(channels, names)
-      
-      
       channels.each do |c|
         next unless c.name =~ /\/#{REF_CHANNEL}\/x/
         
         report_progress("Detected reference channel #{c.name}")
         
-        yield grab_tracker(channels, c, names)
+        t = grab_tracker(channels, c, names)
+        yield(t) if t
       end
     end
     
@@ -98,6 +97,9 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       
       shift_tuples = zip_curve_tuples(channel_to_frames_and_values(shift_x), channel_to_frames_and_values(shift_y))
       track_tuples = zip_curve_tuples(channel_to_frames_and_values(track_x), channel_to_frames_and_values(track_y))
+      
+      # If the channels are just empty go to next tracker
+      return if shift_tuples.empty? || track_tuples.empty?
       
       report_progress("Detecting base value")
       base_x, base_y =  find_base_x_and_y(track_tuples, shift_tuples)

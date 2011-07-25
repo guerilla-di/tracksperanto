@@ -7,14 +7,14 @@ class ShakeLexerTest < Test::Unit::TestCase
   WRONG = File.dirname(__FILE__) + "/samples/flame_stabilizer/hugeFlameSetup.stabilizer"
   
   def test_raises_wrong_input_when_buffer_gets_too_large
-    assert_raise(Tracksperanto::ShakeGrammar::WrongInput) do
+    assert_raise(Tracksperanto::ShakeGrammar::WrongInputError) do
        parse(File.open(WRONG), L)
     end
   end
   
   def test_raises_wrong_input_on_stack_size
     huge_stack = "(" * 345
-    assert_raise(Tracksperanto::ShakeGrammar::WrongInput) do
+    assert_raise(Tracksperanto::ShakeGrammar::WrongInputError) do
        parse(StringIO.new(huge_stack), L)
     end
   end

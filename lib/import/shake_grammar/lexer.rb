@@ -1,5 +1,5 @@
 module Tracksperanto::ShakeGrammar
-  class WrongInput < RuntimeError; end
+  class WrongInputError < RuntimeError; end
   
   # Since Shake uses a C-like language for it's scripts we rig up a very sloppy
   # but concise C-like lexer to cope
@@ -41,11 +41,11 @@ module Tracksperanto::ShakeGrammar
       c = @io.read(1)
       
       if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
-        raise WrongInput, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"
+        raise WrongInputError, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"
       end
       
       if @stack_depth > MAX_STACK_DEPTH # Wrong format - parentheses overload
-        raise WrongInput, "Stack overflow at level #{MAX_STACK_DEPTH}, this is probably a LISP program uploaded by accident"
+        raise WrongInputError, "Stack overflow at level #{MAX_STACK_DEPTH}, this is probably a LISP program uploaded by accident"
       end
       
       if c == '/' && (@buf[-1].chr rescue nil) == '/' # Comment start

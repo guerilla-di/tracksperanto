@@ -94,6 +94,7 @@ test/export/test_pftrack5_export.rb
 test/export/test_pftrack_export.rb
 test/export/test_shake_export.rb
 test/export/test_syntheyes_export.rb
+test/fixtures/processing_log.txt
 test/helper.rb
 test/import/samples/3de_v3/3de_export_v3.txt
 test/import/samples/3de_v4/3de_export_cube.txt

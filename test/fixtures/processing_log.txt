@@ -1,22 +1,22 @@
 0 -> Starting the parser
 0 -> Extracting setup size
 0 -> Extracting all animation channels
-3 -> Reading input
-6 -> Reading input
-9 -> Reading input
-13 -> Reading input
-16 -> Reading input
-19 -> Reading input
-22 -> Reading input
-25 -> Reading input
-28 -> Reading input
-31 -> Reading input
-34 -> Reading input
-37 -> Reading input
-40 -> Reading input
-43 -> Reading input
-46 -> Reading input
-49 -> Reading input
+3 -> Parsing the file
+6 -> Parsing the file
+9 -> Parsing the file
+13 -> Parsing the file
+16 -> Parsing the file
+19 -> Parsing the file
+22 -> Parsing the file
+25 -> Parsing the file
+28 -> Parsing the file
+31 -> Parsing the file
+34 -> Parsing the file
+37 -> Parsing the file
+40 -> Parsing the file
+43 -> Parsing the file
+46 -> Parsing the file
+49 -> Parsing the file
 50 -> Assembling tracker curves from channels
 50 -> Detected reference channel tracker1/ref/x
 50 -> Extracting tracker tracker1

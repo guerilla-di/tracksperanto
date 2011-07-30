@@ -1,0 +1,50 @@
+0 -> Starting the parser
+0 -> Extracting setup size
+0 -> Extracting all animation channels
+3 -> Reading input
+6 -> Reading input
+9 -> Reading input
+13 -> Reading input
+16 -> Reading input
+19 -> Reading input
+22 -> Reading input
+25 -> Reading input
+28 -> Reading input
+31 -> Reading input
+34 -> Reading input
+37 -> Reading input
+40 -> Reading input
+43 -> Reading input
+46 -> Reading input
+49 -> Reading input
+50 -> Assembling tracker curves from channels
+50 -> Detected reference channel tracker1/ref/x
+50 -> Extracting tracker tracker1
+50 -> Detecting base value
+50 -> Extracting keyframe 2 of tracker1
+50 -> Extracting keyframe 3 of tracker1
+50 -> Extracting keyframe 4 of tracker1
+50 -> Detected reference channel tracker2/ref/x
+50 -> Extracting tracker tracker2
+50 -> Detecting base value
+50 -> Extracting keyframe 2 of tracker2
+50 -> Extracting keyframe 3 of tracker2
+50 -> Extracting keyframe 4 of tracker2
+50 -> Detected reference channel tracker3/ref/x
+50 -> Extracting tracker tracker3
+50 -> Detecting base value
+50 -> Extracting keyframe 2 of tracker3
+50 -> Extracting keyframe 3 of tracker3
+50 -> Extracting keyframe 4 of tracker3
+50 -> Validating 3 imported trackers
+50 -> Starting export
+55 -> Writing keyframe 1 of "tracker1", 3 trackers to go
+61 -> Writing keyframe 2 of "tracker1", 3 trackers to go
+66 -> Writing keyframe 3 of "tracker1", 3 trackers to go
+72 -> Writing keyframe 1 of "tracker2", 2 trackers to go
+77 -> Writing keyframe 2 of "tracker2", 2 trackers to go
+83 -> Writing keyframe 3 of "tracker2", 2 trackers to go
+88 -> Writing keyframe 1 of "tracker3", 1 trackers to go
+94 -> Writing keyframe 2 of "tracker3", 1 trackers to go
+100 -> Writing keyframe 3 of "tracker3", 1 trackers to go
+100 -> Wrote 3 points and 9 keyframes

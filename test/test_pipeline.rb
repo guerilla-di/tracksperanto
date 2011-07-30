@@ -35,12 +35,25 @@ class PipelineTest < Test::Unit::TestCase
     assert_equal [:a, :b], pipeline.middleware_tuples
   end
   
-  def test_run_with_autodetected_importer_and_size
+  def test_run_with_autodetected_importer_and_size_without_progress_block
     create_stabilizer_file
     pipeline = Tracksperanto::Pipeline::Base.new
     assert_nothing_raised { pipeline.run(@stabilizer) }
     assert_equal 3, pipeline.converted_points
     assert_equal 9, pipeline.converted_keyframes, "Should report conversion of 9 keyframes"
+  end
+  
+  def test_run_with_autodetected_importer_and_size_with_progress_block
+    create_stabilizer_file
+    processing_log = ""
+    accum = lambda do | percent, message |
+      processing_log << ("%d -> %s\n" % [percent, message])
+    end
+    
+    pipeline = Tracksperanto::Pipeline::Base.new(:progress_block => accum)
+    assert_nothing_raised { pipeline.run(@stabilizer) }
+    reference = File.read(File.dirname(__FILE__) + "/fixtures/processing_log.txt")
+    assert_equal reference, processing_log, "The log output should be the same"
   end
   
   def test_run_crashes_with_empty_file

@@ -132,21 +132,33 @@ module Tracksperanto::Pipeline
   # status message that you can pass back to the UI
   def run_export(tracker_data_io, importer, exporter)
     points, keyframes, percent_complete = 0, 0, 0.0
+    last_reported_percentage = 0.0
     
     report_progress(percent_complete, "Starting the parser")
+    progress_lambda = lambda do | m | 
+      last_reported_percentage = percent_complete
+      report_progress(percent_complete, m)
+    end
     
     # Report progress from the parser
-    importer.progress_block = lambda { | m | report_progress(percent_complete, m) }
+    importer.progress_block = progress_lambda
     
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
     io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io) do | offset, of_total |
       percent_complete = (50.0 / of_total) * offset
+      
+      # Some importers do not signal where they are and do not send nice reports. The way we can help that in the interim
+      # would be just to indicate where we are in the input, but outside of the exporter. We do not want to flood
+      # the logs though so what we WILL do instead is report some progress going on every 2-3 percent
+      progress_lambda.call("Parsing the file") if (percent_complete - last_reported_percentage) > 3
     end
+    
     @ios.push(io_with_progress)
     
     @accumulator = Tracksperanto::Accumulator.new
+    
     begin
     
       # OBSOLETE - for this version we are going to permit it.

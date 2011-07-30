@@ -65,6 +65,12 @@ class CliTest < Test::Unit::TestCase
     assert_same_set fs, Dir.entries(TEMP_DIR)
   end
   
+  # TODO: This currently hangs in testing
+  # def test_cli_with_trace_option
+  #   FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
+  #   status, o, e = cli("#{BIN_P} --trace #{TEMP_DIR}/flm.stabilizer")
+  # end
+  
   def test_cli_reformat
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
     cli("--reformat-x 1204 --reformat-y 340 --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")

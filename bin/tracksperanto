@@ -94,6 +94,7 @@ op.on("--version", "Show the version and exit") do |v|
     UpdateHints.version_check("tracksperanto", Tracksperanto::VERSION, STDOUT)
     exit(0)
 end
+op.on("--trace", "Output LOTS of info during conversion") { $debug = true }
 
 begin
   op.parse!
@@ -114,7 +115,14 @@ unless File.exist?(input_file)
 end
 
 pbar = ProgressBar.new("Converting", 100, $stdout)
-progress = lambda{|percent,message| pbar.set(percent) }
+progress = lambda do |percent,message| 
+  pbar.set(percent)
+  if $debug
+    STDOUT.puts("[%d -> %s]" % [percent, message])
+    STDOUT.flush
+  end
+end
+
 begin
   pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
   pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name

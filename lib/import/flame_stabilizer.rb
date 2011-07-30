@@ -23,8 +23,6 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     
     report_progress("Assembling tracker curves from channels")
     scavenge_trackers_from_channels(channels, names) {|t| yield(t) }
-  ensure
-    channels.clear
   end
   
   private
@@ -46,28 +44,31 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       end
       
     end
-
+    
+    # We subclass the standard parser for a couple of reasons - we want to only parse the needed channels
+    # AND we want to provide progress reports
+    class StabilizerParser < FlameChannelParser::Parser
+      USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
+      
+      # This method tells the importer whether a channel that has been found in the source
+      # setup is needed. If that method returns ++false++ the channel will be discarded and not
+      # kept in memory. Should you need to write a module that scavenges other Flame animation channels
+      # inherit from this class and rewrite this method to either return +true+ always (then all the channels
+      # will be recovered) or to return +true+ only for channels that you actually need.
+      def channel_is_useful?(channel_name)
+        USEFUL_CHANNELS.any?{|e| channel_name =~ e }
+      end
+    end
+    
     def extract_channels_from_stream(io)
-      channels = FlameChannelParser.parse(io)
+      parser = StabilizerParser.new(&method(:report_progress))
+      channels = parser.parse(io)
       [channels, channels.map{|c| c.path }]
     end
     
-    USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
-    
-    # This method tells the importer whether a channel that has been found in the source
-    # setup is needed. If that method returns ++false++ the channel will be discarded and not
-    # kept in memory. Should you need to write a module that scavenges other Flame animation channels
-    # inherit from this class and rewrite this method to either return +true+ always (then all the channels
-    # will be recovered) or to return +true+ only for channels that you actually need.
-    def channel_is_useful?(channel_name)
-      USEFUL_CHANNELS.any?{|e| channel_name =~ e }
-    end
-    
-    REF_CHANNEL = "ref" # or "track" - sometimes works sometimes don't
-    
     def scavenge_trackers_from_channels(channels, names)
       channels.each do |c|
-        next unless c.name =~ /\/#{REF_CHANNEL}\/x/
+        next unless c.name =~ /\/ref\/x/
         
         report_progress("Detected reference channel #{c.name}")
         
@@ -87,7 +88,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       
       # This takes a LONG time when we have alot of channels, we need a precache of
       # some sort to do this
-      ref_idx = names.index("#{t.name}/#{REF_CHANNEL}/y")
+      ref_idx = names.index("#{t.name}/ref/y")
       shift_x_idx = names.index("#{t.name}/shift/x")
       shift_y_idx = names.index("#{t.name}/shift/y")
       

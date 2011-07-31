@@ -1,3 +1,7 @@
+=== 2.6.3 / 2011-31-07
+
+* Report progress from the parser for Flame, like it has been before
+
 === 2.6.2 / 2011-30-07
 
 * Fix missing progress percentages in the Flame import module

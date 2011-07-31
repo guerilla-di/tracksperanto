@@ -61,8 +61,10 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     end
     
     def extract_channels_from_stream(io)
-      parser = StabilizerParser.new(&method(:report_progress))
+      parser = StabilizerParser.new
+      parser.logger_proc = method(:report_progress)
       channels = parser.parse(io)
+      
       [channels, channels.map{|c| c.path }]
     end
     

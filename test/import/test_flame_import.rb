@@ -86,11 +86,18 @@ class FlameImportTest < Test::Unit::TestCase
     assert_equal 61, trackers[0].length
   end
   
-  # a failing setup from flame 2012
   def test_from_flame2012_with_empty_trackers
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/flame_2012_another.stabilizer')
     trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
     assert_equal 1, trackers.length
     assert_equal 100, trackers[0].length
+  end
+  
+  def test_from_flame2012_with_traced_messages
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/flame_2012_another.stabilizer')
+    output = ""
+    progress_block = lambda {|msg|  output << msg }
+    trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture, :progress_block => progress_block).to_a
+    assert output.include?('Parsing channel "tracker1/shift/x"')
   end
 end

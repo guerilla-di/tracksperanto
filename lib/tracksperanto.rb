@@ -2,6 +2,7 @@ require 'stringio'
 require 'delegate'
 require 'tempfile'
 require 'flame_channel_parser'
+require "obuf"
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
@@ -70,6 +71,10 @@ module Tracksperanto
     
     raise UnknownImporterError, "Unknown importer #{name.inspect}"
   end
+  
+  # DEPRECATED, will be removed in Tracksperanto 3
+  class Accumulator < Obuf
+  end
 end
 
 %w(
@@ -88,7 +93,6 @@ end
   simple_export
   uv_coordinates
   flame_builder
-  accumulator
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

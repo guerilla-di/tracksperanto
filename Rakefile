@@ -11,6 +11,7 @@ begin
     p.version = Tracksperanto::VERSION
     
     p.extra_deps = {
+      "obuf" => "~> 1.0",
       "flame_channel_parser" => "2.2.1",
       "progressbar" => "~> 0.9",
       "update_hints" => "~> 1.0"

@@ -52,8 +52,8 @@ class PipelineTest < Test::Unit::TestCase
     
     pipeline = Tracksperanto::Pipeline::Base.new(:progress_block => accum)
     assert_nothing_raised { pipeline.run(@stabilizer) }
-    reference = File.read(File.dirname(__FILE__) + "/fixtures/processing_log.txt")
-    assert_equal reference, processing_log, "The log output should be the same"
+    assert processing_log.include?("Parsing the file")
+    assert processing_log.include?("Parsing channel \"tracker1/ref/y\"")
   end
   
   def test_run_crashes_with_empty_file

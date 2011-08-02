@@ -157,7 +157,7 @@ module Tracksperanto::Pipeline
     
     @ios.push(io_with_progress)
     
-    @accumulator = Tracksperanto::Accumulator.new
+    @accumulator = Obuf.new
     
     begin
     

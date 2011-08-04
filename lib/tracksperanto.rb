@@ -3,6 +3,7 @@ require 'delegate'
 require 'tempfile'
 require 'flame_channel_parser'
 require "obuf"
+require "progressive_io"
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
@@ -75,6 +76,11 @@ module Tracksperanto
   # DEPRECATED, will be removed in Tracksperanto 3
   class Accumulator < Obuf
   end
+  
+  # DEPRECATED, will be removed in Tracksperanto 3
+  class Tracksperanto::ProgressiveIO < ProgressiveIO
+  end
+  
 end
 
 %w(
@@ -88,7 +94,6 @@ end
   tracker
   format_detector
   ext_io
-  progressive_io
   buffer_io
   simple_export
   uv_coordinates

@@ -9,7 +9,7 @@ class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   end
   
   def self.human_name
-    "Shake trackers in a .txt file"
+    "Shake trackers in a .txt file (also usable with Nuke's CameraTracker)"
   end
   
   def start_tracker_segment(tracker_name)

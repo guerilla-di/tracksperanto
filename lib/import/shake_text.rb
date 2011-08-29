@@ -2,7 +2,7 @@
 class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   
   def self.human_name
-    "Shake .txt tracker file"
+    "Shake .txt tracker file and Nuke CameraTracker auto tracks export"
   end
   
   def each

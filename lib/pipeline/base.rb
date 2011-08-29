@@ -20,7 +20,8 @@ module Tracksperanto::Pipeline
     end
   end
   
-  # The base pipeline is the whole process of track conversion from start to finish. The pipeline object organizes the import formats, scans them,
+  # The base pipeline is the whole process of track conversion from start to finish. 
+  # The pipeline object organizes the import formats, scans them,
   # applies the middlewares. Here's how a calling sequence for a pipeline looks like:
   #
   #   pipe = Tracksperanto::Pipeline::Base.new

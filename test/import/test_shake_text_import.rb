@@ -5,7 +5,7 @@ class ShakeTextImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::ShakeText
-    assert_equal "Shake .txt tracker file", i.human_name
+    assert_equal "Shake .txt tracker file and Nuke CameraTracker auto tracks export", i.human_name
     assert !i.autodetects_size?
   end
   

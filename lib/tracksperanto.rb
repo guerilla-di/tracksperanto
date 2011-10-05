@@ -98,6 +98,7 @@ end
   simple_export
   uv_coordinates
   flame_builder
+  buffering_reader
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

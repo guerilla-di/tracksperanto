@@ -48,4 +48,24 @@ class ShakeTextImportTest < Test::Unit::TestCase
     t2 = trackers[-1]
     assert_equal "track2", t2.name
   end
+
+  def test_parsing_from_nuke_camera_tracker
+    fixture = File.open(File.dirname(__FILE__) + '/samples/shake_text/nuke_camtracker.txt')
+    trackers = Tracksperanto::Import::ShakeText.new(:io => fixture).to_a
+    
+    assert_kind_of Enumerable, trackers
+    assert_equal 261, trackers.length
+    
+    t = trackers[0]
+    
+    assert_equal "autotrack0", t.name
+    assert_kind_of Tracksperanto::Tracker, t
+    assert_equal 11, t.keyframes.length
+    
+    second_kf = t.keyframes[1]
+    assert_in_delta 1, second_kf.frame, DELTA
+    
+    t2 = trackers[-1]
+    assert_equal "autotrack260", t2.name
+  end
 end

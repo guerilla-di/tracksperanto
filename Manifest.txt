@@ -53,6 +53,7 @@ lib/pipeline/base.rb
 lib/tracksperanto.rb
 lib/tracksperanto/block_init.rb
 lib/tracksperanto/buffer_io.rb
+lib/tracksperanto/buffering_reader.rb
 lib/tracksperanto/casts.rb
 lib/tracksperanto/const_name.rb
 lib/tracksperanto/ext_io.rb
@@ -132,6 +133,7 @@ test/import/samples/shake_script/stabilize_nodes_with_hermite.shk
 test/import/samples/shake_script/three_tracks_in_one_stabilizer.shk
 test/import/samples/shake_script/track.shk
 test/import/samples/shake_script/two_tracks_in_one_tracker.shk
+test/import/samples/shake_text/nuke_camtracker.txt
 test/import/samples/shake_text/one_shake_tracker.txt
 test/import/samples/shake_text/one_shake_tracker_from_first.txt
 test/import/samples/shake_text/two_shake_trackers.txt
@@ -166,6 +168,7 @@ test/middleware/test_shift_middleware.rb
 test/middleware/test_slip_middleware.rb
 test/middleware/test_start_trim_middleware.rb
 test/test_buffer_io.rb
+test/test_bufferingreader.rb
 test/test_cli.rb
 test/test_const_name.rb
 test/test_extio.rb

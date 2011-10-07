@@ -22,7 +22,8 @@ module Tracksperanto::ShakeGrammar
     def initialize(with_io, sentinel = nil, limit_to_one_stmt = false, stack_depth = 0)
       # We parse byte by byte, but reading byte by byte is very slow. We therefore use a buffering reader
       # that will cache in chunks, and then read from there byte by byte. This yields a substantial speedup (4.9 seconds for the test
-      # as opposed to 7.9 without this)
+      # as opposed to 7.9 without this). We do check for the proper class only once so that when we use nested lexers
+      # we only wrap the passed IO once, and only if necessary.
       with_io = Tracksperanto::BufferingReader.new(with_io) unless with_io.respond_to?(:read_one_byte)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       catch(STOP_TOKEN) { parse until @io.eof? }

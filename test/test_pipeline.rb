@@ -91,6 +91,7 @@ class PipelineTest < Test::Unit::TestCase
     assert_raise(Tracksperanto::Pipeline::DimensionsRequiredError) { pipeline.run("./input.shk") }
   end
   
+  # THIS CRASHES
   def test_run_with_autodetected_importer_that_requires_size_when_size_supplied
     FileUtils.cp("./import/samples/shake_script/four_tracks_in_one_stabilizer.shk", "./input.shk")
     pipeline = Tracksperanto::Pipeline::Base.new

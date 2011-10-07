@@ -1,46 +1,31 @@
-class Tracksperanto::BufferingReader < DelegateClass(IO)
+# Shake uses this reader to parse byte by byte without having to read byte by byte
+class Tracksperanto::BufferingReader
   DEFAULT_BUFFER_SIZE = 2048
   
   def initialize(with_io, buffer_size = DEFAULT_BUFFER_SIZE)
-    __setobj__(with_io)
-    @bufsize = DEFAULT_BUFFER_SIZE
-    
+    @io = with_io
+    @bufsize = buffer_size
     @buf = StringIO.new
-    cache!(@bufsize)
   end
   
-  def read(n)
-    __getobj__.read(n) if eof? # Make raise
+  # Will transparently read one byte off the contained IO, maintaining the internal cache.
+  # If the cache has been depleted it will read a big chunk from the IO and cache it and then
+  # return the byte
+  def read_one_byte
+    cache if @buf.pos == @buf.size
     
-    if pos + n > @bracket_to
-      if @bufsize > n
-        cache!(@bufsize)
-      else
-        cache!(n)
-      end
-    end
-    
-    @buf.read(n)
-  end
-  
-  def pos
-    @bracket_from + @buf.pos
+    return nil if @buf.size.zero?
+    return @buf.read(1)
   end
   
   def eof?
-    @buf.eof? && __getobj__.eof?
+    @buf.eof? && @io.eof?
   end
   
-  def cache!(amount)
-    @bracket_from = __getobj__.pos + @buf.pos # My complete position
-    __getobj__.pos = @bracket_from
-    @bracket_to = __getobj__.pos + amount
-    @buf.string = __getobj__.read(amount)
-  end
+  private
   
-  def rewind
-    @bracket_to = 0
-    @buf.string = ''
-    super
+  def cache
+    data = @io.read(@bufsize)
+    @buf = StringIO.new(data.to_s) # Make nil become ""
   end
 end

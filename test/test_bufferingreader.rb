@@ -5,22 +5,29 @@ class TestBufferingReader < Test::Unit::TestCase
     s = StringIO.new("This is a string")
     
     reader = Tracksperanto::BufferingReader.new(s)
-    assert_equal "T", reader.read(1)
-    assert_equal "h", reader.read(1)
-    assert_equal "is is", reader.read(5)
+    assert_equal "T", reader.read_one_byte
+    assert_equal "h", reader.read_one_byte
     assert !reader.eof?
-    assert_equal 7, reader.pos
-    reader.rewind
-    assert_equal 0, reader.pos
   end
   
-  def test_reads_in_bulk
-    s = StringIO.new("This is a string")
-    
+  def test_eof_with_empty
+    s = StringIO.new
     reader = Tracksperanto::BufferingReader.new(s)
-    assert_equal "This is a string", reader.read(2048)
+    assert s.eof?
+  end
+  
+  def test_eof_with_io_at_eof
+    s = StringIO.new("foo")
+    s.read(3)
+    reader = Tracksperanto::BufferingReader.new(s)
     assert reader.eof?
-    assert_equal 16, reader.pos
-    
+  end
+  
+  def test_eof_with_string_to_size
+    s = "Foobarboo another"
+    s = StringIO.new(s)
+    reader = Tracksperanto::BufferingReader.new(s, 1)
+    s.length.times { reader.read_one_byte }
+    assert reader.eof?
   end
 end

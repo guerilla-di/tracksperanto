@@ -144,14 +144,10 @@ module Tracksperanto::Pipeline
     # Report progress from the parser
     importer.progress_block = progress_lambda
     
-    # Wrap the input in an IO that buffers bytes since some importers like read(1) and it's a very convenient
-    # way to write parsers
-    io_with_buffer = Tracksperanto::BufferingReader.new(tracker_data_io)
-    
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
-    io_with_progress = Tracksperanto::ProgressiveIO.new(io_with_buffer) do | offset, of_total |
+    io_with_progress = Tracksperanto::ProgressiveIO.new(tracker_data_io) do | offset, of_total |
       percent_complete = (50.0 / of_total) * offset
       
       # Some importers do not signal where they are and do not send nice reports. The way we can help that in the interim

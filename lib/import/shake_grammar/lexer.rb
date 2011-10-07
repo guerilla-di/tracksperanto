@@ -20,6 +20,10 @@ module Tracksperanto::ShakeGrammar
     # to the downstream lexers instantiated for nested data structures.
     # You can use the sentinel to collect data from child nodes for example.
     def initialize(with_io, sentinel = nil, limit_to_one_stmt = false, stack_depth = 0)
+      # We parse byte by byte, but reading byte by byte is very slow. We therefore use a buffering reader
+      # that will cache in chunks, and then read from there byte by byte. This yields a substantial speedup (4.9 seconds for the test
+      # as opposed to 7.9 without this)
+      with_io = Tracksperanto::BufferingReader.new(with_io) unless with_io.respond_to?(:read_one_byte)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       catch(STOP_TOKEN) { parse until @io.eof? }
       @in_comment ? consume_comment! : consume_atom!
@@ -38,7 +42,7 @@ module Tracksperanto::ShakeGrammar
     
     def parse
       
-      c = @io.read(1)
+      c = @io.read_one_byte
       
       if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
         raise WrongInputError, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"

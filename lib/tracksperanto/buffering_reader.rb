@@ -1,6 +1,12 @@
-# Shake uses this reader to parse byte by byte without having to read byte by byte
+# Shake uses this reader to parse byte by byte without having to read byte by byte.
+# Reading byte by byte is very inefficient, but we want to parse byte by byte since
+# this makes parser construction much easier. So what we do is cache some chunk of the
+# passed buffer and read from that. Once exhausted there will be some caching again,
+# and ad infinitum until the passed buffer is exhausted
 class Tracksperanto::BufferingReader
-  DEFAULT_BUFFER_SIZE = 2048
+  
+  # By default will read in chunks of 4K
+  DEFAULT_BUFFER_SIZE = 10240
   
   def initialize(with_io, buffer_size = DEFAULT_BUFFER_SIZE)
     @io = with_io
@@ -18,7 +24,10 @@ class Tracksperanto::BufferingReader
     return @buf.read(1)
   end
   
-  def eof?
+  # Tells whether all the data has been both read from the passed buffer
+  # and from the internal cache buffer (checks whether there is anything that
+  # can be retreived using read_one_byte)
+  def data_exhausted?
     @buf.eof? && @io.eof?
   end
   

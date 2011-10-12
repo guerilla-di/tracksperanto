@@ -7,7 +7,7 @@ class TestBufferingReader < Test::Unit::TestCase
     reader = Tracksperanto::BufferingReader.new(s)
     assert_equal "T", reader.read_one_byte
     assert_equal "h", reader.read_one_byte
-    assert !reader.eof?
+    assert !reader.data_exhausted?
   end
   
   def test_reads_set_buffer_size
@@ -34,7 +34,7 @@ class TestBufferingReader < Test::Unit::TestCase
     s = StringIO.new("foo")
     s.read(3)
     reader = Tracksperanto::BufferingReader.new(s)
-    assert reader.eof?
+    assert reader.data_exhausted?
   end
   
   def test_eof_with_string_to_size
@@ -42,6 +42,6 @@ class TestBufferingReader < Test::Unit::TestCase
     s = StringIO.new(s)
     reader = Tracksperanto::BufferingReader.new(s, 1)
     s.length.times { reader.read_one_byte }
-    assert reader.eof?
+    assert reader.data_exhausted?
   end
 end

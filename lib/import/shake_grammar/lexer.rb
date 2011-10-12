@@ -26,7 +26,7 @@ module Tracksperanto::ShakeGrammar
       # we only wrap the passed IO once, and only if necessary.
       with_io = Tracksperanto::BufferingReader.new(with_io) unless with_io.respond_to?(:read_one_byte)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
-      catch(STOP_TOKEN) { parse until @io.eof? }
+      catch(STOP_TOKEN) { parse until @io.data_exhausted? }
       @in_comment ? consume_comment! : consume_atom!
     end
     

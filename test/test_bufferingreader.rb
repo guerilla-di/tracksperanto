@@ -10,6 +10,20 @@ class TestBufferingReader < Test::Unit::TestCase
     assert !reader.eof?
   end
   
+  def test_reads_set_buffer_size
+    s = StringIO.new("abcd")
+    flexmock(s).should_receive(:read).with(4).once.and_return("abcd")
+    reader = Tracksperanto::BufferingReader.new(s, 4)
+    reader.read_one_byte
+  end
+  
+  def test_reads_in_10kb_chunks_by_default
+    s = StringIO.new("abcd")
+    flexmock(s).should_receive(:read).with(10240).once.and_return("abcd")
+    reader = Tracksperanto::BufferingReader.new(s)
+    reader.read_one_byte
+  end
+  
   def test_eof_with_empty
     s = StringIO.new
     reader = Tracksperanto::BufferingReader.new(s)

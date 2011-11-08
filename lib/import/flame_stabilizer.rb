@@ -63,9 +63,15 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     def extract_channels_from_stream(io)
       parser = StabilizerParser.new
       parser.logger_proc = method(:report_progress)
-      channels = parser.parse(io)
       
-      [channels, channels.map{|c| c.path }]
+      channels = Obuf.new
+      names = []
+      parser.parse(io) do | channel |
+        channels.push(channel)
+        names.push(channel.path)
+      end
+      
+      [channels, names]
     end
     
     def scavenge_trackers_from_channels(channels, names)

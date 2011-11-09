@@ -1,3 +1,5 @@
+* Check trackers sent through to ensure that they always come sequentially without violating the frame ordering
+
 === 2.7.0 / 2011-13-10
 
 * Speedup Shake script parsing by using a buffering reader

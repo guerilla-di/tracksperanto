@@ -6,6 +6,16 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
     end
   end
   
+  class NonSequentialKeyframes < RuntimeError
+    def initialize(args)
+      @name, @last_frame, @current_frame = args
+    end
+    
+    def message
+      "A keyframe for #{@name} has been sent that comes before the previous keyframe (#{@current_frame} should NOT come after #{@last_frame})."
+    end
+  end
+  
   class EmptyTrackerSentError < RuntimeError
     def initialize(name)
       @name  = name
@@ -39,11 +49,14 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
     @in_tracker = true
     @last_tracker_name = name
     @keyframes = 0
+    @last_frame = 0
     super
   end
   
-  def export_point(*a)
+  def export_point(frame, abs_float_x, abs_float_y, float_residual)
     @keyframes += 1
+    raise NonSequentialKeyframes, [@last_tracker_name, @last_frame, frame] if @last_frame > frame
+    @last_frame = frame
     super
   end
   

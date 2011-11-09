@@ -27,6 +27,21 @@ class LintMiddlewareTest < Test::Unit::TestCase
     end
   end
   
+  def test_exporting_out_of_sequence_raises
+    m = flexmock
+    m.should_receive(:start_export).once
+    m.should_receive(:start_tracker_segment).once
+    m.should_receive(:export_point).once
+    
+    ex = Tracksperanto::Middleware::Lint.new(m)
+    ex.start_export(100, 100)
+    ex.start_tracker_segment("Foo")
+    ex.export_point(2, 123.3, 456.0, 0.0)
+    
+    assert_raise(Tracksperanto::Middleware::Lint::NonSequentialKeyframes) do
+      ex.export_point(1, 123.3, 456.0, 0.0)
+    end
+  end
 
   def test_exporting_with_two_starts_raises
     m = flexmock

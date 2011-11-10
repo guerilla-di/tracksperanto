@@ -1,0 +1,10792 @@
+StabilizerFileVersion 5.0
+CreationDate Thu Nov 10 15:04:46 2011
+
+
+NbTrackers 4
+Selected 0
+FrameWidth 720
+FrameHeight 576
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan yes
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 0
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel top_left/ref/x
+	Extrapolation constant
+	Value 283.539
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 283.539
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/ref/y
+	Extrapolation constant
+	Value 373.605
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 373.605
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/ref/width
+	Extrapolation constant
+	Value 5.42749
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 5.42749
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/ref/height
+	Extrapolation constant
+	Value 7.71375
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 7.71375
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_left/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel top_left/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel top_left/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_left/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_left/shift/x
+	Extrapolation linear
+	Value -0.592834
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope -0.0582886
+		LeftSlope -0.0582886
+		End
+	Key 1
+		Frame 2
+		Value -0.0582886
+		Interpolation linear
+		RightSlope -0.0555575
+		LeftSlope -0.0555575
+		End
+	Key 2
+		Frame 3
+		Value -0.111115
+		Interpolation linear
+		RightSlope -0.0331877
+		LeftSlope -0.0331877
+		End
+	Key 3
+		Frame 4
+		Value -0.124664
+		Interpolation linear
+		RightSlope -0.018478
+		LeftSlope -0.018478
+		End
+	Key 4
+		Frame 5
+		Value -0.148071
+		Interpolation linear
+		RightSlope -0.0381625
+		LeftSlope -0.0381625
+		End
+	Key 5
+		Frame 6
+		Value -0.200989
+		Interpolation linear
+		RightSlope -0.045502
+		LeftSlope -0.045502
+		End
+	Key 6
+		Frame 7
+		Value -0.239075
+		Interpolation linear
+		RightSlope -0.028946
+		LeftSlope -0.028946
+		End
+	Key 7
+		Frame 8
+		Value -0.258881
+		Interpolation linear
+		RightSlope -0.0406645
+		LeftSlope -0.0406645
+		End
+	Key 8
+		Frame 9
+		Value -0.320404
+		Interpolation linear
+		RightSlope -0.011673
+		LeftSlope -0.011673
+		End
+	Key 9
+		Frame 10
+		Value -0.282227
+		Interpolation linear
+		RightSlope -0.0327605
+		LeftSlope -0.0327605
+		End
+	Key 10
+		Frame 11
+		Value -0.385925
+		Interpolation linear
+		RightSlope -0.0795745
+		LeftSlope -0.0795745
+		End
+	Key 11
+		Frame 12
+		Value -0.441376
+		Interpolation linear
+		RightSlope -0.065918
+		LeftSlope -0.065918
+		End
+	Key 12
+		Frame 13
+		Value -0.517761
+		Interpolation linear
+		RightSlope -0.0531005
+		LeftSlope -0.0531005
+		End
+	Key 13
+		Frame 14
+		Value -0.547577
+		Interpolation linear
+		RightSlope -0.026642
+		LeftSlope -0.026642
+		End
+	Key 14
+		Frame 15
+		Value -0.571045
+		Interpolation linear
+		RightSlope -0.0226285
+		LeftSlope -0.0226285
+		End
+	Key 15
+		Frame 16
+		Value -0.592834
+		Interpolation linear
+		RightSlope -0.0297545
+		LeftSlope -0.0297545
+		End
+	Key 16
+		Frame 17
+		Value -0.630554
+		Interpolation linear
+		RightSlope -0.07724
+		LeftSlope -0.07724
+		End
+	Key 17
+		Frame 18
+		Value -0.747314
+		Interpolation linear
+		RightSlope -0.093811
+		LeftSlope -0.093811
+		End
+	Key 18
+		Frame 19
+		Value -0.818176
+		Interpolation linear
+		RightSlope -0.0878605
+		LeftSlope -0.0878605
+		End
+	Key 19
+		Frame 20
+		Value -0.923035
+		Interpolation linear
+		RightSlope -0.099867
+		LeftSlope -0.099867
+		End
+	Key 20
+		Frame 21
+		Value -1.01791
+		Interpolation linear
+		RightSlope -0.0930025
+		LeftSlope -0.0930025
+		End
+	Key 21
+		Frame 22
+		Value -1.10904
+		Interpolation linear
+		RightSlope -0.11243
+		LeftSlope -0.11243
+		End
+	Key 22
+		Frame 23
+		Value -1.24277
+		Interpolation linear
+		RightSlope -0.08473
+		LeftSlope -0.08473
+		End
+	Key 23
+		Frame 24
+		Value -1.2785
+		Interpolation linear
+		RightSlope -0.11641
+		LeftSlope -0.11641
+		End
+	Key 24
+		Frame 25
+		Value -1.47559
+		Interpolation linear
+		RightSlope -0.10306
+		LeftSlope -0.10306
+		End
+	Key 25
+		Frame 26
+		Value -1.48462
+		Interpolation linear
+		RightSlope -0.07115
+		LeftSlope -0.07115
+		End
+	Key 26
+		Frame 27
+		Value -1.61789
+		Interpolation linear
+		RightSlope -0.121015
+		LeftSlope -0.121015
+		End
+	Key 27
+		Frame 28
+		Value -1.72665
+		Interpolation linear
+		RightSlope -0.114565
+		LeftSlope -0.114565
+		End
+	Key 28
+		Frame 29
+		Value -1.84702
+		Interpolation linear
+		RightSlope -0.069035
+		LeftSlope -0.069035
+		End
+	Key 29
+		Frame 30
+		Value -1.86472
+		Interpolation linear
+		RightSlope -0.044415
+		LeftSlope -0.044415
+		End
+	Key 30
+		Frame 31
+		Value -1.93585
+		Interpolation linear
+		RightSlope -0.095745
+		LeftSlope -0.095745
+		End
+	Key 31
+		Frame 32
+		Value -2.05621
+		Interpolation linear
+		RightSlope -0.079025
+		LeftSlope -0.079025
+		End
+	Key 32
+		Frame 33
+		Value -2.0939
+		Interpolation linear
+		RightSlope -0.044175
+		LeftSlope -0.044175
+		End
+	Key 33
+		Frame 34
+		Value -2.14456
+		Interpolation linear
+		RightSlope -0.036365
+		LeftSlope -0.036365
+		End
+	Key 34
+		Frame 35
+		Value -2.16663
+		Interpolation linear
+		RightSlope -0.0293299
+		LeftSlope -0.0293299
+		End
+	Key 35
+		Frame 36
+		Value -2.20322
+		Interpolation linear
+		RightSlope -0.04382
+		LeftSlope -0.04382
+		End
+	Key 36
+		Frame 37
+		Value -2.25427
+		Interpolation linear
+		RightSlope -0.02487
+		LeftSlope -0.02487
+		End
+	Key 37
+		Frame 38
+		Value -2.25296
+		Interpolation linear
+		RightSlope -0.0253299
+		LeftSlope -0.0253299
+		End
+	Key 38
+		Frame 39
+		Value -2.30493
+		Interpolation linear
+		RightSlope -0.0405101
+		LeftSlope -0.0405101
+		End
+	Key 39
+		Frame 40
+		Value -2.33398
+		Interpolation linear
+		RightSlope -0.07283
+		LeftSlope -0.07283
+		End
+	Key 40
+		Frame 41
+		Value -2.45059
+		Interpolation linear
+		RightSlope -0.0828899
+		LeftSlope -0.0828899
+		End
+	Key 41
+		Frame 42
+		Value -2.49976
+		Interpolation linear
+		RightSlope -0.059525
+		LeftSlope -0.059525
+		End
+	Key 42
+		Frame 43
+		Value -2.56964
+		Interpolation linear
+		RightSlope -0.074615
+		LeftSlope -0.074615
+		End
+	Key 43
+		Frame 44
+		Value -2.64899
+		Interpolation linear
+		RightSlope -0.05504
+		LeftSlope -0.05504
+		End
+	Key 44
+		Frame 45
+		Value -2.67972
+		Interpolation linear
+		RightSlope -0.05626
+		LeftSlope -0.05626
+		End
+	Key 45
+		Frame 46
+		Value -2.76151
+		Interpolation linear
+		RightSlope -0.0596451
+		LeftSlope -0.0596451
+		End
+	Key 46
+		Frame 47
+		Value -2.79901
+		Interpolation linear
+		RightSlope -0.0256001
+		LeftSlope -0.0256001
+		End
+	Key 47
+		Frame 48
+		Value -2.81271
+		Interpolation linear
+		RightSlope -0.03969
+		LeftSlope -0.03969
+		End
+	Key 48
+		Frame 49
+		Value -2.87839
+		Interpolation linear
+		RightSlope -0.0634149
+		LeftSlope -0.0634149
+		End
+	Key 49
+		Frame 50
+		Value -2.93954
+		Interpolation linear
+		RightSlope -0.054685
+		LeftSlope -0.054685
+		End
+	Key 50
+		Frame 51
+		Value -2.98776
+		Interpolation linear
+		RightSlope -0.04268
+		LeftSlope -0.04268
+		End
+	Key 51
+		Frame 52
+		Value -3.0249
+		Interpolation linear
+		RightSlope -0.04152
+		LeftSlope -0.04152
+		End
+	Key 52
+		Frame 53
+		Value -3.0708
+		Interpolation linear
+		RightSlope -0.04747
+		LeftSlope -0.04747
+		End
+	Key 53
+		Frame 54
+		Value -3.11984
+		Interpolation linear
+		RightSlope -0.01924
+		LeftSlope -0.01924
+		End
+	Key 54
+		Frame 55
+		Value -3.10928
+		Interpolation linear
+		RightSlope -0.014695
+		LeftSlope -0.014695
+		End
+	Key 55
+		Frame 56
+		Value -3.14923
+		Interpolation linear
+		RightSlope -0.02756
+		LeftSlope -0.02756
+		End
+	Key 56
+		Frame 57
+		Value -3.1644
+		Interpolation linear
+		RightSlope -0.0571001
+		LeftSlope -0.0571001
+		End
+	Key 57
+		Frame 58
+		Value -3.26343
+		Interpolation linear
+		RightSlope -0.06398
+		LeftSlope -0.06398
+		End
+	Key 58
+		Frame 59
+		Value -3.29236
+		Interpolation linear
+		RightSlope -0.03772
+		LeftSlope -0.03772
+		End
+	Key 59
+		Frame 60
+		Value -3.33887
+		Interpolation linear
+		RightSlope -0.060225
+		LeftSlope -0.060225
+		End
+	Key 60
+		Frame 61
+		Value -3.41281
+		Interpolation linear
+		RightSlope -0.070325
+		LeftSlope -0.070325
+		End
+	Key 61
+		Frame 62
+		Value -3.47952
+		Interpolation linear
+		RightSlope -0.0529799
+		LeftSlope -0.0529799
+		End
+	Key 62
+		Frame 63
+		Value -3.51877
+		Interpolation linear
+		RightSlope -0.0665749
+		LeftSlope -0.0665749
+		End
+	Key 63
+		Frame 64
+		Value -3.61267
+		Interpolation linear
+		RightSlope -0.0605
+		LeftSlope -0.0605
+		End
+	Key 64
+		Frame 65
+		Value -3.63977
+		Interpolation linear
+		RightSlope -0.055405
+		LeftSlope -0.055405
+		End
+	Key 65
+		Frame 66
+		Value -3.72348
+		Interpolation linear
+		RightSlope -0.0778949
+		LeftSlope -0.0778949
+		End
+	Key 66
+		Frame 67
+		Value -3.79556
+		Interpolation linear
+		RightSlope -0.05864
+		LeftSlope -0.05864
+		End
+	Key 67
+		Frame 68
+		Value -3.84076
+		Interpolation linear
+		RightSlope -0.0455201
+		LeftSlope -0.0455201
+		End
+	Key 68
+		Frame 69
+		Value -3.8866
+		Interpolation linear
+		RightSlope -0.06117
+		LeftSlope -0.06117
+		End
+	Key 69
+		Frame 70
+		Value -3.9631
+		Interpolation linear
+		RightSlope -0.0561349
+		LeftSlope -0.0561349
+		End
+	Key 70
+		Frame 71
+		Value -3.99887
+		Interpolation linear
+		RightSlope -0.0230601
+		LeftSlope -0.0230601
+		End
+	Key 71
+		Frame 72
+		Value -4.00922
+		Interpolation linear
+		RightSlope -0.0327601
+		LeftSlope -0.0327601
+		End
+	Key 72
+		Frame 73
+		Value -4.06439
+		Interpolation linear
+		RightSlope -0.04266
+		LeftSlope -0.04266
+		End
+	Key 73
+		Frame 74
+		Value -4.09454
+		Interpolation linear
+		RightSlope -0.02475
+		LeftSlope -0.02475
+		End
+	Key 74
+		Frame 75
+		Value -4.11389
+		Interpolation linear
+		RightSlope -0.0311449
+		LeftSlope -0.0311449
+		End
+	Key 75
+		Frame 76
+		Value -4.15683
+		Interpolation linear
+		RightSlope -0.0357049
+		LeftSlope -0.0357049
+		End
+	Key 76
+		Frame 77
+		Value -4.1853
+		Interpolation linear
+		RightSlope -0.0455
+		LeftSlope -0.0455
+		End
+	Key 77
+		Frame 78
+		Value -4.24783
+		Interpolation linear
+		RightSlope -0.05548
+		LeftSlope -0.05548
+		End
+	Key 78
+		Frame 79
+		Value -4.29626
+		Interpolation linear
+		RightSlope -0.040695
+		LeftSlope -0.040695
+		End
+	Key 79
+		Frame 80
+		Value -4.32922
+		Interpolation linear
+		RightSlope -0.078295
+		LeftSlope -0.078295
+		End
+	Key 80
+		Frame 81
+		Value -4.45285
+		Interpolation linear
+		RightSlope -0.0786152
+		LeftSlope -0.0786152
+		End
+	Key 81
+		Frame 82
+		Value -4.48645
+		Interpolation linear
+		RightSlope -0.053055
+		LeftSlope -0.053055
+		End
+	Key 82
+		Frame 83
+		Value -4.55896
+		Interpolation linear
+		RightSlope -0.0388649
+		LeftSlope -0.0388649
+		End
+	Key 83
+		Frame 84
+		Value -4.56418
+		Interpolation linear
+		RightSlope -0.05916
+		LeftSlope -0.05916
+		End
+	Key 84
+		Frame 85
+		Value -4.67728
+		Interpolation linear
+		RightSlope -0.06581
+		LeftSlope -0.06581
+		End
+	Key 85
+		Frame 86
+		Value -4.6958
+		Interpolation linear
+		RightSlope -0.02548
+		LeftSlope -0.02548
+		End
+	Key 86
+		Frame 87
+		Value -4.72824
+		Interpolation linear
+		RightSlope -0.0470152
+		LeftSlope -0.0470152
+		End
+	Key 87
+		Frame 88
+		Value -4.78983
+		Interpolation linear
+		RightSlope -0.055315
+		LeftSlope -0.055315
+		End
+	Key 88
+		Frame 89
+		Value -4.83887
+		Interpolation linear
+		RightSlope -0.0669098
+		LeftSlope -0.0669098
+		End
+	Key 89
+		Frame 90
+		Value -4.92365
+		Interpolation linear
+		RightSlope -0.0519099
+		LeftSlope -0.0519099
+		End
+	Key 90
+		Frame 91
+		Value -4.94269
+		Interpolation linear
+		RightSlope -0.0248702
+		LeftSlope -0.0248702
+		End
+	Key 91
+		Frame 92
+		Value -4.97339
+		Interpolation linear
+		RightSlope -0.0480201
+		LeftSlope -0.0480201
+		End
+	Key 92
+		Frame 93
+		Value -5.03873
+		Interpolation linear
+		RightSlope -0.0518649
+		LeftSlope -0.0518649
+		End
+	Key 93
+		Frame 94
+		Value -5.07712
+		Interpolation linear
+		RightSlope -0.0453
+		LeftSlope -0.0453
+		End
+	Key 94
+		Frame 95
+		Value -5.12933
+		Interpolation linear
+		RightSlope -0.0216651
+		LeftSlope -0.0216651
+		End
+	Key 95
+		Frame 96
+		Value -5.12045
+		Interpolation linear
+		RightSlope -0.0248449
+		LeftSlope -0.0248449
+		End
+	Key 96
+		Frame 97
+		Value -5.17902
+		Interpolation linear
+		RightSlope -0.0525849
+		LeftSlope -0.0525849
+		End
+	Key 97
+		Frame 98
+		Value -5.22562
+		Interpolation linear
+		RightSlope -0.0609701
+		LeftSlope -0.0609701
+		End
+	Key 98
+		Frame 99
+		Value -5.30096
+		Interpolation linear
+		RightSlope -0.0785501
+		LeftSlope -0.0785501
+		End
+	Key 99
+		Frame 100
+		Value -5.38272
+		Interpolation linear
+		RightSlope -0.0469849
+		LeftSlope -0.0469849
+		End
+	Key 100
+		Frame 101
+		Value -5.39493
+		Interpolation linear
+		RightSlope -0.02527
+		LeftSlope -0.02527
+		End
+	Key 101
+		Frame 102
+		Value -5.43326
+		Interpolation linear
+		RightSlope -0.055985
+		LeftSlope -0.055985
+		End
+	Key 102
+		Frame 103
+		Value -5.5069
+		Interpolation linear
+		RightSlope -0.07112
+		LeftSlope -0.07112
+		End
+	Key 103
+		Frame 104
+		Value -5.5755
+		Interpolation linear
+		RightSlope -0.064985
+		LeftSlope -0.064985
+		End
+	Key 104
+		Frame 105
+		Value -5.63687
+		Interpolation linear
+		RightSlope -0.0483551
+		LeftSlope -0.0483551
+		End
+	Key 105
+		Frame 106
+		Value -5.67221
+		Interpolation linear
+		RightSlope -0.0243251
+		LeftSlope -0.0243251
+		End
+	Key 106
+		Frame 107
+		Value -5.68552
+		Interpolation linear
+		RightSlope -0.0347898
+		LeftSlope -0.0347898
+		End
+	Key 107
+		Frame 108
+		Value -5.74179
+		Interpolation linear
+		RightSlope -0.0446448
+		LeftSlope -0.0446448
+		End
+	Key 108
+		Frame 109
+		Value -5.77481
+		Interpolation linear
+		RightSlope -0.0531452
+		LeftSlope -0.0531452
+		End
+	Key 109
+		Frame 110
+		Value -5.84808
+		Interpolation linear
+		RightSlope -0.0773802
+		LeftSlope -0.0773802
+		End
+	Key 110
+		Frame 111
+		Value -5.92957
+		Interpolation linear
+		RightSlope -0.0506599
+		LeftSlope -0.0506599
+		End
+	Key 111
+		Frame 112
+		Value -5.9494
+		Interpolation linear
+		RightSlope -0.0311549
+		LeftSlope -0.0311549
+		End
+	Key 112
+		Frame 113
+		Value -5.99188
+		Interpolation linear
+		RightSlope -0.00366497
+		LeftSlope -0.00366497
+		End
+	Key 113
+		Frame 114
+		Value -5.95673
+		Interpolation linear
+		RightSlope 0.00756502
+		LeftSlope 0.00756502
+		End
+	Key 114
+		Frame 115
+		Value -5.97675
+		Interpolation linear
+		RightSlope -0.0243351
+		LeftSlope -0.0243351
+		End
+	Key 115
+		Frame 116
+		Value -6.0054
+		Interpolation linear
+		RightSlope -0.03439
+		LeftSlope -0.03439
+		End
+	Key 116
+		Frame 117
+		Value -6.04553
+		Interpolation linear
+		RightSlope -0.049515
+		LeftSlope -0.049515
+		End
+	Key 117
+		Frame 118
+		Value -6.10443
+		Interpolation linear
+		RightSlope -0.060945
+		LeftSlope -0.060945
+		End
+	Key 118
+		Frame 119
+		Value -6.16742
+		Interpolation linear
+		RightSlope -0.01985
+		LeftSlope -0.01985
+		End
+	Key 119
+		Frame 120
+		Value -6.14413
+		Interpolation linear
+		RightSlope -0.01178
+		LeftSlope -0.01178
+		End
+	Key 120
+		Frame 121
+		Value -6.19098
+		Interpolation linear
+		RightSlope -0.0535598
+		LeftSlope -0.0535598
+		End
+	Key 121
+		Frame 122
+		Value -6.25125
+		Interpolation linear
+		RightSlope -0.0506601
+		LeftSlope -0.0506601
+		End
+	Key 122
+		Frame 123
+		Value -6.2923
+		Interpolation linear
+		RightSlope -0.0515301
+		LeftSlope -0.0515301
+		End
+	Key 123
+		Frame 124
+		Value -6.35431
+		Interpolation linear
+		RightSlope -0.0650299
+		LeftSlope -0.0650299
+		End
+	Key 124
+		Frame 125
+		Value -6.42236
+		Interpolation linear
+		RightSlope -0.0504899
+		LeftSlope -0.0504899
+		End
+	Key 125
+		Frame 126
+		Value -6.45529
+		Interpolation linear
+		RightSlope -0.0381501
+		LeftSlope -0.0381501
+		End
+	Key 126
+		Frame 127
+		Value -6.49866
+		Interpolation linear
+		RightSlope -0.0345452
+		LeftSlope -0.0345452
+		End
+	Key 127
+		Frame 128
+		Value -6.52438
+		Interpolation linear
+		RightSlope -0.0599799
+		LeftSlope -0.0599799
+		End
+	Key 128
+		Frame 129
+		Value -6.61862
+		Interpolation linear
+		RightSlope -0.073395
+		LeftSlope -0.073395
+		End
+	Key 129
+		Frame 130
+		Value -6.67117
+		Interpolation linear
+		RightSlope -0.041625
+		LeftSlope -0.041625
+		End
+	Key 130
+		Frame 131
+		Value -6.70187
+		Interpolation linear
+		RightSlope -0.0447099
+		LeftSlope -0.0447099
+		End
+	Key 131
+		Frame 132
+		Value -6.76059
+		Interpolation linear
+		RightSlope -0.0424349
+		LeftSlope -0.0424349
+		End
+	Key 132
+		Frame 133
+		Value -6.78674
+		Interpolation linear
+		RightSlope -0.03111
+		LeftSlope -0.03111
+		End
+	Key 133
+		Frame 134
+		Value -6.82281
+		Interpolation linear
+		RightSlope -0.0287352
+		LeftSlope -0.0287352
+		End
+	Key 134
+		Frame 135
+		Value -6.84421
+		Interpolation linear
+		RightSlope -0.0238349
+		LeftSlope -0.0238349
+		End
+	Key 135
+		Frame 136
+		Value -6.87048
+		Interpolation linear
+		RightSlope -0.0625749
+		LeftSlope -0.0625749
+		End
+	Key 136
+		Frame 137
+		Value -6.96936
+		Interpolation linear
+		RightSlope -0.0826449
+		LeftSlope -0.0826449
+		End
+	Key 137
+		Frame 138
+		Value -7.03577
+		Interpolation linear
+		RightSlope -0.051985
+		LeftSlope -0.051985
+		End
+	Key 138
+		Frame 139
+		Value -7.07333
+		Interpolation linear
+		RightSlope -0.081265
+		LeftSlope -0.081265
+		End
+	Key 139
+		Frame 140
+		Value -7.1983
+		Interpolation linear
+		RightSlope -0.0945899
+		LeftSlope -0.0945899
+		End
+	Key 140
+		Frame 141
+		Value -7.26251
+		Interpolation linear
+		RightSlope -0.076175
+		LeftSlope -0.076175
+		End
+	Key 141
+		Frame 142
+		Value -7.35065
+		Interpolation linear
+		RightSlope -0.0896301
+		LeftSlope -0.0896301
+		End
+	Key 142
+		Frame 143
+		Value -7.44177
+		Interpolation linear
+		RightSlope -0.083235
+		LeftSlope -0.083235
+		End
+	Key 143
+		Frame 144
+		Value -7.51712
+		Interpolation linear
+		RightSlope -0.06441
+		LeftSlope -0.06441
+		End
+	Key 144
+		Frame 145
+		Value -7.57059
+		Interpolation linear
+		RightSlope -0.043915
+		LeftSlope -0.043915
+		End
+	Key 145
+		Frame 146
+		Value -7.60495
+		Interpolation linear
+		RightSlope -0.0643899
+		LeftSlope -0.0643899
+		End
+	Key 146
+		Frame 147
+		Value -7.69937
+		Interpolation linear
+		RightSlope -0.0666051
+		LeftSlope -0.0666051
+		End
+	Key 147
+		Frame 148
+		Value -7.73816
+		Interpolation linear
+		RightSlope -0.047595
+		LeftSlope -0.047595
+		End
+	Key 148
+		Frame 149
+		Value -7.79456
+		Interpolation linear
+		RightSlope -0.06041
+		LeftSlope -0.06041
+		End
+	Key 149
+		Frame 150
+		Value -7.85898
+		Interpolation linear
+		RightSlope -0.06932
+		LeftSlope -0.06932
+		End
+	Key 150
+		Frame 151
+		Value -7.9332
+		Interpolation linear
+		RightSlope -0.08113
+		LeftSlope -0.08113
+		End
+	Key 151
+		Frame 152
+		Value -8.02124
+		Interpolation linear
+		RightSlope -0.04425
+		LeftSlope -0.04425
+		End
+	Key 152
+		Frame 153
+		Value -8.0217
+		Interpolation linear
+		RightSlope -0.05687
+		LeftSlope -0.05687
+		End
+	Key 153
+		Frame 154
+		Value -8.13498
+		Interpolation linear
+		RightSlope -0.0687399
+		LeftSlope -0.0687399
+		End
+	Key 154
+		Frame 155
+		Value -8.15918
+		Interpolation linear
+		RightSlope -0.0543499
+		LeftSlope -0.0543499
+		End
+	Key 155
+		Frame 156
+		Value -8.24368
+		Interpolation linear
+		RightSlope -0.0658402
+		LeftSlope -0.0658402
+		End
+	Key 156
+		Frame 157
+		Value -8.29086
+		Interpolation linear
+		RightSlope -0.0493798
+		LeftSlope -0.0493798
+		End
+	Key 157
+		Frame 158
+		Value -8.34244
+		Interpolation linear
+		RightSlope -0.0666647
+		LeftSlope -0.0666647
+		End
+	Key 158
+		Frame 159
+		Value -8.42419
+		Interpolation linear
+		RightSlope -0.0760202
+		LeftSlope -0.0760202
+		End
+	Key 159
+		Frame 160
+		Value -8.49448
+		Interpolation linear
+		RightSlope -0.0416903
+		LeftSlope -0.0416903
+		End
+	Key 160
+		Frame 161
+		Value -8.50757
+		Interpolation linear
+		RightSlope -0.0243201
+		LeftSlope -0.0243201
+		End
+	Key 161
+		Frame 162
+		Value -8.54312
+		Interpolation linear
+		RightSlope -0.0329099
+		LeftSlope -0.0329099
+		End
+	Key 162
+		Frame 163
+		Value -8.57339
+		Interpolation linear
+		RightSlope -0.0408349
+		LeftSlope -0.0408349
+		End
+	Key 163
+		Frame 164
+		Value -8.62479
+		Interpolation linear
+		RightSlope 0.026515
+		LeftSlope 0.026515
+		End
+	Key 164
+		Frame 165
+		Value -8.52036
+		Interpolation linear
+		RightSlope -0.0113049
+		LeftSlope -0.0113049
+		End
+	Key 165
+		Frame 166
+		Value -8.6474
+		Interpolation linear
+		RightSlope -0.04919
+		LeftSlope -0.04919
+		End
+	Key 166
+		Frame 167
+		Value -8.61874
+		Interpolation linear
+		RightSlope -0.013855
+		LeftSlope -0.013855
+		End
+	Key 167
+		Frame 168
+		Value -8.67511
+		Interpolation linear
+		RightSlope -0.0101352
+		LeftSlope -0.0101352
+		End
+	Key 168
+		Frame 169
+		Value -8.63901
+		Interpolation linear
+		RightSlope 0.0108647
+		LeftSlope 0.0108647
+		End
+	Key 169
+		Frame 170
+		Value -8.65338
+		Interpolation linear
+		RightSlope -0.0120997
+		LeftSlope -0.0120997
+		End
+	Key 170
+		Frame 171
+		Value -8.66321
+		Interpolation linear
+		RightSlope -0.00942993
+		LeftSlope -0.00942993
+		End
+	Key 171
+		Frame 172
+		Value -8.67224
+		Interpolation linear
+		RightSlope 0.00169516
+		LeftSlope 0.00169516
+		End
+	Key 172
+		Frame 173
+		Value -8.65982
+		Interpolation linear
+		RightSlope 0.00607014
+		LeftSlope 0.00607014
+		End
+	Key 173
+		Frame 174
+		Value -8.6601
+		Interpolation linear
+		RightSlope -0.0010252
+		LeftSlope -0.0010252
+		End
+	Key 174
+		Frame 175
+		Value -8.66187
+		Interpolation linear
+		RightSlope -0.0129499
+		LeftSlope -0.0129499
+		End
+	Key 175
+		Frame 176
+		Value -8.686
+		Interpolation linear
+		RightSlope -0.00357008
+		LeftSlope -0.00357008
+		End
+	Key 176
+		Frame 177
+		Value -8.66901
+		Interpolation linear
+		RightSlope 0.0471148
+		LeftSlope 0.0471148
+		End
+	Key 177
+		Frame 178
+		Value -8.59177
+		Interpolation linear
+		RightSlope 0.0106049
+		LeftSlope 0.0106049
+		End
+	Key 178
+		Frame 179
+		Value -8.6478
+		Interpolation linear
+		RightSlope 0.00904989
+		LeftSlope 0.00904989
+		End
+	Key 179
+		Frame 180
+		Value -8.57367
+		Interpolation linear
+		RightSlope 0.0330653
+		LeftSlope 0.0330653
+		End
+	Key 180
+		Frame 181
+		Value -8.58167
+		Interpolation linear
+		RightSlope -0.0259547
+		LeftSlope -0.0259547
+		End
+	Key 181
+		Frame 182
+		Value -8.62558
+		Interpolation linear
+		RightSlope -0.0504899
+		LeftSlope -0.0504899
+		End
+	Key 182
+		Frame 183
+		Value -8.68265
+		Interpolation linear
+		RightSlope -0.0604703
+		LeftSlope -0.0604703
+		End
+	Colour 255 0 0
+	End
+Channel top_left/shift/y
+	Extrapolation linear
+	Value 0.573303
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope 0.026886
+		LeftSlope 0.026886
+		End
+	Key 1
+		Frame 2
+		Value 0.026886
+		Interpolation linear
+		RightSlope 0.0326233
+		LeftSlope 0.0326233
+		End
+	Key 2
+		Frame 3
+		Value 0.0652466
+		Interpolation linear
+		RightSlope 0.0323944
+		LeftSlope 0.0323944
+		End
+	Key 3
+		Frame 4
+		Value 0.0916748
+		Interpolation linear
+		RightSlope 0.0429992
+		LeftSlope 0.0429992
+		End
+	Key 4
+		Frame 5
+		Value 0.151245
+		Interpolation linear
+		RightSlope 0.0246126
+		LeftSlope 0.0246126
+		End
+	Key 5
+		Frame 6
+		Value 0.1409
+		Interpolation linear
+		RightSlope 0.020859
+		LeftSlope 0.020859
+		End
+	Key 6
+		Frame 7
+		Value 0.192963
+		Interpolation linear
+		RightSlope 0.045105
+		LeftSlope 0.045105
+		End
+	Key 7
+		Frame 8
+		Value 0.23111
+		Interpolation linear
+		RightSlope 0.0294645
+		LeftSlope 0.0294645
+		End
+	Key 8
+		Frame 9
+		Value 0.251892
+		Interpolation linear
+		RightSlope 0.14627
+		LeftSlope 0.14627
+		End
+	Key 9
+		Frame 10
+		Value 0.523651
+		Interpolation linear
+		RightSlope 0.093048
+		LeftSlope 0.093048
+		End
+	Key 10
+		Frame 11
+		Value 0.437988
+		Interpolation linear
+		RightSlope -0.058624
+		LeftSlope -0.058624
+		End
+	Key 11
+		Frame 12
+		Value 0.406403
+		Interpolation linear
+		RightSlope -0.00535551
+		LeftSlope -0.00535551
+		End
+	Key 12
+		Frame 13
+		Value 0.427277
+		Interpolation linear
+		RightSlope 0.0391845
+		LeftSlope 0.0391845
+		End
+	Key 13
+		Frame 14
+		Value 0.484772
+		Interpolation linear
+		RightSlope 0.048065
+		LeftSlope 0.048065
+		End
+	Key 14
+		Frame 15
+		Value 0.523407
+		Interpolation linear
+		RightSlope 0.0442655
+		LeftSlope 0.0442655
+		End
+	Key 15
+		Frame 16
+		Value 0.573303
+		Interpolation linear
+		RightSlope 0.0320435
+		LeftSlope 0.0320435
+		End
+	Key 16
+		Frame 17
+		Value 0.587494
+		Interpolation linear
+		RightSlope 0.109085
+		LeftSlope 0.109085
+		End
+	Key 17
+		Frame 18
+		Value 0.791473
+		Interpolation linear
+		RightSlope 0.163376
+		LeftSlope 0.163376
+		End
+	Key 18
+		Frame 19
+		Value 0.914246
+		Interpolation linear
+		RightSlope 0.0958865
+		LeftSlope 0.0958865
+		End
+	Key 19
+		Frame 20
+		Value 0.983246
+		Interpolation linear
+		RightSlope 0.085587
+		LeftSlope 0.085587
+		End
+	Key 20
+		Frame 21
+		Value 1.08542
+		Interpolation linear
+		RightSlope 0.091187
+		LeftSlope 0.091187
+		End
+	Key 21
+		Frame 22
+		Value 1.16562
+		Interpolation linear
+		RightSlope 0.07736
+		LeftSlope 0.07736
+		End
+	Key 22
+		Frame 23
+		Value 1.24014
+		Interpolation linear
+		RightSlope 0.13281
+		LeftSlope 0.13281
+		End
+	Key 23
+		Frame 24
+		Value 1.43124
+		Interpolation linear
+		RightSlope 0.113985
+		LeftSlope 0.113985
+		End
+	Key 24
+		Frame 25
+		Value 1.46811
+		Interpolation linear
+		RightSlope 0.076035
+		LeftSlope 0.076035
+		End
+	Key 25
+		Frame 26
+		Value 1.58331
+		Interpolation linear
+		RightSlope 0.07727
+		LeftSlope 0.07727
+		End
+	Key 26
+		Frame 27
+		Value 1.62265
+		Interpolation linear
+		RightSlope 0.106295
+		LeftSlope 0.106295
+		End
+	Key 27
+		Frame 28
+		Value 1.7959
+		Interpolation linear
+		RightSlope 0.14679
+		LeftSlope 0.14679
+		End
+	Key 28
+		Frame 29
+		Value 1.91623
+		Interpolation linear
+		RightSlope 0.118315
+		LeftSlope 0.118315
+		End
+	Key 29
+		Frame 30
+		Value 2.03253
+		Interpolation linear
+		RightSlope 0.08284
+		LeftSlope 0.08284
+		End
+	Key 30
+		Frame 31
+		Value 2.08191
+		Interpolation linear
+		RightSlope 0.06151
+		LeftSlope 0.06151
+		End
+	Key 31
+		Frame 32
+		Value 2.15555
+		Interpolation linear
+		RightSlope 0.07086
+		LeftSlope 0.07086
+		End
+	Key 32
+		Frame 33
+		Value 2.22363
+		Interpolation linear
+		RightSlope 0.076295
+		LeftSlope 0.076295
+		End
+	Key 33
+		Frame 34
+		Value 2.30814
+		Interpolation linear
+		RightSlope 0.08365
+		LeftSlope 0.08365
+		End
+	Key 34
+		Frame 35
+		Value 2.39093
+		Interpolation linear
+		RightSlope 0.07028
+		LeftSlope 0.07028
+		End
+	Key 35
+		Frame 36
+		Value 2.4487
+		Interpolation linear
+		RightSlope 0.0793
+		LeftSlope 0.0793
+		End
+	Key 36
+		Frame 37
+		Value 2.54953
+		Interpolation linear
+		RightSlope 0.0931851
+		LeftSlope 0.0931851
+		End
+	Key 37
+		Frame 38
+		Value 2.63507
+		Interpolation linear
+		RightSlope 0.06125
+		LeftSlope 0.06125
+		End
+	Key 38
+		Frame 39
+		Value 2.67203
+		Interpolation linear
+		RightSlope 0.03415
+		LeftSlope 0.03415
+		End
+	Key 39
+		Frame 40
+		Value 2.70337
+		Interpolation linear
+		RightSlope 0.0210251
+		LeftSlope 0.0210251
+		End
+	Key 40
+		Frame 41
+		Value 2.71408
+		Interpolation linear
+		RightSlope 0.010605
+		LeftSlope 0.010605
+		End
+	Key 41
+		Frame 42
+		Value 2.72458
+		Interpolation linear
+		RightSlope -0.0063951
+		LeftSlope -0.0063951
+		End
+	Key 42
+		Frame 43
+		Value 2.70129
+		Interpolation linear
+		RightSlope 0.08972
+		LeftSlope 0.08972
+		End
+	Key 43
+		Frame 44
+		Value 2.90402
+		Interpolation linear
+		RightSlope 0.126285
+		LeftSlope 0.126285
+		End
+	Key 44
+		Frame 45
+		Value 2.95386
+		Interpolation linear
+		RightSlope 0.03679
+		LeftSlope 0.03679
+		End
+	Key 45
+		Frame 46
+		Value 2.9776
+		Interpolation linear
+		RightSlope 0.038085
+		LeftSlope 0.038085
+		End
+	Key 46
+		Frame 47
+		Value 3.03003
+		Interpolation linear
+		RightSlope 0.0491799
+		LeftSlope 0.0491799
+		End
+	Key 47
+		Frame 48
+		Value 3.07596
+		Interpolation linear
+		RightSlope 0.0487649
+		LeftSlope 0.0487649
+		End
+	Key 48
+		Frame 49
+		Value 3.12756
+		Interpolation linear
+		RightSlope 0.050995
+		LeftSlope 0.050995
+		End
+	Key 49
+		Frame 50
+		Value 3.17795
+		Interpolation linear
+		RightSlope 0.0602901
+		LeftSlope 0.0602901
+		End
+	Key 50
+		Frame 51
+		Value 3.24814
+		Interpolation linear
+		RightSlope 0.070585
+		LeftSlope 0.070585
+		End
+	Key 51
+		Frame 52
+		Value 3.31912
+		Interpolation linear
+		RightSlope 0.06163
+		LeftSlope 0.06163
+		End
+	Key 52
+		Frame 53
+		Value 3.3714
+		Interpolation linear
+		RightSlope 0.046555
+		LeftSlope 0.046555
+		End
+	Key 53
+		Frame 54
+		Value 3.41223
+		Interpolation linear
+		RightSlope 0.047655
+		LeftSlope 0.047655
+		End
+	Key 54
+		Frame 55
+		Value 3.46671
+		Interpolation linear
+		RightSlope 0.075105
+		LeftSlope 0.075105
+		End
+	Key 55
+		Frame 56
+		Value 3.56244
+		Interpolation linear
+		RightSlope 0.08873
+		LeftSlope 0.08873
+		End
+	Key 56
+		Frame 57
+		Value 3.64417
+		Interpolation linear
+		RightSlope 0.0563951
+		LeftSlope 0.0563951
+		End
+	Key 57
+		Frame 58
+		Value 3.67523
+		Interpolation linear
+		RightSlope 0.03929
+		LeftSlope 0.03929
+		End
+	Key 58
+		Frame 59
+		Value 3.72275
+		Interpolation linear
+		RightSlope 0.03891
+		LeftSlope 0.03891
+		End
+	Key 59
+		Frame 60
+		Value 3.75305
+		Interpolation linear
+		RightSlope 0.0351551
+		LeftSlope 0.0351551
+		End
+	Key 60
+		Frame 61
+		Value 3.79306
+		Interpolation linear
+		RightSlope 0.015445
+		LeftSlope 0.015445
+		End
+	Key 61
+		Frame 62
+		Value 3.78394
+		Interpolation linear
+		RightSlope 0.00753999
+		LeftSlope 0.00753999
+		End
+	Key 62
+		Frame 63
+		Value 3.80814
+		Interpolation linear
+		RightSlope 0.0806249
+		LeftSlope 0.0806249
+		End
+	Key 63
+		Frame 64
+		Value 3.94519
+		Interpolation linear
+		RightSlope 0.09346
+		LeftSlope 0.09346
+		End
+	Key 64
+		Frame 65
+		Value 3.99506
+		Interpolation linear
+		RightSlope 0.026275
+		LeftSlope 0.026275
+		End
+	Key 65
+		Frame 66
+		Value 3.99774
+		Interpolation linear
+		RightSlope 0.02264
+		LeftSlope 0.02264
+		End
+	Key 66
+		Frame 67
+		Value 4.04034
+		Interpolation linear
+		RightSlope 0.0447699
+		LeftSlope 0.0447699
+		End
+	Key 67
+		Frame 68
+		Value 4.08728
+		Interpolation linear
+		RightSlope 0.0525401
+		LeftSlope 0.0525401
+		End
+	Key 68
+		Frame 69
+		Value 4.14542
+		Interpolation linear
+		RightSlope 0.0489502
+		LeftSlope 0.0489502
+		End
+	Key 69
+		Frame 70
+		Value 4.18518
+		Interpolation linear
+		RightSlope 0.05583
+		LeftSlope 0.05583
+		End
+	Key 70
+		Frame 71
+		Value 4.25708
+		Interpolation linear
+		RightSlope 0.0632498
+		LeftSlope 0.0632498
+		End
+	Key 71
+		Frame 72
+		Value 4.31168
+		Interpolation linear
+		RightSlope 0.0540149
+		LeftSlope 0.0540149
+		End
+	Key 72
+		Frame 73
+		Value 4.36511
+		Interpolation linear
+		RightSlope 0.0685701
+		LeftSlope 0.0685701
+		End
+	Key 73
+		Frame 74
+		Value 4.44882
+		Interpolation linear
+		RightSlope 0.074465
+		LeftSlope 0.074465
+		End
+	Key 74
+		Frame 75
+		Value 4.51404
+		Interpolation linear
+		RightSlope 0.062515
+		LeftSlope 0.062515
+		End
+	Key 75
+		Frame 76
+		Value 4.57385
+		Interpolation linear
+		RightSlope 0.0632601
+		LeftSlope 0.0632601
+		End
+	Key 76
+		Frame 77
+		Value 4.64056
+		Interpolation linear
+		RightSlope 0.0553598
+		LeftSlope 0.0553598
+		End
+	Key 77
+		Frame 78
+		Value 4.68457
+		Interpolation linear
+		RightSlope 0.054415
+		LeftSlope 0.054415
+		End
+	Key 78
+		Frame 79
+		Value 4.74939
+		Interpolation linear
+		RightSlope 0.0562901
+		LeftSlope 0.0562901
+		End
+	Key 79
+		Frame 80
+		Value 4.79715
+		Interpolation linear
+		RightSlope 0.0374
+		LeftSlope 0.0374
+		End
+	Key 80
+		Frame 81
+		Value 4.82419
+		Interpolation linear
+		RightSlope 0.0272849
+		LeftSlope 0.0272849
+		End
+	Key 81
+		Frame 82
+		Value 4.85172
+		Interpolation linear
+		RightSlope 0.085145
+		LeftSlope 0.085145
+		End
+	Key 82
+		Frame 83
+		Value 4.99448
+		Interpolation linear
+		RightSlope 0.088695
+		LeftSlope 0.088695
+		End
+	Key 83
+		Frame 84
+		Value 5.02911
+		Interpolation linear
+		RightSlope 0.0333099
+		LeftSlope 0.0333099
+		End
+	Key 84
+		Frame 85
+		Value 5.0611
+		Interpolation linear
+		RightSlope 0.040545
+		LeftSlope 0.040545
+		End
+	Key 85
+		Frame 86
+		Value 5.1102
+		Interpolation linear
+		RightSlope 0.0464749
+		LeftSlope 0.0464749
+		End
+	Key 86
+		Frame 87
+		Value 5.15405
+		Interpolation linear
+		RightSlope 0.052155
+		LeftSlope 0.052155
+		End
+	Key 87
+		Frame 88
+		Value 5.21451
+		Interpolation linear
+		RightSlope 0.0513451
+		LeftSlope 0.0513451
+		End
+	Key 88
+		Frame 89
+		Value 5.25674
+		Interpolation linear
+		RightSlope 0.0372901
+		LeftSlope 0.0372901
+		End
+	Key 89
+		Frame 90
+		Value 5.28909
+		Interpolation linear
+		RightSlope 0.054445
+		LeftSlope 0.054445
+		End
+	Key 90
+		Frame 91
+		Value 5.36563
+		Interpolation linear
+		RightSlope 0.063905
+		LeftSlope 0.063905
+		End
+	Key 91
+		Frame 92
+		Value 5.4169
+		Interpolation linear
+		RightSlope 0.0446
+		LeftSlope 0.0446
+		End
+	Key 92
+		Frame 93
+		Value 5.45483
+		Interpolation linear
+		RightSlope 0.0305049
+		LeftSlope 0.0305049
+		End
+	Key 93
+		Frame 94
+		Value 5.47791
+		Interpolation linear
+		RightSlope 0.0533299
+		LeftSlope 0.0533299
+		End
+	Key 94
+		Frame 95
+		Value 5.56149
+		Interpolation linear
+		RightSlope 0.08061
+		LeftSlope 0.08061
+		End
+	Key 95
+		Frame 96
+		Value 5.63913
+		Interpolation linear
+		RightSlope 0.060595
+		LeftSlope 0.060595
+		End
+	Key 96
+		Frame 97
+		Value 5.68268
+		Interpolation linear
+		RightSlope 0.06021
+		LeftSlope 0.06021
+		End
+	Key 97
+		Frame 98
+		Value 5.75955
+		Interpolation linear
+		RightSlope 0.070065
+		LeftSlope 0.070065
+		End
+	Key 98
+		Frame 99
+		Value 5.82281
+		Interpolation linear
+		RightSlope 0.0683
+		LeftSlope 0.0683
+		End
+	Key 99
+		Frame 100
+		Value 5.89615
+		Interpolation linear
+		RightSlope 0.0574498
+		LeftSlope 0.0574498
+		End
+	Key 100
+		Frame 101
+		Value 5.93771
+		Interpolation linear
+		RightSlope 0.054595
+		LeftSlope 0.054595
+		End
+	Key 101
+		Frame 102
+		Value 6.00534
+		Interpolation linear
+		RightSlope 0.092195
+		LeftSlope 0.092195
+		End
+	Key 102
+		Frame 103
+		Value 6.1221
+		Interpolation linear
+		RightSlope 0.0643148
+		LeftSlope 0.0643148
+		End
+	Key 103
+		Frame 104
+		Value 6.13397
+		Interpolation linear
+		RightSlope -0.00486493
+		LeftSlope -0.00486493
+		End
+	Key 104
+		Frame 105
+		Value 6.11237
+		Interpolation linear
+		RightSlope 0.00389004
+		LeftSlope 0.00389004
+		End
+	Key 105
+		Frame 106
+		Value 6.14175
+		Interpolation linear
+		RightSlope 0.0466599
+		LeftSlope 0.0466599
+		End
+	Key 106
+		Frame 107
+		Value 6.20569
+		Interpolation linear
+		RightSlope 0.0410001
+		LeftSlope 0.0410001
+		End
+	Key 107
+		Frame 108
+		Value 6.22375
+		Interpolation linear
+		RightSlope 0.02408
+		LeftSlope 0.02408
+		End
+	Key 108
+		Frame 109
+		Value 6.25385
+		Interpolation linear
+		RightSlope 0.021805
+		LeftSlope 0.021805
+		End
+	Key 109
+		Frame 110
+		Value 6.26736
+		Interpolation linear
+		RightSlope 0.038085
+		LeftSlope 0.038085
+		End
+	Key 110
+		Frame 111
+		Value 6.33002
+		Interpolation linear
+		RightSlope 0.0699499
+		LeftSlope 0.0699499
+		End
+	Key 111
+		Frame 112
+		Value 6.40726
+		Interpolation linear
+		RightSlope 0.0734401
+		LeftSlope 0.0734401
+		End
+	Key 112
+		Frame 113
+		Value 6.4769
+		Interpolation linear
+		RightSlope 0.07182
+		LeftSlope 0.07182
+		End
+	Key 113
+		Frame 114
+		Value 6.5509
+		Interpolation linear
+		RightSlope 0.0647249
+		LeftSlope 0.0647249
+		End
+	Key 114
+		Frame 115
+		Value 6.60635
+		Interpolation linear
+		RightSlope 0.0705299
+		LeftSlope 0.0705299
+		End
+	Key 115
+		Frame 116
+		Value 6.69196
+		Interpolation linear
+		RightSlope 0.0664101
+		LeftSlope 0.0664101
+		End
+	Key 116
+		Frame 117
+		Value 6.73917
+		Interpolation linear
+		RightSlope 0.0355952
+		LeftSlope 0.0355952
+		End
+	Key 117
+		Frame 118
+		Value 6.76315
+		Interpolation linear
+		RightSlope 0.0409698
+		LeftSlope 0.0409698
+		End
+	Key 118
+		Frame 119
+		Value 6.82111
+		Interpolation linear
+		RightSlope 0.05194
+		LeftSlope 0.05194
+		End
+	Key 119
+		Frame 120
+		Value 6.86703
+		Interpolation linear
+		RightSlope 0.0442352
+		LeftSlope 0.0442352
+		End
+	Key 120
+		Frame 121
+		Value 6.90958
+		Interpolation linear
+		RightSlope 0.0401049
+		LeftSlope 0.0401049
+		End
+	Key 121
+		Frame 122
+		Value 6.94724
+		Interpolation linear
+		RightSlope 0.0390148
+		LeftSlope 0.0390148
+		End
+	Key 122
+		Frame 123
+		Value 6.98761
+		Interpolation linear
+		RightSlope 0.029495
+		LeftSlope 0.029495
+		End
+	Key 123
+		Frame 124
+		Value 7.00623
+		Interpolation linear
+		RightSlope 0.00795007
+		LeftSlope 0.00795007
+		End
+	Key 124
+		Frame 125
+		Value 7.00351
+		Interpolation linear
+		RightSlope 0.01103
+		LeftSlope 0.01103
+		End
+	Key 125
+		Frame 126
+		Value 7.02829
+		Interpolation linear
+		RightSlope 0.0769651
+		LeftSlope 0.0769651
+		End
+	Key 126
+		Frame 127
+		Value 7.15744
+		Interpolation linear
+		RightSlope 0.08304
+		LeftSlope 0.08304
+		End
+	Key 127
+		Frame 128
+		Value 7.19437
+		Interpolation linear
+		RightSlope 0.0165248
+		LeftSlope 0.0165248
+		End
+	Key 128
+		Frame 129
+		Value 7.19049
+		Interpolation linear
+		RightSlope 0.0238302
+		LeftSlope 0.0238302
+		End
+	Key 129
+		Frame 130
+		Value 7.24203
+		Interpolation linear
+		RightSlope 0.061095
+		LeftSlope 0.061095
+		End
+	Key 130
+		Frame 131
+		Value 7.31268
+		Interpolation linear
+		RightSlope 0.0688648
+		LeftSlope 0.0688648
+		End
+	Key 131
+		Frame 132
+		Value 7.37976
+		Interpolation linear
+		RightSlope 0.0541852
+		LeftSlope 0.0541852
+		End
+	Key 132
+		Frame 133
+		Value 7.42105
+		Interpolation linear
+		RightSlope 0.0550101
+		LeftSlope 0.0550101
+		End
+	Key 133
+		Frame 134
+		Value 7.48978
+		Interpolation linear
+		RightSlope 0.06885
+		LeftSlope 0.06885
+		End
+	Key 134
+		Frame 135
+		Value 7.55875
+		Interpolation linear
+		RightSlope 0.0850201
+		LeftSlope 0.0850201
+		End
+	Key 135
+		Frame 136
+		Value 7.65982
+		Interpolation linear
+		RightSlope 0.0913548
+		LeftSlope 0.0913548
+		End
+	Key 136
+		Frame 137
+		Value 7.74146
+		Interpolation linear
+		RightSlope 0.08441
+		LeftSlope 0.08441
+		End
+	Key 137
+		Frame 138
+		Value 7.82864
+		Interpolation linear
+		RightSlope 0.0876451
+		LeftSlope 0.0876451
+		End
+	Key 138
+		Frame 139
+		Value 7.91675
+		Interpolation linear
+		RightSlope 0.0616651
+		LeftSlope 0.0616651
+		End
+	Key 139
+		Frame 140
+		Value 7.95197
+		Interpolation linear
+		RightSlope 0.037045
+		LeftSlope 0.037045
+		End
+	Key 140
+		Frame 141
+		Value 7.99084
+		Interpolation linear
+		RightSlope 0.0639448
+		LeftSlope 0.0639448
+		End
+	Key 141
+		Frame 142
+		Value 8.07986
+		Interpolation linear
+		RightSlope 0.107225
+		LeftSlope 0.107225
+		End
+	Key 142
+		Frame 143
+		Value 8.20529
+		Interpolation linear
+		RightSlope 0.0985899
+		LeftSlope 0.0985899
+		End
+	Key 143
+		Frame 144
+		Value 8.27704
+		Interpolation linear
+		RightSlope 0.0524602
+		LeftSlope 0.0524602
+		End
+	Key 144
+		Frame 145
+		Value 8.31021
+		Interpolation linear
+		RightSlope 0.0710902
+		LeftSlope 0.0710902
+		End
+	Key 145
+		Frame 146
+		Value 8.41922
+		Interpolation linear
+		RightSlope 0.0840001
+		LeftSlope 0.0840001
+		End
+	Key 146
+		Frame 147
+		Value 8.47821
+		Interpolation linear
+		RightSlope 0.10115
+		LeftSlope 0.10115
+		End
+	Key 147
+		Frame 148
+		Value 8.62152
+		Interpolation linear
+		RightSlope 0.12134
+		LeftSlope 0.12134
+		End
+	Key 148
+		Frame 149
+		Value 8.72089
+		Interpolation linear
+		RightSlope 0.0561051
+		LeftSlope 0.0561051
+		End
+	Key 149
+		Frame 150
+		Value 8.73373
+		Interpolation linear
+		RightSlope 0.0206752
+		LeftSlope 0.0206752
+		End
+	Key 150
+		Frame 151
+		Value 8.76224
+		Interpolation linear
+		RightSlope 0.0551147
+		LeftSlope 0.0551147
+		End
+	Key 151
+		Frame 152
+		Value 8.84396
+		Interpolation linear
+		RightSlope 0.0929999
+		LeftSlope 0.0929999
+		End
+	Key 152
+		Frame 153
+		Value 8.94824
+		Interpolation linear
+		RightSlope 0.09203
+		LeftSlope 0.09203
+		End
+	Key 153
+		Frame 154
+		Value 9.02802
+		Interpolation linear
+		RightSlope 0.0599399
+		LeftSlope 0.0599399
+		End
+	Key 154
+		Frame 155
+		Value 9.06812
+		Interpolation linear
+		RightSlope 0.0524249
+		LeftSlope 0.0524249
+		End
+	Key 155
+		Frame 156
+		Value 9.13287
+		Interpolation linear
+		RightSlope 0.0617352
+		LeftSlope 0.0617352
+		End
+	Key 156
+		Frame 157
+		Value 9.19159
+		Interpolation linear
+		RightSlope 0.0415201
+		LeftSlope 0.0415201
+		End
+	Key 157
+		Frame 158
+		Value 9.21591
+		Interpolation linear
+		RightSlope 0.0658097
+		LeftSlope 0.0658097
+		End
+	Key 158
+		Frame 159
+		Value 9.32321
+		Interpolation linear
+		RightSlope 0.0491199
+		LeftSlope 0.0491199
+		End
+	Key 159
+		Frame 160
+		Value 9.31415
+		Interpolation linear
+		RightSlope 0.0116453
+		LeftSlope 0.0116453
+		End
+	Key 160
+		Frame 161
+		Value 9.3465
+		Interpolation linear
+		RightSlope 0.0338602
+		LeftSlope 0.0338602
+		End
+	Key 161
+		Frame 162
+		Value 9.38187
+		Interpolation linear
+		RightSlope 0.0286698
+		LeftSlope 0.0286698
+		End
+	Key 162
+		Frame 163
+		Value 9.40384
+		Interpolation linear
+		RightSlope 0.0336447
+		LeftSlope 0.0336447
+		End
+	Key 163
+		Frame 164
+		Value 9.44916
+		Interpolation linear
+		RightSlope 0.0674901
+		LeftSlope 0.0674901
+		End
+	Key 164
+		Frame 165
+		Value 9.53882
+		Interpolation linear
+		RightSlope 0.0246253
+		LeftSlope 0.0246253
+		End
+	Key 165
+		Frame 166
+		Value 9.49841
+		Interpolation linear
+		RightSlope -0.0273299
+		LeftSlope -0.0273299
+		End
+	Key 166
+		Frame 167
+		Value 9.48416
+		Interpolation linear
+		RightSlope -0.00926018
+		LeftSlope -0.00926018
+		End
+	Key 167
+		Frame 168
+		Value 9.47989
+		Interpolation linear
+		RightSlope 0.015245
+		LeftSlope 0.015245
+		End
+	Key 168
+		Frame 169
+		Value 9.51465
+		Interpolation linear
+		RightSlope 0.00398016
+		LeftSlope 0.00398016
+		End
+	Key 169
+		Frame 170
+		Value 9.48785
+		Interpolation linear
+		RightSlope -0.00723505
+		LeftSlope -0.00723505
+		End
+	Key 170
+		Frame 171
+		Value 9.50018
+		Interpolation linear
+		RightSlope 0.00164986
+		LeftSlope 0.00164986
+		End
+	Key 171
+		Frame 172
+		Value 9.49115
+		Interpolation linear
+		RightSlope -0.00163031
+		LeftSlope -0.00163031
+		End
+	Key 172
+		Frame 173
+		Value 9.49692
+		Interpolation linear
+		RightSlope -0.000595093
+		LeftSlope -0.000595093
+		End
+	Key 173
+		Frame 174
+		Value 9.48996
+		Interpolation linear
+		RightSlope -0.00152493
+		LeftSlope -0.00152493
+		End
+	Key 174
+		Frame 175
+		Value 9.49387
+		Interpolation linear
+		RightSlope 0.00999498
+		LeftSlope 0.00999498
+		End
+	Key 175
+		Frame 176
+		Value 9.50995
+		Interpolation linear
+		RightSlope -0.00157499
+		LeftSlope -0.00157499
+		End
+	Key 176
+		Frame 177
+		Value 9.49072
+		Interpolation linear
+		RightSlope 0.000730038
+		LeftSlope 0.000730038
+		End
+	Key 177
+		Frame 178
+		Value 9.51141
+		Interpolation linear
+		RightSlope 0.00371027
+		LeftSlope 0.00371027
+		End
+	Key 178
+		Frame 179
+		Value 9.49814
+		Interpolation linear
+		RightSlope 0.00195503
+		LeftSlope 0.00195503
+		End
+	Key 179
+		Frame 180
+		Value 9.51532
+		Interpolation linear
+		RightSlope 0.01332
+		LeftSlope 0.01332
+		End
+	Key 180
+		Frame 181
+		Value 9.52478
+		Interpolation linear
+		RightSlope -0.0056901
+		LeftSlope -0.0056901
+		End
+	Key 181
+		Frame 182
+		Value 9.50394
+		Interpolation linear
+		RightSlope -0.00844002
+		LeftSlope -0.00844002
+		End
+	Key 182
+		Frame 183
+		Value 9.5079
+		Interpolation linear
+		RightSlope 0.0124108
+		LeftSlope 0.0124108
+		End
+	Colour 255 0 0
+	End
+Channel top_left/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel top_left/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel top_right/ref/x
+	Extrapolation constant
+	Value 415.631
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 415.631
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_right/ref/y
+	Extrapolation constant
+	Value 365.984
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 365.984
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_right/ref/width
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_right/ref/height
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_right/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_right/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel top_right/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel top_right/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel top_right/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_right/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_right/shift/x
+	Extrapolation linear
+	Value 0.36084
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope 0.0326843
+		LeftSlope 0.0326843
+		End
+	Key 1
+		Frame 2
+		Value 0.0326843
+		Interpolation linear
+		RightSlope 0.0305481
+		LeftSlope 0.0305481
+		End
+	Key 2
+		Frame 3
+		Value 0.0610962
+		Interpolation linear
+		RightSlope 0.0231323
+		LeftSlope 0.0231323
+		End
+	Key 3
+		Frame 4
+		Value 0.078949
+		Interpolation linear
+		RightSlope 0.0204924
+		LeftSlope 0.0204924
+		End
+	Key 4
+		Frame 5
+		Value 0.102081
+		Interpolation linear
+		RightSlope 0.0267945
+		LeftSlope 0.0267945
+		End
+	Key 5
+		Frame 6
+		Value 0.132538
+		Interpolation linear
+		RightSlope 0.0217285
+		LeftSlope 0.0217285
+		End
+	Key 6
+		Frame 7
+		Value 0.145538
+		Interpolation linear
+		RightSlope 0.0113065
+		LeftSlope 0.0113065
+		End
+	Key 7
+		Frame 8
+		Value 0.155151
+		Interpolation linear
+		RightSlope 0.020096
+		LeftSlope 0.020096
+		End
+	Key 8
+		Frame 9
+		Value 0.18573
+		Interpolation linear
+		RightSlope 0.019745
+		LeftSlope 0.019745
+		End
+	Key 9
+		Frame 10
+		Value 0.194641
+		Interpolation linear
+		RightSlope 0.0177305
+		LeftSlope 0.0177305
+		End
+	Key 10
+		Frame 11
+		Value 0.221191
+		Interpolation linear
+		RightSlope 0.0231935
+		LeftSlope 0.0231935
+		End
+	Key 11
+		Frame 12
+		Value 0.241028
+		Interpolation linear
+		RightSlope 0.034424
+		LeftSlope 0.034424
+		End
+	Key 12
+		Frame 13
+		Value 0.290039
+		Interpolation linear
+		RightSlope 0.029724
+		LeftSlope 0.029724
+		End
+	Key 13
+		Frame 14
+		Value 0.300476
+		Interpolation linear
+		RightSlope 0.0239565
+		LeftSlope 0.0239565
+		End
+	Key 14
+		Frame 15
+		Value 0.337952
+		Interpolation linear
+		RightSlope 0.030182
+		LeftSlope 0.030182
+		End
+	Key 15
+		Frame 16
+		Value 0.36084
+		Interpolation linear
+		RightSlope 0.0227505
+		LeftSlope 0.0227505
+		End
+	Key 16
+		Frame 17
+		Value 0.383453
+		Interpolation linear
+		RightSlope 0.0421905
+		LeftSlope 0.0421905
+		End
+	Key 17
+		Frame 18
+		Value 0.445221
+		Interpolation linear
+		RightSlope 0.0544895
+		LeftSlope 0.0544895
+		End
+	Key 18
+		Frame 19
+		Value 0.492432
+		Interpolation linear
+		RightSlope 0.070862
+		LeftSlope 0.070862
+		End
+	Key 19
+		Frame 20
+		Value 0.586945
+		Interpolation linear
+		RightSlope 0.080261
+		LeftSlope 0.080261
+		End
+	Key 20
+		Frame 21
+		Value 0.652954
+		Interpolation linear
+		RightSlope 0.069885
+		LeftSlope 0.069885
+		End
+	Key 21
+		Frame 22
+		Value 0.726715
+		Interpolation linear
+		RightSlope 0.059265
+		LeftSlope 0.059265
+		End
+	Key 22
+		Frame 23
+		Value 0.771484
+		Interpolation linear
+		RightSlope 0.0565035
+		LeftSlope 0.0565035
+		End
+	Key 23
+		Frame 24
+		Value 0.839722
+		Interpolation linear
+		RightSlope 0.061539
+		LeftSlope 0.061539
+		End
+	Key 24
+		Frame 25
+		Value 0.894562
+		Interpolation linear
+		RightSlope 0.0533295
+		LeftSlope 0.0533295
+		End
+	Key 25
+		Frame 26
+		Value 0.946381
+		Interpolation linear
+		RightSlope 0.069534
+		LeftSlope 0.069534
+		End
+	Key 26
+		Frame 27
+		Value 1.03363
+		Interpolation linear
+		RightSlope 0.0718545
+		LeftSlope 0.0718545
+		End
+	Key 27
+		Frame 28
+		Value 1.09009
+		Interpolation linear
+		RightSlope 0.042895
+		LeftSlope 0.042895
+		End
+	Key 28
+		Frame 29
+		Value 1.11942
+		Interpolation linear
+		RightSlope 0.03938
+		LeftSlope 0.03938
+		End
+	Key 29
+		Frame 30
+		Value 1.16885
+		Interpolation linear
+		RightSlope 0.0431049
+		LeftSlope 0.0431049
+		End
+	Key 30
+		Frame 31
+		Value 1.20563
+		Interpolation linear
+		RightSlope 0.0534551
+		LeftSlope 0.0534551
+		End
+	Key 31
+		Frame 32
+		Value 1.27576
+		Interpolation linear
+		RightSlope 0.05754
+		LeftSlope 0.05754
+		End
+	Key 32
+		Frame 33
+		Value 1.32071
+		Interpolation linear
+		RightSlope 0.030775
+		LeftSlope 0.030775
+		End
+	Key 33
+		Frame 34
+		Value 1.33731
+		Interpolation linear
+		RightSlope 0.029175
+		LeftSlope 0.029175
+		End
+	Key 34
+		Frame 35
+		Value 1.37906
+		Interpolation linear
+		RightSlope 0.03009
+		LeftSlope 0.03009
+		End
+	Key 35
+		Frame 36
+		Value 1.39749
+		Interpolation linear
+		RightSlope 0.022565
+		LeftSlope 0.022565
+		End
+	Key 36
+		Frame 37
+		Value 1.42419
+		Interpolation linear
+		RightSlope 0.042115
+		LeftSlope 0.042115
+		End
+	Key 37
+		Frame 38
+		Value 1.48172
+		Interpolation linear
+		RightSlope 0.0512699
+		LeftSlope 0.0512699
+		End
+	Key 38
+		Frame 39
+		Value 1.52673
+		Interpolation linear
+		RightSlope 0.04463
+		LeftSlope 0.04463
+		End
+	Key 39
+		Frame 40
+		Value 1.57098
+		Interpolation linear
+		RightSlope 0.0517901
+		LeftSlope 0.0517901
+		End
+	Key 40
+		Frame 41
+		Value 1.63031
+		Interpolation linear
+		RightSlope 0.04921
+		LeftSlope 0.04921
+		End
+	Key 41
+		Frame 42
+		Value 1.6694
+		Interpolation linear
+		RightSlope 0.031585
+		LeftSlope 0.031585
+		End
+	Key 42
+		Frame 43
+		Value 1.69348
+		Interpolation linear
+		RightSlope 0.035205
+		LeftSlope 0.035205
+		End
+	Key 43
+		Frame 44
+		Value 1.73981
+		Interpolation linear
+		RightSlope 0.03412
+		LeftSlope 0.03412
+		End
+	Key 44
+		Frame 45
+		Value 1.76172
+		Interpolation linear
+		RightSlope 0.028425
+		LeftSlope 0.028425
+		End
+	Key 45
+		Frame 46
+		Value 1.79666
+		Interpolation linear
+		RightSlope 0.034135
+		LeftSlope 0.034135
+		End
+	Key 46
+		Frame 47
+		Value 1.82999
+		Interpolation linear
+		RightSlope 0.03125
+		LeftSlope 0.03125
+		End
+	Key 47
+		Frame 48
+		Value 1.85916
+		Interpolation linear
+		RightSlope 0.03151
+		LeftSlope 0.03151
+		End
+	Key 48
+		Frame 49
+		Value 1.89301
+		Interpolation linear
+		RightSlope 0.030505
+		LeftSlope 0.030505
+		End
+	Key 49
+		Frame 50
+		Value 1.92017
+		Interpolation linear
+		RightSlope 0.01942
+		LeftSlope 0.01942
+		End
+	Key 50
+		Frame 51
+		Value 1.93185
+		Interpolation linear
+		RightSlope 0.0198351
+		LeftSlope 0.0198351
+		End
+	Key 51
+		Frame 52
+		Value 1.95984
+		Interpolation linear
+		RightSlope 0.031555
+		LeftSlope 0.031555
+		End
+	Key 52
+		Frame 53
+		Value 1.99496
+		Interpolation linear
+		RightSlope 0.03412
+		LeftSlope 0.03412
+		End
+	Key 53
+		Frame 54
+		Value 2.02808
+		Interpolation linear
+		RightSlope 0.0327
+		LeftSlope 0.0327
+		End
+	Key 54
+		Frame 55
+		Value 2.06036
+		Interpolation linear
+		RightSlope 0.03474
+		LeftSlope 0.03474
+		End
+	Key 55
+		Frame 56
+		Value 2.09756
+		Interpolation linear
+		RightSlope 0.025715
+		LeftSlope 0.025715
+		End
+	Key 56
+		Frame 57
+		Value 2.11179
+		Interpolation linear
+		RightSlope 0.0303351
+		LeftSlope 0.0303351
+		End
+	Key 57
+		Frame 58
+		Value 2.15823
+		Interpolation linear
+		RightSlope 0.0292051
+		LeftSlope 0.0292051
+		End
+	Key 58
+		Frame 59
+		Value 2.1702
+		Interpolation linear
+		RightSlope 0.0320599
+		LeftSlope 0.0320599
+		End
+	Key 59
+		Frame 60
+		Value 2.22235
+		Interpolation linear
+		RightSlope 0.0402499
+		LeftSlope 0.0402499
+		End
+	Key 60
+		Frame 61
+		Value 2.2507
+		Interpolation linear
+		RightSlope 0.030135
+		LeftSlope 0.030135
+		End
+	Key 61
+		Frame 62
+		Value 2.28262
+		Interpolation linear
+		RightSlope 0.040635
+		LeftSlope 0.040635
+		End
+	Key 62
+		Frame 63
+		Value 2.33197
+		Interpolation linear
+		RightSlope 0.03664
+		LeftSlope 0.03664
+		End
+	Key 63
+		Frame 64
+		Value 2.3559
+		Interpolation linear
+		RightSlope 0.02536
+		LeftSlope 0.02536
+		End
+	Key 64
+		Frame 65
+		Value 2.38269
+		Interpolation linear
+		RightSlope 0.037215
+		LeftSlope 0.037215
+		End
+	Key 65
+		Frame 66
+		Value 2.43033
+		Interpolation linear
+		RightSlope 0.04477
+		LeftSlope 0.04477
+		End
+	Key 66
+		Frame 67
+		Value 2.47223
+		Interpolation linear
+		RightSlope 0.041185
+		LeftSlope 0.041185
+		End
+	Key 67
+		Frame 68
+		Value 2.5127
+		Interpolation linear
+		RightSlope 0.03555
+		LeftSlope 0.03555
+		End
+	Key 68
+		Frame 69
+		Value 2.54333
+		Interpolation linear
+		RightSlope 0.03407
+		LeftSlope 0.03407
+		End
+	Key 69
+		Frame 70
+		Value 2.58084
+		Interpolation linear
+		RightSlope 0.033815
+		LeftSlope 0.033815
+		End
+	Key 70
+		Frame 71
+		Value 2.61096
+		Interpolation linear
+		RightSlope 0.02736
+		LeftSlope 0.02736
+		End
+	Key 71
+		Frame 72
+		Value 2.63556
+		Interpolation linear
+		RightSlope 0.030715
+		LeftSlope 0.030715
+		End
+	Key 72
+		Frame 73
+		Value 2.67239
+		Interpolation linear
+		RightSlope 0.03508
+		LeftSlope 0.03508
+		End
+	Key 73
+		Frame 74
+		Value 2.70572
+		Interpolation linear
+		RightSlope 0.023605
+		LeftSlope 0.023605
+		End
+	Key 74
+		Frame 75
+		Value 2.7196
+		Interpolation linear
+		RightSlope 0.02495
+		LeftSlope 0.02495
+		End
+	Key 75
+		Frame 76
+		Value 2.75562
+		Interpolation linear
+		RightSlope 0.03661
+		LeftSlope 0.03661
+		End
+	Key 76
+		Frame 77
+		Value 2.79282
+		Interpolation linear
+		RightSlope 0.03369
+		LeftSlope 0.03369
+		End
+	Key 77
+		Frame 78
+		Value 2.823
+		Interpolation linear
+		RightSlope 0.029495
+		LeftSlope 0.029495
+		End
+	Key 78
+		Frame 79
+		Value 2.85181
+		Interpolation linear
+		RightSlope 0.0249801
+		LeftSlope 0.0249801
+		End
+	Key 79
+		Frame 80
+		Value 2.87296
+		Interpolation linear
+		RightSlope 0.03038
+		LeftSlope 0.03038
+		End
+	Key 80
+		Frame 81
+		Value 2.91257
+		Interpolation linear
+		RightSlope 0.03442
+		LeftSlope 0.03442
+		End
+	Key 81
+		Frame 82
+		Value 2.9418
+		Interpolation linear
+		RightSlope 0.018905
+		LeftSlope 0.018905
+		End
+	Key 82
+		Frame 83
+		Value 2.95038
+		Interpolation linear
+		RightSlope 0.0198699
+		LeftSlope 0.0198699
+		End
+	Key 83
+		Frame 84
+		Value 2.98154
+		Interpolation linear
+		RightSlope 0.026655
+		LeftSlope 0.026655
+		End
+	Key 84
+		Frame 85
+		Value 3.00369
+		Interpolation linear
+		RightSlope 0.01762
+		LeftSlope 0.01762
+		End
+	Key 85
+		Frame 86
+		Value 3.01678
+		Interpolation linear
+		RightSlope 0.02425
+		LeftSlope 0.02425
+		End
+	Key 86
+		Frame 87
+		Value 3.05219
+		Interpolation linear
+		RightSlope 0.0299101
+		LeftSlope 0.0299101
+		End
+	Key 87
+		Frame 88
+		Value 3.0766
+		Interpolation linear
+		RightSlope 0.0268049
+		LeftSlope 0.0268049
+		End
+	Key 88
+		Frame 89
+		Value 3.1058
+		Interpolation linear
+		RightSlope 0.0235
+		LeftSlope 0.0235
+		End
+	Key 89
+		Frame 90
+		Value 3.1236
+		Interpolation linear
+		RightSlope 0.022295
+		LeftSlope 0.022295
+		End
+	Key 90
+		Frame 91
+		Value 3.15039
+		Interpolation linear
+		RightSlope 0.028885
+		LeftSlope 0.028885
+		End
+	Key 91
+		Frame 92
+		Value 3.18137
+		Interpolation linear
+		RightSlope 0.0314051
+		LeftSlope 0.0314051
+		End
+	Key 92
+		Frame 93
+		Value 3.2132
+		Interpolation linear
+		RightSlope 0.022795
+		LeftSlope 0.022795
+		End
+	Key 93
+		Frame 94
+		Value 3.22696
+		Interpolation linear
+		RightSlope 0.0245949
+		LeftSlope 0.0245949
+		End
+	Key 94
+		Frame 95
+		Value 3.26239
+		Interpolation linear
+		RightSlope 0.03116
+		LeftSlope 0.03116
+		End
+	Key 95
+		Frame 96
+		Value 3.28928
+		Interpolation linear
+		RightSlope 0.029785
+		LeftSlope 0.029785
+		End
+	Key 96
+		Frame 97
+		Value 3.32196
+		Interpolation linear
+		RightSlope 0.0304251
+		LeftSlope 0.0304251
+		End
+	Key 97
+		Frame 98
+		Value 3.35013
+		Interpolation linear
+		RightSlope 0.03073
+		LeftSlope 0.03073
+		End
+	Key 98
+		Frame 99
+		Value 3.38342
+		Interpolation linear
+		RightSlope 0.0308499
+		LeftSlope 0.0308499
+		End
+	Key 99
+		Frame 100
+		Value 3.41183
+		Interpolation linear
+		RightSlope 0.02835
+		LeftSlope 0.02835
+		End
+	Key 100
+		Frame 101
+		Value 3.44012
+		Interpolation linear
+		RightSlope 0.033115
+		LeftSlope 0.033115
+		End
+	Key 101
+		Frame 102
+		Value 3.47806
+		Interpolation linear
+		RightSlope 0.037935
+		LeftSlope 0.037935
+		End
+	Key 102
+		Frame 103
+		Value 3.51599
+		Interpolation linear
+		RightSlope 0.040265
+		LeftSlope 0.040265
+		End
+	Key 103
+		Frame 104
+		Value 3.55859
+		Interpolation linear
+		RightSlope 0.034515
+		LeftSlope 0.034515
+		End
+	Key 104
+		Frame 105
+		Value 3.58502
+		Interpolation linear
+		RightSlope 0.033555
+		LeftSlope 0.033555
+		End
+	Key 105
+		Frame 106
+		Value 3.6257
+		Interpolation linear
+		RightSlope 0.0372
+		LeftSlope 0.0372
+		End
+	Key 106
+		Frame 107
+		Value 3.65942
+		Interpolation linear
+		RightSlope 0.03546
+		LeftSlope 0.03546
+		End
+	Key 107
+		Frame 108
+		Value 3.69662
+		Interpolation linear
+		RightSlope 0.02968
+		LeftSlope 0.02968
+		End
+	Key 108
+		Frame 109
+		Value 3.71878
+		Interpolation linear
+		RightSlope 0.01566
+		LeftSlope 0.01566
+		End
+	Key 109
+		Frame 110
+		Value 3.72794
+		Interpolation linear
+		RightSlope 0.0146199
+		LeftSlope 0.0146199
+		End
+	Key 110
+		Frame 111
+		Value 3.74802
+		Interpolation linear
+		RightSlope 0.0299499
+		LeftSlope 0.0299499
+		End
+	Key 111
+		Frame 112
+		Value 3.78784
+		Interpolation linear
+		RightSlope 0.03334
+		LeftSlope 0.03334
+		End
+	Key 112
+		Frame 113
+		Value 3.8147
+		Interpolation linear
+		RightSlope 0.02748
+		LeftSlope 0.02748
+		End
+	Key 113
+		Frame 114
+		Value 3.8428
+		Interpolation linear
+		RightSlope 0.0236501
+		LeftSlope 0.0236501
+		End
+	Key 114
+		Frame 115
+		Value 3.862
+		Interpolation linear
+		RightSlope 0.021335
+		LeftSlope 0.021335
+		End
+	Key 115
+		Frame 116
+		Value 3.88547
+		Interpolation linear
+		RightSlope 0.024415
+		LeftSlope 0.024415
+		End
+	Key 116
+		Frame 117
+		Value 3.91083
+		Interpolation linear
+		RightSlope 0.0224451
+		LeftSlope 0.0224451
+		End
+	Key 117
+		Frame 118
+		Value 3.93036
+		Interpolation linear
+		RightSlope 0.02446
+		LeftSlope 0.02446
+		End
+	Key 118
+		Frame 119
+		Value 3.95975
+		Interpolation linear
+		RightSlope 0.028795
+		LeftSlope 0.028795
+		End
+	Key 119
+		Frame 120
+		Value 3.98795
+		Interpolation linear
+		RightSlope 0.0223051
+		LeftSlope 0.0223051
+		End
+	Key 120
+		Frame 121
+		Value 4.00436
+		Interpolation linear
+		RightSlope 0.0184001
+		LeftSlope 0.0184001
+		End
+	Key 121
+		Frame 122
+		Value 4.02475
+		Interpolation linear
+		RightSlope 0.0225699
+		LeftSlope 0.0225699
+		End
+	Key 122
+		Frame 123
+		Value 4.0495
+		Interpolation linear
+		RightSlope 0.0182798
+		LeftSlope 0.0182798
+		End
+	Key 123
+		Frame 124
+		Value 4.06131
+		Interpolation linear
+		RightSlope 0.0150599
+		LeftSlope 0.0150599
+		End
+	Key 124
+		Frame 125
+		Value 4.07962
+		Interpolation linear
+		RightSlope 0.0153651
+		LeftSlope 0.0153651
+		End
+	Key 125
+		Frame 126
+		Value 4.09204
+		Interpolation linear
+		RightSlope 0.020875
+		LeftSlope 0.020875
+		End
+	Key 126
+		Frame 127
+		Value 4.12137
+		Interpolation linear
+		RightSlope 0.0184801
+		LeftSlope 0.0184801
+		End
+	Key 127
+		Frame 128
+		Value 4.129
+		Interpolation linear
+		RightSlope 0.0262301
+		LeftSlope 0.0262301
+		End
+	Key 128
+		Frame 129
+		Value 4.17383
+		Interpolation linear
+		RightSlope 0.0402799
+		LeftSlope 0.0402799
+		End
+	Key 129
+		Frame 130
+		Value 4.20956
+		Interpolation linear
+		RightSlope 0.0181551
+		LeftSlope 0.0181551
+		End
+	Key 130
+		Frame 131
+		Value 4.21014
+		Interpolation linear
+		RightSlope 0.0122101
+		LeftSlope 0.0122101
+		End
+	Key 131
+		Frame 132
+		Value 4.23398
+		Interpolation linear
+		RightSlope 0.0360448
+		LeftSlope 0.0360448
+		End
+	Key 132
+		Frame 133
+		Value 4.28223
+		Interpolation linear
+		RightSlope 0.03404
+		LeftSlope 0.03404
+		End
+	Key 133
+		Frame 134
+		Value 4.30206
+		Interpolation linear
+		RightSlope 0.0254052
+		LeftSlope 0.0254052
+		End
+	Key 134
+		Frame 135
+		Value 4.33304
+		Interpolation linear
+		RightSlope 0.0497
+		LeftSlope 0.0497
+		End
+	Key 135
+		Frame 136
+		Value 4.40146
+		Interpolation linear
+		RightSlope 0.0468898
+		LeftSlope 0.0468898
+		End
+	Key 136
+		Frame 137
+		Value 4.42682
+		Interpolation linear
+		RightSlope 0.0631099
+		LeftSlope 0.0631099
+		End
+	Key 137
+		Frame 138
+		Value 4.52768
+		Interpolation linear
+		RightSlope 0.0643601
+		LeftSlope 0.0643601
+		End
+	Key 138
+		Frame 139
+		Value 4.55554
+		Interpolation linear
+		RightSlope 0.0327301
+		LeftSlope 0.0327301
+		End
+	Key 139
+		Frame 140
+		Value 4.59314
+		Interpolation linear
+		RightSlope 0.0397348
+		LeftSlope 0.0397348
+		End
+	Key 140
+		Frame 141
+		Value 4.63501
+		Interpolation linear
+		RightSlope 0.0489049
+		LeftSlope 0.0489049
+		End
+	Key 141
+		Frame 142
+		Value 4.69095
+		Interpolation linear
+		RightSlope 0.0633702
+		LeftSlope 0.0633702
+		End
+	Key 142
+		Frame 143
+		Value 4.76175
+		Interpolation linear
+		RightSlope 0.055665
+		LeftSlope 0.055665
+		End
+	Key 143
+		Frame 144
+		Value 4.80228
+		Interpolation linear
+		RightSlope 0.044235
+		LeftSlope 0.044235
+		End
+	Key 144
+		Frame 145
+		Value 4.85022
+		Interpolation linear
+		RightSlope 0.030865
+		LeftSlope 0.030865
+		End
+	Key 145
+		Frame 146
+		Value 4.86401
+		Interpolation linear
+		RightSlope 0.0273449
+		LeftSlope 0.0273449
+		End
+	Key 146
+		Frame 147
+		Value 4.90491
+		Interpolation linear
+		RightSlope 0.03772
+		LeftSlope 0.03772
+		End
+	Key 147
+		Frame 148
+		Value 4.93945
+		Interpolation linear
+		RightSlope 0.0321801
+		LeftSlope 0.0321801
+		End
+	Key 148
+		Frame 149
+		Value 4.96927
+		Interpolation linear
+		RightSlope 0.0339851
+		LeftSlope 0.0339851
+		End
+	Key 149
+		Frame 150
+		Value 5.00742
+		Interpolation linear
+		RightSlope 0.0311098
+		LeftSlope 0.0311098
+		End
+	Key 150
+		Frame 151
+		Value 5.03149
+		Interpolation linear
+		RightSlope 0.0304999
+		LeftSlope 0.0304999
+		End
+	Key 151
+		Frame 152
+		Value 5.06842
+		Interpolation linear
+		RightSlope 0.04512
+		LeftSlope 0.04512
+		End
+	Key 152
+		Frame 153
+		Value 5.12173
+		Interpolation linear
+		RightSlope 0.0370049
+		LeftSlope 0.0370049
+		End
+	Key 153
+		Frame 154
+		Value 5.14243
+		Interpolation linear
+		RightSlope 0.036195
+		LeftSlope 0.036195
+		End
+	Key 154
+		Frame 155
+		Value 5.19412
+		Interpolation linear
+		RightSlope 0.04092
+		LeftSlope 0.04092
+		End
+	Key 155
+		Frame 156
+		Value 5.22427
+		Interpolation linear
+		RightSlope 0.0206749
+		LeftSlope 0.0206749
+		End
+	Key 156
+		Frame 157
+		Value 5.23547
+		Interpolation linear
+		RightSlope 0.0197752
+		LeftSlope 0.0197752
+		End
+	Key 157
+		Frame 158
+		Value 5.26382
+		Interpolation linear
+		RightSlope 0.0269051
+		LeftSlope 0.0269051
+		End
+	Key 158
+		Frame 159
+		Value 5.28928
+		Interpolation linear
+		RightSlope 0.0238049
+		LeftSlope 0.0238049
+		End
+	Key 159
+		Frame 160
+		Value 5.31143
+		Interpolation linear
+		RightSlope 0.031965
+		LeftSlope 0.031965
+		End
+	Key 160
+		Frame 161
+		Value 5.35321
+		Interpolation linear
+		RightSlope 0.0354149
+		LeftSlope 0.0354149
+		End
+	Key 161
+		Frame 162
+		Value 5.38226
+		Interpolation linear
+		RightSlope 0.013535
+		LeftSlope 0.013535
+		End
+	Key 162
+		Frame 163
+		Value 5.38028
+		Interpolation linear
+		RightSlope 0.00241017
+		LeftSlope 0.00241017
+		End
+	Key 163
+		Frame 164
+		Value 5.38708
+		Interpolation linear
+		RightSlope 0.0167999
+		LeftSlope 0.0167999
+		End
+	Key 164
+		Frame 165
+		Value 5.41388
+		Interpolation linear
+		RightSlope 0.0213499
+		LeftSlope 0.0213499
+		End
+	Key 165
+		Frame 166
+		Value 5.42978
+		Interpolation linear
+		RightSlope 0.01547
+		LeftSlope 0.01547
+		End
+	Key 166
+		Frame 167
+		Value 5.44482
+		Interpolation linear
+		RightSlope 0.0025301
+		LeftSlope 0.0025301
+		End
+	Key 167
+		Frame 168
+		Value 5.43484
+		Interpolation linear
+		RightSlope -0.00370502
+		LeftSlope -0.00370502
+		End
+	Key 168
+		Frame 169
+		Value 5.43741
+		Interpolation linear
+		RightSlope -0.0060401
+		LeftSlope -0.0060401
+		End
+	Key 169
+		Frame 170
+		Value 5.42276
+		Interpolation linear
+		RightSlope 0.00554013
+		LeftSlope 0.00554013
+		End
+	Key 170
+		Frame 171
+		Value 5.44849
+		Interpolation linear
+		RightSlope 0.00716996
+		LeftSlope 0.00716996
+		End
+	Key 171
+		Frame 172
+		Value 5.4371
+		Interpolation linear
+		RightSlope -0.00888014
+		LeftSlope -0.00888014
+		End
+	Key 172
+		Frame 173
+		Value 5.43073
+		Interpolation linear
+		RightSlope -0.00390506
+		LeftSlope -0.00390506
+		End
+	Key 173
+		Frame 174
+		Value 5.42929
+		Interpolation linear
+		RightSlope 0.00806999
+		LeftSlope 0.00806999
+		End
+	Key 174
+		Frame 175
+		Value 5.44687
+		Interpolation linear
+		RightSlope 0.0092001
+		LeftSlope 0.0092001
+		End
+	Key 175
+		Frame 176
+		Value 5.44769
+		Interpolation linear
+		RightSlope -0.00408983
+		LeftSlope -0.00408983
+		End
+	Key 176
+		Frame 177
+		Value 5.43869
+		Interpolation linear
+		RightSlope -0.00335503
+		LeftSlope -0.00335503
+		End
+	Key 177
+		Frame 178
+		Value 5.44098
+		Interpolation linear
+		RightSlope -0.00837517
+		LeftSlope -0.00837517
+		End
+	Key 178
+		Frame 179
+		Value 5.42194
+		Interpolation linear
+		RightSlope 0.00441003
+		LeftSlope 0.00441003
+		End
+	Key 179
+		Frame 180
+		Value 5.4498
+		Interpolation linear
+		RightSlope 0.005615
+		LeftSlope 0.005615
+		End
+	Key 180
+		Frame 181
+		Value 5.43317
+		Interpolation linear
+		RightSlope -0.0125
+		LeftSlope -0.0125
+		End
+	Key 181
+		Frame 182
+		Value 5.4248
+		Interpolation linear
+		RightSlope 0.0109401
+		LeftSlope 0.0109401
+		End
+	Key 182
+		Frame 183
+		Value 5.45505
+		Interpolation linear
+		RightSlope 0.0388735
+		LeftSlope 0.0388735
+		End
+	Colour 0 255 0
+	End
+Channel top_right/shift/y
+	Extrapolation linear
+	Value 0.678345
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope 0.0155334
+		LeftSlope 0.0155334
+		End
+	Key 1
+		Frame 2
+		Value 0.0155334
+		Interpolation linear
+		RightSlope 0.0315399
+		LeftSlope 0.0315399
+		End
+	Key 2
+		Frame 3
+		Value 0.0630798
+		Interpolation linear
+		RightSlope 0.0502928
+		LeftSlope 0.0502928
+		End
+	Key 3
+		Frame 4
+		Value 0.116119
+		Interpolation linear
+		RightSlope 0.0413971
+		LeftSlope 0.0413971
+		End
+	Key 4
+		Frame 5
+		Value 0.145874
+		Interpolation linear
+		RightSlope 0.031876
+		LeftSlope 0.031876
+		End
+	Key 5
+		Frame 6
+		Value 0.179871
+		Interpolation linear
+		RightSlope 0.0319825
+		LeftSlope 0.0319825
+		End
+	Key 6
+		Frame 7
+		Value 0.209839
+		Interpolation linear
+		RightSlope 0.0292815
+		LeftSlope 0.0292815
+		End
+	Key 7
+		Frame 8
+		Value 0.238434
+		Interpolation linear
+		RightSlope 0.0370485
+		LeftSlope 0.0370485
+		End
+	Key 8
+		Frame 9
+		Value 0.283936
+		Interpolation linear
+		RightSlope 0.0440215
+		LeftSlope 0.0440215
+		End
+	Key 9
+		Frame 10
+		Value 0.326477
+		Interpolation linear
+		RightSlope 0.045181
+		LeftSlope 0.045181
+		End
+	Key 10
+		Frame 11
+		Value 0.374298
+		Interpolation linear
+		RightSlope 0.0589905
+		LeftSlope 0.0589905
+		End
+	Key 11
+		Frame 12
+		Value 0.444458
+		Interpolation linear
+		RightSlope 0.05336
+		LeftSlope 0.05336
+		End
+	Key 12
+		Frame 13
+		Value 0.481018
+		Interpolation linear
+		RightSlope 0.0562745
+		LeftSlope 0.0562745
+		End
+	Key 13
+		Frame 14
+		Value 0.557007
+		Interpolation linear
+		RightSlope 0.076645
+		LeftSlope 0.076645
+		End
+	Key 14
+		Frame 15
+		Value 0.634308
+		Interpolation linear
+		RightSlope 0.060669
+		LeftSlope 0.060669
+		End
+	Key 15
+		Frame 16
+		Value 0.678345
+		Interpolation linear
+		RightSlope 0.0475005
+		LeftSlope 0.0475005
+		End
+	Key 16
+		Frame 17
+		Value 0.729309
+		Interpolation linear
+		RightSlope 0.0816955
+		LeftSlope 0.0816955
+		End
+	Key 17
+		Frame 18
+		Value 0.841736
+		Interpolation linear
+		RightSlope 0.096283
+		LeftSlope 0.096283
+		End
+	Key 18
+		Frame 19
+		Value 0.921875
+		Interpolation linear
+		RightSlope 0.046539
+		LeftSlope 0.046539
+		End
+	Key 19
+		Frame 20
+		Value 0.934814
+		Interpolation linear
+		RightSlope 0.0505375
+		LeftSlope 0.0505375
+		End
+	Key 20
+		Frame 21
+		Value 1.02295
+		Interpolation linear
+		RightSlope 0.083863
+		LeftSlope 0.083863
+		End
+	Key 21
+		Frame 22
+		Value 1.10254
+		Interpolation linear
+		RightSlope 0.08844
+		LeftSlope 0.08844
+		End
+	Key 22
+		Frame 23
+		Value 1.19983
+		Interpolation linear
+		RightSlope 0.10222
+		LeftSlope 0.10222
+		End
+	Key 23
+		Frame 24
+		Value 1.30698
+		Interpolation linear
+		RightSlope 0.10356
+		LeftSlope 0.10356
+		End
+	Key 24
+		Frame 25
+		Value 1.40695
+		Interpolation linear
+		RightSlope 0.11435
+		LeftSlope 0.11435
+		End
+	Key 25
+		Frame 26
+		Value 1.53568
+		Interpolation linear
+		RightSlope 0.135225
+		LeftSlope 0.135225
+		End
+	Key 26
+		Frame 27
+		Value 1.6774
+		Interpolation linear
+		RightSlope 0.117675
+		LeftSlope 0.117675
+		End
+	Key 27
+		Frame 28
+		Value 1.77103
+		Interpolation linear
+		RightSlope 0.098375
+		LeftSlope 0.098375
+		End
+	Key 28
+		Frame 29
+		Value 1.87415
+		Interpolation linear
+		RightSlope 0.091385
+		LeftSlope 0.091385
+		End
+	Key 29
+		Frame 30
+		Value 1.9538
+		Interpolation linear
+		RightSlope 0.0757099
+		LeftSlope 0.0757099
+		End
+	Key 30
+		Frame 31
+		Value 2.02557
+		Interpolation linear
+		RightSlope 0.06758
+		LeftSlope 0.06758
+		End
+	Key 31
+		Frame 32
+		Value 2.08896
+		Interpolation linear
+		RightSlope 0.06653
+		LeftSlope 0.06653
+		End
+	Key 32
+		Frame 33
+		Value 2.15863
+		Interpolation linear
+		RightSlope 0.067335
+		LeftSlope 0.067335
+		End
+	Key 33
+		Frame 34
+		Value 2.22363
+		Interpolation linear
+		RightSlope 0.0540601
+		LeftSlope 0.0540601
+		End
+	Key 34
+		Frame 35
+		Value 2.26675
+		Interpolation linear
+		RightSlope 0.06383
+		LeftSlope 0.06383
+		End
+	Key 35
+		Frame 36
+		Value 2.35129
+		Interpolation linear
+		RightSlope 0.0737649
+		LeftSlope 0.0737649
+		End
+	Key 36
+		Frame 37
+		Value 2.41428
+		Interpolation linear
+		RightSlope 0.020645
+		LeftSlope 0.020645
+		End
+	Key 37
+		Frame 38
+		Value 2.39258
+		Interpolation linear
+		RightSlope 0.0224
+		LeftSlope 0.0224
+		End
+	Key 38
+		Frame 39
+		Value 2.45908
+		Interpolation linear
+		RightSlope 0.0640249
+		LeftSlope 0.0640249
+		End
+	Key 39
+		Frame 40
+		Value 2.52063
+		Interpolation linear
+		RightSlope 0.0528851
+		LeftSlope 0.0528851
+		End
+	Key 40
+		Frame 41
+		Value 2.56485
+		Interpolation linear
+		RightSlope 0.0525351
+		LeftSlope 0.0525351
+		End
+	Key 41
+		Frame 42
+		Value 2.6257
+		Interpolation linear
+		RightSlope 0.053375
+		LeftSlope 0.053375
+		End
+	Key 42
+		Frame 43
+		Value 2.6716
+		Interpolation linear
+		RightSlope 0.049545
+		LeftSlope 0.049545
+		End
+	Key 43
+		Frame 44
+		Value 2.72479
+		Interpolation linear
+		RightSlope 0.053255
+		LeftSlope 0.053255
+		End
+	Key 44
+		Frame 45
+		Value 2.77811
+		Interpolation linear
+		RightSlope 0.050005
+		LeftSlope 0.050005
+		End
+	Key 45
+		Frame 46
+		Value 2.8248
+		Interpolation linear
+		RightSlope 0.044005
+		LeftSlope 0.044005
+		End
+	Key 46
+		Frame 47
+		Value 2.86612
+		Interpolation linear
+		RightSlope 0.05177
+		LeftSlope 0.05177
+		End
+	Key 47
+		Frame 48
+		Value 2.92834
+		Interpolation linear
+		RightSlope 0.0559249
+		LeftSlope 0.0559249
+		End
+	Key 48
+		Frame 49
+		Value 2.97797
+		Interpolation linear
+		RightSlope 0.049975
+		LeftSlope 0.049975
+		End
+	Key 49
+		Frame 50
+		Value 3.02829
+		Interpolation linear
+		RightSlope 0.0609101
+		LeftSlope 0.0609101
+		End
+	Key 50
+		Frame 51
+		Value 3.09979
+		Interpolation linear
+		RightSlope 0.06531
+		LeftSlope 0.06531
+		End
+	Key 51
+		Frame 52
+		Value 3.15891
+		Interpolation linear
+		RightSlope 0.0644699
+		LeftSlope 0.0644699
+		End
+	Key 52
+		Frame 53
+		Value 3.22873
+		Interpolation linear
+		RightSlope 0.064405
+		LeftSlope 0.064405
+		End
+	Key 53
+		Frame 54
+		Value 3.28772
+		Interpolation linear
+		RightSlope 0.05336
+		LeftSlope 0.05336
+		End
+	Key 54
+		Frame 55
+		Value 3.33545
+		Interpolation linear
+		RightSlope 0.04979
+		LeftSlope 0.04979
+		End
+	Key 55
+		Frame 56
+		Value 3.3873
+		Interpolation linear
+		RightSlope 0.0574651
+		LeftSlope 0.0574651
+		End
+	Key 56
+		Frame 57
+		Value 3.45038
+		Interpolation linear
+		RightSlope 0.06169
+		LeftSlope 0.06169
+		End
+	Key 57
+		Frame 58
+		Value 3.51068
+		Interpolation linear
+		RightSlope 0.0548099
+		LeftSlope 0.0548099
+		End
+	Key 58
+		Frame 59
+		Value 3.56
+		Interpolation linear
+		RightSlope 0.04146
+		LeftSlope 0.04146
+		End
+	Key 59
+		Frame 60
+		Value 3.5936
+		Interpolation linear
+		RightSlope 0.04205
+		LeftSlope 0.04205
+		End
+	Key 60
+		Frame 61
+		Value 3.6441
+		Interpolation linear
+		RightSlope 0.0430449
+		LeftSlope 0.0430449
+		End
+	Key 61
+		Frame 62
+		Value 3.67969
+		Interpolation linear
+		RightSlope 0.045975
+		LeftSlope 0.045975
+		End
+	Key 62
+		Frame 63
+		Value 3.73605
+		Interpolation linear
+		RightSlope 0.05612
+		LeftSlope 0.05612
+		End
+	Key 63
+		Frame 64
+		Value 3.79193
+		Interpolation linear
+		RightSlope 0.059635
+		LeftSlope 0.059635
+		End
+	Key 64
+		Frame 65
+		Value 3.85532
+		Interpolation linear
+		RightSlope 0.050475
+		LeftSlope 0.050475
+		End
+	Key 65
+		Frame 66
+		Value 3.89288
+		Interpolation linear
+		RightSlope 0.042065
+		LeftSlope 0.042065
+		End
+	Key 66
+		Frame 67
+		Value 3.93945
+		Interpolation linear
+		RightSlope 0.0244601
+		LeftSlope 0.0244601
+		End
+	Key 67
+		Frame 68
+		Value 3.9418
+		Interpolation linear
+		RightSlope 0.008865
+		LeftSlope 0.008865
+		End
+	Key 68
+		Frame 69
+		Value 3.95718
+		Interpolation linear
+		RightSlope 0.042115
+		LeftSlope 0.042115
+		End
+	Key 69
+		Frame 70
+		Value 4.02603
+		Interpolation linear
+		RightSlope 0.0585499
+		LeftSlope 0.0585499
+		End
+	Key 70
+		Frame 71
+		Value 4.07428
+		Interpolation linear
+		RightSlope 0.039155
+		LeftSlope 0.039155
+		End
+	Key 71
+		Frame 72
+		Value 4.10434
+		Interpolation linear
+		RightSlope 0.0410602
+		LeftSlope 0.0410602
+		End
+	Key 72
+		Frame 73
+		Value 4.1564
+		Interpolation linear
+		RightSlope 0.0439899
+		LeftSlope 0.0439899
+		End
+	Key 73
+		Frame 74
+		Value 4.19232
+		Interpolation linear
+		RightSlope 0.039325
+		LeftSlope 0.039325
+		End
+	Key 74
+		Frame 75
+		Value 4.23505
+		Interpolation linear
+		RightSlope 0.058105
+		LeftSlope 0.058105
+		End
+	Key 75
+		Frame 76
+		Value 4.30853
+		Interpolation linear
+		RightSlope 0.061795
+		LeftSlope 0.061795
+		End
+	Key 76
+		Frame 77
+		Value 4.35864
+		Interpolation linear
+		RightSlope 0.0502951
+		LeftSlope 0.0502951
+		End
+	Key 77
+		Frame 78
+		Value 4.40912
+		Interpolation linear
+		RightSlope 0.0524149
+		LeftSlope 0.0524149
+		End
+	Key 78
+		Frame 79
+		Value 4.46347
+		Interpolation linear
+		RightSlope 0.0517249
+		LeftSlope 0.0517249
+		End
+	Key 79
+		Frame 80
+		Value 4.51257
+		Interpolation linear
+		RightSlope 0.0640099
+		LeftSlope 0.0640099
+		End
+	Key 80
+		Frame 81
+		Value 4.59149
+		Interpolation linear
+		RightSlope 0.06232
+		LeftSlope 0.06232
+		End
+	Key 81
+		Frame 82
+		Value 4.63721
+		Interpolation linear
+		RightSlope 0.0529952
+		LeftSlope 0.0529952
+		End
+	Key 82
+		Frame 83
+		Value 4.69748
+		Interpolation linear
+		RightSlope 0.0646951
+		LeftSlope 0.0646951
+		End
+	Key 83
+		Frame 84
+		Value 4.7666
+		Interpolation linear
+		RightSlope 0.0671399
+		LeftSlope 0.0671399
+		End
+	Key 84
+		Frame 85
+		Value 4.83176
+		Interpolation linear
+		RightSlope 0.0541399
+		LeftSlope 0.0541399
+		End
+	Key 85
+		Frame 86
+		Value 4.87488
+		Interpolation linear
+		RightSlope 0.0541351
+		LeftSlope 0.0541351
+		End
+	Key 86
+		Frame 87
+		Value 4.94003
+		Interpolation linear
+		RightSlope 0.05322
+		LeftSlope 0.05322
+		End
+	Key 87
+		Frame 88
+		Value 4.98132
+		Interpolation linear
+		RightSlope 0.0517299
+		LeftSlope 0.0517299
+		End
+	Key 88
+		Frame 89
+		Value 5.04349
+		Interpolation linear
+		RightSlope 0.056215
+		LeftSlope 0.056215
+		End
+	Key 89
+		Frame 90
+		Value 5.09375
+		Interpolation linear
+		RightSlope 0.0550849
+		LeftSlope 0.0550849
+		End
+	Key 90
+		Frame 91
+		Value 5.15366
+		Interpolation linear
+		RightSlope 0.0455949
+		LeftSlope 0.0455949
+		End
+	Key 91
+		Frame 92
+		Value 5.18494
+		Interpolation linear
+		RightSlope 0.03897
+		LeftSlope 0.03897
+		End
+	Key 92
+		Frame 93
+		Value 5.2316
+		Interpolation linear
+		RightSlope 0.049345
+		LeftSlope 0.049345
+		End
+	Key 93
+		Frame 94
+		Value 5.28363
+		Interpolation linear
+		RightSlope 0.0522301
+		LeftSlope 0.0522301
+		End
+	Key 94
+		Frame 95
+		Value 5.33606
+		Interpolation linear
+		RightSlope 0.0501401
+		LeftSlope 0.0501401
+		End
+	Key 95
+		Frame 96
+		Value 5.38391
+		Interpolation linear
+		RightSlope 0.03702
+		LeftSlope 0.03702
+		End
+	Key 96
+		Frame 97
+		Value 5.4101
+		Interpolation linear
+		RightSlope 0.0453949
+		LeftSlope 0.0453949
+		End
+	Key 97
+		Frame 98
+		Value 5.4747
+		Interpolation linear
+		RightSlope 0.066905
+		LeftSlope 0.066905
+		End
+	Key 98
+		Frame 99
+		Value 5.54391
+		Interpolation linear
+		RightSlope 0.0759151
+		LeftSlope 0.0759151
+		End
+	Key 99
+		Frame 100
+		Value 5.62653
+		Interpolation linear
+		RightSlope 0.0752151
+		LeftSlope 0.0752151
+		End
+	Key 100
+		Frame 101
+		Value 5.69434
+		Interpolation linear
+		RightSlope 0.07687
+		LeftSlope 0.07687
+		End
+	Key 101
+		Frame 102
+		Value 5.78027
+		Interpolation linear
+		RightSlope 0.0635648
+		LeftSlope 0.0635648
+		End
+	Key 102
+		Frame 103
+		Value 5.82147
+		Interpolation linear
+		RightSlope 0.00809002
+		LeftSlope 0.00809002
+		End
+	Key 103
+		Frame 104
+		Value 5.79645
+		Interpolation linear
+		RightSlope -0.00237989
+		LeftSlope -0.00237989
+		End
+	Key 104
+		Frame 105
+		Value 5.81671
+		Interpolation linear
+		RightSlope 0.0258648
+		LeftSlope 0.0258648
+		End
+	Key 105
+		Frame 106
+		Value 5.84818
+		Interpolation linear
+		RightSlope 0.026125
+		LeftSlope 0.026125
+		End
+	Key 106
+		Frame 107
+		Value 5.86896
+		Interpolation linear
+		RightSlope 0.0355952
+		LeftSlope 0.0355952
+		End
+	Key 107
+		Frame 108
+		Value 5.91937
+		Interpolation linear
+		RightSlope 0.0537851
+		LeftSlope 0.0537851
+		End
+	Key 108
+		Frame 109
+		Value 5.97653
+		Interpolation linear
+		RightSlope 0.0380099
+		LeftSlope 0.0380099
+		End
+	Key 109
+		Frame 110
+		Value 5.99539
+		Interpolation linear
+		RightSlope 0.044405
+		LeftSlope 0.044405
+		End
+	Key 110
+		Frame 111
+		Value 6.06534
+		Interpolation linear
+		RightSlope 0.0698099
+		LeftSlope 0.0698099
+		End
+	Key 111
+		Frame 112
+		Value 6.13501
+		Interpolation linear
+		RightSlope 0.0617049
+		LeftSlope 0.0617049
+		End
+	Key 112
+		Frame 113
+		Value 6.18875
+		Interpolation linear
+		RightSlope 0.0499902
+		LeftSlope 0.0499902
+		End
+	Key 113
+		Frame 114
+		Value 6.23499
+		Interpolation linear
+		RightSlope 0.0448902
+		LeftSlope 0.0448902
+		End
+	Key 114
+		Frame 115
+		Value 6.27853
+		Interpolation linear
+		RightSlope 0.049695
+		LeftSlope 0.049695
+		End
+	Key 115
+		Frame 116
+		Value 6.33438
+		Interpolation linear
+		RightSlope 0.04671
+		LeftSlope 0.04671
+		End
+	Key 116
+		Frame 117
+		Value 6.37195
+		Interpolation linear
+		RightSlope 0.04248
+		LeftSlope 0.04248
+		End
+	Key 117
+		Frame 118
+		Value 6.41934
+		Interpolation linear
+		RightSlope 0.05055
+		LeftSlope 0.05055
+		End
+	Key 118
+		Frame 119
+		Value 6.47305
+		Interpolation linear
+		RightSlope 0.044085
+		LeftSlope 0.044085
+		End
+	Key 119
+		Frame 120
+		Value 6.50751
+		Interpolation linear
+		RightSlope 0.0462348
+		LeftSlope 0.0462348
+		End
+	Key 120
+		Frame 121
+		Value 6.56552
+		Interpolation linear
+		RightSlope 0.041975
+		LeftSlope 0.041975
+		End
+	Key 121
+		Frame 122
+		Value 6.59146
+		Interpolation linear
+		RightSlope 0.0290401
+		LeftSlope 0.0290401
+		End
+	Key 122
+		Frame 123
+		Value 6.6236
+		Interpolation linear
+		RightSlope 0.0472398
+		LeftSlope 0.0472398
+		End
+	Key 123
+		Frame 124
+		Value 6.68594
+		Interpolation linear
+		RightSlope 0.055465
+		LeftSlope 0.055465
+		End
+	Key 124
+		Frame 125
+		Value 6.73453
+		Interpolation linear
+		RightSlope 0.0411851
+		LeftSlope 0.0411851
+		End
+	Key 125
+		Frame 126
+		Value 6.76831
+		Interpolation linear
+		RightSlope 0.0334899
+		LeftSlope 0.0334899
+		End
+	Key 126
+		Frame 127
+		Value 6.80151
+		Interpolation linear
+		RightSlope 0.03917
+		LeftSlope 0.03917
+		End
+	Key 127
+		Frame 128
+		Value 6.84665
+		Interpolation linear
+		RightSlope 0.0502651
+		LeftSlope 0.0502651
+		End
+	Key 128
+		Frame 129
+		Value 6.90204
+		Interpolation linear
+		RightSlope 0.0564699
+		LeftSlope 0.0564699
+		End
+	Key 129
+		Frame 130
+		Value 6.95959
+		Interpolation linear
+		RightSlope 0.07794
+		LeftSlope 0.07794
+		End
+	Key 130
+		Frame 131
+		Value 7.05792
+		Interpolation linear
+		RightSlope 0.0785401
+		LeftSlope 0.0785401
+		End
+	Key 131
+		Frame 132
+		Value 7.11667
+		Interpolation linear
+		RightSlope 0.05405
+		LeftSlope 0.05405
+		End
+	Key 132
+		Frame 133
+		Value 7.16602
+		Interpolation linear
+		RightSlope 0.05673
+		LeftSlope 0.05673
+		End
+	Key 133
+		Frame 134
+		Value 7.23013
+		Interpolation linear
+		RightSlope 0.0560901
+		LeftSlope 0.0560901
+		End
+	Key 134
+		Frame 135
+		Value 7.2782
+		Interpolation linear
+		RightSlope 0.0388198
+		LeftSlope 0.0388198
+		End
+	Key 135
+		Frame 136
+		Value 7.30777
+		Interpolation linear
+		RightSlope 0.0193648
+		LeftSlope 0.0193648
+		End
+	Key 136
+		Frame 137
+		Value 7.31693
+		Interpolation linear
+		RightSlope 0.0390451
+		LeftSlope 0.0390451
+		End
+	Key 137
+		Frame 138
+		Value 7.38586
+		Interpolation linear
+		RightSlope 0.0711651
+		LeftSlope 0.0711651
+		End
+	Key 138
+		Frame 139
+		Value 7.45926
+		Interpolation linear
+		RightSlope 0.0828249
+		LeftSlope 0.0828249
+		End
+	Key 139
+		Frame 140
+		Value 7.55151
+		Interpolation linear
+		RightSlope 0.0785999
+		LeftSlope 0.0785999
+		End
+	Key 140
+		Frame 141
+		Value 7.61646
+		Interpolation linear
+		RightSlope 0.05933
+		LeftSlope 0.05933
+		End
+	Key 141
+		Frame 142
+		Value 7.67017
+		Interpolation linear
+		RightSlope 0.08885
+		LeftSlope 0.08885
+		End
+	Key 142
+		Frame 143
+		Value 7.79416
+		Interpolation linear
+		RightSlope 0.08865
+		LeftSlope 0.08865
+		End
+	Key 143
+		Frame 144
+		Value 7.84747
+		Interpolation linear
+		RightSlope 0.0587451
+		LeftSlope 0.0587451
+		End
+	Key 144
+		Frame 145
+		Value 7.91165
+		Interpolation linear
+		RightSlope 0.07776
+		LeftSlope 0.07776
+		End
+	Key 145
+		Frame 146
+		Value 8.00299
+		Interpolation linear
+		RightSlope 0.0925448
+		LeftSlope 0.0925448
+		End
+	Key 146
+		Frame 147
+		Value 8.09674
+		Interpolation linear
+		RightSlope 0.09343
+		LeftSlope 0.09343
+		End
+	Key 147
+		Frame 148
+		Value 8.18985
+		Interpolation linear
+		RightSlope 0.0818501
+		LeftSlope 0.0818501
+		End
+	Key 148
+		Frame 149
+		Value 8.26044
+		Interpolation linear
+		RightSlope 0.0598302
+		LeftSlope 0.0598302
+		End
+	Key 149
+		Frame 150
+		Value 8.30951
+		Interpolation linear
+		RightSlope 0.054245
+		LeftSlope 0.054245
+		End
+	Key 150
+		Frame 151
+		Value 8.36893
+		Interpolation linear
+		RightSlope 0.0732899
+		LeftSlope 0.0732899
+		End
+	Key 151
+		Frame 152
+		Value 8.45609
+		Interpolation linear
+		RightSlope 0.0928202
+		LeftSlope 0.0928202
+		End
+	Key 152
+		Frame 153
+		Value 8.55457
+		Interpolation linear
+		RightSlope 0.0860701
+		LeftSlope 0.0860701
+		End
+	Key 153
+		Frame 154
+		Value 8.62823
+		Interpolation linear
+		RightSlope 0.0744147
+		LeftSlope 0.0744147
+		End
+	Key 154
+		Frame 155
+		Value 8.7034
+		Interpolation linear
+		RightSlope 0.0682402
+		LeftSlope 0.0682402
+		End
+	Key 155
+		Frame 156
+		Value 8.76471
+		Interpolation linear
+		RightSlope 0.0648804
+		LeftSlope 0.0648804
+		End
+	Key 156
+		Frame 157
+		Value 8.83316
+		Interpolation linear
+		RightSlope 0.0603647
+		LeftSlope 0.0603647
+		End
+	Key 157
+		Frame 158
+		Value 8.88544
+		Interpolation linear
+		RightSlope 0.0534196
+		LeftSlope 0.0534196
+		End
+	Key 158
+		Frame 159
+		Value 8.94
+		Interpolation linear
+		RightSlope 0.0420651
+		LeftSlope 0.0420651
+		End
+	Key 159
+		Frame 160
+		Value 8.96957
+		Interpolation linear
+		RightSlope 0.0195003
+		LeftSlope 0.0195003
+		End
+	Key 160
+		Frame 161
+		Value 8.979
+		Interpolation linear
+		RightSlope 0.030705
+		LeftSlope 0.030705
+		End
+	Key 161
+		Frame 162
+		Value 9.03098
+		Interpolation linear
+		RightSlope 0.048985
+		LeftSlope 0.048985
+		End
+	Key 162
+		Frame 163
+		Value 9.07697
+		Interpolation linear
+		RightSlope 0.0398102
+		LeftSlope 0.0398102
+		End
+	Key 163
+		Frame 164
+		Value 9.1106
+		Interpolation linear
+		RightSlope 0.0378847
+		LeftSlope 0.0378847
+		End
+	Key 164
+		Frame 165
+		Value 9.15274
+		Interpolation linear
+		RightSlope 0.0158997
+		LeftSlope 0.0158997
+		End
+	Key 165
+		Frame 166
+		Value 9.1424
+		Interpolation linear
+		RightSlope -0.0158095
+		LeftSlope -0.0158095
+		End
+	Key 166
+		Frame 167
+		Value 9.12112
+		Interpolation linear
+		RightSlope 0.00149488
+		LeftSlope 0.00149488
+		End
+	Key 167
+		Frame 168
+		Value 9.14539
+		Interpolation linear
+		RightSlope 0.0149398
+		LeftSlope 0.0149398
+		End
+	Key 168
+		Frame 169
+		Value 9.151
+		Interpolation linear
+		RightSlope 0.00363016
+		LeftSlope 0.00363016
+		End
+	Key 169
+		Frame 170
+		Value 9.15265
+		Interpolation linear
+		RightSlope 0.00619507
+		LeftSlope 0.00619507
+		End
+	Key 170
+		Frame 171
+		Value 9.16339
+		Interpolation linear
+		RightSlope 0.00910997
+		LeftSlope 0.00910997
+		End
+	Key 171
+		Frame 172
+		Value 9.17087
+		Interpolation linear
+		RightSlope 0.00718498
+		LeftSlope 0.00718498
+		End
+	Key 172
+		Frame 173
+		Value 9.17776
+		Interpolation linear
+		RightSlope -0.00449991
+		LeftSlope -0.00449991
+		End
+	Key 173
+		Frame 174
+		Value 9.16187
+		Interpolation linear
+		RightSlope -0.00902987
+		LeftSlope -0.00902987
+		End
+	Key 174
+		Frame 175
+		Value 9.1597
+		Interpolation linear
+		RightSlope 0.00149488
+		LeftSlope 0.00149488
+		End
+	Key 175
+		Frame 176
+		Value 9.16486
+		Interpolation linear
+		RightSlope 0.000684738
+		LeftSlope 0.000684738
+		End
+	Key 176
+		Frame 177
+		Value 9.16107
+		Interpolation linear
+		RightSlope 0.000454903
+		LeftSlope 0.000454903
+		End
+	Key 177
+		Frame 178
+		Value 9.16577
+		Interpolation linear
+		RightSlope 0.00645494
+		LeftSlope 0.00645494
+		End
+	Key 178
+		Frame 179
+		Value 9.17398
+		Interpolation linear
+		RightSlope -0.000424862
+		LeftSlope -0.000424862
+		End
+	Key 179
+		Frame 180
+		Value 9.16492
+		Interpolation linear
+		RightSlope -0.00497484
+		LeftSlope -0.00497484
+		End
+	Key 180
+		Frame 181
+		Value 9.16403
+		Interpolation linear
+		RightSlope 0.00299025
+		LeftSlope 0.00299025
+		End
+	Key 181
+		Frame 182
+		Value 9.1709
+		Interpolation linear
+		RightSlope -0.000120163
+		LeftSlope -0.000120163
+		End
+	Key 182
+		Frame 183
+		Value 9.16379
+		Interpolation linear
+		RightSlope -0.0111669
+		LeftSlope -0.0111669
+		End
+	Colour 0 255 0
+	End
+Channel top_right/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel top_right/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/x
+	Extrapolation constant
+	Value 256.613
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 256.613
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/y
+	Extrapolation constant
+	Value 297.398
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 297.398
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/width
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/height
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_left/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel bottom_left/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel bottom_left/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_left/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_left/shift/x
+	Extrapolation linear
+	Value -0.859161
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope -0.0245056
+		LeftSlope -0.0245056
+		End
+	Key 1
+		Frame 2
+		Value -0.0245056
+		Interpolation linear
+		RightSlope -0.0341186
+		LeftSlope -0.0341186
+		End
+	Key 2
+		Frame 3
+		Value -0.0682373
+		Interpolation linear
+		RightSlope -0.0483702
+		LeftSlope -0.0483702
+		End
+	Key 3
+		Frame 4
+		Value -0.121246
+		Interpolation linear
+		RightSlope -0.0460814
+		LeftSlope -0.0460814
+		End
+	Key 4
+		Frame 5
+		Value -0.1604
+		Interpolation linear
+		RightSlope -0.0461275
+		LeftSlope -0.0461275
+		End
+	Key 5
+		Frame 6
+		Value -0.213501
+		Interpolation linear
+		RightSlope -0.060898
+		LeftSlope -0.060898
+		End
+	Key 6
+		Frame 7
+		Value -0.282196
+		Interpolation linear
+		RightSlope -0.063553
+		LeftSlope -0.063553
+		End
+	Key 7
+		Frame 8
+		Value -0.340607
+		Interpolation linear
+		RightSlope -0.0717315
+		LeftSlope -0.0717315
+		End
+	Key 8
+		Frame 9
+		Value -0.425659
+		Interpolation linear
+		RightSlope -0.053726
+		LeftSlope -0.053726
+		End
+	Key 9
+		Frame 10
+		Value -0.448059
+		Interpolation linear
+		RightSlope -0.059189
+		LeftSlope -0.059189
+		End
+	Key 10
+		Frame 11
+		Value -0.544037
+		Interpolation linear
+		RightSlope -0.077957
+		LeftSlope -0.077957
+		End
+	Key 11
+		Frame 12
+		Value -0.603973
+		Interpolation linear
+		RightSlope -0.077072
+		LeftSlope -0.077072
+		End
+	Key 12
+		Frame 13
+		Value -0.698181
+		Interpolation linear
+		RightSlope -0.0710605
+		LeftSlope -0.0710605
+		End
+	Key 13
+		Frame 14
+		Value -0.746094
+		Interpolation linear
+		RightSlope -0.052658
+		LeftSlope -0.052658
+		End
+	Key 14
+		Frame 15
+		Value -0.803497
+		Interpolation linear
+		RightSlope -0.0565335
+		LeftSlope -0.0565335
+		End
+	Key 15
+		Frame 16
+		Value -0.859161
+		Interpolation linear
+		RightSlope -0.0531005
+		LeftSlope -0.0531005
+		End
+	Key 16
+		Frame 17
+		Value -0.909698
+		Interpolation linear
+		RightSlope -0.0623475
+		LeftSlope -0.0623475
+		End
+	Key 17
+		Frame 18
+		Value -0.983856
+		Interpolation linear
+		RightSlope -0.083571
+		LeftSlope -0.083571
+		End
+	Key 18
+		Frame 19
+		Value -1.07684
+		Interpolation linear
+		RightSlope -0.086502
+		LeftSlope -0.086502
+		End
+	Key 19
+		Frame 20
+		Value -1.15686
+		Interpolation linear
+		RightSlope -0.093795
+		LeftSlope -0.093795
+		End
+	Key 20
+		Frame 21
+		Value -1.26443
+		Interpolation linear
+		RightSlope -0.14586
+		LeftSlope -0.14586
+		End
+	Key 21
+		Frame 22
+		Value -1.44858
+		Interpolation linear
+		RightSlope -0.21947
+		LeftSlope -0.21947
+		End
+	Key 22
+		Frame 23
+		Value -1.70337
+		Interpolation linear
+		RightSlope -0.19238
+		LeftSlope -0.19238
+		End
+	Key 23
+		Frame 24
+		Value -1.83334
+		Interpolation linear
+		RightSlope -0.124115
+		LeftSlope -0.124115
+		End
+	Key 24
+		Frame 25
+		Value -1.9516
+		Interpolation linear
+		RightSlope -0.114275
+		LeftSlope -0.114275
+		End
+	Key 25
+		Frame 26
+		Value -2.06189
+		Interpolation linear
+		RightSlope -0.10681
+		LeftSlope -0.10681
+		End
+	Key 26
+		Frame 27
+		Value -2.16522
+		Interpolation linear
+		RightSlope -0.095625
+		LeftSlope -0.095625
+		End
+	Key 27
+		Frame 28
+		Value -2.25314
+		Interpolation linear
+		RightSlope -0.113145
+		LeftSlope -0.113145
+		End
+	Key 28
+		Frame 29
+		Value -2.39151
+		Interpolation linear
+		RightSlope -0.1436
+		LeftSlope -0.1436
+		End
+	Key 29
+		Frame 30
+		Value -2.54034
+		Interpolation linear
+		RightSlope -0.1378
+		LeftSlope -0.1378
+		End
+	Key 30
+		Frame 31
+		Value -2.66711
+		Interpolation linear
+		RightSlope -0.10315
+		LeftSlope -0.10315
+		End
+	Key 31
+		Frame 32
+		Value -2.74664
+		Interpolation linear
+		RightSlope -0.074145
+		LeftSlope -0.074145
+		End
+	Key 32
+		Frame 33
+		Value -2.8154
+		Interpolation linear
+		RightSlope -0.054095
+		LeftSlope -0.054095
+		End
+	Key 33
+		Frame 34
+		Value -2.85483
+		Interpolation linear
+		RightSlope -0.0444651
+		LeftSlope -0.0444651
+		End
+	Key 34
+		Frame 35
+		Value -2.90433
+		Interpolation linear
+		RightSlope -0.0536799
+		LeftSlope -0.0536799
+		End
+	Key 35
+		Frame 36
+		Value -2.96219
+		Interpolation linear
+		RightSlope -0.052655
+		LeftSlope -0.052655
+		End
+	Key 36
+		Frame 37
+		Value -3.00964
+		Interpolation linear
+		RightSlope -0.0466601
+		LeftSlope -0.0466601
+		End
+	Key 37
+		Frame 38
+		Value -3.05551
+		Interpolation linear
+		RightSlope -0.0439301
+		LeftSlope -0.0439301
+		End
+	Key 38
+		Frame 39
+		Value -3.0975
+		Interpolation linear
+		RightSlope -0.05716
+		LeftSlope -0.05716
+		End
+	Key 39
+		Frame 40
+		Value -3.16983
+		Interpolation linear
+		RightSlope -0.0736699
+		LeftSlope -0.0736699
+		End
+	Key 40
+		Frame 41
+		Value -3.24484
+		Interpolation linear
+		RightSlope -0.063265
+		LeftSlope -0.063265
+		End
+	Key 41
+		Frame 42
+		Value -3.29636
+		Interpolation linear
+		RightSlope -0.0475651
+		LeftSlope -0.0475651
+		End
+	Key 42
+		Frame 43
+		Value -3.33997
+		Interpolation linear
+		RightSlope -0.08017
+		LeftSlope -0.08017
+		End
+	Key 43
+		Frame 44
+		Value -3.4567
+		Interpolation linear
+		RightSlope -0.109405
+		LeftSlope -0.109405
+		End
+	Key 44
+		Frame 45
+		Value -3.55878
+		Interpolation linear
+		RightSlope -0.10481
+		LeftSlope -0.10481
+		End
+	Key 45
+		Frame 46
+		Value -3.66632
+		Interpolation linear
+		RightSlope -0.0982801
+		LeftSlope -0.0982801
+		End
+	Key 46
+		Frame 47
+		Value -3.75534
+		Interpolation linear
+		RightSlope -0.0857999
+		LeftSlope -0.0857999
+		End
+	Key 47
+		Frame 48
+		Value -3.83792
+		Interpolation linear
+		RightSlope -0.0711349
+		LeftSlope -0.0711349
+		End
+	Key 48
+		Frame 49
+		Value -3.89761
+		Interpolation linear
+		RightSlope -0.0554351
+		LeftSlope -0.0554351
+		End
+	Key 49
+		Frame 50
+		Value -3.94879
+		Interpolation linear
+		RightSlope -0.045595
+		LeftSlope -0.045595
+		End
+	Key 50
+		Frame 51
+		Value -3.9888
+		Interpolation linear
+		RightSlope -0.0534849
+		LeftSlope -0.0534849
+		End
+	Key 51
+		Frame 52
+		Value -4.05576
+		Interpolation linear
+		RightSlope -0.07776
+		LeftSlope -0.07776
+		End
+	Key 52
+		Frame 53
+		Value -4.14432
+		Interpolation linear
+		RightSlope -0.067565
+		LeftSlope -0.067565
+		End
+	Key 53
+		Frame 54
+		Value -4.19089
+		Interpolation linear
+		RightSlope -0.06178
+		LeftSlope -0.06178
+		End
+	Key 54
+		Frame 55
+		Value -4.26788
+		Interpolation linear
+		RightSlope -0.0460951
+		LeftSlope -0.0460951
+		End
+	Key 55
+		Frame 56
+		Value -4.28308
+		Interpolation linear
+		RightSlope -0.05756
+		LeftSlope -0.05756
+		End
+	Key 56
+		Frame 57
+		Value -4.383
+		Interpolation linear
+		RightSlope -0.076875
+		LeftSlope -0.076875
+		End
+	Key 57
+		Frame 58
+		Value -4.43683
+		Interpolation linear
+		RightSlope -0.11499
+		LeftSlope -0.11499
+		End
+	Key 58
+		Frame 59
+		Value -4.61298
+		Interpolation linear
+		RightSlope -0.13144
+		LeftSlope -0.13144
+		End
+	Key 59
+		Frame 60
+		Value -4.69971
+		Interpolation linear
+		RightSlope -0.0882699
+		LeftSlope -0.0882699
+		End
+	Key 60
+		Frame 61
+		Value -4.78952
+		Interpolation linear
+		RightSlope -0.0662351
+		LeftSlope -0.0662351
+		End
+	Key 61
+		Frame 62
+		Value -4.83218
+		Interpolation linear
+		RightSlope -0.0468602
+		LeftSlope -0.0468602
+		End
+	Key 62
+		Frame 63
+		Value -4.88324
+		Interpolation linear
+		RightSlope -0.05849
+		LeftSlope -0.05849
+		End
+	Key 63
+		Frame 64
+		Value -4.94916
+		Interpolation linear
+		RightSlope -0.05739
+		LeftSlope -0.05739
+		End
+	Key 64
+		Frame 65
+		Value -4.99802
+		Interpolation linear
+		RightSlope -0.050565
+		LeftSlope -0.050565
+		End
+	Key 65
+		Frame 66
+		Value -5.05029
+		Interpolation linear
+		RightSlope -0.0451949
+		LeftSlope -0.0451949
+		End
+	Key 66
+		Frame 67
+		Value -5.08841
+		Interpolation linear
+		RightSlope -0.0517149
+		LeftSlope -0.0517149
+		End
+	Key 67
+		Frame 68
+		Value -5.15372
+		Interpolation linear
+		RightSlope -0.0646951
+		LeftSlope -0.0646951
+		End
+	Key 68
+		Frame 69
+		Value -5.2178
+		Interpolation linear
+		RightSlope -0.07898
+		LeftSlope -0.07898
+		End
+	Key 69
+		Frame 70
+		Value -5.31168
+		Interpolation linear
+		RightSlope -0.07637
+		LeftSlope -0.07637
+		End
+	Key 70
+		Frame 71
+		Value -5.37054
+		Interpolation linear
+		RightSlope -0.0819201
+		LeftSlope -0.0819201
+		End
+	Key 71
+		Frame 72
+		Value -5.47552
+		Interpolation linear
+		RightSlope -0.125215
+		LeftSlope -0.125215
+		End
+	Key 72
+		Frame 73
+		Value -5.62097
+		Interpolation linear
+		RightSlope -0.11127
+		LeftSlope -0.11127
+		End
+	Key 73
+		Frame 74
+		Value -5.69806
+		Interpolation linear
+		RightSlope -0.0673051
+		LeftSlope -0.0673051
+		End
+	Key 74
+		Frame 75
+		Value -5.75558
+		Interpolation linear
+		RightSlope -0.0555401
+		LeftSlope -0.0555401
+		End
+	Key 75
+		Frame 76
+		Value -5.80914
+		Interpolation linear
+		RightSlope -0.0517001
+		LeftSlope -0.0517001
+		End
+	Key 76
+		Frame 77
+		Value -5.85898
+		Interpolation linear
+		RightSlope -0.0577099
+		LeftSlope -0.0577099
+		End
+	Key 77
+		Frame 78
+		Value -5.92456
+		Interpolation linear
+		RightSlope -0.05655
+		LeftSlope -0.05655
+		End
+	Key 78
+		Frame 79
+		Value -5.97208
+		Interpolation linear
+		RightSlope -0.038115
+		LeftSlope -0.038115
+		End
+	Key 79
+		Frame 80
+		Value -6.00079
+		Interpolation linear
+		RightSlope -0.04457
+		LeftSlope -0.04457
+		End
+	Key 80
+		Frame 81
+		Value -6.06122
+		Interpolation linear
+		RightSlope -0.058475
+		LeftSlope -0.058475
+		End
+	Key 81
+		Frame 82
+		Value -6.11774
+		Interpolation linear
+		RightSlope -0.0548849
+		LeftSlope -0.0548849
+		End
+	Key 82
+		Frame 83
+		Value -6.17099
+		Interpolation linear
+		RightSlope -0.0597649
+		LeftSlope -0.0597649
+		End
+	Key 83
+		Frame 84
+		Value -6.23727
+		Interpolation linear
+		RightSlope -0.0876901
+		LeftSlope -0.0876901
+		End
+	Key 84
+		Frame 85
+		Value -6.34637
+		Interpolation linear
+		RightSlope -0.127625
+		LeftSlope -0.127625
+		End
+	Key 85
+		Frame 86
+		Value -6.49252
+		Interpolation linear
+		RightSlope -0.12392
+		LeftSlope -0.12392
+		End
+	Key 86
+		Frame 87
+		Value -6.59421
+		Interpolation linear
+		RightSlope -0.0769501
+		LeftSlope -0.0769501
+		End
+	Key 87
+		Frame 88
+		Value -6.64642
+		Interpolation linear
+		RightSlope -0.0568399
+		LeftSlope -0.0568399
+		End
+	Key 88
+		Frame 89
+		Value -6.70789
+		Interpolation linear
+		RightSlope -0.0666051
+		LeftSlope -0.0666051
+		End
+	Key 89
+		Frame 90
+		Value -6.77963
+		Interpolation linear
+		RightSlope -0.0442951
+		LeftSlope -0.0442951
+		End
+	Key 90
+		Frame 91
+		Value -6.79648
+		Interpolation linear
+		RightSlope -0.0318599
+		LeftSlope -0.0318599
+		End
+	Key 91
+		Frame 92
+		Value -6.84335
+		Interpolation linear
+		RightSlope -0.045655
+		LeftSlope -0.045655
+		End
+	Key 92
+		Frame 93
+		Value -6.88779
+		Interpolation linear
+		RightSlope -0.0536501
+		LeftSlope -0.0536501
+		End
+	Key 93
+		Frame 94
+		Value -6.95065
+		Interpolation linear
+		RightSlope -0.0476799
+		LeftSlope -0.0476799
+		End
+	Key 94
+		Frame 95
+		Value -6.98315
+		Interpolation linear
+		RightSlope -0.0319998
+		LeftSlope -0.0319998
+		End
+	Key 95
+		Frame 96
+		Value -7.01465
+		Interpolation linear
+		RightSlope -0.05336
+		LeftSlope -0.05336
+		End
+	Key 96
+		Frame 97
+		Value -7.08987
+		Interpolation linear
+		RightSlope -0.0513
+		LeftSlope -0.0513
+		End
+	Key 97
+		Frame 98
+		Value -7.11725
+		Interpolation linear
+		RightSlope -0.0428951
+		LeftSlope -0.0428951
+		End
+	Key 98
+		Frame 99
+		Value -7.17566
+		Interpolation linear
+		RightSlope -0.07109
+		LeftSlope -0.07109
+		End
+	Key 99
+		Frame 100
+		Value -7.25943
+		Interpolation linear
+		RightSlope -0.0765049
+		LeftSlope -0.0765049
+		End
+	Key 100
+		Frame 101
+		Value -7.32867
+		Interpolation linear
+		RightSlope -0.064285
+		LeftSlope -0.064285
+		End
+	Key 101
+		Frame 102
+		Value -7.388
+		Interpolation linear
+		RightSlope -0.060745
+		LeftSlope -0.060745
+		End
+	Key 102
+		Frame 103
+		Value -7.45016
+		Interpolation linear
+		RightSlope -0.0513899
+		LeftSlope -0.0513899
+		End
+	Key 103
+		Frame 104
+		Value -7.49078
+		Interpolation linear
+		RightSlope -0.09636
+		LeftSlope -0.09636
+		End
+	Key 104
+		Frame 105
+		Value -7.64288
+		Interpolation linear
+		RightSlope -0.102375
+		LeftSlope -0.102375
+		End
+	Key 105
+		Frame 106
+		Value -7.69553
+		Interpolation linear
+		RightSlope -0.05054
+		LeftSlope -0.05054
+		End
+	Key 106
+		Frame 107
+		Value -7.74396
+		Interpolation linear
+		RightSlope -0.0527301
+		LeftSlope -0.0527301
+		End
+	Key 107
+		Frame 108
+		Value -7.80099
+		Interpolation linear
+		RightSlope -0.0532801
+		LeftSlope -0.0532801
+		End
+	Key 108
+		Frame 109
+		Value -7.85052
+		Interpolation linear
+		RightSlope -0.0480499
+		LeftSlope -0.0480499
+		End
+	Key 109
+		Frame 110
+		Value -7.89709
+		Interpolation linear
+		RightSlope -0.0457199
+		LeftSlope -0.0457199
+		End
+	Key 110
+		Frame 111
+		Value -7.94196
+		Interpolation linear
+		RightSlope -0.0429101
+		LeftSlope -0.0429101
+		End
+	Key 111
+		Frame 112
+		Value -7.98291
+		Interpolation linear
+		RightSlope -0.0368302
+		LeftSlope -0.0368302
+		End
+	Key 112
+		Frame 113
+		Value -8.01562
+		Interpolation linear
+		RightSlope -0.0348949
+		LeftSlope -0.0348949
+		End
+	Key 113
+		Frame 114
+		Value -8.0527
+		Interpolation linear
+		RightSlope -0.0323949
+		LeftSlope -0.0323949
+		End
+	Key 114
+		Frame 115
+		Value -8.08041
+		Interpolation linear
+		RightSlope -0.03508
+		LeftSlope -0.03508
+		End
+	Key 115
+		Frame 116
+		Value -8.12286
+		Interpolation linear
+		RightSlope -0.0564899
+		LeftSlope -0.0564899
+		End
+	Key 116
+		Frame 117
+		Value -8.19339
+		Interpolation linear
+		RightSlope -0.04813
+		LeftSlope -0.04813
+		End
+	Key 117
+		Frame 118
+		Value -8.21912
+		Interpolation linear
+		RightSlope -0.0574651
+		LeftSlope -0.0574651
+		End
+	Key 118
+		Frame 119
+		Value -8.30832
+		Interpolation linear
+		RightSlope -0.0849748
+		LeftSlope -0.0849748
+		End
+	Key 119
+		Frame 120
+		Value -8.38907
+		Interpolation linear
+		RightSlope -0.0937052
+		LeftSlope -0.0937052
+		End
+	Key 120
+		Frame 121
+		Value -8.49573
+		Interpolation linear
+		RightSlope -0.101895
+		LeftSlope -0.101895
+		End
+	Key 121
+		Frame 122
+		Value -8.59286
+		Interpolation linear
+		RightSlope -0.0712748
+		LeftSlope -0.0712748
+		End
+	Key 122
+		Frame 123
+		Value -8.63828
+		Interpolation linear
+		RightSlope -0.0475197
+		LeftSlope -0.0475197
+		End
+	Key 123
+		Frame 124
+		Value -8.6879
+		Interpolation linear
+		RightSlope -0.0461249
+		LeftSlope -0.0461249
+		End
+	Key 124
+		Frame 125
+		Value -8.73053
+		Interpolation linear
+		RightSlope -0.0450401
+		LeftSlope -0.0450401
+		End
+	Key 125
+		Frame 126
+		Value -8.77798
+		Interpolation linear
+		RightSlope -0.0574951
+		LeftSlope -0.0574951
+		End
+	Key 126
+		Frame 127
+		Value -8.84552
+		Interpolation linear
+		RightSlope -0.0545349
+		LeftSlope -0.0545349
+		End
+	Key 127
+		Frame 128
+		Value -8.88705
+		Interpolation linear
+		RightSlope -0.0383
+		LeftSlope -0.0383
+		End
+	Key 128
+		Frame 129
+		Value -8.92212
+		Interpolation linear
+		RightSlope -0.0267954
+		LeftSlope -0.0267954
+		End
+	Key 129
+		Frame 130
+		Value -8.94064
+		Interpolation linear
+		RightSlope -0.0292802
+		LeftSlope -0.0292802
+		End
+	Key 130
+		Frame 131
+		Value -8.98068
+		Interpolation linear
+		RightSlope -0.04178
+		LeftSlope -0.04178
+		End
+	Key 131
+		Frame 132
+		Value -9.0242
+		Interpolation linear
+		RightSlope -0.0541549
+		LeftSlope -0.0541549
+		End
+	Key 132
+		Frame 133
+		Value -9.08899
+		Interpolation linear
+		RightSlope -0.0693498
+		LeftSlope -0.0693498
+		End
+	Key 133
+		Frame 134
+		Value -9.1629
+		Interpolation linear
+		RightSlope -0.0651698
+		LeftSlope -0.0651698
+		End
+	Key 134
+		Frame 135
+		Value -9.21933
+		Interpolation linear
+		RightSlope -0.0810399
+		LeftSlope -0.0810399
+		End
+	Key 135
+		Frame 136
+		Value -9.32498
+		Interpolation linear
+		RightSlope -0.11409
+		LeftSlope -0.11409
+		End
+	Key 136
+		Frame 137
+		Value -9.44751
+		Interpolation linear
+		RightSlope -0.15297
+		LeftSlope -0.15297
+		End
+	Key 137
+		Frame 138
+		Value -9.63092
+		Interpolation linear
+		RightSlope -0.13716
+		LeftSlope -0.13716
+		End
+	Key 138
+		Frame 139
+		Value -9.72183
+		Interpolation linear
+		RightSlope -0.0965748
+		LeftSlope -0.0965748
+		End
+	Key 139
+		Frame 140
+		Value -9.82407
+		Interpolation linear
+		RightSlope -0.0854797
+		LeftSlope -0.0854797
+		End
+	Key 140
+		Frame 141
+		Value -9.89279
+		Interpolation linear
+		RightSlope -0.0667701
+		LeftSlope -0.0667701
+		End
+	Key 141
+		Frame 142
+		Value -9.95761
+		Interpolation linear
+		RightSlope -0.0678549
+		LeftSlope -0.0678549
+		End
+	Key 142
+		Frame 143
+		Value -10.0285
+		Interpolation linear
+		RightSlope -0.0773449
+		LeftSlope -0.0773449
+		End
+	Key 143
+		Frame 144
+		Value -10.1123
+		Interpolation linear
+		RightSlope -0.0798502
+		LeftSlope -0.0798502
+		End
+	Key 144
+		Frame 145
+		Value -10.1882
+		Interpolation linear
+		RightSlope -0.0836501
+		LeftSlope -0.0836501
+		End
+	Key 145
+		Frame 146
+		Value -10.2796
+		Interpolation linear
+		RightSlope -0.0915999
+		LeftSlope -0.0915999
+		End
+	Key 146
+		Frame 147
+		Value -10.3714
+		Interpolation linear
+		RightSlope -0.12115
+		LeftSlope -0.12115
+		End
+	Key 147
+		Frame 148
+		Value -10.5219
+		Interpolation linear
+		RightSlope -0.1389
+		LeftSlope -0.1389
+		End
+	Key 148
+		Frame 149
+		Value -10.6492
+		Interpolation linear
+		RightSlope -0.10855
+		LeftSlope -0.10855
+		End
+	Key 149
+		Frame 150
+		Value -10.739
+		Interpolation linear
+		RightSlope -0.07445
+		LeftSlope -0.07445
+		End
+	Key 150
+		Frame 151
+		Value -10.7981
+		Interpolation linear
+		RightSlope -0.0713997
+		LeftSlope -0.0713997
+		End
+	Key 151
+		Frame 152
+		Value -10.8818
+		Interpolation linear
+		RightSlope -0.0714498
+		LeftSlope -0.0714498
+		End
+	Key 152
+		Frame 153
+		Value -10.941
+		Interpolation linear
+		RightSlope -0.0524001
+		LeftSlope -0.0524001
+		End
+	Key 153
+		Frame 154
+		Value -10.9866
+		Interpolation linear
+		RightSlope -0.0562
+		LeftSlope -0.0562
+		End
+	Key 154
+		Frame 155
+		Value -11.0534
+		Interpolation linear
+		RightSlope -0.06705
+		LeftSlope -0.06705
+		End
+	Key 155
+		Frame 156
+		Value -11.1207
+		Interpolation linear
+		RightSlope -0.0644002
+		LeftSlope -0.0644002
+		End
+	Key 156
+		Frame 157
+		Value -11.1822
+		Interpolation linear
+		RightSlope -0.0559001
+		LeftSlope -0.0559001
+		End
+	Key 157
+		Frame 158
+		Value -11.2325
+		Interpolation linear
+		RightSlope -0.0655499
+		LeftSlope -0.0655499
+		End
+	Key 158
+		Frame 159
+		Value -11.3133
+		Interpolation linear
+		RightSlope -0.0886998
+		LeftSlope -0.0886998
+		End
+	Key 159
+		Frame 160
+		Value -11.4099
+		Interpolation linear
+		RightSlope -0.0942497
+		LeftSlope -0.0942497
+		End
+	Key 160
+		Frame 161
+		Value -11.5018
+		Interpolation linear
+		RightSlope -0.0943503
+		LeftSlope -0.0943503
+		End
+	Key 161
+		Frame 162
+		Value -11.5986
+		Interpolation linear
+		RightSlope -0.0555
+		LeftSlope -0.0555
+		End
+	Key 162
+		Frame 163
+		Value -11.6128
+		Interpolation linear
+		RightSlope -0.0332999
+		LeftSlope -0.0332999
+		End
+	Key 163
+		Frame 164
+		Value -11.6652
+		Interpolation linear
+		RightSlope -0.0408502
+		LeftSlope -0.0408502
+		End
+	Key 164
+		Frame 165
+		Value -11.6945
+		Interpolation linear
+		RightSlope -0.0127001
+		LeftSlope -0.0127001
+		End
+	Key 165
+		Frame 166
+		Value -11.6906
+		Interpolation linear
+		RightSlope -0.00904989
+		LeftSlope -0.00904989
+		End
+	Key 166
+		Frame 167
+		Value -11.7126
+		Interpolation linear
+		RightSlope 0.000850201
+		LeftSlope 0.000850201
+		End
+	Key 167
+		Frame 168
+		Value -11.6889
+		Interpolation linear
+		RightSlope -0.00340033
+		LeftSlope -0.00340033
+		End
+	Key 168
+		Frame 169
+		Value -11.7194
+		Interpolation linear
+		RightSlope -0.0248499
+		LeftSlope -0.0248499
+		End
+	Key 169
+		Frame 170
+		Value -11.7386
+		Interpolation linear
+		RightSlope -0.000999928
+		LeftSlope -0.000999928
+		End
+	Key 170
+		Frame 171
+		Value -11.7214
+		Interpolation linear
+		RightSlope 0.000299931
+		LeftSlope 0.000299931
+		End
+	Key 171
+		Frame 172
+		Value -11.738
+		Interpolation linear
+		RightSlope -0.00404978
+		LeftSlope -0.00404978
+		End
+	Key 172
+		Frame 173
+		Value -11.7295
+		Interpolation linear
+		RightSlope 0.00570011
+		LeftSlope 0.00570011
+		End
+	Key 173
+		Frame 174
+		Value -11.7266
+		Interpolation linear
+		RightSlope 0.00349998
+		LeftSlope 0.00349998
+		End
+	Key 174
+		Frame 175
+		Value -11.7225
+		Interpolation linear
+		RightSlope -0.000600338
+		LeftSlope -0.000600338
+		End
+	Key 175
+		Frame 176
+		Value -11.7278
+		Interpolation linear
+		RightSlope -0.00740004
+		LeftSlope -0.00740004
+		End
+	Key 176
+		Frame 177
+		Value -11.7373
+		Interpolation linear
+		RightSlope 0.0015502
+		LeftSlope 0.0015502
+		End
+	Key 177
+		Frame 178
+		Value -11.7247
+		Interpolation linear
+		RightSlope 0.00250006
+		LeftSlope 0.00250006
+		End
+	Key 178
+		Frame 179
+		Value -11.7323
+		Interpolation linear
+		RightSlope -0.00134993
+		LeftSlope -0.00134993
+		End
+	Key 179
+		Frame 180
+		Value -11.7274
+		Interpolation linear
+		RightSlope -5.00679e-05
+		LeftSlope -5.00679e-05
+		End
+	Key 180
+		Frame 181
+		Value -11.7324
+		Interpolation linear
+		RightSlope -0.00390005
+		LeftSlope -0.00390005
+		End
+	Key 181
+		Frame 182
+		Value -11.7352
+		Interpolation linear
+		RightSlope -0.00635004
+		LeftSlope -0.00635004
+		End
+	Key 182
+		Frame 183
+		Value -11.7451
+		Interpolation linear
+		RightSlope -0.0122516
+		LeftSlope -0.0122516
+		End
+	Colour 131 174 255
+	End
+Channel bottom_left/shift/y
+	Extrapolation linear
+	Value 0.0881348
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		RightSlope 0.0199585
+		LeftSlope 0.0199585
+		End
+	Key 1
+		Frame 2
+		Value 0.0199585
+		Interpolation linear
+		RightSlope 0.005249
+		LeftSlope 0.005249
+		End
+	Key 2
+		Frame 3
+		Value 0.010498
+		Interpolation linear
+		RightSlope 0.0040283
+		LeftSlope 0.0040283
+		End
+	Key 3
+		Frame 4
+		Value 0.0280151
+		Interpolation linear
+		RightSlope 0.0203247
+		LeftSlope 0.0203247
+		End
+	Key 4
+		Frame 5
+		Value 0.0511475
+		Interpolation linear
+		RightSlope 0.00964355
+		LeftSlope 0.00964355
+		End
+	Key 5
+		Frame 6
+		Value 0.0473022
+		Interpolation linear
+		RightSlope -0.0018158
+		LeftSlope -0.0018158
+		End
+	Key 6
+		Frame 7
+		Value 0.0475159
+		Interpolation linear
+		RightSlope -0.0061035
+		LeftSlope -0.0061035
+		End
+	Key 7
+		Frame 8
+		Value 0.0350952
+		Interpolation linear
+		RightSlope -0.0115814
+		LeftSlope -0.0115814
+		End
+	Key 8
+		Frame 9
+		Value 0.024353
+		Interpolation linear
+		RightSlope -0.0229797
+		LeftSlope -0.0229797
+		End
+	Key 9
+		Frame 10
+		Value -0.0108643
+		Interpolation linear
+		RightSlope 0.022522
+		LeftSlope 0.022522
+		End
+	Key 10
+		Frame 11
+		Value 0.069397
+		Interpolation linear
+		RightSlope 0.0461579
+		LeftSlope 0.0461579
+		End
+	Key 11
+		Frame 12
+		Value 0.0814514
+		Interpolation linear
+		RightSlope -0.0036011
+		LeftSlope -0.0036011
+		End
+	Key 12
+		Frame 13
+		Value 0.0621948
+		Interpolation linear
+		RightSlope -0.0068817
+		LeftSlope -0.0068817
+		End
+	Key 13
+		Frame 14
+		Value 0.067688
+		Interpolation linear
+		RightSlope 0.0160065
+		LeftSlope 0.0160065
+		End
+	Key 14
+		Frame 15
+		Value 0.0942078
+		Interpolation linear
+		RightSlope 0.0102234
+		LeftSlope 0.0102234
+		End
+	Key 15
+		Frame 16
+		Value 0.0881348
+		Interpolation linear
+		RightSlope -0.000183102
+		LeftSlope -0.000183102
+		End
+	Key 16
+		Frame 17
+		Value 0.0938416
+		Interpolation linear
+		RightSlope 0.0088651
+		LeftSlope 0.0088651
+		End
+	Key 17
+		Frame 18
+		Value 0.105865
+		Interpolation linear
+		RightSlope 0.0192262
+		LeftSlope 0.0192262
+		End
+	Key 18
+		Frame 19
+		Value 0.132294
+		Interpolation linear
+		RightSlope 0.013184
+		LeftSlope 0.013184
+		End
+	Key 19
+		Frame 20
+		Value 0.132233
+		Interpolation linear
+		RightSlope 0.0097195
+		LeftSlope 0.0097195
+		End
+	Key 20
+		Frame 21
+		Value 0.151733
+		Interpolation linear
+		RightSlope 0.0115355
+		LeftSlope 0.0115355
+		End
+	Key 21
+		Frame 22
+		Value 0.155304
+		Interpolation linear
+		RightSlope -0.023834
+		LeftSlope -0.023834
+		End
+	Key 22
+		Frame 23
+		Value 0.104065
+		Interpolation linear
+		RightSlope -0.0150605
+		LeftSlope -0.0150605
+		End
+	Key 23
+		Frame 24
+		Value 0.125183
+		Interpolation linear
+		RightSlope 0.02063
+		LeftSlope 0.02063
+		End
+	Key 24
+		Frame 25
+		Value 0.145325
+		Interpolation linear
+		RightSlope 0.0266875
+		LeftSlope 0.0266875
+		End
+	Key 25
+		Frame 26
+		Value 0.178558
+		Interpolation linear
+		RightSlope 0.026123
+		LeftSlope 0.026123
+		End
+	Key 26
+		Frame 27
+		Value 0.197571
+		Interpolation linear
+		RightSlope 0.0272065
+		LeftSlope 0.0272065
+		End
+	Key 27
+		Frame 28
+		Value 0.232971
+		Interpolation linear
+		RightSlope -0.0033115
+		LeftSlope -0.0033115
+		End
+	Key 28
+		Frame 29
+		Value 0.190948
+		Interpolation linear
+		RightSlope -0.0199125
+		LeftSlope -0.0199125
+		End
+	Key 29
+		Frame 30
+		Value 0.193146
+		Interpolation linear
+		RightSlope -0.0164485
+		LeftSlope -0.0164485
+		End
+	Key 30
+		Frame 31
+		Value 0.158051
+		Interpolation linear
+		RightSlope -0.0123445
+		LeftSlope -0.0123445
+		End
+	Key 31
+		Frame 32
+		Value 0.168457
+		Interpolation linear
+		RightSlope 0.007919
+		LeftSlope 0.007919
+		End
+	Key 32
+		Frame 33
+		Value 0.173889
+		Interpolation linear
+		RightSlope 0.009308
+		LeftSlope 0.009308
+		End
+	Key 33
+		Frame 34
+		Value 0.187073
+		Interpolation linear
+		RightSlope 0.015274
+		LeftSlope 0.015274
+		End
+	Key 34
+		Frame 35
+		Value 0.204437
+		Interpolation linear
+		RightSlope 0.018646
+		LeftSlope 0.018646
+		End
+	Key 35
+		Frame 36
+		Value 0.224365
+		Interpolation linear
+		RightSlope 0.025772
+		LeftSlope 0.025772
+		End
+	Key 36
+		Frame 37
+		Value 0.255981
+		Interpolation linear
+		RightSlope 0.0206145
+		LeftSlope 0.0206145
+		End
+	Key 37
+		Frame 38
+		Value 0.265594
+		Interpolation linear
+		RightSlope 0.01413
+		LeftSlope 0.01413
+		End
+	Key 38
+		Frame 39
+		Value 0.284241
+		Interpolation linear
+		RightSlope 0.025345
+		LeftSlope 0.025345
+		End
+	Key 39
+		Frame 40
+		Value 0.316284
+		Interpolation linear
+		RightSlope 0.0280915
+		LeftSlope 0.0280915
+		End
+	Key 40
+		Frame 41
+		Value 0.340424
+		Interpolation linear
+		RightSlope 0.022034
+		LeftSlope 0.022034
+		End
+	Key 41
+		Frame 42
+		Value 0.360352
+		Interpolation linear
+		RightSlope 0.039764
+		LeftSlope 0.039764
+		End
+	Key 42
+		Frame 43
+		Value 0.419952
+		Interpolation linear
+		RightSlope 0.009811
+		LeftSlope 0.009811
+		End
+	Key 43
+		Frame 44
+		Value 0.379974
+		Interpolation linear
+		RightSlope -0.0345455
+		LeftSlope -0.0345455
+		End
+	Key 44
+		Frame 45
+		Value 0.350861
+		Interpolation linear
+		RightSlope -0.024307
+		LeftSlope -0.024307
+		End
+	Key 45
+		Frame 46
+		Value 0.33136
+		Interpolation linear
+		RightSlope -0.0163425
+		LeftSlope -0.0163425
+		End
+	Key 46
+		Frame 47
+		Value 0.318176
+		Interpolation linear
+		RightSlope -0.00509651
+		LeftSlope -0.00509651
+		End
+	Key 47
+		Frame 48
+		Value 0.321167
+		Interpolation linear
+		RightSlope 0.00166351
+		LeftSlope 0.00166351
+		End
+	Key 48
+		Frame 49
+		Value 0.321503
+		Interpolation linear
+		RightSlope 0.0020905
+		LeftSlope 0.0020905
+		End
+	Key 49
+		Frame 50
+		Value 0.325348
+		Interpolation linear
+		RightSlope 0.0114745
+		LeftSlope 0.0114745
+		End
+	Key 50
+		Frame 51
+		Value 0.344452
+		Interpolation linear
+		RightSlope 0.00251751
+		LeftSlope 0.00251751
+		End
+	Key 51
+		Frame 52
+		Value 0.330383
+		Interpolation linear
+		RightSlope -0.00407399
+		LeftSlope -0.00407399
+		End
+	Key 52
+		Frame 53
+		Value 0.336304
+		Interpolation linear
+		RightSlope 0.0138855
+		LeftSlope 0.0138855
+		End
+	Key 53
+		Frame 54
+		Value 0.358154
+		Interpolation linear
+		RightSlope 0.030624
+		LeftSlope 0.030624
+		End
+	Key 54
+		Frame 55
+		Value 0.397552
+		Interpolation linear
+		RightSlope 0.048569
+		LeftSlope 0.048569
+		End
+	Key 55
+		Frame 56
+		Value 0.455292
+		Interpolation linear
+		RightSlope 0.042191
+		LeftSlope 0.042191
+		End
+	Key 56
+		Frame 57
+		Value 0.481934
+		Interpolation linear
+		RightSlope 0.027649
+		LeftSlope 0.027649
+		End
+	Key 57
+		Frame 58
+		Value 0.51059
+		Interpolation linear
+		RightSlope -0.0230715
+		LeftSlope -0.0230715
+		End
+	Key 58
+		Frame 59
+		Value 0.435791
+		Interpolation linear
+		RightSlope -0.042801
+		LeftSlope -0.042801
+		End
+	Key 59
+		Frame 60
+		Value 0.424988
+		Interpolation linear
+		RightSlope -0.00273149
+		LeftSlope -0.00273149
+		End
+	Key 60
+		Frame 61
+		Value 0.430328
+		Interpolation linear
+		RightSlope -0.000305504
+		LeftSlope -0.000305504
+		End
+	Key 61
+		Frame 62
+		Value 0.424377
+		Interpolation linear
+		RightSlope 0.0023195
+		LeftSlope 0.0023195
+		End
+	Key 62
+		Frame 63
+		Value 0.434967
+		Interpolation linear
+		RightSlope 0.0190585
+		LeftSlope 0.0190585
+		End
+	Key 63
+		Frame 64
+		Value 0.462494
+		Interpolation linear
+		RightSlope 0.0227965
+		LeftSlope 0.0227965
+		End
+	Key 64
+		Frame 65
+		Value 0.48056
+		Interpolation linear
+		RightSlope 0.018936
+		LeftSlope 0.018936
+		End
+	Key 65
+		Frame 66
+		Value 0.500366
+		Interpolation linear
+		RightSlope 0.0044405
+		LeftSlope 0.0044405
+		End
+	Key 66
+		Frame 67
+		Value 0.489441
+		Interpolation linear
+		RightSlope 0.00647002
+		LeftSlope 0.00647002
+		End
+	Key 67
+		Frame 68
+		Value 0.513306
+		Interpolation linear
+		RightSlope 0.0182495
+		LeftSlope 0.0182495
+		End
+	Key 68
+		Frame 69
+		Value 0.52594
+		Interpolation linear
+		RightSlope 0.00686648
+		LeftSlope 0.00686648
+		End
+	Key 69
+		Frame 70
+		Value 0.527039
+		Interpolation linear
+		RightSlope 0.00235
+		LeftSlope 0.00235
+		End
+	Key 70
+		Frame 71
+		Value 0.53064
+		Interpolation linear
+		RightSlope 0.00436401
+		LeftSlope 0.00436401
+		End
+	Key 71
+		Frame 72
+		Value 0.535767
+		Interpolation linear
+		RightSlope -0.0289615
+		LeftSlope -0.0289615
+		End
+	Key 72
+		Frame 73
+		Value 0.472717
+		Interpolation linear
+		RightSlope -0.0356295
+		LeftSlope -0.0356295
+		End
+	Key 73
+		Frame 74
+		Value 0.464508
+		Interpolation linear
+		RightSlope 0.010422
+		LeftSlope 0.010422
+		End
+	Key 74
+		Frame 75
+		Value 0.493561
+		Interpolation linear
+		RightSlope 0.013565
+		LeftSlope 0.013565
+		End
+	Key 75
+		Frame 76
+		Value 0.491638
+		Interpolation linear
+		RightSlope 0.00808699
+		LeftSlope 0.00808699
+		End
+	Key 76
+		Frame 77
+		Value 0.509735
+		Interpolation linear
+		RightSlope 0.0122225
+		LeftSlope 0.0122225
+		End
+	Key 77
+		Frame 78
+		Value 0.516083
+		Interpolation linear
+		RightSlope 0.00611901
+		LeftSlope 0.00611901
+		End
+	Key 78
+		Frame 79
+		Value 0.521973
+		Interpolation linear
+		RightSlope 0.0113675
+		LeftSlope 0.0113675
+		End
+	Key 79
+		Frame 80
+		Value 0.538818
+		Interpolation linear
+		RightSlope 0.019363
+		LeftSlope 0.019363
+		End
+	Key 80
+		Frame 81
+		Value 0.560699
+		Interpolation linear
+		RightSlope 0.00769049
+		LeftSlope 0.00769049
+		End
+	Key 81
+		Frame 82
+		Value 0.554199
+		Interpolation linear
+		RightSlope 0.0105135
+		LeftSlope 0.0105135
+		End
+	Key 82
+		Frame 83
+		Value 0.581726
+		Interpolation linear
+		RightSlope 0.0152435
+		LeftSlope 0.0152435
+		End
+	Key 83
+		Frame 84
+		Value 0.584686
+		Interpolation linear
+		RightSlope -0.00521851
+		LeftSlope -0.00521851
+		End
+	Key 84
+		Frame 85
+		Value 0.571289
+		Interpolation linear
+		RightSlope -0.016098
+		LeftSlope -0.016098
+		End
+	Key 85
+		Frame 86
+		Value 0.55249
+		Interpolation linear
+		RightSlope -0.041443
+		LeftSlope -0.041443
+		End
+	Key 86
+		Frame 87
+		Value 0.488403
+		Interpolation linear
+		RightSlope -0.0352475
+		LeftSlope -0.0352475
+		End
+	Key 87
+		Frame 88
+		Value 0.481995
+		Interpolation linear
+		RightSlope 0.00511201
+		LeftSlope 0.00511201
+		End
+	Key 88
+		Frame 89
+		Value 0.498627
+		Interpolation linear
+		RightSlope -0.00306699
+		LeftSlope -0.00306699
+		End
+	Key 89
+		Frame 90
+		Value 0.475861
+		Interpolation linear
+		RightSlope 0.00654599
+		LeftSlope 0.00654599
+		End
+	Key 90
+		Frame 91
+		Value 0.511719
+		Interpolation linear
+		RightSlope 0.0276335
+		LeftSlope 0.0276335
+		End
+	Key 91
+		Frame 92
+		Value 0.531128
+		Interpolation linear
+		RightSlope 0.028427
+		LeftSlope 0.028427
+		End
+	Key 92
+		Frame 93
+		Value 0.568573
+		Interpolation linear
+		RightSlope 0.0246275
+		LeftSlope 0.0246275
+		End
+	Key 93
+		Frame 94
+		Value 0.580383
+		Interpolation linear
+		RightSlope 0.0100405
+		LeftSlope 0.0100405
+		End
+	Key 94
+		Frame 95
+		Value 0.588654
+		Interpolation linear
+		RightSlope 0.014328
+		LeftSlope 0.014328
+		End
+	Key 95
+		Frame 96
+		Value 0.609039
+		Interpolation linear
+		RightSlope 0.019241
+		LeftSlope 0.019241
+		End
+	Key 96
+		Frame 97
+		Value 0.627136
+		Interpolation linear
+		RightSlope 0.020691
+		LeftSlope 0.020691
+		End
+	Key 97
+		Frame 98
+		Value 0.650421
+		Interpolation linear
+		RightSlope 0.0222015
+		LeftSlope 0.0222015
+		End
+	Key 98
+		Frame 99
+		Value 0.671539
+		Interpolation linear
+		RightSlope -0.000961006
+		LeftSlope -0.000961006
+		End
+	Key 99
+		Frame 100
+		Value 0.648499
+		Interpolation linear
+		RightSlope -0.0146635
+		LeftSlope -0.0146635
+		End
+	Key 100
+		Frame 101
+		Value 0.642212
+		Interpolation linear
+		RightSlope -0.00405902
+		LeftSlope -0.00405902
+		End
+	Key 101
+		Frame 102
+		Value 0.640381
+		Interpolation linear
+		RightSlope -0.00898749
+		LeftSlope -0.00898749
+		End
+	Key 102
+		Frame 103
+		Value 0.624237
+		Interpolation linear
+		RightSlope -0.0180205
+		LeftSlope -0.0180205
+		End
+	Key 103
+		Frame 104
+		Value 0.60434
+		Interpolation linear
+		RightSlope -0.0328065
+		LeftSlope -0.0328065
+		End
+	Key 104
+		Frame 105
+		Value 0.558624
+		Interpolation linear
+		RightSlope -0.00459301
+		LeftSlope -0.00459301
+		End
+	Key 105
+		Frame 106
+		Value 0.595154
+		Interpolation linear
+		RightSlope 0.024704
+		LeftSlope 0.024704
+		End
+	Key 106
+		Frame 107
+		Value 0.608032
+		Interpolation linear
+		RightSlope 0.011871
+		LeftSlope 0.011871
+		End
+	Key 107
+		Frame 108
+		Value 0.618896
+		Interpolation linear
+		RightSlope 0.00639349
+		LeftSlope 0.00639349
+		End
+	Key 108
+		Frame 109
+		Value 0.620819
+		Interpolation linear
+		RightSlope 0.019455
+		LeftSlope 0.019455
+		End
+	Key 109
+		Frame 110
+		Value 0.657806
+		Interpolation linear
+		RightSlope 0.024658
+		LeftSlope 0.024658
+		End
+	Key 110
+		Frame 111
+		Value 0.670135
+		Interpolation linear
+		RightSlope 0.018265
+		LeftSlope 0.018265
+		End
+	Key 111
+		Frame 112
+		Value 0.694336
+		Interpolation linear
+		RightSlope 0.017334
+		LeftSlope 0.017334
+		End
+	Key 112
+		Frame 113
+		Value 0.704803
+		Interpolation linear
+		RightSlope 0.0177765
+		LeftSlope 0.0177765
+		End
+	Key 113
+		Frame 114
+		Value 0.729889
+		Interpolation linear
+		RightSlope 0.016144
+		LeftSlope 0.016144
+		End
+	Key 114
+		Frame 115
+		Value 0.737091
+		Interpolation linear
+		RightSlope 0.0147095
+		LeftSlope 0.0147095
+		End
+	Key 115
+		Frame 116
+		Value 0.759308
+		Interpolation linear
+		RightSlope 0.013321
+		LeftSlope 0.013321
+		End
+	Key 116
+		Frame 117
+		Value 0.763733
+		Interpolation linear
+		RightSlope 0.0067445
+		LeftSlope 0.0067445
+		End
+	Key 117
+		Frame 118
+		Value 0.772797
+		Interpolation linear
+		RightSlope 0.00239548
+		LeftSlope 0.00239548
+		End
+	Key 118
+		Frame 119
+		Value 0.768524
+		Interpolation linear
+		RightSlope -0.000976503
+		LeftSlope -0.000976503
+		End
+	Key 119
+		Frame 120
+		Value 0.770844
+		Interpolation linear
+		RightSlope -0.0351255
+		LeftSlope -0.0351255
+		End
+	Key 120
+		Frame 121
+		Value 0.698273
+		Interpolation linear
+		RightSlope -0.109482
+		LeftSlope -0.109482
+		End
+	Key 121
+		Frame 122
+		Value 0.55188
+		Interpolation linear
+		RightSlope 0.012695
+		LeftSlope 0.012695
+		End
+	Key 122
+		Frame 123
+		Value 0.723663
+		Interpolation linear
+		RightSlope 0.095413
+		LeftSlope 0.095413
+		End
+	Key 123
+		Frame 124
+		Value 0.742706
+		Interpolation linear
+		RightSlope 0.00312802
+		LeftSlope 0.00312802
+		End
+	Key 124
+		Frame 125
+		Value 0.729919
+		Interpolation linear
+		RightSlope 0.00521851
+		LeftSlope 0.00521851
+		End
+	Key 125
+		Frame 126
+		Value 0.753143
+		Interpolation linear
+		RightSlope 0.020813
+		LeftSlope 0.020813
+		End
+	Key 126
+		Frame 127
+		Value 0.771545
+		Interpolation linear
+		RightSlope 0.0112155
+		LeftSlope 0.0112155
+		End
+	Key 127
+		Frame 128
+		Value 0.775574
+		Interpolation linear
+		RightSlope -0.000106484
+		LeftSlope -0.000106484
+		End
+	Key 128
+		Frame 129
+		Value 0.771332
+		Interpolation linear
+		RightSlope 0.0119935
+		LeftSlope 0.0119935
+		End
+	Key 129
+		Frame 130
+		Value 0.799561
+		Interpolation linear
+		RightSlope 0.019592
+		LeftSlope 0.019592
+		End
+	Key 130
+		Frame 131
+		Value 0.810516
+		Interpolation linear
+		RightSlope 0.024017
+		LeftSlope 0.024017
+		End
+	Key 131
+		Frame 132
+		Value 0.847595
+		Interpolation linear
+		RightSlope 0.0215305
+		LeftSlope 0.0215305
+		End
+	Key 132
+		Frame 133
+		Value 0.853577
+		Interpolation linear
+		RightSlope 0.0214235
+		LeftSlope 0.0214235
+		End
+	Key 133
+		Frame 134
+		Value 0.890442
+		Interpolation linear
+		RightSlope 0.018875
+		LeftSlope 0.018875
+		End
+	Key 134
+		Frame 135
+		Value 0.891327
+		Interpolation linear
+		RightSlope 0.0040285
+		LeftSlope 0.0040285
+		End
+	Key 135
+		Frame 136
+		Value 0.898499
+		Interpolation linear
+		RightSlope -0.0232545
+		LeftSlope -0.0232545
+		End
+	Key 136
+		Frame 137
+		Value 0.844818
+		Interpolation linear
+		RightSlope -0.0289615
+		LeftSlope -0.0289615
+		End
+	Key 137
+		Frame 138
+		Value 0.840576
+		Interpolation linear
+		RightSlope -0.010666
+		LeftSlope -0.010666
+		End
+	Key 138
+		Frame 139
+		Value 0.823486
+		Interpolation linear
+		RightSlope 0.005844
+		LeftSlope 0.005844
+		End
+	Key 139
+		Frame 140
+		Value 0.852264
+		Interpolation linear
+		RightSlope 0.021164
+		LeftSlope 0.021164
+		End
+	Key 140
+		Frame 141
+		Value 0.865814
+		Interpolation linear
+		RightSlope 0.018784
+		LeftSlope 0.018784
+		End
+	Key 141
+		Frame 142
+		Value 0.889832
+		Interpolation linear
+		RightSlope 0.0237275
+		LeftSlope 0.0237275
+		End
+	Key 142
+		Frame 143
+		Value 0.913269
+		Interpolation linear
+		RightSlope 0.0254515
+		LeftSlope 0.0254515
+		End
+	Key 143
+		Frame 144
+		Value 0.940735
+		Interpolation linear
+		RightSlope 0.0335085
+		LeftSlope 0.0335085
+		End
+	Key 144
+		Frame 145
+		Value 0.980286
+		Interpolation linear
+		RightSlope 0.02211
+		LeftSlope 0.02211
+		End
+	Key 145
+		Frame 146
+		Value 0.984955
+		Interpolation linear
+		RightSlope -0.0153505
+		LeftSlope -0.0153505
+		End
+	Key 146
+		Frame 147
+		Value 0.949585
+		Interpolation linear
+		RightSlope -0.000748008
+		LeftSlope -0.000748008
+		End
+	Key 147
+		Frame 148
+		Value 0.983459
+		Interpolation linear
+		RightSlope -0.00747702
+		LeftSlope -0.00747702
+		End
+	Key 148
+		Frame 149
+		Value 0.934631
+		Interpolation linear
+		RightSlope -0.0275265
+		LeftSlope -0.0275265
+		End
+	Key 149
+		Frame 150
+		Value 0.928406
+		Interpolation linear
+		RightSlope -0.00163248
+		LeftSlope -0.00163248
+		End
+	Key 150
+		Frame 151
+		Value 0.931366
+		Interpolation linear
+		RightSlope 0.00842249
+		LeftSlope 0.00842249
+		End
+	Key 151
+		Frame 152
+		Value 0.945251
+		Interpolation linear
+		RightSlope 0.0165255
+		LeftSlope 0.0165255
+		End
+	Key 152
+		Frame 153
+		Value 0.964417
+		Interpolation linear
+		RightSlope 0.026154
+		LeftSlope 0.026154
+		End
+	Key 153
+		Frame 154
+		Value 0.997559
+		Interpolation linear
+		RightSlope 0.0323965
+		LeftSlope 0.0323965
+		End
+	Key 154
+		Frame 155
+		Value 1.02921
+		Interpolation linear
+		RightSlope 0.0113655
+		LeftSlope 0.0113655
+		End
+	Key 155
+		Frame 156
+		Value 1.02029
+		Interpolation linear
+		RightSlope 0.00506502
+		LeftSlope 0.00506502
+		End
+	Key 156
+		Frame 157
+		Value 1.03934
+		Interpolation linear
+		RightSlope 0.013355
+		LeftSlope 0.013355
+		End
+	Key 157
+		Frame 158
+		Value 1.047
+		Interpolation linear
+		RightSlope 0.00139999
+		LeftSlope 0.00139999
+		End
+	Key 158
+		Frame 159
+		Value 1.04214
+		Interpolation linear
+		RightSlope -0.0246445
+		LeftSlope -0.0246445
+		End
+	Key 159
+		Frame 160
+		Value 0.997711
+		Interpolation linear
+		RightSlope 0.012485
+		LeftSlope 0.012485
+		End
+	Key 160
+		Frame 161
+		Value 1.06711
+		Interpolation linear
+		RightSlope 0.0110145
+		LeftSlope 0.0110145
+		End
+	Key 161
+		Frame 162
+		Value 1.01974
+		Interpolation linear
+		RightSlope -0.01982
+		LeftSlope -0.01982
+		End
+	Key 162
+		Frame 163
+		Value 1.02747
+		Interpolation linear
+		RightSlope -0.0169195
+		LeftSlope -0.0169195
+		End
+	Key 163
+		Frame 164
+		Value 0.985901
+		Interpolation linear
+		RightSlope -0.00933999
+		LeftSlope -0.00933999
+		End
+	Key 164
+		Frame 165
+		Value 1.00879
+		Interpolation linear
+		RightSlope 0.0228595
+		LeftSlope 0.0228595
+		End
+	Key 165
+		Frame 166
+		Value 1.03162
+		Interpolation linear
+		RightSlope 0.001495
+		LeftSlope 0.001495
+		End
+	Key 166
+		Frame 167
+		Value 1.01178
+		Interpolation linear
+		RightSlope -0.01067
+		LeftSlope -0.01067
+		End
+	Key 167
+		Frame 168
+		Value 1.01028
+		Interpolation linear
+		RightSlope 0.00376999
+		LeftSlope 0.00376999
+		End
+	Key 168
+		Frame 169
+		Value 1.01932
+		Interpolation linear
+		RightSlope 0.005265
+		LeftSlope 0.005265
+		End
+	Key 169
+		Frame 170
+		Value 1.02081
+		Interpolation linear
+		RightSlope 0.00224
+		LeftSlope 0.00224
+		End
+	Key 170
+		Frame 171
+		Value 1.0238
+		Interpolation linear
+		RightSlope -0.00663501
+		LeftSlope -0.00663501
+		End
+	Key 171
+		Frame 172
+		Value 1.00754
+		Interpolation linear
+		RightSlope -0.012327
+		LeftSlope -0.012327
+		End
+	Key 172
+		Frame 173
+		Value 0.999146
+		Interpolation linear
+		RightSlope 0.00138503
+		LeftSlope 0.00138503
+		End
+	Key 173
+		Frame 174
+		Value 1.01031
+		Interpolation linear
+		RightSlope -0.001221
+		LeftSlope -0.001221
+		End
+	Key 174
+		Frame 175
+		Value 0.996704
+		Interpolation linear
+		RightSlope -0.00314003
+		LeftSlope -0.00314003
+		End
+	Key 175
+		Frame 176
+		Value 1.00403
+		Interpolation linear
+		RightSlope 0.00312799
+		LeftSlope 0.00312799
+		End
+	Key 176
+		Frame 177
+		Value 1.00296
+		Interpolation linear
+		RightSlope -0.000670016
+		LeftSlope -0.000670016
+		End
+	Key 177
+		Frame 178
+		Value 1.00269
+		Interpolation linear
+		RightSlope 0.00300503
+		LeftSlope 0.00300503
+		End
+	Key 178
+		Frame 179
+		Value 1.00897
+		Interpolation linear
+		RightSlope 0.00134003
+		LeftSlope 0.00134003
+		End
+	Key 179
+		Frame 180
+		Value 1.00537
+		Interpolation linear
+		RightSlope -0.00239503
+		LeftSlope -0.00239503
+		End
+	Key 180
+		Frame 181
+		Value 1.00418
+		Interpolation linear
+		RightSlope 0.000989974
+		LeftSlope 0.000989974
+		End
+	Key 181
+		Frame 182
+		Value 1.00735
+		Interpolation linear
+		RightSlope -0.00350899
+		LeftSlope -0.00350899
+		End
+	Key 182
+		Frame 183
+		Value 0.997162
+		Interpolation linear
+		RightSlope -0.0139758
+		LeftSlope -0.0139758
+		End
+	Colour 131 174 255
+	End
+Channel bottom_left/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel bottom_left/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/x
+	Extrapolation constant
+	Value 399.627
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 183
+		Value 399.627
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/y
+	Extrapolation constant
+	Value 303.241
+	Size 1
+	KeyVersion 1
+	Key 0
+		Frame 183
+		Value 303.241
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/width
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/height
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 183
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 183
+		Value 0
+		Interpolation constant
+		End
+	Colour 50 50 50
+	End
+Channel bottom_right/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel bottom_right/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel bottom_right/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_right/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_right/shift/x
+	Extrapolation linear
+	Value -4.8219
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value -5.13083
+		Interpolation linear
+		RightSlope 0.0132198
+		LeftSlope 0.0132198
+		End
+	Key 1
+		Frame 2
+		Value -5.11761
+		Interpolation linear
+		RightSlope 0.022965
+		LeftSlope 0.022965
+		End
+	Key 2
+		Frame 3
+		Value -5.0849
+		Interpolation linear
+		RightSlope 0.0230849
+		LeftSlope 0.0230849
+		End
+	Key 3
+		Frame 4
+		Value -5.07144
+		Interpolation linear
+		RightSlope 0.0101449
+		LeftSlope 0.0101449
+		End
+	Key 4
+		Frame 5
+		Value -5.06461
+		Interpolation linear
+		RightSlope 0.0197451
+		LeftSlope 0.0197451
+		End
+	Key 5
+		Frame 6
+		Value -5.03195
+		Interpolation linear
+		RightSlope 0.03267
+		LeftSlope 0.03267
+		End
+	Key 6
+		Frame 7
+		Value -4.99927
+		Interpolation linear
+		RightSlope 0.0237701
+		LeftSlope 0.0237701
+		End
+	Key 7
+		Frame 8
+		Value -4.98441
+		Interpolation linear
+		RightSlope 0.0209351
+		LeftSlope 0.0209351
+		End
+	Key 8
+		Frame 9
+		Value -4.9574
+		Interpolation linear
+		RightSlope 0.0249648
+		LeftSlope 0.0249648
+		End
+	Key 9
+		Frame 10
+		Value -4.93448
+		Interpolation linear
+		RightSlope 0.0158398
+		LeftSlope 0.0158398
+		End
+	Key 10
+		Frame 11
+		Value -4.92572
+		Interpolation linear
+		RightSlope 0.01108
+		LeftSlope 0.01108
+		End
+	Key 11
+		Frame 12
+		Value -4.91232
+		Interpolation linear
+		RightSlope 0.018295
+		LeftSlope 0.018295
+		End
+	Key 12
+		Frame 13
+		Value -4.88913
+		Interpolation linear
+		RightSlope 0.0216651
+		LeftSlope 0.0216651
+		End
+	Key 13
+		Frame 14
+		Value -4.86899
+		Interpolation linear
+		RightSlope 0.0160201
+		LeftSlope 0.0160201
+		End
+	Key 14
+		Frame 15
+		Value -4.85709
+		Interpolation linear
+		RightSlope 0.023545
+		LeftSlope 0.023545
+		End
+	Key 15
+		Frame 16
+		Value -4.8219
+		Interpolation linear
+		RightSlope 0.0296199
+		LeftSlope 0.0296199
+		End
+	Key 16
+		Frame 17
+		Value -4.79785
+		Interpolation linear
+		RightSlope 0.03456
+		LeftSlope 0.03456
+		End
+	Key 17
+		Frame 18
+		Value -4.75278
+		Interpolation linear
+		RightSlope 0.0295551
+		LeftSlope 0.0295551
+		End
+	Key 18
+		Frame 19
+		Value -4.73874
+		Interpolation linear
+		RightSlope 0.0338299
+		LeftSlope 0.0338299
+		End
+	Key 19
+		Frame 20
+		Value -4.68512
+		Interpolation linear
+		RightSlope 0.0627451
+		LeftSlope 0.0627451
+		End
+	Key 20
+		Frame 21
+		Value -4.61325
+		Interpolation linear
+		RightSlope 0.0769951
+		LeftSlope 0.0769951
+		End
+	Key 21
+		Frame 22
+		Value -4.53113
+		Interpolation linear
+		RightSlope 0.07724
+		LeftSlope 0.07724
+		End
+	Key 22
+		Frame 23
+		Value -4.45877
+		Interpolation linear
+		RightSlope 0.0941949
+		LeftSlope 0.0941949
+		End
+	Key 23
+		Frame 24
+		Value -4.34274
+		Interpolation linear
+		RightSlope 0.105025
+		LeftSlope 0.105025
+		End
+	Key 24
+		Frame 25
+		Value -4.24872
+		Interpolation linear
+		RightSlope 0.085875
+		LeftSlope 0.085875
+		End
+	Key 25
+		Frame 26
+		Value -4.17099
+		Interpolation linear
+		RightSlope 0.063355
+		LeftSlope 0.063355
+		End
+	Key 26
+		Frame 27
+		Value -4.12201
+		Interpolation linear
+		RightSlope 0.05194
+		LeftSlope 0.05194
+		End
+	Key 27
+		Frame 28
+		Value -4.06711
+		Interpolation linear
+		RightSlope 0.0609901
+		LeftSlope 0.0609901
+		End
+	Key 28
+		Frame 29
+		Value -4.00003
+		Interpolation linear
+		RightSlope 0.06041
+		LeftSlope 0.06041
+		End
+	Key 29
+		Frame 30
+		Value -3.94629
+		Interpolation linear
+		RightSlope 0.047945
+		LeftSlope 0.047945
+		End
+	Key 30
+		Frame 31
+		Value -3.90414
+		Interpolation linear
+		RightSlope 0.03
+		LeftSlope 0.03
+		End
+	Key 31
+		Frame 32
+		Value -3.88629
+		Interpolation linear
+		RightSlope 0.02136
+		LeftSlope 0.02136
+		End
+	Key 32
+		Frame 33
+		Value -3.86142
+		Interpolation linear
+		RightSlope 0.03363
+		LeftSlope 0.03363
+		End
+	Key 33
+		Frame 34
+		Value -3.81903
+		Interpolation linear
+		RightSlope 0.033415
+		LeftSlope 0.033415
+		End
+	Key 34
+		Frame 35
+		Value -3.79459
+		Interpolation linear
+		RightSlope 0.036775
+		LeftSlope 0.036775
+		End
+	Key 35
+		Frame 36
+		Value -3.74548
+		Interpolation linear
+		RightSlope 0.0421751
+		LeftSlope 0.0421751
+		End
+	Key 36
+		Frame 37
+		Value -3.71024
+		Interpolation linear
+		RightSlope 0.0394751
+		LeftSlope 0.0394751
+		End
+	Key 37
+		Frame 38
+		Value -3.66653
+		Interpolation linear
+		RightSlope 0.0472
+		LeftSlope 0.0472
+		End
+	Key 38
+		Frame 39
+		Value -3.61584
+		Interpolation linear
+		RightSlope 0.023495
+		LeftSlope 0.023495
+		End
+	Key 39
+		Frame 40
+		Value -3.61954
+		Interpolation linear
+		RightSlope 0.0157599
+		LeftSlope 0.0157599
+		End
+	Key 40
+		Frame 41
+		Value -3.58432
+		Interpolation linear
+		RightSlope 0.01247
+		LeftSlope 0.01247
+		End
+	Key 41
+		Frame 42
+		Value -3.5946
+		Interpolation linear
+		RightSlope 0.0270101
+		LeftSlope 0.0270101
+		End
+	Key 42
+		Frame 43
+		Value -3.5303
+		Interpolation linear
+		RightSlope 0.058835
+		LeftSlope 0.058835
+		End
+	Key 43
+		Frame 44
+		Value -3.47693
+		Interpolation linear
+		RightSlope 0.032195
+		LeftSlope 0.032195
+		End
+	Key 44
+		Frame 45
+		Value -3.46591
+		Interpolation linear
+		RightSlope 0.0210899
+		LeftSlope 0.0210899
+		End
+	Key 45
+		Frame 46
+		Value -3.43475
+		Interpolation linear
+		RightSlope 0.042325
+		LeftSlope 0.042325
+		End
+	Key 46
+		Frame 47
+		Value -3.38126
+		Interpolation linear
+		RightSlope 0.054
+		LeftSlope 0.054
+		End
+	Key 47
+		Frame 48
+		Value -3.32675
+		Interpolation linear
+		RightSlope 0.03969
+		LeftSlope 0.03969
+		End
+	Key 48
+		Frame 49
+		Value -3.30188
+		Interpolation linear
+		RightSlope 0.018995
+		LeftSlope 0.018995
+		End
+	Key 49
+		Frame 50
+		Value -3.28876
+		Interpolation linear
+		RightSlope 0.0183699
+		LeftSlope 0.0183699
+		End
+	Key 50
+		Frame 51
+		Value -3.26514
+		Interpolation linear
+		RightSlope 0.033435
+		LeftSlope 0.033435
+		End
+	Key 51
+		Frame 52
+		Value -3.22189
+		Interpolation linear
+		RightSlope 0.03676
+		LeftSlope 0.03676
+		End
+	Key 52
+		Frame 53
+		Value -3.19162
+		Interpolation linear
+		RightSlope 0.024215
+		LeftSlope 0.024215
+		End
+	Key 53
+		Frame 54
+		Value -3.17346
+		Interpolation linear
+		RightSlope 0.0274501
+		LeftSlope 0.0274501
+		End
+	Key 54
+		Frame 55
+		Value -3.13672
+		Interpolation linear
+		RightSlope 0.03291
+		LeftSlope 0.03291
+		End
+	Key 55
+		Frame 56
+		Value -3.10764
+		Interpolation linear
+		RightSlope 0.03099
+		LeftSlope 0.03099
+		End
+	Key 56
+		Frame 57
+		Value -3.07474
+		Interpolation linear
+		RightSlope 0.017915
+		LeftSlope 0.017915
+		End
+	Key 57
+		Frame 58
+		Value -3.07181
+		Interpolation linear
+		RightSlope 0.023055
+		LeftSlope 0.023055
+		End
+	Key 58
+		Frame 59
+		Value -3.02863
+		Interpolation linear
+		RightSlope 0.034885
+		LeftSlope 0.034885
+		End
+	Key 59
+		Frame 60
+		Value -3.00204
+		Interpolation linear
+		RightSlope 0.029315
+		LeftSlope 0.029315
+		End
+	Key 60
+		Frame 61
+		Value -2.97
+		Interpolation linear
+		RightSlope 0.0329399
+		LeftSlope 0.0329399
+		End
+	Key 61
+		Frame 62
+		Value -2.93616
+		Interpolation linear
+		RightSlope 0.039505
+		LeftSlope 0.039505
+		End
+	Key 62
+		Frame 63
+		Value -2.89099
+		Interpolation linear
+		RightSlope 0.0295401
+		LeftSlope 0.0295401
+		End
+	Key 63
+		Frame 64
+		Value -2.87708
+		Interpolation linear
+		RightSlope 0.012815
+		LeftSlope 0.012815
+		End
+	Key 64
+		Frame 65
+		Value -2.86536
+		Interpolation linear
+		RightSlope 0.01709
+		LeftSlope 0.01709
+		End
+	Key 65
+		Frame 66
+		Value -2.8429
+		Interpolation linear
+		RightSlope 0.024295
+		LeftSlope 0.024295
+		End
+	Key 66
+		Frame 67
+		Value -2.81677
+		Interpolation linear
+		RightSlope 0.026445
+		LeftSlope 0.026445
+		End
+	Key 67
+		Frame 68
+		Value -2.79001
+		Interpolation linear
+		RightSlope 0.0361301
+		LeftSlope 0.0361301
+		End
+	Key 68
+		Frame 69
+		Value -2.74451
+		Interpolation linear
+		RightSlope 0.0342849
+		LeftSlope 0.0342849
+		End
+	Key 69
+		Frame 70
+		Value -2.72144
+		Interpolation linear
+		RightSlope 0.0345299
+		LeftSlope 0.0345299
+		End
+	Key 70
+		Frame 71
+		Value -2.67545
+		Interpolation linear
+		RightSlope 0.033375
+		LeftSlope 0.033375
+		End
+	Key 71
+		Frame 72
+		Value -2.65469
+		Interpolation linear
+		RightSlope 0.02321
+		LeftSlope 0.02321
+		End
+	Key 72
+		Frame 73
+		Value -2.62903
+		Interpolation linear
+		RightSlope 0.0334001
+		LeftSlope 0.0334001
+		End
+	Key 73
+		Frame 74
+		Value -2.58789
+		Interpolation linear
+		RightSlope 0.03084
+		LeftSlope 0.03084
+		End
+	Key 74
+		Frame 75
+		Value -2.56735
+		Interpolation linear
+		RightSlope 0.035295
+		LeftSlope 0.035295
+		End
+	Key 75
+		Frame 76
+		Value -2.5173
+		Interpolation linear
+		RightSlope 0.04756
+		LeftSlope 0.04756
+		End
+	Key 76
+		Frame 77
+		Value -2.47223
+		Interpolation linear
+		RightSlope 0.0382049
+		LeftSlope 0.0382049
+		End
+	Key 77
+		Frame 78
+		Value -2.44089
+		Interpolation linear
+		RightSlope 0.028075
+		LeftSlope 0.028075
+		End
+	Key 78
+		Frame 79
+		Value -2.41608
+		Interpolation linear
+		RightSlope 0.033615
+		LeftSlope 0.033615
+		End
+	Key 79
+		Frame 80
+		Value -2.37366
+		Interpolation linear
+		RightSlope 0.027665
+		LeftSlope 0.027665
+		End
+	Key 80
+		Frame 81
+		Value -2.36075
+		Interpolation linear
+		RightSlope 0.02925
+		LeftSlope 0.02925
+		End
+	Key 81
+		Frame 82
+		Value -2.31516
+		Interpolation linear
+		RightSlope 0.03116
+		LeftSlope 0.03116
+		End
+	Key 82
+		Frame 83
+		Value -2.29843
+		Interpolation linear
+		RightSlope 0.0174301
+		LeftSlope 0.0174301
+		End
+	Key 83
+		Frame 84
+		Value -2.2803
+		Interpolation linear
+		RightSlope 0.026885
+		LeftSlope 0.026885
+		End
+	Key 84
+		Frame 85
+		Value -2.24466
+		Interpolation linear
+		RightSlope 0.0310049
+		LeftSlope 0.0310049
+		End
+	Key 85
+		Frame 86
+		Value -2.21829
+		Interpolation linear
+		RightSlope 0.0353099
+		LeftSlope 0.0353099
+		End
+	Key 86
+		Frame 87
+		Value -2.17404
+		Interpolation linear
+		RightSlope 0.023985
+		LeftSlope 0.023985
+		End
+	Key 87
+		Frame 88
+		Value -2.17032
+		Interpolation linear
+		RightSlope 0.0202501
+		LeftSlope 0.0202501
+		End
+	Key 88
+		Frame 89
+		Value -2.13354
+		Interpolation linear
+		RightSlope 0.0283951
+		LeftSlope 0.0283951
+		End
+	Key 89
+		Frame 90
+		Value -2.11353
+		Interpolation linear
+		RightSlope 0.0203999
+		LeftSlope 0.0203999
+		End
+	Key 90
+		Frame 91
+		Value -2.09274
+		Interpolation linear
+		RightSlope 0.03168
+		LeftSlope 0.03168
+		End
+	Key 91
+		Frame 92
+		Value -2.05017
+		Interpolation linear
+		RightSlope 0.03494
+		LeftSlope 0.03494
+		End
+	Key 92
+		Frame 93
+		Value -2.02286
+		Interpolation linear
+		RightSlope 0.020445
+		LeftSlope 0.020445
+		End
+	Key 93
+		Frame 94
+		Value -2.00928
+		Interpolation linear
+		RightSlope 0.011535
+		LeftSlope 0.011535
+		End
+	Key 94
+		Frame 95
+		Value -1.99979
+		Interpolation linear
+		RightSlope 0.018585
+		LeftSlope 0.018585
+		End
+	Key 95
+		Frame 96
+		Value -1.97211
+		Interpolation linear
+		RightSlope 0.02466
+		LeftSlope 0.02466
+		End
+	Key 96
+		Frame 97
+		Value -1.95047
+		Interpolation linear
+		RightSlope 0.020465
+		LeftSlope 0.020465
+		End
+	Key 97
+		Frame 98
+		Value -1.93118
+		Interpolation linear
+		RightSlope 0.027635
+		LeftSlope 0.027635
+		End
+	Key 98
+		Frame 99
+		Value -1.8952
+		Interpolation linear
+		RightSlope 0.02455
+		LeftSlope 0.02455
+		End
+	Key 99
+		Frame 100
+		Value -1.88208
+		Interpolation linear
+		RightSlope 0.010285
+		LeftSlope 0.010285
+		End
+	Key 100
+		Frame 101
+		Value -1.87463
+		Interpolation linear
+		RightSlope 0.01564
+		LeftSlope 0.01564
+		End
+	Key 101
+		Frame 102
+		Value -1.8508
+		Interpolation linear
+		RightSlope 0.02145
+		LeftSlope 0.02145
+		End
+	Key 102
+		Frame 103
+		Value -1.83173
+		Interpolation linear
+		RightSlope 0.024325
+		LeftSlope 0.024325
+		End
+	Key 103
+		Frame 104
+		Value -1.80215
+		Interpolation linear
+		RightSlope 0.02585
+		LeftSlope 0.02585
+		End
+	Key 104
+		Frame 105
+		Value -1.78003
+		Interpolation linear
+		RightSlope 0.027205
+		LeftSlope 0.027205
+		End
+	Key 105
+		Frame 106
+		Value -1.74774
+		Interpolation linear
+		RightSlope 0.02588
+		LeftSlope 0.02588
+		End
+	Key 106
+		Frame 107
+		Value -1.72827
+		Interpolation linear
+		RightSlope 0.03235
+		LeftSlope 0.03235
+		End
+	Key 107
+		Frame 108
+		Value -1.68304
+		Interpolation linear
+		RightSlope 0.041135
+		LeftSlope 0.041135
+		End
+	Key 108
+		Frame 109
+		Value -1.646
+		Interpolation linear
+		RightSlope 0.014265
+		LeftSlope 0.014265
+		End
+	Key 109
+		Frame 110
+		Value -1.65451
+		Interpolation linear
+		RightSlope 0.014925
+		LeftSlope 0.014925
+		End
+	Key 110
+		Frame 111
+		Value -1.61615
+		Interpolation linear
+		RightSlope 0.02812
+		LeftSlope 0.02812
+		End
+	Key 111
+		Frame 112
+		Value -1.59827
+		Interpolation linear
+		RightSlope 0.03102
+		LeftSlope 0.03102
+		End
+	Key 112
+		Frame 113
+		Value -1.55411
+		Interpolation linear
+		RightSlope 0.03772
+		LeftSlope 0.03772
+		End
+	Key 113
+		Frame 114
+		Value -1.52283
+		Interpolation linear
+		RightSlope 0.05017
+		LeftSlope 0.05017
+		End
+	Key 114
+		Frame 115
+		Value -1.45377
+		Interpolation linear
+		RightSlope 0.060195
+		LeftSlope 0.060195
+		End
+	Key 115
+		Frame 116
+		Value -1.40244
+		Interpolation linear
+		RightSlope 0.02637
+		LeftSlope 0.02637
+		End
+	Key 116
+		Frame 117
+		Value -1.40103
+		Interpolation linear
+		RightSlope 0.020815
+		LeftSlope 0.020815
+		End
+	Key 117
+		Frame 118
+		Value -1.36081
+		Interpolation linear
+		RightSlope 0.026015
+		LeftSlope 0.026015
+		End
+	Key 118
+		Frame 119
+		Value -1.349
+		Interpolation linear
+		RightSlope 0.01581
+		LeftSlope 0.01581
+		End
+	Key 119
+		Frame 120
+		Value -1.32919
+		Interpolation linear
+		RightSlope 0.0123
+		LeftSlope 0.0123
+		End
+	Key 120
+		Frame 121
+		Value -1.3244
+		Interpolation linear
+		RightSlope 0.01297
+		LeftSlope 0.01297
+		End
+	Key 121
+		Frame 122
+		Value -1.30325
+		Interpolation linear
+		RightSlope 0.031445
+		LeftSlope 0.031445
+		End
+	Key 122
+		Frame 123
+		Value -1.26151
+		Interpolation linear
+		RightSlope 0.02504
+		LeftSlope 0.02504
+		End
+	Key 123
+		Frame 124
+		Value -1.25317
+		Interpolation linear
+		RightSlope 0.00616503
+		LeftSlope 0.00616503
+		End
+	Key 124
+		Frame 125
+		Value -1.24918
+		Interpolation linear
+		RightSlope 0.011915
+		LeftSlope 0.011915
+		End
+	Key 125
+		Frame 126
+		Value -1.22934
+		Interpolation linear
+		RightSlope 0.01488
+		LeftSlope 0.01488
+		End
+	Key 126
+		Frame 127
+		Value -1.21942
+		Interpolation linear
+		RightSlope 0.020965
+		LeftSlope 0.020965
+		End
+	Key 127
+		Frame 128
+		Value -1.18741
+		Interpolation linear
+		RightSlope 0.022735
+		LeftSlope 0.022735
+		End
+	Key 128
+		Frame 129
+		Value -1.17395
+		Interpolation linear
+		RightSlope 0.023895
+		LeftSlope 0.023895
+		End
+	Key 129
+		Frame 130
+		Value -1.13962
+		Interpolation linear
+		RightSlope 0.029525
+		LeftSlope 0.029525
+		End
+	Key 130
+		Frame 131
+		Value -1.1149
+		Interpolation linear
+		RightSlope 0.0242299
+		LeftSlope 0.0242299
+		End
+	Key 131
+		Frame 132
+		Value -1.09116
+		Interpolation linear
+		RightSlope 0.026065
+		LeftSlope 0.026065
+		End
+	Key 132
+		Frame 133
+		Value -1.06277
+		Interpolation linear
+		RightSlope 0.02245
+		LeftSlope 0.02245
+		End
+	Key 133
+		Frame 134
+		Value -1.04626
+		Interpolation linear
+		RightSlope 0.023605
+		LeftSlope 0.023605
+		End
+	Key 134
+		Frame 135
+		Value -1.01556
+		Interpolation linear
+		RightSlope 0.0256935
+		LeftSlope 0.0256935
+		End
+	Key 135
+		Frame 136
+		Value -0.994873
+		Interpolation linear
+		RightSlope 0.031248
+		LeftSlope 0.031248
+		End
+	Key 136
+		Frame 137
+		Value -0.953064
+		Interpolation linear
+		RightSlope 0.0352175
+		LeftSlope 0.0352175
+		End
+	Key 137
+		Frame 138
+		Value -0.924438
+		Interpolation linear
+		RightSlope 0.04158
+		LeftSlope 0.04158
+		End
+	Key 138
+		Frame 139
+		Value -0.869904
+		Interpolation linear
+		RightSlope 0.0475155
+		LeftSlope 0.0475155
+		End
+	Key 139
+		Frame 140
+		Value -0.829407
+		Interpolation linear
+		RightSlope 0.025284
+		LeftSlope 0.025284
+		End
+	Key 140
+		Frame 141
+		Value -0.819336
+		Interpolation linear
+		RightSlope 0.028351
+		LeftSlope 0.028351
+		End
+	Key 141
+		Frame 142
+		Value -0.772705
+		Interpolation linear
+		RightSlope 0.042404
+		LeftSlope 0.042404
+		End
+	Key 142
+		Frame 143
+		Value -0.734528
+		Interpolation linear
+		RightSlope 0.043091
+		LeftSlope 0.043091
+		End
+	Key 143
+		Frame 144
+		Value -0.686523
+		Interpolation linear
+		RightSlope 0.0396425
+		LeftSlope 0.0396425
+		End
+	Key 144
+		Frame 145
+		Value -0.655243
+		Interpolation linear
+		RightSlope 0.0423885
+		LeftSlope 0.0423885
+		End
+	Key 145
+		Frame 146
+		Value -0.601746
+		Interpolation linear
+		RightSlope 0.0445555
+		LeftSlope 0.0445555
+		End
+	Key 146
+		Frame 147
+		Value -0.566132
+		Interpolation linear
+		RightSlope 0.050095
+		LeftSlope 0.050095
+		End
+	Key 147
+		Frame 148
+		Value -0.501556
+		Interpolation linear
+		RightSlope 0.0583195
+		LeftSlope 0.0583195
+		End
+	Key 148
+		Frame 149
+		Value -0.449493
+		Interpolation linear
+		RightSlope 0.052261
+		LeftSlope 0.052261
+		End
+	Key 149
+		Frame 150
+		Value -0.397034
+		Interpolation linear
+		RightSlope 0.0457455
+		LeftSlope 0.0457455
+		End
+	Key 150
+		Frame 151
+		Value -0.358002
+		Interpolation linear
+		RightSlope 0.033249
+		LeftSlope 0.033249
+		End
+	Key 151
+		Frame 152
+		Value -0.330536
+		Interpolation linear
+		RightSlope 0.043991
+		LeftSlope 0.043991
+		End
+	Key 152
+		Frame 153
+		Value -0.27002
+		Interpolation linear
+		RightSlope 0.04834
+		LeftSlope 0.04834
+		End
+	Key 153
+		Frame 154
+		Value -0.233856
+		Interpolation linear
+		RightSlope 0.025757
+		LeftSlope 0.025757
+		End
+	Key 154
+		Frame 155
+		Value -0.218506
+		Interpolation linear
+		RightSlope 0.032425
+		LeftSlope 0.032425
+		End
+	Key 155
+		Frame 156
+		Value -0.169006
+		Interpolation linear
+		RightSlope 0.038864
+		LeftSlope 0.038864
+		End
+	Key 156
+		Frame 157
+		Value -0.140778
+		Interpolation linear
+		RightSlope 0.0279235
+		LeftSlope 0.0279235
+		End
+	Key 157
+		Frame 158
+		Value -0.113159
+		Interpolation linear
+		RightSlope 0.0268099
+		LeftSlope 0.0268099
+		End
+	Key 158
+		Frame 159
+		Value -0.0871582
+		Interpolation linear
+		RightSlope 0.0264587
+		LeftSlope 0.0264587
+		End
+	Key 159
+		Frame 160
+		Value -0.0602417
+		Interpolation linear
+		RightSlope 0.0147858
+		LeftSlope 0.0147858
+		End
+	Key 160
+		Frame 161
+		Value -0.0575867
+		Interpolation linear
+		RightSlope 0.0140075
+		LeftSlope 0.0140075
+		End
+	Key 161
+		Frame 162
+		Value -0.0322266
+		Interpolation linear
+		RightSlope 0.0092621
+		LeftSlope 0.0092621
+		End
+	Key 162
+		Frame 163
+		Value -0.0390625
+		Interpolation linear
+		RightSlope 0.0022583
+		LeftSlope 0.0022583
+		End
+	Key 163
+		Frame 164
+		Value -0.02771
+		Interpolation linear
+		RightSlope 0.0082855
+		LeftSlope 0.0082855
+		End
+	Key 164
+		Frame 165
+		Value -0.0224915
+		Interpolation linear
+		RightSlope 0.0034485
+		LeftSlope 0.0034485
+		End
+	Key 165
+		Frame 166
+		Value -0.020813
+		Interpolation linear
+		RightSlope 0.00634768
+		LeftSlope 0.00634768
+		End
+	Key 166
+		Frame 167
+		Value -0.00979614
+		Interpolation linear
+		RightSlope 0.00900269
+		LeftSlope 0.00900269
+		End
+	Key 167
+		Frame 168
+		Value -0.00280762
+		Interpolation linear
+		RightSlope 0.00395202
+		LeftSlope 0.00395202
+		End
+	Key 168
+		Frame 169
+		Value -0.00189209
+		Interpolation linear
+		RightSlope 0.00088501
+		LeftSlope 0.00088501
+		End
+	Key 169
+		Frame 170
+		Value -0.0010376
+		Interpolation linear
+		RightSlope 0.00231934
+		LeftSlope 0.00231934
+		End
+	Key 170
+		Frame 171
+		Value 0.00274658
+		Interpolation linear
+		RightSlope 0.00439453
+		LeftSlope 0.00439453
+		End
+	Key 171
+		Frame 172
+		Value 0.00775146
+		Interpolation linear
+		RightSlope -0.0017395
+		LeftSlope -0.0017395
+		End
+	Key 172
+		Frame 173
+		Value -0.000732422
+		Interpolation linear
+		RightSlope -0.00265503
+		LeftSlope -0.00265503
+		End
+	Key 173
+		Frame 174
+		Value 0.00244141
+		Interpolation linear
+		RightSlope 0.0017395
+		LeftSlope 0.0017395
+		End
+	Key 174
+		Frame 175
+		Value 0.00274658
+		Interpolation linear
+		RightSlope -0.00436402
+		LeftSlope -0.00436402
+		End
+	Key 175
+		Frame 176
+		Value -0.00628662
+		Interpolation linear
+		RightSlope 0.003479
+		LeftSlope 0.003479
+		End
+	Key 176
+		Frame 177
+		Value 0.00970459
+		Interpolation linear
+		RightSlope 0.00215149
+		LeftSlope 0.00215149
+		End
+	Key 177
+		Frame 178
+		Value -0.00198364
+		Interpolation linear
+		RightSlope -0.00447083
+		LeftSlope -0.00447083
+		End
+	Key 178
+		Frame 179
+		Value 0.000762939
+		Interpolation linear
+		RightSlope 0.00820922
+		LeftSlope 0.00820922
+		End
+	Key 179
+		Frame 180
+		Value 0.0144348
+		Interpolation linear
+		RightSlope -0.0017395
+		LeftSlope -0.0017395
+		End
+	Key 180
+		Frame 181
+		Value -0.00271606
+		Interpolation linear
+		RightSlope -0.00633239
+		LeftSlope -0.00633239
+		End
+	Key 181
+		Frame 182
+		Value 0.00177002
+		Interpolation linear
+		RightSlope 0.00135803
+		LeftSlope 0.00135803
+		End
+	Key 182
+		Frame 183
+		Value 0
+		Interpolation linear
+		RightSlope -0.00561622
+		LeftSlope -0.00561622
+		End
+	Colour 0 255 255
+	End
+Channel bottom_right/shift/y
+	Extrapolation linear
+	Value -1.40543
+	Size 183
+	KeyVersion 1
+	Key 0
+		Frame 1
+		Value -1.65152
+		Interpolation linear
+		RightSlope 0.01132
+		LeftSlope 0.01132
+		End
+	Key 1
+		Frame 2
+		Value -1.6402
+		Interpolation linear
+		RightSlope 0.00335503
+		LeftSlope 0.00335503
+		End
+	Key 2
+		Frame 3
+		Value -1.64481
+		Interpolation linear
+		RightSlope -0.00400996
+		LeftSlope -0.00400996
+		End
+	Key 3
+		Frame 4
+		Value -1.64822
+		Interpolation linear
+		RightSlope 0.012775
+		LeftSlope 0.012775
+		End
+	Key 4
+		Frame 5
+		Value -1.61926
+		Interpolation linear
+		RightSlope 0.015075
+		LeftSlope 0.015075
+		End
+	Key 5
+		Frame 6
+		Value -1.61807
+		Interpolation linear
+		RightSlope 0.00190496
+		LeftSlope 0.00190496
+		End
+	Key 6
+		Frame 7
+		Value -1.61545
+		Interpolation linear
+		RightSlope 0.02496
+		LeftSlope 0.02496
+		End
+	Key 7
+		Frame 8
+		Value -1.56815
+		Interpolation linear
+		RightSlope 0.028125
+		LeftSlope 0.028125
+		End
+	Key 8
+		Frame 9
+		Value -1.5592
+		Interpolation linear
+		RightSlope 0.016955
+		LeftSlope 0.016955
+		End
+	Key 9
+		Frame 10
+		Value -1.53424
+		Interpolation linear
+		RightSlope 0.01445
+		LeftSlope 0.01445
+		End
+	Key 10
+		Frame 11
+		Value -1.5303
+		Interpolation linear
+		RightSlope 0.031585
+		LeftSlope 0.031585
+		End
+	Key 11
+		Frame 12
+		Value -1.47107
+		Interpolation linear
+		RightSlope 0.023985
+		LeftSlope 0.023985
+		End
+	Key 12
+		Frame 13
+		Value -1.48233
+		Interpolation linear
+		RightSlope 0.00981003
+		LeftSlope 0.00981003
+		End
+	Key 13
+		Frame 14
+		Value -1.45145
+		Interpolation linear
+		RightSlope 0.034835
+		LeftSlope 0.034835
+		End
+	Key 14
+		Frame 15
+		Value -1.41266
+		Interpolation linear
+		RightSlope 0.02301
+		LeftSlope 0.02301
+		End
+	Key 15
+		Frame 16
+		Value -1.40543
+		Interpolation linear
+		RightSlope -0.00362998
+		LeftSlope -0.00362998
+		End
+	Key 16
+		Frame 17
+		Value -1.41992
+		Interpolation linear
+		RightSlope 0.00111496
+		LeftSlope 0.00111496
+		End
+	Key 17
+		Frame 18
+		Value -1.4032
+		Interpolation linear
+		RightSlope 0.014665
+		LeftSlope 0.014665
+		End
+	Key 18
+		Frame 19
+		Value -1.39059
+		Interpolation linear
+		RightSlope 0.023955
+		LeftSlope 0.023955
+		End
+	Key 19
+		Frame 20
+		Value -1.35529
+		Interpolation linear
+		RightSlope 0.037975
+		LeftSlope 0.037975
+		End
+	Key 20
+		Frame 21
+		Value -1.31464
+		Interpolation linear
+		RightSlope 0.01839
+		LeftSlope 0.01839
+		End
+	Key 21
+		Frame 22
+		Value -1.31851
+		Interpolation linear
+		RightSlope 0.00629002
+		LeftSlope 0.00629002
+		End
+	Key 22
+		Frame 23
+		Value -1.30206
+		Interpolation linear
+		RightSlope -0.00396997
+		LeftSlope -0.00396997
+		End
+	Key 23
+		Frame 24
+		Value -1.32645
+		Interpolation linear
+		RightSlope 0.000469983
+		LeftSlope 0.000469983
+		End
+	Key 24
+		Frame 25
+		Value -1.30112
+		Interpolation linear
+		RightSlope 0.03667
+		LeftSlope 0.03667
+		End
+	Key 25
+		Frame 26
+		Value -1.25311
+		Interpolation linear
+		RightSlope 0.030475
+		LeftSlope 0.030475
+		End
+	Key 26
+		Frame 27
+		Value -1.24017
+		Interpolation linear
+		RightSlope 0.019285
+		LeftSlope 0.019285
+		End
+	Key 27
+		Frame 28
+		Value -1.21454
+		Interpolation linear
+		RightSlope 0.00672501
+		LeftSlope 0.00672501
+		End
+	Key 28
+		Frame 29
+		Value -1.22672
+		Interpolation linear
+		RightSlope -0.000959992
+		LeftSlope -0.000959992
+		End
+	Key 29
+		Frame 30
+		Value -1.21646
+		Interpolation linear
+		RightSlope 0.022725
+		LeftSlope 0.022725
+		End
+	Key 30
+		Frame 31
+		Value -1.18127
+		Interpolation linear
+		RightSlope 0.023725
+		LeftSlope 0.023725
+		End
+	Key 31
+		Frame 32
+		Value -1.16901
+		Interpolation linear
+		RightSlope 0.00764
+		LeftSlope 0.00764
+		End
+	Key 32
+		Frame 33
+		Value -1.16599
+		Interpolation linear
+		RightSlope 0.0121
+		LeftSlope 0.0121
+		End
+	Key 33
+		Frame 34
+		Value -1.14481
+		Interpolation linear
+		RightSlope 0.01465
+		LeftSlope 0.01465
+		End
+	Key 34
+		Frame 35
+		Value -1.13669
+		Interpolation linear
+		RightSlope 0.015445
+		LeftSlope 0.015445
+		End
+	Key 35
+		Frame 36
+		Value -1.11392
+		Interpolation linear
+		RightSlope 0.01372
+		LeftSlope 0.01372
+		End
+	Key 36
+		Frame 37
+		Value -1.10925
+		Interpolation linear
+		RightSlope 0.00492996
+		LeftSlope 0.00492996
+		End
+	Key 37
+		Frame 38
+		Value -1.10406
+		Interpolation linear
+		RightSlope -0.00236505
+		LeftSlope -0.00236505
+		End
+	Key 38
+		Frame 39
+		Value -1.11398
+		Interpolation linear
+		RightSlope 0.0126
+		LeftSlope 0.0126
+		End
+	Key 39
+		Frame 40
+		Value -1.07886
+		Interpolation linear
+		RightSlope 0.00921506
+		LeftSlope 0.00921506
+		End
+	Key 40
+		Frame 41
+		Value -1.09555
+		Interpolation linear
+		RightSlope 0.00827003
+		LeftSlope 0.00827003
+		End
+	Key 41
+		Frame 42
+		Value -1.06232
+		Interpolation linear
+		RightSlope 0.0188749
+		LeftSlope 0.0188749
+		End
+	Key 42
+		Frame 43
+		Value -1.0578
+		Interpolation linear
+		RightSlope 0.00186497
+		LeftSlope 0.00186497
+		End
+	Key 43
+		Frame 44
+		Value -1.05859
+		Interpolation linear
+		RightSlope 0.00766003
+		LeftSlope 0.00766003
+		End
+	Key 44
+		Frame 45
+		Value -1.04248
+		Interpolation linear
+		RightSlope 0.007065
+		LeftSlope 0.007065
+		End
+	Key 45
+		Frame 46
+		Value -1.04446
+		Interpolation linear
+		RightSlope -0.01129
+		LeftSlope -0.01129
+		End
+	Key 46
+		Frame 47
+		Value -1.06506
+		Interpolation linear
+		RightSlope -0.00976998
+		LeftSlope -0.00976998
+		End
+	Key 47
+		Frame 48
+		Value -1.064
+		Interpolation linear
+		RightSlope 0.00683498
+		LeftSlope 0.00683498
+		End
+	Key 48
+		Frame 49
+		Value -1.05139
+		Interpolation linear
+		RightSlope 0.00212502
+		LeftSlope 0.00212502
+		End
+	Key 49
+		Frame 50
+		Value -1.05975
+		Interpolation linear
+		RightSlope 0.00238001
+		LeftSlope 0.00238001
+		End
+	Key 50
+		Frame 51
+		Value -1.04663
+		Interpolation linear
+		RightSlope 0.00875497
+		LeftSlope 0.00875497
+		End
+	Key 51
+		Frame 52
+		Value -1.04224
+		Interpolation linear
+		RightSlope 0.00617999
+		LeftSlope 0.00617999
+		End
+	Key 52
+		Frame 53
+		Value -1.03427
+		Interpolation linear
+		RightSlope 0.014635
+		LeftSlope 0.014635
+		End
+	Key 53
+		Frame 54
+		Value -1.01297
+		Interpolation linear
+		RightSlope 0.0169801
+		LeftSlope 0.0169801
+		End
+	Key 54
+		Frame 55
+		Value -1.00031
+		Interpolation linear
+		RightSlope 0.00839248
+		LeftSlope 0.00839248
+		End
+	Key 55
+		Frame 56
+		Value -0.996185
+		Interpolation linear
+		RightSlope -0.000820041
+		LeftSlope -0.000820041
+		End
+	Key 56
+		Frame 57
+		Value -1.00195
+		Interpolation linear
+		RightSlope 0.0118255
+		LeftSlope 0.0118255
+		End
+	Key 57
+		Frame 58
+		Value -0.972534
+		Interpolation linear
+		RightSlope 0.012877
+		LeftSlope 0.012877
+		End
+	Key 58
+		Frame 59
+		Value -0.976196
+		Interpolation linear
+		RightSlope 0.016983
+		LeftSlope 0.016983
+		End
+	Key 59
+		Frame 60
+		Value -0.938568
+		Interpolation linear
+		RightSlope 0.0303495
+		LeftSlope 0.0303495
+		End
+	Key 60
+		Frame 61
+		Value -0.915497
+		Interpolation linear
+		RightSlope 0.015106
+		LeftSlope 0.015106
+		End
+	Key 61
+		Frame 62
+		Value -0.908356
+		Interpolation linear
+		RightSlope 0.0130615
+		LeftSlope 0.0130615
+		End
+	Key 62
+		Frame 63
+		Value -0.889374
+		Interpolation linear
+		RightSlope 0.00564602
+		LeftSlope 0.00564602
+		End
+	Key 63
+		Frame 64
+		Value -0.897064
+		Interpolation linear
+		RightSlope 0.000305504
+		LeftSlope 0.000305504
+		End
+	Key 64
+		Frame 65
+		Value -0.888763
+		Interpolation linear
+		RightSlope -0.00210601
+		LeftSlope -0.00210601
+		End
+	Key 65
+		Frame 66
+		Value -0.901276
+		Interpolation linear
+		RightSlope -0.000229001
+		LeftSlope -0.000229001
+		End
+	Key 66
+		Frame 67
+		Value -0.889221
+		Interpolation linear
+		RightSlope 0.0134735
+		LeftSlope 0.0134735
+		End
+	Key 67
+		Frame 68
+		Value -0.874329
+		Interpolation linear
+		RightSlope 0.017349
+		LeftSlope 0.017349
+		End
+	Key 68
+		Frame 69
+		Value -0.854523
+		Interpolation linear
+		RightSlope 0.024765
+		LeftSlope 0.024765
+		End
+	Key 69
+		Frame 70
+		Value -0.824799
+		Interpolation linear
+		RightSlope 0.0171815
+		LeftSlope 0.0171815
+		End
+	Key 70
+		Frame 71
+		Value -0.82016
+		Interpolation linear
+		RightSlope 0.00300601
+		LeftSlope 0.00300601
+		End
+	Key 71
+		Frame 72
+		Value -0.818787
+		Interpolation linear
+		RightSlope 0.012146
+		LeftSlope 0.012146
+		End
+	Key 72
+		Frame 73
+		Value -0.795868
+		Interpolation linear
+		RightSlope 0.0128635
+		LeftSlope 0.0128635
+		End
+	Key 73
+		Frame 74
+		Value -0.79306
+		Interpolation linear
+		RightSlope -0.005005
+		LeftSlope -0.005005
+		End
+	Key 74
+		Frame 75
+		Value -0.805878
+		Interpolation linear
+		RightSlope -0.015671
+		LeftSlope -0.015671
+		End
+	Key 75
+		Frame 76
+		Value -0.824402
+		Interpolation linear
+		RightSlope -0.013382
+		LeftSlope -0.013382
+		End
+	Key 76
+		Frame 77
+		Value -0.832642
+		Interpolation linear
+		RightSlope -0.0014345
+		LeftSlope -0.0014345
+		End
+	Key 77
+		Frame 78
+		Value -0.827271
+		Interpolation linear
+		RightSlope -0.00753748
+		LeftSlope -0.00753748
+		End
+	Key 78
+		Frame 79
+		Value -0.847717
+		Interpolation linear
+		RightSlope -0.00668302
+		LeftSlope -0.00668302
+		End
+	Key 79
+		Frame 80
+		Value -0.840637
+		Interpolation linear
+		RightSlope 0.00494349
+		LeftSlope 0.00494349
+		End
+	Key 80
+		Frame 81
+		Value -0.83783
+		Interpolation linear
+		RightSlope 0.00160202
+		LeftSlope 0.00160202
+		End
+	Key 81
+		Frame 82
+		Value -0.837433
+		Interpolation linear
+		RightSlope 0.005707
+		LeftSlope 0.005707
+		End
+	Key 82
+		Frame 83
+		Value -0.826416
+		Interpolation linear
+		RightSlope 0.00506598
+		LeftSlope 0.00506598
+		End
+	Key 83
+		Frame 84
+		Value -0.827301
+		Interpolation linear
+		RightSlope 0.0055235
+		LeftSlope 0.0055235
+		End
+	Key 84
+		Frame 85
+		Value -0.815369
+		Interpolation linear
+		RightSlope 0.00959802
+		LeftSlope 0.00959802
+		End
+	Key 85
+		Frame 86
+		Value -0.808105
+		Interpolation linear
+		RightSlope 0.0084385
+		LeftSlope 0.0084385
+		End
+	Key 86
+		Frame 87
+		Value -0.798492
+		Interpolation linear
+		RightSlope 0.00573701
+		LeftSlope 0.00573701
+		End
+	Key 87
+		Frame 88
+		Value -0.796631
+		Interpolation linear
+		RightSlope 0.00177002
+		LeftSlope 0.00177002
+		End
+	Key 88
+		Frame 89
+		Value -0.794952
+		Interpolation linear
+		RightSlope 0.00215149
+		LeftSlope 0.00215149
+		End
+	Key 89
+		Frame 90
+		Value -0.792328
+		Interpolation linear
+		RightSlope 0.00785798
+		LeftSlope 0.00785798
+		End
+	Key 90
+		Frame 91
+		Value -0.779236
+		Interpolation linear
+		RightSlope 0.01799
+		LeftSlope 0.01799
+		End
+	Key 91
+		Frame 92
+		Value -0.756348
+		Interpolation linear
+		RightSlope 0.024872
+		LeftSlope 0.024872
+		End
+	Key 92
+		Frame 93
+		Value -0.729492
+		Interpolation linear
+		RightSlope 0.00904852
+		LeftSlope 0.00904852
+		End
+	Key 93
+		Frame 94
+		Value -0.738251
+		Interpolation linear
+		RightSlope 0.0085755
+		LeftSlope 0.0085755
+		End
+	Key 94
+		Frame 95
+		Value -0.712341
+		Interpolation linear
+		RightSlope 0.0201265
+		LeftSlope 0.0201265
+		End
+	Key 95
+		Frame 96
+		Value -0.697998
+		Interpolation linear
+		RightSlope 0.022873
+		LeftSlope 0.022873
+		End
+	Key 96
+		Frame 97
+		Value -0.666595
+		Interpolation linear
+		RightSlope 0.017517
+		LeftSlope 0.017517
+		End
+	Key 97
+		Frame 98
+		Value -0.662964
+		Interpolation linear
+		RightSlope 0.00956699
+		LeftSlope 0.00956699
+		End
+	Key 98
+		Frame 99
+		Value -0.647461
+		Interpolation linear
+		RightSlope -0.0103605
+		LeftSlope -0.0103605
+		End
+	Key 99
+		Frame 100
+		Value -0.683685
+		Interpolation linear
+		RightSlope -0.00927749
+		LeftSlope -0.00927749
+		End
+	Key 100
+		Frame 101
+		Value -0.666016
+		Interpolation linear
+		RightSlope 0.0009
+		LeftSlope 0.0009
+		End
+	Key 101
+		Frame 102
+		Value -0.681885
+		Interpolation linear
+		RightSlope 0.00511199
+		LeftSlope 0.00511199
+		End
+	Key 102
+		Frame 103
+		Value -0.655792
+		Interpolation linear
+		RightSlope 0.0260925
+		LeftSlope 0.0260925
+		End
+	Key 103
+		Frame 104
+		Value -0.6297
+		Interpolation linear
+		RightSlope 0.013855
+		LeftSlope 0.013855
+		End
+	Key 104
+		Frame 105
+		Value -0.628082
+		Interpolation linear
+		RightSlope 0.00758401
+		LeftSlope 0.00758401
+		End
+	Key 105
+		Frame 106
+		Value -0.614532
+		Interpolation linear
+		RightSlope 0.031784
+		LeftSlope 0.031784
+		End
+	Key 106
+		Frame 107
+		Value -0.564514
+		Interpolation linear
+		RightSlope 0.018524
+		LeftSlope 0.018524
+		End
+	Key 107
+		Frame 108
+		Value -0.577484
+		Interpolation linear
+		RightSlope -0.00451651
+		LeftSlope -0.00451651
+		End
+	Key 108
+		Frame 109
+		Value -0.573547
+		Interpolation linear
+		RightSlope 0.014557
+		LeftSlope 0.014557
+		End
+	Key 109
+		Frame 110
+		Value -0.54837
+		Interpolation linear
+		RightSlope 0.019714
+		LeftSlope 0.019714
+		End
+	Key 110
+		Frame 111
+		Value -0.534119
+		Interpolation linear
+		RightSlope 0.00050351
+		LeftSlope 0.00050351
+		End
+	Key 111
+		Frame 112
+		Value -0.547363
+		Interpolation linear
+		RightSlope -0.00428748
+		LeftSlope -0.00428748
+		End
+	Key 112
+		Frame 113
+		Value -0.542694
+		Interpolation linear
+		RightSlope -0.0132905
+		LeftSlope -0.0132905
+		End
+	Key 113
+		Frame 114
+		Value -0.573944
+		Interpolation linear
+		RightSlope -0.0158235
+		LeftSlope -0.0158235
+		End
+	Key 114
+		Frame 115
+		Value -0.574341
+		Interpolation linear
+		RightSlope -0.00543201
+		LeftSlope -0.00543201
+		End
+	Key 115
+		Frame 116
+		Value -0.584808
+		Interpolation linear
+		RightSlope -0.00767499
+		LeftSlope -0.00767499
+		End
+	Key 116
+		Frame 117
+		Value -0.589691
+		Interpolation linear
+		RightSlope 0.00382999
+		LeftSlope 0.00382999
+		End
+	Key 117
+		Frame 118
+		Value -0.577148
+		Interpolation linear
+		RightSlope 0.004547
+		LeftSlope 0.004547
+		End
+	Key 118
+		Frame 119
+		Value -0.580597
+		Interpolation linear
+		RightSlope 0.020065
+		LeftSlope 0.020065
+		End
+	Key 119
+		Frame 120
+		Value -0.537018
+		Interpolation linear
+		RightSlope 0.023941
+		LeftSlope 0.023941
+		End
+	Key 120
+		Frame 121
+		Value -0.532715
+		Interpolation linear
+		RightSlope 0.00875852
+		LeftSlope 0.00875852
+		End
+	Key 121
+		Frame 122
+		Value -0.519501
+		Interpolation linear
+		RightSlope 0.0172275
+		LeftSlope 0.0172275
+		End
+	Key 122
+		Frame 123
+		Value -0.49826
+		Interpolation linear
+		RightSlope 0.0206455
+		LeftSlope 0.0206455
+		End
+	Key 123
+		Frame 124
+		Value -0.47821
+		Interpolation linear
+		RightSlope 0.0167385
+		LeftSlope 0.0167385
+		End
+	Key 124
+		Frame 125
+		Value -0.464783
+		Interpolation linear
+		RightSlope 0.0096585
+		LeftSlope 0.0096585
+		End
+	Key 125
+		Frame 126
+		Value -0.458893
+		Interpolation linear
+		RightSlope 0.011902
+		LeftSlope 0.011902
+		End
+	Key 126
+		Frame 127
+		Value -0.440979
+		Interpolation linear
+		RightSlope 0.0046235
+		LeftSlope 0.0046235
+		End
+	Key 127
+		Frame 128
+		Value -0.449646
+		Interpolation linear
+		RightSlope 0.01355
+		LeftSlope 0.01355
+		End
+	Key 128
+		Frame 129
+		Value -0.413879
+		Interpolation linear
+		RightSlope 0.02475
+		LeftSlope 0.02475
+		End
+	Key 129
+		Frame 130
+		Value -0.400146
+		Interpolation linear
+		RightSlope 0.0120235
+		LeftSlope 0.0120235
+		End
+	Key 130
+		Frame 131
+		Value -0.389832
+		Interpolation linear
+		RightSlope 0.0218505
+		LeftSlope 0.0218505
+		End
+	Key 131
+		Frame 132
+		Value -0.356445
+		Interpolation linear
+		RightSlope 0.020081
+		LeftSlope 0.020081
+		End
+	Key 132
+		Frame 133
+		Value -0.34967
+		Interpolation linear
+		RightSlope 0.005188
+		LeftSlope 0.005188
+		End
+	Key 133
+		Frame 134
+		Value -0.346069
+		Interpolation linear
+		RightSlope 0.0237575
+		LeftSlope 0.0237575
+		End
+	Key 134
+		Frame 135
+		Value -0.302155
+		Interpolation linear
+		RightSlope 0.023941
+		LeftSlope 0.023941
+		End
+	Key 135
+		Frame 136
+		Value -0.298187
+		Interpolation linear
+		RightSlope 0.00907899
+		LeftSlope 0.00907899
+		End
+	Key 136
+		Frame 137
+		Value -0.283997
+		Interpolation linear
+		RightSlope 0.0124665
+		LeftSlope 0.0124665
+		End
+	Key 137
+		Frame 138
+		Value -0.273254
+		Interpolation linear
+		RightSlope 0.018982
+		LeftSlope 0.018982
+		End
+	Key 138
+		Frame 139
+		Value -0.246033
+		Interpolation linear
+		RightSlope 0.0291595
+		LeftSlope 0.0291595
+		End
+	Key 139
+		Frame 140
+		Value -0.214935
+		Interpolation linear
+		RightSlope 0.02034
+		LeftSlope 0.02034
+		End
+	Key 140
+		Frame 141
+		Value -0.205353
+		Interpolation linear
+		RightSlope 0.019409
+		LeftSlope 0.019409
+		End
+	Key 141
+		Frame 142
+		Value -0.176117
+		Interpolation linear
+		RightSlope 0.0190585
+		LeftSlope 0.0190585
+		End
+	Key 142
+		Frame 143
+		Value -0.167236
+		Interpolation linear
+		RightSlope 0.0127715
+		LeftSlope 0.0127715
+		End
+	Key 143
+		Frame 144
+		Value -0.150574
+		Interpolation linear
+		RightSlope 0.000839002
+		LeftSlope 0.000839002
+		End
+	Key 144
+		Frame 145
+		Value -0.165558
+		Interpolation linear
+		RightSlope -0.0050505
+		LeftSlope -0.0050505
+		End
+	Key 145
+		Frame 146
+		Value -0.160675
+		Interpolation linear
+		RightSlope 0.011322
+		LeftSlope 0.011322
+		End
+	Key 146
+		Frame 147
+		Value -0.142914
+		Interpolation linear
+		RightSlope 0.0135195
+		LeftSlope 0.0135195
+		End
+	Key 147
+		Frame 148
+		Value -0.133636
+		Interpolation linear
+		RightSlope -0.010605
+		LeftSlope -0.010605
+		End
+	Key 148
+		Frame 149
+		Value -0.164124
+		Interpolation linear
+		RightSlope -0.0135805
+		LeftSlope -0.0135805
+		End
+	Key 149
+		Frame 150
+		Value -0.160797
+		Interpolation linear
+		RightSlope -0.001953
+		LeftSlope -0.001953
+		End
+	Key 150
+		Frame 151
+		Value -0.16803
+		Interpolation linear
+		RightSlope -0.0026855
+		LeftSlope -0.0026855
+		End
+	Key 151
+		Frame 152
+		Value -0.166168
+		Interpolation linear
+		RightSlope 0.0144045
+		LeftSlope 0.0144045
+		End
+	Key 152
+		Frame 153
+		Value -0.139221
+		Interpolation linear
+		RightSlope 0.0333556
+		LeftSlope 0.0333556
+		End
+	Key 153
+		Frame 154
+		Value -0.0994568
+		Interpolation linear
+		RightSlope 0.0296477
+		LeftSlope 0.0296477
+		End
+	Key 154
+		Frame 155
+		Value -0.0799255
+		Interpolation linear
+		RightSlope 0.0155487
+		LeftSlope 0.0155487
+		End
+	Key 155
+		Frame 156
+		Value -0.0683594
+		Interpolation linear
+		RightSlope 0.00764465
+		LeftSlope 0.00764465
+		End
+	Key 156
+		Frame 157
+		Value -0.0646362
+		Interpolation linear
+		RightSlope -0.00041195
+		LeftSlope -0.00041195
+		End
+	Key 157
+		Frame 158
+		Value -0.0691833
+		Interpolation linear
+		RightSlope 0.0126038
+		LeftSlope 0.0126038
+		End
+	Key 158
+		Frame 159
+		Value -0.0394287
+		Interpolation linear
+		RightSlope 0.0240936
+		LeftSlope 0.0240936
+		End
+	Key 159
+		Frame 160
+		Value -0.0209961
+		Interpolation linear
+		RightSlope 0.0138397
+		LeftSlope 0.0138397
+		End
+	Key 160
+		Frame 161
+		Value -0.0117493
+		Interpolation linear
+		RightSlope -0.00476075
+		LeftSlope -0.00476075
+		End
+	Key 161
+		Frame 162
+		Value -0.0305176
+		Interpolation linear
+		RightSlope 0.00720217
+		LeftSlope 0.00720217
+		End
+	Key 162
+		Frame 163
+		Value 0.00265503
+		Interpolation linear
+		RightSlope 0.0037384
+		LeftSlope 0.0037384
+		End
+	Key 163
+		Frame 164
+		Value -0.0230408
+		Interpolation linear
+		RightSlope -0.0042572
+		LeftSlope -0.0042572
+		End
+	Key 164
+		Frame 165
+		Value -0.00585938
+		Interpolation linear
+		RightSlope 0.0267639
+		LeftSlope 0.0267639
+		End
+	Key 165
+		Frame 166
+		Value 0.0304871
+		Interpolation linear
+		RightSlope 0.00495911
+		LeftSlope 0.00495911
+		End
+	Key 166
+		Frame 167
+		Value 0.00405884
+		Interpolation linear
+		RightSlope -0.0208893
+		LeftSlope -0.0208893
+		End
+	Key 167
+		Frame 168
+		Value -0.0112915
+		Interpolation linear
+		RightSlope -0.0002594
+		LeftSlope -0.0002594
+		End
+	Key 168
+		Frame 169
+		Value 0.00354004
+		Interpolation linear
+		RightSlope 0.0138855
+		LeftSlope 0.0138855
+		End
+	Key 169
+		Frame 170
+		Value 0.0164795
+		Interpolation linear
+		RightSlope 0.00730898
+		LeftSlope 0.00730898
+		End
+	Key 170
+		Frame 171
+		Value 0.018158
+		Interpolation linear
+		RightSlope -0.00440979
+		LeftSlope -0.00440979
+		End
+	Key 171
+		Frame 172
+		Value 0.00765991
+		Interpolation linear
+		RightSlope -0.00299075
+		LeftSlope -0.00299075
+		End
+	Key 172
+		Frame 173
+		Value 0.0121765
+		Interpolation linear
+		RightSlope -0.00546264
+		LeftSlope -0.00546264
+		End
+	Key 173
+		Frame 174
+		Value -0.00326538
+		Interpolation linear
+		RightSlope -0.00718688
+		LeftSlope -0.00718688
+		End
+	Key 174
+		Frame 175
+		Value -0.00219727
+		Interpolation linear
+		RightSlope 0.00146484
+		LeftSlope 0.00146484
+		End
+	Key 175
+		Frame 176
+		Value -0.000335693
+		Interpolation linear
+		RightSlope 0.00497437
+		LeftSlope 0.00497437
+		End
+	Key 176
+		Frame 177
+		Value 0.00775146
+		Interpolation linear
+		RightSlope -0.00439453
+		LeftSlope -0.00439453
+		End
+	Key 177
+		Frame 178
+		Value -0.00912476
+		Interpolation linear
+		RightSlope -0.00086975
+		LeftSlope -0.00086975
+		End
+	Key 178
+		Frame 179
+		Value 0.00601196
+		Interpolation linear
+		RightSlope 0.00332642
+		LeftSlope 0.00332642
+		End
+	Key 179
+		Frame 180
+		Value -0.00247192
+		Interpolation linear
+		RightSlope 0.000320435
+		LeftSlope 0.000320435
+		End
+	Key 180
+		Frame 181
+		Value 0.00665283
+		Interpolation linear
+		RightSlope 0.00297546
+		LeftSlope 0.00297546
+		End
+	Key 181
+		Frame 182
+		Value 0.003479
+		Interpolation linear
+		RightSlope -0.00332642
+		LeftSlope -0.00332642
+		End
+	Key 182
+		Frame 183
+		Value 0
+		Interpolation linear
+		RightSlope -0.00216304
+		LeftSlope -0.00216304
+		End
+	Colour 0 255 255
+	End
+Channel bottom_right/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel bottom_right/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 100
+		Green 0
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 2
+	Active yes
+	Colour
+		Red 51.3726
+		Green 68.2353
+		Blue 100
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 3
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 100
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+End

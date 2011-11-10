@@ -101,7 +101,7 @@ class PipelineTest < Test::Unit::TestCase
     FileUtils.cp("./import/samples/shake_script/four_tracks_in_one_stabilizer.shk", "./input.shk")
     pipeline = Tracksperanto::Pipeline::Base.new
     num_exporters = Tracksperanto.exporters.length
-    assert_nothing_raised { pipeline.run("./input.shk", :importer => "Syntheyes", :width => 720, :height => 576) }
+    assert_nothing_raised { pipeline.run("./input.shk", :importer => "ShakeScript", :width => 720, :height => 576) }
     assert_equal num_exporters, Dir.glob("./input_*").length, "#{num_exporters} files should be present for the input and outputs"
   end
   

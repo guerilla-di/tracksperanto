@@ -1,3 +1,5 @@
+* Add a special exporter for Flame cornerpins. Apparently the bilinear staiblizer wants the trackers to have the right names
+  right from the start (top_left, top_right and so on)
 * Check trackers sent through to ensure that they always come sequentially without violating the frame ordering
 
 === 2.7.0 / 2011-13-10

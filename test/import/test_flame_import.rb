@@ -100,4 +100,12 @@ class FlameImportTest < Test::Unit::TestCase
     trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture, :progress_block => progress_block).to_a
     assert output.include?('Parsing channel "tracker1/shift/x"')
   end
+  
+  def test_bilinear_passes_proper_naming
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/cornerpin_2012.stabilizer')
+    trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
+    assert_equal "top_left", trackers[0].name
+    assert_equal "bottom_right", trackers[-1].name
+  end
+  
 end

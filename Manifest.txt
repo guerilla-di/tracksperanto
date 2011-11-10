@@ -12,6 +12,7 @@ lib/export/boujou.rb
 lib/export/equalizer3.rb
 lib/export/equalizer4.rb
 lib/export/flame_stabilizer.rb
+lib/export/flame_stabilizer_cornerpin.rb
 lib/export/match_mover.rb
 lib/export/maya_live.rb
 lib/export/mux.rb
@@ -79,10 +80,12 @@ test/export/samples/ref_boujou.txt
 test/export/samples/ref_equalizer.txt
 test/export/samples/ref_equalizer3.txt
 test/export/samples/ref_flame.stabilizer
+test/export/samples/ref_flameCornerpin.stabilizer
 test/export/samples/ref_matchmover.rz2
 test/export/test_boujou_export.rb
 test/export/test_equalizer3_export.rb
 test/export/test_equalizer_export.rb
+test/export/test_flame_stabilizer_cornerpin_export.rb
 test/export/test_flame_stabilizer_export.rb
 test/export/test_match_mover_export.rb
 test/export/test_maya_live_export.rb
@@ -98,6 +101,8 @@ test/import/samples/3de_v3/3de_export_v3.txt
 test/import/samples/3de_v4/3de_export_cube.txt
 test/import/samples/boujou_features_text/boujou_txt_export.txt
 test/import/samples/flame_stabilizer/Flame_Stabilizer_2012.stabilizer
+test/import/samples/flame_stabilizer/cornerpin_2012.stabilizer
+test/import/samples/flame_stabilizer/flame2010_cornerpin.stabilizer
 test/import/samples/flame_stabilizer/flame_2012_another.stabilizer
 test/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer
 test/import/samples/flame_stabilizer/fromTracksperanto.stabilizer

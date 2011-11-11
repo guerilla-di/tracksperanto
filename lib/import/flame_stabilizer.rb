@@ -19,10 +19,12 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     report_progress("Extracting all animation channels")
     channels, names = extract_channels_from_stream(@io)
     
-    raise "A channel was nil" if channels.find{|e| e.nil? }
-    
-    report_progress("Assembling tracker curves from channels")
-    scavenge_trackers_from_channels(channels, names) {|t| yield(t) }
+    begin
+      report_progress("Assembling tracker curves from channels")
+      scavenge_trackers_from_channels(channels, names) {|t| yield(t) }
+    ensure
+      channels.clear
+    end
   end
   
   private

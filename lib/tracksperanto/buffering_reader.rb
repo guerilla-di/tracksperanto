@@ -5,7 +5,7 @@
 # and ad infinitum until the passed buffer is exhausted
 class Tracksperanto::BufferingReader
   
-  # By default will read in chunks of 4K
+  # By default will read in chunks of 10K
   DEFAULT_BUFFER_SIZE = 10240
   
   def initialize(with_io, buffer_size = DEFAULT_BUFFER_SIZE)

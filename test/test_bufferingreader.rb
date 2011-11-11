@@ -17,9 +17,9 @@ class TestBufferingReader < Test::Unit::TestCase
     reader.read_one_byte
   end
   
-  def test_reads_in_10kb_chunks_by_default
+  def test_reads_in_64kb_chunks_by_default
     s = StringIO.new("abcd")
-    flexmock(s).should_receive(:read).with(10240).once.and_return("abcd")
+    flexmock(s).should_receive(:read).with(64 * 1024).once.and_return("abcd")
     reader = Tracksperanto::BufferingReader.new(s)
     reader.read_one_byte
   end

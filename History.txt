@@ -1,5 +1,6 @@
 === 2.8.1 / 2011-20-11
 
+* Fix the bug that MatchMover importer would always assume the sequence starting on frame 1
 * Fix the bug that Lint middleware would raise when the export was started from negative frame offsets
 
 === 2.8.0 / 2011-10-11

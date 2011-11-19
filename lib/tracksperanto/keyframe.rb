@@ -27,4 +27,8 @@ class Tracksperanto::Keyframe
   def inspect
     '#< %.1fx%.1f @%d ~%.2f) >' %  [abs_x, abs_y, frame, residual]
   end
+  
+  def <=>(another)
+    frame <=> another.frame
+  end
 end

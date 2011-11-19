@@ -1,3 +1,7 @@
+=== 2.8.1 / 2011-20-11
+
+* Fix the bug that Lint middleware would raise when the export was started from negative frame offsets
+
 === 2.8.0 / 2011-10-11
 
 * Add a special exporter for Flame cornerpins. Apparently the bilinear staiblizer wants the trackers to have the right names

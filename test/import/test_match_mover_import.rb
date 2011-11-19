@@ -4,6 +4,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
   DELTA = 0.01
   
   P = File.dirname(__FILE__) + '/samples/match_mover/kipPointsMatchmover.rz2'
+  P2 = File.dirname(__FILE__) + '/samples/match_mover/NonSequentialMatchmoverPoints.rz2'
   
   def test_introspects_properly
     i = Tracksperanto::Import::MatchMover
@@ -11,10 +12,18 @@ class MatchMoverImportTest < Test::Unit::TestCase
     assert i.autodetects_size?
   end
   
+  def test_parsing_with_non_sequential_keyframes
+    fixture = File.open(P2)
+    
+    parser = Tracksperanto::Import::MatchMover.new(:io => fixture)
+    trackers = parser.to_a
+    assert_equal 0, trackers[0][0].frame, "Should have offset the first frame to 0"
+  end
+  
   def test_parsing_from_matchmover
     fixture = File.open(P)
     
-    parser = Tracksperanto::Import::MatchMover.new(:io => fixture, :width => 2048, :height => 1176)
+    parser = Tracksperanto::Import::MatchMover.new(:io => fixture)
     trackers = parser.to_a
     
     assert_equal 2560, parser.width

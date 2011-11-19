@@ -49,14 +49,17 @@ class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
     @in_tracker = true
     @last_tracker_name = name
     @keyframes = 0
-    @last_frame = 0
+    @last_frame = nil
     super
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     @keyframes += 1
-    raise NonSequentialKeyframes, [@last_tracker_name, @last_frame, frame] if @last_frame > frame
+    if @last_frame
+      raise NonSequentialKeyframes, [@last_tracker_name, @last_frame, frame] if @last_frame > frame
+    end
     @last_frame = frame
+    
     super
   end
   

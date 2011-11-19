@@ -23,8 +23,11 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     report_progress("Detecting width and height")
     lines = (0..2).map{ io.gets }
     last_line = lines[-1]
-    w, h, _ = last_line.scan(/(\d+)/).flatten
-    @width, @height = w.to_i, h.to_i
+    int_groups = last_line.scan(/(\d+)/).flatten.map{|e| e.to_i }
+    @width, @height = int_groups.shift, int_groups.shift
+    # Next the starting frame of the sequence. The preamble ends with the p(0 293 1)
+    # which is p( first_frame length framestep )
+    @first_frame_of_sequence, length, frame_step = int_groups[-3], int_groups[-2], int_groups[-1]
   end
   
   def extract_trackers(io)
@@ -50,7 +53,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   def extract_key(line)
     frame, x, y, residual, rest = line.scan(LINE_PATTERN).flatten.reject{|e| e.strip.empty? }
     Tracksperanto::Keyframe.new(
-      :frame => (frame.to_i() - 1),
+      :frame => (frame.to_i - @first_frame_of_sequence),
       :abs_x => x,
       :abs_y => @height - y.to_f, # Top-left in MM
       :residual => extract_residual(residual)

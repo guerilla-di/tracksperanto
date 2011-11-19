@@ -42,7 +42,21 @@ class LintMiddlewareTest < Test::Unit::TestCase
       ex.export_point(1, 123.3, 456.0, 0.0)
     end
   end
-
+  
+  
+  def test_exporting_in_sequence_starting_on_frame_minus_one
+    m = flexmock
+    m.should_receive(:start_export).once
+    m.should_receive(:start_tracker_segment).once
+    m.should_receive(:export_point).twice
+    
+    ex = Tracksperanto::Middleware::Lint.new(m)
+    ex.start_export(100, 100)
+    ex.start_tracker_segment("Foo")
+    ex.export_point(-1, 123.3, 456.0, 0.0)
+    ex.export_point(0, 123.3, 456.0, 0.0)
+  end
+  
   def test_exporting_with_two_starts_raises
     m = flexmock
     m.should_receive(:start_export).once

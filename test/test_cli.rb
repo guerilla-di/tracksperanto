@@ -44,16 +44,6 @@ class CliTest < Test::Unit::TestCase
     assert_same_set fs, Dir.entries(TEMP_DIR)
   end
   
-  def test_cli_with_error_on_nonsequentials_matchmover_to_pftrack5
-    FileUtils.cp(File.dirname(__FILE__) + "/import/samples/match_mover/NonSequentialMatchmoverPoints.rz2", TEMP_DIR + "/mm.rz2")
-    status, o, e = cli(TEMP_DIR + "/mm.rz2 --only pftrack5")
-    assert_equal "", e
-    assert_equal 0, status, "Should exit with a normal status"
-    
-    fs = %w(. .. flm.stabilizer mm.rz2 mm_pftrack_v5.2dt )
-    assert_same_set fs, Dir.entries(TEMP_DIR)
-  end
-  
   def test_cli_with_nonexisting_only_exporter_prints_proper_error_message
     status, o, e = cli("--only microsoftfuckingword " + TEMP_DIR + "/flm.stabilizer")
     assert_equal 2, status, "Should exit with abnormal state"

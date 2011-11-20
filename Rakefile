@@ -30,6 +30,8 @@ Jeweler::Tasks.new do |gem|
   gem.add_development_dependency "cli_test", "~>1.0"
 end
 
+Jeweler::RubygemsDotOrgTasks.new
+
 require 'rake/testtask'
 desc "Run all tests"
 Rake::TestTask.new("test") do |t|

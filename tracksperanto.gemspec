@@ -172,6 +172,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_runtime_dependency(%q<obuf>, ["~> 1.0.1"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 3.0"])
@@ -183,6 +187,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
     else
       s.add_dependency(%q<tracksperanto>, [">= 0"])
+      s.add_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_dependency(%q<cli_test>, ["~> 1.0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -201,6 +209,10 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<tracksperanto>, [">= 0"])
+    s.add_dependency(%q<flexmock>, ["~> 0.8"])
+    s.add_dependency(%q<cli_test>, ["~> 1.0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<flexmock>, ["~> 0.8"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

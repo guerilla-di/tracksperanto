@@ -1,5 +1,9 @@
 === 2.8.2 / 2011-20-11
 
+* Fix release gemspec
+
+=== 2.8.2 / 2011-20-11
+
 * Dramatically improve the update speed by not shipping the test cases with the gem anymore
 * Fix obuf for ruby 1.8x
 

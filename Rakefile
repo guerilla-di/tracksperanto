@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.files.exclude "test/import/samples/*/*.*"
   
   # Deps
-  gem.add_dependency "obuf", "~> 1.0"
+  gem.add_dependency "obuf", "~> 1.0.1"
   gem.add_dependency "progressive_io", "~> 1.0"
   gem.add_dependency "flame_channel_parser", "~> 3.0"
   gem.add_dependency "progressbar", "~> 0.9"

@@ -85,7 +85,7 @@ class CliTest < Test::Unit::TestCase
     FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", TEMP_DIR + "/flm.stabilizer")
     results = cli("--slip -8000 --trim --only flamestabilizer #{TEMP_DIR}/flm.stabilizer")
     assert_not_equal 0, results[0] # status
-    assert_match /There were no trackers exported /, results[-1] # STDERR
+    assert_match /There were no trackers exported/, results[-1] # STDERR
   end
   
   # We use this instead of assert_equals for arrays since different filesystems

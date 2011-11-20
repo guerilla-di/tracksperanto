@@ -139,6 +139,9 @@ rescue Tracksperanto::UnknownMiddlewareError => damn
   $stderr.puts damn.message
   $stderr.puts "This is a bug, please report it"
   exit(2)
+rescue Exception => damn
+  $stderr.puts damn.message
+  exit(2)
 ensure
   pbar.finish
 end

@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    ".yardopts",
     "DEVELOPER_DOCS.rdoc",
     "Gemfile",
     "History.txt",
@@ -116,6 +115,7 @@ Gem::Specification.new do |s|
     "test/export/test_shake_export.rb",
     "test/export/test_syntheyes_export.rb",
     "test/helper.rb",
+    "test/import/README_SAMPLES.txt",
     "test/import/test_3de_import.rb",
     "test/import/test_3de_import3.rb",
     "test/import/test_boujou_import.rb",
@@ -152,7 +152,8 @@ Gem::Specification.new do |s|
     "test/test_pipeline.rb",
     "test/test_simple_export.rb",
     "test/test_tracker.rb",
-    "test/test_tracksperanto.rb"
+    "test/test_tracksperanto.rb",
+    "tracksperanto.gemspec"
   ]
   s.homepage = %q{http://guerilla-di.org/tracksperanto}
   s.licenses = [%q{MIT}]
@@ -164,6 +165,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<tracksperanto>, [">= 0"])
       s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_runtime_dependency(%q<obuf>, ["~> 1.0"])
@@ -171,7 +173,12 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 3.0"])
       s.add_runtime_dependency(%q<progressbar>, ["~> 0.9"])
       s.add_runtime_dependency(%q<update_hints>, ["~> 1.0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
     else
+      s.add_dependency(%q<tracksperanto>, [">= 0"])
       s.add_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<obuf>, ["~> 1.0"])
@@ -179,8 +186,13 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<flame_channel_parser>, ["~> 3.0"])
       s.add_dependency(%q<progressbar>, ["~> 0.9"])
       s.add_dependency(%q<update_hints>, ["~> 1.0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_dependency(%q<cli_test>, ["~> 1.0"])
     end
   else
+    s.add_dependency(%q<tracksperanto>, [">= 0"])
     s.add_dependency(%q<flexmock>, ["~> 0.8"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<obuf>, ["~> 1.0"])
@@ -188,6 +200,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<flame_channel_parser>, ["~> 3.0"])
     s.add_dependency(%q<progressbar>, ["~> 0.9"])
     s.add_dependency(%q<update_hints>, ["~> 1.0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<flexmock>, ["~> 0.8"])
+    s.add_dependency(%q<cli_test>, ["~> 1.0"])
   end
 end
 

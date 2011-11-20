@@ -4,6 +4,12 @@ require 'flexmock'
 require 'flexmock/test_unit'
 require 'fileutils'
 
+unless File.exist?(File.dirname(__FILE__) + "/import/samples")
+  puts "Please run tests on a git checkout from http://github.com/guerilla-di/tracksperanto"
+  puts "so that you also have the 17-something megs of the test corpus to test against. Aborting."
+  exit 1
+end
+
 # http://redmine.ruby-lang.org/issues/4882
 # https://github.com/jimweirich/flexmock/issues/4
 # https://github.com/julik/flexmock/commit/4acea00677e7b558bd564ec7c7630f0b27d368ca

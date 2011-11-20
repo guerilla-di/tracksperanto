@@ -1,3 +1,8 @@
+=== 2.8.2 / 2011-20-11
+
+* Dramatically improve the update speed by not shipping the test cases with the gem anymore
+* Fix obuf for ruby 1.8x
+
 === 2.8.1 / 2011-20-11
 
 * Fix the bug that MatchMover importer would always assume the sequence starting on frame 1

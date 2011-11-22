@@ -16,18 +16,6 @@ Jeweler::Tasks.new do |gem|
   gem.files.exclude "test/import/samples"
   gem.files.exclude ".*"
   gem.files.exclude "test/import/samples/*/*.*"
-  
-  # Deps
-  gem.add_dependency "obuf", "~> 1.0.1"
-  gem.add_dependency "progressive_io", "~> 1.0"
-  gem.add_dependency "flame_channel_parser", "~> 3.0"
-  gem.add_dependency "progressbar", "~> 0.9"
-  gem.add_dependency "update_hints", "~> 1.0"
-  
-  gem.add_development_dependency "jeweler"
-  gem.add_development_dependency "rake"
-  gem.add_development_dependency "flexmock", "~>0.8"
-  gem.add_development_dependency "cli_test", "~>1.0"
 end
 
 Jeweler::RubygemsDotOrgTasks.new

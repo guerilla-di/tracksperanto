@@ -14,8 +14,10 @@ Jeweler::Tasks.new do |gem|
 
   # Do not package up test fixtures
   gem.files.exclude "test/import/samples"
-  gem.files.exclude ".*"
   gem.files.exclude "test/import/samples/*/*.*"
+  
+  # Do not package invisibles
+  gem.files.exclude ".*"
 end
 
 Jeweler::RubygemsDotOrgTasks.new

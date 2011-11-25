@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.8.3"
+  s.version = "2.8.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2011-11-22"
+  s.date = "2011-11-25"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]

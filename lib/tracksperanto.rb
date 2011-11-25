@@ -7,7 +7,7 @@ require "progressive_io"
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '2.8.3'
+  VERSION = '2.8.4'
   
   module Import; end
   module Export; end

@@ -16,12 +16,12 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
     @counter = 0
     @width, @height = img_width, img_height
     @temp = Tracksperanto::BufferIO.new
-    @writer = Tracksperanto::FlameBuilder.new(@temp)
+    @writer = FlameChannelParser::Builder.new(@temp)
   end
   
   def end_export
     # Now make another writer, this time for our main IO
-    @writer = Tracksperanto::FlameBuilder.new(@io)
+    @writer = FlameChannelParser::Builder.new(@io)
     
     # Now we know how many trackers we have so we can write the header
     # data along with NbTrackers

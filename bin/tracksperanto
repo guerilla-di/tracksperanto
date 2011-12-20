@@ -67,6 +67,12 @@ op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height i
 op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_class_name = f }
 
 op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
+
+op.on(" -pad", "--pad PAD_VALUES_COMMA_SEPARATED", String, "Pad the comp by these ratios") do | pads|
+  left, right, top, bottom = pads.split(",").map{|e| e.to_f }
+  $middlewares.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
+end
+
 op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
 op.on(" -t", "--trim", "Trim the start frames (do not allow negative frame values)",  &mw("StartTrim", :enabled, true)) # Before slip!
 op.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'", &mw("Slipper", :slip))

@@ -115,7 +115,7 @@ class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
   end
   
   def prefix(tracker_channel)
-    ["tracker#{@counter}", tracker_channel].join("/")
+    "tracker%d/%s" % [@counter, tracker_channel]
   end
   
   def write_header_with_number_of_trackers(number_of_trackers)

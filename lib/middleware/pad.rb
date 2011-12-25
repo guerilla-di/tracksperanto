@@ -1,5 +1,6 @@
 # This middleware pads the comp or crops it if given negative values. Use it to say unpad
 # some fucked-up telecine transfers. The padding is in fractional units of the total width
+# and height
 class Tracksperanto::Middleware::Pad < Tracksperanto::Middleware::Base
   attr_accessor :left_pad, :right_pad, :top_pad, :bottom_pad
   

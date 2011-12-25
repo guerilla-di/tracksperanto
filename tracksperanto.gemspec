@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.8.4"
+  s.version = "2.8.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2011-11-25"
+  s.date = "2011-12-25"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -56,12 +56,14 @@ Gem::Specification.new do |s|
     "lib/import/shake_text.rb",
     "lib/import/syntheyes.rb",
     "lib/middleware/base.rb",
+    "lib/middleware/crop.rb",
     "lib/middleware/flip.rb",
     "lib/middleware/flop.rb",
     "lib/middleware/golden.rb",
     "lib/middleware/length_cutoff.rb",
     "lib/middleware/lerp.rb",
     "lib/middleware/lint.rb",
+    "lib/middleware/pad.rb",
     "lib/middleware/prefix.rb",
     "lib/middleware/reformat.rb",
     "lib/middleware/scaler.rb",
@@ -129,12 +131,14 @@ Gem::Specification.new do |s|
     "test/import/test_shake_script_import.rb",
     "test/import/test_shake_text_import.rb",
     "test/import/test_syntheyes_import.rb",
+    "test/middleware/test_crop_middleware.rb",
     "test/middleware/test_flip_middleware.rb",
     "test/middleware/test_flop_middleware.rb",
     "test/middleware/test_golden_middleware.rb",
     "test/middleware/test_length_cutoff_middleware.rb",
     "test/middleware/test_lerp_middleware.rb",
     "test/middleware/test_lint_middleware.rb",
+    "test/middleware/test_pad_middleware.rb",
     "test/middleware/test_prefix.rb",
     "test/middleware/test_reformat_middleware.rb",
     "test/middleware/test_scaler_middleware.rb",

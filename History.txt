@@ -1,3 +1,7 @@
+=== 2.8.5
+
+* Add Pad and Crop middlewares for fixing botched telecine and anamorphic Alexa
+
 === 2.8.2
 
 * Fix release gemspec

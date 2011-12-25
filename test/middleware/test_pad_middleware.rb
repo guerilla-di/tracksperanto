@@ -11,11 +11,11 @@ class PadMiddlewareTest < Test::Unit::TestCase
   
   def test_shift_bypasses_methods
     receiver = flexmock
-    cropped_w, cropped_h = (720 * 0.75).ceil, (610 * 1.1).ceil
-    puts [cropped_w, cropped_h]
-    receiver.should_receive(:start_export).once.with(cropped_w, cropped_h)
+    padded_w, padded_h = (720 * 0.75).ceil, (576 * 1.1).ceil
+    
+    receiver.should_receive(:start_export).once.with(padded_w, padded_h)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once.with(1, 123, 95, 0)
+    receiver.should_receive(:export_point).once.with(1, 240.0, -27.6, 0)
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     

@@ -7,10 +7,9 @@ class Tracksperanto::Middleware::Pad < Tracksperanto::Middleware::Base
   
   def start_export(w, h)
     @shift_left, @shift_bottom = w * left_pad, h * bottom_pad
-    
-    new_w = w + (w * (left_pad + right_pad))
-    new_h = h + (h * (bottom_pad + right_pad))
-    super(new_w.ceil, new_h.ceil)
+    w_mult = 1 + left_pad + right_pad
+    h_mult = 1 + bottom_pad + top_pad
+    super((w * w_mult).ceil, (h * h_mult).ceil)
   end
   
   def export_point(frame, float_x, float_y, float_residual)

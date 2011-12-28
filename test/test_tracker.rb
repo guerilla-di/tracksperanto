@@ -59,6 +59,22 @@ class TrackerTest < Test::Unit::TestCase
     end
   end
   
+  def test_set
+    flunk
+  end
+  
+  def test_bracket_subscript
+    flunk
+  end
+  
+  def test_at_frame
+    flunk
+  end
+  
+  def test_keyframes_assignment_overwrites
+    flunk
+  end
+  
   def test_empty?
     t = Tracksperanto::Tracker.new(:name => "Test")
     assert t.empty?

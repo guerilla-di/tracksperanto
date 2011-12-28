@@ -2,6 +2,14 @@ require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
 class TrackerTest < Test::Unit::TestCase
   
+  def setup
+    @keyframes = [
+      Tracksperanto::Keyframe.new(:frame => 15, :abs_x => 123, :abs_y => 456),
+      Tracksperanto::Keyframe.new(:frame => 8, :abs_x => 678, :abs_y => 901),
+      Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 342, :abs_y => 312),
+    ]
+  end
+  
   def test_supports_block_init
     t = Tracksperanto::Tracker.new do |t| 
       t.name = 'Foo'
@@ -64,7 +72,9 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_bracket_subscript
-    flunk
+    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => @keyframes)
+    kf = t[0]
+    assert_equal kf, @keyframes[-1], "Keyframe at 1 should be returned"
   end
   
   def test_at_frame

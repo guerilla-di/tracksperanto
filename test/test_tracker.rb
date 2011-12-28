@@ -87,14 +87,12 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_keyframes_assignment_overwrites
-    old_keys = @keyframes.dup
-    old_keys[0].frame = 17
-    
-    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => old_keys)
-    assert_equal [1, 8, 17], t.to_a.map{|e| e.frame}
-    
-    t.keyframes = @keyframes
+    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => @keyframes)
     assert_equal [1, 8, 15], t.to_a.map{|e| e.frame}
+    new_key = @keyframes[1]
+    t.keyframes = [new_key]
+    
+    assert_equal [8], t.to_a.map{|e| e.frame}
   end
   
   def test_empty?

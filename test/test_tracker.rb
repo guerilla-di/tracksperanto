@@ -35,18 +35,39 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_supports_hash_init_with_keyframes
-    assert_equal [1,2], Tracksperanto::Tracker.new(:keyframes => [1,2]).keyframes
+    kfs = Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 123, :abs_y => 456)
+    assert_equal [kfs], Tracksperanto::Tracker.new(:keyframes => [kfs]).keyframes
   end
   
   def test_supports_array_methods
-    t = Tracksperanto::Tracker.new(:keyframes => [1,2])
-    assert_equal [1,2], t.to_a
-    assert_equal 2, t.length
-    t.push(3)
-    assert_equal 3, t.length
-    assert_equal [1,2,3], t.to_a
-  end
+    kfs = Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 123, :abs_y => 456)
+    t = Tracksperanto::Tracker.new(:keyframes => [kfs])
     
+    assert_equal [kfs], t.to_a
+    assert_equal 1, t.length
+  end
+  
+  def test_push
+    kf = Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 123, :abs_y => 456)
+    t = Tracksperanto::Tracker.new(:name => "Test")
+    t.push(kf)
+    assert_equal 1, t.length
+    
+    kf = Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 333, :abs_y => 456)
+    assert_raise(Tracksperanto::Tracker::Dupe) do
+      t.push(kf)
+    end
+  end
+  
+  def test_empty?
+    t = Tracksperanto::Tracker.new(:name => "Test")
+    assert t.empty?
+    
+    t = Tracksperanto::Tracker.new(:name => "Test")
+    t.keyframe! :frame => 10, :abs_x => 123
+    assert !t.empty?
+  end
+  
   def test_inspect
     t = Tracksperanto::Tracker.new(:name => "FooTracker")
     assert_equal '<T "FooTracker" with 0 keyframes>', t.inspect

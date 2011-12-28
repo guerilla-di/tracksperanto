@@ -1,29 +1,44 @@
 # Internal representation of a tracker point with keyframes. A Tracker is an array of Keyframe objects
 # with a few methods added for convenience
-class Tracksperanto::Tracker < DelegateClass(Array)
-  include Tracksperanto::Casts
-  include Tracksperanto::BlockInit
-  include Comparable
+class Tracksperanto::Tracker
+  include Tracksperanto::Casts, Tracksperanto::BlockInit, Comparable, Enumerable
   
   # Contains the name of the tracker
   attr_accessor :name
   cast_to_string :name
   
+  class Dupe < RuntimeError
+  end
+  
   def initialize(object_attribute_hash = {})
     @name = "Tracker"
-    __setobj__(Array.new)
+    @frame_table = {}
     super
   end
   
   def keyframes=(new_kf_array)
-    __setobj__(new_kf_array.dup)
+    new_kf_array.each do | keyframe |
+      @frame_table[keyframe.frame] = keyframe.abs_x, keyframe.abs_y, keyframe.residual
+    end
   end
-
-  alias_method :keyframes, :__getobj__
+  
+  def keyframes
+    to_a
+  end
+  
+  def each
+    @frame_table.keys.sort.each do | frame |
+      yield(extract_keyframe(frame))
+    end
+  end
   
   # Trackers sort by the position of the first keyframe
   def <=>(other_tracker)
-    self[0].frame <=> other_tracker[0].frame
+    self.first_frame <=> other_tracker.first_frame
+  end
+  
+  def first_frame
+    @frame_table.keys.sort[0]
   end
   
   # Automatically truncate spaces in the tracker
@@ -34,15 +49,38 @@ class Tracksperanto::Tracker < DelegateClass(Array)
    
   # Create and save a keyframe in this tracker
   def keyframe!(options)
-    push(Tracksperanto::Keyframe.new(options))
+    kf = Tracksperanto::Keyframe.new(options)
+    @frame_table[kf.frame] = [kf.abs_x, kf.abs_y, kf.residual]
+  end
+  
+  def empty?
+    @frame_table.empty?
+  end
+  
+  def [](offset)
+    frame = @frame_table.keys.sort[offset]
+    return nil if frame.nil?
+    
+    extract_keyframe(frame)
+  end
+  
+  def push(kf)
+    raise Dupe, "The tracker #{name.inspect} already contains a keyframe at #{kf.frame}" if @frame_table[kf.frame]
+    @frame_table[kf.frame] = [kf.abs_x, kf.abs_y, kf.residual]
   end
   
   def inspect
     "<T #{name.inspect} with #{length} keyframes>"
   end
   
-  # Hack - prevents the Tracker to be flattened into keyframes
-  # when an Array of Trackers gets Array#flatten'ed
-  def to_ary; end  
-  private :to_ary
+  def length
+    @frame_table.length
+  end
+  
+  private
+  
+  def extract_keyframe(frame)
+    triplet = @frame_table[frame]
+    Tracksperanto::Keyframe.new(:frame => frame, :abs_x => triplet[0], :abs_y => triplet[1], :residual => triplet[2])
+  end
 end

@@ -18,6 +18,7 @@ class Tracksperanto::Tracker
   
   # Replace all the keyframes of the tracker with new ones
   def keyframes=(new_kf_array)
+    @frame_table = {}
     new_kf_array.each do | keyframe |
       @frame_table[keyframe.frame] = keyframe.abs_x, keyframe.abs_y, keyframe.residual
     end

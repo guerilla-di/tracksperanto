@@ -68,7 +68,10 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_set
-    flunk
+    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => @keyframes)
+    replacement_key = Tracksperanto::Keyframe.new(:frame => 15, :abs_x => 92193921)
+    t.set(replacement_key)
+    assert_in_delta 0.0001, 92193921.0, t[-1].abs_x
   end
   
   def test_bracket_subscript
@@ -78,11 +81,20 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_at_frame
-    flunk
+    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => @keyframes)
+    assert_equal @keyframes[0], t.at_frame(15)
+    assert_nil t.at_frame(200), "Should return nil for nonexisting frames"
   end
   
   def test_keyframes_assignment_overwrites
-    flunk
+    old_keys = @keyframes.dup
+    old_keys[0].frame = 17
+    
+    t = Tracksperanto::Tracker.new(:name => "Shmoo", :keyframes => old_keys)
+    assert_equal [1, 8, 17], t.to_a.map{|e| e.frame}
+    
+    t.keyframes = @keyframes
+    assert_equal [1, 8, 15], t.to_a.map{|e| e.frame}
   end
   
   def test_empty?
@@ -105,10 +117,10 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_enumerates_keyframe_values_and_returns_length
-    t = Tracksperanto::Tracker.new(:keyframes => [:a, :b])
-    assert_equal [:a, :b], t.map{|e| e}
-    assert_equal 2, t.length
-    assert_equal :a, t[0]
+    t = Tracksperanto::Tracker.new(:keyframes => @keyframes)
+    assert_equal @keyframes.sort, t.map{|e| e}
+    assert_equal 3, t.length
+    assert_equal @keyframes[-1], t[0]
   end
   
 end

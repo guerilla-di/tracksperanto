@@ -3,7 +3,7 @@ source :rubygems
 
 gem "obuf", "~> 1.0.1"
 gem "progressive_io", "~> 1.0"
-gem "flame_channel_parser", "~> 3.0"
+gem "flame_channel_parser", "~> 4.0"
 gem "progressbar", "~> 0.9"
 gem "update_hints", "~> 1.0"
 

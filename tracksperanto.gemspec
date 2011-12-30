@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2011-12-25"
+  s.date = "2011-12-30"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -78,7 +78,6 @@ Gem::Specification.new do |s|
     "lib/tracksperanto/casts.rb",
     "lib/tracksperanto/const_name.rb",
     "lib/tracksperanto/ext_io.rb",
-    "lib/tracksperanto/flame_builder.rb",
     "lib/tracksperanto/format_detector.rb",
     "lib/tracksperanto/keyframe.rb",
     "lib/tracksperanto/returning.rb",
@@ -150,7 +149,6 @@ Gem::Specification.new do |s|
     "test/test_cli.rb",
     "test/test_const_name.rb",
     "test/test_extio.rb",
-    "test/test_flame_builder.rb",
     "test/test_format_detector.rb",
     "test/test_keyframe.rb",
     "test/test_pipeline.rb",
@@ -171,7 +169,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<obuf>, ["~> 1.0.1"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
-      s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 3.0"])
+      s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_runtime_dependency(%q<progressbar>, ["~> 0.9"])
       s.add_runtime_dependency(%q<update_hints>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -181,7 +179,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<obuf>, ["~> 1.0.1"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
-      s.add_dependency(%q<flame_channel_parser>, ["~> 3.0"])
+      s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_dependency(%q<progressbar>, ["~> 0.9"])
       s.add_dependency(%q<update_hints>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -192,7 +190,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<obuf>, ["~> 1.0.1"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
-    s.add_dependency(%q<flame_channel_parser>, ["~> 3.0"])
+    s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
     s.add_dependency(%q<progressbar>, ["~> 0.9"])
     s.add_dependency(%q<update_hints>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

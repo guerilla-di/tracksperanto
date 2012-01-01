@@ -35,7 +35,7 @@ applications at once. Also, you can always escape into the 2D world if no 3D app
 to be adequate. If you need to move from one app to another, you won't have to retrack.
 
 Another issue with tracks is adjusting to formats. Very few apps allow you to convert your
-tracks in one stop from format to format - like doing an unproportional scale on the
+tracks in one step from format to format - like doing an unproportional scale on the
 tracks, or moving them a few pixels left and right. This comes at a high cost if the
 footage you are tracking came cropped or in a wrong aspect - the only way to solve the shot
 will be to retrack it from scratch. Tracksperanto allows you to work around this

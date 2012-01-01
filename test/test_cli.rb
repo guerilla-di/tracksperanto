@@ -29,7 +29,7 @@ class CliTest < Test::Unit::TestCase
   def test_cli_with_nonexisting_file
     status, o, e = cli(TEMP_DIR + "/nonexisting.file")
     assert_equal 1, status
-    assert_equal "Input file #{TEMP_DIR + "/nonexisting.file"} does not exist\n", e
+    assert_match /Input file #{TEMP_DIR + "/nonexisting.file"} does not exist/, e
   end
     
   def test_basic_cli

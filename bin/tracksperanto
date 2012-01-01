@@ -115,15 +115,8 @@ rescue CodeLoaded
 end
 
 input_file = ARGV.pop
-unless input_file
-  $stderr.puts "No input file provided - should be the last argument. Also use the --help option."
-  exit(1)
-end
-
-unless File.exist?(input_file)
-  $stderr.puts "Input file #{input_file} does not exist"
-  exit(1)
-end
+fail "No input file provided - should be the last argument. Also use the --help option." unless input_file
+fail "Input file #{input_file} does not exist" unless File.exist?(input_file)
 
 pbar = ProgressBar.new("Converting", 100, $stdout)
 progress = lambda do |percent,message| 
@@ -151,8 +144,7 @@ rescue Tracksperanto::UnknownMiddlewareError => damn
   $stderr.puts "This is a bug, please report it"
   exit(2)
 rescue Exception => damn
-  $stderr.puts damn.message
-  exit(2)
+  fail damn.message
 ensure
   pbar.finish
 end

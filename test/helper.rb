@@ -95,9 +95,28 @@ module ParabolicTracks
   def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
     [ref_buffer, actual_buffer].each{|io| io.rewind }
     at_line = 0
+    ref_buffer_done, actual_buffer_done = false, false
     until ref_buffer.eof? && actual_buffer.eof?
       at_line += 1
-      reference_line, output_line = ref_buffer.readline, actual_buffer.readline
+      
+      begin
+        reference_line = ref_buffer.readline
+      rescue EOFError
+      end
+      
+      begin
+        output_line = actual_buffer.readline
+      rescue EOFError
+      end
+      
+      if ref_buffer.eof? && !actual_buffer.eof?
+        assert false, "The reference buffer has been exhausted but the actual buffer still has data"
+      end
+      
+      if !ref_buffer.eof? && actual_buffer.eof?
+        assert false, "The actual buffer has been exhausted but the reference buffer still has data"
+      end
+      
       assert_equal reference_line, output_line, "Line #{at_line} - #{message}"
     end
   end

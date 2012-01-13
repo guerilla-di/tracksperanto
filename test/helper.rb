@@ -95,7 +95,6 @@ module ParabolicTracks
   def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
     [ref_buffer, actual_buffer].each{|io| io.rewind }
     at_line = 0
-    ref_buffer_done, actual_buffer_done = false, false
     until ref_buffer.eof? && actual_buffer.eof?
       at_line += 1
       

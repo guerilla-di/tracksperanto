@@ -1,0 +1,1946 @@
+StabilizerFileVersion 5.0
+CreationDate Thu Feb 18 17:22:12 2010
+
+
+NbTrackers 4
+Selected 0
+FrameWidth 1920
+FrameHeight 1080
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan no
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 100
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel top_left/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel top_left/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel top_left/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_left/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_left/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_left/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_left/ref/x
+	Extrapolation constant
+	Value 570.001
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 570.001
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_left/ref/y
+	Extrapolation constant
+	Value 795.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 795.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_left/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel top_left/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel top_left/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value -2.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value -9.630
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value -20.829
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value -35.946
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value -54.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value -75.133
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value -99.017
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value -125.046
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value -152.699
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value -181.617
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value -211.111
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value -241.027
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value -271.219
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value -300.886
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value -329.705
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value -357.177
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value -383.125
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value -406.966
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value -428.144
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value -446.465
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value -461.673
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value -472.840
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value -479.841
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value -482.160
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_left/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value 1.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value 2.020
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value 7.109
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value 12.061
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value 18.000
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value 25.807
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value 33.869
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value 42.672
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value 52.333
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value 61.419
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value 71.852
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value 82.576
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value 92.631
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value 102.578
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value 112.534
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value 122.495
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value 130.752
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value 139.132
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value 146.604
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value 152.829
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value 157.551
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value 161.478
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value 164.353
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value 165.525
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_left/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel top_left/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel top_right/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel top_right/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel top_right/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_right/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel top_right/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_right/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel top_right/ref/x
+	Extrapolation constant
+	Value 1217.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 1217.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_right/ref/y
+	Extrapolation constant
+	Value 908.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 908.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_right/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel top_right/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel top_right/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value -1.936
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value -5.908
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value -12.183
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value -20.999
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value -31.995
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value -43.992
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value -57.969
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value -73.067
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value -89.874
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value -106.384
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value -123.957
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value -141.276
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value -158.997
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value -176.455
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value -193.389
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value -209.545
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value -224.738
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value -238.778
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value -251.327
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value -262.087
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value -270.999
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value -277.500
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value -281.557
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value -283.046
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_right/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value 2.116
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value 8.830
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value 19.258
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value 33.248
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value 50.312
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value 70.172
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value 92.288
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value 116.304
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value 142.124
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value 169.055
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value 196.283
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value 224.197
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value 252.254
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value 280.061
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value 306.927
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value 332.534
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value 356.531
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value 378.709
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value 398.580
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value 415.680
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value 429.640
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value 440.006
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value 446.436
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value 448.752
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel top_right/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel top_right/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel bottom_left/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel bottom_left/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel bottom_left/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_left/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_left/ref/x
+	Extrapolation constant
+	Value 260.001
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 260.001
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_left/ref/y
+	Extrapolation constant
+	Value 229.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 229.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_left/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel bottom_left/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel bottom_left/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value -3.181
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value -12.759
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value -27.848
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value -47.926
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value -72.364
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value -101.014
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value -133.036
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value -167.794
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value -204.807
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value -243.386
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value -283.102
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value -323.524
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value -363.778
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value -403.658
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value -442.345
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value -479.337
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value -513.889
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value -545.921
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value -574.463
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value -598.830
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value -619.170
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value -634.360
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value -643.529
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value -646.758
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_left/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value 0.993
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value 3.425
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value 7.918
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value 13.022
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value 19.745
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value 27.698
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value 36.199
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value 45.793
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value 55.836
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value 66.265
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value 77.142
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value 88.136
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value 99.218
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value 109.908
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value 120.279
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value 130.297
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value 139.909
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value 148.285
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value 156.331
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value 163.200
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value 168.329
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value 172.330
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value 175.228
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value 176.170
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_left/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel bottom_left/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel bottom_right/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel bottom_right/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel bottom_right/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_right/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel bottom_right/ref/x
+	Extrapolation constant
+	Value 1178.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 1178.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_right/ref/y
+	Extrapolation constant
+	Value 103.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 103.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_right/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel bottom_right/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel bottom_right/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value -2.003
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value -8.965
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value -19.055
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value -33.184
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value -50.961
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value -70.915
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value -92.980
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value -117.035
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value -142.965
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value -170.024
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value -197.969
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value -226.032
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value -254.250
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value -282.088
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value -309.123
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value -334.931
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value -359.089
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value -381.482
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value -401.319
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value -418.346
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value -432.431
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value -443.021
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value -449.625
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value -451.935
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_right/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 25
+	Key 0
+		Frame 1
+		Value 0
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 1
+		Frame 2
+		Value 0.003
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 2
+		Frame 3
+		Value 0.050
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 3
+		Frame 4
+		Value 0.131
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 4
+		Frame 5
+		Value 0.427
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 5
+		Frame 6
+		Value 0.890
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 6
+		Frame 7
+		Value 1.050
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 7
+		Frame 8
+		Value 1.415
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 8
+		Frame 9
+		Value 1.895
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 9
+		Frame 10
+		Value 2.217
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 10
+		Frame 11
+		Value 2.730
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 11
+		Frame 12
+		Value 3.190
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 12
+		Frame 13
+		Value 3.618
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 13
+		Frame 14
+		Value 4.189
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 14
+		Frame 15
+		Value 4.646
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 15
+		Frame 16
+		Value 5.207
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 16
+		Frame 17
+		Value 5.693
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 17
+		Frame 18
+		Value 5.815
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 18
+		Frame 19
+		Value 6.722
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 19
+		Frame 20
+		Value 6.724
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 20
+		Frame 21
+		Value 7.563
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 21
+		Frame 22
+		Value 7.733
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 22
+		Frame 23
+		Value 7.759
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 23
+		Frame 24
+		Value 7.748
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	Key 24
+		Frame 25
+		Value 7.783
+		Interpolation linear
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel bottom_right/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel bottom_right/offset/y
+	Extrapolation constant
+	Value 0
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 2
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 3
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+End

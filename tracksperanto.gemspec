@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.8.5"
+  s.version = "2.8.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2011-12-30"
+  s.date = "2012-01-13"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -87,6 +87,8 @@ Gem::Specification.new do |s|
     "lib/tracksperanto/uv_coordinates.rb",
     "lib/tracksperanto/zip_tuples.rb",
     "test/export/README_EXPORT_TESTS.txt",
+    "test/export/samples/ref_FlameProperlyReorderedCornerpin.stabilizer",
+    "test/export/samples/ref_FlameSimpleReorderedCornerpin.stabilizer",
     "test/export/samples/ref_Mayalive.txt",
     "test/export/samples/ref_Mayalive_CustomAspect.txt",
     "test/export/samples/ref_NukeScript.nk",
@@ -167,7 +169,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<obuf>, ["~> 1.0.1"])
+      s.add_runtime_dependency(%q<obuf>, ["~> 1.0.4"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_runtime_dependency(%q<progressbar>, ["~> 0.9"])
@@ -177,7 +179,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
     else
-      s.add_dependency(%q<obuf>, ["~> 1.0.1"])
+      s.add_dependency(%q<obuf>, ["~> 1.0.4"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_dependency(%q<progressbar>, ["~> 0.9"])
@@ -188,7 +190,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
     end
   else
-    s.add_dependency(%q<obuf>, ["~> 1.0.1"])
+    s.add_dependency(%q<obuf>, ["~> 1.0.4"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
     s.add_dependency(%q<progressbar>, ["~> 0.9"])

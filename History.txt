@@ -1,3 +1,7 @@
+=== 2.8.6
+
+* Ensure the Flame cornerpin export module always exports points in the proper Z-order
+
 === 2.8.5
 
 * Add Pad and Crop middlewares for fixing botched telecine and anamorphic Alexa

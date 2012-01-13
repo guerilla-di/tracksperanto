@@ -3,10 +3,12 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 class FlameStabilizerCornerpinExportTest < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_flameCornerpin.stabilizer"
+  P2 = File.dirname(__FILE__) + "/samples/ref_FlameSimpleReorderedCornerpin.stabilizer"
+  P3 = File.dirname(__FILE__) + "/samples/ref_FlameProperlyReorderedCornerpin.stabilizer"
   
   def test_export_output_written
     t = Time.local(2010, "Feb", 18, 17, 22, 12)
-    flexmock(Time).should_receive(:now).once.and_return(t)
+    flexmock(Time).should_receive(:now).and_return(t)
     ensure_same_output Tracksperanto::Export::FlameStabilizerCornerpin, P 
   end
   
@@ -29,5 +31,37 @@ class FlameStabilizerCornerpinExportTest < Test::Unit::TestCase
     
     roundtrip = Tracksperanto::Import::FlameStabilizer.new(:io => s).to_a
     assert_equal 4, roundtrip.length
+  end
+  
+  def test_roundtrip_with_correct_order
+    t = Time.local(2010, "Feb", 18, 17, 22, 12)
+    flexmock(Time).should_receive(:now).and_return(t)
+    
+    trackers = File.open(File.dirname(__FILE__) + "/../import/samples/flame_stabilizer/FlameStab_Cornerpin_CorrectOrder.stabilizer") do | f| 
+      Tracksperanto::Import::FlameStabilizer.new(:io => f).to_a
+    end
+    assert_equal 4, trackers.length
+    
+    s = StringIO.new
+    x = Tracksperanto::Export::FlameStabilizerCornerpin.new(s)
+    x.just_export(trackers, 1920, 1080)
+    
+    assert_same_buffer(File.open(P2), s)
+  end
+  
+  def test_roundtrip_with_incorrect_order
+    t = Time.local(2010, "Feb", 18, 17, 22, 12)
+    flexmock(Time).should_receive(:now).and_return(t)
+    
+    trackers = File.open(File.dirname(__FILE__) + "/../import/samples/flame_stabilizer/FlameStab_Cornerpin_IncorrectOrder.stabilizer") do | f| 
+      Tracksperanto::Import::FlameStabilizer.new(:io => f).to_a
+    end
+    assert_equal 4, trackers.length
+    
+    s = StringIO.new
+    x = Tracksperanto::Export::FlameStabilizerCornerpin.new(s)
+    x.just_export(trackers, 1920, 1080)
+    
+    assert_same_buffer(File.open(P3), s)
   end
 end

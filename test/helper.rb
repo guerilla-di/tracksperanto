@@ -92,22 +92,23 @@ module ParabolicTracks
     end
   end
   
+  def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
+    [ref_buffer, actual_buffer].each{|io| io.rewind }
+    at_line = 0
+    until ref_buffer.eof? && actual_buffer.eof?
+      at_line += 1
+      reference_line, output_line = ref_buffer.readline, actual_buffer.readline
+      assert_equal reference_line, output_line, "Line #{at_line} - #{message}"
+    end
+  end
+  
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
-    
     io = StringIO.new
     x = exporter_klass.new(io)
     yield(x) if block_given?
     export_parabolics_with(x)
-    io.rewind
     
-    File.open(reference_path, "r") do | f |
-      at_line = 0
-      until f.eof? || io.eof?
-        at_line += 1
-        reference_line, output_line = f.readline, io.readline
-        assert_equal reference_line, output_line, "Line #{at_line} - #{message}"
-      end
-    end
+    assert_same_buffer(File.open(reference_path, "r"), io, message)
   end
   
   def export_parabolics_with(exporter)

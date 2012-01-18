@@ -82,18 +82,20 @@ Play responsibly.
   
   # Now add some middlewares, for example a Scale
   scaler = Middleware::Scaler.new(some_exporter, :x_factor => 2)
-  # ... and a slip
-  slipper = Middleware::Slipper.new(scaler, :offset => 2)
-  # Middlewares wrap exporters and other middlewares, so you can chain them
+  # ... and a slip. Middlewares wrap exporters and other middlewares, so you can chain them
   # ad nauseam
+  slipper = Middleware::Slipper.new(scaler, :offset => 2)
   
   # Now when we send export commands to the Slipper it will play them through
   # to the Scaler and the Scaler in turn will send commands to the exporter.
   slipper.start_export(1024, 576)
   trackers.each do | t |
     slipper.start_tracker_segment(t.name)
-    t.each {|kf slipper.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual) }
+    t.each do | keyframe |
+      slipper.export_point(keyframe.frame, keyframe.abs_x, keyframe.abs_y, keyframe.residual)
+    end
     slipper.end_tracker_segment
   end
-
+  slipper.end_export
+  
   # And we are done!

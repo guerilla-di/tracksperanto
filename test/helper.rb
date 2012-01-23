@@ -31,58 +31,53 @@ end
 # The tracker residual will degrade linarly and wll be "good" at the first image, "medium" at the extreme
 # and "bad" at end
 module ParabolicTracks
-  x_uv_chain = [
-    -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0, 
-    0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0
-  ]
   
-  def self.uv_to_abs(uv_x, uv_y, w, h)
-    x_wt = w.to_f / 2.0
-    y_wt = h.to_f / 2.0
-    [(uv_x + 1) * x_wt, ((uv_y) * y_wt) * 2] 
+  FIRST_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_1_from_top_left") do |t|
+    t.keyframe!(:frame => 0, :abs_x => 0.00000, :abs_y => 1080.00000, :residual => 0.00000, )
+    t.keyframe!(:frame => 1, :abs_x => 96.00000, :abs_y => 874.80000, :residual => 0.04762, )
+    t.keyframe!(:frame => 2, :abs_x => 192.00000, :abs_y => 691.20000, :residual => 0.09524, )
+    t.keyframe!(:frame => 3, :abs_x => 288.00000, :abs_y => 529.20000, :residual => 0.14286, )
+    t.keyframe!(:frame => 4, :abs_x => 384.00000, :abs_y => 388.80000, :residual => 0.19048, )
+    t.keyframe!(:frame => 5, :abs_x => 480.00000, :abs_y => 270.00000, :residual => 0.23810, )
+    t.keyframe!(:frame => 6, :abs_x => 576.00000, :abs_y => 172.80000, :residual => 0.28571, )
+    t.keyframe!(:frame => 7, :abs_x => 672.00000, :abs_y => 97.20000, :residual => 0.33333, )
+    t.keyframe!(:frame => 8, :abs_x => 768.00000, :abs_y => 43.20000, :residual => 0.38095, )
+    t.keyframe!(:frame => 9, :abs_x => 864.00000, :abs_y => 10.80000, :residual => 0.42857, )
+    t.keyframe!(:frame => 12, :abs_x => 1152.00000, :abs_y => 43.20000, :residual => 0.57143, )
+    t.keyframe!(:frame => 13, :abs_x => 1248.00000, :abs_y => 97.20000, :residual => 0.61905, )
+    t.keyframe!(:frame => 14, :abs_x => 1344.00000, :abs_y => 172.80000, :residual => 0.66667, )
+    t.keyframe!(:frame => 15, :abs_x => 1440.00000, :abs_y => 270.00000, :residual => 0.71429, )
+    t.keyframe!(:frame => 16, :abs_x => 1536.00000, :abs_y => 388.80000, :residual => 0.76190, )
+    t.keyframe!(:frame => 17, :abs_x => 1632.00000, :abs_y => 529.20000, :residual => 0.80952, )
+    t.keyframe!(:frame => 18, :abs_x => 1728.00000, :abs_y => 691.20000, :residual => 0.85714, )
+    t.keyframe!(:frame => 19, :abs_x => 1824.00000, :abs_y => 874.80000, :residual => 0.90476, )
+    t.keyframe!(:frame => 20, :abs_x => 1920.00000, :abs_y => 1080.00000, :residual => 0.95238, )
   end
   
-  from_uv = lambda do | coordinate, dimension |
-    dimension_part = dimension / 2
-    (coordinate + 1.0) * dimension_part
+  SECOND_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_2_from_bottom_right") do |t|
+    t.keyframe!(:frame => 0, :abs_x => 1920.00000, :abs_y => 0.00000, :residual => 0.00000, )
+    t.keyframe!(:frame => 1, :abs_x => 1824.00000, :abs_y => 205.20000, :residual => 0.04762, )
+    t.keyframe!(:frame => 2, :abs_x => 1728.00000, :abs_y => 388.80000, :residual => 0.09524, )
+    t.keyframe!(:frame => 3, :abs_x => 1632.00000, :abs_y => 550.80000, :residual => 0.14286, )
+    t.keyframe!(:frame => 4, :abs_x => 1536.00000, :abs_y => 691.20000, :residual => 0.19048, )
+    t.keyframe!(:frame => 5, :abs_x => 1440.00000, :abs_y => 810.00000, :residual => 0.23810, )
+    t.keyframe!(:frame => 6, :abs_x => 1344.00000, :abs_y => 907.20000, :residual => 0.28571, )
+    t.keyframe!(:frame => 7, :abs_x => 1248.00000, :abs_y => 982.80000, :residual => 0.33333, )
+    t.keyframe!(:frame => 8, :abs_x => 1152.00000, :abs_y => 1036.80000, :residual => 0.38095, )
+    t.keyframe!(:frame => 9, :abs_x => 1056.00000, :abs_y => 1069.20000, :residual => 0.42857, )
+    t.keyframe!(:frame => 12, :abs_x => 768.00000, :abs_y => 1036.80000, :residual => 0.57143, )
+    t.keyframe!(:frame => 13, :abs_x => 672.00000, :abs_y => 982.80000, :residual => 0.61905, )
+    t.keyframe!(:frame => 14, :abs_x => 576.00000, :abs_y => 907.20000, :residual => 0.66667, )
+    t.keyframe!(:frame => 15, :abs_x => 480.00000, :abs_y => 810.00000, :residual => 0.71429, )
+    t.keyframe!(:frame => 16, :abs_x => 384.00000, :abs_y => 691.20000, :residual => 0.76190, )
+    t.keyframe!(:frame => 17, :abs_x => 288.00000, :abs_y => 550.80000, :residual => 0.80952, )
+    t.keyframe!(:frame => 18, :abs_x => 192.00000, :abs_y => 388.80000, :residual => 0.85714, )
+    t.keyframe!(:frame => 19, :abs_x => 96.00000, :abs_y => 205.20000, :residual => 0.90476, )
+    t.keyframe!(:frame => 20, :abs_x => 0.00000, :abs_y => 0.00000, :residual => 0.95238, )
   end
   
-  tuples_for_tracker_1 = x_uv_chain.inject([]) do | tuples_m, x_value |
-    tuples_m << [tuples_m.length, x_value, x_value ** 2]
-  end
-  
-  tuples_for_tracker_2 = tuples_for_tracker_1.map do | tuple |
-    [tuple[0], tuple[1], (tuple[2] * -1) + 1]
-  end
-  
-  tuples_for_tracker_2.reverse!
-  tuples_for_tracker_2.each_with_index do | t, i |
-    t[0] = i
-  end
-  
-  residual_unit = 1.0 / x_uv_chain.length
-  
-  SKIPS = [10,11]
-  FIRST_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_1_from_top_left") do | t |
-    tuples_for_tracker_1.each do | (f, x, y )|
-      ax, ay = uv_to_abs(x, y, 1920, 1080)
-      unless SKIPS.include?(f)
-        t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
-      end
-    end
-  end
-  
-  SECOND_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_2_from_bottom_right") do | t |
-    tuples_for_tracker_2.each do | (f, x, y )|
-      ax, ay = uv_to_abs(x, y, 1920, 1080)
-      unless SKIPS.include?(f)
-        t.keyframe!(:frame => f, :abs_x => ax, :abs_y => ay, :residual => (f * residual_unit))
-      end
-    end
-  end
-  
-  SINGLE_FRAME_TRACK = Tracksperanto::Tracker.new(:name => "SingleFrame") do | t |
-    t.keyframe! :frame => 0, :abs_x => (1920/2) + 10, :abs_y => (1080/2)+10, :residual => 0
+  SINGLE_FRAME_TRACK = Tracksperanto::Tracker.new(:name => "SingleFrame") do |t|
+    t.keyframe!(:frame => 0, :abs_x => 970.00000, :abs_y => 550.00000, :residual => 0.00000, )
   end
   
   def create_reference_output(exporter_klass, ref_path)

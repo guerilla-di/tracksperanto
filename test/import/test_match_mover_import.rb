@@ -18,6 +18,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
     
     parser = Tracksperanto::Import::MatchMover.new(:io => fixture)
     trackers = parser.to_a
+    assert_not_equal 0, trackers[0].length
     assert_equal 0, trackers[0][0].frame, "Should have offset the first frame to 0"
   end
   

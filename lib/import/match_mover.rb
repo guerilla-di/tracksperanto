@@ -43,7 +43,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     t = Tracksperanto::Tracker.new(:name => tracker_name)
     while(line = io.gets) do
       return t if line =~ /\}/
-      t.keyframes.push(extract_key(line.strip)) if line =~ /^(\s+?)(\d)/
+      t.push(extract_key(line.strip)) if line =~ /^(\s+?)(\d)/
       report_progress("Extracting keyframe")
     end
     raise "Track didn't close"

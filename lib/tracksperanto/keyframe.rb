@@ -7,8 +7,7 @@
 # Residual is how far in pixels the tracker strolls away, and is the inverse of
 # correlation (with total correlation of one the residual excursion becomes zero).
 class Tracksperanto::Keyframe
-  include Tracksperanto::Casts
-  include Tracksperanto::BlockInit
+  include Tracksperanto::Casts, Tracksperanto::BlockInit, Comparable
   
   # Absolute integer frame where this keyframe is placed, 0 based
   attr_accessor :frame
@@ -30,6 +29,6 @@ class Tracksperanto::Keyframe
   end
   
   def <=>(another)
-    frame <=> another.frame
+    [frame, abs_x, abs_y, residual] <=> [another.frame, another.abs_x, another.abs_y, another.residual]
   end
 end

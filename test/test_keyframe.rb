@@ -20,6 +20,19 @@ class KeyframeTest < Test::Unit::TestCase
     assert_equal [kf2, kf], [kf, kf2].sort
   end
   
+  def test_compares_equally_with_same_values
+    kf = Tracksperanto::Keyframe.new(:frame => 2, :abs_x => 10, :abs_y => 12.0)
+    kf2 = Tracksperanto::Keyframe.new(:frame => 2, :abs_x => 10, :abs_y => 12.0)
+    assert_equal kf, kf2
+  end
+  
+  def test_dup
+    kf = Tracksperanto::Keyframe.new(:frame => 2, :abs_x => 10, :abs_y => 12.0)
+    kf2 = kf.dup
+    kf2.frame = 15
+    assert_not_equal kf, kf2
+  end
+  
   def test_inspect
     kf = Tracksperanto::Keyframe.new(:frame => 0, :abs_x => 10, :abs_y => 12.0)
     assert_equal "#< 10.0x12.0 @0 ~0.00) >", kf.inspect

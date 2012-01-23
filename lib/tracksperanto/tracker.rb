@@ -52,7 +52,7 @@ class Tracksperanto::Tracker < DelegateClass(Array)
     buf = []
     buf.push("Tracksperanto::Tracker.new(:name => %s) do |t|" % name.inspect)
     each do | kf |
-      buf.push("  t.keyframe!(:frame => %d, :abs_x => %0.05f, :abs_y => %0.05f, :residual => %0.05f, )" % [kf.frame, kf.abs_x, kf.abs_y, kf.residual])
+      buf.push("  t.keyframe!(:frame => %d, :abs_x => %0.05f, :abs_y => %0.05f, :residual => %0.05f)" % [kf.frame, kf.abs_x, kf.abs_y, kf.residual])
     end
     buf.push("end")
     buf.join("\n")

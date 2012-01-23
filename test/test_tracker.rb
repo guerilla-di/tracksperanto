@@ -18,6 +18,12 @@ class TrackerTest < Test::Unit::TestCase
   end
   
   def test_to_ruby
+    one_f = Tracksperanto::Tracker.new(:name => "Cde") do | t |
+      t.keyframe! :abs_x => 12, :abs_y => 23, :frame => 1
+    end
+    ref = "Tracksperanto::Tracker.new(:name => \"Cde\") do |t|\n  t.keyframe!(:frame => 1, :abs_x => 12.00000, :abs_y => 23.00000, :residual => 0.00000)\nend"
+    assert_equal ref, one_f.to_ruby
+    
     tracker = Tracksperanto::Tracker.new(:name => "Cde") do | t |
       t.keyframe! :abs_x => 12, :abs_y => 23, :frame => 1
       t.keyframe! :abs_x => 13, :abs_y => 24, :frame => 2

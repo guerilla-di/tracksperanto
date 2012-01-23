@@ -97,32 +97,8 @@ module ParabolicTracks
     [ref_buffer, actual_buffer].each{|io| io.rewind }
     
     # There are subtle differences in how IO is handled on dfferent platforms (Darwin)
-    ref_buffer, actual_buffer = StringIO.new(ref_buffer.read), StringIO.new(actual_buffer.read)
-     
-    at_line = 0
-    until ref_buffer.eof? && actual_buffer.eof?
-      at_line += 1
-      
-      begin
-        reference_line = ref_buffer.readline
-      rescue EOFError
-      end
-      
-      begin
-        output_line = actual_buffer.readline
-      rescue EOFError
-      end
-      
-      if ref_buffer.eof? && !actual_buffer.eof?
-        assert false, "The reference buffer has been exhausted but the actual buffer still has data"
-      end
-      
-      if !ref_buffer.eof? && actual_buffer.eof?
-        assert false, "The actual buffer has been exhausted but the reference buffer still has data"
-      end
-      
-      assert_equal reference_line, output_line, "Line #{at_line} - #{message}"
-    end
+    ref_buffer, actual_buffer = ref_buffer.read, actual_buffer.read
+    assert_equal ref_buffer, actual_buffer
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")

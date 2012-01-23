@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.8.6"
+  s.version = "2.9.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-01-13"
+  s.date = "2012-01-23"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
     "lib/export/pfmatchit.rb",
     "lib/export/pftrack.rb",
     "lib/export/pftrack_5.rb",
+    "lib/export/ruby.rb",
     "lib/export/shake_text.rb",
     "lib/export/syntheyes.rb",
     "lib/import/base.rb",
@@ -95,6 +96,7 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_PFMatchit.2dt",
     "test/export/samples/ref_PFTrack.2dt",
     "test/export/samples/ref_PFTrack5.2dt",
+    "test/export/samples/ref_Ruby.rb",
     "test/export/samples/ref_ShakeText.txt",
     "test/export/samples/ref_Syntheyes.txt",
     "test/export/samples/ref_boujou.txt",
@@ -115,6 +117,7 @@ Gem::Specification.new do |s|
     "test/export/test_pfmatchit_export.rb",
     "test/export/test_pftrack5_export.rb",
     "test/export/test_pftrack_export.rb",
+    "test/export/test_ruby_export.rb",
     "test/export/test_shake_export.rb",
     "test/export/test_syntheyes_export.rb",
     "test/helper.rb",

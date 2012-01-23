@@ -1,3 +1,11 @@
+=== 2.9
+
+* Tracker objects now use a Hash as internal storage model instead of being an Array delegate.
+  Note that due to that some stuff might have become broken since behavior differs in subtle ways.
+* Adds a Ruby export format which exports a file you can play with in Ruby, with literal values
+* Make test runs architecture-resilient by hardcoding floats
+* Adds Tracker#to_ruby for people who like that sort of thing
+
 === 2.8.6
 
 * Ensure the Flame cornerpin export module always exports points in the proper Z-order

@@ -39,7 +39,8 @@ class CliTest < Test::Unit::TestCase
     fs = %w(. .. 
       flm.stabilizer flm_3de_v3.txt flm_3de_v4.txt flm_boujou_text.txt flm_flame.stabilizer 
       flm_matchmover.rz2 flm_mayalive.txt flm_nuke.nk flm_pftrack_2011_pfmatchit.txt flm_pftrack_v4.2dt
-      flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt flm_flame_cornerpin.stabilizer
+      flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt flm_flame_cornerpin.stabilizer 
+      flm_tracksperanto_ruby.rb
     )
     
     assert_same_set fs, Dir.entries(TEMP_DIR)

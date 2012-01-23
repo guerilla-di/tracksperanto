@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This middleware moves the keyframs by a preset number of pixels
 class Tracksperanto::Middleware::Shift < Tracksperanto::Middleware::Base
   attr_accessor :x_shift, :y_shift

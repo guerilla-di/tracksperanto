@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Does the same as the Pad middleware but with absolute pixel values instead of fractionals
 class Tracksperanto::Middleware::Crop < Tracksperanto::Middleware::Base
   attr_accessor :top, :left, :right, :bottom

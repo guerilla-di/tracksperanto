@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Import for Shake Text files
 class Tracksperanto::Import::ShakeText < Tracksperanto::Import::Base
   

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   
   # Flame setups contain clear size indications

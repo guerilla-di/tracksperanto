@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Imports 3D Equalizer's text files
 class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
   

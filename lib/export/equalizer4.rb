@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Export for 3DE v4 point files
 class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
   

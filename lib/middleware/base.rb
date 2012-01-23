@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # The base middleware class works just like a Tracksperanto::Export::Base, but it only wraps another exporting object and does not get registered on it's own
 # as an export format. Middleware can be used to massage the tracks being exported in various interesting ways - like moving the coordinates, clipping the keyframes,
 # scaling the whole export or even reversing the trackers to go backwards

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Provides const_name that returns the name of the class or module (or the name of the class
 # an instance belongs to)  without it's parent namespace. Useful for building module tables
 module Tracksperanto::ConstName

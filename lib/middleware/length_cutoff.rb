@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This middleware removes trackers that contain less than min_length keyframes
 # from the exported batch
 class Tracksperanto::Middleware::LengthCutoff < Tracksperanto::Middleware::Base

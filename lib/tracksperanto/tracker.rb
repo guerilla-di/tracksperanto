@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Internal representation of a tracker point with keyframes. A Tracker is an array of Keyframe objects
 # with a few methods added for convenience
 class Tracksperanto::Tracker < DelegateClass(Array)

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Many importers use this as a standard. This works like a wrapper for any
 # IO object with a couple extra methods added. Note that if you use this in an
 # importer you need to wrap the incoming input with it yourself (that is, an IO passed

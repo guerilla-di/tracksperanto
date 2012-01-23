@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Base exporter. Inherit from this class to automatically register another export format. 
 # The exporters in Tracksperanto are event-driven and follow the same conventions - your
 # exporter will be notified when a tracker will be exported and when a tracker has been passed

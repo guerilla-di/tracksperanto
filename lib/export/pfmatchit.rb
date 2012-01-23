@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Export for PFMatchit
 class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   

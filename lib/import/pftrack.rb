@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # TODO: this should be rewritten as a proper state-machine parser
 class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   def self.human_name

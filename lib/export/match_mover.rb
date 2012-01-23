@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Export for Autodesk MatchMover/Image Modeler
 class Tracksperanto::Export::MatchMover < Tracksperanto::Export::Base
   

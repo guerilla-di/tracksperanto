@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "tempfile"
 
 # BufferIO is used for writing big segments of text. It works like a StringIO, but when the size

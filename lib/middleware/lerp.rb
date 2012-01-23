@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This middleware adds linearly interpolated keyframes BETWEEN the keyframes passing through the exporter
 class Tracksperanto::Middleware::Lerp < Tracksperanto::Middleware::Base
   attr_accessor :enabled

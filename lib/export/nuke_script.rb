@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Export each tracker as a single Tracker3 node
 class Tracksperanto::Export::NukeScript < Tracksperanto::Export::Base
     

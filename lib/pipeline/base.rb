@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tracksperanto::Pipeline
 
   class EmptySourceFileError < RuntimeError

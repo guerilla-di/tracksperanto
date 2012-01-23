@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
   include Tracksperanto::UVCoordinates
   

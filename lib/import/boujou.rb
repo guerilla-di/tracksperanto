@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
   
   def self.human_name

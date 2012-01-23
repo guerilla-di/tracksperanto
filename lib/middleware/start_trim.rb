@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This middleware removes all keyframes before frame 0, and skips trackers entirely if they are all before frame 0
 class Tracksperanto::Middleware::StartTrim < Tracksperanto::Middleware::Base
   attr_accessor :enabled

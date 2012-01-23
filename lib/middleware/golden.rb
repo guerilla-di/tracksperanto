@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This middleware marks all trackers as being 100% accurate
 class Tracksperanto::Middleware::Golden < Tracksperanto::Middleware::Base
   attr_accessor :enabled

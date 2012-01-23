@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Export for 2d3d boujou
 class Tracksperanto::Export::Boujou < Tracksperanto::Export::Base
   

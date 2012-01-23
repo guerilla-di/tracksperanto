@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Shake uses this reader to parse byte by byte without having to read byte by byte.
 # Reading byte by byte is very inefficient, but we want to parse byte by byte since
 # this makes parser construction much easier. So what we do is cache some chunk of the

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Implements the conventional constructor with "hash of attributes" and block support
 module Tracksperanto::BlockInit
   def initialize(object_attribute_hash = {})

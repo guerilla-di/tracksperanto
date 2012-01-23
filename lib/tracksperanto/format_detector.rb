@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Finds a suitable importer for the chosen file path. Or at least tries to, based on the file extension.
 # Will then examine all the importers and ask them if they can handle the specified file
 class Tracksperanto::FormatDetector

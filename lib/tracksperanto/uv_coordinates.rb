@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Syntheyes and some other apps use a relative UV coordinate sustem. For Syntheyes, zero is at the
 # optical center of the image, and goes positive right and up. Since Tracksperanto works in absolute
 # pixels we need to convert to and fro.

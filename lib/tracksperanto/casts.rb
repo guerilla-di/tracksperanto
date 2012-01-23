@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Helps to define things that will forcibly become floats, integers or strings
 module Tracksperanto::Casts
   def self.included(into)

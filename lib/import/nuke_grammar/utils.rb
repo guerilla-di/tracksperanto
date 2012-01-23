@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Tracksperanto::NukeGrammarUtils
   SECTION_START = /^x(\d+)$/
   KEYFRAME = /^([-\d\.]+)$/

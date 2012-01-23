@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Implements just_export for quickly pushing trackers out through an exporter without using Pipeline
 # plumbing
 module Tracksperanto::SimpleExport

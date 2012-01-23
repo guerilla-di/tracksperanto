@@ -95,6 +95,10 @@ module ParabolicTracks
   
   def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
     [ref_buffer, actual_buffer].each{|io| io.rewind }
+    
+    # There are subtle differences in how IO is handled on dfferent platforms (Darwin)
+    ref_buffer, actual_buffer = StringIO.new(ref_buffer.read), StringIO.new(actual_buffer.read)
+     
     at_line = 0
     until ref_buffer.eof? && actual_buffer.eof?
       at_line += 1

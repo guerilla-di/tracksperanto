@@ -17,6 +17,16 @@ class TrackerTest < Test::Unit::TestCase
     assert_respond_to t, :keyframes
   end
   
+  def test_to_ruby
+    tracker = Tracksperanto::Tracker.new(:name => "Cde") do | t |
+      t.keyframe! :abs_x => 12, :abs_y => 23, :frame => 1
+      t.keyframe! :abs_x => 13, :abs_y => 24, :frame => 2
+    end
+    
+    result = eval(tracker.to_ruby)
+    assert_equal result, tracker
+  end
+  
   def test_properly_ignores_flattening
     t = []
     t << Tracksperanto::Tracker.new(:name => "Abc")

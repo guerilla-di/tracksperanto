@@ -46,4 +46,15 @@ class Tracksperanto::Tracker < DelegateClass(Array)
   # when an Array of Trackers gets Array#flatten'ed
   def to_ary; end  
   private :to_ary
+  
+  # Used in tests
+  def to_ruby
+    buf = []
+    buf.push("Tracksperanto::Tracker.new(:name => %s) do |t|" % name.inspect)
+    each do | kf |
+      buf.push("  t.keyframe!(:frame => %d, :abs_x => %0.05f, :abs_y => %0.05f, :residual => %0.05f, )" % [kf.frame, kf.abs_x, kf.abs_y, kf.residual])
+    end
+    buf.push("end")
+    buf.join("\n")
+  end
 end

@@ -5,9 +5,7 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   LOCATOR_PREAMBLE = 'spaceLocator -name "%s" -p 0 0 0;'
   MOVE_TIMEBAR = 'currentTime %d;'
   KEYFRAME_TEMPLATE = 'setKeyframe -value %0.5f "%s.%s";';
-  
-  # Scaling factor multiplier
-  attr_accessor :multiplier
+  MULTIPLIER = 10.0
   
   def self.desc_and_extension
     "mayaLocators.mel"
@@ -20,13 +18,11 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   def start_export(w, h)
     # Pixel sizes are HUGE for maya. What we do is we assume that the width is 1,
     # and scale the height to that
-    multiplier = self.multiplier || 10.0
+    @factor = (1 / w.to_f) * MULTIPLIER
     
-    @factor = (1 / w.to_f) * multiplier
-    
-    @io.puts(PREAMBLE % [multiplier, h * @factor])
+    @io.puts(PREAMBLE % [MULTIPLIER, h * @factor])
     @io.puts('rotate -r -os 90;') # Position it in the XY plane
-    @io.puts('move -r %0.5f %0.5f 0;' % [multiplier / 2.0, h * @factor / 2.0])
+    @io.puts('move -r %0.5f %0.5f 0;' % [MULTIPLIER / 2.0, h * @factor / 2.0])
     @group_members = ["TracksperantoImagePlane"]
   end
   

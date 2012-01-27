@@ -30,7 +30,6 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
     @group_members = ["TracksperantoImagePlane"]
   end
   
-  # We accumulate a tracker and on end dump it out in one piece
   def start_tracker_segment(tracker_name)
     @locator_name = tracker_name
     @io.puts(LOCATOR_PREAMBLE % @locator_name)

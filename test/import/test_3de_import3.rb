@@ -9,6 +9,7 @@ class Equalizer3ImportTest < Test::Unit::TestCase
     assert_equal "3DE v3 point export file", i.human_name
     assert i.autodetects_size?
   end
+
   
   def test_parsing_from_importable
     fixture = File.open(File.dirname(__FILE__) + '/samples/3de_v3/3de_export_v3.txt')

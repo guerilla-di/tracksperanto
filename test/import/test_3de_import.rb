@@ -10,6 +10,7 @@ class EqualizerImportTest < Test::Unit::TestCase
     assert !i.autodetects_size?
   end
   
+  
   def test_parsing_from_importable
     fixture = File.open(File.dirname(__FILE__) + '/samples/3de_v4/3de_export_cube.txt')
     

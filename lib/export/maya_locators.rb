@@ -3,8 +3,7 @@
 class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   PREAMBLE = 'polyPlane -name "TracksperantoImagePlane" -width %0.5f -height %0.5f;'
   LOCATOR_PREAMBLE = 'spaceLocator -name "%s" -p 0 0 0;'
-  MOVE_TIMEBAR = 'currentTime %d;'
-  KEYFRAME_TEMPLATE = 'setKeyframe -value %0.5f "%s.%s";';
+  KEYFRAME_TEMPLATE = 'setKeyframe -time %d -value %0.5f "%s.%s";';
   MULTIPLIER = 10.0
   
   def self.desc_and_extension
@@ -33,13 +32,11 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
-    @io.puts(MOVE_TIMEBAR % (frame + 1))
-    @io.puts(KEYFRAME_TEMPLATE % [abs_float_x * @factor, @locator_name, "tx"])
-    @io.puts(KEYFRAME_TEMPLATE % [abs_float_y * @factor, @locator_name, "ty"])
+    @io.puts(KEYFRAME_TEMPLATE % [frame + 1, abs_float_x * @factor, @locator_name, "tx"])
+    @io.puts(KEYFRAME_TEMPLATE % [frame + 1, abs_float_y * @factor, @locator_name, "ty"])
   end
   
   def end_export
-    @io.puts(MOVE_TIMEBAR % 1)
     # Group all the stuff
     @io.puts('select -r %s;' % @group_members.join(' '))
     @io.puts('group -name TracksperantoGroup; xform -os -piv 0 0 0;')

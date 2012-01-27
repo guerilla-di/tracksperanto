@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.0"
+  s.version = "2.9.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-01-23"
+  s.date = "2012-01-27"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/export/flame_stabilizer_cornerpin.rb",
     "lib/export/match_mover.rb",
     "lib/export/maya_live.rb",
+    "lib/export/maya_locators.rb",
     "lib/export/mux.rb",
     "lib/export/nuke_script.rb",
     "lib/export/pfmatchit.rb",
@@ -90,6 +91,7 @@ Gem::Specification.new do |s|
     "test/export/README_EXPORT_TESTS.txt",
     "test/export/samples/ref_FlameProperlyReorderedCornerpin.stabilizer",
     "test/export/samples/ref_FlameSimpleReorderedCornerpin.stabilizer",
+    "test/export/samples/ref_MayaLocators.mel",
     "test/export/samples/ref_Mayalive.txt",
     "test/export/samples/ref_Mayalive_CustomAspect.txt",
     "test/export/samples/ref_NukeScript.nk",
@@ -112,6 +114,7 @@ Gem::Specification.new do |s|
     "test/export/test_flame_stabilizer_export.rb",
     "test/export/test_match_mover_export.rb",
     "test/export/test_maya_live_export.rb",
+    "test/export/test_maya_locators_export.rb",
     "test/export/test_mux.rb",
     "test/export/test_nuke_export.rb",
     "test/export/test_pfmatchit_export.rb",
@@ -165,7 +168,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://guerilla-di.org/tracksperanto"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.15"
   s.summary = "A universal 2D tracks converter"
 
   if s.respond_to? :specification_version then

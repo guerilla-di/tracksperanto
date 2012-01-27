@@ -29,7 +29,11 @@ end
 #   export_parabolics_with(my_exporter)
 #
 # The tracker residual will degrade linarly and wll be "good" at the first image, "medium" at the extreme
-# and "bad" at end
+# and "bad" at end.
+#
+# The test tracks are precomputed to prevent failing tests due to float rounding biases on different platforms.
+# You can see the computation involved in generating these tracks in
+# https://github.com/guerilla-di/tracksperanto/commit/371214b47b2ead857c4af17eee1f8d19c62d1dd6#diff-5
 module ParabolicTracks
   
   FIRST_TRACK = Tracksperanto::Tracker.new(:name => "Parabolic_1_from_top_left") do |t|

@@ -15,7 +15,7 @@ class Tracksperanto::Export::AE < Tracksperanto::Export::Base
   end
   
   def self.human_name
-    "AE .jsx script generating null layers"
+    "AfterEffects .jsx script generating null layers"
   end
   
   def start_export(w, h)

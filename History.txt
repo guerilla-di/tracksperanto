@@ -1,5 +1,9 @@
 === 2.9.2
 
+* Add export for AE null layers as a .jsx script
+
+=== 2.9.2
+
 * In the Maya locator export, do not advance the timebar when creating trackers. Refreshing all these viewports is SLOW.
 
 === 2.9.1

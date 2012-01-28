@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.2"
+  s.version = "2.9.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-01-27"
+  s.date = "2012-01-28"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "bin/tracksperanto",
     "lib/export/base.rb",
     "lib/export/boujou.rb",
+    "lib/export/cosa.rb",
     "lib/export/equalizer3.rb",
     "lib/export/equalizer4.rb",
     "lib/export/flame_stabilizer.rb",
@@ -89,6 +90,7 @@ Gem::Specification.new do |s|
     "lib/tracksperanto/uv_coordinates.rb",
     "lib/tracksperanto/zip_tuples.rb",
     "test/export/README_EXPORT_TESTS.txt",
+    "test/export/samples/ref_AfterEffects.jsx",
     "test/export/samples/ref_FlameProperlyReorderedCornerpin.stabilizer",
     "test/export/samples/ref_FlameSimpleReorderedCornerpin.stabilizer",
     "test/export/samples/ref_MayaLocators.mel",
@@ -107,6 +109,7 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_flame.stabilizer",
     "test/export/samples/ref_flameCornerpin.stabilizer",
     "test/export/samples/ref_matchmover.rz2",
+    "test/export/test_ae_export.rb",
     "test/export/test_boujou_export.rb",
     "test/export/test_equalizer3_export.rb",
     "test/export/test_equalizer_export.rb",

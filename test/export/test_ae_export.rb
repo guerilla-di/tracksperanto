@@ -7,6 +7,7 @@ class AEExportTest < Test::Unit::TestCase
   P_LOCATORS = File.dirname(__FILE__) + "/samples/ref_AfterEffects.jsx"
   
   def test_export_output_written
+    create_reference_output Tracksperanto::Export::AE, P_LOCATORS
     ensure_same_output Tracksperanto::Export::AE, P_LOCATORS
   end
   

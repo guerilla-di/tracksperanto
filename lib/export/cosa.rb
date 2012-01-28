@@ -22,6 +22,7 @@ class Tracksperanto::Export::AE < Tracksperanto::Export::Base
     @io.puts(PREAMBLE)
     @io.puts("")
     @count = 0
+    @height = h
   end
   
   def start_tracker_segment(tracker_name)
@@ -33,7 +34,7 @@ class Tracksperanto::Export::AE < Tracksperanto::Export::Base
   end
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
-    @io.puts('pos.setValueAtTime(convertFrameToSeconds(layer%d, %d), [%0.5f,%0.5f]);' % [@count, frame, abs_float_x, abs_float_y])
+    @io.puts('pos.setValueAtTime(convertFrameToSeconds(layer%d, %d), [%0.5f,%0.5f]);' % [@count, frame, abs_float_x, @height - abs_float_y])
   end
   
   def end_tracker_segment

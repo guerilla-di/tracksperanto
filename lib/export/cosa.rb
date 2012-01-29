@@ -2,7 +2,8 @@
 # Export each tracker as an AfterEffects script creating nulls
 class Tracksperanto::Export::AE < Tracksperanto::Export::Base
 
-  PREAMBLE = 'function convertFrameToSeconds(layerWithFootage, frameValue)
+  PREAMBLE = '// Run this script from the Script Editor
+function convertFrameToSeconds(layerWithFootage, frameValue)
   {
   		var comp = layerWithFootage.containingComp;
   		var rate = 1.0 / comp.frameDuration;

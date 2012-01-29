@@ -1,3 +1,4 @@
+// Run this script from the Script Editor
 function convertFrameToSeconds(layerWithFootage, frameValue)
   {
   		var comp = layerWithFootage.containingComp;

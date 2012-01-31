@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-# Export each tracker as an AfterEffects script creating nulls
+# Exports trackers as an AfterEffects script creating nulls
 class Tracksperanto::Export::AE < Tracksperanto::Export::Base
 
   PREAMBLE = '// Run this script from the Script Editor

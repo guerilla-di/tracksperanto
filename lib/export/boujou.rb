@@ -29,6 +29,7 @@ class Tracksperanto::Export::Boujou < Tracksperanto::Export::Base
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     height_inv = @height - abs_float_y
-    @io.puts(POINT_T % [@tracker_name, frame + 1, abs_float_x, height_inv])
+    # Frames in Boujou are likely to start from 0
+    @io.puts(POINT_T % [@tracker_name, frame, abs_float_x, height_inv])
   end
 end

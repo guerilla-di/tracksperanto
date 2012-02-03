@@ -63,7 +63,7 @@ converted files already exist <b>they will be overwritten without warning</b>.
 Import and export support:
 * Nuke v5 script (Tracker3 nodes, also known as Tracker in the UI - this is the node that you track with)
 * Shake tracker node export (textfile with many tracks per file)
-* PFTrack 2dt files (version 4 and 5)
+* PFTrack 2dt (version 4 and 5) anf PFMatchit/PFTrack 2011 point track exports
 * Syntheyes 2D tracking data exports
 * 3DE point exports (as output by the default script) - versions 3 and 4
 * MatchMover Pro .rz2
@@ -72,10 +72,11 @@ Import and export support:
 * Boujou feature track export
 
 Import only:
-* Shake script (Tracker, Matchmove and Stabilize nodes embedded in ANY shake script)
+* Shake scripts (Tracker, Matchmove and Stabilize nodes embedded in ANY shake script)
+* MatchMover RZML files
 
 Export only:
-* Ruby (will make calls to Tracksperanto to create trackers/keyframes)
+* Ruby (will make calls to Tracksperanto to create trackers/keyframes) - useful if you want to play with trackers as data
 * Maya locators (animated locators on an image plane)
 
 == Modularity

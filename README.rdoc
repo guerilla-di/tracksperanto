@@ -1,10 +1,4 @@
-= Tracksperanto
-
-* http://guerilla-di.org/tracksperanto
-
 {<img src="https://secure.travis-ci.org/guerilla-di/tracksperanto.png" />}[http://travis-ci.org/guerilla-di/tracksperanto]
-
-== Description
 
 Tracksperanto is a universal 2D-track translator between many apps.
 

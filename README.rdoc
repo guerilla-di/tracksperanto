@@ -70,6 +70,7 @@ Import only:
 * MatchMover RZML files
 
 Export only:
+* AfterEffects .jsx script that creates one null object per tracker (run through the script editor)
 * Ruby (will make calls to Tracksperanto to create trackers/keyframes) - useful if you want to play with trackers as data
 * Maya locators (animated locators on an image plane)
 

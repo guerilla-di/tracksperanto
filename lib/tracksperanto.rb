@@ -74,14 +74,6 @@ module Tracksperanto
     raise UnknownImporterError, "Unknown importer #{name.inspect}"
   end
   
-  # DEPRECATED, will be removed in Tracksperanto 3
-  class Accumulator < Obuf
-  end
-  
-  # DEPRECATED, will be removed in Tracksperanto 3
-  class Tracksperanto::ProgressiveIO < ProgressiveIO
-  end
-  
 end
 
 %w(

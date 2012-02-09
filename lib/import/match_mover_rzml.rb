@@ -42,6 +42,7 @@ class Tracksperanto::Import::MatchMoverRZML < Tracksperanto::Import::Base
       #		<IFRM>
       #			<M i="1" k="i" x="626.68" y="488.56" tt="0.8000000119" cf="0">
       if element_name.downcase == 'm'
+        @parser.report_progress "Adding tracker"
         @trackers.push(Tracksperanto::Tracker.new(:name => attrs["i"]))
       end
       
@@ -51,6 +52,7 @@ class Tracksperanto::Import::MatchMoverRZML < Tracksperanto::Import::Base
       
       if element_name.downcase == "m"
         target_marker = @trackers.find{|e| e.name == attrs["i"] }
+        @parser.report_progress "Recovering keyframe at #{@frame}"
         target_marker.keyframe!(:frame => @frame, :abs_x => attrs["x"], :abs_y => (@parser.height - attrs["y"].to_f), :residual => attrs["tt"])
       end
     end
@@ -61,6 +63,7 @@ class Tracksperanto::Import::MatchMoverRZML < Tracksperanto::Import::Base
         @trackers.reject!{|e| e.empty? }
         
         @trackers.each do | recovered_tracker |
+          @parser.report_progress "Pushing tracker #{recovered_tracker.name.inspect}"
           @cb.call(recovered_tracker)
         end
       end

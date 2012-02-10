@@ -57,6 +57,13 @@ class PipelineTest < Test::Unit::TestCase
     assert processing_log.include?("Parsing channel \"tracker1/ref/y\"")
   end
   
+  def test_run_returns_the_number_of_trackers_and_keyframes_processed
+    create_stabilizer_file
+    pipeline = Tracksperanto::Pipeline::Base.new
+    result = pipeline.run(@stabilizer)
+    assert_equal [3, 9], result
+  end
+
   def test_run_crashes_with_empty_file
     empty_file_path = "./input_empty.stabilizer"
     f = File.open(empty_file_path, "w"){|f| f.write('') }

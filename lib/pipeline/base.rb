@@ -77,7 +77,8 @@ module Tracksperanto::Pipeline
   # * width - The comp width, for the case that the format does not support auto size
   # * height - The comp height, for the case that the format does not support auto size
   # * parser - The parser class, for the case that it can't be autodetected from the file name
-  def run(from_input_file_path, passed_options = {}) #:yields: *all_middlewares
+  # Returns the number of trackers and the number of keyframes processed during the run
+  def run(from_input_file_path, passed_options = {})
     
     # Check for empty files
     raise EmptySourceFileError if File.stat(from_input_file_path).size.zero?

@@ -14,7 +14,7 @@ Tracksperanto is currently being developed on Ruby 1.9.3 but it should also work
 in the Gemfile plus Bundler. Please develop against the git repo checkout since we no longer package the test fixtures with the gem.
 
 * Checkout the repo at http://github.com/guerilla-di/tracksperanto
-* Run `bundle install' and 'rake' to run the tests
+* Run `bundle install' and `bundle exec rake' to run the tests
 * Carry your development, in your own branch or feature branch
 * File a pull request or send a patch to info at guerilla-di.org
 

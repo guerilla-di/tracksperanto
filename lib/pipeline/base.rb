@@ -14,7 +14,7 @@ module Tracksperanto::Pipeline
   end
   
   class NoTrackersRecoveredError < RuntimeError
-    def message; 
+    def message;
       "Could not recover any non-empty trackers from this file.\n" + 
       "Wrong import format maybe?\n" + 
       "Note that PFTrack will only export trackers from the solved segment of the shot.";

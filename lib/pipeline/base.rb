@@ -40,8 +40,7 @@ module Tracksperanto::Pipeline
   
   include Tracksperanto::BlockInit
   
-  # How many points have been converted. In general, the pipeline does not preserve the parsed tracker objects
-  # after they have been exported
+  # How many points have been converted
   attr_reader :converted_points
   
   # How many keyframes have been converted
@@ -53,7 +52,7 @@ module Tracksperanto::Pipeline
   # percent complete
   attr_accessor :progress_block
   
-  # Assign an array of exporters to use them instead of the standard ones 
+  # Assign an array of exporter classes to use them instead of the default "All" 
   attr_accessor :exporters
   
   # Contains arrays of the form ["MiddewareName", {:param => value}]
@@ -65,6 +64,8 @@ module Tracksperanto::Pipeline
     @ios = []
   end
   
+  # Will scan the middleware_tuples attribute and create a processing chain.
+  # Middlewares will be instantiated and wrap each other, starting with the first one
   def wrap_output_with_middlewares(output)
     return output unless (middleware_tuples && middleware_tuples.any?)
     

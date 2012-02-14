@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
-class ConstNameTest < Test::Unit::TestCase
+class TestConstName < Test::Unit::TestCase
   
   def test_const_name
     assert_equal "Scaler", Tracksperanto::Middleware::Scaler.const_name

@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/helper'
 require "set"
 require "cli_test"
 
-class CliTest < Test::Unit::TestCase
+class TestCli < Test::Unit::TestCase
   TEMP_DIR = File.expand_path(File.dirname(__FILE__) + "/tmp")
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   

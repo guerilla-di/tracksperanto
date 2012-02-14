@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
-class ZipTuplesTest < Test::Unit::TestCase
+class TestZipTuples < Test::Unit::TestCase
   include Tracksperanto::ZipTuples
   
   def test_zip_with_empty

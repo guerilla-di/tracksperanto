@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
-class SafetyTest < Test::Unit::TestCase
+class TestSafety < Test::Unit::TestCase
   class Testable
     include Tracksperanto::Safety
     attr_accessor :foo, :bar

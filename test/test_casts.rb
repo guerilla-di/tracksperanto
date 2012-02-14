@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
-class CastsTest < Test::Unit::TestCase
+class TestCasts < Test::Unit::TestCase
   D = 0.0001
+  
   class Testable
     include Tracksperanto::Casts
     attr_accessor :vanilla, :str_attr, :int_attr, :float_attr

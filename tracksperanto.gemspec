@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.4"
+  s.version = "2.9.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-02-08"
+  s.date = "2012-02-16"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -94,7 +94,7 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_AfterEffects.jsx",
     "test/export/samples/ref_FlameProperlyReorderedCornerpin.stabilizer",
     "test/export/samples/ref_FlameSimpleReorderedCornerpin.stabilizer",
-    "test/export/samples/ref_MayaLocators.mel",
+    "test/export/samples/ref_MayaLocators.ma",
     "test/export/samples/ref_Mayalive.txt",
     "test/export/samples/ref_Mayalive_CustomAspect.txt",
     "test/export/samples/ref_NukeScript.nk",
@@ -159,15 +159,18 @@ Gem::Specification.new do |s|
     "test/middleware/test_start_trim_middleware.rb",
     "test/test_buffer_io.rb",
     "test/test_bufferingreader.rb",
+    "test/test_casts.rb",
     "test/test_cli.rb",
     "test/test_const_name.rb",
     "test/test_extio.rb",
     "test/test_format_detector.rb",
     "test/test_keyframe.rb",
     "test/test_pipeline.rb",
+    "test/test_safety.rb",
     "test/test_simple_export.rb",
     "test/test_tracker.rb",
     "test/test_tracksperanto.rb",
+    "test/test_zip_tuples.rb",
     "tracksperanto.gemspec"
   ]
   s.homepage = "http://guerilla-di.org/tracksperanto"

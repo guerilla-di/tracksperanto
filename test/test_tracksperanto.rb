@@ -23,6 +23,16 @@ class TracksperantoTest < Test::Unit::TestCase
     end
   end
   
+  def test_importers_array_sorted_by_description
+     m = Tracksperanto.importers.map{|e| e.human_name }
+     assert_equal m.sort, m
+   end
+  
+  def test_exporters_array_sorted_by_description
+    m = Tracksperanto.exporters.map{|e| e.human_name }
+    assert_equal m.sort, m
+  end
+  
   def test_middleware_names
     m = Tracksperanto.middleware_names
     assert m.include?("Golden")

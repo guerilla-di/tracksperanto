@@ -12,6 +12,6 @@ class MayaLocatorsExportTest < Test::Unit::TestCase
   
   def test_exporter_meta
     assert_equal "mayaLocators.ma", Tracksperanto::Export::MayaLocators.desc_and_extension
-    assert_equal "Maya .mel script that generates locators", Tracksperanto::Export::MayaLocators.human_name
+    assert_equal "Maya ASCII scene with locators on an image plane", Tracksperanto::Export::MayaLocators.human_name
   end
 end

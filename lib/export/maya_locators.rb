@@ -18,7 +18,7 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   end
   
   def self.human_name
-    "Maya .mel script that generates locators"
+    "Maya ASCII scene with locators on an image plane"
   end
   
   def start_export(w, h)

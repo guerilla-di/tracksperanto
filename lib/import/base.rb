@@ -5,12 +5,8 @@
 # basic, and consists only of a few methods. The main method is
 # `each`.
 class Tracksperanto::Import::Base
-  include Enumerable
-  include Tracksperanto::Safety
-  include Tracksperanto::Casts
-  include Tracksperanto::BlockInit
-  include Tracksperanto::ZipTuples
-  include Tracksperanto::ConstName
+  include Enumerable, Tracksperanto::Safety, Tracksperanto::Casts
+  include Tracksperanto::BlockInit, Tracksperanto::ZipTuples, Tracksperanto::ConstName
   
   # Handle to the IO with data being parsed
   attr_accessor :io

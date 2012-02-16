@@ -1,14 +1,9 @@
 # -*- encoding : utf-8 -*-
-require 'stringio'
-require 'delegate'
-require 'tempfile'
-require 'flame_channel_parser'
-require "obuf"
-require "progressive_io"
+%w( stringio delegate tempfile flame_channel_parser obuf progressive_io ).map(&method(:require))
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '2.9.4'
+  VERSION = '2.9.5'
   
   module Import; end
   module Export; end

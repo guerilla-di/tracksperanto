@@ -24,8 +24,7 @@
 #
 # By contract export_point will be called at least once for each tracker being exported (no empty trackers will be sent)
 class Tracksperanto::Export::Base
-  include Tracksperanto::ConstName
-  include Tracksperanto::SimpleExport
+  include Tracksperanto::ConstName, Tracksperanto::SimpleExport
   
   attr_reader :io
   

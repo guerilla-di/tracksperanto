@@ -1,3 +1,7 @@
+=== 2.9.5
+
+* Export a Maya ASCII scene instead of a MEL script
+
 === 2.9.4
 
 * Add MatchMover RZML import support

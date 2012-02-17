@@ -38,6 +38,21 @@ module Tracksperanto
     def middleware_names
       middlewares.map{|e| e.const_name }
     end
+    
+    def exporters
+      sort_on_human_name(@exporters)
+    end
+    
+    def importers
+      sort_on_human_name(@importers)
+    end
+    
+    private
+    
+    def sort_on_human_name(array)
+      array.sort!{|a, b| a.human_name <=> b.human_name }
+      array
+    end
   end
   
   self.exporters, self.importers, self.middlewares = [], [], []

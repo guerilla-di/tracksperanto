@@ -131,8 +131,8 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     
     def find_base_x_and_y(track_tuples, shift_tuples)
       base_track_tuple = track_tuples.find do | track_tuple |
-        shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple [0] }
-      end || track_tuples[0]
-      base_track_tuple[1..2]
+        shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple[0] }
+      end
+      (base_track_tuple || track_tuples[0])[1..2]
     end
 end

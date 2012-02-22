@@ -56,11 +56,10 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     def extract_tracker(line)
       tuples = scan_track(line)
       return nil unless (tuples && tuples.any?)
-      
-      Tracksperanto::Tracker.new(
-        :keyframes => tuples.map do | (f, x, y) | 
-          Tracksperanto::Keyframe.new(:frame => f -1, :abs_x => x, :abs_y => y) 
+      Tracksperanto::Tracker.new do | t |
+        tuples.each do | (f, x, y) |
+            t.keyframe!(:frame => (f -1), :abs_x => x, :abs_y => y) 
         end
-      )
+      end
     end
 end

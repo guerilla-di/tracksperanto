@@ -42,20 +42,20 @@ class TestCli < Test::Unit::TestCase
       flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt flm_flame_cornerpin.stabilizer 
       flm_tracksperanto_ruby.rb flm_mayaLocators.ma flm_createNulls.jsx
     )
-    
+    assert_match /Found and converted 1 trackers with 232 keyframes\./, o, "Should have output coversion statistics"
     assert_same_set fs, Dir.entries(TEMP_DIR)
   end
   
   def test_cli_with_nonexisting_only_exporter_prints_proper_error_message
     status, o, e = cli("--only microsoftfuckingword " + TEMP_DIR + "/flm.stabilizer")
-    assert_equal 2, status, "Should exit with abnormal state"
+    assert_not_equal 0, status, "Should exit with abnormal state"
     assert e.include?("Unknown exporter \"microsoftfuckingword\"")
     assert e.include?("The following export modules are available")
   end
   
   def test_cli_with_nonexisting_importer_prints_proper_error_message
     status, o, e = cli("--from microsoftfuckingword " + TEMP_DIR + "/flm.stabilizer")
-    assert_equal 2, status, "Should exit with abnormal state"
+    assert_not_equal 0, status, "Should exit with abnormal state"
     assert e.include?("Unknown importer \"microsoftfuckingword\"")
     assert e.include?("The following import modules are available")
   end

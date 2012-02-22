@@ -17,7 +17,7 @@ require 'progressbar'
 require "update_hints"
 
 def disclaimer
-  "Please consider a small donation to keep Tracksperanto going. http://guerilla-di.org/source-and-license/\n"+
+  "Please consider a small donation to keep Tracksperanto going: http://guerilla-di.org/source-and-license/\n"+
   "For information and support please contact info#{64.chr}guerilla-di.org"
 end
 
@@ -131,22 +131,21 @@ begin
   pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
   pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
   pipe.run(input_file, options)
+  pbar.finish
+  $stdout.puts "Found and converted %d trackers with %d keyframes." % [pipe.converted_points, pipe.converted_keyframes]
 rescue Tracksperanto::UnknownExporterError => damn
   $stderr.puts damn.message
   list_exporters($stderr)
-  exit(2)
+  fail "Unknown exporter"
 rescue Tracksperanto::UnknownImporterError => damn
   $stderr.puts damn.message
   list_importers($stderr)
-  exit(2)
+  fail "Unknown importer"
 rescue Tracksperanto::UnknownMiddlewareError => damn
   $stderr.puts damn.message
-  $stderr.puts "This is a bug, please report it"
-  exit(2)
+  fail "This is a bug, please report it"
 rescue Exception => damn
   fail damn.message
-ensure
-  pbar.finish
 end
 
 puts disclaimer

@@ -5,6 +5,10 @@ class Tracksperanto::Middleware::Slipper < Tracksperanto::Middleware::Base
   attr_accessor :slip
   cast_to_int :slip
   
+  def self.action_description
+    "Slip all the tracker keyframes in time"
+  end
+  
   def export_point(frame, float_x, float_y, float_residual)
     super(frame + @slip.to_i, float_x, float_y, float_residual)
   end

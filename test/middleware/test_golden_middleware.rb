@@ -3,6 +3,10 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class GoldenMiddlewareTest < Test::Unit::TestCase
   
+  def test_action_description
+    assert_equal "Reset residual of all the trackers to zero", Tracksperanto::Middleware::Golden.action_description
+  end
+  
   def test_golden_bypasses_methods
     receiver = flexmock
     

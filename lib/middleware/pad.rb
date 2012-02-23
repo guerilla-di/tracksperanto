@@ -7,6 +7,10 @@ class Tracksperanto::Middleware::Pad < Tracksperanto::Middleware::Base
   
   cast_to_float :left_pad, :right_pad, :top_pad, :bottom_pad
   
+  def self.action_description
+    "Pad or crop the image by a fraction of it's original size"
+  end
+  
   def start_export(w, h)
     @shift_left, @shift_bottom = w * left_pad, h * bottom_pad
     w_mult = 1 + left_pad + right_pad

@@ -3,6 +3,10 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class MoveToFirstFrameMiddlewareTest < Test::Unit::TestCase
   
+  def test_action_description
+    assert_equal "Move all the keyframes in time so that the first frame is the first animated keyframe", Tracksperanto::Middleware::MoveToFirst.action_description
+  end
+  
   def test_move_to_first_frame
     receiver = flexmock
     receiver.should_receive(:start_export).with(120,120)

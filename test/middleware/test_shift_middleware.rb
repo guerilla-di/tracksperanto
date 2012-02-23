@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ShiftMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Move all the trackers by a specified number of pixels", Tracksperanto::Middleware::Shift.action_description
+  end
+  
   def test_shift_supports_hash_init
     receiver = flexmock
     m = Tracksperanto::Middleware::Shift.new(receiver, :x_shift => 1.2)

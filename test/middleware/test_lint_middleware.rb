@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class LintMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Verify all the exported trackers and check for errors", Tracksperanto::Middleware::Lint.action_description
+  end
+  
   def test_empty_export_raises
     m = flexmock
     m.should_receive(:start_export).once

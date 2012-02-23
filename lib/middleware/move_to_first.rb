@@ -2,7 +2,11 @@
 # Sometimes your tracked sequence has been loaded from say frame 73282381, but you want to import into an application
 # that expects the trackers to start at frame 1. This middleware autoslips everything so that your trackers start at frame 1.
 class Tracksperanto::Middleware::MoveToFirst < Tracksperanto::Middleware::Base
-
+  
+  def self.action_description
+    "Move all the keyframes in time so that the first frame is the first animated keyframe"
+  end
+  
   def start_export(width, height)
     @width, @height = width, height
     @start_frames = []

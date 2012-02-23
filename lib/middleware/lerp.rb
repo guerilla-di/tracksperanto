@@ -2,6 +2,10 @@
 # This middleware adds linearly interpolated keyframes BETWEEN the keyframes passing through the exporter
 class Tracksperanto::Middleware::Lerp < Tracksperanto::Middleware::Base
   
+  def self.action_description
+    "Interpolate missing keyframes of all the trackers"
+  end
+  
   def end_tracker_segment
     @last_f, @last_x, @last_y, @last_res = nil, nil, nil, nil
     super

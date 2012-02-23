@@ -6,6 +6,10 @@ class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   attr_accessor :x_factor, :y_factor
   cast_to_float :x_factor, :y_factor
   
+  def self.action_description
+    "Scale the comp by a specified factor"
+  end
+  
   # Called on export start
   def start_export( img_width, img_height)
     set_residual_factor

@@ -3,6 +3,10 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class PrefixMiddlewareTest < Test::Unit::TestCase
   
+  def test_action_description
+    assert_equal "Prefix tracker names with text", Tracksperanto::Middleware::Prefix.action_description
+  end
+  
   def test_prefix_supports_hash_init
     receiver = flexmock
     m = Tracksperanto::Middleware::Prefix.new(receiver, :prefix => "foo")

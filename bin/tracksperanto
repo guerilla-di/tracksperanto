@@ -29,10 +29,14 @@ writers = Tracksperanto.exporter_names
 
 op = OptionParser.new
 
-def mw(name, option, default_value = nil)
+def mw(*name_option_and_default_value)
   Proc.new do |value| 
+    name, option, default_value = name_option_and_default_value
     v = value.nil? ? default_value : value
-    $middlewares.push([name, {option => v}])
+    mw_tuple = [name]
+    mw_tuple.push({option => v}) if option
+    
+    $middlewares.push(mw_tuple)
   end
 end
 

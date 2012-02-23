@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 # Prevents you from exporting invalid trackers
 class Tracksperanto::Middleware::Lint < Tracksperanto::Middleware::Base
+  
+  def self.action_description
+    "Verify all the exported trackers and check for errors"
+  end
+  
   class NoTrackersExportedError < RuntimeError
     def message
       "There were no trackers exported"

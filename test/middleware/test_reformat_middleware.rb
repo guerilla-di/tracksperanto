@@ -2,8 +2,9 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ReformatMiddlewareTest < Test::Unit::TestCase
-  def test_inherits_and_thus_complies
-    assert Tracksperanto::Middleware::Reformat.ancestors.include?(Tracksperanto::Middleware::Base)
+  
+  def test_action_description
+    assert_equal "Reformat the comp together with it's trackers to conform to a specific format", Tracksperanto::Middleware::Reformat.action_description
   end
   
   def test_default_params_zeroed

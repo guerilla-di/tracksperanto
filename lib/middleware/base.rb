@@ -15,7 +15,14 @@ class Tracksperanto::Middleware::Base
     super
   end
   
-  # Constructor accepts the exporter that will be wrapped
+  # Returns the human name of the action that the middleware will perform. The action is
+  # the in infinitive form, like "Remove all the invalid keyframes", "Crop the image" and so on
+  def self.action_description
+    "Base middleware class"
+  end
+  
+  # Constructor accepts the exporter that will be wrapped, followed by the optional options hash
+  # and the optional block that yields self
   def initialize(*exporter_and_args_for_block_init)
     @exporter = exporter_and_args_for_block_init.shift
     super

@@ -3,6 +3,10 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class StartTrimMiddlewareTest < Test::Unit::TestCase
   
+  def test_action_description
+    assert_equal "Remove all the keyframes that are on frames below 1", Tracksperanto::Middleware::StartTrim.action_description
+  end
+  
   def test_start_mw_works
     x = flexmock(:exporter)
     

@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class LerpMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Interpolate missing keyframes of all the trackers", Tracksperanto::Middleware::Lerp.action_description
+  end
+  
   def test_lerp
     receiver = flexmock
     m = Tracksperanto::Middleware::Lerp.new(receiver)

@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class CropMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Crop or pad the image by a specified number of pixels", Tracksperanto::Middleware::Crop.action_description
+  end
+  
   def test_crop_supports_hash_init
     receiver = flexmock
     m = Tracksperanto::Middleware::Crop.new(receiver, :left => 13, :right => 0, :top => 25)

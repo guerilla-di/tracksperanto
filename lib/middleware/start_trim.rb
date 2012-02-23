@@ -2,6 +2,10 @@
 # This middleware removes all keyframes before frame 0, and skips trackers entirely if they are all before frame 0
 class Tracksperanto::Middleware::StartTrim < Tracksperanto::Middleware::Base
   
+  def self.action_description
+    "Remove all the keyframes that are on frames below 1"
+  end
+  
   def start_export( img_width, img_height)
     @exporter = Tracksperanto::Middleware::LengthCutoff.new(@exporter, :min_length => 1) # Ensure at least one keyframe
     super

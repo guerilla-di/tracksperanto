@@ -5,6 +5,10 @@ class Tracksperanto::Middleware::LengthCutoff < Tracksperanto::Middleware::Base
   attr_accessor :min_length
   cast_to_int :min_length
   
+  def self.action_description
+    "Remove trackers that have less than the specified number of keyframes"
+  end
+  
   def start_tracker_segment(name)
     @tracker = Tracksperanto::Tracker.new(:name => name)
   end

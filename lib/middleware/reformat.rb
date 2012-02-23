@@ -9,6 +9,10 @@ class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Base
   attr_accessor :width, :height
   cast_to_int :width, :height
   
+  def self.action_description
+    "Reformat the comp together with it's trackers to conform to a specific format"
+  end
+  
   # Called on export start
   def start_export( img_width, img_height)
     @width ||= img_width # If they be nil

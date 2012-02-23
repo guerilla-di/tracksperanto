@@ -5,6 +5,10 @@ class Tracksperanto::Middleware::Prefix < Tracksperanto::Middleware::Base
   attr_accessor :prefix
   cast_to_string :prefix
   
+  def self.action_description
+    "Prefix tracker names with text"
+  end
+  
   def start_tracker_segment(tracker_name)
     prefixed_name = [prefix.gsub(/_$/, ''), tracker_name]
     prefixed_name.reject!{|e| e.empty? }

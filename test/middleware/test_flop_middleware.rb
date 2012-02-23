@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class FlopMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Mirror all the tracker paths vertically", Tracksperanto::Middleware::Flop.action_description
+  end
+  
   def test_export_flip_and_flop
     receiver = flexmock(:exporter)
     receiver.should_receive(:start_export).once.with(110, 120)

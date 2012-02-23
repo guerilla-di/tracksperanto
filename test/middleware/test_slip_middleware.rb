@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class SlipMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Slip all the tracker keyframes in time", Tracksperanto::Middleware::Slipper.action_description
+  end
+  
   def test_default_slip_set_to_zero
     receiver = flexmock
     m = Tracksperanto::Middleware::Slipper.new(receiver)

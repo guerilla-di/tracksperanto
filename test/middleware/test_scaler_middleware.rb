@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class ScalerMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Scale the comp by a specified factor", Tracksperanto::Middleware::Scaler.action_description
+  end
+  
   def test_default_factor_set_to_one
     receiver = flexmock
     m = Tracksperanto::Middleware::Scaler.new(receiver)

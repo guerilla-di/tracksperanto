@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class PadMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Pad or crop the image by a fraction of it's original size", Tracksperanto::Middleware::Pad.action_description
+  end
+  
   def test_shift_supports_hash_init
     receiver = flexmock
     m = Tracksperanto::Middleware::Pad.new(receiver, 

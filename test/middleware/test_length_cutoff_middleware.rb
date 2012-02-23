@@ -2,6 +2,11 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class LengthCutoffMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Remove trackers that have less than the specified number of keyframes", Tracksperanto::Middleware::LengthCutoff.action_description
+  end
+  
   def test_default_length_set_to_zero_and_ignored
     receiver = flexmock
     m = Tracksperanto::Middleware::LengthCutoff.new(receiver)

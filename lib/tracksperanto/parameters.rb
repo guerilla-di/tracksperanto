@@ -39,6 +39,8 @@ module Tracksperanto::Parameters
   end
   
   # Defines a parameter, options conform to the Parameter class.
+  # The parameter will of course add an attr_accessor to your class for the specified parameter,
+  # but it will also 
   def parameter(name, options = {})
     options = {:name => name}.merge(options)
     param = Parameter.new(options)
@@ -46,6 +48,7 @@ module Tracksperanto::Parameters
     param.apply_to(self)
   end
   
+  # Returns the array of the parameters defined for this class
   def parameters
     @ui_parameters ||= []
     @ui_parameters

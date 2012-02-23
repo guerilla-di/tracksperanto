@@ -40,6 +40,10 @@ def mw(*name_option_and_default_value)
   end
 end
 
+def mwd(name)
+  Tracksperanto.get_middleware(name).action_description
+end
+
 def list_exporters(dest = $stderr)
   dest.puts "The following export modules are available:"
   Tracksperanto.exporters.each do | exporter |
@@ -70,32 +74,35 @@ op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in p
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
 op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_class_name = f }
 
-op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, "Scale the result in X by this factor (1.0 is the default)", &mw("Scaler", :x_factor))
+op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, mwd("Scaler"), &mw("Scaler", :x_factor))
 
-op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, "Pad the comp by these ratios") do | pads|
+op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, mwd("Pad")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_f }
   $middlewares.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
 end
 
-op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, "Crop or unpad the comp by these pixel values") do | pads|
+op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, mwd("Crop")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_i }
   $middlewares.push(["Crop", {"left" => left, "right"=> right, "top" => top, "bottom" => bottom}])
 end
 
-op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, "Scale the result in Y by this factor (1.0 is the default)", &mw("Scaler", :y_factor))
-op.on(" -t", "--trim", "Trim the start frames (do not allow negative frame values)",  &mw("StartTrim")) # Before slip!
-op.on(" -s", "--slip FRAMES", Integer, "Slip the result by this number of frames, positive is 'later'", &mw("Slipper", :slip))
+op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, mwd("Scaler"), &mw("Scaler", :y_factor))
+op.on(" -t", "--trim", Float, mwd("StartTrim"),  &mw("StartTrim")) # Before slip!
+op.on(" -s", "--slip FRAMES", Integer, mwd("Slipper"), &mw("Slipper", :slip))
+op.on(" -g", "--golden", mwd("Golden"), &mw("Golden"))
+op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, mwd("LengthCutoff"), &mw("LengthCutoff", :min_length))
+op.on(" -p", "--prefix PREFIX", String, mwd("Prefix"), &mw("Prefix", :prefix))
+op.on("--lerp", mwd("Lerp"), &mw("Lerp"))
+op.on("--flip", mwd("Flip"), &mw("Flip"))
+op.on("--flop", mwd("Flop"), &mw("Flop"))
 
-op.on(" -g", "--golden", "Reset the residuals of all trackers to 0 (ignore correlation)", &mw("Golden"))
+# TODO - multiparameters
 op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &mw("Reformat", :width))
 op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &mw("Reformat", :height))
-op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, "Only export trackers having more than X keyframes", &mw("LengthCutoff", :min_length))
 op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &mw("Shift", :x_shift))
 op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &mw("Shift", :y_shift)) 
-op.on(" -p", "--prefix PREFIX", String, "A prefix to prepend to tracker names in bulk", &mw("Prefix", :prefix))
-op.on("--lerp", "Linearly interpolate missing keyframes", &mw("Lerp"))
-op.on("--flip", "Flip the comp horizontally", &mw("Flip"))
-op.on("--flop", "Flop the comp vertically", &mw("Flop"))
+
+
 op.on("--list-exporters", "Show available export modules") do
   list_exporters; exit(0)
 end

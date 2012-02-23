@@ -3,16 +3,6 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class StartTrimMiddlewareTest < Test::Unit::TestCase
   
-  def test_default_set_to_false
-    m = Tracksperanto::Middleware::StartTrim.new(nil)
-    assert_nil m.enabled
-  end
-  
-  def test_start_trim_supports_hash_init
-    m = Tracksperanto::Middleware::StartTrim.new(nil, :enabled => true)
-    assert_equal true, m.enabled
-  end
-  
   def test_start_mw_works
     x = flexmock(:exporter)
     
@@ -22,7 +12,7 @@ class StartTrimMiddlewareTest < Test::Unit::TestCase
     x.should_receive(:end_tracker_segment).once
     x.should_receive(:end_export).once
     
-    m = Tracksperanto::Middleware::StartTrim.new(x, :enabled => true)
+    m = Tracksperanto::Middleware::StartTrim.new(x)
     
     m.start_export(720, 576)
     m.start_tracker_segment("TrackerBehind")

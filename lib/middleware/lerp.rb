@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 # This middleware adds linearly interpolated keyframes BETWEEN the keyframes passing through the exporter
 class Tracksperanto::Middleware::Lerp < Tracksperanto::Middleware::Base
-  attr_accessor :enabled
   
   def end_tracker_segment
     @last_f, @last_x, @last_y, @last_res = nil, nil, nil, nil
@@ -10,7 +9,7 @@ class Tracksperanto::Middleware::Lerp < Tracksperanto::Middleware::Base
   
   def export_point(frame, float_x, float_y, float_residual)
     
-    if @enabled && @last_f && (frame - @last_f > 1) # Interpolate!
+    if @last_f && (frame - @last_f > 1) # Interpolate!
       interpolated_frames = []
       interpolated_x = []
       lerp(@last_f, @last_x, frame, float_x) do | interp_f, interp_x |

@@ -2,17 +2,6 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class GoldenMiddlewareTest < Test::Unit::TestCase
-  def test_default_golden_set_to_false
-    receiver = flexmock
-    m = Tracksperanto::Middleware::Golden.new(receiver)
-    assert_nil m.enabled
-  end
-  
-  def test_golden_supports_hash_init
-    receiver = flexmock
-    m = Tracksperanto::Middleware::Golden.new(receiver, :enabled => true)
-    assert_equal true, m.enabled
-  end
   
   def test_golden_bypasses_methods
     receiver = flexmock
@@ -23,7 +12,7 @@ class GoldenMiddlewareTest < Test::Unit::TestCase
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     
-    m = Tracksperanto::Middleware::Golden.new(receiver, :enabled => true)
+    m = Tracksperanto::Middleware::Golden.new(receiver)
     m.start_export(120, 120)
     m.start_tracker_segment("Tracker")
     m.export_point(0, 100, 100, 0.56)

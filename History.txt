@@ -1,3 +1,5 @@
+* Add Middleware::Base.parameters for automatic GUI building
+
 === 2.9.5
 
 * Export a Maya ASCII scene instead of a MEL script

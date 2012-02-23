@@ -5,9 +5,8 @@ require File.dirname(__FILE__) + '/scaler'
 # applying proxy tracks to full-res images
 class Tracksperanto::Middleware::Reformat < Tracksperanto::Middleware::Base
   
-  # To which format we have to scale
-  attr_accessor :width, :height
-  cast_to_int :width, :height
+  parameter :width,  :cast => :int, :desc => "New comp width in px", :default => 1080
+  parameter :height,  :cast => :int, :desc => "New comp height in px", :default => 1080
   
   def self.action_description
     "Reformat the comp together with it's trackers to conform to a specific format"

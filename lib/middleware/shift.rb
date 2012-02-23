@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 # This middleware moves the keyframs by a preset number of pixels
 class Tracksperanto::Middleware::Shift < Tracksperanto::Middleware::Base
-  attr_accessor :x_shift, :y_shift
-  cast_to_float :x_shift, :y_shift
+  
+  parameter :x_shift,  :cast => :float, :desc => "Amount of horizontal shift (in px)", :default => 0
+  parameter :y_shift,  :cast => :float, :desc => "Amount of vertical shift (in px)", :default => 0
   
   def self.action_description
     "Move all the trackers by a specified number of pixels"

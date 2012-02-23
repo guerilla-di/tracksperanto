@@ -2,8 +2,8 @@
 # This middleware prepends the names of the trackers passing through it with a prefix
 # and an underscore
 class Tracksperanto::Middleware::Prefix < Tracksperanto::Middleware::Base
-  attr_accessor :prefix
-  cast_to_string :prefix
+  
+  parameter :prefix,  :cast => :string, :desc => "The prefix to apply", :default => "trk_"
   
   def self.action_description
     "Prefix tracker names with text"

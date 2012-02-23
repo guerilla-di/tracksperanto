@@ -2,8 +2,8 @@
 # Slips the keyframe positions by a specific integer amount of frames, positive values slip forward (later in time). Useful if you just edited some stuff onto
 # the beginning if your sequence and need to extend your tracks.
 class Tracksperanto::Middleware::Slipper < Tracksperanto::Middleware::Base
-  attr_accessor :slip
-  cast_to_int :slip
+  
+  parameter :slip,  :cast => :int, :desc => "Number of frames to slip related to the current frames", :default => 0
   
   def self.action_description
     "Slip all the tracker keyframes in time"

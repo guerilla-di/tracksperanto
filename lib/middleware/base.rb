@@ -7,6 +7,7 @@ class Tracksperanto::Middleware::Base
   include Tracksperanto::BlockInit
   include Tracksperanto::ConstName
   include Tracksperanto::SimpleExport
+  include Tracksperanto::Parameters
   
   # Used to automatically register your middleware in Tracksperanto.middlewares
   # Normally you wouldn't need to override this

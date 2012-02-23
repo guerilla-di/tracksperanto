@@ -2,8 +2,8 @@
 # This middleware removes trackers that contain less than min_length keyframes
 # from the exported batch
 class Tracksperanto::Middleware::LengthCutoff < Tracksperanto::Middleware::Base
-  attr_accessor :min_length
-  cast_to_int :min_length
+  
+  parameter :min_length, :cast => :int, :desc => "The minimum number of keyframes for the item to contain", :default => 100
   
   def self.action_description
     "Remove trackers that have less than the specified number of keyframes"

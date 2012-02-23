@@ -1,8 +1,11 @@
 # -*- encoding : utf-8 -*-
 # Does the same as the Pad middleware but with absolute pixel values instead of fractionals
 class Tracksperanto::Middleware::Crop < Tracksperanto::Middleware::Base
-  attr_accessor :top, :left, :right, :bottom
-  cast_to_int :top, :left, :right, :bottom
+  
+  parameter :top, :cast => :int, :desc => "Top crop amount in px"
+  parameter :left, :cast => :int, :desc => "Left crop amount in px"
+  parameter :right, :cast => :int, :desc => "Right crop amount in px"
+  parameter :bottom, :cast => :int, :desc => "Bottom crop amount in px"
   
   def self.action_description
     "Crop or pad the image by a specified number of pixels"

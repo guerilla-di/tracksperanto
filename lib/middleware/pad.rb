@@ -3,9 +3,11 @@
 # some fucked-up telecine transfers. The padding is in fractional units of the total width
 # and height
 class Tracksperanto::Middleware::Pad < Tracksperanto::Middleware::Base
-  attr_accessor :left_pad, :right_pad, :top_pad, :bottom_pad
   
-  cast_to_float :left_pad, :right_pad, :top_pad, :bottom_pad
+  parameter :top_pad,     :cast => :float, :desc => "Top padding (fraction of original size)"
+  parameter :left_pad,    :cast => :float, :desc => "Left padding (fraction of original size)"
+  parameter :right_pad,   :cast => :float, :desc => "Right padding (fraction of original size)"
+  parameter :bottom_pad,  :cast => :float, :desc => "Bottom padding (fraction of original size)"
   
   def self.action_description
     "Pad or crop the image by a fraction of it's original size"

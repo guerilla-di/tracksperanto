@@ -3,8 +3,8 @@
 class Tracksperanto::Middleware::Scaler < Tracksperanto::Middleware::Base
   DEFAULT_FACTOR = 1
   
-  attr_accessor :x_factor, :y_factor
-  cast_to_float :x_factor, :y_factor
+  parameter :x_factor,  :cast => :float, :desc => "Factor to scale by", :default => DEFAULT_FACTOR
+  parameter :y_factor,  :cast => :float, :desc => "Factor to scale by", :default => 0.5
   
   def self.action_description
     "Scale the comp by a specified factor"

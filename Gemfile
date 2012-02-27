@@ -1,7 +1,7 @@
 # -*- ruby -*-
 source :rubygems
 
-gem "obuf", "~> 1.0.4"
+gem "obuf", "~> 1.1.0"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"
 gem "progressbar", "0.10.0"

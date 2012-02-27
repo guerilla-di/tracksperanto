@@ -161,49 +161,45 @@ module Tracksperanto::Pipeline
     
     @ios.push(io_with_progress)
     
-    @accumulator = Obuf.new
+    importer.io = io_with_progress
+    obuf = Obuf.new(Tracksperanto::YieldNonEmpty.new(importer))
     
-    begin
+    report_progress(percent_complete = 50.0, "Validating #{obuf.size} imported trackers")
+    raise NoTrackersRecoveredError if obuf.size.zero?
+  
+    report_progress(percent_complete, "Starting export")
+  
+    percent_per_tracker = (100.0 - percent_complete) / obuf.size
+  
+    # Use the width and height provided by the parser itself
+    exporter.start_export(importer.width, importer.height)
+  
+    # Now send each tracker through the middleware chain
+    obuf.each_with_index do | t, tracker_idx |
     
-      importer.io = io_with_progress
-      importer.each {|t| @accumulator.push(t) unless t.empty? }
-    
-      report_progress(percent_complete = 50.0, "Validating #{@accumulator.size} imported trackers")
-      raise NoTrackersRecoveredError if @accumulator.size.zero?
-    
-      report_progress(percent_complete, "Starting export")
-    
-      percent_per_tracker = (100.0 - percent_complete) / @accumulator.size
-    
-      # Use the width and height provided by the parser itself
-      exporter.start_export(importer.width, importer.height)
-    
-      # Now send each tracker through the middleware chain
-      @accumulator.each_with_index do | t, tracker_idx |
-      
-        kf_weight = percent_per_tracker / t.keyframes.length
-        points += 1
-        exporter.start_tracker_segment(t.name)
-        t.each_with_index do | kf, idx |
-          keyframes += 1
-          exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
-          report_progress(
-              percent_complete += kf_weight,
-              "Writing keyframe #{idx+1} of #{t.name.inspect}, #{@accumulator.size - tracker_idx} trackers to go"
-          )
-        end
-        exporter.end_tracker_segment
+      kf_weight = percent_per_tracker / t.keyframes.length
+      points += 1
+      exporter.start_tracker_segment(t.name)
+      t.each_with_index do | kf, idx |
+        keyframes += 1
+        exporter.export_point(kf.frame, kf.abs_x, kf.abs_y, kf.residual)
+        report_progress(
+            percent_complete += kf_weight,
+            "Writing keyframe #{idx+1} of #{t.name.inspect}, #{obuf.size - tracker_idx} trackers to go"
+        )
       end
-      exporter.end_export
-    
-      report_progress(100.0, "Wrote #{points} points and #{keyframes} keyframes")
-    
-      [points, keyframes]
-    ensure
-      @accumulator.clear
-      @ios.map!{|e| e.close! rescue e.close }
-      @ios.clear
+      exporter.end_tracker_segment
     end
+    exporter.end_export
+  
+    report_progress(100.0, "Wrote #{points} points and #{keyframes} keyframes")
+    
+    obuf.clear
+    
+    @ios.map!{|e| e.close! rescue e.close }
+    @ios.clear
+  
+    return [points, keyframes]
   end
   
   # Setup output files and return a single output

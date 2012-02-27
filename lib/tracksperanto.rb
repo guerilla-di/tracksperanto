@@ -102,6 +102,7 @@ end
   uv_coordinates
   buffering_reader
   parameters
+  yield_non_empty
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

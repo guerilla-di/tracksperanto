@@ -23,7 +23,7 @@ class TestFormatDetector < Test::Unit::TestCase
     assert d.match?
     assert !d.auto_size?
     assert_equal Tracksperanto::Import::NukeScript, d.importer_klass
-    assert_equal "Nuke .nk script file", d.human_importer_name
+    assert_equal Tracksperanto::Import::NukeScript.human_name, d.human_importer_name
   end
   
   def test_match_flame

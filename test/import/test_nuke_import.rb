@@ -6,7 +6,7 @@ class NukeImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::NukeScript
-    assert_equal "Nuke .nk script file", i.human_name
+    assert_equal "Nuke .nk script file with Tracker or Reconcile3D nodes", i.human_name
     assert !i.autodetects_size?
   end
   
@@ -19,6 +19,21 @@ class NukeImportTest < Test::Unit::TestCase
     trackers = parser.to_a
     assert_equal 45, trackers.length
   end
+  
+  
+  def test_parsing_from_reconciles
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/reconciles.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2048
+    parser.height = 1176
+    
+    trackers = parser.to_a.reject{|e| e.empty? }
+    
+    assert_equal 5, trackers.length
+    assert_equal 128, trackers[0].length
+  end
+  
   
   def test_parsing_from_nuke
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break.nk')

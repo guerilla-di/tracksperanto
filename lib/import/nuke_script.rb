@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
   def self.human_name
-    "Nuke .nk script file"
+    "Nuke .nk script file with Tracker or Reconcile3D nodes"
   end
   
   def self.distinct_file_ext
@@ -16,7 +16,9 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     io = Tracksperanto::ExtIO.new(@io)
     while line = io.gets_and_strip
       if line =~ TRACKER_3_PATTERN
-        scan_tracker_node(io).each { |t| yield(t) }
+        scan_tracker_node(io).each(&Proc.new)
+      elsif line =~ RECONCILE_PATTERN
+        scan_reconcile_node(io).each(&Proc.new)
       end
     end
   end
@@ -24,8 +26,25 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   private
     
     TRACKER_3_PATTERN = /^Tracker3 \{/
+    RECONCILE_PATTERN = /^Reconcile3D \{/
+    OUTPUT_PATTERN = /^output \{/
     TRACK_PATTERN = /^track(\d) \{/
     NODENAME = /^name ([^\n]+)/
+    
+    
+    # Scans a Reconcile3D node and returs it's output
+    def scan_reconcile_node(io)
+      t = Tracksperanto::Tracker.new
+      while line = io.gets_and_strip
+        if line =~ OUTPUT_PATTERN
+          t = extract_tracker(line)
+        elsif line =~ NODENAME
+          t.name = "Reconcile_#{$1}"
+          report_progress("Scavenging Reconcile3D node #{t.name}")
+          return [t] # Klunky
+        end
+      end
+    end
     
     # Scans a tracker node and return all tracks within that node (no more than 4)
     def scan_tracker_node(io)

@@ -1,3 +1,6 @@
+=== 2.9.6
+
+* Add Nuke Reconcile3D support
 * Add Middleware::Base.parameters for automatic GUI building
 
 === 2.9.5

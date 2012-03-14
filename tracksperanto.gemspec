@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.5"
+  s.version = "2.9.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-02-16"
+  s.date = "2012-03-14"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -67,6 +67,7 @@ Gem::Specification.new do |s|
     "lib/middleware/length_cutoff.rb",
     "lib/middleware/lerp.rb",
     "lib/middleware/lint.rb",
+    "lib/middleware/move_to_first.rb",
     "lib/middleware/pad.rb",
     "lib/middleware/prefix.rb",
     "lib/middleware/reformat.rb",
@@ -84,11 +85,13 @@ Gem::Specification.new do |s|
     "lib/tracksperanto/ext_io.rb",
     "lib/tracksperanto/format_detector.rb",
     "lib/tracksperanto/keyframe.rb",
+    "lib/tracksperanto/parameters.rb",
     "lib/tracksperanto/returning.rb",
     "lib/tracksperanto/safety.rb",
     "lib/tracksperanto/simple_export.rb",
     "lib/tracksperanto/tracker.rb",
     "lib/tracksperanto/uv_coordinates.rb",
+    "lib/tracksperanto/yield_non_empty.rb",
     "lib/tracksperanto/zip_tuples.rb",
     "test/export/README_EXPORT_TESTS.txt",
     "test/export/samples/ref_AfterEffects.jsx",
@@ -150,6 +153,7 @@ Gem::Specification.new do |s|
     "test/middleware/test_length_cutoff_middleware.rb",
     "test/middleware/test_lerp_middleware.rb",
     "test/middleware/test_lint_middleware.rb",
+    "test/middleware/test_move_to_first_frame_middleware.rb",
     "test/middleware/test_pad_middleware.rb",
     "test/middleware/test_prefix.rb",
     "test/middleware/test_reformat_middleware.rb",
@@ -165,11 +169,13 @@ Gem::Specification.new do |s|
     "test/test_extio.rb",
     "test/test_format_detector.rb",
     "test/test_keyframe.rb",
+    "test/test_parameters.rb",
     "test/test_pipeline.rb",
     "test/test_safety.rb",
     "test/test_simple_export.rb",
     "test/test_tracker.rb",
     "test/test_tracksperanto.rb",
+    "test/test_yield_non_empty.rb",
     "test/test_zip_tuples.rb",
     "tracksperanto.gemspec"
   ]
@@ -183,7 +189,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<obuf>, ["~> 1.0.4"])
+      s.add_runtime_dependency(%q<obuf>, ["~> 1.1.0"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_runtime_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -193,7 +199,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
     else
-      s.add_dependency(%q<obuf>, ["~> 1.0.4"])
+      s.add_dependency(%q<obuf>, ["~> 1.1.0"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -204,7 +210,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
     end
   else
-    s.add_dependency(%q<obuf>, ["~> 1.0.4"])
+    s.add_dependency(%q<obuf>, ["~> 1.1.0"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
     s.add_dependency(%q<progressbar>, ["= 0.10.0"])

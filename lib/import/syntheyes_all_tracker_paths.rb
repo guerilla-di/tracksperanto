@@ -8,20 +8,31 @@ class Tracksperanto::Import::SyntheyesAllTrackerPaths < Tracksperanto::Import::B
   TRACKER_KEYFRAME = /^(\d+) ((\d+)\.(\d+)) ((\d+)\.(\d+))/
   
   def each
-    until @io.eof?
-      line = @io.gets
-      if line =~ TRACKER_KEYFRAME
-        parts = line.scan(TRACKER_KEYFRAME).flatten
-        @last_tracker.keyframe!(:frame => parts[0], :abs_x => parts[1], :abs_y => parts[4])
-      elsif line =~ CHARACTERS_OR_QUOTES
-        yield(@last_tracker.dup) if @last_tracker
-        @last_tracker = Tracksperanto::Tracker.new(:name => line)
-        report_progress("Reading tracker #{line.strip}")
+    t = Tracksperanto::Tracker.new
+    while line = @io.gets do
+      if line =~ CHARACTERS_OR_QUOTES
+        t = Tracksperanto::Tracker.new(:name => line)
+        fill_tracker(t, @io)
+        yield(t)
       end
-      
-      # Last tracker
-      yield @last_tracker.dup if @last_tracker && @last_tracker.any?
     end
   end
-    
+  
+  private
+  
+  def fill_tracker(t, io)
+    loop do
+      prev_pos = io.pos
+      line = io.gets
+      if line =~ TRACKER_KEYFRAME
+        parts = line.scan(TRACKER_KEYFRAME).flatten
+        t.keyframe!(:frame => parts[0], :abs_x => parts[1], :abs_y => parts[2])
+      else
+        # Backtrack to where we started the line and return control
+        io.pos = prev_pos
+        return
+      end
+    end
+  end
+  
 end

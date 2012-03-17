@@ -117,6 +117,11 @@ class Tracksperanto::Tracker
     @frame_table.length
   end
   
+  # Removes all the keyframes in the tracker
+  def clear
+    @frame_table = {}
+  end
+  
   private
   
   def ordered_frame_numbers

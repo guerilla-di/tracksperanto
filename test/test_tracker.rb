@@ -64,6 +64,15 @@ class TrackerTest < Test::Unit::TestCase
     assert_equal [kfs], Tracksperanto::Tracker.new(:keyframes => [kfs]).keyframes
   end
   
+  def test_clear
+    t = Tracksperanto::Tracker.new do | t |
+      t.keyframe! :abs_x => 123, :abs_y => 456
+    end
+    assert_equal 1, t.length
+    t.clear
+    assert t.length.zero?
+  end
+  
   def test_supports_array_methods
     kfs = Tracksperanto::Keyframe.new(:frame => 1, :abs_x => 123, :abs_y => 456)
     t = Tracksperanto::Tracker.new(:keyframes => [kfs])

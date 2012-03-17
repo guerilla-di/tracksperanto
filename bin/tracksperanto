@@ -69,7 +69,7 @@ op.on("--code PATH_TO_SCRIPT", String, "Load custom Ruby code into tracksperanto
 end
 
 
-op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator") { |f| options[:importer] = f }
+op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator - #{readers.join(", ")}") { |f| options[:importer] = f }
 op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
 op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of #{writers.join(", ")}") { |f| writer_class_name = f }

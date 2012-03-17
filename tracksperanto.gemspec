@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.6"
+  s.version = "2.9.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-03-14"
+  s.date = "2012-03-17"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -59,6 +59,7 @@ Gem::Specification.new do |s|
     "lib/import/shake_script.rb",
     "lib/import/shake_text.rb",
     "lib/import/syntheyes.rb",
+    "lib/import/syntheyes_all_tracker_paths.rb",
     "lib/middleware/base.rb",
     "lib/middleware/crop.rb",
     "lib/middleware/flip.rb",
@@ -145,6 +146,7 @@ Gem::Specification.new do |s|
     "test/import/test_shake_lexer.rb",
     "test/import/test_shake_script_import.rb",
     "test/import/test_shake_text_import.rb",
+    "test/import/test_syntheyes_all_tracker_paths_import.rb",
     "test/import/test_syntheyes_import.rb",
     "test/middleware/test_crop_middleware.rb",
     "test/middleware/test_flip_middleware.rb",

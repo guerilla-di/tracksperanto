@@ -20,7 +20,7 @@ class Tracksperanto::Import::Boujou < Tracksperanto::Import::Base
       end
       
       report_progress("Extracting frame #{frame} of #{name}")
-      @last_tracker.keyframe!(:frame => (frame.to_i - 1), :abs_y => (@height.to_f - y.to_f), :abs_x => x)
+      @last_tracker.keyframe!(:frame => (frame.to_i - 1), :abs_y => (@height.to_f - y.to_f - 1), :abs_x => x)
     end
     
     yield(@last_tracker) if @last_tracker && @last_tracker.any?

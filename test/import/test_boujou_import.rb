@@ -25,6 +25,6 @@ class BoujouImportTest < Test::Unit::TestCase
      
      kf = tracker1[0]
      assert_in_delta 306.906, kf.abs_x, DELTA
-     assert_in_delta 40.79, kf.abs_y, DELTA
+     assert_in_delta 39.79, kf.abs_y, DELTA
   end
 end

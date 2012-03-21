@@ -1,3 +1,7 @@
+=== 2.9.8
+
+* Ensure that Boujou vertical coords start off 1, not off 0 - both in import and export
+
 === 2.9.7
 
 * Add Syntheyes "All tracker paths" support

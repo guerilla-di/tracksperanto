@@ -27,4 +27,16 @@ class EqualizerImportTest < Test::Unit::TestCase
     assert_in_delta 232.449011732690479, first_kf.abs_y, DELTA
     assert_equal 39, first_kf.frame
   end
+  
+  def test_parsing_from_another_fixture
+    fixture = File.open(File.dirname(__FILE__) + '/samples/3de_v4/FB1880_man_v05.txt')
+    
+    parser = Tracksperanto::Import::Equalizer4.new(:io => fixture, :width => 1024, :height => 512)
+    trackers = parser.to_a
+    assert_equal 27, trackers.length
+    
+    first_t = trackers[0]
+    assert_equal "01", first_t.name
+    assert_equal 115, first_t.length
+  end
 end

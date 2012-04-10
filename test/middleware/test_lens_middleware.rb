@@ -54,4 +54,22 @@ class LensMiddlewareTest < Test::Unit::TestCase
     m.end_tracker_segment
     m.end_export
   end
+  
+  def test_roundtrip
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with(1920, 1080)
+    receiver.should_receive(:start_tracker_segment).once.with("Tracker")
+    receiver.should_receive(:export_point).once.with(1, 1.0, 1.0, 0)
+    receiver.should_receive(:end_tracker_segment).once
+    receiver.should_receive(:end_export).once
+    
+    apply = Tracksperanto::Middleware::LensDisto.new(receiver, :k => -0.0298, :kcube => 0.0178)
+    remove = Tracksperanto::Middleware::LensDisto.new(apply, :k => -0.0298, :kcube => 0.0178, :remove => true)
+    
+    remove.start_export(1920, 1080)
+    remove.start_tracker_segment("Tracker")
+    remove.export_point(1, 1.0, 1.0, 0)
+    remove.end_tracker_segment
+    remove.end_export
+  end
 end

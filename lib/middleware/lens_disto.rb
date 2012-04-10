@@ -19,7 +19,7 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
   parameter :kcube,  :cast => :float, :desc => "Cubic distortion coefficient", :default => 0
   parameter :remove, :cast => :bool, :desc => "Remove distortion instead of adding it"
   
-  STEPS = 128
+  STEPS = 256
   
   def self.action_description
     "Apply or remove lens distortion with the Syntheyes algorithm"

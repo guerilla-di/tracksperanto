@@ -63,8 +63,8 @@ class LensMiddlewareTest < Test::Unit::TestCase
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     
-    apply = Tracksperanto::Middleware::LensDisto.new(receiver, :k => -0.0298, :kcube => 0.0178)
-    remove = Tracksperanto::Middleware::LensDisto.new(apply, :k => -0.0298, :kcube => 0.0178, :remove => true)
+    apply = Tracksperanto::Middleware::LensDisto.new(receiver, :k => -0.0298, :kcube => 0.2178)
+    remove = Tracksperanto::Middleware::LensDisto.new(apply, :k => -0.0298, :kcube => 0.2178, :remove => true)
     
     remove.start_export(1920, 1080)
     remove.start_tracker_segment("Tracker")

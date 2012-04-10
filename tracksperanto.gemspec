@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.9.8"
+  s.version = "2.9.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-03-21"
+  s.date = "2012-04-10"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -66,6 +66,7 @@ Gem::Specification.new do |s|
     "lib/middleware/flop.rb",
     "lib/middleware/golden.rb",
     "lib/middleware/length_cutoff.rb",
+    "lib/middleware/lens_disto.rb",
     "lib/middleware/lerp.rb",
     "lib/middleware/lint.rb",
     "lib/middleware/move_to_first.rb",
@@ -153,6 +154,7 @@ Gem::Specification.new do |s|
     "test/middleware/test_flop_middleware.rb",
     "test/middleware/test_golden_middleware.rb",
     "test/middleware/test_length_cutoff_middleware.rb",
+    "test/middleware/test_lens_middleware.rb",
     "test/middleware/test_lerp_middleware.rb",
     "test/middleware/test_lint_middleware.rb",
     "test/middleware/test_move_to_first_frame_middleware.rb",

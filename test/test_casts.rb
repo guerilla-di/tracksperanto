@@ -10,6 +10,7 @@ class TestCasts < Test::Unit::TestCase
     cast_to_string :str_attr
     cast_to_int :int_attr
     cast_to_float :float_attr
+    cast_to_bool :truthy
   end
   
   class Junk
@@ -31,7 +32,24 @@ class TestCasts < Test::Unit::TestCase
     assert_kind_of Float, t.float_attr
     assert_in_delta 0, t.float_attr, D
   end
-
+  
+  def test_cast_to_bool
+    t = Testable.new
+    assert_equal false, t.truthy
+    
+    t.truthy = nil
+    assert_equal false, t.truthy
+    
+    t.truthy = false
+    assert_equal false, t.truthy
+    
+    t.truthy = "yes"
+    assert_equal true, t.truthy
+    
+    t.truthy = 1
+    assert_equal true, t.truthy
+  end
+  
   def test_cast_to_int
     t = Testable.new
     

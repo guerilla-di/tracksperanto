@@ -1,3 +1,7 @@
+=== 2.9.9
+
+* Add lens distortion middleware. Adds the possibility to remove or add Syntheyes lens distortion to your plates.
+
 === 2.9.8
 
 * Ensure that Boujou vertical coords start off 1, not off 0 - both in import and export

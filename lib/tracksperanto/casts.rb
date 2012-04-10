@@ -29,4 +29,12 @@ module Tracksperanto::Casts
       define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_s) }
     end
   end
+  
+  def cast_to_bool(*attributes)
+    attributes.each do | an_attr |
+      define_method(an_attr) { !!instance_variable_get("@#{an_attr}") }
+      define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", !!to) }
+    end
+  end
+
 end

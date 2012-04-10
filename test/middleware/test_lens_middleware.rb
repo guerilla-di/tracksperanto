@@ -1,0 +1,57 @@
+# -*- encoding : utf-8 -*-
+require File.expand_path(File.dirname(__FILE__)) + '/../helper'
+
+class LensMiddlewareTest < Test::Unit::TestCase
+  
+  def test_action_description
+    assert_equal "Apply or remove lens distortion with the Syntheyes algorithm", Tracksperanto::Middleware::LensDisto.action_description
+  end
+  
+  def test_lens_bypasses_centerpoint
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with(1920, 1080)
+    receiver.should_receive(:start_tracker_segment).once.with("Tracker")
+    receiver.should_receive(:export_point).once.with(1, 1920 / 2.0, 1080.0 / 2.0, 0)
+    receiver.should_receive(:end_tracker_segment).once
+    receiver.should_receive(:end_export).once
+    
+    m = Tracksperanto::Middleware::LensDisto.new(receiver, :k => 0.0168)
+    m.start_export(1920, 1080)
+    m.start_tracker_segment("Tracker")
+    m.export_point(1, 1920 / 2.0, 1080.0 / 2.0, 0)
+    m.end_tracker_segment
+    m.end_export
+  end
+  
+  def test_lens_distorted
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with(1920, 1080)
+    receiver.should_receive(:start_tracker_segment).once.with("Tracker")
+    receiver.should_receive(:export_point).once.with(1, 66.03001446825158, 43.978678913818925, 0)
+    receiver.should_receive(:end_tracker_segment).once
+    receiver.should_receive(:end_export).once
+    
+    m = Tracksperanto::Middleware::LensDisto.new(receiver, :k => -0.0298, :kcube => 0.0078)
+    m.start_export(1920, 1080)
+    m.start_tracker_segment("Tracker")
+    m.export_point(1, 12.0, 14.0, 0)
+    m.end_tracker_segment
+    m.end_export
+  end
+  
+  def test_lens_undistorted
+    receiver = flexmock
+    receiver.should_receive(:start_export).once.with(1920, 1080)
+    receiver.should_receive(:start_tracker_segment).once.with("Tracker")
+    receiver.should_receive(:export_point).once.with(1, 11.999914830236555, 13.99995274335909, 0)
+    receiver.should_receive(:end_tracker_segment).once
+    receiver.should_receive(:end_export).once
+    
+    m = Tracksperanto::Middleware::LensDisto.new(receiver, :k => -0.0298, :kcube => 0.0078, :remove => true)
+    m.start_export(1920, 1080)
+    m.start_tracker_segment("Tracker")
+    m.export_point(1, 66.03001446825158, 43.978678913818925, 0)
+    m.end_tracker_segment
+    m.end_export
+  end
+end

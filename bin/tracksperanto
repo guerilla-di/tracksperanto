@@ -81,12 +81,12 @@ op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, mwd("Pad")) 
   $middlewares.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
 end
 
-op.on(" -u", "--undistort K_AND_KCUBE_COMMA_SEPARATED", String, mwd("LensDisto")) do | coefficients |
+op.on(" -u", "--undistort K_AND_KCUBE_COMMA_SEPARATED", String, "Remove lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
   $middlewares.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => true}])
 end
 
-op.on(" -d", "--distort K_AND_KCUBE_COMMA_SEPARATED", String, mwd("LensDisto")) do | coefficients |
+op.on(" -d", "--distort K_AND_KCUBE_COMMA_SEPARATED", String, "Add lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
   $middlewares.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => false}])
 end

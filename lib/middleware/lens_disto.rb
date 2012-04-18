@@ -1,19 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
   include Tracksperanto::UVCoordinates
-  
-  class Vector2 < Struct.new(:x, :y)
-  end
-  
-  class RF < Struct.new(:r, :f)
-    def inspect
-      '(%0.3f %0.3f)' % [r, f]
-    end
-    
-    def m
-      r * f
-    end
-  end
+
   
   parameter :k,  :cast => :float, :desc => "Quartic distortion coefficient", :default => 0
   parameter :kcube,  :cast => :float, :desc => "Cubic distortion coefficient", :default => 0
@@ -51,6 +39,19 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
   
   private
   
+  class Vector2 < Struct.new(:x, :y)
+  end
+  
+  class RF < Struct.new(:r, :f)
+    def inspect
+      '(%0.3f %0.3f)' % [r, f]
+    end
+    
+    def m
+      r * f
+    end
+  end
+  
   def with_uv(x, y)
     vec = Vector2.new(convert_to_uv(x, @width), convert_to_uv(y, @height))
     yield(vec)
@@ -70,28 +71,23 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
   
   def disto(x, y)
     with_uv(x, y) do | pt |
-      # Get the radius of the point
-      x = pt.x * @aspect
-      r = Math.sqrt(x.abs**2 + pt.y.abs**2)
-      
       # Find the good tuples to interpolate on
-      f = disto_interpolated(r)
-      
+      f = disto_interpolated(get_radius(pt))
       pt.x = pt.x * f
       pt.y = pt.y * f
     end
   end
   
+  def get_radius(pt)
+    # Get the radius of the point
+    x = pt.x * @aspect
+    r = Math.sqrt(x.abs**2 + pt.y.abs**2)
+  end
   
   def undisto(x, y)
     with_uv(x, y) do | pt |
-      # Get the radius of the point
-      x = pt.x * @aspect
-      r = Math.sqrt(x.abs**2 + pt.y.abs**2)
-      
       # Find the good tuples to interpolate on
-      f = undisto_interpolated(r)
-      
+      f = undisto_interpolated(get_radius(pt))
       pt.x = pt.x / f
       pt.y = pt.y / f
     end

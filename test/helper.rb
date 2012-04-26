@@ -12,6 +12,23 @@ unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   exit 1
 end
 
+class DFloat < DelegateClass(Float)
+  DELTA = 0.0001
+  def initialize(v)
+    __setobj__(v)
+  end
+  
+  def <=>(another)
+    (another.abs - abs).abs < DELTA
+  end
+end
+
+class Test::Unit::TestCase
+  def dfloat(f)
+    DFloat.new(f)
+  end
+end
+
 # http://redmine.ruby-lang.org/issues/4882
 # https://github.com/jimweirich/flexmock/issues/4
 # https://github.com/julik/flexmock/commit/4acea00677e7b558bd564ec7c7630f0b27d368ca

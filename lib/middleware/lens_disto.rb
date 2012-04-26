@@ -17,18 +17,7 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
     @width, @height = w, h
     @aspect = @width.to_f / @height
     
-    # Generate the lookup table
-    @lut = [RF.new(0.0, 1.0)]
-    max_r = @aspect + 1
-    
-    increment = max_r / STEPS
-    r = 0
-    STEPS.times do | mult |
-      r += increment
-      @lut.push(RF.new(r, disto_radius(r)))
-    end
-    
-    @lut.inspect
+    generate_lut
     super
   end
   
@@ -52,6 +41,20 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
     end
   end
   
+  # We apply disto using a lookup table of y = f(r)
+  def generate_lut
+    # Generate the lookup table
+    @lut = [RF.new(0.0, 1.0)]
+    max_r = @aspect + 1
+    
+    increment = max_r / STEPS
+    r = 0
+    STEPS.times do | mult |
+      r += increment
+      @lut.push(RF.new(r, distort_radius(r)))
+    end
+  end
+  
   def with_uv(x, y)
     vec = Vector2.new(convert_to_uv(x, @width), convert_to_uv(y, @height))
     yield(vec)
@@ -59,14 +62,8 @@ class Tracksperanto::Middleware::LensDisto < Tracksperanto::Middleware::Base
   end
   
   # Radius is equal to aspect at the rightmost extremity
-  def disto_radius(r)
-    r2 = r ** 2
-    # Skipping the square root speeds things up if we don't need it
-    f = if kcube.abs > 0.00001
-      1 + (r2 * (k + kcube * Math.sqrt(r2)));
-    else
-      1 + (r2 * k);
-    end
+  def distort_radius(r)
+    1 + (r*r*(k + kcube * r))
   end
   
   def disto(x, y)

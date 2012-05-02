@@ -26,7 +26,7 @@ module Tracksperanto::Pipeline
   # applies the middlewares. Here's how a calling sequence for a pipeline looks like:
   #
   #   pipe = Tracksperanto::Pipeline::Base.new
-  #   pipe.middleware_tuples = ["Golden", {:enabled => true}]
+  #   pipe.middleware_tuples = ["Shift", {:x => 10}]
   #   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
   #   pipe.run("/tmp/shakescript.shk", :width => 720, :height => 576)
   #

@@ -4,29 +4,13 @@ require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksp
 require 'test/unit'
 require 'flexmock'
 require 'flexmock/test_unit'
+require 'approximately'
 require 'fileutils'
 
 unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   puts "Please run tests on a git checkout from http://github.com/guerilla-di/tracksperanto"
   puts "so that you also have the 17-something megs of the test corpus to test against. Aborting."
   exit 1
-end
-
-class DFloat < DelegateClass(Float)
-  DELTA = 0.0001
-  def initialize(v)
-    __setobj__(v)
-  end
-  
-  def <=>(another)
-    (another.abs - abs).abs < DELTA
-  end
-end
-
-class Test::Unit::TestCase
-  def dfloat(f)
-    DFloat.new(f)
-  end
 end
 
 # http://redmine.ruby-lang.org/issues/4882

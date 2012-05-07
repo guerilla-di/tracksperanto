@@ -3,6 +3,8 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class LensMiddlewareTest < Test::Unit::TestCase
   
+  include Approximately
+  
   def test_action_description
     assert_equal "Apply or remove lens distortion with the Syntheyes algorithm", Tracksperanto::Middleware::LensDisto.action_description
   end
@@ -48,7 +50,7 @@ class LensMiddlewareTest < Test::Unit::TestCase
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920, 1080)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once.with(1, 11.999914830236555, 13.99995274335909, 0)
+    receiver.should_receive(:export_point).once.with(1, approx(11.999914830236555), approx(13.99995274335909), 0)
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     
@@ -64,7 +66,7 @@ class LensMiddlewareTest < Test::Unit::TestCase
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920, 1080)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once.with(1, 1.0, 1.0, 0)
+    receiver.should_receive(:export_point).once.with(1, approx(0.984), approx(0.991), 0)
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     

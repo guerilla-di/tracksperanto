@@ -74,10 +74,10 @@ Export only:
 * Ruby (will make calls to Tracksperanto to create trackers/keyframes) - useful if you want to play with trackers as data
 * Maya locators (animated locators on an image plane)
 
-== Modularity
+== Editing your tracks while converting
 
-Tracksperanto is very modular and can process data passing through it (like
-scaling a proxy track up). Consult the --help option to see what is available.
+Tracksperanto has a number of features to scale, move, slip, distort and rename trackers.
+Consult the --help option to see what is available.
 
 == Development
 

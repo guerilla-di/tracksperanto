@@ -55,7 +55,7 @@ converted files already exist <b>they will be overwritten without warning</b>.
 == Format support
 
 Import and export support:
-* Nuke v5 script (Tracker3 nodes, also known as Tracker in the UI - this is the node that you track with)
+* Nuke v5 script (Tracker3 nodes, also known as Tracker in the UI - this is the node that you track with, and Reconcile3D)
 * Shake tracker node export (textfile with many tracks per file)
 * PFTrack 2dt (version 4 and 5) anf PFMatchit/PFTrack 2011 point track exports
 * Syntheyes 2D tracking data exports

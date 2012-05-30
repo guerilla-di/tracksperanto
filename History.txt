@@ -1,3 +1,5 @@
+* Nuke importer now supports PlanarTracker nodes and their corner-pin output
+
 === 2.9.9
 
 * Add lens distortion middleware. Adds the possibility to remove or add Syntheyes lens distortion to your plates.

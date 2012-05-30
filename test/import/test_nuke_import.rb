@@ -34,6 +34,20 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 128, trackers[0].length
   end
   
+  def test_parsing_planar_tracker
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/planar.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 4096
+    parser.height = 2304
+    
+    trackers = parser.to_a
+    assert_equal 4, trackers.length
+    
+    ref_names = %w( PlanarTracker2_outputBottomLeft PlanarTracker2_outputBottomRight 
+      PlanarTracker2_outputTopRight PlanarTracker2_outputTopLeft )
+    assert_equal ref_names, trackers.map{|e| e.name }
+  end
   
   def test_parsing_from_nuke
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break.nk')
@@ -120,6 +134,7 @@ x754 912.0731812 x755 913.7190552 916.0959473 918.1025391 920.0751953 922.189880
     assert_equal 742, result[0][0]
     assert_equal 754, result[7][0]
   end
+  
   
   def test_zip_channels
     tuples_x = [[1, 125], [3, 234], [5, 456], [9,876]]

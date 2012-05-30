@@ -19,6 +19,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
         scan_tracker_node(io).each(&Proc.new)
       elsif line =~ RECONCILE_PATTERN
         scan_reconcile_node(io).each(&Proc.new)
+      elsif line =~ PLANAR_PATTERN
+        scan_planar_tracker_node(io).each(&Proc.new)
       end
     end
   end
@@ -27,10 +29,11 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     
     TRACKER_3_PATTERN = /^Tracker3 \{/
     RECONCILE_PATTERN = /^Reconcile3D \{/
+    PLANAR_PATTERN = /^PlanarTracker1_0 \{/
     OUTPUT_PATTERN = /^output \{/
     TRACK_PATTERN = /^track(\d) \{/
     NODENAME = /^name ([^\n]+)/
-    
+    PLANAR_CORNERS = %w( outputBottomLeft outputBottomRight outputTopLeft outputTopRight)
     
     # Scans a Reconcile3D node and returs it's output
     def scan_reconcile_node(io)
@@ -44,6 +47,31 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
           return [t] # Klunky
         end
       end
+    end
+    
+    # Scans a PlanarTracker node and recovers corner pin
+    def scan_planar_tracker_node(io)
+      trackers, node_name = [], nil
+      while line = io.gets_and_strip
+        PLANAR_CORNERS.each do | corner_name |
+          if line =~ /#{corner_name}/
+            t = Tracksperanto::Tracker.new
+            t = extract_tracker(line)
+            t.name = corner_name
+            trackers.push(t.dup)
+          elsif line =~ NODENAME
+            node_name = $1
+          end
+        end
+        
+        if node_name && trackers.length == 4
+          trackers.each{|t| t.name = "%s_%s" % [node_name, t.name] }
+          return trackers
+        end
+      end
+      
+      # Fail
+      return []
     end
     
     # Scans a tracker node and return all tracks within that node (no more than 4)

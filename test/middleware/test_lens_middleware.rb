@@ -29,11 +29,7 @@ class LensMiddlewareTest < Test::Unit::TestCase
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920, 1080)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once do | f, x, y, r |
-      # This block is not called :-(
-      assert_in_delta x, 66.03, 0.0001
-      assert_in_delta x, 43.978, 0.0001
-    end
+    receiver.should_receive(:export_point).once.with(1, approx(66.03), approx(43.978), approx(0))
     
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once

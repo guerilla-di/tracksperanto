@@ -1,3 +1,5 @@
+=== 2.10.0
+
 * Nuke importer now supports PlanarTracker nodes and their corner-pin output
 
 === 2.9.9

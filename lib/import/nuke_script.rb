@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
   def self.human_name
-    "Nuke .nk script file with Tracker or Reconcile3D nodes"
+    "Nuke .nk script file with Tracker, Reconcile3D and PlanarTracker nodes"
   end
   
   def self.distinct_file_ext

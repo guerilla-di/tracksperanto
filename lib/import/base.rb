@@ -38,15 +38,18 @@ class Tracksperanto::Import::Base
   end
   
   # Return an extension WITH DOT if this format has a typical extension that
-  # you can detect (like ".nk" for Nuke) 
+  # you can detect (like ".nk" for Nuke)
   def self.distinct_file_ext
-    nil
   end
   
   # Should return a human-readable (read: properly capitalized and with spaces) name of the
   # import format
   def self.human_name
     "Abstract import format"
+  end
+  
+  # Returns a textual description of things to check when the user wants to import from this specific format
+  def self.known_snags
   end
   
   # Return true from this method if your importer can deduce the comp size from the passed file

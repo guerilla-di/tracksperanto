@@ -14,10 +14,18 @@ module Tracksperanto::Pipeline
   end
   
   class NoTrackersRecoveredError < RuntimeError
+    def initialize(importer)
+      if importer.class.known_snags
+        @snags = "Also note that this particular format (%s) has the following snags: %s" % [importer.const_name, importer.snags]
+      end
+    end
+    
     def message;
-      "Could not recover any non-empty trackers from this file.\n" + 
-      "Wrong import format maybe?\n" + 
-      "Note that PFTrack will only export trackers from the solved segment of the shot.";
+      [
+        "Could not recover any non-empty trackers from this file.",
+        "Wrong import format maybe?",
+        @snags
+      ].join("\n")
     end
   end
   
@@ -165,7 +173,7 @@ module Tracksperanto::Pipeline
     obuf = Obuf.new(Tracksperanto::YieldNonEmpty.new(importer))
     
     report_progress(percent_complete = 50.0, "Validating #{obuf.size} imported trackers")
-    raise NoTrackersRecoveredError if obuf.size.zero?
+    raise NoTrackersRecoveredError.new(importer) if obuf.size.zero?
   
     report_progress(percent_complete, "Starting export")
   

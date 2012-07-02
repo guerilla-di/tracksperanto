@@ -12,6 +12,10 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     ".shk"
   end
   
+  def self.known_snags
+    'Expressions in node parameters may cause parse errors or incomplete imports. Take care to remove expressions or nodes containing them first.'
+  end
+  
   def each
     s = Sentinel.new
     s.progress_proc = method(:report_progress)

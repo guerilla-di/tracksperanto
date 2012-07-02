@@ -71,6 +71,13 @@ class TestPipeline < Test::Unit::TestCase
     assert_raise(Tracksperanto::Pipeline::EmptySourceFileError) { pipeline.run(empty_file_path) }
   end
   
+  def test_run_crashes_with_no_trackers
+    empty_file_path = "./input_empty.stabilizer"
+    f = File.open(empty_file_path, "w"){|f| f.write('xx') }
+    pipeline = Tracksperanto::Pipeline::Base.new
+    assert_raise(Tracksperanto::Pipeline::NoTrackersRecoveredError) { pipeline.run(empty_file_path) }
+  end
+  
   def test_middleware_initialization_from_tuples
     create_stabilizer_file
     

@@ -9,6 +9,11 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
     ".2dt"
   end
   
+  def self.known_snags
+    'PFTrack only exports the trackers for the solved part of the shot. To export the whole shot, ' + 
+    "first delete the camera solve."
+  end
+  
   CHARACTERS_OR_QUOTES = /[AZaz"]/
   INTS = /^\d+$/
   

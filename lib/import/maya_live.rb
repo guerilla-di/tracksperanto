@@ -14,6 +14,10 @@ class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
     true
   end
   
+  def self.known_snags
+    'Only square pixel aspect ratio shots are supported.'
+  end
+  
   COMMENT = /^# /
   
   def each

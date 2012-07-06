@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.10.0"
+  s.version = "2.11.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-05-30"
+  s.date = "2012-07-06"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -43,6 +43,7 @@ Gem::Specification.new do |s|
     "lib/export/ruby.rb",
     "lib/export/shake_text.rb",
     "lib/export/syntheyes.rb",
+    "lib/export/xsi.rb",
     "lib/import/base.rb",
     "lib/import/boujou.rb",
     "lib/import/equalizer3.rb",
@@ -109,6 +110,7 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_Ruby.rb",
     "test/export/samples/ref_ShakeText.txt",
     "test/export/samples/ref_Syntheyes.txt",
+    "test/export/samples/ref_XSI.py",
     "test/export/samples/ref_boujou.txt",
     "test/export/samples/ref_equalizer.txt",
     "test/export/samples/ref_equalizer3.txt",
@@ -132,6 +134,7 @@ Gem::Specification.new do |s|
     "test/export/test_ruby_export.rb",
     "test/export/test_shake_export.rb",
     "test/export/test_syntheyes_export.rb",
+    "test/export/test_xsi_python_export.rb",
     "test/helper.rb",
     "test/import/README_SAMPLES.txt",
     "test/import/test_3de_import.rb",
@@ -186,7 +189,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://guerilla-di.org/tracksperanto"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.24"
   s.summary = "A universal 2D tracks converter"
 
   if s.respond_to? :specification_version then

@@ -6,7 +6,6 @@ class RubyExportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + "/samples/ref_Ruby.rb"
   
   def test_export_output_written
-    create_reference_output Tracksperanto::Export::Ruby, P
     ensure_same_output Tracksperanto::Export::Ruby, P
   end
   

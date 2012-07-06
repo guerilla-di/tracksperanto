@@ -48,7 +48,7 @@ trackers << Tracksperanto::Tracker.new(:name => "Parabolic_2_from_bottom_right")
   t.keyframe!(:frame => 20, :abs_x => 0.00000, :abs_y => 0.00000, :residual => 0.95238)
 end
  
-trackers << Tracksperanto::Tracker.new(:name => "SingleFrame") do |t|
+trackers << Tracksperanto::Tracker.new(:name => "SingleFrame_InTheMiddle") do |t|
   t.keyframe!(:frame => 0, :abs_x => 970.00000, :abs_y => 550.00000, :residual => 0.00000)
 end
  

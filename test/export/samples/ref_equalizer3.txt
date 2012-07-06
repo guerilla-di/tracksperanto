@@ -39,6 +39,6 @@ Parabolic_2_from_bottom_right
 	19	192.000	388.800
 	20	96.000	205.200
 	21	0.000	0.000
-SingleFrame
+SingleFrame_InTheMiddle
 	1	970.000	550.000
 

@@ -40,7 +40,7 @@ class TestCli < Test::Unit::TestCase
       flm.stabilizer flm_3de_v3.txt flm_3de_v4.txt flm_boujou_text.txt flm_flame.stabilizer 
       flm_matchmover.rz2 flm_mayalive.txt flm_nuke.nk flm_pftrack_2011_pfmatchit.txt flm_pftrack_v4.2dt
       flm_pftrack_v5.2dt flm_shake_trackers.txt flm_syntheyes_2dt.txt flm_flame_cornerpin.stabilizer 
-      flm_tracksperanto_ruby.rb flm_mayaLocators.ma flm_createNulls.jsx
+      flm_tracksperanto_ruby.rb flm_mayaLocators.ma flm_createNulls.jsx flm_xsi_nulls.py
     )
     assert_match /Found and converted 1 trackers with 232 keyframes\./, o, "Should have output coversion statistics"
     assert_same_set fs, Dir.entries(TEMP_DIR)
@@ -90,7 +90,7 @@ class TestCli < Test::Unit::TestCase
     assert_match /There were no trackers exported/, results[-1] # STDERR
   end
   
-  # We use this instead of assert_equals for arrays since different filesystems
+  # We use this instead of assert_equals for arrays of file names since different filesystems
   # return files in different order
   def assert_same_set(expected_enum, enum, message = "Should be the same set")
     assert_equal Set.new(expected_enum), Set.new(enum), message

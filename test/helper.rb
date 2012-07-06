@@ -81,7 +81,7 @@ module ParabolicTracks
     t.keyframe!(:frame => 20, :abs_x => 0.00000, :abs_y => 0.00000, :residual => 0.95238)
   end
   
-  SINGLE_FRAME_TRACK = Tracksperanto::Tracker.new(:name => "SingleFrame") do |t|
+  SINGLE_FRAME_TRACK = Tracksperanto::Tracker.new(:name => "SingleFrame_InTheMiddle") do |t|
     t.keyframe!(:frame => 0, :abs_x => 970.00000, :abs_y => 550.00000, :residual => 0.00000)
   end
   
@@ -91,6 +91,7 @@ module ParabolicTracks
       yield(x) if block_given?
       export_parabolics_with(x)
     end
+    flunk "The test output was overwritten, so this test is meaningless"
   end
   
   def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
@@ -102,6 +103,15 @@ module ParabolicTracks
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
+    # If we need to update ALL the references at once
+    if ENV['TRACKSPERANTO_OVERWRITE_ALL_TEST_DATA']
+      STDERR.puts "Achtung! Overwriting the file at #{reference_path} with the test output for now"
+      create_reference_output(exporter_klass, reference_path) do | x |
+        yield(x) if block_given?
+      end
+      return
+    end
+    
     io = StringIO.new
     x = exporter_klass.new(io)
     yield(x) if block_given?

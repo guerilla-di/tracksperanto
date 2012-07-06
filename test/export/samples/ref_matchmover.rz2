@@ -46,7 +46,7 @@ pointTrack  "Parabolic_2_from_bottom_right"  rgb( 255 0 0 )
 	20	   96.000     874.800     p+( 0.095240 )	
 	21	   0.000     1080.000     p+( 0.047620 )	
 }
-pointTrack  "SingleFrame"  rgb( 255 0 0 )	
+pointTrack  "SingleFrame_InTheMiddle"  rgb( 255 0 0 )	
 {
 	1	   970.000     530.000    ki( 0.8 )	    s( 66 66 64 64 )  p( 24 24 25 25 )
 }

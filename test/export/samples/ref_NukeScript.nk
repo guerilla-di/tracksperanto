@@ -31,7 +31,7 @@ Tracker3 {
 
 Tracker3 {
      track1 {{curve i x1 970.0000} {curve i x1 550.0000}}
-     name SingleFrame
+     name SingleFrame_InTheMiddle
      xpos 0
      ypos 90
 }

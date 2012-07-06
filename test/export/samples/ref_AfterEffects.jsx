@@ -57,7 +57,7 @@ pos.setValueAtTime(convertFrameToSeconds(layer1, 19), [96.00000,874.80000]);
 pos.setValueAtTime(convertFrameToSeconds(layer1, 20), [0.00000,1080.00000]);
 
 var layer2 = app.project.activeItem.layers.addNull();
-layer2.name = "SingleFrame";
+layer2.name = "SingleFrame_InTheMiddle";
 
 var pos = layer2.property("Transform").property("Position");
 pos.setValueAtTime(convertFrameToSeconds(layer2, 0), [970.00000,530.00000]);

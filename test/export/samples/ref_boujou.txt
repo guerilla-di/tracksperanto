@@ -41,4 +41,4 @@ Parabolic_2_from_bottom_right  17  288.000  530.200
 Parabolic_2_from_bottom_right  18  192.000  692.200
 Parabolic_2_from_bottom_right  19  96.000  875.800
 Parabolic_2_from_bottom_right  20  0.000  1081.000
-SingleFrame  0  970.000  531.000
+SingleFrame_InTheMiddle  0  970.000  531.000

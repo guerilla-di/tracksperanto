@@ -16,7 +16,7 @@ module Tracksperanto::Pipeline
   class NoTrackersRecoveredError < RuntimeError
     def initialize(importer)
       if importer.class.known_snags
-        @snags = "Also note that this particular format (%s) has the following snags: %s" % [importer.const_name, importer.snags]
+        @snags = "Also note that this particular format (%s) has the following snags: %s" % [importer.const_name, importer.known_snags]
       end
     end
     

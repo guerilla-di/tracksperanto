@@ -1,3 +1,7 @@
+=== 2.11.1
+
+* Fixes a bug with importer snag display
+
 === 2.11.0
 
 * This release adds a Softimage|XSI export module which outputs a Python script with moving nulls on an image plane

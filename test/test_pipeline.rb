@@ -44,6 +44,15 @@ class TestPipeline < Test::Unit::TestCase
     assert_equal 9, pipeline.converted_keyframes, "Should report conversion of 9 keyframes"
   end
   
+  def test_run_with_error_picks_up_known_snags_from_importer
+    create_stabilizer_file
+    pipeline = Tracksperanto::Pipeline::Base.new
+    flexmock(Tracksperanto::Import::ShakeScript).should_receive(:known_snags).times(1)
+    assert_raise(Tracksperanto::Pipeline::NoTrackersRecoveredError) do
+      pipeline.run(@stabilizer, :importer => "ShakeScript", :width => 2910, :height => 1080)
+    end
+  end
+  
   def test_run_with_autodetected_importer_and_size_with_progress_block
     create_stabilizer_file
     processing_log = ""

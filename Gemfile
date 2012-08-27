@@ -11,6 +11,6 @@ group :development do
   gem "approximately"
   gem "jeweler"
   gem "rake"
-  gem "flexmock", "~>0.8"
+  gem "flexmock", "~> 1.0"
   gem "cli_test", "~>1.0"
 end

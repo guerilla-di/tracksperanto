@@ -13,6 +13,15 @@ unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   exit 1
 end
 
+# http://redmine.ruby-lang.org/issues/4882
+# https://github.com/jimweirich/flexmock/issues/4
+# https://github.com/julik/flexmock/commit/4acea00677e7b558bd564ec7c7630f0b27d368ca
+class FlexMock::PartialMockProxy
+  def singleton?(method_name)
+    @obj.singleton_methods.include?(method_name.to_s)
+  end
+end
+
 # This module creates ideal parabolic tracks for testing exporters. The two trackers
 # will start at opposite corners of the image and traverse two parabolic curves, touching
 # the bounds of the image at the and and in the middle. On the middle frame they will vertically

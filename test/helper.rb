@@ -98,8 +98,17 @@ module ParabolicTracks
     [ref_buffer, actual_buffer].each{|io| io.rewind }
     
     # There are subtle differences in how IO is handled on dfferent platforms (Darwin)
-    ref_buffer, actual_buffer = ref_buffer.read, actual_buffer.read
-    assert_equal ref_buffer, actual_buffer
+    lineno = 0
+    begin
+      loop do
+        return if ref_buffer.eof? && actual_buffer.eof?
+        lineno += 1
+        ref_line, actual_line = ref_buffer.readline, actual_buffer.readline
+        assert_equal ref_line, actual_line, "Mismatch on line #{lineno}:"
+      end
+    rescue EOFError
+      flunk "One of the buffers was too short at #{lineno}"
+    end
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")

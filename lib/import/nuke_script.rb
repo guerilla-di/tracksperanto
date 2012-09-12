@@ -12,6 +12,10 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     ".nk"
   end
   
+  def self.known_snags
+    'The only supported nodes that we can extract tracks from are Reconcile3D, PlanarTracker and Tracker'
+  end
+  
   def each
     io = Tracksperanto::ExtIO.new(@io)
     while line = io.gets_and_strip

@@ -1,3 +1,8 @@
+=== 2.11.3
+
+* Hint that we only support specific nodes in Nuke
+* Hint the user that a comp must be focused in AfterEffects when the import script is run without focusing on a comp first
+
 === 2.11.1
 
 * Fixes a bug with importer snag display

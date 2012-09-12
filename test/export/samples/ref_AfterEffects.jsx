@@ -1,14 +1,20 @@
 // Run this script from the Script Editor
 function convertFrameToSeconds(layerWithFootage, frameValue)
-  {
-  		var comp = layerWithFootage.containingComp;
-  		var rate = 1.0 / comp.frameDuration;
-  		// Frames in AE are 0-based by default
-  		return (frameValue) / rate;
-  }
+{
+    var comp = layerWithFootage.containingComp;
+    var rate = 1.0 / comp.frameDuration;
+    // Frames in AE are 0-based by default
+    return (frameValue) / rate;
+}
+
+var activeComp = app.project.activeItem;
+if(!activeComp) {
+    // Totally fail
+    alert("You need to be focused on a comp for the tracker creation to work");
+} else {
 
 
-var layer0 = app.project.activeItem.layers.addNull();
+var layer0 = activeComp.layers.addNull();
 layer0.name = "Parabolic_1_from_top_left";
 
 var pos = layer0.property("Transform").property("Position");
@@ -32,7 +38,7 @@ pos.setValueAtTime(convertFrameToSeconds(layer0, 18), [1728.00000,388.80000]);
 pos.setValueAtTime(convertFrameToSeconds(layer0, 19), [1824.00000,205.20000]);
 pos.setValueAtTime(convertFrameToSeconds(layer0, 20), [1920.00000,0.00000]);
 
-var layer1 = app.project.activeItem.layers.addNull();
+var layer1 = activeComp.layers.addNull();
 layer1.name = "Parabolic_2_from_bottom_right";
 
 var pos = layer1.property("Transform").property("Position");
@@ -56,8 +62,9 @@ pos.setValueAtTime(convertFrameToSeconds(layer1, 18), [192.00000,691.20000]);
 pos.setValueAtTime(convertFrameToSeconds(layer1, 19), [96.00000,874.80000]);
 pos.setValueAtTime(convertFrameToSeconds(layer1, 20), [0.00000,1080.00000]);
 
-var layer2 = app.project.activeItem.layers.addNull();
+var layer2 = activeComp.layers.addNull();
 layer2.name = "SingleFrame_InTheMiddle";
 
 var pos = layer2.property("Transform").property("Position");
 pos.setValueAtTime(convertFrameToSeconds(layer2, 0), [970.00000,530.00000]);
+}

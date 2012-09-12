@@ -25,11 +25,13 @@ class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
         convert_to_uv(abs_float_y, @height) * -1, 
         get_outcome_code(frame)
     ]
-    @io.puts("%s %d %.6f %.6f %d" % values)
+    @io.puts(LINE_TEMPLATE % values)
   end
   
   private
-    STATUS_KF = 30 # When tracker starts or reenables
+    
+    LINE_TEMPLATE = "%s %d %.6f %.6f %d"
+    
     STATUS_STD = 7 # For a standard frame (not a keyframe)
     STATUS_REENABLE = 15 # When the tracker goes back into view
     

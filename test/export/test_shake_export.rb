@@ -11,6 +11,6 @@ class ShakeTextExportTest < Test::Unit::TestCase
   
   def test_exporter_meta
     assert_equal "shake_trackers.txt", Tracksperanto::Export::ShakeText.desc_and_extension
-    assert_equal "Shake trackers in a .txt file (also usable with Nuke's CameraTracker)", Tracksperanto::Export::ShakeText.human_name
+    assert_equal "Shake trackers in a .txt file", Tracksperanto::Export::ShakeText.human_name
   end
 end

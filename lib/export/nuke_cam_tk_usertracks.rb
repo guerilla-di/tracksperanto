@@ -6,11 +6,11 @@ require File.dirname(__FILE__) + "/shake_text"
 class Tracksperanto::Export::NukeCameraUsertracks < Tracksperanto::Export::ShakeText
   
   def self.desc_and_extension
-    "nuke_cam_trk_usertracks.txt"
+    "nuke_cam_trk_autotracks.txt"
   end
   
   def self.human_name
-    "Nuke CameraTracker node usertracks"
+    "Nuke CameraTracker node autotracks (enable import/export in the Tracking tab)"
   end
   
   def start_export(w, h)
@@ -18,8 +18,9 @@ class Tracksperanto::Export::NukeCameraUsertracks < Tracksperanto::Export::Shake
     @counter = 0
   end
   
+  NAMING = "autotrack%d" # change to "usertrack%d" if user tracks are needed
   def start_tracker_segment(tracker_name)
-    super("usertrack%d" % @counter)
+    super(NAMING % @counter)
     @counter += 1
   end
 end

@@ -1,4 +1,4 @@
-TrackName usertrack0
+TrackName autotrack0
    Frame             X             Y   Correlation
    1.00   0.000   1080.000   1.000
    2.00   96.000   874.800   0.952
@@ -20,7 +20,7 @@ TrackName usertrack0
    20.00   1824.000   874.800   0.095
    21.00   1920.000   1080.000   0.048
 
-TrackName usertrack1
+TrackName autotrack1
    Frame             X             Y   Correlation
    1.00   1920.000   0.000   1.000
    2.00   1824.000   205.200   0.952
@@ -42,7 +42,7 @@ TrackName usertrack1
    20.00   96.000   205.200   0.095
    21.00   0.000   0.000   0.048
 
-TrackName usertrack2
+TrackName autotrack2
    Frame             X             Y   Correlation
    1.00   970.000   550.000   1.000
 

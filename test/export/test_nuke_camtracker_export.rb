@@ -10,7 +10,7 @@ class NukeCamTrackerExportTest < Test::Unit::TestCase
   end
   
   def test_exporter_meta
-    assert_equal "nuke_cam_trk_usertracks.txt", Tracksperanto::Export::NukeCameraUsertracks.desc_and_extension
-    assert_equal "Nuke CameraTracker node usertracks", Tracksperanto::Export::NukeCameraUsertracks.human_name
+    assert_equal "nuke_cam_trk_autotracks.txt", Tracksperanto::Export::NukeCameraUsertracks.desc_and_extension
+    assert_equal "Nuke CameraTracker node autotracks (enable import/export in the Tracking tab)", Tracksperanto::Export::NukeCameraUsertracks.human_name
   end
 end

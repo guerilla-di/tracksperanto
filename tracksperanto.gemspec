@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "2.11.3"
+  s.version = "2.12.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2012-09-12"
+  s.date = "2012-10-01"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
     "lib/export/maya_live.rb",
     "lib/export/maya_locators.rb",
     "lib/export/mux.rb",
+    "lib/export/nuke_cam_tk_usertracks.rb",
     "lib/export/nuke_script.rb",
     "lib/export/pfmatchit.rb",
     "lib/export/pftrack.rb",
@@ -103,6 +104,7 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_MayaLocators.ma",
     "test/export/samples/ref_Mayalive.txt",
     "test/export/samples/ref_Mayalive_CustomAspect.txt",
+    "test/export/samples/ref_NukeCameraTrackerUsertracks.txt",
     "test/export/samples/ref_NukeScript.nk",
     "test/export/samples/ref_PFMatchit.2dt",
     "test/export/samples/ref_PFTrack.2dt",
@@ -127,6 +129,7 @@ Gem::Specification.new do |s|
     "test/export/test_maya_live_export.rb",
     "test/export/test_maya_locators_export.rb",
     "test/export/test_mux.rb",
+    "test/export/test_nuke_camtracker_export.rb",
     "test/export/test_nuke_export.rb",
     "test/export/test_pfmatchit_export.rb",
     "test/export/test_pftrack5_export.rb",

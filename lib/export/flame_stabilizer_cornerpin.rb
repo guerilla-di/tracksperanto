@@ -68,7 +68,9 @@ class Tracksperanto::Export::FlameStabilizerCornerpin < Tracksperanto::Export::F
     end
   end
   
-  # Initialize the exporter with a preconfigured sorter around it
+  # Initialize the exporter with a preconfigured sorter around it.
+  # When this object receives the commands they will come from the Sorter instead,
+  # and the trackers will already be in their Z-order
   def self.new(*arguments)
     object = super
     Sorter.new(object)

@@ -4,7 +4,7 @@
 class Tracksperanto::Tool::MoveToFirst < Tracksperanto::Tool::Base
   
   def self.action_description
-    "Move all the keyframes in time so that the first frame is the first animated keyframe"
+    "Move all the keyframes in time so that the track starts at frame 1"
   end
   
   def start_export(width, height)

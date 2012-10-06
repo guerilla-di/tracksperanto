@@ -7,12 +7,12 @@ module Tracksperanto
   
   module Import; end
   module Export; end
-  module Middleware; end
+  module Tool; end
   module Pipeline; end
   
   class UnknownExporterError < NameError; end
   class UnknownImporterError < NameError; end
-  class UnknownMiddlewareError < NameError; end
+  class UnknownToolError < NameError; end
   
   class << self
     # Returns the array of all exporter classes defined
@@ -21,8 +21,8 @@ module Tracksperanto
     # Returns the array of all importer classes defined
     attr_accessor :importers
     
-    # Returns the array of all available middlewares
-    attr_accessor :middlewares
+    # Returns the array of all available tools
+    attr_accessor :tools
     
     # Returns the names of all the importers
     def importer_names
@@ -34,9 +34,9 @@ module Tracksperanto
       exporters.map{|e| e.const_name }
     end
     
-    # Returns the names of all the middlewares
-    def middleware_names
-      middlewares.map{|e| e.const_name }
+    # Returns the names of all the tools
+    def tool_names
+      tools.map{|e| e.const_name }
     end
     
     def exporters
@@ -55,15 +55,15 @@ module Tracksperanto
     end
   end
   
-  self.exporters, self.importers, self.middlewares = [], [], []
+  self.exporters, self.importers, self.tools = [], [], []
 
-  # Case-insensitive search for a middleware class by name
-  def self.get_middleware(name)
-    middlewares.each do | x |
+  # Case-insensitive search for a tool class by name
+  def self.get_tool(name)
+    tools.each do | x |
       return x if x.const_name.downcase == name.downcase
     end
     
-    raise UnknownMiddlewareError, "Unknown middleware #{name.inspect}"
+    raise UnknownToolError, "Unknown tool #{name.inspect}"
   end
     
   # Case-insensitive search for an export module by name
@@ -117,8 +117,8 @@ Dir.glob(File.dirname(__FILE__) + '/export/*.rb').sort.each do | i |
   require i
 end
 
-# Load middleware
-Dir.glob(File.dirname(__FILE__) + '/middleware/*.rb').sort.each do | i |
+# Load tool
+Dir.glob(File.dirname(__FILE__) + '/tools/*.rb').sort.each do | i |
   require i
 end
 

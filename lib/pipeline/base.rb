@@ -31,10 +31,10 @@ module Tracksperanto::Pipeline
   
   # The base pipeline is the whole process of track conversion from start to finish. 
   # The pipeline object organizes the import formats, scans them,
-  # applies the middlewares. Here's how a calling sequence for a pipeline looks like:
+  # applies the tools. Here's how a calling sequence for a pipeline looks like:
   #
   #   pipe = Tracksperanto::Pipeline::Base.new
-  #   pipe.middleware_tuples = ["Shift", {:x => 10}]
+  #   pipe.tool_tuples = ["Shift", {:x => 10}]
   #   pipe.progress_block = lambda{|percent, msg| puts("#{msg}..#{percent.to_i}%") }
   #   pipe.run("/tmp/shakescript.shk", :width => 720, :height => 576)
   #
@@ -64,7 +64,7 @@ module Tracksperanto::Pipeline
   attr_accessor :exporters
   
   # Contains arrays of the form ["MiddewareName", {:param => value}]
-  attr_accessor :middleware_tuples
+  attr_accessor :tool_tuples
   
   
   def initialize(*any)
@@ -72,13 +72,13 @@ module Tracksperanto::Pipeline
     @ios = []
   end
   
-  # Will scan the middleware_tuples attribute and create a processing chain.
-  # Middlewares will be instantiated and wrap each other, starting with the first one
-  def wrap_output_with_middlewares(output)
-    return output unless (middleware_tuples && middleware_tuples.any?)
+  # Will scan the tool_tuples attribute and create a processing chain.
+  # Tools will be instantiated and wrap each other, starting with the first one
+  def wrap_output_with_tools(output)
+    return output unless (tool_tuples && tool_tuples.any?)
     
-    middleware_tuples.reverse.inject(output) do | wrapped, (middleware_name, options) |
-      Tracksperanto.get_middleware(middleware_name).new(wrapped, options || {})
+    tool_tuples.reverse.inject(output) do | wrapped, (tool_name, options) |
+      Tracksperanto.get_tool(tool_name).new(wrapped, options || {})
     end
   end
   
@@ -105,10 +105,10 @@ module Tracksperanto::Pipeline
     mux = setup_outputs_for(from_input_file_path)
     
     # Wrap it into a module that will prevent us from exporting invalid trackers
-    lint = Tracksperanto::Middleware::Lint.new(mux)
+    lint = Tracksperanto::Tool::Lint.new(mux)
     
-    # Setup middlewares
-    endpoint = wrap_output_with_middlewares(lint)
+    # Setup tools
+    endpoint = wrap_output_with_tools(lint)
     @converted_points, @converted_keyframes = run_export(read_data, importer, endpoint)
   end
   
@@ -182,7 +182,7 @@ module Tracksperanto::Pipeline
     # Use the width and height provided by the parser itself
     exporter.start_export(importer.width, importer.height)
   
-    # Now send each tracker through the middleware chain
+    # Now send each tracker through the tool chain
     obuf.each_with_index do | t, tracker_idx |
     
       kf_weight = percent_per_tracker / t.keyframes.length

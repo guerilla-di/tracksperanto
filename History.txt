@@ -21,7 +21,7 @@
 
 === 2.9.9
 
-* Add lens distortion middleware. Adds the possibility to remove or add Syntheyes lens distortion to your plates.
+* Add lens distortion tool. Adds the possibility to remove or add Syntheyes lens distortion to your plates.
 
 === 2.9.8
 
@@ -34,7 +34,7 @@
 === 2.9.6
 
 * Add Nuke Reconcile3D support
-* Add Middleware::Base.parameters for automatic GUI building
+* Add Tool::Base.parameters for automatic GUI building
 
 === 2.9.5
 
@@ -71,7 +71,7 @@
 
 === 2.8.5
 
-* Add Pad and Crop middlewares for fixing botched telecine and anamorphic Alexa
+* Add Pad and Crop tools for fixing botched telecine and anamorphic Alexa
 
 === 2.8.2
 
@@ -85,7 +85,7 @@
 === 2.8.1
 
 * Fix the bug that MatchMover importer would always assume the sequence starting on frame 1
-* Fix the bug that Lint middleware would raise when the export was started from negative frame offsets
+* Fix the bug that Lint tool would raise when the export was started from negative frame offsets
 
 === 2.8.0
 
@@ -193,7 +193,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 
 === 2.0.2
 * Compatible with Ruby 1.9.2
-* Scaler middleware now supports negative scaling factors
+* Scaler tool now supports negative scaling factors
 
 === 2.0.0
 * Bugfix for PFTrack exports to contain cross-platform linebreaks (rn instead of n)
@@ -208,7 +208,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 * Very minor changes and improvements
 * The app will now tell you when you try to feed it an empty file
 * Change Synetheyes exports to start with a standard frame and not a keyframe to make 1-frame trackers work
-* Adds a flip middleware to mirror a tracked comp
+* Adds a flip tool to mirror a tracked comp
 
 === 1.9.6
 
@@ -241,7 +241,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 === 1.9.0
 
 * Use proper progress bars
-* Allow proper chaining of middlewares in the commandline app - you can now apply many middlewares of the same nature in chain, and they will be ordered correctly
+* Allow proper chaining of tools in the commandline app - you can now apply many tools of the same nature in chain, and they will be ordered correctly
 * Small rewrites to Pipeline::Base (changes API slightly - please consult the docs)
 
 === 1.8.4
@@ -270,7 +270,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 * Introduce an intentional gap in the reference exports to test trackers with gaps
 * Export Syntheyes paths as normal frames, not as keyframes. This produces better solves by not overconstraining the solver
 	(Without this TransitionFrms, a crucial parameter in SY, seizes to work)
-* Add a LengthCutoff middleware that allows you to remove trackers that have less than X keyframes in them from the export
+* Add a LengthCutoff tool that allows you to remove trackers that have less than X keyframes in them from the export
 
 === 1.7.3
 
@@ -278,7 +278,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 
 === 1.7.2
 
-* Add a Lerp middleware that linearly interpolates missing keyframes (USE CAREFULLY!)
+* Add a Lerp tool that linearly interpolates missing keyframes (USE CAREFULLY!)
 * Prevent the Shake lexer from walking into the woods on files that are certainly wrong
 * Export proper project length with Nuke scripts
 * Ensure preamble for Nuke exports does not get overriden in width/height
@@ -322,7 +322,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 
 === 1.6.2
 
-* Fixes the Reformat middleware to not suppress the end_export call. Crucial for exporters that
+* Fixes the Reformat tool to not suppress the end_export call. Crucial for exporters that
   use end_export to finalize output
   
 === 1.6.0
@@ -332,7 +332,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 
 === 1.5.7
 
-* Add a Prefix middleware that prefixes tracker names
+* Add a Prefix tool that prefixes tracker names
 
 === 1.5.6
 
@@ -350,7 +350,7 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 === 1.5.2
 
 * Fix Windows-specific issue (Tempfile-related) in the Equalizer4 exporter
-* Add Export::Base#just_export and Middleware::Base#just_export
+* Add Export::Base#just_export and Tool::Base#just_export
 
 === 1.5.0
 
@@ -392,8 +392,8 @@ Downside: stream_parse will be deprecated. It is however still available for bac
 
 * Add experimental MatchMoverPro import and export support
 * Rewrite the Shake parser, support MatchMove and Stabilize nodes and many tracks per node
-* Officially add and test the Reformat middleware
-* Remove the Close middleware and close IOs automatically at pipeline end
+* Officially add and test the Reformat tool
+* Remove the Close tool and close IOs automatically at pipeline end
 * Much improved documentation
 * Use IO as base for all the parsers (if a parser needs a string it will have to read by himself)
 * Much improved test coverage

@@ -33,14 +33,14 @@ the exporter should work with streams (smaller parts of the file being exported 
 
 === Ading your own processing steps
 
-You probably want to write a Middleware (consult the Tracksperanto::Middleware::Base docs) if you need some processing applied to the tracks
-or their data. A Middleware is just like an export module, except that instead it sits between the exporter and the exporting routine. Middlewares wrap export
-modules or each other, so you can stack different middleware modules together (like "scale first, then move").
+You probably want to write a Tool (consult the Tracksperanto::Tool::Base docs) if you need some processing applied to the tracks
+or their data. A Tool is just like an export module, except that instead it sits between the exporter and the exporting routine. Tools wrap export
+modules or each other, so you can stack different tool modules together (like "scale first, then move").
 
 === Writing your own processing routines
 
 You probably want to write a descendant of Tracksperanto::Pipeline::Base. This is a class that manages a conversion from start to finish, including detecting the
-input format, allocating output files and building a chain of Middlewares to process the export. If you want to make a GUI for Tracksperanto you will likely need
+input format, allocating output files and building a chain of Tools to process the export. If you want to make a GUI for Tracksperanto you will likely need
 to write your own Pipeline class or reimplement parts of it.
 
 === Reporting status from long-running operations
@@ -74,11 +74,11 @@ the software user-friendly. A well-behaved Tracksperanto module should manage it
   destination_file = File.open("exported_file.other", "wb")
   some_exporter = Tracksperanto.get_exporter("flamestabilizer").new(destination_file)
   
-  # Now add some middlewares, for example a Scale
-  scaler = Middleware::Scaler.new(some_exporter, :x_factor => 2)
-  # ... and a slip. Middlewares wrap exporters and other middlewares, so you can chain them
+  # Now add some tools, for example a Scale
+  scaler = Tool::Scaler.new(some_exporter, :x_factor => 2)
+  # ... and a slip. Tools wrap exporters and other tools, so you can chain them
   # ad nauseam
-  slipper = Middleware::Slipper.new(scaler, :offset => 2)
+  slipper = Tool::Slipper.new(scaler, :offset => 2)
   
   # Now when we send export commands to the Slipper it will play them through
   # to the Scaler and the Scaler in turn will send commands to the exporter.

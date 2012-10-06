@@ -2,10 +2,10 @@
 require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
 class TracksperantoTest < Test::Unit::TestCase
-  def test_middlewares
-    m = Tracksperanto.middlewares
-    m.each do | middleware_module |
-      assert_kind_of Module, middleware_module
+  def test_tools
+    m = Tracksperanto.tools
+    m.each do | tool_module |
+      assert_kind_of Module, tool_module
     end
   end
 
@@ -33,8 +33,8 @@ class TracksperantoTest < Test::Unit::TestCase
     assert_equal m.sort, m
   end
   
-  def test_middleware_names
-    m = Tracksperanto.middleware_names
+  def test_tool_names
+    m = Tracksperanto.tool_names
     assert m.include?("Golden")
   end
   
@@ -53,9 +53,9 @@ class TracksperantoTest < Test::Unit::TestCase
     assert_equal i1, Tracksperanto::Import::Syntheyes
   end
   
-  def test_get_middleware
-    i1 = Tracksperanto.get_middleware("lERP")
-    assert_equal i1, Tracksperanto::Middleware::Lerp
+  def test_get_tool
+    i1 = Tracksperanto.get_tool("lERP")
+    assert_equal i1, Tracksperanto::Tool::Lerp
   end
   
   def test_get_importer_multicase
@@ -82,8 +82,8 @@ class TracksperantoTest < Test::Unit::TestCase
     assert_raise(Tracksperanto::UnknownImporterError) { Tracksperanto.get_importer("foo") }
   end
   
-  def test_get_unknown_middleware_should_raise
-    assert_raise(Tracksperanto::UnknownMiddlewareError) { Tracksperanto.get_middleware("foo") }
+  def test_get_unknown_tool_should_raise
+    assert_raise(Tracksperanto::UnknownToolError) { Tracksperanto.get_tool("foo") }
   end
   
 end

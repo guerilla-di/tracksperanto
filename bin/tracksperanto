@@ -22,26 +22,26 @@ def disclaimer
 end
 
 options = {}
-$middlewares = []
+$tools = []
 writer_class_name = nil
 readers = Tracksperanto.importer_names
 writers = Tracksperanto.exporter_names
 
 op = OptionParser.new
 
-def mw(*name_option_and_default_value)
+def tool(*name_option_and_default_value)
   Proc.new do |value| 
     name, option, default_value = name_option_and_default_value
     v = value.nil? ? default_value : value
-    mw_tuple = [name]
-    mw_tuple.push({option => v}) if option
+    tool_tuple = [name]
+    tool_tuple.push({option => v}) if option
     
-    $middlewares.push(mw_tuple)
+    $tools.push(tool_tuple)
   end
 end
 
-def mwd(name)
-  Tracksperanto.get_middleware(name).action_description
+def toold(name)
+  Tracksperanto.get_tool(name).action_description
 end
 
 def list_exporters(dest = $stderr)
@@ -77,43 +77,43 @@ op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in p
 op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
 op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of: #{f(writers)}") { |f| writer_class_name = f }
 
-op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, mwd("Scaler"), &mw("Scaler", :x_factor))
+op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
 
-op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, mwd("Pad")) do | pads|
+op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, toold("Pad")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_f }
-  $middlewares.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
+  $tools.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
 end
 
 op.on(" -u", "--undistort K_AND_KCUBE_COMMA_SEPARATED", String, "Remove lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
-  $middlewares.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => true}])
+  $tools.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => true}])
 end
 
 op.on(" -d", "--distort K_AND_KCUBE_COMMA_SEPARATED", String, "Add lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
-  $middlewares.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => false}])
+  $tools.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => false}])
 end
 
-op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, mwd("Crop")) do | pads|
+op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, toold("Crop")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_i }
-  $middlewares.push(["Crop", {"left" => left, "right"=> right, "top" => top, "bottom" => bottom}])
+  $tools.push(["Crop", {"left" => left, "right"=> right, "top" => top, "bottom" => bottom}])
 end
 
-op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, mwd("Scaler"), &mw("Scaler", :y_factor))
-op.on(" -t", "--trim", Float, mwd("StartTrim"),  &mw("StartTrim")) # Before slip!
-op.on(" -s", "--slip FRAMES", Integer, mwd("Slipper"), &mw("Slipper", :slip))
-op.on(" -g", "--golden", mwd("Golden"), &mw("Golden"))
-op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, mwd("LengthCutoff"), &mw("LengthCutoff", :min_length))
-op.on(" -p", "--prefix PREFIX", String, mwd("Prefix"), &mw("Prefix", :prefix))
-op.on("--lerp", mwd("Lerp"), &mw("Lerp"))
-op.on("--flip", mwd("Flip"), &mw("Flip"))
-op.on("--flop", mwd("Flop"), &mw("Flop"))
+op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :y_factor))
+op.on(" -t", "--trim", Float, toold("StartTrim"),  &tool("StartTrim")) # Before slip!
+op.on(" -s", "--slip FRAMES", Integer, toold("Slipper"), &tool("Slipper", :slip))
+op.on(" -g", "--golden", toold("Golden"), &tool("Golden"))
+op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, toold("LengthCutoff"), &tool("LengthCutoff", :min_length))
+op.on(" -p", "--prefix PREFIX", String, toold("Prefix"), &tool("Prefix", :prefix))
+op.on("--lerp", toold("Lerp"), &tool("Lerp"))
+op.on("--flip", toold("Flip"), &tool("Flip"))
+op.on("--flop", toold("Flop"), &tool("Flop"))
 
 # TODO - multiparameters
-op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &mw("Reformat", :width))
-op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &mw("Reformat", :height))
-op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &mw("Shift", :x_shift))
-op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &mw("Shift", :y_shift)) 
+op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))
+op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &tool("Reformat", :height))
+op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &tool("Shift", :x_shift))
+op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &tool("Shift", :y_shift)) 
 
 
 op.on("--list-exporters", "Show available export modules") do
@@ -152,7 +152,7 @@ progress = lambda do |percent,message|
 end
 
 begin
-  pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :middleware_tuples => $middlewares)
+  pipe = Tracksperanto::Pipeline::Base.new(:progress_block => progress, :tool_tuples => $tools)
   pipe.exporters = [Tracksperanto.get_exporter(writer_class_name)] if writer_class_name
   pipe.run(input_file, options)
   pbar.finish
@@ -165,7 +165,7 @@ rescue Tracksperanto::UnknownImporterError => damn
   $stderr.puts damn.message
   list_importers($stderr)
   fail "Unknown importer"
-rescue Tracksperanto::UnknownMiddlewareError => damn
+rescue Tracksperanto::UnknownToolError => damn
   $stderr.puts damn.message
   fail "This is a bug, please report it"
 rescue Exception => damn

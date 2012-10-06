@@ -17,7 +17,7 @@ class Tracksperanto::Export::FlameStabilizerCornerpin < Tracksperanto::Export::F
   #     _______/
   #    |
   #    BL   ->   BR
-  # This "kinda middleware" ensures that this is indeed taking place
+  # This "kinda tool" ensures that this is indeed taking place
   class Sorter < DelegateClass(Tracksperanto::Export::Base)
     include Tracksperanto::SimpleExport # so that it calls OUR methods
     

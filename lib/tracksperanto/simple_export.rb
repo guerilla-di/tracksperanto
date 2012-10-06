@@ -6,7 +6,7 @@ module Tracksperanto::SimpleExport
   # Before calling this, initialize the exporter with the proper
   # IO handle
   def just_export(trackers_array, comp_width, comp_height)
-    lint = Tracksperanto::Middleware::Lint.new(self)
+    lint = Tracksperanto::Tool::Lint.new(self)
     
     lint.start_export(comp_width, comp_height)
     trackers_array.each do | t |

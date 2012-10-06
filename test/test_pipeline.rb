@@ -32,8 +32,8 @@ class TestPipeline < Test::Unit::TestCase
   end
   
   def test_supports_block_init
-    pipeline = Tracksperanto::Pipeline::Base.new(:middleware_tuples => [:a, :b])
-    assert_equal [:a, :b], pipeline.middleware_tuples
+    pipeline = Tracksperanto::Pipeline::Base.new(:tool_tuples => [:a, :b])
+    assert_equal [:a, :b], pipeline.tool_tuples
   end
   
   def test_run_with_autodetected_importer_and_size_without_progress_block
@@ -87,24 +87,24 @@ class TestPipeline < Test::Unit::TestCase
     assert_raise(Tracksperanto::Pipeline::NoTrackersRecoveredError) { pipeline.run(empty_file_path) }
   end
   
-  def test_middleware_initialization_from_tuples
+  def test_tool_initialization_from_tuples
     create_stabilizer_file
     
     pipeline = Tracksperanto::Pipeline::Base.new
-    pipeline.middleware_tuples = [
+    pipeline.tool_tuples = [
       ["Bla", {:foo=> 234}]
     ]
     
     mock_mux = flexmock("MUX")
     mock_lint = flexmock("LINT")
     flexmock(Tracksperanto::Export::Mux).should_receive(:new).and_return(mock_mux)
-    flexmock(Tracksperanto::Middleware::Lint).should_receive(:new).with(mock_mux).and_return(mock_lint)
+    flexmock(Tracksperanto::Tool::Lint).should_receive(:new).with(mock_mux).and_return(mock_lint)
 
-    m = flexmock("middleware object")
-    mock_middleware_class = flexmock("middleware class")
+    m = flexmock("tool object")
+    mock_tool_class = flexmock("tool class")
     
-    flexmock(Tracksperanto).should_receive(:get_middleware).with("Bla").once.and_return(mock_middleware_class)
-    mock_middleware_class.should_receive(:new).with(mock_lint, {:foo => 234}).once
+    flexmock(Tracksperanto).should_receive(:get_tool).with("Bla").once.and_return(mock_tool_class)
+    mock_tool_class.should_receive(:new).with(mock_lint, {:foo => 234}).once
     
     assert_raise(NoMethodError) { pipeline.run(@stabilizer) }
   end

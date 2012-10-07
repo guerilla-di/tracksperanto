@@ -4,7 +4,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 class MoveToFirstFrameToolTest < Test::Unit::TestCase
   
   def test_action_description
-    assert_equal "Move all the keyframes in time so that the first frame is the first animated keyframe", Tracksperanto::Tool::MoveToFirst.action_description
+    assert_equal "Move all the keyframes in time so that the track starts at frame 1", Tracksperanto::Tool::MoveToFirst.action_description
   end
   
   def test_move_to_first_frame

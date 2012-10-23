@@ -1,3 +1,6 @@
+=== 3.0.0
+
+* Middleware renamed to Tools
 * Multiple subpixel accuracy tests added
 * Subpixel accuracy fixed for Syntheyes modules
 * Subpixel accuracy fixed for PFTrack modules

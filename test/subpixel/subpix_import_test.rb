@@ -4,6 +4,9 @@ require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 class SubpixelImportTest < Test::Unit::TestCase
   DELTA = 0.1
   
+  # We know that the following apps use the edge of the pixel raster as 0:
+  # Shake, Flame, 3DE.
+  
   # In Syntheyes, the coordinates of the corners are effectively at the center of the pixels of the grid.
   # WE NEED to make adjustments to the Syntheyes workflows to account for "on-pixel" coordinates as opposed to "pixel corner"
   def test_parsing_from_syntheyes_2dp
@@ -19,6 +22,8 @@ class SubpixelImportTest < Test::Unit::TestCase
     assert_in_delta 576.0, tr_kf.abs_y, DELTA
   end
   
+  # In PFTrack the coordinates are shifted by .5 pixels and the 0 coordinate is not at the edge of the pixel raster,
+  # but in the middle of the leftmost bottom pixel.
   def test_parsing_from_pftrack
     fixture = File.open(File.dirname(__FILE__) + '/julik_pftrack.txt')
     trackers = Tracksperanto::Import::PFTrack.new(:io => fixture, :width => 720, :height => 576).to_a

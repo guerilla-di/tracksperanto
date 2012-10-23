@@ -2,6 +2,8 @@
 # Export for PFMatchit
 class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   
+  include Tracksperanto::PFCoords
+  
   KEYFRAME_TEMPLATE = "%s %.3f %.3f %.3f"
   
   def self.desc_and_extension
@@ -10,6 +12,11 @@ class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   
   def self.human_name
     "PFTrack2011/PFMatchit .txt file (single camera)"
+  end
+  
+  def start_export(w, h)
+    @width = w
+    @height = h
   end
   
   def start_tracker_segment(tracker_name)
@@ -36,7 +43,7 @@ class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base
   
   def export_point(frame, abs_float_x, abs_float_y, float_residual)
     @frame_count += 1
-    line = KEYFRAME_TEMPLATE % [frame_number(frame), abs_float_x, abs_float_y, float_residual / 8]
+    line = KEYFRAME_TEMPLATE % [frame_number(frame), to_pfcoord(abs_float_x), to_pfcoord(abs_float_y), float_residual / 8]
     @tracker_io.write(line)
     @tracker_io.write(linebreak)
   end

@@ -1,3 +1,7 @@
+* Multiple subpixel accuracy tests added
+* Subpixel accuracy fixed for Syntheyes modules
+* Subpixel accuracy fixed for PFTrack modules
+
 === 2.12.0
 
 * Add an export module for Nuke's CameraTracker node. This is just like the Shake format, except that tracker names have to be special.

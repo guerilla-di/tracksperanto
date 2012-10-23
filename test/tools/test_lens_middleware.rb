@@ -29,7 +29,7 @@ class LensToolTest < Test::Unit::TestCase
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920, 1080)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once.with(1, approx(66.03), approx(43.978), approx(0))
+    receiver.should_receive(:export_point).once.with(1, approx(66.06), approx(43.99), approx(0))
     
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
@@ -46,7 +46,7 @@ class LensToolTest < Test::Unit::TestCase
     receiver = flexmock
     receiver.should_receive(:start_export).once.with(1920, 1080)
     receiver.should_receive(:start_tracker_segment).once.with("Tracker")
-    receiver.should_receive(:export_point).once.with(1, approx(11.999914830236555), approx(13.99995274335909), 0)
+    receiver.should_receive(:export_point).once.with(1, approx(11.96), approx(13.98), 0)
     receiver.should_receive(:end_tracker_segment).once
     receiver.should_receive(:end_export).once
     

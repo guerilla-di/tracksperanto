@@ -2,7 +2,7 @@
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class SyntheyesImportTest < Test::Unit::TestCase
-  DELTA = 0.9 # our SynthEyes sample is somewhat inaccurate :-P
+  DELTA = 0.01 # our SynthEyes sample is somewhat inaccurate :-P
   
   def test_introspects_properly
     i = Tracksperanto::Import::Syntheyes
@@ -21,8 +21,8 @@ class SyntheyesImportTest < Test::Unit::TestCase
     assert_equal "Tracker1", trackers[0].name
     
     assert_equal 0, first_kf.frame
-    assert_in_delta 715.839, first_kf.abs_x, DELTA
-    assert_in_delta 886.212, first_kf.abs_y, DELTA
+    assert_in_delta 715.221, first_kf.abs_x, DELTA
+    assert_in_delta 885.679, first_kf.abs_y, DELTA
     assert_in_delta 0.0, first_kf.residual, DELTA
   end
   

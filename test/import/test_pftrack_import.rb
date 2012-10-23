@@ -38,12 +38,12 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal 341, trackers[0].keyframes.length
     
     assert_equal 41, first_kf.frame
-    assert_in_delta 984.611, first_kf.abs_x, DELTA
-    assert_in_delta 30.220, first_kf.abs_y, DELTA
+    assert_in_delta 985.111, first_kf.abs_x, DELTA
+    assert_in_delta 30.72, first_kf.abs_y, DELTA
     assert_in_delta 0.0, first_kf.residual, DELTA
     
     last_kf = trackers[0].keyframes[-1]
-    assert_in_delta 729.330, last_kf.abs_x, DELTA
+    assert_in_delta 729.83, last_kf.abs_x, DELTA
     
     assert_equal "Tracker41", trackers[-1].name
     assert_equal 467, trackers[-1].keyframes.length
@@ -83,11 +83,11 @@ class PFTrackImportTest < Test::Unit::TestCase
     
     assert_equal "Auto_00016_Primary", acc[18].name
     assert_equal 34, acc[18].length
-    assert_in_delta 1331.017, acc[18][0].abs_x, DELTA
+    assert_in_delta 1331.517, acc[18][0].abs_x, DELTA
     
     assert_equal "Auto_00016_Secondary", acc[19].name
     assert_equal 34, acc[19].length
-    assert_in_delta 1335.609, acc[19][0].abs_x, DELTA
+    assert_in_delta 1336.109, acc[19][0].abs_x, DELTA
     
     assert_equal "Auto_00021_Primary", acc[20].name
     assert_equal 0, acc[20].length

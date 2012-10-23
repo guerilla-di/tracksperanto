@@ -20,8 +20,8 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
       # Add the keyframe
       k = Tracksperanto::Keyframe.new do |e| 
         e.frame = frame
-        e.abs_x = convert_from_uv(width, x)
-        e.abs_y = height - convert_from_uv(height, y) # Convert TL to BL
+        e.abs_x = convert_from_uv(x, width)
+        e.abs_y = height - convert_from_uv(y, height) # Convert TL to BL
       end
       
       @last_tracker.push(k)

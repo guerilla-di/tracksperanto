@@ -103,6 +103,7 @@ end
   buffering_reader
   parameters
   yield_non_empty
+  pf_coords
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

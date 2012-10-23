@@ -1,0 +1,14 @@
+# "Name"
+# clipNumber
+# frameCount
+# frame, xpos, ypos, similarity
+
+"lowerLeft"
+1
+1
+1 0.000002 -0.000002 1.000000
+
+"upperRight"
+1
+1
+1 714.999023 571.000122 1.000000

@@ -58,7 +58,7 @@ class Tracksperanto::Tool::LensDisto < Tracksperanto::Tool::Base
   def with_uv(x, y)
     vec = Vector2.new(convert_to_uv(x, @width), convert_to_uv(y, @height))
     yield(vec)
-    [convert_from_uv(@width, vec.x), convert_from_uv(@height, vec.y)]
+    [convert_from_uv(vec.x, @width), convert_from_uv(vec.y, @height)]
   end
   
   # Radius is equal to aspect at the rightmost extremity

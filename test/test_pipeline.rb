@@ -146,7 +146,7 @@ class TestPipeline < Test::Unit::TestCase
   
   def test_importing_file_with_trackers_of_zero_length_does_not_accumulate_any_trackers
     pft_with_empty_trackers = "./import/samples/pftrack5/empty_trackers.2dt"
-    i = Tracksperanto::Import::PFTrack.new(:io => File.open(pft_with_empty_trackers))
+    i = Tracksperanto::Import::PFTrack.new(:io => File.open(pft_with_empty_trackers), :width => 1920, :height => 1080)
     tks = i.to_a
     assert_equal 3, tks.length
     assert_equal 0, tks[0].length, "The tracker should have 0 keyframes for this test to make sense"

@@ -1,0 +1,310 @@
+StabilizerFileVersion 5.0
+CreationDate Fri Oct 19 14:18:41 2012
+
+
+NbTrackers 2
+Selected 0
+FrameWidth 720
+FrameHeight 576
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan yes
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 0
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel tracker1/ref/x
+	Extrapolation constant
+	Value 0.5
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0.5
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/y
+	Extrapolation constant
+	Value 0.5
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0.5
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/width
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/height
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 2
+	Key 0
+		Frame 0
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY 0
+		LHandle_dX -0.333333343
+		LHandle_dY 0
+		ValueLock yes
+		DeleteLock yes
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY 0
+		LHandle_dX -0.333333343
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 2
+	KeyVersion 2
+	Key 0
+		Frame 0
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY 0
+		LHandle_dX -0.333333343
+		LHandle_dY 0
+		ValueLock yes
+		DeleteLock yes
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY 0
+		LHandle_dX -0.333333343
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker1/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker1/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/shift/x
+	Extrapolation linear
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 255 0 0
+	End
+Channel tracker1/shift/y
+	Extrapolation linear
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 255 0 0
+	End
+Channel tracker1/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker1/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker2/ref/x
+	Extrapolation constant
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker2/ref/y
+	Extrapolation constant
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker2/ref/width
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/height
+	Extrapolation constant
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 0
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		ValueLock yes
+		DeleteLock yes
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 0
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		ValueLock yes
+		DeleteLock yes
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/track/x
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker2/track/y
+	Extrapolation linear
+	Value 288
+	Colour 50 50 50
+	End
+Channel tracker2/track/width
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/track/height
+	Extrapolation constant
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/shift/x
+	Extrapolation linear
+	Value 0
+	Colour 0 255 0
+	End
+Channel tracker2/shift/y
+	Extrapolation linear
+	Value 0
+	Colour 0 255 0
+	End
+Channel tracker2/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker2/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 100
+		Green 0
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+Tracker 1
+	Active no
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+End

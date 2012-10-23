@@ -15,6 +15,7 @@ Jeweler::Tasks.new do |gem|
   # Do not package up test fixtures
   gem.files.exclude "test/import/samples"
   gem.files.exclude "test/import/samples/*/*.*"
+  gem.files.exclude "test/subpixel"
   
   # Do not package invisibles
   gem.files.exclude ".*"

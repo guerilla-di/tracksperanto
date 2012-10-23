@@ -18,6 +18,13 @@ in the Gemfile plus Bundler. Please develop against the git repo checkout since 
 * Carry your development, in your own branch or feature branch
 * File a pull request or send a patch to info at guerilla-di.org
 
+=== Internal tracker representation
+
+The trackers are represented by Tracker objects, which work like addressable hashes per frame number. The Tracker objects
+contain Keyframe objects, and those in turn contain coordinates. The coordinates are stored in absolute pixels, relative to
+the zero coordinate in the lower left corner. The absolute left/bottom of the image has coordinates 0,0 (at the lower left corner of the
+first pixel) and 0.5x0.5 in the middle of the leftmost lower pixel.
+
 === Importing your own formats
 
 You can easily write a Tracksperanto import module - refer to Tracksperanto::Import::Base

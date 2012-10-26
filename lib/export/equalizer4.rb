@@ -10,6 +10,12 @@ class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
     "3DE v4 point export .txt file"
   end
   
+  # Citing Michael Karp here:
+  # 3DE always starts at frame 1, no matter what the original padded image sequence numbering is.
+  def self.new(*args)
+    Tracksperanto::Tool::MoveToFirst.new(super)
+  end
+  
   def start_export( img_width, img_height)
     # 3DE needs to know the number of points in advance,
     # so we will just buffer to a StringIO

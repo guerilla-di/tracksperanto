@@ -37,7 +37,7 @@ class PFTrackImportTest < Test::Unit::TestCase
     assert_equal "Tracker1", trackers[0].name
     assert_equal 341, trackers[0].keyframes.length
     
-    assert_equal 41, first_kf.frame
+    assert_equal 40, first_kf.frame
     assert_in_delta 985.111, first_kf.abs_x, DELTA
     assert_in_delta 30.72, first_kf.abs_y, DELTA
     assert_in_delta 0.0, first_kf.residual, DELTA

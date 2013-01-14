@@ -1,4 +1,6 @@
-* Add a Maxscript export
+=== 3.1.0
+
+* Add a Maxscript export module
 
 === 3.0.1
 

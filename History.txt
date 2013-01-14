@@ -1,3 +1,5 @@
+* Add a Maxscript export
+
 === 3.0.1
 
 * Subtract 1 frame from PFTrack imports (PFTrack starts on 1)

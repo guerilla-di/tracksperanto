@@ -54,26 +54,13 @@ converted files already exist <b>they will be overwritten without warning</b>.
 
 == Format support
 
-Import and export support:
-* Nuke v5 script (Tracker3 nodes, also known as Tracker in the UI - this is the node that you track with, and Reconcile3D)
-* Shake tracker node export (textfile with many tracks per file)
-* PFTrack 2dt (version 4 and 5) anf PFMatchit/PFTrack 2011 point track exports
-* Syntheyes 2D tracking data exports
-* 3DE point exports (as output by the default script) - versions 3 and 4
-* MatchMover Pro .rz2
-* MayaLive track export (square pixel aspect only, you will need to write some extra code if your tracks are based on nonsquare pixels)
-* Flame .stabilizer file
-* Boujou feature track export
+Formats supported for importing are:
 
-Import only:
-* Shake scripts (Tracker, Matchmove and Stabilize nodes embedded in ANY shake script)
-* MatchMover RZML files
+:include:EXPORT_FORMATS.rdoc
 
-Export only:
-* AfterEffects .jsx script that creates one null object per tracker (run through the script editor)
-* Ruby (will make calls to Tracksperanto to create trackers/keyframes) - useful if you want to play with trackers as data
-* Maya locators (animated locators on an image plane)
-* Softimage/XSI Python script (animated nulls on an image plane)
+Formats supported for exporting are:
+
+:include:IMPORT_FORMATS.rdoc
 
 == Editing your tracks while converting
 

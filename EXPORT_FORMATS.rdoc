@@ -1,0 +1,19 @@
+* 3DE v3 point export .txt file
+* 3DE v4 point export .txt file
+* AfterEffects .jsx script generating null layers
+* Autodesk 3dsmax script for nulls on an image plane
+* Autodesk Softimage nulls Python script
+* Bare Ruby code
+* Flame/Smoke 2D Stabilizer setup
+* Flame/Smoke 2D Stabilizer setup for bilinear corner pins
+* MatchMover REALVIZ Ascii Point Tracks .rz2 file
+* Maya ASCII scene with locators on an image plane
+* MayaLive track export
+* Nuke .nk script
+* Nuke CameraTracker node autotracks (enable import/export in the Tracking tab)
+* PFTrack v4 .2dt file
+* PFTrack v5 .2dt file (single camera)
+* PFTrack2011/PFMatchit .txt file (single camera)
+* Shake trackers in a .txt file
+* Syntheyes 2D tracker paths file
+* boujou feature tracks

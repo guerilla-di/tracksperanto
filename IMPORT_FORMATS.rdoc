@@ -1,0 +1,13 @@
+* 3DE v3 point export file
+* 3DE v4 point export file
+* Boujou feature tracks export
+* Flame .stabilizer file
+* MatchMover REALVIZ Ascii Point Tracks .rz2 file
+* MatchMover RZML .rzml file
+* Maya Live track export file
+* Nuke .nk script file with Tracker, Reconcile3D and PlanarTracker nodes
+* PFTrack/PFMatchit .2dt file
+* Shake .shk script file
+* Shake .txt tracker file and Nuke CameraTracker auto tracks export
+* Syntheyes "All Tracker Paths" export .txt file
+* Syntheyes 2D tracker paths file

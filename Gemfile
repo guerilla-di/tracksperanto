@@ -13,4 +13,5 @@ group :development do
   gem "rake"
   gem "flexmock", "~>0.8"
   gem "cli_test", "~>1.0"
+  gem "rake-hooks"
 end

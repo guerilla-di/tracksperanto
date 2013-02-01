@@ -33,16 +33,31 @@ Rake::TestTask.new("test") do |t|
   t.verbose = true
 end
 
+# Automatically update the supported format list
 after :test do
-  File.open(File.dirname(__FILE__) + "/EXPORT_FORMATS.rdoc", "w") do | f |
-    Tracksperanto.exporters.each do | export_module |
-      f.puts("* %s" % export_module.human_name)
-    end
+  formats = StringIO.new
+  
+  formats.puts(" ")
+  formats.puts('=== Formats Tracksperanto can read')
+  formats.puts(" ")
+  Tracksperanto.importers.each do | import_mdoule |
+    formats.puts("* %s" % import_mdoule.human_name)
   end
-  File.open(File.dirname(__FILE__) + "/IMPORT_FORMATS.rdoc", "w") do | f |
-    Tracksperanto.importers.each do | import_mdoule |
-      f.puts("* %s" % import_mdoule.human_name)
-    end
+  
+  formats.puts(" ")
+  formats.puts('=== Formats Tracksperanto can export to')
+  formats.puts(" ")
+  Tracksperanto.exporters.each do | export_module |
+    formats.puts("* %s" % export_module.human_name)
+  end
+  
+  readme_text = File.read(File.dirname(__FILE__) + "/README.rdoc")
+  three = readme_text.split('---')
+  raise "Should split in 3" unless three.length == 3
+  three[1] = formats.string
+  
+  File.open(File.dirname(__FILE__) + "/README.rdoc", "w") do | f |
+    f.write(three.join('---'))
   end
 end
 

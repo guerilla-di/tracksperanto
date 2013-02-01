@@ -54,13 +54,46 @@ converted files already exist <b>they will be overwritten without warning</b>.
 
 == Format support
 
-Formats supported for importing are:
+--- 
+=== Formats Tracksperanto can read
+ 
+* 3DE v3 point export file
+* 3DE v4 point export file
+* Boujou feature tracks export
+* Flame .stabilizer file
+* MatchMover REALVIZ Ascii Point Tracks .rz2 file
+* MatchMover RZML .rzml file
+* Maya Live track export file
+* Nuke .nk script file with Tracker, Reconcile3D and PlanarTracker nodes
+* PFTrack/PFMatchit .2dt file
+* Shake .shk script file
+* Shake .txt tracker file and Nuke CameraTracker auto tracks export
+* Syntheyes "All Tracker Paths" export .txt file
+* Syntheyes 2D tracker paths file
+ 
+=== Formats Tracksperanto can export to
+ 
+* 3DE v3 point export .txt file
+* 3DE v4 point export .txt file
+* AfterEffects .jsx script generating null layers
+* Autodesk 3dsmax script for nulls on an image plane
+* Autodesk Softimage nulls Python script
+* Bare Ruby code
+* Flame/Smoke 2D Stabilizer setup
+* Flame/Smoke 2D Stabilizer setup for bilinear corner pins
+* MatchMover REALVIZ Ascii Point Tracks .rz2 file
+* Maya ASCII scene with locators on an image plane
+* MayaLive track export
+* Nuke .nk script
+* Nuke CameraTracker node autotracks (enable import/export in the Tracking tab)
+* PFTrack v4 .2dt file
+* PFTrack v5 .2dt file (single camera)
+* PFTrack2011/PFMatchit .txt file (single camera)
+* Shake trackers in a .txt file
+* Syntheyes 2D tracker paths file
+* boujou feature tracks
+---
 
-:include:EXPORT_FORMATS.rdoc
-
-Formats supported for exporting are:
-
-:include:IMPORT_FORMATS.rdoc
 
 == Editing your tracks while converting
 

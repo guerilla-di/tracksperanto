@@ -1,4 +1,3 @@
-#! /mnt/maitre-d/linux/thefoundry/Nuke7.0v2/Nuke7.0 -nx
 version 7.0 v2
 define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 <layout version="1.0">

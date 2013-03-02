@@ -1,6 +1,7 @@
 # -*- ruby -*-
 source :rubygems
 
+gem "tickly", "~> 0.0.1"
 gem "obuf", "~> 1.1.0"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"

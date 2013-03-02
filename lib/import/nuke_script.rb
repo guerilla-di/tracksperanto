@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'delegate'
 require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
+require 'tickly'
 
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
@@ -17,84 +18,81 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   end
   
   def each
-    io = Tracksperanto::ExtIO.new(@io)
-    while line = io.gets_and_strip
-      if line =~ TRACKER_3_PATTERN
-        scan_tracker_node(io).each(&Proc.new)
-      elsif line =~ RECONCILE_PATTERN
-        scan_reconcile_node(io).each(&Proc.new)
-      elsif line =~ PLANAR_PATTERN
-        scan_planar_tracker_node(io).each(&Proc.new)
+    script_tree = Tickly::Parser.new.parse(@io)
+    evaluator = Tickly::Evaluator.new
+    evaluator.add_node_handler_class(Tracker3)
+    evaluator.add_node_handler_class(Reconcile3D)
+    evaluator.add_node_handler_class(PlanarTracker1_0)
+    
+    script_tree.each do | node |
+      result = evaluator.evaluate(node)
+      if result
+        result.trackers.each do | t |
+          report_progress("Scavenging tracker #{t.name}")
+          yield t
+        end
       end
     end
   end
   
-  private
+  class Tracker3
+    include Tracksperanto::ZipTuples
+    attr_reader :trackers
+
     
-    TRACKER_3_PATTERN = /^Tracker3 \{/
-    RECONCILE_PATTERN = /^Reconcile3D \{/
-    PLANAR_PATTERN = /^PlanarTracker1_0 \{/
-    OUTPUT_PATTERN = /^output \{/
-    TRACK_PATTERN = /^track(\d) \{/
-    NODENAME = /^name ([^\n]+)/
-    PLANAR_CORNERS = %w( outputBottomLeft outputBottomRight outputTopLeft outputTopRight)
-    
-    # Scans a Reconcile3D node and returs it's output
-    def scan_reconcile_node(io)
-      t = Tracksperanto::Tracker.new
-      while line = io.gets_and_strip
-        if line =~ OUTPUT_PATTERN
-          t = extract_tracker(line)
-        elsif line =~ NODENAME
-          t.name = "Reconcile_#{$1}"
-          report_progress("Scavenging Reconcile3D node #{t.name}")
-          return [t] # Klunky
-        end
-      end
-    end
-    
-    # Scans a PlanarTracker node and recovers corner pin
-    def scan_planar_tracker_node(io)
-      trackers, node_name = [], nil
-      while line = io.gets_and_strip
-        PLANAR_CORNERS.each do | corner_name |
-          if line =~ /#{corner_name}/
-            t = Tracksperanto::Tracker.new
-            t = extract_tracker(line)
-            t.name = corner_name
-            trackers.push(t.dup)
-          elsif line =~ NODENAME
-            node_name = $1
+    def initialize(options)
+      @trackers = []
+      point_channels.each do | point_name |
+        next unless options[point_name]
+        point_channel = options[point_name]
+        
+        curves = extract_curves_from_channel(point_channel)
+        
+        # We must always have 2 anim curves
+        next unless curves.length == 2
+        
+        full_name = [options["name"], point_name].join('_')
+        frame_x_and_y = zip_curve_tuples(curves[0], curves[1])
+        tracker = Tracksperanto::Tracker.new(:name => full_name) do | t |
+          frame_x_and_y.each do | (f, x, y) |
+              t.keyframe!(:frame => (f -1), :abs_x => x, :abs_y => y) 
           end
         end
         
-        if node_name && trackers.length == 4
-          trackers.each{|t| t.name = "%s_%s" % [node_name, t.name] }
-          return trackers
-        end
+        @trackers << tracker
       end
-      
-      # Fail
-      return []
     end
     
-    # Scans a tracker node and return all tracks within that node (no more than 4)
-    def scan_tracker_node(io)
-      tracks_in_tracker = []
-      while line = io.gets_and_strip
-        if line =~ TRACK_PATTERN
-          t = extract_tracker(line)
-          tracks_in_tracker.push(t) if t
-        elsif line =~ NODENAME
-          tracks_in_tracker.each_with_index do | t, i |
-            t.name = "#{$1}_track#{i+1}"
-            report_progress("Scavenging Tracker3 node #{t.name}")
-          end
-          return tracks_in_tracker
+    def extract_curves_from_channel(point_channel)
+      u = Tracksperanto::NukeGrammarUtils.new
+      point_channel.to_a.map do | curve_argument | 
+        if curve_argument[0] == "curve"
+          u.parse_curve(curve_argument.to_a)
+        else
+          nil
         end
-      end
-      raise "Tracker node went all the way to end of stream"
+      end.compact
     end
+    
+    def point_channels
+      %w( track1 track2 track3 track4 )
+    end
+    
+  end
+  
+  class Reconcile3D < Tracker3
+    def point_channels
+      %w( output)
+    end
+  end
+  
+  class PlanarTracker1_0 < Tracker3
+    def point_channels
+      %w( outputBottomLeft outputBottomRight outputTopLeft outputTopRight)
+    end
+  end
+  
+  private
     
     def scan_track(line_with_curve)
       x_curve, y_curve = line_with_curve.split(/\}/).map do | one_curve| 
@@ -104,13 +102,4 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       zip_curve_tuples(x_curve, y_curve)
     end
     
-    def extract_tracker(line)
-      tuples = scan_track(line)
-      return nil unless (tuples && tuples.any?)
-      Tracksperanto::Tracker.new do | t |
-        tuples.each do | (f, x, y) |
-            t.keyframe!(:frame => (f -1), :abs_x => x, :abs_y => y) 
-        end
-      end
-    end
 end

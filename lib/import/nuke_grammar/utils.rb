@@ -4,9 +4,10 @@ class Tracksperanto::NukeGrammarUtils
   KEYFRAME = /^([-\d\.]+)$/
   
   # Scan a TCL curve expression into a number of tuples of [frame, value]
-  def parse_curve(curve_text)
+  def parse_curve(atoms)
     # Replace the closing curly brace with a curly brace with space so that it gets caught by split
-    atoms, tuples = curve_text.gsub(/\}/m, ' }').split, []
+    atoms.shift # remove the "curve" keyword
+    tuples = []
     # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,
     # after which values follow. When the curve is interrupted in some way a new x(keyframe_number) will signifu that we
     # skip to that specified keyframe and the curve continues from there, in gap size defined by the last fragment.
@@ -24,8 +25,6 @@ class Tracksperanto::NukeGrammarUtils
       elsif  atom =~ KEYFRAME
         tuples << [last_processed_keyframe, $1.to_f]
         last_processed_keyframe += intraframe_gap_size
-      elsif atom == '}'
-        return tuples
       end
     end
     tuples

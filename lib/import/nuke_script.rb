@@ -81,7 +81,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     
     def extract_curves_from_channel(point_channel)
       u = Tracksperanto::NukeGrammarUtils.new
-      point_channel.to_a.map do | curve_argument | 
+      # First element is the :c curly identifier
+      point_channel[1..-1].map do | curve_argument | 
         if curve_argument[1] == "curve"
           u.parse_curve(curve_argument.to_a)
         else
@@ -119,8 +120,6 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       headers = tracks[2]
       values = tracks[3]
       
-      table_headers = headers[0].map{|header| header[0][-1]}
-      #puts table_headers.inspect
       # When this was written, this was the order of the columns in the table:
       # le("e", "name", "track_x", "track_y", "offset_x", "offset_y", "T", "R", "S", "error", 
       #  "error_min", "error_max", "pattern_x", "pattern_y", "pattern_r", "pattern_t", "search_x",

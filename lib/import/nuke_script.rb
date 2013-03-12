@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
-require 'delegate'
-require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
 require 'tickly'
+require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
 
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
@@ -17,18 +16,29 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     'The only supported nodes that we can extract tracks from are Reconcile3D, PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
   end
   
+  class Tickly::Parser
+  end
+  
+  class Levaluator < Tickly::Evaluator
+    def evaluate(expr)
+      s = super
+      yield(s) if s
+    end
+  end
+  
   def each
+    parser = Tickly::NodeExtractor.new("Tracker3", "Tracker4", "PlanarTracker1_0", "Reconcile3D")
     script_tree = Tickly::Parser.new.parse(@io)
-    evaluator = Tickly::Evaluator.new
+    
+    evaluator = Levaluator.new
     evaluator.add_node_handler_class(Tracker3)
     evaluator.add_node_handler_class(Reconcile3D)
     evaluator.add_node_handler_class(PlanarTracker1_0)
     evaluator.add_node_handler_class(Tracker4)
     
     script_tree.each do | node |
-      result = evaluator.evaluate(node)
-      if result
-        result.trackers.each do | t |
+      evaluator.evaluate(node) do | node_object |
+        node_object.trackers.each do | t |
           report_progress("Scavenging tracker #{t.name}")
           yield t
         end
@@ -72,7 +82,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     def extract_curves_from_channel(point_channel)
       u = Tracksperanto::NukeGrammarUtils.new
       point_channel.to_a.map do | curve_argument | 
-        if curve_argument[0] == "curve"
+        if curve_argument[1] == "curve"
           u.parse_curve(curve_argument.to_a)
         else
           nil
@@ -105,9 +115,9 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       @name = options["name"]
       @trackers = []
       tracks = options["tracks"]
-      preamble = tracks[0]
-      headers = tracks[1]
-      values = tracks[2]
+      preamble = tracks[1]
+      headers = tracks[2]
+      values = tracks[3]
       
       table_headers = headers[0].map{|header| header[0][-1]}
       #puts table_headers.inspect
@@ -120,10 +130,12 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       
       u = Tracksperanto::NukeGrammarUtils.new
       
-      tracker_rows.each do | row |
-        row_content = row[0][0]
+      # The 0 element is the :c symbol
+      tracker_rows[1..-1].each do | row |
+        row_content = row[0]
+        
         # For offsets see above
-        point_name, x_curve, y_curve = row_content[1], u.parse_curve(row_content[2].to_a), u.parse_curve(row_content[3].to_a)
+        point_name, x_curve, y_curve = row_content[2], u.parse_curve(row_content[3].to_a), u.parse_curve(row_content[4].to_a)
         
         full_name = [options["name"], point_name].join('_')
         tracker = package_tracker(full_name, x_curve, y_curve)

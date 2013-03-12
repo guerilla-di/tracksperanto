@@ -6,6 +6,7 @@ class Tracksperanto::NukeGrammarUtils
   # Scan a TCL curve expression into a number of tuples of [frame, value]
   def parse_curve(atoms)
     # Replace the closing curly brace with a curly brace with space so that it gets caught by split
+    atoms.shift # remove the :c curly designator
     atoms.shift # remove the "curve" keyword
     tuples = []
     # Nuke saves curves very efficiently. x(keyframe_number) means that an uninterrupted sequence of values will start,

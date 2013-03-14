@@ -1,0 +1,112 @@
+#! C:/InstallsNuke/Nuke-7.0v5/64bit/Nuke7.0.exe -nx
+version 7.0 v5
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="1920" y="0" w="1920" h="1200" fullscreen="1" screen="0">
+        <splitter orientation="1">
+            <split size="574"/>
+            <splitter orientation="2">
+                <split size="1067"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+                <split size="106"/>
+                <dock id="" activePageId="Progress.1">
+                    <page id="Progress.1"/>
+                </dock>
+            </splitter>
+            <split size="1342"/>
+            <splitter orientation="2">
+                <split size="1177"/>
+                <dock id="" activePageId="DAG.1">
+                    <page id="Curve Editor.1"/>
+                    <page id="DAG.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+    <window x="0" y="0" w="1920" h="1200" fullscreen="1" screen="1">
+        <splitter orientation="2">
+            <split size="1200"/>
+            <dock id="" activePageId="Viewer.1">
+                <page id="Script Editor.1"/>
+                <page id="Viewer.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name //spypost/core/projects/125274-SpyQuake/sandboxes/shots/SPQ/SPQ_010/comp_mlester/Nuke/projects/tracker.nk
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+}
+Viewer {
+ inputs 0
+ frame 1
+ input_process false
+ name Viewer1
+ xpos -40
+ ypos -9
+}
+Read {
+ inputs 0
+ file //spypost/core/projects/125274-SpyQuake/sandboxes/shots/SPQ/SPQ_010/comp_mlester/Nuke/output/undistorted_lo/undistorted_lo.%04d.tga
+ format "2496 1872 0 0 2496 1872 1 "
+ proxy_format "2496 1872 0 0 2496 1872 1 "
+ last 1674
+ origset true
+ version 7
+ auto_alpha true
+ name Read13
+ xpos -220
+ ypos -320
+}
+Tracker4 {
+ tracks { { 1 31 2 } 
+{ { 5 1 20 enable e } 
+{ 3 1 75 name name } 
+{ 2 1 58 track_x track_x } 
+{ 2 1 58 track_y track_y } 
+{ 2 1 63 offset_x offset_x } 
+{ 2 1 63 offset_y offset_y } 
+{ 4 1 27 T T } 
+{ 4 1 27 R R } 
+{ 4 1 27 S S } 
+{ 2 0 45 error error } 
+{ 1 1 0 error_min error_min } 
+{ 1 1 0 error_max error_max } 
+{ 1 1 0 pattern_x pattern_x } 
+{ 1 1 0 pattern_y pattern_y } 
+{ 1 1 0 pattern_r pattern_r } 
+{ 1 1 0 pattern_t pattern_t } 
+{ 1 1 0 search_x search_x } 
+{ 1 1 0 search_y search_y } 
+{ 1 1 0 search_r search_r } 
+{ 1 1 0 search_t search_t } 
+{ 2 1 0 key_track key_track } 
+{ 2 1 0 key_search_x key_search_x } 
+{ 2 1 0 key_search_y key_search_y } 
+{ 2 1 0 key_search_r key_search_r } 
+{ 2 1 0 key_search_t key_search_t } 
+{ 2 1 0 key_track_x key_track_x } 
+{ 2 1 0 key_track_y key_track_y } 
+{ 2 1 0 key_track_r key_track_r } 
+{ 2 1 0 key_track_t key_track_t } 
+{ 2 1 0 key_centre_offset_x key_centre_offset_x } 
+{ 2 1 0 key_centre_offset_y key_centre_offset_y } 
+} 
+{ 
+ { {curve K x1130 1} "track 1" {curve R x1129 1384.5 1319.5 1263.5 1180.5 1139.5 1046 922.5 787 857.5 950.5 1042 1162 1231 1236} {curve R x1129 1657 1663.5 1608 1546 1464.5 1471 1438 1506 1431.5 1361 1340.5 1410.5 1661 2083} {curve K x1130 0} {curve K x1130 0} 1 0 0 {curve x1129 0 0 0 0 0 0 0 0 0 0 0 0 0} 0 0 -39 -39 39 39 -27 -27 27 27 {curve} {curve x1129 1318 1254 1198 1114 1074 980 856 721 792 884 976 1096 1165} {curve x1129 1591 1598 1542 1480 1398 1405 1372 1440 1366 1295 1274 1344 1595} {curve x1129 1449 1385 1329 1245 1205 1111 987 852 923 1015 1107 1227 1296} {curve x1129 1722 1729 1673 1611 1529 1536 1503 1571 1497 1426 1405 1475 1726} {curve x1129 1345 1281 1225 1141 1101 1007 883 748 819 911 1003 1123 1192} {curve x1129 1618 1625 1569 1507 1425 1432 1399 1467 1393 1322 1301 1371 1622} {curve x1129 1422 1358 1302 1218 1178 1084 960 825 896 988 1080 1200 1269} {curve x1129 1695 1702 1646 1584 1502 1509 1476 1544 1470 1399 1378 1448 1699} {curve x1129 39 38 38 39 38 38.5 39 38.5 38 39 38.5 38.5 38.5} {curve x1129 38.5 38 38.5 38.5 39 38.5 38.5 38.5 38 38.5 39 39 38.5}  } 
+ { {curve K x1143 1} "track 2" {curve x1129 1278 1249 1214 1230 1154 1050 958 844 894 1056 1294 1498 1630 1740 1832 1920} {curve x1129 632 604 564 488 442 416 376 326 248 254 304 488 740 992 1324 1718} {curve K x1143 0} {curve K x1143 0} 0 0 0 {curve x1129 0 0 0 0 0 0 0 0 0 0 x1140 0 x1141 0 0 0 0} 0 0 -39 -39 39 39 -27 -27 27 27 {curve} {curve x1129 1212 1183 1148 1164 1088 984 892 778 828 990 x1140 1432 x1141 1564 1674 1766 1854} {curve x1129 566 538 498 422 376 350 310 260 182 188 x1140 422 x1141 674 926 1258 1652} {curve x1129 1343 1314 1279 1295 1219 1115 1023 909 959 1121 x1140 1563 x1141 1695 1805 1897 1985} {curve x1129 697 669 629 553 507 481 441 391 313 319 x1140 553 x1141 805 1057 1389 1783} {curve x1129 1239 1210 1175 1191 1115 1011 919 805 855 1017 x1140 1459 x1141 1591 1701 1793 1881} {curve x1129 593 565 525 449 403 377 337 287 209 215 x1140 449 x1141 701 953 1285 1679} {curve x1129 1316 1287 1252 1268 1192 1088 996 882 932 1094 x1140 1536 x1141 1668 1778 1870 1958} {curve x1129 670 642 602 526 480 454 414 364 286 292 x1140 526 x1141 778 1030 1362 1756} {curve x1129 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 x1140 38.5 x1141 38.5 38.5 38.5 38.5} {curve x1129 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 38.5 x1140 38.5 x1141 38.5 38.5 38.5 38.5}  } 
+} 
+}
+
+translate {{curve x1 0 x1129 0 x1130 -65 -121 -204 -245 -338.5 -462 -597.5 -527 -434 -342.5 -222.5 -153.5 -148.5} {curve x1 0 x1129 0 x1130 6.5 -49 -111 -192.5 -186 -219 -151 -225.5 -296 -316.5 -246.5 4 426}}
+center {{curve x1129 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5 77242.5} {curve x1129 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159 -23159}}
+name Tracker5
+xpos -220
+ypos -236
+}

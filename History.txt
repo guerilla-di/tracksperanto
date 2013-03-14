@@ -1,3 +1,7 @@
+=== 3.2.1
+
+* Improve Nuke 7 import support with the new version of Tickly
+
 === 3.2.0
 
 * Add Nuke 7 import support

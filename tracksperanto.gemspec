@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "3.2.0"
+  s.version = "3.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2013-03-02"
+  s.date = "2013-03-14"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -212,7 +212,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<tickly>, ["~> 0.0.2"])
+      s.add_runtime_dependency(%q<tickly>, ["~> 0.0.4"])
       s.add_runtime_dependency(%q<obuf>, ["~> 1.1.0"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
@@ -225,7 +225,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_development_dependency(%q<rake-hooks>, [">= 0"])
     else
-      s.add_dependency(%q<tickly>, ["~> 0.0.2"])
+      s.add_dependency(%q<tickly>, ["~> 0.0.4"])
       s.add_dependency(%q<obuf>, ["~> 1.1.0"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
@@ -239,7 +239,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake-hooks>, [">= 0"])
     end
   else
-    s.add_dependency(%q<tickly>, ["~> 0.0.2"])
+    s.add_dependency(%q<tickly>, ["~> 0.0.4"])
     s.add_dependency(%q<obuf>, ["~> 1.1.0"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])

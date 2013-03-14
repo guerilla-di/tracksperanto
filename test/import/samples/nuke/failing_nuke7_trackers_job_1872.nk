@@ -38,7 +38,7 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 }
 Root {
  inputs 0
- name //spypost/core/projects/125274-SpyQuake/sandboxes/shots/SPQ/SPQ_010/comp_mlester/Nuke/projects/tracker.nk
+ name //redacted/SPQ/SPQ_010/comp_mlester/Nuke/projects/tracker.nk
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
  proxy_type scale
  proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
@@ -53,7 +53,7 @@ Viewer {
 }
 Read {
  inputs 0
- file //spypost/core/projects/125274-SpyQuake/sandboxes/shots/SPQ/SPQ_010/comp_mlester/Nuke/output/undistorted_lo/undistorted_lo.%04d.tga
+ file //redacted/SPQ/SPQ_010/comp_mlester/Nuke/output/undistorted_lo/undistorted_lo.%04d.tga
  format "2496 1872 0 0 2496 1872 1 "
  proxy_format "2496 1872 0 0 2496 1872 1 "
  last 1674

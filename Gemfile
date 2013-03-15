@@ -8,6 +8,8 @@ gem "flame_channel_parser", "~> 4.0"
 gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
 
+gem "bychar", "~> 1.0"
+
 group :development do
   gem "approximately"
   gem "jeweler"

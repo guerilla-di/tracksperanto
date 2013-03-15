@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'bychar'
+
 module Tracksperanto::ShakeGrammar
   class WrongInputError < RuntimeError; end
   
@@ -25,9 +27,9 @@ module Tracksperanto::ShakeGrammar
       # that will cache in chunks, and then read from there byte by byte. This yields a substantial speedup (4.9 seconds for the test
       # as opposed to 7.9 without this). We do check for the proper class only once so that when we use nested lexers
       # we only wrap the passed IO once, and only if necessary.
-      with_io = Tracksperanto::BufferingReader.new(with_io) unless with_io.respond_to?(:read_one_byte)
+      with_io = Bychar::Reader.new(with_io) unless with_io.respond_to?(:read_one_byte)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
-      catch(STOP_TOKEN) { parse until @io.data_exhausted? }
+      catch(STOP_TOKEN) { parse until @io.eof? }
       @in_comment ? consume_comment! : consume_atom!
     end
     

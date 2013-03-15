@@ -100,7 +100,6 @@ end
   buffer_io
   simple_export
   uv_coordinates
-  buffering_reader
   parameters
   yield_non_empty
   pf_coords

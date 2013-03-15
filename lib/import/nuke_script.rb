@@ -16,21 +16,11 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     'The only supported nodes that we can extract tracks from are Reconcile3D, PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
   end
   
-  class Tickly::Parser
-  end
-  
-  class Levaluator < Tickly::Evaluator
-    def evaluate(expr)
-      s = super
-      yield(s) if s
-    end
-  end
-  
   def each
     parser = Tickly::NodeExtractor.new("Tracker3", "Tracker4", "PlanarTracker1_0", "Reconcile3D")
     script_tree = Tickly::Parser.new.parse(@io)
     
-    evaluator = Levaluator.new
+    evaluator = Tickly::Evaluator.new
     evaluator.add_node_handler_class(Tracker3)
     evaluator.add_node_handler_class(Reconcile3D)
     evaluator.add_node_handler_class(PlanarTracker1_0)

@@ -29,7 +29,14 @@ module Tracksperanto::ShakeGrammar
       # we only wrap the passed IO once, and only if necessary.
       with_io = Bychar::Reader.new(with_io) unless with_io.respond_to?(:read_one_byte)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
-      catch(STOP_TOKEN) { parse until @io.eof? }
+      
+      catch(STOP_TOKEN) do
+        begin
+          loop { parse }
+        rescue Bychar::EOFError
+        end
+      end
+      
       @in_comment ? consume_comment! : consume_atom!
     end
     
@@ -46,7 +53,7 @@ module Tracksperanto::ShakeGrammar
     
     def parse
       
-      c = @io.read_one_byte
+      c = @io.read_one_byte!
       
       if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
         raise WrongInputError, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"

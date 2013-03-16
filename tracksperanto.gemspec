@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "3.2.1"
+  s.version = "3.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2013-03-14"
+  s.date = "2013-03-16"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -84,7 +84,6 @@ Gem::Specification.new do |s|
     "lib/tracksperanto.rb",
     "lib/tracksperanto/block_init.rb",
     "lib/tracksperanto/buffer_io.rb",
-    "lib/tracksperanto/buffering_reader.rb",
     "lib/tracksperanto/casts.rb",
     "lib/tracksperanto/const_name.rb",
     "lib/tracksperanto/ext_io.rb",
@@ -168,7 +167,6 @@ Gem::Specification.new do |s|
     "test/subpixel/subpixel_grid.tif",
     "test/subpixel/sy_subpix_2dpaths.txt",
     "test/test_buffer_io.rb",
-    "test/test_bufferingreader.rb",
     "test/test_casts.rb",
     "test/test_cli.rb",
     "test/test_const_name.rb",
@@ -212,8 +210,8 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<tickly>, ["~> 0.0.4"])
-      s.add_runtime_dependency(%q<obuf>, ["~> 1.1.0"])
+      s.add_runtime_dependency(%q<obuf>, ["~> 1.1"])
+      s.add_runtime_dependency(%q<tickly>, ["~> 0.0.8"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_runtime_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -221,12 +219,13 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<approximately>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_development_dependency(%q<flexmock>, ["~> 1.3"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_development_dependency(%q<rake-hooks>, [">= 0"])
+      s.add_development_dependency(%q<ruby-prof>, [">= 0"])
     else
-      s.add_dependency(%q<tickly>, ["~> 0.0.4"])
-      s.add_dependency(%q<obuf>, ["~> 1.1.0"])
+      s.add_dependency(%q<obuf>, ["~> 1.1"])
+      s.add_dependency(%q<tickly>, ["~> 0.0.8"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -234,13 +233,14 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<approximately>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_dependency(%q<flexmock>, ["~> 1.3"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<rake-hooks>, [">= 0"])
+      s.add_dependency(%q<ruby-prof>, [">= 0"])
     end
   else
-    s.add_dependency(%q<tickly>, ["~> 0.0.4"])
-    s.add_dependency(%q<obuf>, ["~> 1.1.0"])
+    s.add_dependency(%q<obuf>, ["~> 1.1"])
+    s.add_dependency(%q<tickly>, ["~> 0.0.8"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
     s.add_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -248,9 +248,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<approximately>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<flexmock>, ["~> 0.8"])
+    s.add_dependency(%q<flexmock>, ["~> 1.3"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<rake-hooks>, [">= 0"])
+    s.add_dependency(%q<ruby-prof>, [">= 0"])
   end
 end
 

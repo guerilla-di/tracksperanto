@@ -1,3 +1,7 @@
+=== 3.2.2
+
+* Bump a whole array of dependencies to speed up and simplify Nuke and Shake parsers
+
 === 3.2.1
 
 * Improve Nuke 7 import support with the new version of Tickly

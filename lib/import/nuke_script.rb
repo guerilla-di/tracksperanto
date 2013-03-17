@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require 'tickly'
-require File.expand_path(File.dirname(__FILE__)) + "/nuke_grammar/utils"
 
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
@@ -70,11 +69,10 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     end
     
     def extract_curves_from_channel(point_channel)
-      u = Tracksperanto::NukeGrammarUtils.new
       # First element is the :c curly identifier
       point_channel[1..-1].map do | curve_argument | 
         if curve_argument[1] == "curve"
-          u.parse_curve(curve_argument.to_a)
+          Tickly::Curve.new(curve_argument)
         else
           nil
         end
@@ -117,14 +115,14 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       # "key_search_t", "key_track_x", "key_track_y", "key_track_r", "key_track_t", "key_centre_offset_x", "key_centre_offset_y")
       tracker_rows = values[0]
       
-      u = Tracksperanto::NukeGrammarUtils.new
-      
       # The 0 element is the :c symbol
       tracker_rows[1..-1].each do | row |
         row_content = row[0]
         
         # For offsets see above
-        point_name, x_curve, y_curve = row_content[2], u.parse_curve(row_content[3].to_a), u.parse_curve(row_content[4].to_a)
+        point_name = row_content[2]
+        x_curve = Tickly::Curve.new(row_content[3])
+        y_curve = Tickly::Curve.new(row_content[4])
         
         full_name = [options["name"], point_name].join('_')
         tracker = package_tracker(full_name, x_curve, y_curve)

@@ -12,17 +12,19 @@ class Tracksperanto::Export::FlameStabilizerCornerpin < Tracksperanto::Export::F
   end
   
   # The trackers for cornerpins should go in Z order, like this
-  #    TL   ->   TR
-  #             /
-  #     _______/
-  #    |
-  #    BL   ->   BR
+  #
+  #     TL(0)---->TR(1)
+  #               /
+  #            /
+  #         /
+  #      /
+  #     BL(2)----->BR(3)
+  #
   # This "kinda tool" ensures that this is indeed taking place
-  class Sorter < DelegateClass(Tracksperanto::Export::Base)
+  class Sorter
     include Tracksperanto::SimpleExport # so that it calls OUR methods
     
     def initialize(exporter)
-      __setobj__(exporter)
       @exp = exporter
     end
     

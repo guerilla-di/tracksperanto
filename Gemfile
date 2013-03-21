@@ -2,7 +2,7 @@
 source :rubygems
 
 gem "obuf", "~> 1.1"
-gem "tickly", "~> 1.0"
+gem "tickly", "~> 2.0"
 gem "bychar"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"

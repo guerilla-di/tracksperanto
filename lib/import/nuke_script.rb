@@ -16,21 +16,16 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   end
   
   def each
-    parser = Tickly::NodeExtractor.new("Tracker3", "Tracker4", "PlanarTracker1_0", "Reconcile3D")
-    script_tree = Tickly::Parser.new.parse(@io)
+    parser = Tickly::NodeProcessor.new
+    parser.add_node_handler_class(Tracker3)
+    parser.add_node_handler_class(Reconcile3D)
+    parser.add_node_handler_class(PlanarTracker1_0)
+    parser.add_node_handler_class(Tracker4)
     
-    evaluator = Tickly::Evaluator.new
-    evaluator.add_node_handler_class(Tracker3)
-    evaluator.add_node_handler_class(Reconcile3D)
-    evaluator.add_node_handler_class(PlanarTracker1_0)
-    evaluator.add_node_handler_class(Tracker4)
-    
-    script_tree.each do | node |
-      evaluator.evaluate(node) do | node_object |
-        node_object.trackers.each do | t |
-          report_progress("Scavenging tracker #{t.name}")
-          yield t
-        end
+    parser.parse(@io) do | node |
+      node.trackers.each do | t |
+        report_progress("Scavenging tracker #{t.name}")
+        yield t
       end
     end
   end

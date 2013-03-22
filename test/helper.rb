@@ -2,10 +2,10 @@
 require "rubygems"
 require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
 require 'test/unit'
-require 'flexmock'
-require 'flexmock/test_unit'
-require 'approximately'
 require 'fileutils'
+
+require 'bundler'
+Bundler.require :development
 
 unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   puts "Please run tests on a git checkout from http://github.com/guerilla-di/tracksperanto"

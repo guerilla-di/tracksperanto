@@ -9,6 +9,7 @@ gem "flame_channel_parser", "~> 4.0"
 gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
 
+gem "bundler"
 
 group :development do
   gem "approximately"
@@ -16,9 +17,9 @@ group :development do
   gem "rake"
   
   if RUBY_VERSION > "1.8"
-    gem "flexmock", "~> 1.3"
+    gem "flexmock", "~> 1.3", :require => %w( flexmock flexmock/test_unit )
   else
-    gem "flexmock", "~> 0.8"
+    gem "flexmock", "~> 0.8", :require => %w( flexmock flexmock/test_unit )
   end
   
   gem "cli_test", "~>1.0"

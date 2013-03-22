@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-require 'tickly'
 
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   

@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
-%w( stringio delegate tempfile flame_channel_parser obuf progressive_io ).map(&method(:require))
+%w( stringio delegate tempfile ).map(&method(:require))
+
+require 'bundler'
+Bundler.require(:default)
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))

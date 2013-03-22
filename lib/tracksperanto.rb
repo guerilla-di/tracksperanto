@@ -6,7 +6,7 @@ Bundler.require(:default)
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.2.2'
+  VERSION = '3.3.0.pre'
   
   module Import; end
   module Export; end

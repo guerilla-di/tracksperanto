@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 
+require 'bychar'
+
 module Tracksperanto::ShakeGrammar
   class WrongInputError < RuntimeError; end
   

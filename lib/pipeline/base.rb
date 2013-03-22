@@ -1,4 +1,8 @@
 # -*- encoding : utf-8 -*-
+
+require 'progressive_io'
+require 'obuf'
+
 module Tracksperanto::Pipeline
 
   class EmptySourceFileError < RuntimeError

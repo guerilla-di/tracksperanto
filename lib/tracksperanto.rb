@@ -2,11 +2,13 @@
 %w( stringio delegate tempfile ).map(&method(:require))
 
 require 'bundler'
-Bundler.require(:default)
+
+# http://anti-pattern.com/use-bundler-setup-instead-of-bundler-require
+Bundler.setup(:default)
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.3.1'
+  VERSION = '3.3.3'
   
   module Import; end
   module Export; end

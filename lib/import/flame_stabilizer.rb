@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'flame_channel_parser'
+
 class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
   
   # Flame setups contain clear size indications

@@ -9,10 +9,8 @@ gem "bychar"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"
 
-group :commandline do
-  gem "progressbar", "0.10.0"
-  gem "update_hints", "~> 1.0"
-end
+gem "progressbar", "0.10.0"
+gem "update_hints", "~> 1.0"
 
 group :development do
   gem "approximately"

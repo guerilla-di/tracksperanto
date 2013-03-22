@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "3.3.3"
+  s.version = "3.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
@@ -215,6 +215,8 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bychar>, [">= 0"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+      s.add_runtime_dependency(%q<progressbar>, ["= 0.10.0"])
+      s.add_runtime_dependency(%q<update_hints>, ["~> 1.0"])
       s.add_development_dependency(%q<approximately>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
@@ -229,6 +231,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bychar>, [">= 0"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+      s.add_dependency(%q<progressbar>, ["= 0.10.0"])
+      s.add_dependency(%q<update_hints>, ["~> 1.0"])
       s.add_dependency(%q<approximately>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
@@ -244,6 +248,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bychar>, [">= 0"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+    s.add_dependency(%q<progressbar>, ["= 0.10.0"])
+    s.add_dependency(%q<update_hints>, ["~> 1.0"])
     s.add_dependency(%q<approximately>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])

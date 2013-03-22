@@ -1,3 +1,8 @@
+=== 3.3.0
+
+* Require dependencies using Bundler
+* Update to newer Tickly that has a faster parser
+
 === 3.2.2
 
 * Bump a whole array of dependencies to speed up and simplify Nuke and Shake parsers

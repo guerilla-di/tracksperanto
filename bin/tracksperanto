@@ -12,7 +12,7 @@
 
 # Require the xperanto lib, which in turn requires Bundler and pulls in all the gems
 require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
-Bundler.require(:commandline)
+require 'update_hints'
 require 'optparse'
 
 def disclaimer

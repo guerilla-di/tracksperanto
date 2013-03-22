@@ -1,6 +1,8 @@
 # -*- ruby -*-
 source :rubygems
 
+gem "bundler"
+
 gem "obuf", "~> 1.1"
 gem "tickly", "~> 2.0"
 gem "bychar"
@@ -8,8 +10,6 @@ gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"
 gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
-
-gem "bundler"
 
 group :development do
   gem "approximately"

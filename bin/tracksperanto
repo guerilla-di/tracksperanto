@@ -10,11 +10,10 @@
 # == Author
 #   Julik <me@julik.nl>
 
+# Require the xperanto lib, which in turn requires Bundler and pulls in all the gems
 require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
+
 require 'optparse'
-require 'rubygems'
-require 'progressbar'
-require "update_hints"
 
 def disclaimer
   "Please consider a small donation to keep Tracksperanto going: http://guerilla-di.org/source-and-license/\n"+

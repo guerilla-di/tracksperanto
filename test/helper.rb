@@ -119,6 +119,7 @@ module ParabolicTracks
       create_reference_output(exporter_klass, reference_path) do | x |
         yield(x) if block_given?
       end
+      flunk
       return
     end
     

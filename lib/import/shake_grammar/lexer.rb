@@ -28,13 +28,13 @@ module Tracksperanto::ShakeGrammar
       # that will cache in chunks, and then read from there byte by byte. This yields a substantial speedup (4.9 seconds for the test
       # as opposed to 7.9 without this). We do check for the proper class only once so that when we use nested lexers
       # we only wrap the passed IO once, and only if necessary.
-      with_io = Bychar::Reader.new(with_io) unless with_io.respond_to?(:read_one_byte)
+      with_io = Bychar.wrap(with_io) unless with_io.respond_to?(:read_one_char!)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       
       catch(STOP_TOKEN) do
         begin
           loop { parse }
-        rescue Bychar::EOFError
+        rescue Bychar::EOF
         end
       end
       
@@ -54,7 +54,7 @@ module Tracksperanto::ShakeGrammar
     
     def parse
       
-      c = @io.read_one_byte!
+      c = @io.read_one_char!
       
       if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
         raise WrongInputError, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"

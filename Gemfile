@@ -4,8 +4,8 @@ source :rubygems
 gem "bundler"
 
 gem "obuf", "~> 1.1"
-gem "tickly", "~> 2.0"
-gem "bychar"
+gem "tickly", "~> 2.1"
+gem "bychar", "~> 2"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"
 

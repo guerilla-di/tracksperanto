@@ -3,31 +3,37 @@
 === Tests
 
 Tracksperanto is heavily tested. Please use the Github checkout to also receive some 17+ megabytes of test files that the test suite
-can chew on. If you implement fixes or new features having tests for them is NOT OPTIONAL. We are not in crunchtime shot delivery mode
-here but we are sharing an essential pipeline tool that has to be robust day in day out, year to year. Mmmkay?
-
-So please do not underestimate tests.
+can chew on. Contributions or patches without tests will be rejected at sight.
 
 === Development environment
 
-Tracksperanto is currently being developed on Ruby 1.9.3 but it should also work fine on 1.8.7. What you will need is everything mentioned
-in the Gemfile plus Bundler. Please develop against the git repo checkout since we no longer package the test fixtures with the gem.
+Tracksperanto is currently being developed on Ruby 1.9.3 but it should also work fine on 1.8.7.
+What you will need is everything mentioned in the Gemfile plus Bundler.
+Development should be done agains the git checkout because the gem does not contain the test files
+(various example files in different formats that are used for verifying all the import and export modules).
 
+The test corpus on Tracksperanto is HUGE at the moment, and it makes no sense to ship it with the gem.
+
+So, to get started:
+
+* Make sure you have Ruby and Bundler (+sudo gem install bundler+ if unsure)
 * Checkout the repo at http://github.com/guerilla-di/tracksperanto
-* Run `bundle install' and `bundle exec rake' to run the tests
-* Carry your development, in your own branch or feature branch
-* File a pull request or send a patch to info at guerilla-di.org
+* Run +bundle install+ and +bundle exec rake+ to run the tests
+* Do your thing, in a separate branch
+* File a pull request or send a patch to +me at julik dot nl+
 
 === Internal tracker representation
 
 The trackers are represented by Tracker objects, which work like addressable hashes per frame number. The Tracker objects
 contain Keyframe objects, and those in turn contain coordinates. The coordinates are stored in absolute pixels, relative to
-the zero coordinate in the lower left corner. The absolute left/bottom of the image has coordinates 0,0 (at the lower left corner of the
-first pixel) and 0.5x0.5 in the middle of the leftmost lower pixel.
+the zero coordinate in the lower left corner.
+
+Note on subpixel precision: the absolute left/bottom of the image has coordinates 0,0 
+(at the lower left corner of the leftmost bottommost pixel) and 0.5x0.5 in the middle of that pixel.
 
 === Importing your own formats
 
-You can easily write a Tracksperanto import module - refer to Tracksperanto::Import::Base
+To write an import module refer to Tracksperanto::Import::Base
 docs. Your importer will be configured with width and height of the comp that it is importing, and will get an IO 
 object with the file that you are processing. You should then yield parsed trackers within the each method (tracker objects should
 be Tracksperanto::Tracker objects or compatibles)
@@ -44,7 +50,7 @@ You probably want to write a Tool (consult the Tracksperanto::Tool::Base docs) i
 or their data. A Tool is just like an export module, except that instead it sits between the exporter and the exporting routine. Tools wrap export
 modules or each other, so you can stack different tool modules together (like "scale first, then move").
 
-=== Writing your own processing routines
+=== Writing your own processing pipelines from start to finish
 
 You probably want to write a descendant of Tracksperanto::Pipeline::Base. This is a class that manages a conversion from start to finish, including detecting the
 input format, allocating output files and building a chain of Tools to process the export. If you want to make a GUI for Tracksperanto you will likely need
@@ -70,7 +76,7 @@ the software user-friendly. A well-behaved Tracksperanto module should manage it
   # This importer needs to know width and height
   some_importer.width = 1024
   some_importer.height = 576
-  some_importer.io = File.open("source_file.fmt")
+  some_importer.io = File.open("source_file.shk")
   
   # The importer responds to each() so if your file is not too big you can just load all the trackers
   # as an array. If you expect to have alot of trackers investigate a way to buffer them on disk
@@ -89,6 +95,8 @@ the software user-friendly. A well-behaved Tracksperanto module should manage it
   
   # Now when we send export commands to the Slipper it will play them through
   # to the Scaler and the Scaler in turn will send commands to the exporter.
+  # As you can see when you run export commands you do not have to use the Tracker
+  # objects, you just have to stream the right arguments in the right sequence
   slipper.start_export(1024, 576)
   trackers.each do | t |
     slipper.start_tracker_segment(t.name)

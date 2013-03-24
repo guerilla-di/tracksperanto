@@ -47,6 +47,8 @@ class FlameStabilizerCornerpinExportTest < Test::Unit::TestCase
     x = Tracksperanto::Export::FlameStabilizerCornerpin.new(s)
     x.just_export(trackers, 1920, 1080)
     
+    s.rewind
+    
     assert_same_buffer(File.open(P2), s)
   end
   
@@ -62,6 +64,8 @@ class FlameStabilizerCornerpinExportTest < Test::Unit::TestCase
     s = StringIO.new
     x = Tracksperanto::Export::FlameStabilizerCornerpin.new(s)
     x.just_export(trackers, 1920, 1080)
+    
+    s.rewind
     
     assert_same_buffer(File.open(P3), s)
   end

@@ -16,6 +16,7 @@ group :development do
   gem "approximately"
   gem "jeweler"
   gem "rake"
+  gem "linebyline"
   
   if RUBY_VERSION > "1.8"
     gem "flexmock", "~> 1.3", :require => %w( flexmock flexmock/test_unit )

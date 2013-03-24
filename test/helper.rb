@@ -95,21 +95,9 @@ module ParabolicTracks
     flunk "The test output was overwritten, so this test is meaningless"
   end
   
-  def assert_same_buffer(ref_buffer, actual_buffer, message = "The line should be identical")
-    [ref_buffer, actual_buffer].each{|io| io.rewind }
-    
-    # There are subtle differences in how IO is handled on dfferent platforms (Darwin)
-    lineno = 0
-    begin
-      loop do
-        return if ref_buffer.eof? && actual_buffer.eof?
-        lineno += 1
-        ref_line, actual_line = ref_buffer.readline, actual_buffer.readline
-        assert_equal ref_line, actual_line, "Mismatch on line #{lineno}:"
-      end
-    rescue EOFError
-      flunk "One of the buffers was too short at #{lineno}"
-    end
+  # for assert_same_buffer
+  def self.included(into)
+    into.send(:include, LineByLine::Assertions)
   end
   
   def ensure_same_output(exporter_klass, reference_path, message = "The line should be identical")
@@ -127,6 +115,8 @@ module ParabolicTracks
     x = exporter_klass.new(io)
     yield(x) if block_given?
     export_parabolics_with(x)
+    
+    io.rewind
     
     assert_same_buffer(File.open(reference_path, "r"), io, message)
   end

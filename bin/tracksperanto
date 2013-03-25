@@ -100,6 +100,8 @@ op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, toold("Crop")) do 
 end
 
 op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :y_factor))
+op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
+
 op.on(" -t", "--trim", Float, toold("StartTrim"),  &tool("StartTrim")) # Before slip!
 op.on(" -s", "--slip FRAMES", Integer, toold("Slipper"), &tool("Slipper", :slip))
 op.on(" -g", "--golden", toold("Golden"), &tool("Golden"))

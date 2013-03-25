@@ -37,13 +37,13 @@ footage you are tracking came cropped or in a wrong aspect - the only way to sol
 will be to retrack it from scratch. Tracksperanto allows you to work around this
 by applying simple transformations to the tracks.
 
-== Usage
+== Using Tracksperanto locall from the command line
 
 The main way to use Tracksperanto is with the the supplied "tracksperanto" binary, like so:
 
  tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
 
--w and -h stand for Width and Height and define the size of your comp (different tracking
+++-w++ and ++-h++ stand for Width and Height and define the size of your comp (different tracking
 apps use different coordinate systems and we need to know the size of the comp to properly
 convert these). Some formats contain clear hints on the size of the comp, but most don't -
 for formats that do contain them you don't need to supply anything.
@@ -51,6 +51,21 @@ You also have additional options like -xs, -ys and --slip - consult the usage in
 
 The converted files will be saved in the same directory as the source, if resulting
 converted files already exist <b>they will be overwritten without warning</b>.
+
+== Using Tracksperanto through the web
+
+For situations where you cannot install anything on your machine, or you run a shitty OS that cannot
+run Ruby decently, or you are in a locked-down environment, we offer a web-enabled version of
+Tracksperanto at the following URL:
+
+    http://tracksperanto.guerilla-di.org/
+
+This is a web-app which is always in lock-step with the main Tracksperanto in terms of versions,
+features and bug fixes. As a matter of principle, we reserve the right to use anything you upload
+to the web version for fixing bugs in Tracksperanto. Note that we usually scrub all the studio-specific
+data (like script and footage paths) from the files before adding them to the repo.
+
+If you want your own copy of the web application at your facility we can discuss that, but it's not free.
 
 == Format support
 

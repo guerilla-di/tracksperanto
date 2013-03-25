@@ -6,10 +6,10 @@ require "cli_test"
 class TestCli < Test::Unit::TestCase
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   
-  # Override this one so that we can also inject a file inside it
-  def in_temp_dir
+  # Wraps in_temp_dir but sneaks a prefab file into it
+  def with_stabilizer_in_temp_dir
     test_f = File.expand_path(File.dirname(__FILE__)) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer"
-    super do | where |
+    in_temp_dir do | where |
       FileUtils.cp(test_f, where + "/flm.stabilizer")
       yield(where)
     end
@@ -27,7 +27,7 @@ class TestCli < Test::Unit::TestCase
   end
   
   def test_cli_with_nonexisting_file
-    in_temp_dir do 
+    with_stabilizer_in_temp_dir do 
       status, o, e = cli("nonexisting.file")
       assert_equal 1, status
       assert_match /file does not exist/, e
@@ -35,7 +35,7 @@ class TestCli < Test::Unit::TestCase
   end
     
   def test_basic_cli
-    in_temp_dir do | d |
+    with_stabilizer_in_temp_dir do | d |
       status, o, e = cli("flm.stabilizer")
       assert_equal 0, status, "Should exit with a normal status (error was #{e})"
       fs = %w(. .. 
@@ -50,7 +50,7 @@ class TestCli < Test::Unit::TestCase
   end
   
   def test_cli_with_nonexisting_only_exporter_prints_proper_error_message
-    in_temp_dir do
+    with_stabilizer_in_temp_dir do
       status, o, e = cli("--only microsoftfuckingword flm.stabilizer")
       assert_not_equal 0, status, "Should exit with abnormal state"
       assert e.include?("Unknown exporter \"microsoftfuckingword\"")
@@ -59,7 +59,7 @@ class TestCli < Test::Unit::TestCase
   end
   
   def test_cli_with_nonexisting_importer_prints_proper_error_message
-    in_temp_dir do
+    with_stabilizer_in_temp_dir do
       status, o, e = cli("--from microsoftfuckingword  flm.stabilizer")
       assert_not_equal 0, status, "Should exit with abnormal state"
       assert e.include?("Unknown importer \"microsoftfuckingword\"")
@@ -68,7 +68,7 @@ class TestCli < Test::Unit::TestCase
   end
   
   def test_cli_with_only_option
-    in_temp_dir do | d |
+    with_stabilizer_in_temp_dir do | d |
       cli("#{BIN_P} --only syntheyes flm.stabilizer")
       fs = %w(. ..  flm.stabilizer flm_syntheyes_2dt.txt )
       assert_same_set fs, Dir.entries(d)
@@ -82,7 +82,7 @@ class TestCli < Test::Unit::TestCase
   # end
   
   def test_cli_reformat
-    in_temp_dir do | d |
+    with_stabilizer_in_temp_dir do | d |
       cli("--reformat-x 1204 --reformat-y 340 --only flamestabilizer flm.stabilizer")
       p = Tracksperanto::Import::FlameStabilizer.new(:io => File.open(d + "/flm_flame.stabilizer"))
       items = p.to_a
@@ -92,7 +92,7 @@ class TestCli < Test::Unit::TestCase
   end
   
   def test_cli_trim
-    in_temp_dir do | d |
+    with_stabilizer_in_temp_dir do | d |
       results = cli("--slip -8000 --trim --only flamestabilizer flm.stabilizer")
       assert_not_equal 0, results[0] # status
       assert_match /There were no trackers exported/, results[-1] # STDERR

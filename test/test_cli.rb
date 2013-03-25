@@ -8,10 +8,15 @@ class TestCli < Test::Unit::TestCase
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   
   def in_temp_dir
-    Dir.mktmpdir do | where |
-      FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", where + "/flm.stabilizer")
-      Dir.chdir(where)
-      yield(where)
+    old_dir = Dir.pwd
+    begin
+      Dir.mktmpdir do | where |
+        FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", where + "/flm.stabilizer")
+        Dir.chdir(where)
+        yield(where)
+      end
+    ensure
+      Dir.chdir(old_dir)
     end
   end
   

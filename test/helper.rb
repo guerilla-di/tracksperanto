@@ -23,6 +23,22 @@ class FlexMock::PartialMockProxy
   end
 end
 
+class Test::Unit::TestCase
+  # Runs the block with a temporary directory. The directory will be removed
+  # when the block completes. The path to the directory will be yielded to the block
+  def in_temp_dir
+    old_dir = Dir.pwd
+    begin
+      Dir.mktmpdir do | where |
+        Dir.chdir(where)
+        yield(where)
+      end
+    ensure
+      Dir.chdir(old_dir)
+    end
+  end
+end
+
 # This module creates ideal parabolic tracks for testing exporters. The two trackers
 # will start at opposite corners of the image and traverse two parabolic curves, touching
 # the bounds of the image at the and and in the middle. On the middle frame they will vertically

@@ -3,20 +3,6 @@ require File.expand_path(File.dirname(__FILE__)) + '/helper'
 
 class TestPipeline < Test::Unit::TestCase
   
-
-  
-  def in_temp_dir
-    old_dir = Dir.pwd
-    begin
-      Dir.mktmpdir do | where |
-        Dir.chdir(where)
-        yield(where)
-      end
-    ensure
-      Dir.chdir(old_dir)
-    end
-  end
-  
   def create_stabilizer_file
     @stabilizer = "input.stabilizer"
     trackers = %w( Foo Bar Baz).map do | name |

@@ -4,19 +4,14 @@ require "set"
 require "cli_test"
 
 class TestCli < Test::Unit::TestCase
-  TEMP_DIR = File.expand_path(File.dirname(__FILE__) + "/tmp")
   BIN_P = File.expand_path(File.dirname(__FILE__) + "/../bin/tracksperanto")
   
+  # Override this one so that we can also inject a file inside it
   def in_temp_dir
-    old_dir = Dir.pwd
-    begin
-      Dir.mktmpdir do | where |
-        FileUtils.cp(File.dirname(__FILE__) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer", where + "/flm.stabilizer")
-        Dir.chdir(where)
-        yield(where)
-      end
-    ensure
-      Dir.chdir(old_dir)
+    test_f = File.expand_path(File.dirname(__FILE__)) + "/import/samples/flame_stabilizer/fromCombustion_fromMidClip_wSnap.stabilizer"
+    super do | where |
+      FileUtils.cp(test_f, where + "/flm.stabilizer")
+      yield(where)
     end
   end
   

@@ -41,13 +41,11 @@ by applying simple transformations to the tracks.
 
 The main way to use Tracksperanto is with the the supplied "tracksperanto" binary, like so:
 
- tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
+    tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
 
-++-w++ and ++-h++ stand for Width and Height and define the size of your comp (different tracking
-apps use different coordinate systems and we need to know the size of the comp to properly
-convert these). Some formats contain clear hints on the size of the comp, but most don't -
-for formats that do contain them you don't need to supply anything.
-You also have additional options like -xs, -ys and --slip - consult the usage info for the tracksperanto binary.
+To see the supported options, run
+
+    tracksperanto --help | more
 
 The converted files will be saved in the same directory as the source, if resulting
 converted files already exist <b>they will be overwritten without warning</b>.

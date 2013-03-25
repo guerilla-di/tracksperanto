@@ -217,9 +217,9 @@ module Tracksperanto::Pipeline
   # Setup output files and return a single output
   # that replays to all of them
   def setup_outputs_for(input_file_path)
-    file_name = File.basename(input_file_path).gsub(EXTENSION, '')
+    file_name_without_extension = File.basename(input_file_path, '.*')
     outputs = (exporters || Tracksperanto.exporters).map do | exporter_class |
-      export_name = [file_name, exporter_class.desc_and_extension].join("_")
+      export_name = [file_name_without_extension, exporter_class.desc_and_extension].join("_")
       export_path = File.join(File.dirname(input_file_path), export_name)
       exporter_class.new(open_owned_export_file(export_path))
     end

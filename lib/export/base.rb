@@ -64,13 +64,14 @@ class Tracksperanto::Export::Base
   # Called on tracker start, once for each tracker. Receives the name of the tracker.
   def start_tracker_segment(tracker_name)
   end
+
+  # Called for each tracker keyframe, with the Tracksperanto internal coordinates and frame numbers.
+  # The calls come after start_tracker_segment and before end_tracker_segment
+  def export_point(at_frame_i, abs_float_x, abs_float_y, float_residual)
+  end
   
   # Called on tracker end, once for each tracker
   def end_tracker_segment
   end
   
-  # Called for each tracker keyframe, with the Tracksperanto internal coordinates and frame numbers.
-  # The calls come after start_tracker_segment and before end_tracker_segment
-  def export_point(at_frame_i, abs_float_x, abs_float_y, float_residual)
-  end
 end

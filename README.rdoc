@@ -9,6 +9,8 @@ Unfortunately, the UIs of these are all different and not very user-friendly. It
 that an app cannot solve a shot that another one will, but you usually have to redo your 2D
 tracks in each one of them.
 
+=== Efficiency when doing tracks
+
 Another problem with today's matchmoving apps is that they are vastly inefficient when
 doing 2D tracks. Almost all of them use OpenGL and want to load the whole frame into memory
 at once. When doing tracks of long shots at high resolutions (like 2K and HD), especially
@@ -27,15 +29,25 @@ which is not adequate for all of the features being tracked.
 
 So it's very natural to track in a modern compositing app that has selective image
 loading, and then export one single group of tracks into all of the matchmoving
-applications at once. Also, you can always escape into the 2D world if no 3D app proves
-to be adequate. If you need to move from one app to another, you won't have to retrack.
+applications at once.
 
-Another issue with tracks is adjusting to formats. Very few apps allow you to convert your
-tracks in one step from format to format - like doing an unproportional scale on the
-tracks, or moving them a few pixels left and right. This comes at a high cost if the
-footage you are tracking came cropped or in a wrong aspect - the only way to solve the shot
-will be to retrack it from scratch. Tracksperanto allows you to work around this
-by applying simple transformations to the tracks.
+=== Evaluating different camera solvers
+
+Since your 2D tracking data is now freely interchangeable you can load the same tracks
+into multiple 3D tracking applications and see which one gives you a better solve.
+Should all the 3D camera trackers fail, you can still take your tracks into the 2D
+compositing world to do the job. 
+
+=== Processing 2D tracking data
+
+Sometimes you need to offset your tracks in time, or resize them to a different pixel format.
+Very few apps allow you to convert your tracks in one step from format to format - like doing
+an unproportional scale on the tracks, or moving them a few pixels left and right. This comes 
+at a high cost if the footage you are tracking came cropped or in a wrong aspect - the only 
+way to solve the shot will be to retrack it from scratch.
+
+To circumvent this, Tracksperanto allows you to apply transformations to the tracking data
+that you export - and you can apply multiple transformations if desired.
 
 == Using Tracksperanto from the command line
 

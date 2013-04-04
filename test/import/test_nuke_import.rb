@@ -34,6 +34,17 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 128, trackers[0].length
   end
   
+  def test_parsing_cornerpin
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/cornerpin.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 4096
+    parser.height = 2304
+    
+    trackers = parser.to_a
+    assert_equal 4, trackers.length
+  end
+  
   def test_parsing_planar_tracker
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/planar.nk')
     

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "3.3.5"
+  s.version = "3.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2013-03-23"
+  s.date = "2013-04-04"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
@@ -220,6 +220,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<approximately>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<linebyline>, [">= 0"])
       s.add_development_dependency(%q<flexmock>, ["~> 1.3"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_development_dependency(%q<rake-hooks>, [">= 0"])
@@ -236,6 +237,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<approximately>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<linebyline>, [">= 0"])
       s.add_dependency(%q<flexmock>, ["~> 1.3"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<rake-hooks>, [">= 0"])
@@ -253,6 +255,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<approximately>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<linebyline>, [">= 0"])
     s.add_dependency(%q<flexmock>, ["~> 1.3"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<rake-hooks>, [">= 0"])

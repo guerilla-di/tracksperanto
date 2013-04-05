@@ -10,6 +10,9 @@
 # == Author
 #   Julik <me@julik.nl>
 
+# Show the message just in case
+$stdout.puts "Starting Tracksperanto. For information and support please contact info#{64.chr}guerilla-di.org"
+
 # Require the xperanto lib, which in turn requires Bundler and pulls in all the gems
 require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
 require 'update_hints'
@@ -17,8 +20,7 @@ require 'optparse'
 require 'progressbar'
 
 def disclaimer
-  "Please consider a small donation to keep Tracksperanto going: http://guerilla-di.org/source-and-license/\n"+
-  "For information and support please contact info#{64.chr}guerilla-di.org"
+  "Please consider a small donation to keep Tracksperanto going: http://guerilla-di.org/source-and-license/"
 end
 
 options = {}

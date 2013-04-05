@@ -6,7 +6,7 @@ class NukeImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::NukeScript
-    assert_equal "Nuke .nk script file with Tracker, Reconcile3D and PlanarTracker nodes", i.human_name
+    assert_equal "Nuke .nk script file with Tracker, Reconcile3D, PlanarTracker and CornerPin nodes", i.human_name
     assert !i.autodetects_size?
   end
   

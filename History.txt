@@ -1,3 +1,5 @@
+* Add Nuke CornerPin node support
+
 === 3.3.6
 
 * Shake out the latest Bundler integration issues

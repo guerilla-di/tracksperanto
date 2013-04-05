@@ -100,7 +100,7 @@ If you want your own copy of the web application at your facility we can discuss
 * MatchMover REALVIZ Ascii Point Tracks .rz2 file
 * MatchMover RZML .rzml file
 * Maya Live track export file
-* Nuke .nk script file with Tracker, Reconcile3D and PlanarTracker nodes
+* Nuke .nk script file with Tracker, Reconcile3D, PlanarTracker and CornerPin nodes
 * PFTrack/PFMatchit .2dt file
 * Shake .shk script file
 * Shake .txt tracker file and Nuke CameraTracker auto tracks export

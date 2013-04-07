@@ -139,7 +139,7 @@ Consult the --help option to see what is available.
 == Development
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
-the {short developer introduction}[https://github.com/guerilla-di/tracksperanto/blob/master/DEVELOPER_DOCS.rdoc]
+the {short developer introduction}[https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md]
 
 == Limitations
 

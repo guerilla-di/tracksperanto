@@ -13,7 +13,8 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
   end
   
   def self.known_snags
-    'Expressions in node parameters may cause parse errors or incomplete imports. Take care to remove expressions or nodes containing them first.'
+    'Expressions in node parameters may cause parse errors or incomplete imports. ' +
+    'Take care to remove expressions or nodes containing them first.'
   end
   
   def each

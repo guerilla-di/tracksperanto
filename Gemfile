@@ -1,5 +1,5 @@
 # -*- ruby -*-
-source :rubygems
+source 'https://rubygems.com'
 
 gem "bundler"
 
@@ -26,5 +26,4 @@ group :development do
   
   gem "cli_test", "~>1.0"
   gem "rake-hooks"
-  gem "ruby-prof"
 end

@@ -9,16 +9,16 @@
 class Tracksperanto::Keyframe
   include Tracksperanto::Casts, Tracksperanto::BlockInit, Comparable
   
-  # Absolute integer frame where this keyframe is placed, 0 based
+  # Integer frame where this keyframe is placed, 0-based
   attr_accessor :frame
   
-  # Absolute float X value of the point, zero is lower left
+  # Float X value of the point, zero is lower left
   attr_accessor :abs_x
   
-  # Absolute float Y value of the point, zero is lower left
+  # Float Y value of the point, zero is lower left
   attr_accessor :abs_y
   
-  # Absolute float residual (0 is "spot on")
+  # Float residual (0 is "spot on")
   attr_accessor :residual
   
   cast_to_float :abs_x, :abs_y, :residual

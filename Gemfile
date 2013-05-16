@@ -19,7 +19,7 @@ group :development do
   gem "linebyline"
   
   if RUBY_VERSION > "1.8"
-    gem "flexmock", "~> 1.3", :require => %w( flexmock flexmock/test_unit )
+    gem "flexmock", "~> 1.3.2", :require => %w( flexmock flexmock/test_unit )
   else
     gem "flexmock", "~> 0.8", :require => %w( flexmock flexmock/test_unit )
   end

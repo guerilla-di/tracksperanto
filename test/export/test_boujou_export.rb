@@ -7,7 +7,7 @@ class BoujouExportTest < Test::Unit::TestCase
   
   def test_export_output_written
     t = Time.local(2010, "Apr", 15, 17, 21, 26)
-    flexmock(Time).should_receive(:now).once.and_return(t)
+    flexmock(Time).should_receive(:now).and_return(t)
     ensure_same_output Tracksperanto::Export::Boujou, P
   end
   

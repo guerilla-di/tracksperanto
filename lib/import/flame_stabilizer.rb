@@ -78,7 +78,9 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
         # trackers unless they were machine-exported from something,
         # but we need to be memory-aware when we do things like this.
         # On our test suite we lose half a second on disk IO overhead
-        # of the Obuf here, which is an acceptable compromise
+        # of the Obuf here, which is an acceptable compromise.
+        # To get rid of the disk-based cache just toss the outer
+        # Obuf constructor and pass in an Array
         channel_map[channel.path] = Obuf.new([channel])
       end
       

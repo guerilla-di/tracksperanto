@@ -73,7 +73,12 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       
       channel_map = {}
       parser.parse(io) do | channel |
-        # Serialize the channel and store it on disk
+        # Serialize the channel and store it on disk.
+        # Flame stabilizers are NOT likely to contain hundreds of
+        # trackers unless they were machine-exported from something,
+        # but we need to be memory-aware when we do things like this.
+        # On our test suite we lose half a second on disk IO overhead
+        # of the Obuf here, which is an acceptable compromise
         channel_map[channel.path] = Obuf.new([channel])
       end
       

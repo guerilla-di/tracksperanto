@@ -88,13 +88,18 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     end
     
     def scavenge_trackers_from_channels(channel_map, names)
-      channel_map.keys.each do |c|
+      # Use Hash#keys.sort because we want a consistent export order
+      # irregardless of the Ruby version in use
+      # (hash keys are ordered on 1.9 and not ordered on 1.8)
+      channel_map.keys.sort.each do |c|
         next unless c =~ /\/ref\/x$/
         
         report_progress("Detected reference channel #{c.inspect}")
         
-        t = grab_tracker(channel_map, c)
-        yield(t) if t
+        extracted_tracker = grab_tracker(channel_map, c)
+        if extracted_tracker
+          yield(extracted_tracker)
+        end
       end
     end
     

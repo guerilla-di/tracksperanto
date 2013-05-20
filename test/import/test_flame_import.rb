@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
-class FlameImportTest < Test::Unit::TestCase
+class TestFlameImport < Test::Unit::TestCase
   DELTA = 0.1 
   
   def test_parsing_from_flame
@@ -105,8 +105,8 @@ class FlameImportTest < Test::Unit::TestCase
   def test_bilinear_passes_proper_naming
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/cornerpin_2012.stabilizer')
     trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
-    assert_equal "top_left", trackers[0].name
-    assert_equal "bottom_right", trackers[-1].name
+    tracker_order = ["bottom_left", "bottom_right", "top_left", "top_right"]
+    assert_equal tracker_order, trackers.map(&:name)
   end
   
 end

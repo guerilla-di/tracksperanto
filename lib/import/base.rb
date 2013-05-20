@@ -64,7 +64,7 @@ class Tracksperanto::Import::Base
   end
   
   # The main method of the parser. Should
-  # yield each tracker that has been fully parsed. After calling this method the caller can ask for
+  # yield each Tracker that has been fully parsed. After calling this method the caller can ask for
   # width and height as well.
   def each
   end

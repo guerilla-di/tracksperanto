@@ -1,8 +1,10 @@
 Tracksperanto has a huge test corpus of test files, which is stored in the project's Github repo.
-Checkout the repo to run tests against these samples.
 
-Since most users of Tracksperanto are actually USERS, they do not need to download loads and loads
-of test files as opposed to 80 kilobytes of the program itself.
+This is why the repo is so big.
 
-If you want to develop against Tracksperanto we advise you DO use
-the test corpus though, so please pretty please just pull it off Github.
+However, most users of Tracksperanto are actually _users_, they won't need 
+all the testing data. And without this data, tracksperanto is less than 
+100 kilobytes in size.
+
+However, if you intend to actually write code that uses Tracksperanto or to fix
+a bug, you will most definitely need all the test data. In that case, just do a git checkout.

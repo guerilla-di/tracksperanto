@@ -74,9 +74,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       channel_map = {}
       parser.parse(io) do | channel |
         # Serialize the channel and store it on disk
-        buf = Obuf.new
-        buf.push(channel)
-        channel_map[channel.path] = buf
+        channel_map[channel.path] = Obuf.new([channel])
       end
       
       channel_map

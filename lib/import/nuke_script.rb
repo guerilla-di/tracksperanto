@@ -13,7 +13,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   end
   
   def self.known_snags
-    'The only supported nodes that we can extract tracks from are Reconcile3D, PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
+    'The only supported nodes that we can extract tracks from are Reconcile3D,'
+    + ' PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
   end
   
   def each

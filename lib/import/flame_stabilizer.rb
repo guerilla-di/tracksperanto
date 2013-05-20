@@ -109,18 +109,18 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       
       shift_x = channel_map["#{t.name}/shift/x"][0]
       shift_y = channel_map["#{t.name}/shift/y"][0]
-      track_x = channel_map["#{t.name}/ref/x"][0]
-      track_y = channel_map["#{t.name}/ref/y"][0]
+      ref_x = channel_map["#{t.name}/ref/x"][0]
+      ref_y = channel_map["#{t.name}/ref/y"][0]
       
       # Collapse separate X and Y curves into series of XY values
       shift_tuples = zip_curve_tuples(channel_to_frames_and_values(shift_x), channel_to_frames_and_values(shift_y))
-      track_tuples = zip_curve_tuples(channel_to_frames_and_values(track_x), channel_to_frames_and_values(track_y))
+      ref_tuples = zip_curve_tuples(channel_to_frames_and_values(ref_x), channel_to_frames_and_values(ref_y))
       
       # If the channels are just empty go to next tracker
-      return if shift_tuples.empty? || track_tuples.empty?
+      return if shift_tuples.empty? || ref_tuples.empty?
       
       report_progress("Detecting base value")
-      base_x, base_y =  find_base_x_and_y(track_tuples, shift_tuples)
+      base_x, base_y =  find_base_x_and_y(ref_tuples, shift_tuples)
       
       total_kf = 1
       t.keyframes = shift_tuples.map do | (at, x, y) |
@@ -135,10 +135,10 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       return t
     end
     
-    def find_base_x_and_y(track_tuples, shift_tuples)
-      base_track_tuple = track_tuples.find do | track_tuple |
+    def find_base_x_and_y(ref_tuples, shift_tuples)
+      base_ref_tuple = ref_tuples.find do | track_tuple |
         shift_tuples.find { |shift_tuple| shift_tuple[0] == track_tuple[0] }
       end
-      (base_track_tuple || track_tuples[0])[1..2]
+      (base_ref_tuple || ref_tuples[0])[1..2]
     end
 end

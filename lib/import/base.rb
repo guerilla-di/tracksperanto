@@ -22,7 +22,7 @@ class Tracksperanto::Import::Base
   # Trakcksperanto will assign the passed width and height to the importer object before running
   # the import. If not, you can replace the assigned values with your own. At the end of the import
   # procedure, Tracksperanto will read the values from you again and will use the read values
-  # for determining the original comp size. +width+ and +height+ MUST return integer values after
+  # for determining the original comp size. +width+ and +height+ MUST return unsigned integer values after
   # the import completes
   attr_accessor :width, :height
   

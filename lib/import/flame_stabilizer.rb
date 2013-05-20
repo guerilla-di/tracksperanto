@@ -65,27 +65,30 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       end
     end
     
+    # Extracts the animation channels and stores them in Obufs
+    # keyed by the channel path (like "tracker1/ref/x")
     def extract_channels_from_stream(io)
       parser = StabilizerParser.new
       parser.logger_proc = method(:report_progress)
       
-      channels = Obuf.new
-      names = []
+      channel_map = {}
       parser.parse(io) do | channel |
-        channels.push(channel)
-        names.push(channel.path)
+        # Serialize the channel and store it on disk
+        buf = Obuf.new
+        buf.push(channel)
+        channel_map[channel.path] = buf
       end
       
-      [channels, names]
+      channel_map
     end
     
-    def scavenge_trackers_from_channels(channels, names)
-      channels.each do |c|
-        next unless c.name =~ /\/ref\/x/
+    def scavenge_trackers_from_channels(channel_map, names)
+      channel_map.keys.each do |c|
+        next unless c =~ /\/ref\/x$/
         
-        report_progress("Detected reference channel #{c.name}")
+        report_progress("Detected reference channel #{c.inspect}")
         
-        t = grab_tracker(channels, c, names)
+        t = grab_tracker(channel_map, c)
         yield(t) if t
       end
     end
@@ -94,21 +97,17 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
       chan.map{|key| [key.frame, key.value]}
     end
     
-    def grab_tracker(channels, track_x, names)
-      t = Tracksperanto::Tracker.new(:name => track_x.name.split('/').shift)
+    def grab_tracker(channel_map, ref_x_channel_name)
+      t = Tracksperanto::Tracker.new(:name => ref_x_channel_name.split('/').shift)
       
       report_progress("Extracting tracker #{t.name}")
       
-      # This takes a LONG time when we have alot of channels, we need a precache of
-      # some sort to do this
-      ref_idx = names.index("#{t.name}/ref/y")
-      shift_x_idx = names.index("#{t.name}/shift/x")
-      shift_y_idx = names.index("#{t.name}/shift/y")
+      shift_x = channel_map["#{t.name}/shift/x"][0]
+      shift_y = channel_map["#{t.name}/shift/y"][0]
+      track_x = channel_map["#{t.name}/ref/x"][0]
+      track_y = channel_map["#{t.name}/ref/y"][0]
       
-      track_y = channels[ref_idx]
-      shift_x = channels[shift_x_idx]
-      shift_y = channels[shift_y_idx]
-      
+      # Collapse separate X and Y curves into series of XY values
       shift_tuples = zip_curve_tuples(channel_to_frames_and_values(shift_x), channel_to_frames_and_values(shift_y))
       track_tuples = zip_curve_tuples(channel_to_frames_and_values(track_x), channel_to_frames_and_values(track_y))
       

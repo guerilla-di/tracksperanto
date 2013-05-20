@@ -6,5 +6,5 @@ However, most users of Tracksperanto are actually _users_, they won't need
 all the testing data. And without this data, tracksperanto is less than 
 100 kilobytes in size.
 
-However, if you intend to actually write code that uses Tracksperanto or to fix
+If you intend to actually write code that uses Tracksperanto or to fix
 a bug, you will most definitely need all the test data. In that case, just do a git checkout.

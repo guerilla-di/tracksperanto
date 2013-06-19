@@ -1,0 +1,2536 @@
+StabilizerFileVersion 6.0
+CreationDate Wed Jun 19 21:51:08 2013
+
+
+NbTrackers 2
+Selected 1
+FrameWidth 1280
+FrameHeight 720
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan yes
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 0
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel tracker1/ref/x
+	Extrapolation constant
+	Value 999.554565
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 999.554565
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/y
+	Extrapolation constant
+	Value 600.287048
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 600.287048
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/width
+	Extrapolation constant
+	Value 17
+	Colour 50 50 50
+	End
+Channel tracker1/ref/height
+	Extrapolation constant
+	Value 17
+	Colour 50 50 50
+	End
+Channel tracker1/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker1/track/x
+	Extrapolation linear
+	Value 640
+	Colour 50 50 50
+	End
+Channel tracker1/track/y
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker1/track/width
+	Extrapolation constant
+	Value 25
+	Colour 50 50 50
+	End
+Channel tracker1/track/height
+	Extrapolation constant
+	Value 25
+	Colour 50 50 50
+	End
+Channel tracker1/shift/x
+	Extrapolation linear
+	Value 0
+	Size 56
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0617675781
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0617675781
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value -0.185302734
+		RHandle_dX 0.333333343
+		RHandle_dY -0.182088211
+		LHandle_dX -0.333333343
+		LHandle_dY 0.182088211
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value -1.0925293
+		RHandle_dX 0.333333343
+		RHandle_dY -0.41990152
+		LHandle_dX -0.333333343
+		LHandle_dY 0.41990152
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value -2.70471191
+		RHandle_dX 0.333333343
+		RHandle_dY -0.682373047
+		LHandle_dX -0.333333343
+		LHandle_dY 0.682373047
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value -5.18676758
+		RHandle_dX 0.333333343
+		RHandle_dY -0.937967956
+		LHandle_dX -0.333333343
+		LHandle_dY 0.937967956
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value -8.33251953
+		RHandle_dX 0.333333343
+		RHandle_dY -0.934305847
+		LHandle_dX -0.333333343
+		LHandle_dY 0.934305847
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value -10.7926025
+		RHandle_dX 0.333333343
+		RHandle_dY -0.57607013
+		LHandle_dX -0.333333343
+		LHandle_dY 0.57607013
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value -11.7889404
+		RHandle_dX 0.333333343
+		RHandle_dY -0.164571121
+		LHandle_dX -0.333333343
+		LHandle_dY 0.164571121
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value -11.7800293
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0903116837
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0903116837
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value -12.3308105
+		RHandle_dX 0.333333343
+		RHandle_dY -0.326741546
+		LHandle_dX -0.333333343
+		LHandle_dY 0.326741546
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 11
+		Value -13.7404785
+		RHandle_dX 0.333333343
+		RHandle_dY -0.48248291
+		LHandle_dX -0.333333343
+		LHandle_dY 0.48248291
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 12
+		Value -15.225708
+		RHandle_dX 0.333333343
+		RHandle_dY -0.466227204
+		LHandle_dX -0.333333343
+		LHandle_dY 0.466227204
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 13
+		Value -16.5378418
+		RHandle_dX 0.333333343
+		RHandle_dY -0.389119476
+		LHandle_dX -0.333333343
+		LHandle_dY 0.389119476
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 14
+		Value -17.5604248
+		RHandle_dX 0.333333343
+		RHandle_dY -0.342020661
+		LHandle_dX -0.333333343
+		LHandle_dY 0.342020661
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 15
+		Value -18.5899658
+		RHandle_dX 0.333333343
+		RHandle_dY -0.339131683
+		LHandle_dX -0.333333343
+		LHandle_dY 0.339131683
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 16
+		Value -19.5952148
+		RHandle_dX 0.333333343
+		RHandle_dY -0.388326019
+		LHandle_dX -0.333333343
+		LHandle_dY 0.388326019
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 17
+		Value -20.9199219
+		RHandle_dX 0.333333343
+		RHandle_dY -0.478210449
+		LHandle_dX -0.333333343
+		LHandle_dY 0.478210449
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 18
+		Value -22.4644775
+		RHandle_dX 0.333333343
+		RHandle_dY -0.527893066
+		LHandle_dX -0.333333343
+		LHandle_dY 0.527893066
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 19
+		Value -24.0872803
+		RHandle_dX 0.333333343
+		RHandle_dY -0.518086731
+		LHandle_dX -0.333333343
+		LHandle_dY 0.518086731
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 19
+		Frame 20
+		Value -25.572998
+		RHandle_dX 0.333333343
+		RHandle_dY -0.451965332
+		LHandle_dX -0.333333343
+		LHandle_dY 0.451965332
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 20
+		Frame 21
+		Value -26.7990723
+		RHandle_dX 0.333333343
+		RHandle_dY -0.409586579
+		LHandle_dX -0.333333343
+		LHandle_dY 0.409586579
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 21
+		Frame 22
+		Value -28.0305176
+		RHandle_dX 0.333333343
+		RHandle_dY -0.469278961
+		LHandle_dX -0.333333343
+		LHandle_dY 0.469278961
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 22
+		Frame 23
+		Value -29.6147461
+		RHandle_dX 0.333333343
+		RHandle_dY -0.609110534
+		LHandle_dX -0.333333343
+		LHandle_dY 0.609110534
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 23
+		Frame 24
+		Value -31.6851807
+		RHandle_dX 0.333333343
+		RHandle_dY -0.836812317
+		LHandle_dX -0.333333343
+		LHandle_dY 0.836812317
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 24
+		Frame 25
+		Value -34.6356201
+		RHandle_dX 0.333333343
+		RHandle_dY -1.16005456
+		LHandle_dX -0.333333343
+		LHandle_dY 1.16005456
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 25
+		Frame 26
+		Value -38.6455078
+		RHandle_dX 0.333333343
+		RHandle_dY -1.39373779
+		LHandle_dX -0.333333343
+		LHandle_dY 1.39373779
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 26
+		Frame 27
+		Value -42.9980469
+		RHandle_dX 0.333333343
+		RHandle_dY -1.46260583
+		LHandle_dX -0.333333343
+		LHandle_dY 1.46260583
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 27
+		Frame 28
+		Value -47.4211426
+		RHandle_dX 0.333333343
+		RHandle_dY -1.39573157
+		LHandle_dX -0.333333343
+		LHandle_dY 1.39573157
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 28
+		Frame 29
+		Value -51.3724365
+		RHandle_dX 0.333333343
+		RHandle_dY -1.12573242
+		LHandle_dX -0.333333343
+		LHandle_dY 1.12573242
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 29
+		Frame 30
+		Value -54.1755371
+		RHandle_dX 0.333333343
+		RHandle_dY -0.767049134
+		LHandle_dX -0.333333343
+		LHandle_dY 0.767049134
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 30
+		Frame 31
+		Value -55.9747314
+		RHandle_dX 0.333333343
+		RHandle_dY -0.460957855
+		LHandle_dX -0.333333343
+		LHandle_dY 0.460957855
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 31
+		Frame 32
+		Value -56.9412842
+		RHandle_dX 0.333333343
+		RHandle_dY -0.265950531
+		LHandle_dX -0.333333343
+		LHandle_dY 0.265950531
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 32
+		Frame 33
+		Value -57.5704346
+		RHandle_dX 0.333333343
+		RHandle_dY -0.241353348
+		LHandle_dX -0.333333343
+		LHandle_dY 0.241353348
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 33
+		Frame 34
+		Value -58.3894043
+		RHandle_dX 0.333333343
+		RHandle_dY -0.465250641
+		LHandle_dX -0.333333343
+		LHandle_dY 0.465250641
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 34
+		Frame 35
+		Value -60.3619385
+		RHandle_dX 0.333333343
+		RHandle_dY -0.638000488
+		LHandle_dX -0.333333343
+		LHandle_dY 0.638000488
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 35
+		Frame 36
+		Value -62.2174072
+		RHandle_dX 0.333333343
+		RHandle_dY -0.305806488
+		LHandle_dX -0.333333343
+		LHandle_dY 0.305806488
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 36
+		Frame 37
+		Value -62.1967773
+		RHandle_dX 0.333333343
+		RHandle_dY 0.290669769
+		LHandle_dX -0.333333343
+		LHandle_dY -0.290669769
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 37
+		Frame 38
+		Value -60.4733887
+		RHandle_dX 0.333333343
+		RHandle_dY 0.404642731
+		LHandle_dX -0.333333343
+		LHandle_dY -0.404642731
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 38
+		Frame 39
+		Value -59.7689209
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0777181014
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0777181014
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 39
+		Frame 40
+		Value -60.0070801
+		RHandle_dX 0.333333343
+		RHandle_dY -0.22477214
+		LHandle_dX -0.333333343
+		LHandle_dY 0.22477214
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 40
+		Frame 41
+		Value -61.1175537
+		RHandle_dX 0.333333343
+		RHandle_dY -0.232523605
+		LHandle_dX -0.333333343
+		LHandle_dY 0.232523605
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 41
+		Frame 42
+		Value -61.4022217
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0820109025
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0820109025
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 42
+		Frame 43
+		Value -60.6254883
+		RHandle_dX 0.333333343
+		RHandle_dY 0.260274261
+		LHandle_dX -0.333333343
+		LHandle_dY -0.260274261
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 43
+		Frame 44
+		Value -59.8405762
+		RHandle_dX 0.333333343
+		RHandle_dY 0.171590164
+		LHandle_dX -0.333333343
+		LHandle_dY -0.171590164
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 44
+		Frame 45
+		Value -59.5959473
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0403849296
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0403849296
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 45
+		Frame 46
+		Value -59.5982666
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0621744804
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0621744804
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 46
+		Frame 47
+		Value -59.2229004
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0689900741
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0689900741
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 47
+		Frame 48
+		Value -59.1843262
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0225830078
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0225830078
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 48
+		Frame 49
+		Value -59.0874023
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0990397111
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0990397111
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 49
+		Frame 50
+		Value -58.5900879
+		RHandle_dX 0.333333343
+		RHandle_dY 0.219787598
+		LHandle_dX -0.333333343
+		LHandle_dY -0.219787598
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 50
+		Frame 51
+		Value -57.7686768
+		RHandle_dX 0.333333343
+		RHandle_dY 0.404296875
+		LHandle_dX -0.333333343
+		LHandle_dY -0.404296875
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 51
+		Frame 52
+		Value -56.1643066
+		RHandle_dX 0.333333343
+		RHandle_dY 0.575093567
+		LHandle_dX -0.333333343
+		LHandle_dY -0.575093567
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 52
+		Frame 53
+		Value -54.3181152
+		RHandle_dX 0.333333343
+		RHandle_dY 0.534545898
+		LHandle_dX -0.333333343
+		LHandle_dY -0.534545898
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 53
+		Frame 54
+		Value -52.9570312
+		RHandle_dX 0.333333343
+		RHandle_dY 0.38297525
+		LHandle_dX -0.333333343
+		LHandle_dY -0.38297525
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 54
+		Frame 55
+		Value -52.0202637
+		RHandle_dX 0.333333343
+		RHandle_dY 0.318868011
+		LHandle_dX -0.333333343
+		LHandle_dY -0.318868011
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 55
+		Frame 56
+		Value -51.0438232
+		RHandle_dX 0.25
+		RHandle_dY 0.251988202
+		LHandle_dX -0.25
+		LHandle_dY -0.251988202
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 255 0 0
+	End
+Channel tracker1/shift/y
+	Extrapolation linear
+	Value 0
+	Size 56
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY 0.484680176
+		LHandle_dX -0.333333343
+		LHandle_dY -0.484680176
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value 1.45404053
+		RHandle_dX 0.333333343
+		RHandle_dY 0.532602966
+		LHandle_dX -0.333333343
+		LHandle_dY -0.532602966
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value 3.19561768
+		RHandle_dX 0.333333343
+		RHandle_dY 0.643086731
+		LHandle_dX -0.333333343
+		LHandle_dY -0.643086731
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value 5.31256104
+		RHandle_dX 0.333333343
+		RHandle_dY 0.771952331
+		LHandle_dX -0.333333343
+		LHandle_dY -0.771952331
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value 7.82733154
+		RHandle_dX 0.333333343
+		RHandle_dY 0.851959229
+		LHandle_dX -0.333333343
+		LHandle_dY -0.851959229
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value 10.4243164
+		RHandle_dX 0.333333343
+		RHandle_dY 0.849761963
+		LHandle_dX -0.333333343
+		LHandle_dY -0.849761963
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value 12.9259033
+		RHandle_dX 0.333333343
+		RHandle_dY 0.748972595
+		LHandle_dX -0.333333343
+		LHandle_dY -0.748972595
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value 14.9181519
+		RHandle_dX 0.333333343
+		RHandle_dY 0.595703125
+		LHandle_dX -0.333333343
+		LHandle_dY -0.595703125
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value 16.5001221
+		RHandle_dX 0.333333343
+		RHandle_dY 0.563028991
+		LHandle_dX -0.333333343
+		LHandle_dY -0.563028991
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value 18.2963257
+		RHandle_dX 0.333333343
+		RHandle_dY 0.696004212
+		LHandle_dX -0.333333343
+		LHandle_dY -0.696004212
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 11
+		Value 20.6761475
+		RHandle_dX 0.333333343
+		RHandle_dY 0.786346436
+		LHandle_dX -0.333333343
+		LHandle_dY -0.786346436
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 12
+		Value 23.0144043
+		RHandle_dX 0.333333343
+		RHandle_dY 0.67972821
+		LHandle_dX -0.333333343
+		LHandle_dY -0.67972821
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 13
+		Value 24.7545166
+		RHandle_dX 0.333333343
+		RHandle_dY 0.434122711
+		LHandle_dX -0.333333343
+		LHandle_dY -0.434122711
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 14
+		Value 25.6191406
+		RHandle_dX 0.333333343
+		RHandle_dY 0.196044922
+		LHandle_dX -0.333333343
+		LHandle_dY -0.196044922
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 15
+		Value 25.9307861
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0195515957
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0195515957
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 16
+		Value 25.7364502
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0407816581
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0407816581
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 17
+		Value 25.6860962
+		RHandle_dX 0.333333343
+		RHandle_dY 0.00601196289
+		LHandle_dX -0.333333343
+		LHandle_dY -0.00601196289
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 18
+		Value 25.772522
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0268351231
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0268351231
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 19
+		Value 25.8471069
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0385131836
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0385131836
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 19
+		Frame 20
+		Value 26.0036011
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0684000626
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0684000626
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 20
+		Frame 21
+		Value 26.2575073
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0636189803
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0636189803
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 21
+		Frame 22
+		Value 26.3853149
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0530700684
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0530700684
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 22
+		Frame 23
+		Value 26.5759277
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0181274414
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0181274414
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 23
+		Frame 24
+		Value 26.4940796
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0219930019
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0219930019
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 24
+		Frame 25
+		Value 26.4439697
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0463256836
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0463256836
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 25
+		Frame 26
+		Value 26.2161255
+		RHandle_dX 0.333333343
+		RHandle_dY -0.102895103
+		LHandle_dX -0.333333343
+		LHandle_dY 0.102895103
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 26
+		Frame 27
+		Value 25.8265991
+		RHandle_dX 0.333333343
+		RHandle_dY -0.112111412
+		LHandle_dX -0.333333343
+		LHandle_dY 0.112111412
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 27
+		Frame 28
+		Value 25.543457
+		RHandle_dX 0.333333343
+		RHandle_dY -0.173604324
+		LHandle_dX -0.333333343
+		LHandle_dY 0.173604324
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 28
+		Frame 29
+		Value 24.7849731
+		RHandle_dX 0.333333343
+		RHandle_dY -0.267496735
+		LHandle_dX -0.333333343
+		LHandle_dY 0.267496735
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 29
+		Frame 30
+		Value 23.9384766
+		RHandle_dX 0.333333343
+		RHandle_dY -0.340454102
+		LHandle_dX -0.333333343
+		LHandle_dY 0.340454102
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 30
+		Frame 31
+		Value 22.7422485
+		RHandle_dX 0.333333343
+		RHandle_dY -0.378601074
+		LHandle_dX -0.333333343
+		LHandle_dY 0.378601074
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 31
+		Frame 32
+		Value 21.6668701
+		RHandle_dX 0.333333343
+		RHandle_dY -0.317850739
+		LHandle_dX -0.333333343
+		LHandle_dY 0.317850739
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 32
+		Frame 33
+		Value 20.835144
+		RHandle_dX 0.333333343
+		RHandle_dY -0.184855148
+		LHandle_dX -0.333333343
+		LHandle_dY 0.184855148
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 33
+		Frame 34
+		Value 20.5577393
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0416259766
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0416259766
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 34
+		Frame 35
+		Value 20.5853882
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0299173985
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0299173985
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 35
+		Frame 36
+		Value 20.3782349
+		RHandle_dX 0.333333343
+		RHandle_dY -0.097076416
+		LHandle_dX -0.333333343
+		LHandle_dY 0.097076416
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 36
+		Frame 37
+		Value 20.0029297
+		RHandle_dX 0.333333343
+		RHandle_dY -0.114746094
+		LHandle_dX -0.333333343
+		LHandle_dY 0.114746094
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 37
+		Frame 38
+		Value 19.6897583
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0657145157
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0657145157
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 38
+		Frame 39
+		Value 19.6086426
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0591939278
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0591939278
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 39
+		Frame 40
+		Value 19.3345947
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0861002579
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0861002579
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 40
+		Frame 41
+		Value 19.092041
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0930786133
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0930786133
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 41
+		Frame 42
+		Value 18.776123
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0443115234
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0443115234
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 42
+		Frame 43
+		Value 18.8261719
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0550944023
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0550944023
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 43
+		Frame 44
+		Value 19.1066895
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0237019863
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0237019863
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 44
+		Frame 45
+		Value 18.9683838
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0775756836
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0775756836
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 45
+		Frame 46
+		Value 18.6412354
+		RHandle_dX 0.333333343
+		RHandle_dY -0.109934486
+		LHandle_dX -0.333333343
+		LHandle_dY 0.109934486
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 46
+		Frame 47
+		Value 18.3087769
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0646057129
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0646057129
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 47
+		Frame 48
+		Value 18.2536011
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0205586758
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0205586758
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 48
+		Frame 49
+		Value 18.1854248
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0262247715
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0262247715
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 49
+		Frame 50
+		Value 18.0962524
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0744934082
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0744934082
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 50
+		Frame 51
+		Value 17.7384644
+		RHandle_dX 0.333333343
+		RHandle_dY -0.111623131
+		LHandle_dX -0.333333343
+		LHandle_dY 0.111623131
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 51
+		Frame 52
+		Value 17.4265137
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0913187638
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0913187638
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 52
+		Frame 53
+		Value 17.1905518
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0611063652
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0611063652
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 53
+		Frame 54
+		Value 17.0598755
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0320638008
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0320638008
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 54
+		Frame 55
+		Value 16.9981689
+		RHandle_dX 0.333333343
+		RHandle_dY -0.00865681935
+		LHandle_dX -0.333333343
+		LHandle_dY 0.00865681935
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 55
+		Frame 56
+		Value 17.0079346
+		RHandle_dX 0.25
+		RHandle_dY 0.00644035917
+		LHandle_dX -0.25
+		LHandle_dY -0.00644035917
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 255 0 0
+	End
+Channel tracker1/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker1/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker2/ref/x
+	Extrapolation constant
+	Value 364.634613
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 364.634613
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/ref/y
+	Extrapolation constant
+	Value 534.515076
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 534.515076
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/ref/width
+	Extrapolation constant
+	Value 17
+	Colour 50 50 50
+	End
+Channel tracker2/ref/height
+	Extrapolation constant
+	Value 17
+	Colour 50 50 50
+	End
+Channel tracker2/ref/dx
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/ref/dy
+	Extrapolation constant
+	Value 0
+	Size 1
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.25
+		RHandle_dY 0
+		LHandle_dX -0.25
+		LHandle_dY 0
+		CurveMode hermite
+		CurveOrder constant
+		End
+	Colour 50 50 50
+	End
+Channel tracker2/track/x
+	Extrapolation linear
+	Value 640
+	Colour 50 50 50
+	End
+Channel tracker2/track/y
+	Extrapolation linear
+	Value 360
+	Colour 50 50 50
+	End
+Channel tracker2/track/width
+	Extrapolation constant
+	Value 25
+	Colour 50 50 50
+	End
+Channel tracker2/track/height
+	Extrapolation constant
+	Value 25
+	Colour 50 50 50
+	End
+Channel tracker2/shift/x
+	Extrapolation linear
+	Value 0
+	Size 56
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0356648751
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0356648788
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value -0.106994629
+		RHandle_dX 0.333333343
+		RHandle_dY -0.180165604
+		LHandle_dX -0.333333343
+		LHandle_dY 0.180165604
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value -1.08099365
+		RHandle_dX 0.333333343
+		RHandle_dY -0.452336639
+		LHandle_dX -0.333333343
+		LHandle_dY 0.452336639
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value -2.8210144
+		RHandle_dX 0.333333343
+		RHandle_dY -0.7159729
+		LHandle_dX -0.333333343
+		LHandle_dY 0.7159729
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value -5.37683105
+		RHandle_dX 0.333333343
+		RHandle_dY -0.975692749
+		LHandle_dX -0.333333343
+		LHandle_dY 0.975692749
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value -8.6751709
+		RHandle_dX 0.333333343
+		RHandle_dY -0.965606689
+		LHandle_dX -0.333333343
+		LHandle_dY 0.965606689
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value -11.1704712
+		RHandle_dX 0.333333343
+		RHandle_dY -0.571024597
+		LHandle_dX -0.333333343
+		LHandle_dY 0.571024597
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value -12.1013184
+		RHandle_dX 0.333333343
+		RHandle_dY -0.149022415
+		LHandle_dX -0.333333343
+		LHandle_dY 0.149022415
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value -12.0646057
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0936228409
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0936228409
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value -12.6630554
+		RHandle_dX 0.333333343
+		RHandle_dY -0.327535003
+		LHandle_dX -0.333333343
+		LHandle_dY 0.327535003
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 11
+		Value -14.0298157
+		RHandle_dX 0.333333343
+		RHandle_dY -0.481953949
+		LHandle_dX -0.333333343
+		LHandle_dY 0.481953949
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 12
+		Value -15.5547791
+		RHandle_dX 0.333333343
+		RHandle_dY -0.479054779
+		LHandle_dX -0.333333343
+		LHandle_dY 0.479054779
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 13
+		Value -16.9041443
+		RHandle_dX 0.333333343
+		RHandle_dY -0.389134735
+		LHandle_dX -0.333333343
+		LHandle_dY 0.389134735
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 14
+		Value -17.8895874
+		RHandle_dX 0.333333343
+		RHandle_dY -0.337163299
+		LHandle_dX -0.333333343
+		LHandle_dY 0.337163299
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 15
+		Value -18.927124
+		RHandle_dX 0.333333343
+		RHandle_dY -0.325673431
+		LHandle_dX -0.333333343
+		LHandle_dY 0.325673431
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 16
+		Value -19.8436279
+		RHandle_dX 0.333333343
+		RHandle_dY -0.368464142
+		LHandle_dX -0.333333343
+		LHandle_dY 0.368464142
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 17
+		Value -21.1379089
+		RHandle_dX 0.333333343
+		RHandle_dY -0.478790283
+		LHandle_dX -0.333333343
+		LHandle_dY 0.478790283
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 18
+		Value -22.7163696
+		RHandle_dX 0.333333343
+		RHandle_dY -0.50537616
+		LHandle_dX -0.333333343
+		LHandle_dY 0.50537616
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 19
+		Value -24.170166
+		RHandle_dX 0.333333343
+		RHandle_dY -0.499827057
+		LHandle_dX -0.333333343
+		LHandle_dY 0.499827057
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 19
+		Frame 20
+		Value -25.715332
+		RHandle_dX 0.333333343
+		RHandle_dY -0.45594278
+		LHandle_dX -0.333333343
+		LHandle_dY 0.45594278
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 20
+		Frame 21
+		Value -26.9058228
+		RHandle_dX 0.333333343
+		RHandle_dY -0.404596955
+		LHandle_dX -0.333333343
+		LHandle_dY 0.404596955
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 21
+		Frame 22
+		Value -28.1429138
+		RHandle_dX 0.333333343
+		RHandle_dY -0.459869385
+		LHandle_dX -0.333333343
+		LHandle_dY 0.459869385
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 22
+		Frame 23
+		Value -29.6650391
+		RHandle_dX 0.333333343
+		RHandle_dY -0.60500592
+		LHandle_dX -0.333333343
+		LHandle_dY 0.60500592
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 23
+		Frame 24
+		Value -31.7729492
+		RHandle_dX 0.333333343
+		RHandle_dY -0.813145936
+		LHandle_dX -0.333333343
+		LHandle_dY 0.813145936
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 24
+		Frame 25
+		Value -34.5439148
+		RHandle_dX 0.333333343
+		RHandle_dY -1.09215796
+		LHandle_dX -0.333333343
+		LHandle_dY 1.09215796
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 25
+		Frame 26
+		Value -38.3258972
+		RHandle_dX 0.333333343
+		RHandle_dY -1.34303284
+		LHandle_dX -0.333333343
+		LHandle_dY 1.34303284
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 26
+		Frame 27
+		Value -42.6021118
+		RHandle_dX 0.333333343
+		RHandle_dY -1.43499756
+		LHandle_dX -0.333333343
+		LHandle_dY 1.43499756
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 27
+		Frame 28
+		Value -46.9358826
+		RHandle_dX 0.333333343
+		RHandle_dY -1.33657324
+		LHandle_dX -0.333333343
+		LHandle_dY 1.33657324
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 28
+		Frame 29
+		Value -50.6215515
+		RHandle_dX 0.333333343
+		RHandle_dY -1.05784607
+		LHandle_dX -0.333333343
+		LHandle_dY 1.05784607
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 29
+		Frame 30
+		Value -53.282959
+		RHandle_dX 0.333333343
+		RHandle_dY -0.729975402
+		LHandle_dX -0.333333343
+		LHandle_dY 0.729975402
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 30
+		Frame 31
+		Value -55.0014038
+		RHandle_dX 0.333333343
+		RHandle_dY -0.458353668
+		LHandle_dX -0.333333343
+		LHandle_dY 0.458353668
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 31
+		Frame 32
+		Value -56.0330811
+		RHandle_dX 0.333333343
+		RHandle_dY -0.261662811
+		LHandle_dX -0.333333343
+		LHandle_dY 0.261662811
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 32
+		Frame 33
+		Value -56.5713806
+		RHandle_dX 0.333333343
+		RHandle_dY -0.230636597
+		LHandle_dX -0.333333343
+		LHandle_dY 0.230636597
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 33
+		Frame 34
+		Value -57.4169006
+		RHandle_dX 0.333333343
+		RHandle_dY -0.457585663
+		LHandle_dX -0.333333343
+		LHandle_dY 0.457585663
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 34
+		Frame 35
+		Value -59.3168945
+		RHandle_dX 0.333333343
+		RHandle_dY -0.58358258
+		LHandle_dX -0.333333343
+		LHandle_dY 0.58358258
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 35
+		Frame 36
+		Value -60.918396
+		RHandle_dX 0.333333343
+		RHandle_dY -0.26620993
+		LHandle_dX -0.333333343
+		LHandle_dY 0.26620993
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 36
+		Frame 37
+		Value -60.9141541
+		RHandle_dX 0.333333343
+		RHandle_dY 0.252787262
+		LHandle_dX -0.333333343
+		LHandle_dY -0.252787262
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 37
+		Frame 38
+		Value -59.4016724
+		RHandle_dX 0.333333343
+		RHandle_dY 0.370513916
+		LHandle_dX -0.333333343
+		LHandle_dY -0.370513916
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 38
+		Frame 39
+		Value -58.6910706
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0757344589
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0757344589
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 39
+		Frame 40
+		Value -58.9472656
+		RHandle_dX 0.333333343
+		RHandle_dY -0.199284866
+		LHandle_dX -0.333333343
+		LHandle_dY 0.199284866
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 40
+		Frame 41
+		Value -59.8867798
+		RHandle_dX 0.333333343
+		RHandle_dY -0.167154953
+		LHandle_dX -0.333333343
+		LHandle_dY 0.167154953
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 41
+		Frame 42
+		Value -59.9501953
+		RHandle_dX 0.333333343
+		RHandle_dY 0.142913818
+		LHandle_dX -0.333333343
+		LHandle_dY -0.142913818
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 42
+		Frame 43
+		Value -59.0292969
+		RHandle_dX 0.333333343
+		RHandle_dY 0.257217407
+		LHandle_dX -0.333333343
+		LHandle_dY -0.257217407
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 43
+		Frame 44
+		Value -58.4068909
+		RHandle_dX 0.333333343
+		RHandle_dY 0.15445964
+		LHandle_dX -0.333333343
+		LHandle_dY -0.15445964
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 44
+		Frame 45
+		Value -58.1025391
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0584615059
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0584615059
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 45
+		Frame 46
+		Value -58.0561218
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0467580147
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0467580147
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 46
+		Frame 47
+		Value -57.821991
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0715433732
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0715433732
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 47
+		Frame 48
+		Value -57.6268616
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0423227958
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0423227958
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 48
+		Frame 49
+		Value -57.5680542
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0947163925
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0947163925
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 49
+		Frame 50
+		Value -57.0585632
+		RHandle_dX 0.333333343
+		RHandle_dY 0.225718185
+		LHandle_dX -0.333333343
+		LHandle_dY -0.225718185
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 50
+		Frame 51
+		Value -56.2137451
+		RHandle_dX 0.333333343
+		RHandle_dY 0.380101532
+		LHandle_dX -0.333333343
+		LHandle_dY -0.380101532
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 51
+		Frame 52
+		Value -54.7779541
+		RHandle_dX 0.333333343
+		RHandle_dY 0.535451233
+		LHandle_dX -0.333333343
+		LHandle_dY -0.535451233
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 52
+		Frame 53
+		Value -53.0010376
+		RHandle_dX 0.333333343
+		RHandle_dY 0.497497559
+		LHandle_dX -0.333333343
+		LHandle_dY -0.497497559
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 53
+		Frame 54
+		Value -51.7929688
+		RHandle_dX 0.333333343
+		RHandle_dY 0.361363739
+		LHandle_dX -0.333333343
+		LHandle_dY -0.361363739
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 54
+		Frame 55
+		Value -50.8328552
+		RHandle_dX 0.333333343
+		RHandle_dY 0.314620972
+		LHandle_dX -0.333333343
+		LHandle_dY -0.314620972
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 55
+		Frame 56
+		Value -49.9052429
+		RHandle_dX 0.25
+		RHandle_dY 0.231185973
+		LHandle_dX -0.25
+		LHandle_dY -0.231185973
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 0 255 0
+	End
+Channel tracker2/shift/y
+	Extrapolation linear
+	Value 0
+	Size 56
+	KeyVersion 2
+	Key 0
+		Frame 1
+		Value 0
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0769449845
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0769449919
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value -0.230834961
+		RHandle_dX 0.333333343
+		RHandle_dY -0.00250244141
+		LHandle_dX -0.333333343
+		LHandle_dY 0.00250244141
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value -0.0150146484
+		RHandle_dX 0.333333343
+		RHandle_dY 0.196360275
+		LHandle_dX -0.333333343
+		LHandle_dY -0.196360275
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value 0.94732666
+		RHandle_dX 0.333333343
+		RHandle_dY 0.392120361
+		LHandle_dX -0.333333343
+		LHandle_dY -0.392120361
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value 2.33770752
+		RHandle_dX 0.333333343
+		RHandle_dY 0.469807953
+		LHandle_dX -0.333333343
+		LHandle_dY -0.469807953
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value 3.76617432
+		RHandle_dX 0.333333343
+		RHandle_dY 0.3846232
+		LHandle_dX -0.333333343
+		LHandle_dY -0.3846232
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value 4.64544678
+		RHandle_dX 0.333333343
+		RHandle_dY 0.178314209
+		LHandle_dX -0.333333343
+		LHandle_dY -0.178314209
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value 4.83605957
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0545552559
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0545552559
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value 4.31811523
+		RHandle_dX 0.333333343
+		RHandle_dY -0.165639237
+		LHandle_dX -0.333333343
+		LHandle_dY 0.165639237
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value 3.84222412
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0849100724
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0849100724
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 11
+		Value 3.80865479
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0561930351
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0561930351
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 12
+		Value 4.17938232
+		RHandle_dX 0.333333343
+		RHandle_dY 0.162200928
+		LHandle_dX -0.333333343
+		LHandle_dY -0.162200928
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 13
+		Value 4.78186035
+		RHandle_dX 0.333333343
+		RHandle_dY 0.143768311
+		LHandle_dX -0.333333343
+		LHandle_dY -0.143768311
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 14
+		Value 5.04199219
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0688578263
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0688578263
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 15
+		Value 5.19500732
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0726318359
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0726318359
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 16
+		Value 5.4777832
+		RHandle_dX 0.333333343
+		RHandle_dY 0.138020828
+		LHandle_dX -0.333333343
+		LHandle_dY -0.138020828
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 17
+		Value 6.02313232
+		RHandle_dX 0.333333343
+		RHandle_dY 0.204142258
+		LHandle_dX -0.333333343
+		LHandle_dY -0.204142258
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 18
+		Value 6.70263672
+		RHandle_dX 0.333333343
+		RHandle_dY 0.207702637
+		LHandle_dX -0.333333343
+		LHandle_dY -0.207702637
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 19
+		Value 7.26934814
+		RHandle_dX 0.333333343
+		RHandle_dY 0.1844991
+		LHandle_dX -0.333333343
+		LHandle_dY -0.1844991
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 19
+		Frame 20
+		Value 7.80963135
+		RHandle_dX 0.333333343
+		RHandle_dY 0.18951416
+		LHandle_dX -0.333333343
+		LHandle_dY -0.18951416
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 20
+		Frame 21
+		Value 8.40643311
+		RHandle_dX 0.333333343
+		RHandle_dY 0.200592041
+		LHandle_dX -0.333333343
+		LHandle_dY -0.200592041
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 21
+		Frame 22
+		Value 9.01318359
+		RHandle_dX 0.333333343
+		RHandle_dY 0.239776611
+		LHandle_dX -0.333333343
+		LHandle_dY -0.239776611
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 22
+		Frame 23
+		Value 9.84509277
+		RHandle_dX 0.333333343
+		RHandle_dY 0.272644043
+		LHandle_dX -0.333333343
+		LHandle_dY -0.272644043
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 23
+		Frame 24
+		Value 10.6490479
+		RHandle_dX 0.333333343
+		RHandle_dY 0.335398346
+		LHandle_dX -0.333333343
+		LHandle_dY -0.335398346
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 24
+		Frame 25
+		Value 11.8574829
+		RHandle_dX 0.333333343
+		RHandle_dY 0.462615967
+		LHandle_dX -0.333333343
+		LHandle_dY -0.462615967
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 25
+		Frame 26
+		Value 13.4247437
+		RHandle_dX 0.333333343
+		RHandle_dY 0.599294007
+		LHandle_dX -0.333333343
+		LHandle_dY -0.599294007
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 26
+		Frame 27
+		Value 15.4532471
+		RHandle_dX 0.333333343
+		RHandle_dY 0.683349609
+		LHandle_dX -0.333333343
+		LHandle_dY -0.683349609
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 27
+		Frame 28
+		Value 17.5248413
+		RHandle_dX 0.333333343
+		RHandle_dY 0.665690124
+		LHandle_dX -0.333333343
+		LHandle_dY -0.665690124
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 28
+		Frame 29
+		Value 19.4473877
+		RHandle_dX 0.333333343
+		RHandle_dY 0.568044007
+		LHandle_dX -0.333333343
+		LHandle_dY -0.568044007
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 29
+		Frame 30
+		Value 20.9331055
+		RHandle_dX 0.333333343
+		RHandle_dY 0.414296478
+		LHandle_dX -0.333333343
+		LHandle_dY -0.414296478
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 30
+		Frame 31
+		Value 21.9331665
+		RHandle_dX 0.333333343
+		RHandle_dY 0.301900238
+		LHandle_dX -0.333333343
+		LHandle_dY -0.301900238
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 31
+		Frame 32
+		Value 22.7445068
+		RHandle_dX 0.333333343
+		RHandle_dY 0.255696625
+		LHandle_dX -0.333333343
+		LHandle_dY -0.255696625
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 32
+		Frame 33
+		Value 23.4673462
+		RHandle_dX 0.333333343
+		RHandle_dY 0.222208664
+		LHandle_dX -0.333333343
+		LHandle_dY -0.222208664
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 33
+		Frame 34
+		Value 24.0777588
+		RHandle_dX 0.333333343
+		RHandle_dY 0.187072754
+		LHandle_dX -0.333333343
+		LHandle_dY -0.187072754
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 34
+		Frame 35
+		Value 24.5897827
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0872090682
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0872090682
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 35
+		Frame 36
+		Value 24.6010132
+		RHandle_dX 0.333333343
+		RHandle_dY 0.00132242835
+		LHandle_dX -0.333333343
+		LHandle_dY -0.00132242835
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 36
+		Frame 37
+		Value 24.5977173
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0394287109
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0394287109
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 37
+		Frame 38
+		Value 24.8375854
+		RHandle_dX 0.333333343
+		RHandle_dY 0.0667317733
+		LHandle_dX -0.333333343
+		LHandle_dY -0.0667317733
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 38
+		Frame 39
+		Value 24.9981079
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0191243496
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0191243496
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 39
+		Frame 40
+		Value 24.7228394
+		RHandle_dX 0.333333343
+		RHandle_dY -0.212148026
+		LHandle_dX -0.333333343
+		LHandle_dY 0.212148026
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 40
+		Frame 41
+		Value 23.7252197
+		RHandle_dX 0.333333343
+		RHandle_dY -0.363037109
+		LHandle_dX -0.333333343
+		LHandle_dY 0.363037109
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 41
+		Frame 42
+		Value 22.5446167
+		RHandle_dX 0.333333343
+		RHandle_dY -0.298533112
+		LHandle_dX -0.333333343
+		LHandle_dY 0.298533112
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 42
+		Frame 43
+		Value 21.934021
+		RHandle_dX 0.333333343
+		RHandle_dY -0.116353355
+		LHandle_dX -0.333333343
+		LHandle_dY 0.116353355
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 43
+		Frame 44
+		Value 21.8464966
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0687561035
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0687561035
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 44
+		Frame 45
+		Value 21.5214844
+		RHandle_dX 0.333333343
+		RHandle_dY -0.101104736
+		LHandle_dX -0.333333343
+		LHandle_dY 0.101104736
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 45
+		Frame 46
+		Value 21.2398682
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0850118026
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0850118026
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 46
+		Frame 47
+		Value 21.0114136
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0727233887
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0727233887
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 47
+		Frame 48
+		Value 20.8035278
+		RHandle_dX 0.333333343
+		RHandle_dY -0.0824178085
+		LHandle_dX -0.333333343
+		LHandle_dY 0.0824178085
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 48
+		Frame 49
+		Value 20.5169067
+		RHandle_dX 0.333333343
+		RHandle_dY -0.132141113
+		LHandle_dX -0.333333343
+		LHandle_dY 0.132141113
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 49
+		Frame 50
+		Value 20.0106812
+		RHandle_dX 0.333333343
+		RHandle_dY -0.20425415
+		LHandle_dX -0.333333343
+		LHandle_dY 0.20425415
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 50
+		Frame 51
+		Value 19.2913818
+		RHandle_dX 0.333333343
+		RHandle_dY -0.209187821
+		LHandle_dX -0.333333343
+		LHandle_dY 0.209187821
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 51
+		Frame 52
+		Value 18.7555542
+		RHandle_dX 0.333333343
+		RHandle_dY -0.173960373
+		LHandle_dX -0.333333343
+		LHandle_dY 0.173960373
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 52
+		Frame 53
+		Value 18.2476196
+		RHandle_dX 0.333333343
+		RHandle_dY -0.158192948
+		LHandle_dX -0.333333343
+		LHandle_dY 0.158192948
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 53
+		Frame 54
+		Value 17.8063965
+		RHandle_dX 0.333333343
+		RHandle_dY -0.158101395
+		LHandle_dX -0.333333343
+		LHandle_dY 0.158101395
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 54
+		Frame 55
+		Value 17.2990112
+		RHandle_dX 0.333333343
+		RHandle_dY -0.152272537
+		LHandle_dX -0.333333343
+		LHandle_dY 0.152272537
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 55
+		Frame 56
+		Value 16.8927612
+		RHandle_dX 0.25
+		RHandle_dY -0.0932370871
+		LHandle_dX -0.25
+		LHandle_dY 0.0932370871
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Colour 0 255 0
+	End
+Channel tracker2/offset/x
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+Channel tracker2/offset/y
+	Extrapolation linear
+	Value 0
+	Colour 50 50 50
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 100
+		Green 0
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	OffsetsX 0
+	OffsetsY 0
+	FirstRefFrame 1
+Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	OffsetsX 0
+	OffsetsY 0
+	FirstRefFrame 1
+End

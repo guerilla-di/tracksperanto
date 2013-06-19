@@ -109,4 +109,13 @@ class TestFlameImport < Test::Unit::TestCase
     assert_equal tracker_order, trackers.map(&:name)
   end
   
+  # flame 2014 has a new stabilizer
+  def test_flame_2014_stabilizer_import
+    fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/stabilizer_2014_stp.stabilizer')
+    trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture).to_a
+    assert_equal 2, trackers.length
+    assert_equal 56, trackers[0].length
+    assert_equal 56, trackers[1].length
+  end
+  
 end

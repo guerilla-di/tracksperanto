@@ -6,6 +6,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
   
   P = File.dirname(__FILE__) + '/samples/match_mover/kipPointsMatchmover.rz2'
   P2 = File.dirname(__FILE__) + '/samples/match_mover/NonSequentialMatchmoverPoints.rz2'
+  P3 = File.dirname(__FILE__) + '/samples/match_mover/cha_171_1020_atb_v001.rz2'
   
   def test_introspects_properly
     i = Tracksperanto::Import::MatchMover
@@ -20,6 +21,14 @@ class MatchMoverImportTest < Test::Unit::TestCase
     trackers = parser.to_a
     assert_not_equal 0, trackers[0].length
     assert_equal 0, trackers[0][0].frame, "Should have offset the first frame to 0"
+  end
+  
+  def test_parsing_case_nil_exception
+    fixture = File.open(P3)
+    
+    parser = Tracksperanto::Import::MatchMover.new(:io => fixture)
+    trackers = parser.to_a
+    assert_equal 6, trackers.length
   end
   
   def test_parsing_from_matchmover

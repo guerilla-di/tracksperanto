@@ -1,3 +1,6 @@
+=== 3.3.7
+
+* Fix PlanarTracker import support in Nuke 7 scripts
 * Add Nuke CornerPin node support
 
 === 3.3.6

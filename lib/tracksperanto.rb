@@ -3,7 +3,7 @@
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.3.6'
+  VERSION = '3.3.7'
   
   module Import; end
   module Export; end

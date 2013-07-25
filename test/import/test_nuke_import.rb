@@ -60,6 +60,21 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal ref_names, trackers.map{|e| e.name }
   end
   
+  def test_parsing_planar_tracker_nuke7
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/nuke7_planar.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 1920
+    parser.height = 1080
+    
+    trackers = parser.to_a
+    assert_equal 4, trackers.length
+    
+    ref_names = %w( PlanarTracker1_outputBottomLeft PlanarTracker1_outputBottomRight 
+      PlanarTracker1_outputTopLeft PlanarTracker1_outputTopRight )
+    assert_equal ref_names, trackers.map{|e| e.name }
+  end
+  
   def test_parsing_from_nuke
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/one_tracker_with_break.nk')
     

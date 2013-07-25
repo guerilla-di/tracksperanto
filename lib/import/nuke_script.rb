@@ -22,6 +22,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     parser.add_node_handler_class(Tracker3)
     parser.add_node_handler_class(Reconcile3D)
     parser.add_node_handler_class(PlanarTracker1_0)
+    parser.add_node_handler_class(PlanarTracker)
     parser.add_node_handler_class(Tracker4)
     parser.add_node_handler_class(CornerPin2D)
     
@@ -89,7 +90,15 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     end
   end
   
+  # Planar tracker in Nuke 6
   class PlanarTracker1_0 < Tracker3
+    def point_channels
+      %w( outputBottomLeft outputBottomRight outputTopLeft outputTopRight)
+    end
+  end
+  
+  # Planar tracker in Nuke 7
+  class PlanarTracker < PlanarTracker1_0
     def point_channels
       %w( outputBottomLeft outputBottomRight outputTopLeft outputTopRight)
     end

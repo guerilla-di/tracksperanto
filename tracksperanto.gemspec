@@ -5,20 +5,19 @@
 
 Gem::Specification.new do |s|
   s.name = "tracksperanto"
-  s.version = "3.3.6"
+  s.version = "3.3.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2013-04-04"
+  s.date = "2013-07-25"
   s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
   s.extra_rdoc_files = [
-    "DEVELOPER_DOCS.rdoc",
     "README.rdoc"
   ]
   s.files = [
-    "DEVELOPER_DOCS.rdoc",
+    "CONTRIBUTING.md",
     "Gemfile",
     "History.txt",
     "MIT_LICENSE.txt",
@@ -141,7 +140,7 @@ Gem::Specification.new do |s|
     "test/export/test_syntheyes_export.rb",
     "test/export/test_xsi_python_export.rb",
     "test/helper.rb",
-    "test/import/README_SAMPLES.txt",
+    "test/import/README.rdoc",
     "test/import/test_3de_import.rb",
     "test/import/test_3de_import3.rb",
     "test/import/test_boujou_import.rb",
@@ -165,6 +164,7 @@ Gem::Specification.new do |s|
     "test/subpixel/subpixel_grid.sni",
     "test/subpixel/subpixel_grid.tif",
     "test/subpixel/sy_subpix_2dpaths.txt",
+    "test/test_block_init.rb",
     "test/test_buffer_io.rb",
     "test/test_casts.rb",
     "test/test_cli.rb",
@@ -202,7 +202,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://guerilla-di.org/tracksperanto"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "A universal 2D tracks converter"
 
   if s.respond_to? :specification_version then
@@ -221,10 +221,9 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<linebyline>, [">= 0"])
-      s.add_development_dependency(%q<flexmock>, ["~> 1.3"])
+      s.add_development_dependency(%q<flexmock>, ["~> 1.3.2"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_development_dependency(%q<rake-hooks>, [">= 0"])
-      s.add_development_dependency(%q<ruby-prof>, [">= 0"])
     else
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<obuf>, ["~> 1.1"])
@@ -238,10 +237,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<linebyline>, [">= 0"])
-      s.add_dependency(%q<flexmock>, ["~> 1.3"])
+      s.add_dependency(%q<flexmock>, ["~> 1.3.2"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<rake-hooks>, [">= 0"])
-      s.add_dependency(%q<ruby-prof>, [">= 0"])
     end
   else
     s.add_dependency(%q<bundler>, [">= 0"])
@@ -256,10 +254,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<linebyline>, [">= 0"])
-    s.add_dependency(%q<flexmock>, ["~> 1.3"])
+    s.add_dependency(%q<flexmock>, ["~> 1.3.2"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<rake-hooks>, [">= 0"])
-    s.add_dependency(%q<ruby-prof>, [">= 0"])
   end
 end
 

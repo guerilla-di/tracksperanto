@@ -6,8 +6,10 @@ class NukeImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::NukeScript
-    assert_equal "Nuke .nk script file with Tracker, Reconcile3D, PlanarTracker and CornerPin nodes", i.human_name
+    assert_equal "Nuke .nk script file with Tracker, Reconcile3D, Transform2D, PlanarTracker and CornerPin nodes",
+       i.human_name
     assert !i.autodetects_size?
+    assert_not_nil i.known_snags
   end
   
   def test_parsing_big_file_from_nuke
@@ -72,6 +74,18 @@ class NukeImportTest < Test::Unit::TestCase
     
     ref_names = %w( PlanarTracker1_outputBottomLeft PlanarTracker1_outputBottomRight 
       PlanarTracker1_outputTopLeft PlanarTracker1_outputTopRight )
+    assert_equal ref_names, trackers.map{|e| e.name }
+  end
+  
+  def test_parsing_xform2d_nuke7
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/nuke7_transform2d.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 1920
+    parser.height = 1080
+    
+    trackers = parser.to_a
+    ref_names = %w( Transform_for_AE_translate Transform_for_AE_center )
     assert_equal ref_names, trackers.map{|e| e.name }
   end
   

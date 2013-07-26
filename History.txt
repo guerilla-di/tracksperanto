@@ -1,3 +1,5 @@
+* Add Nuke Transform2D support for center and translate
+
 === 3.3.7
 
 * Fix PlanarTracker import support in Nuke 7 scripts

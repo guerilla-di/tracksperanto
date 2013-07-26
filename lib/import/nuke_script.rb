@@ -5,7 +5,7 @@ require 'tickly'
 class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
   def self.human_name
-    "Nuke .nk script file with Tracker, Reconcile3D, PlanarTracker and CornerPin nodes"
+    "Nuke .nk script file with Tracker, Reconcile3D, Transform2D, PlanarTracker and CornerPin nodes"
   end
   
   def self.distinct_file_ext
@@ -13,8 +13,8 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   end
   
   def self.known_snags
-    'The only supported nodes that we can extract tracks from are Reconcile3D,'
-    + ' PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
+    'The only supported nodes that we can extract tracks from are Transform2D, Reconcile3D, \
+PlanarTracker and Tracker (supported Nuke versions are 5, 6 and 7)'
   end
   
   def each
@@ -25,6 +25,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     parser.add_node_handler_class(PlanarTracker)
     parser.add_node_handler_class(Tracker4)
     parser.add_node_handler_class(CornerPin2D)
+    parser.add_node_handler_class(Transform)
     
     parser.parse(@io) do | node |
       node.trackers.each do | t |
@@ -87,6 +88,12 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   class Reconcile3D < Tracker3
     def point_channels
       %w( output)
+    end
+  end
+  
+  class Transform < Tracker3
+    def point_channels
+      %w( translate center )
     end
   end
   

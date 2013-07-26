@@ -1,0 +1,69 @@
+#! /Applications/Nuke7.0v6/NukeX7.0v6.app/../Nuke7.0v6.app/Contents/MacOS/Nuke7.0v6 -nx
+version 7.0 v6
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="22" w="1920" h="1174" screen="0">
+        <splitter orientation="1">
+            <split size="1214"/>
+            <splitter orientation="1">
+                <split size="71"/>
+                <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                    <page id="Toolbar.1"/>
+                </dock>
+                <split size="1139"/>
+                <splitter orientation="2">
+                    <split size="831"/>
+                    <dock id="" activePageId="Viewer.1">
+                        <page id="Viewer.1"/>
+                    </dock>
+                    <split size="317"/>
+                    <dock id="" activePageId="DAG.1">
+                        <page id="DAG.1"/>
+                        <page id="Curve Editor.1"/>
+                        <page id="DopeSheet.1"/>
+                    </dock>
+                </splitter>
+            </splitter>
+            <split size="702"/>
+            <splitter orientation="2">
+                <split size="783"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+                <split size="365"/>
+                <dock id="" activePageId="Script Editor.1">
+                    <page id="Script Editor.1"/>
+                    <page id="Error Console.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /Users/julik/Code/apps/tracksperanto/test/import/samples/nuke/nuke7_transform2d.nk
+ frame 18
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+}
+Viewer {
+ inputs 0
+ frame 18
+ input_process false
+ name Viewer1
+ xpos -212
+ ypos -17
+}
+Transform {
+ inputs 0
+ translate {{curve -1578 x4 -1534 x6 -1417 -1326 x12 -1163 x18 -898 x23 -709 -478.2004067 x38 0 x40 98.73292128 x49 570 x67 1638 x72 1933 x87 1933} {curve -12 x4 -16 x6 -26 -19 x12 6.000000477 x18 43 x23 53 43.06090072 x38 0 x40 -5.165115968 x49 -19 x67 -23 x72 -34 x87 158.6599972}}
+ scale {1 0.74}
+ center {{curve x1 1011.5 x28 1576 x87 480} {curve x1 537.5 x28 966 x87 225}}
+ motionblur 0.235
+ name Transform_for_AE
+ selected true
+ xpos -105
+ ypos -20
+}

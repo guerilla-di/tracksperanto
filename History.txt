@@ -1,3 +1,6 @@
+=== 3.3.8
+
+* Small bugfix in the Nuke import module
 * Add Nuke Transform2D support for center and translate
 
 === 3.3.7

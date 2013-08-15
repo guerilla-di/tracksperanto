@@ -165,6 +165,15 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 9, kf.frame
   end
   
+  def test_parsing_nuke708_tracker4
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/nuke708_tracker.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2048
+    parser.height = 1152
+    trackers = parser.to_a
+    assert_equal 1, trackers.length
+  end
   
   def test_parsing_from_nuke7v05_job_1872
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/failing_nuke7_trackers_job_1872.nk')

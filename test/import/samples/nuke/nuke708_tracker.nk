@@ -1,0 +1,52 @@
+set cut_paste_input [stack 0]
+version 7.0 v8
+push $cut_paste_input
+Tracker4 {
+tracks { { 1 31 1 } 
+{ { 5 1 20 enable e } 
+{ 3 1 75 name name } 
+{ 2 1 58 track_x track_x } 
+{ 2 1 58 track_y track_y } 
+{ 2 1 63 offset_x offset_x } 
+{ 2 1 63 offset_y offset_y } 
+{ 4 1 27 T T } 
+{ 4 1 27 R R } 
+{ 4 1 27 S S } 
+{ 2 0 45 error error } 
+{ 1 1 0 error_min error_min } 
+{ 1 1 0 error_max error_max } 
+{ 1 1 0 pattern_x pattern_x } 
+{ 1 1 0 pattern_y pattern_y } 
+{ 1 1 0 pattern_r pattern_r } 
+{ 1 1 0 pattern_t pattern_t } 
+{ 1 1 0 search_x search_x } 
+{ 1 1 0 search_y search_y } 
+{ 1 1 0 search_r search_r } 
+{ 1 1 0 search_t search_t } 
+{ 2 1 0 key_track key_track } 
+{ 2 1 0 key_search_x key_search_x } 
+{ 2 1 0 key_search_y key_search_y } 
+{ 2 1 0 key_search_r key_search_r } 
+{ 2 1 0 key_search_t key_search_t } 
+{ 2 1 0 key_track_x key_track_x } 
+{ 2 1 0 key_track_y key_track_y } 
+{ 2 1 0 key_track_r key_track_r } 
+{ 2 1 0 key_track_t key_track_t } 
+{ 2 1 0 key_centre_offset_x key_centre_offset_x } 
+{ 2 1 0 key_centre_offset_y key_centre_offset_y } 
+} 
+{ 
+ { {curve K x1 1} "track 1" {curve x1 1087 1093.375977 1100.986816 1108.810425 1118.733887 1132.876587 1149.540405 1162.579346 1174.431152 1189.318848 1204.29187 1212.254883 1210.203003 1202.13269 1202.136475 1202.136475} {curve x1 852 854.1081543 855.0403442 859.3256226 865.3936157 871.2281494 877.0961914 881.1390381 882.5423584 884.4005127 889.3252563 895.6313477 902.5882568 910.5134277 910.5137329 910.5137329} {curve K x1 0} {curve K x1 0} 1 1 1 {curve x1 0 1.699173044e-005 2.0214766e-005 2.480907483e-005 2.999573964e-005 3.202782502e-005 3.140980159e-005 3.669020911e-005 4.15554006e-005 4.216015437e-005 5.750535746e-005 7.384116979e-005 8.885771679e-005 0.0009196290988 1 1} 0 0.000919761 -30 -30 30 30 -21 -21 21 21 {} {curve x1 1036} {curve x1 801} {curve x1 1137} {curve x1 902} {curve x1 1057} {curve x1 822} {curve x1 1116} {curve x1 881} {curve x1 29.5} {curve x1 29.5}  } 
+} 
+}
+
+translate {{curve x1 0 6.375976563 13.98681641 21.8104248 31.73388672 45.87658691 62.54040527 75.5793457 87.43115234 102.3188477 117.2918701 125.2548828 123.2030029 115.1326904 115.1364746 115.1364746} {curve x1 0 2.108154297 3.040344238 7.325622559 13.39361572 19.22814941 25.09619141 29.13903809 30.5423584 32.4005127 37.32525635 43.63134766 50.58825684 58.51342773 58.51373291 58.51373291}}
+rotate {{curve x1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0}}
+scale {{curve x1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1}}
+center {{curve x1 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087 1087} {curve x1 852 852 852 852 852 852 852 852 852 852 852 852 852 852 852 852}}
+selected_tracks 0
+name Tracker1
+selected true
+xpos 383
+ypos 346
+}

@@ -1,3 +1,7 @@
+=== 3.3.10
+
+* Use the updated Tickly for Nuke's animation curves that have a slightly different format
+
 === 3.3.9
 
 * Use the updated Tickly that handles Winshitows line breaks gracefully

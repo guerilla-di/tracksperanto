@@ -175,6 +175,13 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 1, trackers.length
   end
   
+  def test_parsing_nuke708_tracker4_with_curve_error
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/A099_L008_0207TW_001_head_R.nk')
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture, :width => 4800, :height => 2700)
+    trackers = parser.to_a
+    assert_equal 4, trackers.length
+  end
+  
   def test_parsing_from_nuke7v05_job_1872
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/failing_nuke7_trackers_job_1872.nk')
     

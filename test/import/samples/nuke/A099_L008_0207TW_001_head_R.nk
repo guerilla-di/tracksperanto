@@ -1,0 +1,135 @@
+#! C:/Program Files/Nuke7.0v8/Nuke7.0.exe -nx
+version 7.0 v8
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2576" h="1400" screen="0">
+        <splitter orientation="1">
+            <split size="1619"/>
+            <splitter orientation="2">
+                <split size="1334"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="1"/>
+                <splitter orientation="1">
+                    <split size="1619"/>
+                    <dock id="" hideTitles="1"/>
+                </splitter>
+            </splitter>
+            <split size="937"/>
+            <splitter orientation="2">
+                <split size="56"/>
+                <splitter orientation="1">
+                    <split size="686"/>
+                    <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                        <page id="Toolbar.1"/>
+                    </dock>
+                    <split size="247"/>
+                    <dock id="" hideTitles="1" activePageId="Toolbar_&amp;Mari.1">
+                        <page id="Toolbar_&amp;Mari.1"/>
+                    </dock>
+                </splitter>
+                <split size="1098"/>
+                <dock id="" activePageId="DAG.1">
+                    <page id="DAG.1"/>
+                </dock>
+                <split size="177"/>
+                <dock id="" hideTitles="1" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+    <window x="2560" y="0" w="2064" h="1152" screen="1">
+        <splitter orientation="2">
+            <split size="1118"/>
+            <dock id="" activePageId="Curve Editor.1">
+                <page id="Curve Editor.1"/>
+                <page id="DopeSheet.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+inputs 0
+name C:/_Jobs_/higher_mission/A099_L008_0207TW_001/track/A099_L008_0207TW_001_head_R.nk
+frame 412
+first_frame 374
+last_frame 425
+format "4800 2700 0 0 4800 2700 1 1"
+proxy_type scale
+proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+addUserKnob {20 mariTab l Mari}
+addUserKnob {26 cmdStatus l "listen status" t "The status of Nuke's command port" T <b>Disabled</b>}
+addUserKnob {26 sendStatus l "send status" t "The status of Nuke's connection to Mari" T <b>Inactive</b>}
+addUserKnob {3 socketPort l "nuke command port" t "Port to listen on. Make sure this matches the command port set in Mari's \"Nuke\" Palette."}
+socketPort 50107
+addUserKnob {6 enableSocket l enabled -STARTLINE}
+addUserKnob {26 divider l "" +STARTLINE}
+addUserKnob {20 advanced n 1}
+advanced 0
+addUserKnob {3 portRange l "port range" t "If the main specified command port is unavailable, Nuke will try using the next port number, and continue until successful or the indicated number of ports have been tried."}
+portRange 200
+addUserKnob {4 enablePortRange l "" t "Indicates whether to use a range of ports up to the given number, or to use only the single one specified." -STARTLINE M {"use range" "single port only"}}
+addUserKnob {6 localhostOnly l "local host only" t "This determines whether the Mari bridge server will listen for connections from any machine, or from \"localhost\" (the local machine) only.<p>Only allowing connections from localhost is more secure, but will prevent you from using the Nuke&lt;&gt;Mari workflow across the network." +STARTLINE}
+addUserKnob {1 hostName l "mari host" t "The machine name or IP address that Mari is running on.\nLeave empty if both Mari and Nuke are running on the same machine."}
+hostName localhost
+addUserKnob {3 socketPortSend l port t "Port that Mari is listening to. Make sure this matches the command port set in Mari's preferences." -STARTLINE}
+socketPortSend 6100
+addUserKnob {2 mariDataDir l "mari data dir" t "Path to directory that will hold transient data to be sent to Mari (exrs, objs and fbx files). If this is left empty, a \"mari\" directory will be created in the nk file's location"}
+mariDataDir "\[getenv NUKE_TEMP_DIR]/mariData"
+addUserKnob {2 mariLocation l "mari launch path" t "The path to launch Mari from.<br>This can also be set using the <b>MARI_INSTALL_PATH</b> environment variable."}
+addUserKnob {20 endGroup n -1}
+}
+Tracker4 {
+inputs 0
+tracks { { 1 31 4 } 
+{ { 5 1 20 enable e } 
+{ 3 1 75 name name } 
+{ 2 1 58 track_x track_x } 
+{ 2 1 58 track_y track_y } 
+{ 2 1 63 offset_x offset_x } 
+{ 2 1 63 offset_y offset_y } 
+{ 4 1 27 T T } 
+{ 4 1 27 R R } 
+{ 4 1 27 S S } 
+{ 2 0 45 error error } 
+{ 1 1 0 error_min error_min } 
+{ 1 1 0 error_max error_max } 
+{ 1 1 0 pattern_x pattern_x } 
+{ 1 1 0 pattern_y pattern_y } 
+{ 1 1 0 pattern_r pattern_r } 
+{ 1 1 0 pattern_t pattern_t } 
+{ 1 1 0 search_x search_x } 
+{ 1 1 0 search_y search_y } 
+{ 1 1 0 search_r search_r } 
+{ 1 1 0 search_t search_t } 
+{ 2 1 0 key_track key_track } 
+{ 2 1 0 key_search_x key_search_x } 
+{ 2 1 0 key_search_y key_search_y } 
+{ 2 1 0 key_search_r key_search_r } 
+{ 2 1 0 key_search_t key_search_t } 
+{ 2 1 0 key_track_x key_track_x } 
+{ 2 1 0 key_track_y key_track_y } 
+{ 2 1 0 key_track_r key_track_r } 
+{ 2 1 0 key_track_t key_track_t } 
+{ 2 1 0 key_centre_offset_x key_centre_offset_x } 
+{ 2 1 0 key_centre_offset_y key_centre_offset_y } 
+} 
+{ 
+ { {curve K x419 1} "track 1" {"curve " x374 1008.35 899.289 809.798 742.572 825.061 1013.43 1238.31 1490.91 1698.4 1848.96 1889.24 1961.12 2024.13 2090.3 2114.74 2164.57 2227.17 2309.3 2371.32 2349.1 2287.67 2178.14 2081.43 2042.85 2017.38 2031.87 2051.54 2061.76 2057.09 2071.49 2024.66 2013.3 2017.85 2030.97 2039.28 2035.96 2016.77 2001.12 1985.23 1998.18 2051.24 2115.6 2183.93 2252.85 2312.85 2357.23 2408.88 2402.39 2417.59 2359.65 2298.74 2217.88} {"curve " x374 1830.66 1662.72 1511.58 1426.66 1407.44 1444.84 1464.25 1536.91 1661.09 1799.28 1990.02 2025.9 2020.74 2008.07 2011.66 2005.66 1957.6 1851.73 1831.95 1887.01 1941.6 1989.41 2019.74 2031.98 2014.62 1965.65 1914.94 1881.12 1890.35 1924.73 2029.63 2076.85 2110.31 2098.64 2059.77 2041.33 2057.64 2091.77 2161 2227.74 2245.34 2231.09 2199 2133.43 2080.21 2071.91 2090.11 2154.37 2183.9 2233.51 2214.51 2148.41} {curve K x405 33 x419 0} {curve K x405 -3 x419 0} 0 0 0 {curve x419 0} 1 0 -75 -75 75 75 -52 -52 52 52 {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve}  } 
+ { {curve K x419 1} "track 2" {"curve " x374 1553.9 1455.14 1342.09 1240.84 1300.65 1465.02 1672.13 1854.19 2032.32 2146.22 2187.3 2248.11 2307.64 2368.05 2391.26 2436.02 2466.33 2573.65 2640.77 2619.48 2558.93 2441.61 2341.44 2308.41 2282.51 2290.33 2303.16 2303.48 2294.85 2308.78 2266.36 2259.34 2262.83 2270.42 2274.54 2274.34 2257.02 2242.79 2223.64 2232.3 2280.93 2344.69 2408.58 2462.69 2512.94 2551.1 2602.87 2603.94 2635.47 2576.77 2510.81 2433.8} {"curve " x374 1583.69 1395.42 1217.74 1117.94 1069.81 1072.29 1117.84 1185.78 1408.68 1625.89 1956.5 1990.03 1987.08 1972.49 1982.13 1961.23 1897.9 1757.36 1722.38 1809.92 1881.47 1955.97 1988.08 1996.57 1976.77 1912.25 1843.83 1788.78 1777.81 1817.53 1938.8 1996.15 2037.68 2021.43 1972.89 1954.6 1976.5 2011.89 2097.33 2176.04 2200.07 2190.59 2153.29 2081.4 2022.92 2013.68 2022.82 2102.32 2126.52 2183.74 2154.34 2081.45} {curve K x405 33 x419 0} {curve K x374 -3 x419 0} 0 0 0 {curve x419 0} 1 0 -75 -75 75 75 -52 -52 52 52 {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve}  } 
+ { {curve K x419 1} "track 3" {"curve " x374 1746.57 1616.7 1495.47 1400.14 1470.73 1693.79 1947.58 2114.23 2256.05 2331.35 2369.16 2412.46 2469.92 2534.47 2561.54 2612.07 2626.41 2769.88 2843.89 2812.71 2746.56 2623.53 2517.53 2488.9 2465.23 2482.32 2496.86 2504.36 2497.1 2515.42 2471.59 2468.74 2473.53 2480.4 2485.77 2481.44 2464.15 2447.89 2419.71 2416.98 2453.4 2512.56 2574.42 2628.88 2677.46 2703.74 2753.56 2756.55 2797.75 2738.31 2669.23 2587.91} {"curve " x374 2022.2 1848.83 1651.75 1503.74 1436.07 1420.03 1465.5 1518.48 1678.97 1868.39 2122.29 2150.84 2121.44 2078.42 2083.95 2051.37 1988 1812.78 1768.04 1869.89 1950.22 2035.32 2068.09 2068.93 2043.67 1973.62 1895.83 1829.53 1810.88 1847.13 1979.42 2044.35 2096 2077.34 2021.23 1994.33 2019.62 2057.51 2143.95 2222.1 2250.04 2247.32 2205.4 2129.86 2068.56 2054.29 2060.55 2147.38 2165.85 2229.59 2195.49 2119.16} {curve K x374 33 x419 0} {curve K x374 -3 x419 0} 0 0 0 {curve x419 0} 1 0 -75 -75 75 75 -52 -52 52 52 {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve}  } 
+ { {curve K x419 1} "track 4" {"curve " x374 1181.17 1042.33 945.511 884.553 977.736 1222.38 1491.99 1731.27 1904.79 2019.35 2056.5 2111.94 2173.06 2243.27 2271.4 2326.82 2374.84 2490.86 2559.35 2527.7 2460.93 2346.12 2243.93 2209.43 2186.09 2209.53 2230.95 2248.18 2244.9 2263.48 2215.21 2207.75 2213.55 2226.09 2235.67 2228.37 2209.17 2191.56 2167.15 2169.34 2210.88 2270.88 2337.36 2406.9 2465.48 2498.69 2548.48 2543.68 2567.75 2509.13 2445.34 2360.32} {"curve " x374 2252.4 2099.02 1929.94 1799.45 1762.19 1782.65 1801.48 1860.01 1922.95 2033.21 2148.32 2179.51 2149.16 2109.49 2109.05 2092.22 2044.43 1906.24 1877.47 1945.51 2008.13 2065.51 2096.43 2101.47 2078.97 2025.04 1965.75 1921.64 1923.95 1954.92 2069.99 2124.23 2167.15 2153.29 2107.4 2080.77 2100.2 2136.68 2206.55 2272.53 2293.73 2285.81 2249.43 2180.51 2124.71 2111.65 2127.27 2198.22 2222.4 2278.07 2254.8 2185.55} {curve K x374 33 x419 0} {curve K x374 -3 x419 0} 0 0 0 {curve x419 0} 1 0 -75 -75 75 75 -52 -52 52 52 {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve} {curve}  } 
+} 
+}
+
+center {320 240}
+name Tracker_head_R
+tile_color 0xff0000ff
+gl_color 0xff0000ff
+selected true
+xpos -241
+ypos -112
+}

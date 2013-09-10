@@ -1,5 +1,3 @@
-{<img src="https://secure.travis-ci.org/guerilla-di/tracksperanto.png" />}[http://travis-ci.org/guerilla-di/tracksperanto]
-
 Tracksperanto is a universal 2D-track translator between many apps.
 
 == Why Tracksperanto?
@@ -137,6 +135,8 @@ Tracksperanto has a number of features to scale, move, slip, distort and rename 
 Consult the --help option to see what is available.
 
 == Development
+
+{<img src="https://secure.travis-ci.org/guerilla-di/tracksperanto.png" />}[http://travis-ci.org/guerilla-di/tracksperanto]
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
 the {short developer introduction}[https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md]

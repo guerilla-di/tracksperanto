@@ -111,8 +111,8 @@ op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, toold("LengthCutoff"), &t
 op.on(" -p", "--prefix PREFIX", String, toold("Prefix"), &tool("Prefix", :prefix))
 op.on(" -as", "--autoslip", toold("MoveToFirst"), &tool("MoveToFirst"))
 op.on("--lerp", toold("Lerp"), &tool("Lerp"))
-op.on("--flip", toold("Flip"), &tool("Flip"))
-op.on("--flop", toold("Flop"), &tool("Flop"))
+op.on("--mirrorx", toold("Flip"), &tool("Flip"))
+op.on("--mirrory", toold("Flop"), &tool("Flop"))
 
 # TODO - multiparameters
 op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))

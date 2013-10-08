@@ -74,51 +74,51 @@ def f(module_list)
   "\n" + module_list.map{|e| "\t\t\t\t\t%s\n" % e }.join
 end
 
-op.on(" -f", "--from TRANSLATOR", String, "Use the specific import translator, must be one of: #{f(readers)}") { |f| options[:importer] = f }
-op.on(" -w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
-op.on(" -h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
-op.on(" -o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of: #{f(writers)}") { |f| writer_class_name = f }
+op.on("-f", "--from TRANSLATOR", String, "Use the specific import translator, must be one of: #{f(readers)}") { |f| options[:importer] = f }
+op.on("-w", "--width WIDTH_IN_PIXELS", Integer, "Absolute input comp width in pixels (will try to autodetect)") { |w| options[:width] = w }
+op.on("-h", "--height HEIGHT_IN_PIXELS", Integer, "Absolute input comp height in pixels (will try to autodetect)") {|w| options[:height] = w }
+op.on("-o", "--only EXPORTER_NAME", String, "Only export the selected format, format must be one of: #{f(writers)}") { |f| writer_class_name = f }
 
-op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
+op.on("-xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
 
-op.on(" -pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, toold("Pad")) do | pads|
+op.on("-pad", "--pad PAD_FRACTION_VALUES_COMMA_SEPARATED", String, toold("Pad")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_f }
   $tools.push(["Pad", {"left_pad" => left, "right_pad"=> right, "top_pad" => top, "bottom_pad" => bottom}])
 end
 
-op.on(" -u", "--undistort K_AND_KCUBE_COMMA_SEPARATED", String, "Remove lens distortion using the Syntheyes algorithm") do | coefficients |
+op.on("-u", "--undistort K_AND_KCUBE_COMMA_SEPARATED", String, "Remove lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
   $tools.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => true}])
 end
 
-op.on(" -d", "--distort K_AND_KCUBE_COMMA_SEPARATED", String, "Add lens distortion using the Syntheyes algorithm") do | coefficients |
+op.on("-d", "--distort K_AND_KCUBE_COMMA_SEPARATED", String, "Add lens distortion using the Syntheyes algorithm") do | coefficients |
   k, kcube = coefficients.split(",").map{|e| e.to_f }
   $tools.push(["LensDisto", {"k" => k, "kcube"=> kcube, "remove" => false}])
 end
 
-op.on(" -crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, toold("Crop")) do | pads|
+op.on("-crop", "--crop CROP_VALUES_COMMA_SEPARATED", String, toold("Crop")) do | pads|
   left, right, top, bottom = pads.split(",").map{|e| e.to_i }
   $tools.push(["Crop", {"left" => left, "right"=> right, "top" => top, "bottom" => bottom}])
 end
 
-op.on(" -ys", "--yscale Y_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :y_factor))
-op.on(" -xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
+op.on("-ys", "--yscale Y_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :y_factor))
+op.on("-xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler", :x_factor))
 
-op.on(" -t", "--trim", Float, toold("StartTrim"),  &tool("StartTrim")) # Before slip!
-op.on(" -s", "--slip FRAMES", Integer, toold("Slipper"), &tool("Slipper", :slip))
-op.on(" -g", "--golden", toold("Golden"), &tool("Golden"))
-op.on(" -m", "--min-length LENGTH_IN_FRAMES", Integer, toold("LengthCutoff"), &tool("LengthCutoff", :min_length))
-op.on(" -p", "--prefix PREFIX", String, toold("Prefix"), &tool("Prefix", :prefix))
-op.on(" -as", "--autoslip", toold("MoveToFirst"), &tool("MoveToFirst"))
+op.on("-t", "--trim", Float, toold("StartTrim"),  &tool("StartTrim")) # Before slip!
+op.on("-s", "--slip FRAMES", Integer, toold("Slipper"), &tool("Slipper", :slip))
+op.on("-g", "--golden", toold("Golden"), &tool("Golden"))
+op.on("-m", "--min-length LENGTH_IN_FRAMES", Integer, toold("LengthCutoff"), &tool("LengthCutoff", :min_length))
+op.on("-p", "--prefix PREFIX", String, toold("Prefix"), &tool("Prefix", :prefix))
+op.on("-as", "--autoslip", toold("MoveToFirst"), &tool("MoveToFirst"))
 op.on("--lerp", toold("Lerp"), &tool("Lerp"))
-op.on("--mirrorx", toold("Flip"), &tool("Flip"))
-op.on("--mirrory", toold("Flop"), &tool("Flop"))
+op.on("--flip", toold("Flip"), &tool("Flip"))
+op.on("--flop", toold("Flop"), &tool("Flop"))
 
 # TODO - multiparameters
-op.on(" -rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))
-op.on(" -ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &tool("Reformat", :height))
-op.on(" -xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &tool("Shift", :x_shift))
-op.on(" -ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &tool("Shift", :y_shift)) 
+op.on("-rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))
+op.on("-ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &tool("Reformat", :height))
+op.on("-xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &tool("Shift", :x_shift))
+op.on("-ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &tool("Shift", :y_shift)) 
 
 
 op.on("--list-exporters", "Show available export modules") do

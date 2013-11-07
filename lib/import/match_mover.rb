@@ -26,9 +26,24 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     last_line = lines[-1]
     int_groups = last_line.scan(/(\d+)/).flatten.map{|e| e.to_i }
     @width, @height = int_groups.shift, int_groups.shift
+    unless @width && @height
+      raise "Cannot detect the dimensions of the comp from the file"
+    end
+    
     # Next the starting frame of the sequence. The preamble ends with the p(0 293 1)
-    # which is p( first_frame length framestep )
-    @first_frame_of_sequence, length, frame_step = int_groups[-3], int_groups[-2], int_groups[-1]
+    # which is p( first_frame length framestep ). Some files export the path to the sequence
+    # as multiline, so we will need to succesively scan until we find our line that contains the dimensions
+    frame_steps_re = /b\( (\d+) (\d+) (\d+) \)/ # b( 0 293 1 )
+    until @first_frame_of_sequence
+      digit_groups = last_line.scan(frame_steps_re).flatten
+      if digit_groups.any?
+        @first_frame_of_sequence, length, frame_step = digit_groups.map{|e| e.to_i }
+        return
+      end
+      last_line = io.gets
+    end
+    
+    raise "Cannot detect the start frame of the sequence"
   end
   
   def extract_trackers(io)

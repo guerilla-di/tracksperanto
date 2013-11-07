@@ -7,6 +7,7 @@ class MatchMoverImportTest < Test::Unit::TestCase
   P = File.dirname(__FILE__) + '/samples/match_mover/kipPointsMatchmover.rz2'
   P2 = File.dirname(__FILE__) + '/samples/match_mover/NonSequentialMatchmoverPoints.rz2'
   P3 = File.dirname(__FILE__) + '/samples/match_mover/cha_171_1020_atb_v001.rz2'
+  P4 = File.dirname(__FILE__) + '/samples/match_mover/2dtracks.rz2'
   
   def test_introspects_properly
     i = Tracksperanto::Import::MatchMover
@@ -59,4 +60,25 @@ class MatchMoverImportTest < Test::Unit::TestCase
     assert_in_delta 0.027457, last_kf.residual, DELTA
   end
   
+  def test_parsing_from_matchmover_with_multiline_sequence_path
+    fixture = File.open(P4)
+    
+    parser = Tracksperanto::Import::MatchMover.new(:io => fixture)
+    trackers = parser.to_a
+    
+    assert_equal 2156, parser.width
+    assert_equal 1804, parser.height
+    
+    assert_equal 18, trackers.length
+    
+    first_t = trackers[0]
+    assert_equal "Track_01", first_t.name
+    assert_equal 137, first_t.length
+    first_kf = first_t[0]
+    
+    assert_equal 119, first_kf.frame
+    assert_in_delta 10.715, first_kf.abs_x, DELTA 
+    assert_in_delta 461.36, first_kf.abs_y, DELTA
+    assert_in_delta 0.2, first_kf.residual, DELTA
+  end
 end

@@ -1,3 +1,7 @@
+=== 3.3.12
+
+* Fix the bug in MatchMover imports that caused the import to fail if the file contained a multiline path
+
 === 3.3.11
 
 * Fix the bug that caused CLI short flags to be ignored

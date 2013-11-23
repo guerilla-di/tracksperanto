@@ -24,30 +24,42 @@ So, to get started:
 
 ### Internal tracker representation
 
-The trackers are represented by Tracker objects, which work like addressable hashes per frame number. The Tracker objects
+The trackers are represented by Tracker objects, which walk and quack like Arrays of frames. The Tracker objects
 contain Keyframe objects, and those in turn contain coordinates. The coordinates are stored in absolute pixels, relative to
-the zero coordinate in the lower left corner.
+the zero coordinate in the lower left corner. The Tracker objects wacth after you so that you don't put multiple Keyframes on
+the same frame number, keep Keyframes sorted and so on - in short, they are a nice container. They are also what is `yield`ed
+when you import.
 
-Note on subpixel precision: the absolute left/bottom of the image has coordinates 0,0 
-(at the lower left corner of the leftmost bottommost pixel) and 0.5x0.5 in the middle of that pixel.
+### Coordinate system
+
+Tracksperanto uses the **bottom left** coordinate system, with positive values going **up and right**.
+Pixel registration is on the **lower left corner of the pixel**. Thus the absolute left/bottom of the image 
+has coordinates 0,0 (at the lower left corner of the leftmost bottommost pixel) and 0.5x0.5 in the middle of that pixel.
+
+When importing data, each import module will conform the coordinate system to these conventions. Each export module will
+convert from this system to whichever is required by the consumer of the file being exported.
 
 ### Importing your own formats
 
-To write an import module refer to Tracksperanto::Import::Base
-docs. Your importer will be configured with width and height of the comp that it is importing, and will get an IO 
-object with the file that you are processing. You should then yield parsed trackers within the each method (tracker objects should
-be Tracksperanto::Tracker objects or compatibles)
+To write an import module refer to `Tracksperanto::Import::Base` docs. Your importer will be configured with width and height
+of the comp that it is importing, and will get an IO  object with the file that you are processing. You should then `yield` the parsed
+trackers packed into `Tracker` objects within the `each` method (tracker objects should be Tracksperanto::Tracker objects or compatibles)
+
+Since the importer objects also mix-in `Enumerable` you can quickly import into an `Array` and so on.
 
 ### Exporting your own formats
 
-You can easily write an exporter. Refer to the Tracksperanto::Export::Base docs. Note that your exporter should be able to chew alot of data
+You can easily write an exporter. Refer to the `Tracksperanto::Export::Base` docs. Note that your exporter should be able to chew alot of data
 (hundreds of trackers with thousands of keyframes with exported files growing up to 5-10 megs in size are not uncommon!). This means that
 the exporter should work with streams (smaller parts of the file being exported will be held in memory at a time).
 
+Export modules are decoupled from the internal `Tracker` representation - all the export module ever sees are raw strings, `Integers`
+and `Floats`
+
 ### Ading your own processing steps
 
-You probably want to write a Tool (consult the Tracksperanto::Tool::Base docs) if you need some processing applied to the tracks
-or their data. A Tool is just like an export module, except that instead it sits between the exporter and the exporting routine. Tools wrap export
+You probably want to write a `Tool` (consult the Tracksperanto::Tool::Base docs) if you need some processing applied to the tracks
+or their data. A `Tool` is just like an export module, except that instead it sits between the exporter and the exporting routine. Tools wrap export
 modules or each other, so you can stack different tool modules together (like "scale first, then move").
 
 ### Writing your own processing pipelines from start to finish

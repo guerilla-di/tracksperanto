@@ -7,7 +7,7 @@ can chew on. Contributions or patches without tests will be rejected at sight.
 
 ### Development environment
 
-Tracksperanto is currently being developed on Ruby 1.9.3 but it should also work fine on 1.8.7.
+Tracksperanto is currently being developed on Ruby 2.0.0 but we maintain compatibility down to 1.8.7.
 What you will need is everything mentioned in the Gemfile plus Bundler.
 Development should be done agains the git checkout because the gem does not contain the test files
 (various example files in different formats that are used for verifying all the import and export modules).
@@ -91,8 +91,7 @@ the software user-friendly. A well-behaved Tracksperanto module should manage it
     some_importer.io = File.open("source_file.shk")
     
     # The importer responds to each() so if your file is not too big you can just load all the trackers
-    # as an array. If you expect to have alot of trackers investigate a way to buffer them on disk
-    # instead (see Obuf)
+    # as an array.
     trackers = some_importer.to_a
     
     # Create the exporter and pass the output file to it

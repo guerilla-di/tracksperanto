@@ -1,13 +1,17 @@
 Tracksperanto is a universal 2D-track translator between many apps.
 
-== Why Tracksperanto?
+## Is it any good?
+
+Yes.
+
+## Why Tracksperanto?
 
 Historically, every matchmoving app uses it's own UI for tracking 2D features.
 Unfortunately, the UIs of these are all different and not very user-friendly. It happens
 that an app cannot solve a shot that another one will, but you usually have to redo your 2D
 tracks in each one of them.
 
-=== Efficiency when doing tracks
+### Efficiency when doing tracks
 
 Another problem with today's matchmoving apps is that they are vastly inefficient when
 doing 2D tracks. Almost all of them use OpenGL and want to load the whole frame into memory
@@ -29,14 +33,14 @@ So it's very natural to track in a modern compositing app that has selective ima
 loading, and then export one single group of tracks into all of the matchmoving
 applications at once.
 
-=== Evaluating different camera solvers
+### Evaluating different camera solvers
 
 Since your 2D tracking data is now freely interchangeable you can load the same tracks
 into multiple 3D tracking applications and see which one gives you a better solve.
 Should all the 3D camera trackers fail, you can still take your tracks into the 2D
 compositing world to do the job. 
 
-=== Processing 2D tracking data
+### Processing 2D tracking data
 
 Sometimes you need to offset your tracks in time, or resize them to a different pixel format.
 Very few apps allow you to convert your tracks in one step from format to format - like doing
@@ -47,7 +51,7 @@ way to solve the shot will be to retrack it from scratch.
 To circumvent this, Tracksperanto allows you to apply transformations to the tracking data
 that you export - and you can apply multiple transformations if desired.
 
-== Using Tracksperanto from the command line
+## Using Tracksperanto from the command line
 
 To run on your own computer, make sure you have Ruby installed. Versions from 1.8.7
 and up are supported.
@@ -71,7 +75,7 @@ To see the supported options, run
 The converted files will be saved in the same directory as the source, if resulting
 converted files already exist <b>they will be overwritten without warning</b>.
 
-== Using Tracksperanto through the web
+## Using Tracksperanto through the web
 
 For situations where you cannot install anything on your machine, or you run a shitty OS that cannot
 run Ruby decently, or you are in a locked-down environment, we offer a web-enabled version of
@@ -86,10 +90,11 @@ data (like script and footage paths) from the files before adding them to the re
 
 If you want your own copy of the web application at your facility we can discuss that, but it's not free.
 
-== Format support
+## Format support
 
 --- 
-=== Formats Tracksperanto can read
+ 
+### Formats Tracksperanto can read
  
 * 3DE v3 point export file
 * 3DE v4 point export file
@@ -105,7 +110,7 @@ If you want your own copy of the web application at your facility we can discuss
 * Syntheyes "All Tracker Paths" export .txt file
 * Syntheyes 2D tracker paths file
  
-=== Formats Tracksperanto can export to
+### Formats Tracksperanto can export to
  
 * 3DE v3 point export .txt file
 * 3DE v4 point export .txt file
@@ -126,29 +131,29 @@ If you want your own copy of the web application at your facility we can discuss
 * Shake trackers in a .txt file
 * Syntheyes 2D tracker paths file
 * boujou feature tracks
+ 
 ---
 
 
-== Editing your tracks while converting
+## Editing your tracks while converting
 
 Tracksperanto has a number of features to scale, move, slip, distort and rename trackers.
 Consult the --help option to see what is available.
 
-== Development
+## Development
 
-{<img src="https://secure.travis-ci.org/guerilla-di/tracksperanto.png" />}[http://travis-ci.org/guerilla-di/tracksperanto]
+[!][tests][https://secure.travis-ci.org/guerilla-di/tracksperanto.png]
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
-the {short developer introduction}[https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md]
+the [short developer introduction][https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md]
 
-== Limitations
+## Limitations
 
 Information about the search area, reference area and offset is not passed along (outside
 of scope for the app and different trackers handle these differently, if at all). For some
 modules no residual will be passed along (3D tracking apps generally do not export residual
 with backprojected 3D features).
 
-
-== Licensing
+## Licensing
 
 Tracksperanto is made avalable under the MIT license that is included in the package.

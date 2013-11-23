@@ -145,7 +145,7 @@ Consult the --help option to see what is available.
 ![tests](https://secure.travis-ci.org/guerilla-di/tracksperanto.png)
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
-the [short developer introduction][https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md]
+the [short developer introduction](https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md)
 
 ## Limitations
 

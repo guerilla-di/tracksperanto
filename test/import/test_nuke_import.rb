@@ -175,6 +175,34 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 1, trackers.length
   end
   
+  def test_parsing_nuke8_tracker4_without_LF_at_end_of_file
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/nuke8_tracker4_copypastes.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2048
+    parser.height = 1152
+    trackers = parser.to_a
+    
+    assert_equal 4, trackers.length
+    first_t = trackers[0]
+    assert_equal 'Tracker1_track_1', first_t.name
+    assert_equal 48, first_t.length
+  end
+  
+  def test_parsing_nuke8_tracker4
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/track_nuke8.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2048
+    parser.height = 1152
+    trackers = parser.to_a
+    
+    assert_equal 5, trackers.length
+    first_t = trackers[0]
+    assert_equal 'Tracker1_track_1', first_t.name
+    assert_equal 88, first_t.length
+  end
+  
   def test_parsing_nuke708_tracker4_with_curve_error
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/A099_L008_0207TW_001_head_R.nk')
     parser = Tracksperanto::Import::NukeScript.new(:io => fixture, :width => 4800, :height => 2700)

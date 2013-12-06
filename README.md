@@ -94,7 +94,7 @@ If you want your own copy of the web application at your facility we can discuss
 
 --- 
  
-### Formats Tracksperanto can read
+=== Formats Tracksperanto can read
  
 * 3DE v3 point export file
 * 3DE v4 point export file
@@ -110,7 +110,7 @@ If you want your own copy of the web application at your facility we can discuss
 * Syntheyes "All Tracker Paths" export .txt file
 * Syntheyes 2D tracker paths file
  
-### Formats Tracksperanto can export to
+=== Formats Tracksperanto can export to
  
 * 3DE v3 point export .txt file
 * 3DE v4 point export .txt file

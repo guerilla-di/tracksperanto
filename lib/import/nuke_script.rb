@@ -19,6 +19,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
   
   def each
     parser = Tickly::NodeProcessor.new
+    
     parser.add_node_handler_class(Tracker3)
     parser.add_node_handler_class(Reconcile3D)
     parser.add_node_handler_class(PlanarTracker1_0)

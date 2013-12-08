@@ -39,14 +39,14 @@ after :test do
   
   formats.puts(" ")
   formats.puts(" ")
-  formats.puts('=== Formats Tracksperanto can read')
+  formats.puts('### Formats Tracksperanto can read')
   formats.puts(" ")
   Tracksperanto.importers.each do | import_mdoule |
     formats.puts("* %s" % import_mdoule.human_name)
   end
   
   formats.puts(" ")
-  formats.puts('=== Formats Tracksperanto can export to')
+  formats.puts('### Formats Tracksperanto can export to')
   formats.puts(" ")
   Tracksperanto.exporters.each do | export_module |
     formats.puts("* %s" % export_module.human_name)

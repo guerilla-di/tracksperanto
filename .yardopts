@@ -2,4 +2,4 @@
 --title "Trackspreanto - a universal 2-D tracking translator. In Ruby."
 lib/**/*.rb
 --no-private
---readme README.rdoc
+--readme README.md

@@ -142,6 +142,7 @@ Consult the --help option to see what is available.
 
 ## Development
 
+![Gem Version](https://badge.fury.io/rb/tracksperanto.png)
 ![tests](https://secure.travis-ci.org/guerilla-di/tracksperanto.png)
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult

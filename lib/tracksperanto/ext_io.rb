@@ -6,10 +6,9 @@
 # 
 #  io = ExtIO.new(my_open_file)
 #  io.gets_non_empty #=> "This is the first line after 2000 linebreaks"
-#
-class Tracksperanto::ExtIO < DelegateClass(IO)
+class Tracksperanto::ExtIO < Tracksperanto::IOWrapper
   def initialize(with)
-    __setobj__ with
+    @backing_buffer = with
   end
   
   # Similar to IO#gets however it will also strip the returned result. This is useful

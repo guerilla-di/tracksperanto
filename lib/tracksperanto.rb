@@ -88,6 +88,8 @@ module Tracksperanto
   
 end
 
+# We do get loaded as a library so do not add to the load paths,
+# just load directly
 %w(
   returning
   const_name
@@ -98,6 +100,7 @@ end
   keyframe
   tracker
   format_detector
+  io_wrapper
   ext_io
   buffer_io
   simple_export

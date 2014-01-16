@@ -1,16 +1,24 @@
 # -*- encoding : utf-8 -*-
 require "tempfile"
+require 'forwardable'
+
+class IOWrapper
+  extend Forwardable
+  attr_reader :backing_buffer
+  IO_METHODS = (IO.instance_methods - Object.instance_methods - Enumerable.instance_methods).map{|e| e.to_sym }
+  def_delegators :backing_buffer, *IO_METHODS
+end
 
 # BufferIO is used for writing big segments of text. It works like a StringIO, but when the size
 # of the underlying string buffer exceeds MAX_IN_MEM_BYTES the string will be flushed to disk
 # and it automagically becomes a Tempfile
-class Tracksperanto::BufferIO < DelegateClass(IO)
+class Tracksperanto::BufferIO < Tracksperanto::IOWrapper
   include Tracksperanto::Returning
   
   MAX_IN_MEM_BYTES = 5_000_000
   
   def initialize
-    __setobj__(StringIO.new)
+    @backing_buffer = StringIO.new
   end
   
   def write(s)
@@ -27,8 +35,8 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
   end
   
   def close!
-    __getobj__.close! if @tempfile_in
-    __setobj__(nil)
+    @backing_buffer.close! if @tempfile_in
+    @backing_buffer = nil
   end
   
   # Sometimes you just need to upgrade to a File forcibly (for example if you want)
@@ -47,7 +55,7 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
   private
   
   def replace_with_tempfile
-    sio = __getobj__
+    sio = @backing_buffer
     tf = Tempfile.new("tracksperanto-xbuf")
     tf.set_encoding(Encoding::BINARY) if @rewindable_io.respond_to?(:set_encoding)
     tf.binmode
@@ -55,7 +63,7 @@ class Tracksperanto::BufferIO < DelegateClass(IO)
     tf.flush # Needed of we will reopen this file soon from another thread/loop
     sio.string = ""
     GC.start
-    __setobj__(tf)
+    @backing_buffer = tf
     
     @tempfile_in = true
   end

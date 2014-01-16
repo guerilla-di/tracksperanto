@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
-%w( stringio delegate tempfile ).map(&method(:require))
+require 'stringio'
+require 'forwardable'
+require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))

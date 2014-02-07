@@ -4,24 +4,25 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "tracksperanto"
-  s.version = "3.3.12"
+  s.name = %q{tracksperanto}
+  s.version = "3.3.13"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = "2013-11-07"
-  s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
-  s.email = "me@julik.nl"
+  s.date = %q{2014-02-07}
+  s.default_executable = %q{tracksperanto}
+  s.description = %q{Converts 2D track exports between different apps like Flame, MatchMover, PFTrack...}
+  s.email = %q{me@julik.nl}
   s.executables = ["tracksperanto"]
   s.extra_rdoc_files = [
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     "CONTRIBUTING.md",
     "Gemfile",
     "History.txt",
     "MIT_LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "bin/tracksperanto",
     "lib/export/base.rb",
@@ -86,6 +87,7 @@ Gem::Specification.new do |s|
     "lib/tracksperanto/const_name.rb",
     "lib/tracksperanto/ext_io.rb",
     "lib/tracksperanto/format_detector.rb",
+    "lib/tracksperanto/io_wrapper.rb",
     "lib/tracksperanto/keyframe.rb",
     "lib/tracksperanto/parameters.rb",
     "lib/tracksperanto/pf_coords.rb",
@@ -199,11 +201,11 @@ Gem::Specification.new do |s|
     "test/tools/test_start_trim_middleware.rb",
     "tracksperanto.gemspec"
   ]
-  s.homepage = "http://guerilla-di.org/tracksperanto"
+  s.homepage = %q{http://guerilla-di.org/tracksperanto}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
-  s.summary = "A universal 2D tracks converter"
+  s.rubygems_version = %q{1.6.2}
+  s.summary = %q{A universal 2D tracks converter}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -211,7 +213,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<bundler>, [">= 0"])
       s.add_runtime_dependency(%q<obuf>, ["~> 1.1"])
-      s.add_runtime_dependency(%q<tickly>, ["~> 2.1.3"])
+      s.add_runtime_dependency(%q<tickly>, ["~> 2.1.4"])
       s.add_runtime_dependency(%q<bychar>, ["~> 2"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
@@ -227,7 +229,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<obuf>, ["~> 1.1"])
-      s.add_dependency(%q<tickly>, ["~> 2.1.3"])
+      s.add_dependency(%q<tickly>, ["~> 2.1.4"])
       s.add_dependency(%q<bychar>, ["~> 2"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
@@ -244,7 +246,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<obuf>, ["~> 1.1"])
-    s.add_dependency(%q<tickly>, ["~> 2.1.3"])
+    s.add_dependency(%q<tickly>, ["~> 2.1.4"])
     s.add_dependency(%q<bychar>, ["~> 2"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])

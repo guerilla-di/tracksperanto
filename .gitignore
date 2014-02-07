@@ -10,3 +10,4 @@ coverage.*
 .yardoc
 Gemfile.lock
 **/*.log
+.ruby-version

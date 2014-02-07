@@ -1,3 +1,7 @@
+=== 3.3.13
+
+* Fix the bug in Shake script imports where the import would fail if animation curves contained a non-numeric value
+
 === 3.3.12
 
 * Fix the bug in MatchMover imports that caused the import to fail if the file contained a multiline path

@@ -262,15 +262,24 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
       end.compact
     end
     
+    # Remove tuples which have more than 2 values, and tuples that
+    # have non-Numeric members
+    def clean_tuples(frame_and_value_tuples)
+      frame_and_value_tuples.reject do | element |
+        element.length > 2
+      end.reject do | element |
+        element.any?{|e| !e.is_a?(Numeric) }
+      end 
+    end
+    
     def collect_stabilizer_tracker(name, x_curve, y_curve)
       return unless valid_curves?(x_curve, y_curve)
       
       report_progress("Assembling Stabilizer node tracker #{name}")
       
-      keyframes = zip_curve_tuples(x_curve, y_curve).map do | (frame, x, y) |
+      keyframes = zip_curve_tuples(clean_tuples(x_curve), clean_tuples(y_curve)).map do | (frame, x, y) |
         Tracksperanto::Keyframe.new(:frame => frame - 1, :abs_x => x, :abs_y => y)
       end
-      
       Tracksperanto::Tracker.new(:name => name, :keyframes => keyframes)
     end
     

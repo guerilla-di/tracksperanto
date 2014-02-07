@@ -141,6 +141,13 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 850, trackers[0].length
   end
   
+  def test_stabilize_nodes_in_great_numbers
+    fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/cliff_many_stabilize.shk")
+    trackers = Tracksperanto::Import::ShakeScript.new(:io => fixture, :width => 1920, :height => 1080).to_a
+    assert_equal 40, trackers.length
+    assert_equal 711, trackers[22].length
+  end
+  
   def test_tracker_supernode_with_curves_having_keyframes_at_negative_offsets
     fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/designated_global_range_starting_at_negative_frame.shk")
     trackers = Tracksperanto::Import::ShakeScript.new(:io => fixture, :width => 720, :height => 576).to_a

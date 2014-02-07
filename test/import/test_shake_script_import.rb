@@ -141,7 +141,7 @@ class ShakeScriptImportTest < Test::Unit::TestCase
     assert_equal 850, trackers[0].length
   end
   
-  def test_stabilize_nodes_in_great_numbers
+  def test_stabilize_nodes_with_a_curve_containing_an_unknown_atom
     fixture = File.open(File.dirname(__FILE__) + "/samples/shake_script/cliff_many_stabilize.shk")
     trackers = Tracksperanto::Import::ShakeScript.new(:io => fixture, :width => 1920, :height => 1080).to_a
     assert_equal 40, trackers.length

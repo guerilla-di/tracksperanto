@@ -112,9 +112,13 @@ class Tracksperanto::Export::FlameStabilizer2014 < Tracksperanto::Export::Base
         c.key(i) do | k |
           k.frame f
           k.value v
-          k.interpolation :linear
-          k.left_slope 2.4
-          k.right_slope 2.4
+          # Omit:
+          # RHandle_dX 0.333333343
+          # RHandle_dY -5.7284646
+          # LHandle_dX -0.333333343
+          # LHandle_dY 5.7284646
+          k.curve_mode :hermite
+          k.curve_order :linear
         end
       end
     end

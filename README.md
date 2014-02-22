@@ -119,6 +119,8 @@ If you want your own copy of the web application at your facility we can discuss
 * Autodesk Softimage nulls Python script
 * Bare Ruby code
 * Flame/Smoke 2D Stabilizer setup
+* Flame/Smoke 2D Stabilizer setup (v. 2014 and above)
+* Flame/Smoke 2D Stabilizer setup (v. 2014 and above) for corner pins
 * Flame/Smoke 2D Stabilizer setup for bilinear corner pins
 * MatchMover REALVIZ Ascii Point Tracks .rz2 file
 * Maya ASCII scene with locators on an image plane

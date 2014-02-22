@@ -1,0 +1,893 @@
+StabilizerFileVersion 6.0
+CreationDate Sat Feb 22 11:03:00 2014
+
+
+NbTrackers 3
+Selected 0
+FrameWidth 1920
+FrameHeight 1080
+AutoKey yes
+MotionPath yes
+Icons yes
+AutoPan no
+EditMode 0
+Format 0
+Padding
+	Red 0
+	Green 100
+	Blue 0
+Oversampling no
+Opacity 50
+Zoom 3
+Field no
+Backward no
+Anim
+Channel tracker1/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel tracker1/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel tracker1/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker1/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker1/ref/x
+	Extrapolation constant
+	Value 0.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker1/ref/y
+	Extrapolation constant
+	Value 1080.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 1080.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker1/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker1/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker1/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 19
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value -96.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value -192.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value -288.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value -384.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value -480.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value -576.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value -672.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value -768.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value -864.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 13
+		Value -1152.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 14
+		Value -1248.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 15
+		Value -1344.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 16
+		Value -1440.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 17
+		Value -1536.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 18
+		Value -1632.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 19
+		Value -1728.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 20
+		Value -1824.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 21
+		Value -1920.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker1/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 19
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value 205.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value 388.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value 550.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value 691.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value 810.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value 907.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value 982.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value 1036.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value 1069.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 13
+		Value 1036.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 14
+		Value 982.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 15
+		Value 907.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 16
+		Value 810.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 17
+		Value 691.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 18
+		Value 550.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 19
+		Value 388.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 20
+		Value 205.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 21
+		Value 0.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker1/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker1/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel tracker2/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel tracker2/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker2/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker2/ref/x
+	Extrapolation constant
+	Value 1920.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 1920.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/ref/y
+	Extrapolation constant
+	Value 0.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker2/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker2/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker2/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 19
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value 96.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value 192.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value 288.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value 384.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value 480.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value 576.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value 672.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value 768.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value 864.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 13
+		Value 1152.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 14
+		Value 1248.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 15
+		Value 1344.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 16
+		Value 1440.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 17
+		Value 1536.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 18
+		Value 1632.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 19
+		Value 1728.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 20
+		Value 1824.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 21
+		Value 1920.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker2/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 19
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 1
+		Frame 2
+		Value -205.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 2
+		Frame 3
+		Value -388.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 3
+		Frame 4
+		Value -550.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 4
+		Frame 5
+		Value -691.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 5
+		Frame 6
+		Value -810.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 6
+		Frame 7
+		Value -907.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 7
+		Frame 8
+		Value -982.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 8
+		Frame 9
+		Value -1036.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 9
+		Frame 10
+		Value -1069.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 10
+		Frame 13
+		Value -1036.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 11
+		Frame 14
+		Value -982.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 12
+		Frame 15
+		Value -907.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 13
+		Frame 16
+		Value -810.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 14
+		Frame 17
+		Value -691.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 15
+		Frame 18
+		Value -550.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 16
+		Frame 19
+		Value -388.800
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 17
+		Frame 20
+		Value -205.200
+		CurveMode hermite
+		CurveOrder linear
+		End
+	Key 18
+		Frame 21
+		Value 0.000
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker2/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker2/offset/y
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/track/x
+	Extrapolation constant
+	Value 960
+	Colour 50 50 50
+	End
+Channel tracker3/track/y
+	Extrapolation constant
+	Value 540
+	Colour 50 50 50
+	End
+Channel tracker3/track/width
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/track/height
+	Extrapolation linear
+	Value 15
+	Colour 50 50 50
+	End
+Channel tracker3/ref/width
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/height
+	Extrapolation linear
+	Value 10
+	Colour 50 50 50
+	End
+Channel tracker3/ref/x
+	Extrapolation constant
+	Value 970.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 970.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/y
+	Extrapolation constant
+	Value 550.000
+	Colour 50 50 50
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 550.000
+		Interpolation constant
+		LeftSlope 2.400
+		RightSlope 2.400
+		End
+	End
+Channel tracker3/ref/dx
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/ref/dy
+	Extrapolation constant
+	Value 0
+	Colour 50 50 50
+	Size 2
+	KeyVersion 1
+	Key 0
+		Frame 0
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	Key 1
+		Frame 1
+		Value 0
+		ValueLock yes
+		DeleteLock yes
+		Interpolation constant
+		End
+	End
+Channel tracker3/shift/x
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker3/shift/y
+	Extrapolation constant
+	Value 0
+	KeyVersion 1
+	Size 1
+	Key 0
+		Frame 1
+		Value 0
+		CurveMode hermite
+		CurveOrder linear
+		End
+	End
+Channel tracker3/offset/x
+	Extrapolation constant
+	Value 0
+	End
+Channel tracker3/offset/y
+	Extrapolation constant
+	Value 0
+	End
+ChannelEnd
+Tracker 0
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	OffsetsX 0
+	OffsetsY 0
+	FirstRefFrame 1
+Tracker 1
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	OffsetsX 0
+	OffsetsY 0
+	FirstRefFrame 1
+Tracker 2
+	Active yes
+	Colour
+		Red 0
+		Green 100
+		Blue 0
+	FixedRef yes
+	FixedX no
+	FixedY no
+	Tolerance 100
+	OffsetsX 0
+	OffsetsY 0
+	FirstRefFrame 1
+End

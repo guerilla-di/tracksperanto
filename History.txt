@@ -1,3 +1,7 @@
+=== 3.4.0
+
+* Add specific Flame/Smoke exporters for IFFS 2014 and above, including updated cornerpin order
+
 === 3.3.13
 
 * Fix the bug in Shake script imports where the import would fail if animation curves contained a non-numeric value

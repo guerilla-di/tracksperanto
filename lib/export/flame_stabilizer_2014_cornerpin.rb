@@ -10,15 +10,15 @@ class Tracksperanto::Export::FlameStabilizer2014Cornerpin < Tracksperanto::Expor
     "Flame/Smoke 2D Stabilizer setup (v. 2014 and above) for corner pins"
   end
   
-  # The trackers for cornerpins should go in Z order, but NOT
-  # in the same Z order like it did previously. Like so:
+  # The trackers for cornerpins should go in Z order, but now
+  # in N order, unline it did previously. Like so:
   #
-  #     TL(0)---->TR(2)
-  #               /
-  #            /
-  #         /
-  #      /
-  #     BL(1)----->BR(3)
+  #     TL(1)     TR(3)
+  #      ˆ \       ˆ
+  #      |  \      |
+  #      |    \    |
+  #      |      \  |
+  #     BL(0)     BR(2)
   #
   # This "kinda tool" ensures that this is indeed taking place
   class Sorter
@@ -52,12 +52,12 @@ class Tracksperanto::Export::FlameStabilizer2014Cornerpin < Tracksperanto::Expor
       # We will have problems sorting if we have too few trackers
       return @exp.just_export(@corners, @width, @height) unless @corners.length == 4
       
-      # Sort the trackers, first in Y of the first keyframe
-      in_y = sort_on_first_keyframe(@corners, :abs_y)
+      # Sort the trackers, first in X of the first keyframe
+      in_y = sort_on_first_keyframe(@corners, :abs_x)
       
-      # then on the X for the two separate blocks for top and bottom
-      tl, tr = sort_on_first_keyframe(in_y[2..3], :abs_x)
-      bl, br = sort_on_first_keyframe(in_y[0..1], :abs_x)
+      # then on the Y for the two separate blocks for top and bottom
+      tl, tr = sort_on_first_keyframe(in_y[2..3], :abs_y)
+      bl, br = sort_on_first_keyframe(in_y[0..1], :abs_y)
       bulk = [tl, tr, bl, br] # If we have less than 4 we might have a problem
       
       @exp.just_export(bulk, @width, @height)

@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
-#ENV['TRACKSPERANTO_OVERWRITE_ALL_TEST_DATA'] = 'yes'
+
 class TestFlameStabilizer2014Export < Test::Unit::TestCase
   include ParabolicTracks
   P = File.dirname(__FILE__) + "/samples/ref_flame_2014.stabilizer"

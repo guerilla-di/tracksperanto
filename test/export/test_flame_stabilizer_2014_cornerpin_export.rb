@@ -26,9 +26,9 @@ class TestFlameStabilizer2014CornerpinExport < Test::Unit::TestCase
   end
   
   def test_exporter_meta
-    assert_equal "flamesmoke2014.stabilizer", 
+    assert_equal "flamesmoke_2014_cornerpin.stabilizer", 
       Tracksperanto::Export::FlameStabilizer2014Cornerpin.desc_and_extension
-    assert_equal "Flame/Smoke 2D Stabilizer setup (v. 2014 and above)", 
+    assert_equal "Flame/Smoke 2D Stabilizer setup (v. 2014 and above) for corner pins", 
       Tracksperanto::Export::FlameStabilizer2014Cornerpin.human_name
   end
 end

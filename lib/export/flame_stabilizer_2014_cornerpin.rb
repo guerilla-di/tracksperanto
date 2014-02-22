@@ -3,7 +3,7 @@
 class Tracksperanto::Export::FlameStabilizer2014Cornerpin < Tracksperanto::Export::FlameStabilizer2014
   
   def self.desc_and_extension
-    "flamesmoke_2014.stabilizer"
+    "flamesmoke_2014_cornerpin.stabilizer"
   end
   
   def self.human_name

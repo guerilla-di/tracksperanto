@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tracksperanto}
-  s.version = "3.3.13"
+  s.version = "3.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = %q{2014-02-07}
+  s.date = %q{2014-02-22}
   s.default_executable = %q{tracksperanto}
   s.description = %q{Converts 2D track exports between different apps like Flame, MatchMover, PFTrack...}
   s.email = %q{me@julik.nl}
@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
     "lib/export/equalizer3.rb",
     "lib/export/equalizer4.rb",
     "lib/export/flame_stabilizer.rb",
+    "lib/export/flame_stabilizer_2014.rb",
+    "lib/export/flame_stabilizer_2014_cornerpin.rb",
     "lib/export/flame_stabilizer_cornerpin.rb",
     "lib/export/match_mover.rb",
     "lib/export/maxscript.rb",
@@ -120,11 +122,15 @@ Gem::Specification.new do |s|
     "test/export/samples/ref_equalizer3.txt",
     "test/export/samples/ref_flame.stabilizer",
     "test/export/samples/ref_flameCornerpin.stabilizer",
+    "test/export/samples/ref_flame_2014.stabilizer",
+    "test/export/samples/ref_flame_2014_cornerpin.stabilizer",
     "test/export/samples/ref_matchmover.rz2",
     "test/export/test_ae_export.rb",
     "test/export/test_boujou_export.rb",
     "test/export/test_equalizer3_export.rb",
     "test/export/test_equalizer_export.rb",
+    "test/export/test_flame_stabilizer_2014_cornerpin_export.rb",
+    "test/export/test_flame_stabilizer_2014_export.rb",
     "test/export/test_flame_stabilizer_cornerpin_export.rb",
     "test/export/test_flame_stabilizer_export.rb",
     "test/export/test_match_mover_export.rb",

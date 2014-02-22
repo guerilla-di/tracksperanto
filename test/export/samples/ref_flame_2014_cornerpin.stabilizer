@@ -742,37 +742,37 @@ Channel tracker0_0/offset/y
 	Extrapolation constant
 	Value 0
 	End
-Channel tracker1_0/track/x
+Channel tracker0_1/track/x
 	Extrapolation constant
 	Value 1024
 	Colour 50 50 50
 	End
-Channel tracker1_0/track/y
+Channel tracker0_1/track/y
 	Extrapolation constant
 	Value 576
 	Colour 50 50 50
 	End
-Channel tracker1_0/track/width
+Channel tracker0_1/track/width
 	Extrapolation linear
 	Value 15
 	Colour 50 50 50
 	End
-Channel tracker1_0/track/height
+Channel tracker0_1/track/height
 	Extrapolation linear
 	Value 15
 	Colour 50 50 50
 	End
-Channel tracker1_0/ref/width
+Channel tracker0_1/ref/width
 	Extrapolation linear
 	Value 10
 	Colour 50 50 50
 	End
-Channel tracker1_0/ref/height
+Channel tracker0_1/ref/height
 	Extrapolation linear
 	Value 10
 	Colour 50 50 50
 	End
-Channel tracker1_0/ref/x
+Channel tracker0_1/ref/x
 	Extrapolation constant
 	Value 1285.954
 	Colour 50 50 50
@@ -786,7 +786,7 @@ Channel tracker1_0/ref/x
 		RightSlope 2.400
 		End
 	End
-Channel tracker1_0/ref/y
+Channel tracker0_1/ref/y
 	Extrapolation constant
 	Value 787.352
 	Colour 50 50 50
@@ -800,7 +800,7 @@ Channel tracker1_0/ref/y
 		RightSlope 2.400
 		End
 	End
-Channel tracker1_0/ref/dx
+Channel tracker0_1/ref/dx
 	Extrapolation constant
 	Value 0
 	Colour 50 50 50
@@ -821,7 +821,7 @@ Channel tracker1_0/ref/dx
 		Interpolation constant
 		End
 	End
-Channel tracker1_0/ref/dy
+Channel tracker0_1/ref/dy
 	Extrapolation constant
 	Value 0
 	Colour 50 50 50
@@ -842,7 +842,7 @@ Channel tracker1_0/ref/dy
 		Interpolation constant
 		End
 	End
-Channel tracker1_0/shift/x
+Channel tracker0_1/shift/x
 	Extrapolation constant
 	Value 0
 	KeyVersion 1
@@ -884,7 +884,7 @@ Channel tracker1_0/shift/x
 		CurveOrder linear
 		End
 	End
-Channel tracker1_0/shift/y
+Channel tracker0_1/shift/y
 	Extrapolation constant
 	Value 0
 	KeyVersion 1
@@ -926,11 +926,11 @@ Channel tracker1_0/shift/y
 		CurveOrder linear
 		End
 	End
-Channel tracker1_0/offset/x
+Channel tracker0_1/offset/x
 	Extrapolation constant
 	Value 0
 	End
-Channel tracker1_0/offset/y
+Channel tracker0_1/offset/y
 	Extrapolation constant
 	Value 0
 	End

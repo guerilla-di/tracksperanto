@@ -79,7 +79,7 @@ class Tracksperanto::Export::FlameStabilizer2014Cornerpin < Tracksperanto::Expor
   end
   
   # Now instead of names we got vague indices. YAY for Rue Duc!
-  CORNERPIN_NAMING = %w( none tracker0_0 tracker1_0 tracker1_0 tracker1_1 )
+  CORNERPIN_NAMING = %w( none tracker0_0 tracker0_1 tracker1_0 tracker1_1 )
   
   # Overridden to give the right names to trackers
   def prefix(tracker_channel)

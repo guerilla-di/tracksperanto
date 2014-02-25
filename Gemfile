@@ -14,7 +14,13 @@ gem "update_hints", "~> 1.0"
 
 group :development do
   gem "approximately"
-  gem "jeweler"
+  
+  if RUBY_VERSION > "1.8" # Jeweler pulls Nokogiri which does not want to build on Travis in 1.8
+    gem "jeweler", '~> 1.8.8'
+  else
+    gem "jeweler", '~> 1.8.4'
+  end
+  
   gem "rake"
   gem "linebyline"
   

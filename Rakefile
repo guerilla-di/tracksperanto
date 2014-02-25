@@ -1,7 +1,7 @@
 require './lib/tracksperanto'
-require 'jeweler'
 require 'rake/hooks'
 
+require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.version = Tracksperanto::VERSION
   gem.name = "tracksperanto"
@@ -18,12 +18,13 @@ Jeweler::Tasks.new do |gem|
   gem.files.exclude "test/import/samples"
   gem.files.exclude "test/import/samples/*/*.*"
   gem.files.exclude "test/subpixel"
-  
+
   # Do not package invisibles
   gem.files.exclude ".*"
 end
 
 Jeweler::RubygemsDotOrgTasks.new
+
 
 require 'rake/testtask'
 desc "Run all tests"

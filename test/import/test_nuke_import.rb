@@ -189,6 +189,22 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 48, first_t.length
   end
   
+  def test_parsing_nuke7_start_with_curve_command
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/curve-start-with-curve-command.nk')
+    
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2048
+    parser.height = 1556
+    trackers = parser.to_a
+    
+    assert_equal 4, trackers.length
+    first_t = trackers[0]
+    assert_equal "gun_track_track_1", first_t.name
+    assert_equal 40, first_t.length
+    assert_in_delta 1234.300049, first_t[0].abs_x, 0.001
+    assert_in_delta 738.0, first_t[0].abs_y, 0.001
+  end
+  
   def test_parsing_nuke8_tracker4
     fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/track_nuke8.nk')
     

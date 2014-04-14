@@ -15,19 +15,15 @@ gem "update_hints", "~> 1.0"
 group :development do
   gem "approximately"
   
-  if RUBY_VERSION > "1.8" # Jeweler pulls Nokogiri which does not want to build on Travis in 1.8
-    gem "jeweler", '~> 1.8.8'
-  else
-    gem "jeweler", '~> 1.8.4'
-  end
-  
   gem "rake"
   gem "linebyline"
   
-  if RUBY_VERSION > "1.8"
+  if RUBY_VERSION < "1.9" # Jeweler pulls Nokogiri which does not want to build on Travis in 1.8
+    gem "jeweler", '1.8.4'
     # Max. supported on 1.8
     gem "flexmock", "~> 1.3.2", :require => %w( flexmock flexmock/test_unit )
   else
+    gem "jeweler", '~> 1.8'
     gem "flexmock", "~> 0.8", :require => %w( flexmock flexmock/test_unit )
   end
   

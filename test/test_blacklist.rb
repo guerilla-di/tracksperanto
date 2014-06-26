@@ -4,7 +4,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/helper'
 class TestBlacklist < Test::Unit::TestCase
   
   def test_non_blacklisted_formats
-    %( file.txt file.2dt file.stabilizer ).each do | filename |
+    %w( file.txt file.2dt file.stabilizer ).each do | filename |
       Tracksperanto::Blacklist.raise_if_format_unsupported(filename)
     end
     assert true, 'No exceptions should have been raised'

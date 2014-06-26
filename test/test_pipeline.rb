@@ -45,6 +45,15 @@ class TestPipeline < Test::Unit::TestCase
     end
   end
   
+  def test_run_for_unsupported_format_raises_exception
+    pipeline = Tracksperanto::Pipeline::Base.new
+    %w( file.MOV file.mb vfx/shots/file.SNI ).each do | path |
+      assert_raise(Tracksperanto::UnsupportedFormatError) do
+        pipeline.run(path)
+      end
+    end
+  end
+  
   def test_run_with_autodetected_importer_and_size_with_progress_block
     in_temp_dir do
       create_stabilizer_file

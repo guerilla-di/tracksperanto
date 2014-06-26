@@ -5,13 +5,14 @@ require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.4.1'
+  VERSION = '3.5.0'
   
   module Import; end
   module Export; end
   module Tool; end
   module Pipeline; end
   
+  class UnsupportedFormatError < NameError; end
   class UnknownExporterError < NameError; end
   class UnknownImporterError < NameError; end
   class UnknownToolError < NameError; end
@@ -108,6 +109,7 @@ end
   parameters
   yield_non_empty
   pf_coords
+  blacklist
 ).each do | submodule |
   require File.join(Tracksperanto::PATH, "tracksperanto", submodule)
 end

@@ -93,6 +93,9 @@ module Tracksperanto::Pipeline
   # Returns the number of trackers and the number of keyframes processed during the run
   def run(from_input_file_path, passed_options = {})
     
+    # Prevent formats that we do not support
+    Tracksperanto::Blacklist.raise_if_format_unsupported(from_input_file_path)
+    
     # Check for empty files
     raise EmptySourceFileError if File.stat(from_input_file_path).size.zero?
     

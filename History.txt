@@ -1,3 +1,7 @@
+=== 3.5.0
+
+* Add early bailout if unsupported formats are fed in. Because some people just can't read.
+
 === 3.4.1
 
 * Fix parsing of curve expressions with modifiers in Nuke scripts

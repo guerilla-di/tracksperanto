@@ -25,6 +25,7 @@ class TestBlacklist < Test::Unit::TestCase
       file.ma
       file.mb
       file.pfb
+      file.pfmp
       file.mmf
     ).each do | filename |
       error = assert_raise(Tracksperanto::UnsupportedFormatError, "Should fail for #{filename.inspect}") do

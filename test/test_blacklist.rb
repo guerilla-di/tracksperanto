@@ -27,6 +27,12 @@ class TestBlacklist < Test::Unit::TestCase
       file.pfb
       file.pfmp
       file.mmf
+      file.doc
+      file.docx
+      file.ppt
+      file.pptx
+      file.xls
+      file.xlsx
     ).each do | filename |
       error = assert_raise(Tracksperanto::UnsupportedFormatError, "Should fail for #{filename.inspect}") do
         Tracksperanto::Blacklist.raise_if_format_unsupported(filename)

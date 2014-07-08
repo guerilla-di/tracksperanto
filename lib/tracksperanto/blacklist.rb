@@ -21,6 +21,7 @@ class Tracksperanto::Blacklist
       /\.(pfb|pfmp)/ => 'We cannot directly open PFTrack projects, export .2dt files instead',
       '.mmf' => 'We cannot directly open MatchMover projects, please export your tracks as .rz2 instead',
       /\.(doc(x?)|xls(x?)|ppt(x?))/ => 'You really think we can process Microsoft Office files? You need a drink.',
+      /\.(abc|fbx)$/ => 'We cannot import 3D scenes such as Alembic or FBX.',
     }
   end
 end

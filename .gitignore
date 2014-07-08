@@ -11,3 +11,4 @@ coverage.*
 Gemfile.lock
 **/*.log
 .ruby-version
+scratchpad

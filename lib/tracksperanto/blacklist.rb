@@ -22,7 +22,8 @@ class Tracksperanto::Blacklist
       '.mmf' => 'We cannot directly open MatchMover projects, please export your tracks as .rz2 instead',
       /\.(doc(x?)|xls(x?)|ppt(x?))/ => 'You really think we can process Microsoft Office files? You need a drink.',
       /\.(abc|fbx)$/ => 'We cannot import 3D scenes such as Alembic or FBX.',
-      '.3de' => 'We cannot handle 3DE project files directly, please export your 2D tracks in a compatible format instead.'
+      '.3de' => 'We cannot handle 3DE project files directly, please export your 2D tracks in a compatible format instead.',
+      '.bpj' => "We cannot handle Boujou projects directly, please export your feature tracks from Boujou as a text file",
     }
   end
 end

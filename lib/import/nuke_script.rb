@@ -145,12 +145,15 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
         
         # For offsets see above
         point_name = row_content[2]
-        x_curve = Tickly::Curve.new(row_content[3])
-        y_curve = Tickly::Curve.new(row_content[4])
-        
-        full_name = [options["name"], point_name].join('_')
-        tracker = package_tracker(full_name, x_curve, y_curve)
-        @trackers << tracker
+        begin
+          x_curve = Tickly::Curve.new(row_content[3])
+          y_curve = Tickly::Curve.new(row_content[4])
+          full_name = [options["name"], point_name].join('_')
+          tracker = package_tracker(full_name, x_curve, y_curve)
+          @trackers << tracker
+        rescue Tickly::Curve::InvalidCurveError
+          # $stderr.puts "Failed to recover a tracker, it probably contained expressions"
+        end
       end
     end
   end

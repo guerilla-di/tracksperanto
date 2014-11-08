@@ -1,5 +1,6 @@
 === 3.5.4
 
+* Fix parsing Nuke scripts with Tracker4 where some tracks were expression-only
 * Fix parsing Nuke scripts with Tracker4 nodes having empty or no tracks at all
 
 === 3.5.0

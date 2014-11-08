@@ -257,6 +257,17 @@ class NukeImportTest < Test::Unit::TestCase
     assert_in_delta 510.107, sec_tracker.keyframes[-1].abs_y, DELTA
   end
   
+  def test_no_failure_with_one_tracker4_having_empty_tracks_knob
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/tracker4_with_empty_tracks_knob.nk')
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2088
+    parser.height = 1231
+    
+    trackers = parser.to_a
+    assert_equal 22, trackers.length
+    assert_equal 217, trackers[0].length
+  end
+  
   def test_zip_channels
     tuples_x = [[1, 125], [3, 234], [5, 456], [9,876]]
     tuples_y = [[2, 437], [3, 123], [6, 432], [9, 430]]

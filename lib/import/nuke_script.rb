@@ -125,6 +125,9 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
       @name = options["name"]
       @trackers = []
       tracks = options["tracks"]
+      
+      return unless tracks # For linked Tracker nodes that have no tracks
+      
       preamble = tracks[1]
       headers = tracks[2]
       values = tracks[3]

@@ -1,3 +1,7 @@
+=== 3.5.4
+
+* Fix parsing Nuke scripts with Tracker4 nodes having empty or no tracks at all
+
 === 3.5.0
 
 * Add early bailout if unsupported formats are fed in. Because some people just can't read.

@@ -1,3 +1,7 @@
+=== 3.5.5
+
+* Fix joining animation curves that had negative frame numbers (might happen in Nuke scripts)
+
 === 3.5.4
 
 * Fix parsing Nuke scripts with Tracker4 where some tracks were expression-only

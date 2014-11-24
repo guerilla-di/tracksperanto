@@ -279,6 +279,15 @@ class NukeImportTest < Test::Unit::TestCase
     assert_equal 5, trackers.length
   end
   
+  def test_no_failure_with_zip_calling_unknown_indices
+    fixture = File.open(File.dirname(__FILE__) + '/samples/nuke/sh110_trackers_004_ipad1.nk')
+    parser = Tracksperanto::Import::NukeScript.new(:io => fixture)
+    parser.width = 2688
+    parser.height = 1512
+    trackers = parser.to_a
+    assert_equal 5, trackers.length
+  end
+  
   def test_zip_channels
     tuples_x = [[1, 125], [3, 234], [5, 456], [9,876]]
     tuples_y = [[2, 437], [3, 123], [6, 432], [9, 430]]

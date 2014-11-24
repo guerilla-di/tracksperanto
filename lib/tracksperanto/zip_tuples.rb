@@ -10,14 +10,20 @@ module Tracksperanto::ZipTuples
   #
   # We make use of the fact that setting an offset index in an array fills it with nils up to
   # the index inserted
-  def zip_curve_tuples(*curves)
-    tuples = curves.inject([]) do | tuples, curve_of_at_and_value |
-      curve_of_at_and_value.each do | frame, value |
-       tuples[frame] = tuples[frame] ? (tuples[frame] << value) : [frame, value]
+  def zip_curve_tuples(*given_curves)
+    tuples = {}
+    given_curves.each_with_index do | curve, curve_i |
+      curve.each do | frame_value_tuple |
+        frame, value = frame_value_tuple
+        tuples[frame] ||= Array.new(given_curves.length)
+        tuples[frame][curve_i] = value
       end
-      tuples
     end
     
-    tuples.reject{|e| e.nil? || (e.length < (curves.length + 1)) }
+    tuples.delete_if {|k,v| v.include?(nil) } # If any of the positions is nil
+    
+    tuples.keys.sort.map do | frame_in_order |
+      [frame_in_order] + tuples[frame_in_order]
+    end
   end
 end

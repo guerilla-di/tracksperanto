@@ -108,7 +108,7 @@ If you want your own copy of the web application at your facility we can discuss
 * Shake .shk script file
 * Shake .txt tracker file and Nuke CameraTracker auto tracks export
 * Syntheyes "All Tracker Paths" export .txt file
-* Syntheyes 2D tracker paths file
+* Syntheyes "Tracker 2-D paths" file
  
 ### Formats Tracksperanto can export to
  

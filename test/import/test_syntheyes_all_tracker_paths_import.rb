@@ -8,6 +8,8 @@ class SyntheyesAllPathsImportTest < Test::Unit::TestCase
     i = Tracksperanto::Import::SyntheyesAllTrackerPaths
     assert_equal "Syntheyes \"All Tracker Paths\" export .txt file", i.human_name
     assert !i.autodetects_size?
+    assert_not_nil i.known_snags
+    assert !i.known_snags.empty?
   end
   
   def test_parsing_from_importable

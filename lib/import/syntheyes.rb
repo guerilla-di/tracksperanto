@@ -3,7 +3,13 @@ class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
   include Tracksperanto::UVCoordinates
   
   def self.human_name
-    "Syntheyes 2D tracker paths file"
+    "Syntheyes \"Tracker 2-D paths\" file"
+  end
+  
+  def self.known_snags
+    "Syntheyes has two formats for exporting tracks. One is called \"Tracker 2-D paths\" in the menu. " +
+    "The other is called \"All Tracker Paths\". This format you have selected corresponds to the " +
+    "\"Tracker 2-D paths\", if something goes wrong might be a good idea to the other one one"
   end
   
   def each

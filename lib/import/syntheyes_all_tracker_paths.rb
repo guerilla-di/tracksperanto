@@ -7,6 +7,13 @@ class Tracksperanto::Import::SyntheyesAllTrackerPaths < Tracksperanto::Import::B
   CHARACTERS_OR_QUOTES = /[AZaz"]/
   TRACKER_KEYFRAME = /^(\d+) ((\d+)\.(\d+)) ((\d+)\.(\d+))/
   
+  def self.known_snags
+    "Syntheyes has two formats for exporting tracks. One is called \"Tracker 2-D paths\" in the menu. " +
+    "The other is called \"All Tracker Paths\". This format you have selected corresponds to the " +
+    "\"All Tracker Paths\", if something goes wrong might be a good idea to the other one one"
+  end
+  
+  
   def each
     t = Tracksperanto::Tracker.new
     while line = @io.gets do

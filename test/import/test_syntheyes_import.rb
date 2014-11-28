@@ -6,8 +6,10 @@ class SyntheyesImportTest < Test::Unit::TestCase
   
   def test_introspects_properly
     i = Tracksperanto::Import::Syntheyes
-    assert_equal "Syntheyes 2D tracker paths file", i.human_name
+    assert_equal 'Syntheyes "Tracker 2-D paths" file', i.human_name
     assert !i.autodetects_size?
+    assert_not_nil i.known_snags
+    assert !i.known_snags.empty?
   end
   
   def test_parsing_from_importable

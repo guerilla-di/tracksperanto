@@ -9,8 +9,8 @@ class Tracksperanto::Import::SyntheyesAllTrackerPaths < Tracksperanto::Import::B
   
   def self.known_snags
     "Syntheyes has two formats for exporting tracks. One is called \"Tracker 2-D paths\" in the menu. " +
-    "The other is called \"All Tracker Paths\". This format you have selected corresponds to the " +
-    "\"All Tracker Paths\", if something goes wrong might be a good idea to the other one one"
+    "The other is called \"All Tracker Paths\". You told Tracksperanto to treat your file as " +
+    "\"All Tracker Paths\", if something goes wrong might be a good idea to try the other Tracksperanto input format"
   end
   
   

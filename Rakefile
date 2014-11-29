@@ -65,5 +65,13 @@ after :test do
   
 end
 
+# Automatically update the LICENSE
+after :test do
+  license_path = File.dirname(__FILE__) + "/MIT_LICENSE.txt"
+  license_text = File.read(license_path)
+  license_text.gsub!(/2009\-(\d+)/, "2009-#{Time.now.year + 1}")
+  File.open(license_path, "w"){|f| f << license_text }
+end
+
 task :default => [ :test ]
 

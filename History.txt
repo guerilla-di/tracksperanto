@@ -1,3 +1,7 @@
+=== 3.5.6
+
+* SynthEyes has two export formats which creates confusion. Add snag messages to import moudules to hint that.
+
 === 3.5.5
 
 * Fix joining animation curves that had negative frame numbers (might happen in Nuke scripts)

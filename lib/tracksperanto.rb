@@ -5,7 +5,7 @@ require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.5.5'
+  VERSION = '3.5.6'
   
   module Import; end
   module Export; end

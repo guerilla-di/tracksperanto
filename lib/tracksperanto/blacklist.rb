@@ -24,7 +24,8 @@ class Tracksperanto::Blacklist
       /\.(abc|fbx)$/ => 'We cannot import 3D scenes such as Alembic or FBX.',
       '.3de' => 'We cannot handle 3DE project files directly, please export your 2D tracks in a compatible format instead.',
       '.bpj' => "We cannot handle Boujou projects directly, please export your feature tracks from Boujou as a text file",
-      '.py' => 'We cannot handle Python scripts - please export your 2D tracks in a compatible format instead.'
+      '.py' => 'We cannot handle Python scripts - please export your 2D tracks in a compatible format instead.',
+      '.ascii' => 'We cannot handle ascii Flame exports. Just save your setup and upload it - it will work fine.'
     }
   end
 end

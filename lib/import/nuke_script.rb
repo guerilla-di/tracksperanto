@@ -28,7 +28,7 @@ class Tracksperanto::Import::NukeScript < Tracksperanto::Import::Base
     parser.add_node_handler_class(CornerPin2D)
     parser.add_node_handler_class(Transform)
     
-    parser.parse(@io) do | node |
+    parser.parse(Bychar.wrap(@io)) do | node |
       node.trackers.each do | t |
         report_progress("Scavenging tracker #{t.name}")
         yield t

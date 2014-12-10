@@ -25,17 +25,15 @@ module Tracksperanto::ShakeGrammar
     # You can use the sentinel to collect data from child nodes for example.
     def initialize(with_io, sentinel = nil, limit_to_one_stmt = false, stack_depth = 0)
       # We parse byte by byte, but reading byte by byte is very slow. We therefore use a buffering reader
-      # that will cache in chunks, and then read from there byte by byte. This yields a substantial speedup (4.9 seconds for the test
+      # that will cache in chunks, and then read from there byte by byte.
+      # This yields a substantial speedup (4.9 seconds for the test
       # as opposed to 7.9 without this). We do check for the proper class only once so that when we use nested lexers
       # we only wrap the passed IO once, and only if necessary.
-      with_io = Bychar.wrap(with_io) unless with_io.respond_to?(:read_one_char!)
+      with_io = Bychar.wrap(with_io) unless with_io.respond_to?(:read_one_char)
       @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
       
       catch(STOP_TOKEN) do
-        begin
-          loop { parse }
-        rescue Bychar::EOF
-        end
+        loop { parse }
       end
       
       @in_comment ? consume_comment! : consume_atom!
@@ -54,8 +52,6 @@ module Tracksperanto::ShakeGrammar
     
     def parse
       
-      c = @io.read_one_char!
-      
       if @buf.length > MAX_BUFFER_SIZE # Wrong format and the buffer is filled up, bail
         raise WrongInputError, "Atom buffer overflow at #{MAX_BUFFER_SIZE} bytes, this is definitely not a Shake script"
       end
@@ -63,6 +59,9 @@ module Tracksperanto::ShakeGrammar
       if @stack_depth > MAX_STACK_DEPTH # Wrong format - parentheses overload
         raise WrongInputError, "Stack overflow at level #{MAX_STACK_DEPTH}, this is probably a LISP program uploaded by accident"
       end
+      
+      c = @io.read_one_char
+      throw :__stop if c.nil? # IO has run out
       
       if c == '/' && (@buf[-1].chr rescue nil) == '/' # Comment start
         # If some other data from this line has been accumulated we first consume that

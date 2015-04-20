@@ -18,7 +18,7 @@ class Tracksperanto::Blacklist
       /\.(r3d)$/ => 'Tracksperanto is not a tracking application, it converts tracks. We do not support RAW file formats.',
       /\.(dpx|tif(f?)|jp(e?)g|png|gif|tga)$/ => 'Tracksperanto is not a tracking application, it converts tracks. We do not support image file formats.',
       '.sni' => 'We cannot read binary SynthEyes scene files. Export your tracks as one of the supported formats.',
-      /\.(pfb|pfmp)/ => 'We cannot directly open PFTrack projects, export .2dt files instead',
+      /\.(pfb|pfmp|ptp)/ => 'We cannot directly open PFTrack projects, export .2dt files instead',
       '.mmf' => 'We cannot directly open MatchMover projects, please export your tracks as .rz2 instead',
       /\.(doc(x?)|xls(x?)|ppt(x?))/ => 'You really think we can process Microsoft Office files? You need a drink.',
       /\.(abc|fbx)$/ => 'We cannot import 3D scenes such as Alembic or FBX.',

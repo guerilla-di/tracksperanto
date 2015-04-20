@@ -24,6 +24,7 @@ class TestBlacklist < Test::Unit::TestCase
       file.sni
       file.ma
       file.mb
+      file.ptp
       file.pfb
       file.pfmp
       file.mmf

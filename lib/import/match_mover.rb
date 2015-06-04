@@ -15,6 +15,7 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   
   def each
     detect_format(@io)
+    raise "No tracker data after detecting format" if @io.eof?
     extract_trackers(@io) { |t| yield(t) }
   end
   
@@ -35,6 +36,13 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     # as multiline, so we will need to succesively scan until we find our line that contains the dimensions
     frame_steps_re = /b\( (\d+) (\d+) (\d+) \)/ # b( 0 293 1 )
     until @first_frame_of_sequence
+      # There was nothing fetched, so we just assume the first frame is 0.
+      # Or this line contained "}" which terminates the imageSequence block.
+      if last_line.nil? || last_line.include?('}')
+        @first_frame_of_sequence = 0
+        return
+      end
+      
       digit_groups = last_line.scan(frame_steps_re).flatten
       if digit_groups.any?
         @first_frame_of_sequence, length, frame_step = digit_groups.map{|e| e.to_i }
@@ -42,7 +50,6 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
       end
       last_line = io.gets
     end
-    
     raise "Cannot detect the start frame of the sequence"
   end
   
@@ -64,21 +71,26 @@ class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
     raise "Track didn't close"
   end
   
-  LINE_PATTERN = /(\d+)(\s+)([\-\d\.]+)(\s+)([\-\d\.]+)(\s+)(.+)/
+  FLOAT_PATTERN = /[\-\d\.]+/
+  LINE_PATTERN = /(\d+)\s+(#{FLOAT_PATTERN})\s+(#{FLOAT_PATTERN})/
   
   def extract_key(line)
-    frame, x, y, residual, rest = line.scan(LINE_PATTERN).flatten.reject{|e| e.strip.empty? }
+    frame, x, y = line.scan(LINE_PATTERN).flatten
     Tracksperanto::Keyframe.new(
       :frame => (frame.to_i - @first_frame_of_sequence),
       :abs_x => x,
       :abs_y => @height - y.to_f, # Top-left in MM
-      :residual => extract_residual(residual)
+      :residual => extract_residual(line)
     )
   end
   
-  def extract_residual(residual_segment)
-    # Parse to the first opening brace and pick the residual from there
-    float_pat = /([\-\d\.]+)/
-    1 - residual_segment.scan(float_pat).flatten.shift.to_f
+  RESIDUAL_SEGMENT = /p[\*\+]\(\s+?(#{FLOAT_PATTERN})\s+?\)/
+  
+  def extract_residual(line)
+    if line =~ RESIDUAL_SEGMENT
+      1- $1.to_f
+    else
+      0
+    end
   end
 end

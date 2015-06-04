@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tracksperanto}
-  s.version = "3.5.7"
+  s.version = "3.5.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = %q{2014-12-04}
+  s.date = %q{2015-06-04}
   s.default_executable = %q{tracksperanto}
   s.description = %q{Converts 2D track exports between different apps like Flame, MatchMover, PFTrack...}
   s.email = %q{me@julik.nl}
@@ -221,8 +221,8 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<bundler>, [">= 0"])
       s.add_runtime_dependency(%q<obuf>, ["~> 1.1"])
-      s.add_runtime_dependency(%q<tickly>, ["~> 2.1.5"])
-      s.add_runtime_dependency(%q<bychar>, ["~> 2"])
+      s.add_runtime_dependency(%q<tickly>, ["~> 2.1.6"])
+      s.add_runtime_dependency(%q<bychar>, ["~> 3"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_runtime_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -237,8 +237,8 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<obuf>, ["~> 1.1"])
-      s.add_dependency(%q<tickly>, ["~> 2.1.5"])
-      s.add_dependency(%q<bychar>, ["~> 2"])
+      s.add_dependency(%q<tickly>, ["~> 2.1.6"])
+      s.add_dependency(%q<bychar>, ["~> 3"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
       s.add_dependency(%q<progressbar>, ["= 0.10.0"])
@@ -254,8 +254,8 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<obuf>, ["~> 1.1"])
-    s.add_dependency(%q<tickly>, ["~> 2.1.5"])
-    s.add_dependency(%q<bychar>, ["~> 2"])
+    s.add_dependency(%q<tickly>, ["~> 2.1.6"])
+    s.add_dependency(%q<bychar>, ["~> 3"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
     s.add_dependency(%q<progressbar>, ["= 0.10.0"])

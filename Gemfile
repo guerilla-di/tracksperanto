@@ -13,6 +13,7 @@ gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
 
 group :development do
+  gem "test-unit"
   gem "approximately"
   
   gem "rake"

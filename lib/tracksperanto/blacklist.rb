@@ -13,7 +13,7 @@ class Tracksperanto::Blacklist
   def self.formats_and_extensions
     {
       '.ma' =>  'We cannot import Maya ASCII files directly. For processing Maya Live tracks export them from Maya.',
-      '.mb' => 'We cannot import Maya ASCII files directly. For processing Maya Live tracks export them from Maya.',
+      '.mb' => 'We cannot import Maya scene files directly. For processing Maya Live tracks export them from Maya.',
       /\.(mov|avi|xvid|mp4)$/ => 'Tracksperanto is not a tracking application, it converts tracks. We do not support movie file formats.',
       /\.(r3d)$/ => 'Tracksperanto is not a tracking application, it converts tracks. We do not support RAW file formats.',
       /\.(dpx|tif(f?)|jp(e?)g|png|gif|tga)$/ => 'Tracksperanto is not a tracking application, it converts tracks. We do not support image file formats.',
@@ -25,7 +25,8 @@ class Tracksperanto::Blacklist
       '.3de' => 'We cannot handle 3DE project files directly, please export your 2D tracks in a compatible format instead.',
       '.bpj' => "We cannot handle Boujou projects directly, please export your feature tracks from Boujou as a text file",
       '.py' => 'We cannot handle Python scripts - please export your 2D tracks in a compatible format instead.',
-      '.ascii' => 'We cannot handle ascii Flame exports. Just save your setup and upload it - it will work fine.'
+      '.ascii' => 'We cannot handle ascii Flame exports. Just save your setup and upload it - it will work fine.',
+      '.c4d' => 'We cannot CINEMA 4D scenes. Consider using another workflows.',
     }
   end
 end

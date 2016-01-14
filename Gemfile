@@ -20,6 +20,7 @@ group :development do
   gem "linebyline"
   
   gem "jeweler", '1.8.4' # Last one without the stupid nokogiri dependency
+  gem 'term-ansicolor', '1.2.0' # Locked because newer versions require tins that do not work on 1.9.3 and less
   
   if RUBY_VERSION < "1.9"
     gem "flexmock", "~> 0.8", :require => %w( flexmock flexmock/test_unit ) # Max. supported on 1.8

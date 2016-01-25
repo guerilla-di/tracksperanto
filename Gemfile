@@ -13,10 +13,10 @@ gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
 
 group :development do
-  gem "test-unit"
+  gem "test-unit", '3.1.5'
   gem "approximately"
   
-  gem "rake"
+  gem "rake", '10.5.0'
   gem "linebyline"
   
   gem "jeweler", '1.8.4' # Last one without the stupid nokogiri dependency

@@ -1,3 +1,7 @@
+=== 3.5.9
+
+* Set the maximum version for some gems to reenable Ruby 1.8.7 installs
+
 === 3.5.8
 
 * Fixes to MatchMover .rz import

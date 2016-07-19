@@ -19,6 +19,7 @@ group :development do
   gem "rake", '10.5.0'
   gem "linebyline"
   
+  gem 'git', '< 1.3.0' # Later ones require 1.9 via nokogiri
   gem "jeweler", '1.8.4' # Last one without the stupid nokogiri dependency
   gem 'term-ansicolor', '1.2.0' # Locked because newer versions require tins that do not work on 1.9.3 and less
   

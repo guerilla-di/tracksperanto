@@ -8,7 +8,7 @@ gem "tickly", "~> 2.1.6"
 gem "bychar", "~> 3"
 gem "progressive_io", "~> 1.0"
 gem "flame_channel_parser", "~> 4.0"
-
+gem 'tins', '< 0.9.0' # flame_channel_parser wants it via framecurve, but for Ruby 1.8.7 we have to ask for an older version
 gem "progressbar", "0.10.0"
 gem "update_hints", "~> 1.0"
 

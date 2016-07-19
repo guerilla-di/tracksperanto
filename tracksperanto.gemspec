@@ -4,15 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{tracksperanto}
+  s.name = "tracksperanto"
   s.version = "3.5.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julik Tarkhanov"]
-  s.date = %q{2015-06-04}
-  s.default_executable = %q{tracksperanto}
-  s.description = %q{Converts 2D track exports between different apps like Flame, MatchMover, PFTrack...}
-  s.email = %q{me@julik.nl}
+  s.date = "2016-07-19"
+  s.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
+  s.email = "me@julik.nl"
   s.executables = ["tracksperanto"]
   s.extra_rdoc_files = [
     "README.md"
@@ -209,11 +208,11 @@ Gem::Specification.new do |s|
     "test/tools/test_start_trim_middleware.rb",
     "tracksperanto.gemspec"
   ]
-  s.homepage = %q{http://guerilla-di.org/tracksperanto}
+  s.homepage = "http://guerilla-di.org/tracksperanto"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{A universal 2D tracks converter}
+  s.rubygems_version = "1.8.23.2"
+  s.summary = "A universal 2D tracks converter"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -225,13 +224,17 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bychar>, ["~> 3"])
       s.add_runtime_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_runtime_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+      s.add_runtime_dependency(%q<tins>, ["< 0.9.0"])
       s.add_runtime_dependency(%q<progressbar>, ["= 0.10.0"])
       s.add_runtime_dependency(%q<update_hints>, ["~> 1.0"])
+      s.add_development_dependency(%q<test-unit>, ["= 3.1.5"])
       s.add_development_dependency(%q<approximately>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<rake>, ["= 10.5.0"])
       s.add_development_dependency(%q<linebyline>, [">= 0"])
+      s.add_development_dependency(%q<git>, ["< 1.3.0"])
       s.add_development_dependency(%q<jeweler>, ["= 1.8.4"])
-      s.add_development_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_development_dependency(%q<term-ansicolor>, ["= 1.2.0"])
+      s.add_development_dependency(%q<flexmock>, ["~> 1.3.2"])
       s.add_development_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_development_dependency(%q<rake-hooks>, ["~> 1.2.3"])
     else
@@ -241,13 +244,17 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bychar>, ["~> 3"])
       s.add_dependency(%q<progressive_io>, ["~> 1.0"])
       s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+      s.add_dependency(%q<tins>, ["< 0.9.0"])
       s.add_dependency(%q<progressbar>, ["= 0.10.0"])
       s.add_dependency(%q<update_hints>, ["~> 1.0"])
+      s.add_dependency(%q<test-unit>, ["= 3.1.5"])
       s.add_dependency(%q<approximately>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<rake>, ["= 10.5.0"])
       s.add_dependency(%q<linebyline>, [">= 0"])
+      s.add_dependency(%q<git>, ["< 1.3.0"])
       s.add_dependency(%q<jeweler>, ["= 1.8.4"])
-      s.add_dependency(%q<flexmock>, ["~> 0.8"])
+      s.add_dependency(%q<term-ansicolor>, ["= 1.2.0"])
+      s.add_dependency(%q<flexmock>, ["~> 1.3.2"])
       s.add_dependency(%q<cli_test>, ["~> 1.0"])
       s.add_dependency(%q<rake-hooks>, ["~> 1.2.3"])
     end
@@ -258,13 +265,17 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bychar>, ["~> 3"])
     s.add_dependency(%q<progressive_io>, ["~> 1.0"])
     s.add_dependency(%q<flame_channel_parser>, ["~> 4.0"])
+    s.add_dependency(%q<tins>, ["< 0.9.0"])
     s.add_dependency(%q<progressbar>, ["= 0.10.0"])
     s.add_dependency(%q<update_hints>, ["~> 1.0"])
+    s.add_dependency(%q<test-unit>, ["= 3.1.5"])
     s.add_dependency(%q<approximately>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<rake>, ["= 10.5.0"])
     s.add_dependency(%q<linebyline>, [">= 0"])
+    s.add_dependency(%q<git>, ["< 1.3.0"])
     s.add_dependency(%q<jeweler>, ["= 1.8.4"])
-    s.add_dependency(%q<flexmock>, ["~> 0.8"])
+    s.add_dependency(%q<term-ansicolor>, ["= 1.2.0"])
+    s.add_dependency(%q<flexmock>, ["~> 1.3.2"])
     s.add_dependency(%q<cli_test>, ["~> 1.0"])
     s.add_dependency(%q<rake-hooks>, ["~> 1.2.3"])
   end

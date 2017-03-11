@@ -10,3 +10,6 @@ rvm:
   - 2.4.0
 cache: bundler
 sudo: false
+matrix:
+  allow_failures:
+    - rvm: 1.8.7 1.9.2

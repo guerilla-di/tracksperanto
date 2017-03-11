@@ -11,6 +11,7 @@ end
 
 # Automatically update the supported format list
 after :test do
+  require File.dirname(__FILE__) + '/lib/tracksperanto'
   formats = StringIO.new
   
   formats.puts(" ")

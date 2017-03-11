@@ -53,7 +53,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "approximately"
   spec.add_development_dependency "rake", '10.5.0'
   spec.add_development_dependency "linebyline"
-  spec.add_development_dependency 'git', '< 1.3.0' # Later ones require 1.9 via nokogiri
   spec.add_development_dependency "jeweler", '1.8.4' # Last one without the stupid nokogiri dependency
   spec.add_development_dependency "flexmock", "~> 0.8" #, :require => %w( flexmock flexmock/test_unit ) # Max. supported on 1.8
   spec.add_development_dependency "cli_test", "~>1.0"

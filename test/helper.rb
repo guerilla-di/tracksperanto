@@ -13,6 +13,8 @@ unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   exit 1
 end
 
+require 'flexmock'
+require 'flexmock/test_unit'
 # We are limited to flexmock 0.8 on Ruby 1.8
 # http://redmine.ruby-lang.org/issues/4882
 # https://github.com/jimweirich/flexmock/issues/4

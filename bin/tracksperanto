@@ -106,19 +106,20 @@ op.on("-xs", "--xscale X_SCALING_FACTOR", Float, toold("Scaler"), &tool("Scaler"
 
 op.on("-t", "--trim", Float, toold("StartTrim"),  &tool("StartTrim")) # Before slip!
 op.on("-s", "--slip FRAMES", Integer, toold("Slipper"), &tool("Slipper", :slip))
+op.on("-r", "--reverse", toold("ReverseKeyframes"), &tool("ReverseKeyframes"))
 op.on("-g", "--golden", toold("Golden"), &tool("Golden"))
 op.on("-m", "--min-length LENGTH_IN_FRAMES", Integer, toold("LengthCutoff"), &tool("LengthCutoff", :min_length))
 op.on("-p", "--prefix PREFIX", String, toold("Prefix"), &tool("Prefix", :prefix))
-op.on("-as", "--autoslip", toold("MoveToFirst"), &tool("MoveToFirst"))
+op.on("-a", "--autoslip", toold("MoveToFirst"), &tool("MoveToFirst"))
 op.on("--lerp", toold("Lerp"), &tool("Lerp"))
 op.on("--flip", toold("Flip"), &tool("Flip"))
 op.on("--flop", toold("Flop"), &tool("Flop"))
 
 # TODO - multiparameters
-op.on("-rx", "--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))
-op.on("-ry", "--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &tool("Reformat", :height))
-op.on("-xm", "--xshift X_IN_PIXELS", Float, "Move the points left or right", &tool("Shift", :x_shift))
-op.on("-ym", "--yshift Y_IN_PIXELS", Float, "Move the points up or down", &tool("Shift", :y_shift)) 
+op.on("--reformat-x NEW_PIX_WIDTH", Integer, "Reformat the comp to this width and scale all tracks to it", &tool("Reformat", :width))
+op.on("--reformat-y NEW_PIX_HEIGHT", Integer, "Reformat the comp to this height and scale all tracks to it", &tool("Reformat", :height))
+op.on("--xshift X_IN_PIXELS", Float, "Move the points left or right", &tool("Shift", :x_shift))
+op.on("--yshift Y_IN_PIXELS", Float, "Move the points up or down", &tool("Shift", :y_shift)) 
 
 
 op.on("--list-exporters", "Show available export modules") do

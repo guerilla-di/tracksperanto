@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export for PFTrack .2dt files
 class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     

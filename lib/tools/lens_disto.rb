@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Tool::LensDisto < Tracksperanto::Tool::Base
   include Tracksperanto::UVCoordinates
 

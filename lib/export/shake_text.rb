@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export for Shake .txt tracker blobs
 class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   PREAMBLE = "TrackName %s\n   Frame             X             Y   Correlation\n"

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Does the same as the Pad tool but with absolute pixel values instead of fractionals
 class Tracksperanto::Tool::Crop < Tracksperanto::Tool::Base
   

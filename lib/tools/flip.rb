@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Flips the comp being exported horizontally
 class Tracksperanto::Tool::Flip < Tracksperanto::Tool::Base
   

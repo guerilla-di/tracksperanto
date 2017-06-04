@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This tool adds linearly interpolated keyframes BETWEEN the keyframes passing through the exporter
 class Tracksperanto::Tool::Lerp < Tracksperanto::Tool::Base
   

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::SyntheyesAllTrackerPaths < Tracksperanto::Import::Base
   def self.human_name
     "Syntheyes \"All Tracker Paths\" export .txt file"

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 module Tracksperanto::ShakeGrammar
   # Will replay funcalls through to methods if such methods exist in the public insntance
   class Catcher < Lexer

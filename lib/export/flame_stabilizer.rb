@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # TODO: this exporter is MAJORLY slow now
 class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base
   

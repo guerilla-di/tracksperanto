@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export each tracker as a moving 3dsmax null
 class Tracksperanto::Export::Maxscript < Tracksperanto::Export::Base
   

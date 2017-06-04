@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This tool marks all trackers as being 100% accurate
 class Tracksperanto::Tool::Golden < Tracksperanto::Tool::Base
   

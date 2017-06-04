@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Slips the keyframe positions by a specific integer amount of frames, positive values slip forward (later in time). Useful if you just edited some stuff onto
 # the beginning if your sequence and need to extend your tracks.
 class Tracksperanto::Tool::Slipper < Tracksperanto::Tool::Base

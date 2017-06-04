@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 require "forwardable"
 
 # The base tool class works just like a Tracksperanto::Export::Base, but it only wraps another exporting object and does not get registered on it's own

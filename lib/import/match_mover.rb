@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::MatchMover < Tracksperanto::Import::Base
   
   def self.autodetects_size?

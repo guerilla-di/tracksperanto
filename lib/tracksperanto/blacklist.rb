@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Blacklist
   
   # Prevent totally unsupported formats from being used

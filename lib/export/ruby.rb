@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Exports the trackers to a script that is fit for massaging with Tracksperanto as is
 class Tracksperanto::Export::Ruby < Tracksperanto::Export::Base
   

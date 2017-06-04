@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export for 3DE v4 point files. 3DE always starts frames at 1.
 class Tracksperanto::Export::Equalizer4 < Tracksperanto::Export::Base
   

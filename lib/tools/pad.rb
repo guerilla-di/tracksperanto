@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This tool pads the comp or crops it if given negative values. Use it to say unpad
 # some fucked-up telecine transfers. The padding is in fractional units of the total width
 # and height

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export for PFTrack .2dt files for version 5
 class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFMatchit
     

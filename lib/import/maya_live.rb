@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Import::MayaLive < Tracksperanto::Import::Base
   
   # Maya Live exports and imports tracks in "aspect units", so a point at 0,0

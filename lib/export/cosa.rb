@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Exports trackers as an AfterEffects script creating nulls
 class Tracksperanto::Export::AE < Tracksperanto::Export::Base
 

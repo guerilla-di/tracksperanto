@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This tool prepends the names of the trackers passing through it with a prefix
 # and an underscore
 class Tracksperanto::Tool::Prefix < Tracksperanto::Tool::Base

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export each tracker as a moving Maya locator
 class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   SCENE_PREAMBLE = [

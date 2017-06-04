@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Exports setups with tracker naming that works with the Action bilinears
 class Tracksperanto::Export::FlameStabilizer2014Cornerpin < Tracksperanto::Export::FlameStabilizer2014
   

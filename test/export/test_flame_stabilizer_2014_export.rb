@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__)) + '/../helper'
 
 class TestFlameStabilizer2014Export < Test::Unit::TestCase

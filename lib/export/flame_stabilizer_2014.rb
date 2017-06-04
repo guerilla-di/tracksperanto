@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class Tracksperanto::Export::FlameStabilizer2014 < Tracksperanto::Export::Base
   
   COLOR = "50 50 50"

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 require "rexml/document"
 
 class Tracksperanto::Import::MatchMoverRZML < Tracksperanto::Import::Base

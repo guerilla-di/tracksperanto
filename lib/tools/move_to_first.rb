@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Sometimes your tracked sequence has been loaded from say frame 73282381, but you want to import into an application
 # that expects the trackers to start at frame 1. This tool autoslips everything so that your trackers start at frame 1.
 class Tracksperanto::Tool::MoveToFirst < Tracksperanto::Tool::Base

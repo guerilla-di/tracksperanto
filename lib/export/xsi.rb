@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export each tracker as a moving Softimage|XSI null
 class Tracksperanto::Export::XSI < Tracksperanto::Export::Base
 

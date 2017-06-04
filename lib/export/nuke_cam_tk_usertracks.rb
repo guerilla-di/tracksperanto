@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Export for Nuke's CameraTracker node. Same format as Shake Text
 # except that all trackers have to be called "usertrack0" to "usertrackN"
 require File.dirname(__FILE__) + "/shake_text"

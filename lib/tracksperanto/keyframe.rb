@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Internal representation of a keyframe, that carries info on the frame location in the clip, x y and residual.
 #
 # Franme numbers are zero-based (frame 0 is first frame of the clip).

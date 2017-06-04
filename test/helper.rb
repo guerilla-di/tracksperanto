@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 require "rubygems"
 require File.dirname(__FILE__) + '/../lib/tracksperanto' unless defined?(Tracksperanto)
 require 'test/unit'

@@ -1,11 +1,10 @@
-# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'forwardable'
 require 'tempfile'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '3.5.9'
+  VERSION = '4.0.0M'
   
   module Import; end
   module Export; end

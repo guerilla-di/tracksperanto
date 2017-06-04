@@ -53,11 +53,11 @@ that you export - and you can apply multiple transformations if desired.
 
 ## Using Tracksperanto from the command line
 
-To run on your own computer, make sure you have Ruby installed. Versions from 1.8.7
-and up are supported.
-    
+To run on your own computer, make sure you have Ruby installed. Versions from 2.1.0
+and up are supported. For older versions, use Tracksperanto 3.x and below.
+
     $ ruby -v
-    ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin13.0.0]
+    ruby 2.2.5p319 (2016-04-26 revision 54774) [x86_64-darwin15]
 
 Then install tracksperanto. It will be downloaded and unpacked automatically for you by the
 RubyGems system:
@@ -73,7 +73,7 @@ To see the supported options, run
     $ tracksperanto --help | more
 
 The converted files will be saved in the same directory as the source, if resulting
-converted files already exist <b>they will be overwritten without warning</b>.
+converted files already exist **they will be overwritten without warning.**
 
 ## Using Tracksperanto through the web
 

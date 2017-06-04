@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Implements the +safe_reader+ class method which will define (or override) readers that
 # raise if ivar is nil
 module Tracksperanto::Safety

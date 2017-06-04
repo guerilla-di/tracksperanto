@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Scales the comp being exported by a specific factor, together with the tracker keyframes
 class Tracksperanto::Tool::Scaler < Tracksperanto::Tool::Base
   DEFAULT_FACTOR = 1

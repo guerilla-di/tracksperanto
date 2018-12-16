@@ -1,10 +1,10 @@
 require 'stringio'
 require 'forwardable'
 require 'tempfile'
+require_relative 'tracksperanto/version'
 
 module Tracksperanto
   PATH = File.expand_path(File.dirname(__FILE__))
-  VERSION = '4.0.0M'
   
   module Import; end
   module Export; end

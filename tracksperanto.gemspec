@@ -1,6 +1,8 @@
+require_relative 'lib/tracksperanto/version'
+
 Gem::Specification.new do |spec|
   spec.name = "tracksperanto"
-  spec.version = "3.5.10"
+  spec.version = Tracksperanto::VERSION
   spec.required_ruby_version = '>= 2.1.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

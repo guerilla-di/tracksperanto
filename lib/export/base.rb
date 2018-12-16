@@ -50,7 +50,7 @@ class Tracksperanto::Export::Base
     @io = write_to_io
   end
   
-  # Called on export start. Will receive the width and height of the comp being exported as Fixnums
+  # Called on export start. Will receive the width and height of the comp being exported as Integers
   def start_export( img_width, img_height)
   end
   

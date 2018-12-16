@@ -55,11 +55,11 @@ class TestCasts < Test::Unit::TestCase
     assert_equal 0, t.int_attr, "Uninitialized int attr should be an int"
     
     t.int_attr = "3.1"
-    assert_kind_of Fixnum, t.int_attr
+    assert_kind_of Integer, t.int_attr
     assert_equal 3, t.int_attr
     
     t.float_attr = 3.1
-    assert_kind_of Fixnum, t.int_attr
+    assert_kind_of Integer, t.int_attr
     assert_equal 3, t.int_attr
   end
   

@@ -54,7 +54,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "approximately"
   spec.add_development_dependency "rake", '10.5.0'
   spec.add_development_dependency "linebyline"
-  spec.add_development_dependency "flexmock", "~> 2.3"
+  spec.add_development_dependency "flexmock"
   spec.add_development_dependency "cli_test", "~>1.0"
   spec.add_development_dependency "rake-hooks", '~> 1.2.3'
 end

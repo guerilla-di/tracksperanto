@@ -1,6 +1,5 @@
 require "bundler/gem_tasks"
 require 'rake/testtask'
-require 'rake/hooks'
 
 desc "Run all tests"
 Rake::TestTask.new("test") do |t|
@@ -10,7 +9,7 @@ Rake::TestTask.new("test") do |t|
 end
 
 # Automatically update the supported format list
-after :test do
+task :update_readme do
   require File.dirname(__FILE__) + '/lib/tracksperanto'
   formats = StringIO.new
   
@@ -40,13 +39,14 @@ after :test do
   end
 end
 
-# Automatically update the LICENSE
-after :test do
+task :update_license_date do
   license_path = File.dirname(__FILE__) + "/MIT_LICENSE.txt"
   license_text = File.read(license_path)
   license_text.gsub!(/2009\-(\d+)/, "2009-#{Time.now.year + 1}")
   File.open(license_path, "w"){|f| f << license_text }
 end
 
+# Automatically update the LICENSE
+Rake::Task[:test].enhance [:update_license_date, :update_readme]
 task :default => [ :test ]
 

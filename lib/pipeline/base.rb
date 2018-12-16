@@ -1,4 +1,3 @@
-
 require 'progressive_io'
 require 'obuf'
 

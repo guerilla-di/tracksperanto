@@ -8,7 +8,7 @@ Bundler.require :development
 
 unless File.exist?(File.dirname(__FILE__) + "/import/samples")
   puts "Please run tests on a git checkout from http://github.com/guerilla-di/tracksperanto"
-  puts "so that you also have the 17-something megs of the test corpus to test against. Aborting."
+  puts "so that you also have the 17+ MB of the test corpus data to test against. Aborting."
   exit 1
 end
 

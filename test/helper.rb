@@ -14,13 +14,14 @@ end
 
 require 'flexmock'
 require 'flexmock/test_unit'
-# We are limited to flexmock 0.8 on Ruby 1.8
-# http://redmine.ruby-lang.org/issues/4882
-# https://github.com/jimweirich/flexmock/issues/4
-# https://github.com/julik/flexmock/commit/4acea00677e7b558bd564ec7c7630f0b27d368ca
-class FlexMock::PartialMockProxy
-  def singleton?(method_name)
-    @obj.singleton_methods.include?(method_name.to_s)
+
+# Fix methods being considered private on Ruby 2.4+ sice otherwise
+# Forwardable complains. Upstream patch should be filed to flexmock,
+# which now apparently lives at https://github.com/doudou/flexmock
+class FlexMock
+  def respond_to_missing?(method_name, is_public)
+    return true if is_public
+    false
   end
 end
 

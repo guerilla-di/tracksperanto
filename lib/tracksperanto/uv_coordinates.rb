@@ -5,17 +5,17 @@
 # adjustment is necessary to maintain subpixel accuracy.
 module Tracksperanto::UVCoordinates
   
-  # Convert absoilute X and Y values off the BL corner into Syntheyes UV coordinates
+  # Convert absolute X and Y values off the BL corner into Syntheyes UV coordinates
   def absolute_to_uv(abs_x, abs_y, w, h)
     [convert_to_uv(abs_x, w), convert_to_uv(abs_y, h) * -1]
   end
   
-  # Convert absoilute pixel value off the BL corner into Syntheyes UV coordinate
+  # Convert absolute pixel value off the BL corner into Syntheyes UV coordinate
   def convert_to_uv(abs_value, absolute_side)
     uv_value = (((abs_value.to_f - 0.5) / (absolute_side.to_f - 1)) - 0.5) * 2.0
   end
 
-  # Convert Syntheyes UV value into absoilute pixel value off the BL corner
+  # Convert Syntheyes UV value into absolute pixel value off the BL corner
   def convert_from_uv(uv_value, absolute_side)
     # Account for the fact that Syntheyes assumes the
     # pixel values to be at the center of the pixel

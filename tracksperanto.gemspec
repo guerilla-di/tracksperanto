@@ -37,17 +37,17 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   
-  spec.add_runtime_dependency"obuf", "~> 1.1"
-  spec.add_runtime_dependency"tickly", "~> 2.1.6"
-  spec.add_runtime_dependency"bychar", "~> 3"
-  spec.add_runtime_dependency"progressive_io", "~> 1.0"
-  spec.add_runtime_dependency"flame_channel_parser", "~> 4.0"
+  spec.add_runtime_dependency "obuf", "~> 1.1"
+  spec.add_runtime_dependency "tickly", "~> 2.1.6"
+  spec.add_runtime_dependency "bychar", "~> 3"
+  spec.add_runtime_dependency "progressive_io", "~> 1.0"
+  spec.add_runtime_dependency "flame_channel_parser", "~> 4.0"
   # Locked because newer versions require tins that do not work on 1.9.3 and less
-  spec.add_runtime_dependency'term-ansicolor', '<= 1.2.0'
+  spec.add_runtime_dependency 'term-ansicolor', '<= 1.2.0'
   # flame_channel_parser wants it via framecurve, but for Ruby 1.8.7 we have to ask for an older version
-  spec.add_runtime_dependency'tins', '< 0.9.0'
-  spec.add_runtime_dependency"progressbar", "0.10.0"
-  spec.add_runtime_dependency"update_hints", "~> 1.0"
+  spec.add_runtime_dependency 'tins', '< 0.9.0'
+  spec.add_runtime_dependency "progressbar", "0.10.0"
+  spec.add_runtime_dependency "update_hints", "~> 1.0"
 
   spec.add_development_dependency "rdoc", "~> 4", "< 4.3"
   spec.add_development_dependency "bundler", '~> 1'
@@ -55,7 +55,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "approximately"
   spec.add_development_dependency "rake", '10.5.0'
   spec.add_development_dependency "linebyline"
-  spec.add_development_dependency "jeweler", '1.8.4' # Last one without the stupid nokogiri dependency
   spec.add_development_dependency "flexmock", "~> 2.3"
   spec.add_development_dependency "cli_test", "~>1.0"
   spec.add_development_dependency "rake-hooks", '~> 1.2.3'

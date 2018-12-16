@@ -26,8 +26,6 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.8.23.2"
   spec.summary = "A universal 2D tracks converter"
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end.reject do |f|
     f.start_with?("test/import/samples/*/*.*") # Remove the sample files
   end.reject do |f|
     f.start_with? "test/subpixel"
@@ -52,7 +50,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", '~> 1'
   spec.add_development_dependency "test-unit", '3.1.5'
   spec.add_development_dependency "approximately"
-  spec.add_development_dependency "rake", '10.5.0'
+  spec.add_development_dependency "rake", '~> 10'
   spec.add_development_dependency "linebyline"
   spec.add_development_dependency "flexmock"
   spec.add_development_dependency "cli_test", "~>1.0"

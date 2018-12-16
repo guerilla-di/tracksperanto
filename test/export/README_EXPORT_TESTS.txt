@@ -9,7 +9,7 @@ This means that unless you own an app that accepts this particular format
 you cannot overwrite the export with your own since you got no way to verify
 that the export works
 
-The current test set consists of three trackers. First - two two parabolic curves that cross.
+The current test set consists of three trackers. First - two parabolic curves that cross.
 The first tracker goes left to right, the second right to left and they start at opposite
 corners of the reference 1920x1080 export.
 

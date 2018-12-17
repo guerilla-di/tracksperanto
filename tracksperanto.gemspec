@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   end
   
   spec.authors = ["Julik Tarkhanov"]
-  spec.date = "2016-07-19"
+  spec.date = Time.now.utc.strftime("%Y-%m-%d")
   spec.description = "Converts 2D track exports between different apps like Flame, MatchMover, PFTrack..."
   spec.email = "me@julik.nl"
   spec.executables = ["tracksperanto"]

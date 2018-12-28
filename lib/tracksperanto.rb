@@ -91,7 +91,6 @@ end
 # We do get loaded as a library so do not add to the load paths,
 # just load directly
 %w(
-  returning
   const_name
   casts
   block_init

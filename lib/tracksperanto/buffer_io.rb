@@ -12,7 +12,6 @@ end
 # of the underlying string buffer exceeds MAX_IN_MEM_BYTES the string will be flushed to disk
 # and it automagically becomes a Tempfile
 class Tracksperanto::BufferIO < Tracksperanto::IOWrapper
-  include Tracksperanto::Returning
   
   MAX_IN_MEM_BYTES = 5_000_000
   
@@ -21,16 +20,16 @@ class Tracksperanto::BufferIO < Tracksperanto::IOWrapper
   end
   
   def write(s)
-    returning(super) { replace_with_tempfile_if_needed }
+    super.tap { replace_with_tempfile_if_needed }
   end
   alias_method :<<, :write
   
   def puts(s)
-    returning(super) { replace_with_tempfile_if_needed }
+    super.tap { replace_with_tempfile_if_needed }
   end
   
   def putc(c)
-    returning(super) { replace_with_tempfile_if_needed }
+    super.tap { replace_with_tempfile_if_needed }
   end
   
   def close!
@@ -59,7 +58,7 @@ class Tracksperanto::BufferIO < Tracksperanto::IOWrapper
     tf.set_encoding(Encoding::BINARY) if @rewindable_io.respond_to?(:set_encoding)
     tf.binmode
     tf.write(sio.string)
-    tf.flush # Needed of we will reopen this file soon from another thread/loop
+    tf.flush # Needed if we are going to reopen this file soon from another thread/loop
     sio.string = ""
     GC.start
     @backing_buffer = tf

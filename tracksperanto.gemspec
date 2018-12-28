@@ -28,11 +28,10 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.8.23.2"
   spec.summary = "A universal 2D tracks converter"
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.start_with?("test/import/samples/*/*.*") # Remove the sample files
+    f.start_with?("test/import/samples") # Remove the sample files
   end.reject do |f|
     f.start_with? "test/subpixel"
-  end
-  
+
   spec.bindir = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

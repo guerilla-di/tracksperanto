@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
     f.start_with?("test/import/samples") # Remove the sample files
   end.reject do |f|
     f.start_with? "test/subpixel"
+  end
 
   spec.bindir = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

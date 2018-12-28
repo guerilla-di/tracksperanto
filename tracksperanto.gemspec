@@ -28,9 +28,7 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.8.23.2"
   spec.summary = "A universal 2D tracks converter"
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.start_with?("test/import/samples") # Remove the sample files
-  end.reject do |f|
-    f.start_with? "test/subpixel"
+    f.start_with?("test/") # Remove the sample files
   end
   spec.files << "test/HELP_WHY_TESTS_ARE_EMPTY.md"
   spec.bindir = "bin"

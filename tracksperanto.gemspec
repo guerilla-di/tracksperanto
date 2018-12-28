@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   end.reject do |f|
     f.start_with? "test/subpixel"
   end
-
+  spec.files << "test/HELP_WHY_TESTS_ARE_EMPTY.md"
   spec.bindir = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

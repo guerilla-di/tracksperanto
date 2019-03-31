@@ -81,7 +81,7 @@ For situations where you cannot install anything on your machine, or you run a s
 run Ruby decently, or you are in a locked-down environment, we offer a web-enabled version of
 Tracksperanto at the following URL:
 
-    http://tracksperanto.guerilla-di.org/
+    https://tracksperanto.guerilla-di.org/
 
 This is a web-app which is always in lock-step with the main Tracksperanto in terms of versions,
 features and bug fixes. As a matter of principle, we reserve the right to use anything you upload

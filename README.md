@@ -64,7 +64,10 @@ RubyGems system:
 
     $ sudo gem install tracksperanto
 
-Then you will have a "tracksperanto" binary in your $PATH, which you can use like this:
+If you do not have administrator access on macOS you can follow the steps in [this video](https://youtu.be/p_f7dZrfcis)
+to use the gem as a user.
+
+Once these steps are complete you are going to have a `tracksperanto` binary in your $PATH, which you can use like this:
 
     $ tracksperanto -w 1920 -h 1080 /Films/Blockbuster/Shots/001/script.shk
 

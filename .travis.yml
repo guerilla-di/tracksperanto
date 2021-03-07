@@ -1,5 +1,5 @@
 rvm:
-  - 2.1.1
-  - 2.5.0
+  - 2.4.7
+  - 3.0.0
 cache: bundler
 sudo: false

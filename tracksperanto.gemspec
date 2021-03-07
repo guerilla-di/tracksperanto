@@ -42,6 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "flame_channel_parser", "~> 4", ">= 4.1.1"
   spec.add_runtime_dependency "progressbar", "0.10.0"
   spec.add_runtime_dependency "update_hints", "~> 1"
+  spec.add_runtime_dependency "rexml"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "test-unit", '~> 3'

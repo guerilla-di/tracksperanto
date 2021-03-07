@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "test-unit", '~> 3'
   spec.add_development_dependency "approximately"
-  spec.add_development_dependency "rake", '~> 10'
+  spec.add_development_dependency "rake"
   spec.add_development_dependency "linebyline"
   spec.add_development_dependency "flexmock"
   spec.add_development_dependency "cli_test", "~>1"

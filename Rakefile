@@ -5,7 +5,7 @@ desc "Run all tests"
 Rake::TestTask.new("test") do |t|
   t.libs << "test"
   t.pattern = 'test/**/test_*.rb'
-  t.verbose = true
+  t.warning = false
 end
 
 # Automatically update the supported format list

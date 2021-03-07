@@ -1,3 +1,25 @@
+### 4.2.0
+
+* Revert keyword arguments change in BlockInit so that compatibility with Ruby 3.x can be assured
+
+### 4.1.3
+
+* Make sure the test corpus doesn't get included in the released gem (size constraints)
+
+### 4.1.2
+
+* Update the used version of Tickly (used for Nuke scripts)
+
+### 4.1.0
+
+* Iron out a few kinks with the now-smaller subset of Rubies we support
+
+### 4.0.0
+
+* The version drop support for Ruby versions below 2.2 - older versions of Tracksperanto still can be installed and used, but not 4.x and newer. We need to make this change to simplify CI runs and the test matrix, also installing and running older Ruby versions is turning into more and more of a hassle
+* Update some idioms for more modern Ruby syntax: introduce `require_relative` in most places, use `#tap` instead of `#returning` and other small modernizations
+* Remove Jeweler which was used for packaging the gem and use just builtin Bundler features + .gemspec file
+
 ### 3.5.9
 
 * Set the maximum version for some gems to reenable Ruby 1.8.7 installs

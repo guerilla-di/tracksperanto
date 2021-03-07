@@ -19,7 +19,7 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   CHARACTERS_OR_QUOTES = /[AZaz"]/
   INTS = /^\d+$/
   
-  def each
+  def each(&blk)
     until @io.eof?
       line = @io.gets
       next if (!line || line =~ /^#/)
@@ -27,13 +27,13 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
       if line =~ CHARACTERS_OR_QUOTES # Tracker with a name
         name = unquote(line.strip)
         report_progress("Reading tracker #{name}")
-        parse_trackers(name, @io, &Proc.new)
+        parse_trackers(name, @io, &blk)
       end
     end
   end
   
   private
-    def parse_trackers(name, io)
+    def parse_trackers(name, io, &blk)
       first_tracker_line = io.gets.chomp
       
       # We will be reading one line too many possibly, so we need to know
@@ -57,7 +57,7 @@ class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
         io.seek(cur_pos)
         return if !next_line || next_line.strip.empty?
         
-        parse_trackers(name, io, &Proc.new)
+        parse_trackers(name, io, &blk)
       else
         num_of_keyframes = first_tracker_line.to_i
         # Backtrack to where we were on this IO so that the first line read will be the tracker

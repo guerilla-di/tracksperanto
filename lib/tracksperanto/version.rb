@@ -1,3 +1,3 @@
 module Tracksperanto
-  VERSION = '4.1.3'
+  VERSION = '5.0.0'
 end

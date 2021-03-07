@@ -16,10 +16,10 @@ class Tracksperanto::Import::ShakeScript < Tracksperanto::Import::Base
     'Take care to remove expressions or nodes containing them first.'
   end
   
-  def each
+  def each(&blk)
     s = Sentinel.new
     s.progress_proc = method(:report_progress)
-    s.tracker_proc = Proc.new
+    s.tracker_proc = blk.to_proc
     TrackExtractor.new(@io, s)
   end
   

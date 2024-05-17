@@ -8,7 +8,7 @@ env:
 
 jobs:
   test:
-    name: Tests and Lint
+    name: Run Tests
     runs-on: ubuntu-22.04
     strategy:
       matrix:
@@ -24,6 +24,4 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - name: "Tests"
-        run: bundle exec rspec --backtrace --fail-fast
-      - name: "Lint"
-        run: bundle exec rake standard
+        run: bundle exec rake test

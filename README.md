@@ -148,8 +148,6 @@ Consult the --help option to see what is available.
 ## Development
 
 [![Gem Version](https://badge.fury.io/rb/tracksperanto.svg)](http://badge.fury.io/rb/tracksperanto)
-[![Travis](https://secure.travis-ci.org/guerilla-di/tracksperanto.png)](https://travis-ci.org/guerilla-di/tracksperanto)
-[![Code Climate](https://codeclimate.com/github/guerilla-di/tracksperanto/badges/gpa.svg)](https://codeclimate.com/github/guerilla-di/tracksperanto)
 
 If you are interested in reusing Tracksperanto's code or adding modules to the software consult
 the [short developer introduction](https://github.com/guerilla-di/tracksperanto/blob/master/CONTRIBUTING.md)

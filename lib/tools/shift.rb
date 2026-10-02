@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This tool moves the keyframs by a preset number of pixels
 class Tracksperanto::Tool::Shift < Tracksperanto::Tool::Base
   

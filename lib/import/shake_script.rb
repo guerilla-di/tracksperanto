@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative "shake_grammar/lexer"
 require_relative "shake_grammar/catcher"
 

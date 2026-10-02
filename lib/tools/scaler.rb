@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Scales the comp being exported by a specific factor, together with the tracker keyframes
 class Tracksperanto::Tool::Scaler < Tracksperanto::Tool::Base

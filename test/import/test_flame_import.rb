@@ -95,7 +95,7 @@ class TestFlameImport < Test::Unit::TestCase
   
   def test_from_flame2012_with_traced_messages
     fixture = File.open(File.dirname(__FILE__) + '/samples/flame_stabilizer/flame_2012_another.stabilizer')
-    output = ""
+    output = +""
     progress_block = lambda {|msg|  output << msg }
     trackers = Tracksperanto::Import::FlameStabilizer.new(:io => fixture, :progress_block => progress_block).to_a
     assert output.include?('Parsing channel "tracker1/shift/x"')

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Export for 2d3d boujou
 class Tracksperanto::Export::Boujou < Tracksperanto::Export::Base

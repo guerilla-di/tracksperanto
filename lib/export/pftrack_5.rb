@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Export for PFTrack .2dt files for version 5
 class Tracksperanto::Export::PFTrack5 < Tracksperanto::Export::PFMatchit
     

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Multiplexor. Accepts a number of exporters and replays 
 # the calls to all of them in succession.
 class Tracksperanto::Export::Mux

@@ -4,6 +4,7 @@
   no longer rely on mutable class-level state, closures in generated methods or unshareable constants
 * Require the Ractor-compatible obuf 1.3, tickly 2.2 and flame_channel_parser 4.2, and progressive_io 2.x
 * Require Ruby 2.6+, in line with the dependencies
+* Tracksperanto now works with frozen string literals (`--enable-frozen-string-literal`). Requires tickly 2.2.1
 
 ### 4.2.0
 

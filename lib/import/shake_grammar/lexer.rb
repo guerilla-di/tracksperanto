@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 
 require 'bychar'
@@ -30,7 +31,7 @@ module Tracksperanto::ShakeGrammar
       # as opposed to 7.9 without this). We do check for the proper class only once so that when we use nested lexers
       # we only wrap the passed IO once, and only if necessary.
       with_io = Bychar.wrap(with_io) unless with_io.respond_to?(:read_one_char)
-      @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], '', sentinel, limit_to_one_stmt, stack_depth
+      @io, @stack, @buf, @sentinel, @limit_to_one_stmt, @stack_depth  = with_io, [], +'', sentinel, limit_to_one_stmt, stack_depth
       
       catch(STOP_TOKEN) do
         loop { parse }
@@ -163,7 +164,7 @@ module Tracksperanto::ShakeGrammar
     end
     
     def erase_buffer
-      @buf = ''
+      @buf = +''
     end
   end
 end

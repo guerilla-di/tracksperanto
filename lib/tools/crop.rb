@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Does the same as the Pad tool but with absolute pixel values instead of fractionals
 class Tracksperanto::Tool::Crop < Tracksperanto::Tool::Base
   

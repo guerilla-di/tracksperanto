@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # TODO: this exporter is MAJORLY slow now
 class Tracksperanto::Export::FlameStabilizer < Tracksperanto::Export::Base

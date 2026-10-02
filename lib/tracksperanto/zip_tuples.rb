@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Implements the zip_curve_tuples method
 module Tracksperanto::ZipTuples
   # Zip arrays of "value at" tuples into an array of "values at" tuples

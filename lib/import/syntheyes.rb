@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Tracksperanto::Import::Syntheyes < Tracksperanto::Import::Base
   include Tracksperanto::UVCoordinates
   

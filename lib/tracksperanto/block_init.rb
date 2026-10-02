@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Implements the conventional constructor with "hash of attributes" and block support
 module Tracksperanto::BlockInit
   def initialize(attributes = {})

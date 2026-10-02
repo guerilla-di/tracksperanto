@@ -16,7 +16,7 @@ class Tracksperanto::Tool::Base
   # Used to automatically register your tool in Tracksperanto.tools
   # Normally you wouldn't need to override this
   def self.inherited(by)
-    Tracksperanto.tools.push(by)
+    Tracksperanto.register_tool(by)
     super
   end
   

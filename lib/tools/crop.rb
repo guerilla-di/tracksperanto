@@ -18,6 +18,6 @@ class Tracksperanto::Tool::Crop < Tracksperanto::Tool::Base
   
   # Redirect all method calls to @pad instead of @exporter
   %w( start_tracker_segment end_tracker_segment export_point end_export).each do | m |
-    define_method(m){|*a| @pad.send(m, *a)}
+    class_eval "def #{m}(*a); @pad.#{m}(*a); end", __FILE__, __LINE__
   end
 end

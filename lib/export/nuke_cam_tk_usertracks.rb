@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export for Nuke's CameraTracker node. Same format as Shake Text
 # except that all trackers have to be called "usertrack0" to "usertrackN"
 require_relative "shake_text"

@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Imports 3D Equalizer's text files
 class Tracksperanto::Import::Equalizer4 < Tracksperanto::Import::Base
   

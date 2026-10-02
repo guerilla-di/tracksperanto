@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # TODO: this should be rewritten as a proper state-machine parser
 class Tracksperanto::Import::PFTrack < Tracksperanto::Import::Base
   

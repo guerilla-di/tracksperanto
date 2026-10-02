@@ -5,34 +5,45 @@ module Tracksperanto::Casts
     super
   end
   
+  # The accessors are generated from strings rather than with define_method, because
+  # methods defined with a block can't be called from a non-main Ractor
+
   # Same as attr_accessor but will always convert to Float internally
   def cast_to_float(*attributes)
     attributes.each do | an_attr |
-      define_method(an_attr) { instance_variable_get("@#{an_attr}").to_f }
-      define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_f) }
+      class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        def #{an_attr}; @#{an_attr}.to_f; end
+        def #{an_attr}=(to); @#{an_attr} = to.to_f; end
+      RUBY
     end
   end
   
   # Same as attr_accessor but will always convert to Integer/Bignum internally
   def cast_to_int(*attributes)
     attributes.each do | an_attr |
-      define_method(an_attr) { instance_variable_get("@#{an_attr}").to_i }
-      define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_i) }
+      class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        def #{an_attr}; @#{an_attr}.to_i; end
+        def #{an_attr}=(to); @#{an_attr} = to.to_i; end
+      RUBY
     end
   end
   
   # Same as attr_accessor but will always convert to String internally
   def cast_to_string(*attributes)
     attributes.each do | an_attr |
-      define_method(an_attr) { instance_variable_get("@#{an_attr}").to_s }
-      define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", to.to_s) }
+      class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        def #{an_attr}; @#{an_attr}.to_s; end
+        def #{an_attr}=(to); @#{an_attr} = to.to_s; end
+      RUBY
     end
   end
   
   def cast_to_bool(*attributes)
     attributes.each do | an_attr |
-      define_method(an_attr) { !!instance_variable_get("@#{an_attr}") }
-      define_method("#{an_attr}=") { |to| instance_variable_set("@#{an_attr}", !!to) }
+      class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        def #{an_attr}; !!@#{an_attr}; end
+        def #{an_attr}=(to); @#{an_attr} = !!to; end
+      RUBY
     end
   end
 

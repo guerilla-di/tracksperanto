@@ -11,9 +11,12 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-22.04
     strategy:
+      fail-fast: false
       matrix:
         ruby:
           - '2.6'
+          - '3.4'
+          - '4.0'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

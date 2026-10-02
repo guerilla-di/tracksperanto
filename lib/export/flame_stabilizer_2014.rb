@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 class Tracksperanto::Export::FlameStabilizer2014 < Tracksperanto::Export::Base
   
   COLOR = "50 50 50"

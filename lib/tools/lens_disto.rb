@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 class Tracksperanto::Tool::LensDisto < Tracksperanto::Tool::Base
   include Tracksperanto::UVCoordinates
 

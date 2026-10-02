@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 
 require 'bychar'
 

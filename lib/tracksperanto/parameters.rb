@@ -44,13 +44,14 @@ module Tracksperanto::Parameters
   def parameter(name, options = {})
     options = {:name => name}.merge(options)
     param = Parameter.new(options)
-    parameters.push(param)
     param.apply_to(self)
+    # Replace instead of appending, and deep-freeze, so that the list can be read from non-main Ractors
+    @ui_parameters = (parameters + [param]).freeze
+    Ractor.make_shareable(@ui_parameters) if defined?(Ractor)
   end
   
   # Returns the array of the parameters defined for this class
   def parameters
-    @ui_parameters ||= []
-    @ui_parameters
+    @ui_parameters || []
   end
 end

@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export each tracker as a moving Maya locator
 class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
   SCENE_PREAMBLE = [
@@ -5,7 +6,7 @@ class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base
     '//Name: TracksperantoLocators.ma',
     '//Codeset: UTF-8',
     'requires maya "1.0";'
-  ].join("\n")
+  ].join("\n").freeze
   
   PREAMBLE = 'polyPlane -name "TracksperantoImagePlane" -width %0.5f -height %0.5f;'
   LOCATOR_PREAMBLE = 'spaceLocator -name "%s" -p 0 0 0;'

@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export for PFTrack .2dt files
 class Tracksperanto::Export::PFTrack4 < Tracksperanto::Export::Base
     

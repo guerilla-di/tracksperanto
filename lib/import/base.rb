@@ -32,7 +32,7 @@ class Tracksperanto::Import::Base
   # Used to register your importer in the list of supported formats.
   # Normally you would not need to override this
   def self.inherited(by)
-    Tracksperanto.importers << by
+    Tracksperanto.register_importer(by)
     super
   end
   

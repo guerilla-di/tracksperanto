@@ -1,3 +1,10 @@
+### 4.3.0
+
+* Tracksperanto can now be used from within Ractors (Ruby 4.0+). Importers, exporters and tools
+  no longer rely on mutable class-level state, closures in generated methods or unshareable constants
+* Require the Ractor-compatible obuf 1.3, tickly 2.2 and flame_channel_parser 4.2, and progressive_io 2.x
+* Require Ruby 2.6+, in line with the dependencies
+
 ### 4.2.0
 
 * Revert keyword arguments change in BlockInit so that compatibility with Ruby 3.x can be assured

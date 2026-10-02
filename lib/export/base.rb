@@ -28,7 +28,7 @@ class Tracksperanto::Export::Base
   attr_reader :io
   
   def self.inherited(by)
-    Tracksperanto.exporters << by
+    Tracksperanto.register_exporter(by)
     super
   end
   

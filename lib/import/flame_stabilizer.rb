@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 require 'flame_channel_parser'
 
 class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
@@ -52,7 +53,7 @@ class Tracksperanto::Import::FlameStabilizer < Tracksperanto::Import::Base
     # We subclass the standard parser for a couple of reasons - we want to only parse the needed channels
     # AND we want to provide progress reports
     class StabilizerParser < FlameChannelParser::Parser
-      USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map(&Regexp.method(:new))
+      USEFUL_CHANNELS = %w( /shift/x /shift/y /ref/x /ref/y ).map{|e| Regexp.new(e).freeze }.freeze
       
       def channel_is_useful?(channel_name)
         USEFUL_CHANNELS.any?{|e| channel_name =~ e }

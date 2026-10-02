@@ -10,11 +10,13 @@ module Tracksperanto::Safety
   def safe_reader(*attributes)
     attributes.each do | an_attr |
       alias_method "#{an_attr}_without_nil_protection", an_attr
-      define_method(an_attr) do
-        val = send("#{an_attr}_without_nil_protection")
-        raise "Expected #{an_attr} on #{self} not to be nil" if val.nil?
-        val
-      end
+      class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        def #{an_attr}
+          val = #{an_attr}_without_nil_protection
+          raise "Expected #{an_attr} on \#{self} not to be nil" if val.nil?
+          val
+        end
+      RUBY
     end
   end
 end

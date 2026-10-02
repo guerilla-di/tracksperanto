@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export each tracker as a moving Softimage|XSI null
 class Tracksperanto::Export::XSI < Tracksperanto::Export::Base
 

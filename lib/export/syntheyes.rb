@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export for Syntheyes tracker UVs.
 class Tracksperanto::Export::SynthEyes < Tracksperanto::Export::Base
   include Tracksperanto::UVCoordinates

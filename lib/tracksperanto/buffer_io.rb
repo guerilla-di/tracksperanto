@@ -1,10 +1,11 @@
+# shareable_constant_value: literal
 require "tempfile"
 require 'forwardable'
 
 class IOWrapper
   extend Forwardable
   attr_reader :backing_buffer
-  IO_METHODS = (IO.instance_methods - Object.instance_methods - Enumerable.instance_methods).map{|e| e.to_sym }
+  IO_METHODS = (IO.instance_methods - Object.instance_methods - Enumerable.instance_methods).map{|e| e.to_sym }.freeze
   def_delegators :backing_buffer, *IO_METHODS
 end
 

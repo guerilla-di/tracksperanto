@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 require 'progressive_io'
 require 'obuf'
 
@@ -163,7 +164,8 @@ module Tracksperanto::Pipeline
     # Wrap the input in a progressive IO, setup a lambda that will spy on the reader and 
     # update the percentage. We will only broadcast messages that come from the parser 
     # though (complementing it with a percentage)
-    io_with_progress = ProgressiveIO.new(tracker_data_io) do | offset, of_total |
+    of_total = tracker_data_io.size
+    io_with_progress = ProgressiveIO.new(tracker_data_io) do | offset |
       percent_complete = (50.0 / of_total) * offset
       
       # Some importers do not signal where they are and do not send nice reports. The way we can help that in the interim

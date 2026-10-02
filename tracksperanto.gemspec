@@ -3,7 +3,7 @@ require_relative 'lib/tracksperanto/version'
 Gem::Specification.new do |spec|
   spec.name = "tracksperanto"
   spec.version = Tracksperanto::VERSION
-  spec.required_ruby_version = '>= 2.1.0'
+  spec.required_ruby_version = '>= 2.6.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -35,11 +35,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   
-  spec.add_runtime_dependency "obuf", "~> 1"
-  spec.add_runtime_dependency "tickly", "~> 2", ">= 2.1.7"
+  spec.add_runtime_dependency "obuf", "~> 1", ">= 1.3.0"
+  spec.add_runtime_dependency "tickly", "~> 2", ">= 2.2.0"
   spec.add_runtime_dependency "bychar", "~> 3"
-  spec.add_runtime_dependency "progressive_io", "~> 1"
-  spec.add_runtime_dependency "flame_channel_parser", "~> 4", ">= 4.1.1"
+  spec.add_runtime_dependency "progressive_io", "~> 2"
+  spec.add_runtime_dependency "flame_channel_parser", "~> 4", ">= 4.2.0"
   spec.add_runtime_dependency "progressbar", "0.10.0"
   spec.add_runtime_dependency "update_hints", "~> 1"
   spec.add_runtime_dependency "rexml"

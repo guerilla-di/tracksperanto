@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export each tracker as a moving 3dsmax null
 class Tracksperanto::Export::Maxscript < Tracksperanto::Export::Base
   

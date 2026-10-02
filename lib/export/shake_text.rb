@@ -1,3 +1,4 @@
+# shareable_constant_value: literal
 # Export for Shake .txt tracker blobs
 class Tracksperanto::Export::ShakeText < Tracksperanto::Export::Base
   PREAMBLE = "TrackName %s\n   Frame             X             Y   Correlation\n"

@@ -1,10 +1,11 @@
+# shareable_constant_value: literal
 require 'stringio'
 require 'forwardable'
 require 'tempfile'
 require_relative 'tracksperanto/version'
 
 module Tracksperanto
-  PATH = File.expand_path(File.dirname(__FILE__))
+  PATH = File.expand_path(File.dirname(__FILE__)).freeze
   
   module Import; end
   module Export; end
@@ -18,13 +19,13 @@ module Tracksperanto
   
   class << self
     # Returns the array of all exporter classes defined
-    attr_accessor :exporters
+    attr_reader :exporters
     
     # Returns the array of all importer classes defined
-    attr_accessor :importers
+    attr_reader :importers
     
     # Returns the array of all available tools
-    attr_accessor :tools
+    attr_reader :tools
     
     # Returns the names of all the importers
     def importer_names
@@ -49,15 +50,28 @@ module Tracksperanto
       sort_on_human_name(@importers)
     end
     
+    # The registries get replaced with frozen copies on every addition instead of being
+    # appended to, so that they stay shareable and can be read from non-main Ractors
+    def register_exporter(klass)
+      @exporters = (@exporters + [klass]).freeze
+    end
+    
+    def register_importer(klass)
+      @importers = (@importers + [klass]).freeze
+    end
+    
+    def register_tool(klass)
+      @tools = (@tools + [klass]).freeze
+    end
+    
     private
     
     def sort_on_human_name(array)
-      array.sort!{|a, b| a.human_name <=> b.human_name }
-      array
+      array.sort{|a, b| a.human_name <=> b.human_name }
     end
   end
   
-  self.exporters, self.importers, self.tools = [], [], []
+  @exporters, @importers, @tools = [].freeze, [].freeze, [].freeze
 
   # Case-insensitive search for a tool class by name
   def self.get_tool(name)

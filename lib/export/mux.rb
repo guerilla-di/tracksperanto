@@ -7,6 +7,6 @@ class Tracksperanto::Export::Mux
 
   %w( start_export start_tracker_segment end_tracker_segment
     export_point end_export).each do | m |
-    define_method(m){|*a| @outputs.map{|o| o.public_send(m, *a)}}
+    class_eval "def #{m}(*a); @outputs.map{|o| o.#{m}(*a)}; end", __FILE__, __LINE__
   end
 end

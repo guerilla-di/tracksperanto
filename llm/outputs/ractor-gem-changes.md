@@ -198,18 +198,15 @@ These commits went to the gems' `master` after the first release. None of them i
 
 ## Still open
 
-1. **Release** these gems to RubyGems. The built files, from `bundle exec rake build`, have no warnings:
-   - `~/Code/libs/framecurve/pkg/framecurve-2.2.5.gem`
-   - `~/Code/libs/flame_channel_parser/pkg/flame_channel_parser-4.2.1.gem`
-   - `~/Code/libs/obuf/pkg/obuf-1.3.1.gem`
-   - `~/Code/libs/tickly/pkg/tickly-2.2.1.gem`
-2. **Re-run #11's CI** once tickly 2.2.1 is out. Until then it can't resolve its dependencies.
-3. **Merge #10, then #11.** #11 targets `ractor-support` and gets retargeted to `master` automatically when
-   #10 merges.
-4. **REXML:** drop the `git:` line from Tracksperanto's Gemfile once a release after 3.4.4 includes
+obuf 1.3.1, tickly 2.2.1, flame_channel_parser 4.2.1 and framecurve 2.2.5 are released (2026-10-02).
+Tracksperanto now requires obuf ≥ 1.3.1, tickly ≥ 2.2.1 and flame_channel_parser ≥ 4.2.1. CI on both PRs is
+green on Ruby 2.6, 3.4 and 4.0.
+
+1. **Merge #10, then #11.** #11 gets retargeted to `master` automatically when #10 merges.
+2. **Release Tracksperanto 4.3.0.**
+3. **REXML:** drop the `git:` line from Tracksperanto's Gemfile once a release after 3.4.4 includes
    [ruby/rexml#344](https://github.com/ruby/rexml/pull/344). Until then, the MatchMover RZML importer is the
    only format that doesn't work inside a Ractor with released rexml.
    - **REXML stays deliberately.** Switching to Nokogiri was considered and rejected: Nokogiri 1.19.4's C
      extension isn't marked Ractor-safe, so parsing from a non-main Ractor raises `Ractor::UnsafeError`.
      REXML is pure Ruby and a bundled gem, so there is no native build to worry about anymore.
-5. **Release Tracksperanto 4.3.0** after the PRs merge.

@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   
   spec.add_runtime_dependency "obuf", "~> 1", ">= 1.3.0"
-  spec.add_runtime_dependency "tickly", "~> 2", ">= 2.2.0"
+  spec.add_runtime_dependency "tickly", "~> 2", ">= 2.2.1"
   spec.add_runtime_dependency "bychar", "~> 3"
   spec.add_runtime_dependency "progressive_io", "~> 2"
   spec.add_runtime_dependency "flame_channel_parser", "~> 4", ">= 4.2.0"

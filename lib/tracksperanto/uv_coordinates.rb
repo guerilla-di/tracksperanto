@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # For Syntheyes, zero is at the
 # optical center of the image, and goes positive right and up. The corners get the [-1..1] coordinates
 # respectively. Since Tracksperanto works in absolute pixels we need to convert to and from these cords.

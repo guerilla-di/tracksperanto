@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Flips the comp being exported vertically
 class Tracksperanto::Tool::Flop < Tracksperanto::Tool::Base
   

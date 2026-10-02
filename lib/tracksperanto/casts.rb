@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Helps to define things that will forcibly become floats, integers or strings
 module Tracksperanto::Casts
   def self.included(into)

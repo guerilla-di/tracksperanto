@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Export each tracker as a moving Maya locator
 class Tracksperanto::Export::MayaLocators < Tracksperanto::Export::Base

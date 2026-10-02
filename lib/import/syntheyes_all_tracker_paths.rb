@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 class Tracksperanto::Import::SyntheyesAllTrackerPaths < Tracksperanto::Import::Base
   def self.human_name

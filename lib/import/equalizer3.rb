@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Imports 3D Equalizer's text files, version 3
 class Tracksperanto::Import::Equalizer3 < Tracksperanto::Import::Base
   

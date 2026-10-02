@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # An Enumerable wrapper that will only yield non-empty elements
 class Tracksperanto::YieldNonEmpty
   

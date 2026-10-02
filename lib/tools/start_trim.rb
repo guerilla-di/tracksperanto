@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This tool removes all keyframes before frame 0, and skips trackers entirely if they are all before frame 0
 class Tracksperanto::Tool::StartTrim < Tracksperanto::Tool::Base
   

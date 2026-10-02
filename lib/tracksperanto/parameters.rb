@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tracksperanto::Parameters
   
   def self.included(into)

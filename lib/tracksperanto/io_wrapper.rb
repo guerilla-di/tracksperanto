@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # A wrapper for IO which works on the backing buffer
 # and proxies all IO methods

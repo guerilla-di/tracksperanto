@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Export each tracker as a single Tracker3 node
 class Tracksperanto::Export::NukeScript < Tracksperanto::Export::Base

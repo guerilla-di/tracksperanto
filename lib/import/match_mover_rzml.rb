@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "rexml/document"
 
 class Tracksperanto::Import::MatchMoverRZML < Tracksperanto::Import::Base

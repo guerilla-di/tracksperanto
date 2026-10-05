@@ -153,43 +153,60 @@ What was not done:
   through the API afterwards. The likely cause is the old `rake ~> 10` pin, which is now gone, but that
   is unconfirmed.
 
-## Tracksperanto itself (uncommitted at the time of writing)
+## Tracksperanto itself
 
-- **Ractor fixes:**
+- **[#10](https://github.com/guerilla-di/tracksperanto/pull/10)** (`ractor-support`, version 4.3.0) contains
+  the Ractor work:
   - frozen-array registries for importers, exporters, tools and tool parameters
   - string-`class_eval` accessors instead of `define_method` in Casts, Safety, Mux and Crop
   - shareable constants
-  - progressive_io 2 API
-- **Smoke test:** `test/test_ractor_smoke.rb` converts 16 fixtures covering all 13 importers. Each runs in
-  its own Ractor through the full pipeline with three tools and all exporters, and is compared against a
-  main-Ractor run.
-- **Gemspec:** requires obuf ≥ 1.3.0, tickly ≥ 2.2.0, flame_channel_parser ≥ 4.2.0 and progressive_io ~> 2.
-  The Gemfile sources the four gems and rexml from GitHub until they are released.
+  - the progressive_io 2 API
+  - `test/test_ractor_smoke.rb`, which converts 16 fixtures covering all 13 importers, each in its own
+    Ractor through the full pipeline, and compares against a main-Ractor run
+  - CI on Ruby 2.6, 3.4 and 4.0, and a minimum Ruby of 2.6
+- **[#11](https://github.com/guerilla-di/tracksperanto/pull/11)** (`frozen-string-literals`, stacked on #10)
+  contains the frozen string literal work:
+  - `# frozen_string_literal: true` in every lib file
+  - a fix for the Shake lexer buffer
+  - a requirement for tickly ≥ 2.2.1
 
-## Built gems
+## Follow-up round: CI, frozen string literals, Regexp fix
 
-Built with `bundle exec rake build` (bundler gem tasks) on Ruby 4.0.0. They build without warnings.
+These commits went to the gems' `master` after the first release. None of them is on RubyGems yet.
 
-- `~/Code/libs/framecurve/pkg/framecurve-2.2.4.gem`
-- `~/Code/libs/flame_channel_parser/pkg/flame_channel_parser-4.2.0.gem`
-- `~/Code/libs/obuf/pkg/obuf-1.3.0.gem`
-- `~/Code/libs/tickly/pkg/tickly-2.2.0.gem`
+| Gem | Next version | Commits |
+|---|---|---|
+| obuf | **1.3.1** | CI [7e59844](https://github.com/julik/obuf/commit/7e5984418295874e9333d76d71da4825e1f715b1), frozen strings [9931a60](https://github.com/julik/obuf/commit/9931a608bd68623785ed5c9f9f195623cf4d06fa) |
+| tickly | **2.2.1** | CI [663283b](https://github.com/julik/tickly/commit/663283be8c4dd5d35566dfcbc5f6df21c9c95840), frozen strings [8c76642](https://github.com/julik/tickly/commit/8c76642b8d7e3d9ee848870ce93a57b81eca4714) |
+| flame_channel_parser | **4.2.1** | Gemfile [7028de7](https://github.com/guerilla-di/flame_channel_parser/commit/7028de70a403aa645d2a878fe1d598d200fbf2d9), CI [8c6c612](https://github.com/guerilla-di/flame_channel_parser/commit/8c6c612529375276aada182d600e84bc5d80d3a1), frozen strings [e816a6e](https://github.com/guerilla-di/flame_channel_parser/commit/e816a6e994682d5fd40ba85f7bc1d90bf44a4d6f) and [065d46e](https://github.com/guerilla-di/flame_channel_parser/commit/065d46e27fa48376e0a1e88590ef8a53d13a6c8d), Regexp flags [b1df6f5](https://github.com/guerilla-di/flame_channel_parser/commit/b1df6f5976f63714f8f778bd5de6025f3c24a1cd) |
+| framecurve | **2.2.5** | CI [1f254c5](https://github.com/guerilla-di/framecurve/commit/1f254c51751690e78525e9732007d752142cb056), frozen strings [eb01bf2](https://github.com/guerilla-di/framecurve/commit/eb01bf2ec05cfa6f2dfa8f2b4400b69b741460f9) |
 
-Release order: framecurve first, since flame_channel_parser depends on 2.2.4. The other three can follow in
-any order. After that:
+- **CI:** all four gems now run GitHub Actions on push and pull request, against the oldest supported Ruby
+  (2.6) and 4.0. The dead `.travis.yml` and `.autotest` files are removed. All four are green.
+- **Frozen string literals:**
+  - Every lib file carries `# frozen_string_literal: true`.
+  - **tickly:** three parser buffers built from `''` with `<<` now use `+''`. In frozen mode these raised
+    FrozenError; in normal mode they printed about 15,000 deprecation warnings.
+  - **flame_channel_parser:** the Batch timewarp buffer was fixed, and so was the ChannelNotFoundError message.
+    Ruby before 3.0 also freezes _interpolated_ strings under the magic comment, so the message broke on 2.6.
+  - **obuf and framecurve:** only needed the comment.
+  - All suites pass on Ruby 4.0 with `--enable-frozen-string-literal`, and give zero "will be frozen" warnings.
+- **Regexp flags (flame_channel_parser):** the Batch timewarp writer passed `[MULTILINE, EXTENDED]` as an
+  Array, which Ruby takes as "ignore case". It now passes `MULTILINE | EXTENDED`. Output is unchanged for real
+  inputs, since all placeholders are lowercase literals. The writer test was also overwriting its own reference
+  file before comparing against it, so it could never fail. It now compares against the committed file.
 
-1. Drop the `git:` lines from the flame_channel_parser and Tracksperanto Gemfiles.
-2. Drop rexml's `git:` line once a release after 3.4.4 is out.
+## Still open
 
-## Status after release (2026-10-02)
+obuf 1.3.1, tickly 2.2.1, flame_channel_parser 4.2.1 and framecurve 2.2.5 are released (2026-10-02).
+Tracksperanto now requires obuf ≥ 1.3.1, tickly ≥ 2.2.1 and flame_channel_parser ≥ 4.2.1. CI on both PRs is
+green on Ruby 2.6, 3.4 and 4.0.
 
-obuf 1.3.0, tickly 2.2.0, flame_channel_parser 4.2.0 and framecurve 2.2.4 are on Rubygems. Tracksperanto's
-Gemfile now uses them from Rubygems; only `rexml` is still sourced from git (no release after 3.4.4 yet).
-
-- Tracksperanto suite: Ruby 4.0.0 - 321 tests, 0 failures; Ruby 3.4.1 - 321 tests, 0 failures, 1 omission
-- Against _released_ rexml 3.4.4 the Ractor smoke test fails only on the MatchMover RZML fixture
-  (`@@entity_expansion_limit from REXML::Security`); every other format converts inside Ractors
-
-Spotted but not addressed: `Tickly::Parser` and Tracksperanto's Shake lexer append to unfrozen string
-literals ("literal string will be frozen in the future" under `-W:deprecated`). Harmless today, will break
-once Ruby freezes string literals by default.
+1. **Merge #10, then #11.** #11 gets retargeted to `master` automatically when #10 merges.
+2. **Release Tracksperanto 4.3.0.**
+3. **REXML:** drop the `git:` line from Tracksperanto's Gemfile once a release after 3.4.4 includes
+   [ruby/rexml#344](https://github.com/ruby/rexml/pull/344). Until then, the MatchMover RZML importer is the
+   only format that doesn't work inside a Ractor with released rexml.
+   - **REXML stays deliberately.** Switching to Nokogiri was considered and rejected: Nokogiri 1.19.4's C
+     extension isn't marked Ractor-safe, so parsing from a non-main Ractor raises `Ractor::UnsafeError`.
+     REXML is pure Ruby and a bundled gem, so there is no native build to worry about anymore.

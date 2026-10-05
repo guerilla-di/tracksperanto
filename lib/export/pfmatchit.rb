@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Export for PFMatchit
 class Tracksperanto::Export::PFMatchit < Tracksperanto::Export::Base

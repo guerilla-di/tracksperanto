@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shareable_constant_value: literal
 # Exports setups with tracker naming that works with the Action bilinears
 class Tracksperanto::Export::FlameStabilizerCornerpin < Tracksperanto::Export::FlameStabilizer

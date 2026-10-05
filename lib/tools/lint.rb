@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Prevents you from exporting invalid trackers
 class Tracksperanto::Tool::Lint < Tracksperanto::Tool::Base
   

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This tool marks all trackers as being 100% accurate
 class Tracksperanto::Tool::Golden < Tracksperanto::Tool::Base
   

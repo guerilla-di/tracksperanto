@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Exports the trackers to a script that is fit for massaging with Tracksperanto as is
 class Tracksperanto::Export::Ruby < Tracksperanto::Export::Base
   

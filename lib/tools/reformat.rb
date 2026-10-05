@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.dirname(__FILE__) + '/scaler'
 
 # This tool reformats (scales) the track setup to a specific pixel resolution. Very useful for

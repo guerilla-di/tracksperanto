@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Tracksperanto::Blacklist
   
   # Prevent totally unsupported formats from being used

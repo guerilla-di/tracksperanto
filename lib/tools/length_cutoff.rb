@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This tool removes trackers that contain less than min_length keyframes
 # from the exported batch
 class Tracksperanto::Tool::LengthCutoff < Tracksperanto::Tool::Base
